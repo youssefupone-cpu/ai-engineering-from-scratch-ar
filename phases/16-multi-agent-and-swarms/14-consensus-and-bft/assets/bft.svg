@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">BFT لعملاء LLM - ثلاث هجمات وثلاث عمليات تجميع</text>
+
+  <rect x="40" y="60" width="880" height="200" class="box"/>
+  <text x="480" y="84" text-anchor="middle" class="head">الهجمات الثلاث الخاصة بالعامل LLM</text>
+
+  <rect x="60" y="100" width="270" height="140" class="hot"/>
+  <text x="195" y="122" text-anchor="middle" class="head">كذبة بيزنطية</text>
+  <text x="195" y="146" text-anchor="middle" class="step">وكيل واحد يخرج بشكل خاطئ</text>
+  <text x="195" y="164" text-anchor="middle" class="step">بثقة عالية</text>
+  <text x="195" y="188" text-anchor="middle" class="small">مقابض BFT الكلاسيكية إذا كانت f &lt; n/3</text>
+  <text x="195" y="212" text-anchor="middle" class="caption">التخفيف: أي تصويت على أساس الأغلبية</text>
+
+  <rect x="340" y="100" width="270" height="140" class="hot"/>
+  <text x="475" y="122" text-anchor="middle" class="head">التوافق المتملق</text>
+  <text x="475" y="146" text-anchor="middle" class="step">وكيل نسخ من</text>
+  <text x="475" y="164" text-anchor="middle" class="step">تكلم أولا، ثقة منخفضة</text>
+  <text x="475" y="188" text-anchor="middle" class="small">لم يتم اكتشاف BFT الكلاسيكي</text>
+  <text x="475" y="212" text-anchor="middle" class="caption">التخفيف: مرجح بالثقة (CP-WBFT)</text>
+
+  <rect x="620" y="100" width="280" height="140" class="hot"/>
+  <text x="760" y="122" text-anchor="middle" class="head">الزراعة الأحادية (الأخطاء المرتبطة)</text>
+  <text x="760" y="146" text-anchor="middle" class="step">ثلاثة عملاء يتشاركون في القاعدة</text>
+  <text x="760" y="164" text-anchor="middle" class="step">نموذج؛ نفس الهلوسة</text>
+  <text x="760" y="188" text-anchor="middle" class="small">فشل BFT الكلاسيكي: يبدو كل شيء صادقًا</text>
+  <text x="760" y="212" text-anchor="middle" class="caption">التخفيف: تنوع النماذج + التحقق</text>
+
+  <rect x="40" y="290" width="880" height="210" class="cool"/>
+  <text x="480" y="314" text-anchor="middle" class="head">متغيرات المجمع 2025-2026</text>
+
+  <rect x="60" y="330" width="270" height="150" class="cold"/>
+  <text x="195" y="352" text-anchor="middle" class="head">CP-WBFT</text>
+  <text x="195" y="372" text-anchor="middle" class="step">مسبار الثقة مرجح</text>
+  <text x="195" y="392" text-anchor="middle" class="small">ث (الكتلة) = مجموع (c_i)</text>
+  <text x="195" y="410" text-anchor="middle" class="small">الفائز إذا كان ث/الإجمالي &gt; العتبة</text>
+  <text x="195" y="432" text-anchor="middle" class="caption">arXiv:2511.10400</text>
+  <text x="195" y="452" text-anchor="middle" class="small">+85.71% BFT على الرسوم البيانية الكاملة</text>
+
+  <rect x="340" y="330" width="270" height="150" class="cold"/>
+  <text x="475" y="352" text-anchor="middle" class="head">DecentLLMs</text>
+  <text x="475" y="372" text-anchor="middle" class="step">وسيط هندسي بلا قيادة</text>
+  <text x="475" y="392" text-anchor="middle" class="small">يقترح العمال بالتوازي</text>
+  <text x="475" y="410" text-anchor="middle" class="small">نقاط وكلاء التقييم</text>
+  <text x="475" y="432" text-anchor="middle" class="caption">arXiv:2507.14928</text>
+  <text x="475" y="452" text-anchor="middle" class="small">قوية عندما f &lt; n/2</text>
+
+  <rect x="620" y="330" width="280" height="150" class="cold"/>
+  <text x="760" y="352" text-anchor="middle" class="head">WBFT + التجميع الهرمي</text>
+  <text x="760" y="372" text-anchor="middle" class="step">الأساسية + تقسيم الحافة</text>
+  <text x="760" y="392" text-anchor="middle" class="small">الوزن = الجودة * الثقة (التاريخ)</text>
+  <text x="760" y="410" text-anchor="middle" class="small">الإجماع الأساسي أولاً، يتبعه Edge</text>
+  <text x="760" y="432" text-anchor="middle" class="caption">arXiv:2505.05103</text>
+  <text x="760" y="452" text-anchor="middle" class="small">حدود الكمون الإجماع</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+      .tag { font-size: 10px; fill: #c0392b; font-weight: 600; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">جيل الموسيقى – نموذجان، ومشهد قانوني واحد</text>
+
+  <rect x="30" y="55" width="400" height="170" class="box"/>
+  <text x="230" y="78" text-anchor="middle" class="label">أ. AR الرمز المميز LM عبر برنامج الترميز العصبي</text>
+  <text x="230" y="96" text-anchor="middle" class="tag">MusicGen · ACE-Step · YuE · VALL-E-Music</text>
+  <text x="50" y="124" class="content">موجه النص → T5 / CLAP التضمين</text>
+  <text x="50" y="142" class="content">  → AR محول عبر الرموز المميزة EnCodec</text>
+  <text x="50" y="160" class="content">  → وحدة فك ترميز EnCodec → الصوت 32 كيلو هرتز</text>
+  <text x="50" y="188" class="caption">تيارات (المستقبل) ؛ أغاني منظمة مع كلمات</text>
+  <text x="50" y="205" class="caption">الانجراف بعد 30 ثانية؛ حلقات. يحتاج إلى التداخل</text>
+
+  <rect x="450" y="55" width="400" height="170" class="box"/>
+  <text x="650" y="78" text-anchor="middle" class="label">ب. الانتشار الكامن عبر برنامج الترميز mel / الكامن</text>
+  <text x="650" y="96" text-anchor="middle" class="tag">الصوت المستقر · AudioLDM 2 · Riffusion</text>
+  <text x="470" y="124" class="content">النص → CLAP التضمين</text>
+  <text x="470" y="142" class="content">  → الانتشار الكامن (DDPM / التدفق)</text>
+  <text x="470" y="160" class="content">  → وحدة فك التشفير → الصوت 44.1 / 48 كيلو هرتز</text>
+  <text x="470" y="188" class="caption">الأفضل للحلقات والقوام وتصميم الصوت</text>
+  <text x="470" y="205" class="caption">بنية أضعف وغناء أضعف</text>
+
+  <rect x="30" y="250" width="820" height="180" class="hot"/>
+  <text x="440" y="272" text-anchor="middle" class="label">لوحة المتصدرين 2026 + مذكرة قانونية</text>
+  <text x="60" y="300" class="content">MusicGen-large 3.3B 30 ثانية بدون غناء MIT - خط الأساس الآلي</text>
+  <text x="60" y="318" class="content">صوت ثابت مفتوح 1.2ب 47 ثانية بدون غناء غير تجاري - حلقات، مواد</text>
+  <text x="60" y="336" class="content">ACE-الخطوة XL (26 أبريل) 4B &gt; دقيقتين غناء Apache-2.0 - أغنية كاملة مفتوحة</text>
+  <text x="60" y="354" class="content">سونو v5 (مغلق)؟ إعلان تجاري مدته 4 دقائق - ELO 1293؛ زعيم الجودة</text>
+  <text x="60" y="372" class="content">اوديو v4 (مغلق)؟ 4 دقائق غناء + إعلان تجاري - رسم داخلي، تقسيم الجذع</text>
+  <text x="60" y="400" class="caption">قانونيًا: استقر Warner + UMG مع Suno / Udio في 2025-26؛ مطلوب الإفصاح + العلامة المائية (EU AI القانون، CA SB 942)</text>
+  <text x="60" y="418" class="caption">آمنة للشحن: مفيدة MIT/CC0 · تجاري API مع ترخيص · التدريب على الكتالوج المملوك</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .claude { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .openai { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .gemini { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .safety { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">استخدام الكمبيوتر — كلود، OpenAI CUA، الجوزاء 2.5 (جميعها تعتمد على الرؤية)</text>
+
+  <rect x="40" y="50" width="290" height="200" class="claude"/>
+  <text x="185" y="72" text-anchor="middle" class="head">كلود يستخدم الكمبيوتر</text>
+  <text x="60" y="96" class="small">أنثروبي، 22 أكتوبر 2024</text>
+  <rect x="60" y="108" width="250" height="40" class="box"/>
+  <text x="78" y="128" class="step">لقطة شاشة في لوحة المفاتيح / إخراج الماوس</text>
+  <text x="78" y="142" class="small">لا توجد إمكانية الوصول APIs؛ بكسل نقية</text>
+  <rect x="60" y="150" width="250" height="40" class="box"/>
+  <text x="78" y="170" class="step">أداة الكمبيوتر المخبوزة في النموذج</text>
+  <text x="78" y="184" class="small">المخطط غير قابل للتكوين بواسطة المطور</text>
+  <rect x="60" y="192" width="250" height="54" class="box"/>
+  <text x="78" y="212" class="step">تم تدريبه على حساب البكسل</text>
+  <text x="78" y="228" class="small">من النقاط المرجعية إلى الأهداف</text>
+  <text x="78" y="242" class="small">إحداثيات مستقلة عن القرار</text>
+
+  <rect x="340" y="50" width="290" height="200" class="openai"/>
+  <text x="485" y="72" text-anchor="middle" class="head">OpenAI CUA / المشغل</text>
+  <text x="360" y="96" class="small">يناير 2025 وضع وكيل ChatGPT يوليو 2025</text>
+  <rect x="360" y="108" width="250" height="40" class="box"/>
+  <text x="378" y="128" class="step">متغير GPT-4o مع RL في GUI</text>
+  <text x="378" y="142" class="small">الردود API، معاينة استخدام الكمبيوتر</text>
+  <rect x="360" y="150" width="250" height="40" class="box"/>
+  <text x="378" y="170" class="step">أو إس وورلد 38.1%، ويب أرينا 58.1%</text>
+  <text x="378" y="184" class="small">WebVoyager 87% عند الإطلاق</text>
+  <rect x="360" y="192" width="250" height="54" class="box"/>
+  <text x="378" y="212" class="step">مسار الإطلاق المواجه للمستهلك</text>
+  <text x="378" y="228" class="small">تم دمجها في وضع وكيل ChatGPT</text>
+  <text x="378" y="242" class="small">الجوال + الويب أولاً</text>
+
+  <rect x="640" y="50" width="290" height="200" class="gemini"/>
+  <text x="785" y="72" text-anchor="middle" class="head">الجوزاء 2.5 استخدام الكمبيوتر</text>
+  <text x="660" y="96" class="small">جوجل ديب مايند، 7 أكتوبر 2025</text>
+  <rect x="660" y="108" width="250" height="40" class="box"/>
+  <text x="678" y="128" class="step">المتصفح فقط (13 إجراء)</text>
+  <text x="678" y="142" class="small">أدنى الكمون من الثلاثة</text>
+  <rect x="660" y="150" width="250" height="40" class="box"/>
+  <text x="678" y="170" class="step">Online-Mind2Web ~70%</text>
+  <text x="678" y="184" class="small">جيميني 3 فلاش: مدمج</text>
+  <rect x="660" y="192" width="250" height="54" class="box"/>
+  <text x="678" y="212" class="step">خدمة السلامة لكل خطوة</text>
+  <text x="678" y="228" class="small">كل إجراء يتم تقييمه قبل التنفيذ</text>
+  <text x="678" y="242" class="small">يرفض غير آمن دون مشاركة النموذج</text>
+
+  <rect x="40" y="270" width="880" height="240" class="safety"/>
+  <text x="480" y="292" text-anchor="middle" class="head">عقد 2026 مشترك: جميع المدخلات باستثناء رسالة المستخدم غير موثوقة</text>
+  <rect x="60" y="308" width="840" height="30" class="box"/>
+  <text x="78" y="328" class="step">1. مُصنف السلامة لكل خطوة قبل كل إجراء</text>
+  <rect x="60" y="342" width="840" height="30" class="box"/>
+  <text x="78" y="362" class="step">2. القائمة المسموح بها/القائمة المحظورة لأهداف التنقل</text>
+  <rect x="60" y="376" width="840" height="30" class="box"/>
+  <text x="78" y="396" class="step">3. مطلع على الإجراءات الحساسة (تسجيل الدخول، الشراء، CAPTCHA)</text>
+  <rect x="60" y="410" width="840" height="30" class="box"/>
+  <text x="78" y="430" class="step">4. التقاط المحتوى إلى متجر خارجي. تمتد المراجع فقط على الآثار</text>
+  <rect x="60" y="444" width="840" height="30" class="box"/>
+  <text x="78" y="464" class="step">5. رفض توجيهات النص المسترجع ("تجاهل كافة التعليمات")</text>
+  <rect x="60" y="478" width="840" height="24" class="box"/>
+  <text x="78" y="496" class="step">"التعليمات المباشرة فقط من المستخدم تعتبر إذنًا" - OpenAI CUA مستندات</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">جريشيك وآخرون. (2023) نموذج التهديد؛ جميع المنتجات الثلاثة تأخذ الأمر على محمل الجد.</text>
+</svg>

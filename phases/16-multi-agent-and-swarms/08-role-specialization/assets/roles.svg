@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+  <text x="450" y="28" text-anchor="middle" class="title">التخصص في الأدوار - المخطط، المنفذ، الناقد، المدقق</text>
+
+  <rect x="40" y="60" width="170" height="100" class="cool"/>
+  <text x="125" y="82" text-anchor="middle" class="head">Planner</text>
+  <text x="125" y="104" text-anchor="middle" class="small">يقرأ الهدف</text>
+  <text x="125" y="120" text-anchor="middle" class="small">تنتج المواصفات</text>
+  <text x="125" y="138" text-anchor="middle" class="small">(التوقيع، الاختبارات، الإدخال/الإخراج)</text>
+  <text x="125" y="154" text-anchor="middle" class="small">MetaGPT: PM + مهندس معماري</text>
+
+  <line x1="210" y1="110" x2="250" y2="110" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="250" y="60" width="170" height="100" class="hot"/>
+  <text x="335" y="82" text-anchor="middle" class="head">Executor</text>
+  <text x="335" y="104" text-anchor="middle" class="small">يقرأ خطوة واحدة</text>
+  <text x="335" y="120" text-anchor="middle" class="small">تنتج قطعة أثرية</text>
+  <text x="335" y="138" text-anchor="middle" class="small">لديه الأدوات الحقيقية</text>
+  <text x="335" y="154" text-anchor="middle" class="small">ChatDev: يسأل إذا كان غير واضح</text>
+
+  <line x1="420" y1="110" x2="460" y2="110" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="460" y="60" width="170" height="100" class="dsk"/>
+  <text x="545" y="82" text-anchor="middle" class="head">Critic</text>
+  <text x="545" y="104" text-anchor="middle" class="small">مراجعة ذاتية</text>
+  <text x="545" y="120" text-anchor="middle" class="small">يمسك مشاكل الذوق</text>
+  <text x="545" y="138" text-anchor="middle" class="small">ينخدع بالنثر المعقول</text>
+  <text x="545" y="154" text-anchor="middle" class="small">(LLM-based)</text>
+
+  <line x1="630" y1="110" x2="670" y2="110" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="670" y="60" width="200" height="100" class="cold"/>
+  <text x="770" y="82" text-anchor="middle" class="head">Verifier</text>
+  <text x="770" y="104" text-anchor="middle" class="small">فحص حتمي</text>
+  <text x="770" y="120" text-anchor="middle" class="small">الاختبارات، النوع، المخطط</text>
+  <text x="770" y="138" text-anchor="middle" class="small">لا يمكن خداعه</text>
+  <text x="770" y="154" text-anchor="middle" class="small">(الرمز، ليس LLM)</text>
+
+  <line x1="335" y1="160" x2="335" y2="200" class="edge"/>
+  <path d="M 335 200 Q 300 220 265 200" class="edge" fill="none" stroke-dasharray="3 3"/>
+  <text x="295" y="195" class="small">إزالة الهلوسة التواصلية (ChatDev)</text>
+
+  <rect x="40" y="240" width="830" height="110" class="box"/>
+  <text x="450" y="262" text-anchor="middle" class="head">لماذا المدقق هو الحاملة</text>
+  <text x="450" y="284" text-anchor="middle" class="small">MAST التصنيف (Cemri et al. 2025): 21.3% من 1642 فشل متعدد الوكلاء عبارة عن فجوات في التحقق</text>
+  <text x="450" y="304" text-anchor="middle" class="small">PwC 2025: حلقة التحقق المنظمة في دقة نقل CrewAI بنسبة 10% -&gt; 70% (كسب ×7)</text>
+  <text x="450" y="324" text-anchor="middle" class="small">مكافحة النمط: كل دور هو LLM يقول "يبدو جيدًا بالنسبة لي" - فشل MAST الكلاسيكي</text>
+  <text x="450" y="342" text-anchor="middle" class="small">قم دائمًا بإقران الناقد (الذاتي) مع المتحقق (الحتمي) ؛ يصطادون أخطاء مختلفة</text>
+
+  <rect x="40" y="370" width="830" height="110" class="box"/>
+  <text x="450" y="392" text-anchor="middle" class="head">نمط MetaGPT SOP</text>
+  <text x="450" y="412" text-anchor="middle" class="small">الرمز = SOP(الفريق): مدير المنتج، المهندس المعماري، مدير المشروع، المهندس، QA المهندس</text>
+  <text x="450" y="430" text-anchor="middle" class="small">كل دور له مخطط إدخال/إخراج صارم · pipeline يصبح حتميًا</text>
+  <text x="450" y="450" text-anchor="middle" class="small">CrewAI Agent (الدور، الهدف، الخلفية الدرامية) هو السطح العصري المريح</text>
+  <text x="450" y="470" text-anchor="middle" class="small">يقوم LangGraph بترميز الأدوار كرسم بياني nodes مع مطالبات متخصصة</text>
+</svg>

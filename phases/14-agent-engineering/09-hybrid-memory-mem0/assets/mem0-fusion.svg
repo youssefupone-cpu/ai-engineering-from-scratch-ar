@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .vec { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .kv { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .graph { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .fuse { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">Mem0 — ثلاثة مخازن متوازية، مدمجة عند الاسترجاع</text>
+
+  <rect x="40" y="50" width="200" height="46" class="box"/>
+  <text x="140" y="74" text-anchor="middle" class="head">إضافة (نص، معرف المستخدم، البيانات الوصفية)</text>
+  <text x="140" y="90" text-anchor="middle" class="small">استخراج الحقائق الكتابة إلى الثلاثة</text>
+
+  <rect x="40" y="120" width="280" height="260" class="vec"/>
+  <text x="180" y="142" text-anchor="middle" class="head">متجر ناقلات</text>
+  <text x="60" y="166" class="small">التشابه الدلالي. أعلى-ك بواسطة جيب التمام</text>
+  <text x="60" y="186" class="small">الأفضل لـ: "ما الذي ناقشناه"</text>
+  <text x="60" y="206" class="small">الأسوأ بالنسبة لـ: البحث الدقيق عن الحقيقة</text>
+  <rect x="60" y="220" width="240" height="60" class="box"/>
+  <text x="78" y="240" class="step">السجل: التضمين (النص)، النطاق، معرف_المستخدم</text>
+  <text x="78" y="258" class="small">العلامات، أهمية، نهاية الخبر للانصهار</text>
+  <text x="78" y="272" class="small">إعادة التضمين الدوري على المجموعة الفرعية المستخدمة في الأعلى</text>
+  <rect x="60" y="290" width="240" height="76" class="box"/>
+  <text x="78" y="310" class="step">وضع الفشل: تضمين الانجراف</text>
+  <text x="78" y="328" class="small">تتدهور الجودة مع نمو الجسم</text>
+  <text x="78" y="344" class="small">الإصلاح: جدولة إعادة التضمين؛ مراقبة استدعاء @ ك</text>
+  <text x="78" y="360" class="small">LoCoMo: 91.6 في ورقة Mem0</text>
+
+  <rect x="340" y="120" width="280" height="260" class="kv"/>
+  <text x="480" y="142" text-anchor="middle" class="head">متجر KV</text>
+  <text x="360" y="166" class="small">بحث O(1) عن (user_id، النوع، الكيان)</text>
+  <text x="360" y="186" class="small">الأفضل لـ: "ما هو هاتف المستخدم"</text>
+  <text x="360" y="206" class="small">الأسوأ بالنسبة لـ: المطابقة الدلالية/الغامضة</text>
+  <rect x="360" y="220" width="240" height="60" class="box"/>
+  <text x="378" y="240" class="step">المفتاح = (معرف_المستخدم، نوع_الحقيق، الكيان)</text>
+  <text x="378" y="258" class="small">القيمة = معرف السجل</text>
+  <text x="378" y="272" class="small">يتم تعيين نوع الحقيقة للتدقيق بشكل ربع سنوي</text>
+  <rect x="360" y="290" width="240" height="76" class="box"/>
+  <text x="378" y="310" class="step">وضع الفشل: زحف المخطط</text>
+  <text x="378" y="328" class="small">يخترع كل فريق نوعًا جديدًا من الحقائق</text>
+  <text x="378" y="344" class="small">الإصلاح: تسجيل النوع المركزي + المراجعة</text>
+  <text x="378" y="360" class="small">LongMemEval: 93.4 في ورقة Mem0</text>
+
+  <rect x="640" y="120" width="280" height="260" class="graph"/>
+  <text x="780" y="142" text-anchor="middle" class="head">مخزن الرسم البياني (Mem0g)</text>
+  <text x="660" y="166" class="small">حواف مكتوبة صلاحية زمنية</text>
+  <text x="660" y="186" class="small">الأفضل لـ: تفكير العلاقة</text>
+  <text x="660" y="206" class="small">الأسوأ بالنسبة إلى: النثر غير المنظم</text>
+  <rect x="660" y="220" width="240" height="60" class="box"/>
+  <text x="678" y="240" class="step">(موضوع، علاقة، كائن، صالح)</text>
+  <text x="678" y="258" class="small">كاشف الصراع يبطل، لا يحذف</text>
+  <text x="678" y="272" class="small">الاستعلامات المؤقتة: رسم بياني فرعي صالح في الوقت المحدد</text>
+  <rect x="660" y="290" width="240" height="76" class="box"/>
+  <text x="678" y="310" class="step">وضع الفشل: انفجار الرسم البياني</text>
+  <text x="678" y="328" class="small">يضيف مستخرج الضوضاء 50 حافة لكل رسالة</text>
+  <text x="678" y="344" class="small">الإصلاح: حواف الغطاء لكل إضافة؛ إسقاط منخفض التكوين</text>
+  <text x="678" y="360" class="small">BEAM 1M: 64.1 في ورقة Mem0</text>
+
+  <rect x="80" y="400" width="800" height="110" class="fuse"/>
+  <text x="480" y="422" text-anchor="middle" class="head">درجة تسجيل الاندماج = w_rel * الملاءمة + w_imp * الأهمية + w_rec * الحداثة</text>
+  <text x="100" y="448" class="small">الصلة: جيب تمام المتجه، KV دقيق، وزن مسار الرسم البياني</text>
+  <text x="100" y="468" class="small">الأهمية: تم وضع علامة عليها في وقت الكتابة، أو تعلمتها من الاستخدام</text>
+  <text x="100" y="488" class="small">الحداثة: الاضمحلال الأسي منذ آخر كتابة أو قراءة</text>
+  <text x="500" y="448" class="small">ضبط الأوزان لكل منتج:</text>
+  <text x="500" y="468" class="small">حداثة الوكيل الصوتي ثقيلة؛ أهمية الامتثال ثقيلة</text>
+  <text x="500" y="488" class="small">أهمية عامل الاسترجاع ثقيلة؛ نفس النازع، وسياسة مختلفة</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">النطاق: المستخدم / الجلسة / الوكيل. كل كتابة تختار واحدة؛ استعلامات الاسترجاع مرجحة عبر النطاقات.</text>
+</svg>

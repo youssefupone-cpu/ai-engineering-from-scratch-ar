@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cold { fill: #eaf4ff; stroke: #2c5f8c; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; }
+      .mono { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="28" text-anchor="middle" class="title">تقييم ثلاثي الركائز للنماذج التوليدية</text>
+
+  <!-- FID column -->
+  <rect x="30" y="60" width="270" height="200" class="box"/>
+  <text x="165" y="85" text-anchor="middle" class="label">FID (جودة العينة)</text>
+  <text x="165" y="110" text-anchor="middle" class="mono">||μ_r - μ_g||² + Tr(Σ_r + Σ_g - 2√Σ_rΣ_g)</text>
+  <text x="165" y="140" text-anchor="middle" class="caption">مسافة فريشيه بين</text>
+  <text x="165" y="158" text-anchor="middle" class="caption">يناسب Gaussian مساحة Inception-v3</text>
+  <text x="165" y="188" text-anchor="middle" class="caption">استخدم N ≥ 10k وإلا فإن الأرقام تكذب</text>
+  <text x="165" y="206" text-anchor="middle" class="caption">ImageNet متحيزة؛ استخدم FD-DINO أو</text>
+  <text x="165" y="224" text-anchor="middle" class="caption">CMMD خارج النطاق</text>
+  <text x="165" y="252" text-anchor="middle" class="caption">أقل = أفضل</text>
+
+  <!-- CLIP column -->
+  <rect x="315" y="60" width="270" height="200" class="box"/>
+  <text x="450" y="85" text-anchor="middle" class="label">CLIP النتيجة (الالتزام)</text>
+  <text x="450" y="110" text-anchor="middle" class="mono">كوس (CLIP_صورة (خ)، CLIP_نص (ع)))</text>
+  <text x="450" y="140" text-anchor="middle" class="caption">ما مدى جودة تطابق الإخراج مع المطالبة؟</text>
+  <text x="450" y="170" text-anchor="middle" class="caption">تتسلل الإخفاقات التركيبية</text>
+  <text x="450" y="188" text-anchor="middle" class="caption">المطالبات القصيرة تسجل أعلى ميكانيكيًا</text>
+  <text x="450" y="206" text-anchor="middle" class="caption">CMMD + VQA تغطي الاختبارات CLIP النقاط العمياء</text>
+  <text x="450" y="252" text-anchor="middle" class="caption">أعلى = أفضل</text>
+
+  <!-- preference column -->
+  <rect x="600" y="60" width="270" height="200" class="box"/>
+  <text x="735" y="85" text-anchor="middle" class="label">تفضيل الإنسان (الحقيقة)</text>
+  <text x="735" y="110" text-anchor="middle" class="mono">Elo من الانتصارات الزوجية</text>
+  <text x="735" y="140" text-anchor="middle" class="caption">A vs B في نفس الموجه</text>
+  <text x="735" y="158" text-anchor="middle" class="caption">HPSv2 / ImageReward / PickScore</text>
+  <text x="735" y="188" text-anchor="middle" class="caption">كوكلاء آليين</text>
+  <text x="735" y="206" text-anchor="middle" class="caption">ساحات صور بأسلوب Chatbot-Arena</text>
+  <text x="735" y="252" text-anchor="middle" class="caption">معدل فوز أعلى = أفضل</text>
+
+  <!-- failure modes -->
+  <rect x="30" y="285" width="840" height="100" class="hot"/>
+  <text x="450" y="310" text-anchor="middle" class="label">كل مقياس له لعبة معروفة</text>
+  <text x="450" y="333" text-anchor="middle" class="caption">FID: بداية التجهيز المسبق → منخفض FID، نفس الجودة</text>
+  <text x="450" y="353" text-anchor="middle" class="caption">CLIP: مشبع بـ "تحفة، 4k" → درجة مضخمة</text>
+  <text x="450" y="373" text-anchor="middle" class="caption">التفضيل: مجموعة موجهة تتداخل مع التدريب → مزورة</text>
+
+  <!-- production report -->
+  <rect x="30" y="410" width="840" height="100" class="cold"/>
+  <text x="450" y="435" text-anchor="middle" class="label">تقرير تقييم الإنتاج</text>
+  <text x="450" y="458" text-anchor="middle" class="caption">1. FID في 10-30 كيلو + 2. CLIP / CMMD في نفس المجمع +</text>
+  <text x="450" y="478" text-anchor="middle" class="caption">3. 200+ زوج بشري أعمى Elo + 4. تدقيق الفشل النوعي على 50 مخرجًا</text>
+  <text x="450" y="498" text-anchor="middle" class="caption">مقياس واحد = التسويق؛ أربعة = الأدلة</text>
+</svg>

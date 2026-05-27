@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">A2A: تفويض مهمة غير شفافة من وكيل إلى وكيل</text>
+
+  <rect x="40" y="60" width="250" height="440" class="cool"/>
+  <text x="165" y="82" text-anchor="middle" class="head">وكيل الأبحاث (المتصل)</text>
+  <text x="60" y="108" class="small">MCP أدوات للمصدر</text>
+  <text x="60" y="124" class="small">استرجاع + تفكير</text>
+  <text x="60" y="156" class="step">يكتشف الكاتب عبر</text>
+  <text x="60" y="174" class="step">/.well-known/agent.json</text>
+  <text x="60" y="206" class="step">يقدم المهمة مع</text>
+  <text x="60" y="222" class="step">أجزاء الرسالة = [</text>
+  <text x="60" y="238" class="small">  النص: "تلخيص"،</text>
+  <text x="60" y="254" class="small">  الملف: ورقة.pdf،</text>
+  <text x="60" y="270" class="small">  data: {len: "3 par"}</text>
+  <text x="60" y="286" class="step">]</text>
+
+  <path d="M290,280 L460,280" class="edge" marker-end="url(#arrow)"/>
+  <text x="375" y="272" text-anchor="middle" class="small">tasks/send</text>
+
+  <path d="M460,350 L290,350" class="edge" marker-end="url(#arrow)"/>
+  <text x="375" y="342" text-anchor="middle" class="small">انتقالات الدولة + قطعة أثرية</text>
+
+  <rect x="460" y="60" width="460" height="440" class="cold"/>
+  <text x="690" y="82" text-anchor="middle" class="head">وكيل الكاتب (كالي، الحالة الداخلية مبهمة)</text>
+  <text x="476" y="108" class="step">ينشر بطاقة الوكيل</text>
+  <text x="476" y="126" class="small">{الاسم، عنوان URL، المهارات، القدرات}</text>
+  <text x="476" y="148" class="step">تم التوقيع عبر AP2 (اختياري)</text>
+
+  <rect x="476" y="160" width="430" height="32" class="box"/>
+  <text x="490" y="180" class="step">submitted</text>
+  <rect x="476" y="196" width="430" height="32" class="box"/>
+  <text x="490" y="216" class="step">working</text>
+  <rect x="476" y="232" width="430" height="32" class="hot"/>
+  <text x="490" y="252" class="step">input_required</text>
+  <rect x="476" y="268" width="430" height="32" class="box"/>
+  <text x="490" y="288" class="step">العمل (استئناف)</text>
+  <rect x="476" y="304" width="430" height="32" class="cool"/>
+  <text x="490" y="324" class="step">مكتمل</text>
+
+  <text x="476" y="360" class="step">إرجاع قطعة أثرية:</text>
+  <text x="476" y="378" class="small">{الاسم: "ملخص"، نوع mime: "نص/تخفيض"،</text>
+  <text x="476" y="394" class="small">  الأجزاء: [{النوع: "نص"، النص: "..."}]}</text>
+
+  <text x="476" y="426" class="step">opacity</text>
+  <text x="476" y="444" class="small">يرى المتصل الحالة + قطعة أثرية؛</text>
+  <text x="476" y="460" class="small">استدعاءات الأدوات الداخلية، والوكلاء الفرعيين،</text>
+  <text x="476" y="476" class="small">سلسلة من الأفكار كلها مخفية.</text>
+</svg>

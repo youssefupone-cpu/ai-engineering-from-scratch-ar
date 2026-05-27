@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow27" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">حوكمة بيانات التدريب: الامتثال لوقت التجميع</text>
+
+  <rect x="40" y="60" width="200" height="180" class="box"/>
+  <text x="140" y="82" text-anchor="middle" class="head">مصادر البيانات</text>
+  <rect x="60" y="100" width="160" height="50" class="cool"/>
+  <text x="140" y="125" text-anchor="middle" class="step">الويب العام</text>
+  <text x="140" y="143" text-anchor="middle" class="small">إلغاء الاشتراك في ملف robots.txt</text>
+  <rect x="60" y="160" width="160" height="50" class="cool"/>
+  <text x="140" y="185" text-anchor="middle" class="step">محتوى الطرف الأول</text>
+  <text x="140" y="203" text-anchor="middle" class="small">EU: legitالمصلحة الذاتية</text>
+
+  <rect x="260" y="60" width="220" height="180" class="box"/>
+  <text x="370" y="82" text-anchor="middle" class="head">البنية التحتية لإلغاء الاشتراك</text>
+  <rect x="280" y="100" width="180" height="50" class="cold"/>
+  <text x="370" y="125" text-anchor="middle" class="step">robots.txt</text>
+  <rect x="280" y="160" width="180" height="50" class="cold"/>
+  <text x="370" y="185" text-anchor="middle" class="step">C2PA "لا AI تدريب"</text>
+
+  <rect x="500" y="60" width="220" height="180" class="box"/>
+  <text x="610" y="82" text-anchor="middle" class="head">التدريب pipeline</text>
+  <rect x="520" y="100" width="180" height="50" class="hot"/>
+  <text x="610" y="125" text-anchor="middle" class="step">تصفية + تنسيق</text>
+  <text x="610" y="143" text-anchor="middle" class="small">احترام الانسحاب عند التجميع</text>
+  <rect x="520" y="160" width="180" height="50" class="hot"/>
+  <text x="610" y="185" text-anchor="middle" class="step">القطار -&gt; الأوزان</text>
+  <text x="610" y="203" text-anchor="middle" class="small">تضمين لا رجعة فيه</text>
+
+  <rect x="740" y="60" width="180" height="180" class="box"/>
+  <text x="830" y="82" text-anchor="middle" class="head">documentation</text>
+  <rect x="760" y="100" width="140" height="50" class="cool"/>
+  <text x="830" y="125" text-anchor="middle" class="step">AB ملخص عام 2013</text>
+  <text x="830" y="143" text-anchor="middle" class="small">12 حقل</text>
+  <rect x="760" y="160" width="140" height="50" class="cool"/>
+  <text x="830" y="185" text-anchor="middle" class="step">Datasheet</text>
+  <text x="830" y="203" text-anchor="middle" class="small">(الدرس 26)</text>
+
+  <path d="M 240 150 L 260 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow27)" fill="none"/>
+  <path d="M 480 150 L 500 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow27)" fill="none"/>
+  <path d="M 720 150 L 740 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow27)" fill="none"/>
+
+  <rect x="40" y="280" width="880" height="210" class="box"/>
+  <text x="480" y="305" text-anchor="middle" class="head">تطورات 2024-2025</text>
+  <text x="60" y="335" class="small">EU AI القانون GPAI قواعد الممارسة فصل حقوق الطبع والنشر (2025): يجب على جميع موفري GPAI احترام إلغاء الاشتراك.</text>
+  <text x="60" y="355" class="small">كاليفورنيا AB 2013 (2024): 12 حقلاً إلزاميًا؛ ساري المفعول اعتبارًا من يناير 2025 للطرز الجديدة.</text>
+  <text x="60" y="375" class="small">الأيرلندية DPC (مايو 2025)، المحكمة الإقليمية العليا في كولونيا، UK ICO (سبتمبر 2025): legitالاهتمام OK مع إلغاء الاشتراك.</text>
+  <text x="60" y="395" class="small">البرازيلي ANPD (يونيو 2024): تعليق Meta بسبب الشفافية؛ شريط أكثر صرامة من EU.</text>
+  <text x="60" y="425" class="small">مبادرة مصدر البيانات (تموز/يوليو 2024): "الموافقة في حالة الأزمة" - تسارع قيود ملف robots.txt.</text>
+  <text x="60" y="445" class="small">اللارجعة: GDPR حق المحو ليس له نظير عملي للأوزان المدربة.</text>
+  <text x="60" y="465" class="small">إن نسيان التعلم أمر تقريبي؛ MIA-معايرة؛ راجع الدرس 22. نافذة الامتثال قيد التجميع.</text>
+  <text x="60" y="485" class="small">سلسلة المصدر + AB ملخص 2013 + ورقة البيانات + البطاقة = الحد الأدنى من الوثائق لعام 2026.</text>
+</svg>

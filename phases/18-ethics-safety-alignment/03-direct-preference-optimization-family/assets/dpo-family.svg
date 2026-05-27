@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">شجرة عائلة DPO — ستة خسائر في التفضيلات، وسلف واحد مغلق</text>
+
+  <rect x="340" y="60" width="280" height="80" class="box"/>
+  <text x="480" y="85" text-anchor="middle" class="head">RLHF-مع-KL الأمثل</text>
+  <text x="480" y="108" text-anchor="middle" class="step">بي*(ص|س) ∝ pi_ref * إكسب(ص / بيتا)</text>
+  <text x="480" y="126" text-anchor="middle" class="small">استبدل برادلي تيري → DPO</text>
+
+  <rect x="50" y="180" width="200" height="110" class="hot"/>
+  <text x="150" y="202" text-anchor="middle" class="head">DPO</text>
+  <text x="60" y="224" class="small">-log sig(beta * log(pi/pi_ref)_w</text>
+  <text x="60" y="240" class="small">     - سجل بيتا * (pi/pi_ref)_l)</text>
+  <text x="60" y="262" class="small">مكافأة ضمنية غير محدودة؛</text>
+  <text x="60" y="278" class="small">يمكن أن تقع المشكلة المختارة.</text>
+
+  <rect x="270" y="180" width="200" height="110" class="cool"/>
+  <text x="370" y="202" text-anchor="middle" class="head">IPO</text>
+  <text x="280" y="224" class="small">(الهامش - 1/(2 بيتا))^2</text>
+  <text x="280" y="246" class="small">فجوة محدودة</text>
+  <text x="280" y="262" class="small">قوة التفضيل</text>
+  <text x="280" y="278" class="small">proportional.</text>
+
+  <rect x="490" y="180" width="200" height="110" class="cold"/>
+  <text x="590" y="202" text-anchor="middle" class="head">KTO</text>
+  <text x="500" y="224" class="small">سيجما (بيتا * نسبة السجل - z_ref)</text>
+  <text x="500" y="246" class="small">بيانات أحادية التسمية غير مقترنة؛</text>
+  <text x="500" y="262" class="small">الوزن الذي يكره فقدانه</text>
+  <text x="500" y="278" class="small">على غير مرغوب فيه.</text>
+
+  <rect x="710" y="180" width="200" height="110" class="dsk"/>
+  <text x="810" y="202" text-anchor="middle" class="head">SimPO</text>
+  <text x="720" y="224" class="small">لا pi_ref؛</text>
+  <text x="720" y="246" class="small">length-normalized</text>
+  <text x="720" y="262" class="small">سجل بي + هامش جاما.</text>
+  <text x="720" y="278" class="small">يقتل تحيز الطول.</text>
+
+  <rect x="270" y="320" width="200" height="110" class="box"/>
+  <text x="370" y="342" text-anchor="middle" class="head">ORPO</text>
+  <text x="280" y="364" class="small">NLL(y_w) + لامدا * OR(ث، ل)</text>
+  <text x="280" y="386" class="small">مرحلة واحدة من القاعدة؛</text>
+  <text x="280" y="402" class="small">لا توجد نقطة تفتيش SFT منفصلة.</text>
+  <text x="280" y="420" class="small">self-regularized.</text>
+
+  <rect x="490" y="320" width="200" height="110" class="hot"/>
+  <text x="590" y="342" text-anchor="middle" class="head">BPO (ICLR 2026)</text>
+  <text x="500" y="364" class="small">DPO + تفعيل عقوبة الإرساء</text>
+  <text x="500" y="386" class="small">انخفاضات في سجل pi (y_w).</text>
+  <text x="500" y="402" class="small">إصلاحات المتدهورة المختارة.</text>
+  <text x="500" y="420" class="small">+10.1% في الرياضيات في L3.1-8B.</text>
+
+  <path d="M 480 140 L 150 180" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M 480 140 L 370 180" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M 480 140 L 590 180" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M 480 140 L 810 180" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M 150 290 L 370 320" stroke="#888" stroke-width="1" fill="none"/>
+  <path d="M 150 290 L 590 320" stroke="#888" stroke-width="1" fill="none"/>
+
+  <rect x="50" y="460" width="860" height="140" class="box"/>
+  <text x="480" y="484" text-anchor="middle" class="head">الاختيار من بينها - 2026</text>
+  <text x="70" y="510" class="small">تفضيلات مقترنة، تم تطبيعها جيدًا → DPO · انحياز الطول مرئي → SimPO · التشبع عند بيتا العالي → IPO</text>
+  <text x="70" y="530" class="small">ردود فعل ثنائية غير مقترنة → KTO · محاذاة قاعدة إلى مرحلة واحدة → ORPO · إسقاط مسبار السجل المختار → BPO</text>
+  <text x="70" y="552" class="small">كل مختبر يعمل ببطارية. الأمثل ليس هو نفسه بالنسبة للتفكير الرياضي وسلوك السلامة.</text>
+  <text x="70" y="574" class="small">رافايلوف وآخرون. (NeurIPS 2024) يثبت أن DAAs لا تزال مفرطة في التحسين - لا يهتم Goodhart بالخسارة التي اخترتها.</text>
+</svg>

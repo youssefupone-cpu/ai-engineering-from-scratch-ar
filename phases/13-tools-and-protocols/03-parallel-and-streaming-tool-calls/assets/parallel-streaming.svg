@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">متسلسل مقابل متوازي والمراكم لكل معرف</text>
+
+  <rect x="40" y="50" width="440" height="240" class="box"/>
+  <text x="260" y="72" text-anchor="middle" class="head">ساعة الحائط: طقس ثلاث مدن</text>
+  <text x="60" y="100" class="step">تسلسلي: B --(400)--&gt; T --(600)--&gt; Z --(800)--&gt; تم</text>
+  <text x="60" y="118" class="small">             إجمالي 1800 مللي ثانية (مجموع الكمون)</text>
+  <text x="60" y="150" class="step">الموازي: ب--(400)--&gt;</text>
+  <text x="60" y="168" class="step">             ت -------(600)----&gt;</text>
+  <text x="60" y="186" class="step">             ض ------------(800)-------&gt; تم</text>
+  <text x="60" y="204" class="small">             إجمالي 800 مللي ثانية (الحد الأقصى لزمن الاستجابة)</text>
+  <text x="60" y="236" class="step">التسريع = المجموع / الحد الأقصى = 2.25x على هذا الشكل</text>
+  <text x="60" y="258" class="small">تنمو المدخرات مع عدد الأدوات؛ البقاء يحدها أبطأ مكالمة.</text>
+
+  <rect x="500" y="50" width="420" height="240" class="cool"/>
+  <text x="710" y="72" text-anchor="middle" class="head">ارتباط الهوية مهم</text>
+  <text x="516" y="100" class="step">تنبعث كل مكالمة: {id، name، الوسيطات}</text>
+  <text x="516" y="120" class="step">ردود كل نتيجة: {tool_call_id, content}</text>
+  <text x="516" y="142" class="step">OpenAI: call_abc123</text>
+  <text x="516" y="160" class="step">الأنثروبي: toolu_xyz789</text>
+  <text x="516" y="178" class="step">الجوزاء 3: UUID</text>
+  <text x="516" y="208" class="step">خطأ الجوزاء 2: مكالمتان متوازيتان بنفس الاسم</text>
+  <text x="516" y="226" class="step">لا يمكن تمييزها. تم إصلاح المشكلة بمعرف Gemini 3 الفريد.</text>
+  <text x="516" y="258" class="small">الرد بترتيب الإكمال؛ إعادة ترتيب النماذج حسب المعرف داخليًا.</text>
+
+  <rect x="40" y="310" width="880" height="220" class="cold"/>
+  <text x="480" y="332" text-anchor="middle" class="head">التدفق: قطع متداخلة، تراكم لكل معرف</text>
+
+  <text x="60" y="362" class="step">الأحداث على السلك (OpenAI على شكل):</text>
+  <text x="60" y="382" class="small">  call_start A، call_start B، call_start C</text>
+  <text x="60" y="400" class="small">  args_delta A: '{"مدينة"' | args_delta ب: '{"مدينة"</text>
+  <text x="60" y="418" class="small">  args_delta A: ':"Beng' | args_delta C: '{"city":"Zu"</text>
+  <text x="60" y="436" class="small">  args_delta A: 'aluru"}' -&gt; call_stop A -&gt; تنفيذ (A)</text>
+  <text x="60" y="454" class="small">  args_delta B: '":: "طوكيو"}' -&gt; call_stop B -&gt; تنفيذ (B)</text>
+  <text x="60" y="472" class="small">  args_delta C: 'rich"}' -&gt; call_stop C -&gt; تنفيذ(C)</text>
+  <text x="60" y="504" class="step">القاعدة: تحليل فقط عند call_stop؛ ركلة المنفذ بمجرد</text>
+  <text x="60" y="522" class="step">يتم إغلاق المعرف، NOT بعد إغلاق جميع المكالمات.</text>
+</svg>

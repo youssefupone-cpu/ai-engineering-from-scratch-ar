@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; }
+      .mono { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">خمس عائلات من النماذج التوليدية</text>
+  <text x="450" y="50" text-anchor="middle" class="caption">مقسمة حسب نموذجهم وكيفية أخذ العينات</text>
+
+  <rect x="380" y="70" width="140" height="44" class="box"/>
+  <text x="450" y="90" text-anchor="middle" class="label">p_data(x)</text>
+  <text x="450" y="106" text-anchor="middle" class="caption">غير معروف، نريد أخذ العينات</text>
+
+  <line x1="450" y1="114" x2="180" y2="150" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="114" x2="340" y2="150" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="114" x2="500" y2="150" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="114" x2="660" y2="150" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
+  <line x1="450" y1="114" x2="820" y2="150" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="155" width="230" height="180" class="box"/>
+  <text x="175" y="178" text-anchor="middle" class="label">1. صريحة، قابلة للتتبع</text>
+  <text x="175" y="200" text-anchor="middle" class="mono">ص(س) = ∏ ص(x_i | x_&lt;i)</text>
+  <text x="175" y="225" text-anchor="middle" class="content">الانحدار الذاتي: GPT، PixelCNN</text>
+  <text x="175" y="245" text-anchor="middle" class="content">التدفقات: الوهج، RealNVP</text>
+  <text x="175" y="275" text-anchor="middle" class="caption">السجل الدقيق p(x)</text>
+  <text x="175" y="293" text-anchor="middle" class="caption">الاستدلال التسلسلي البطيء</text>
+  <text x="175" y="311" text-anchor="middle" class="caption">قيود البنية (التدفقات)</text>
+
+  <rect x="305" y="155" width="230" height="180" class="hot"/>
+  <text x="420" y="178" text-anchor="middle" class="label">2. صريحة وتقريبية</text>
+  <text x="420" y="200" text-anchor="middle" class="mono">تكبير ELBO ≥ السجل p(x)</text>
+  <text x="420" y="225" text-anchor="middle" class="content">VAE: التشفير + فك التشفير</text>
+  <text x="420" y="245" text-anchor="middle" class="content">الانتشار: DDPM، SD3</text>
+  <text x="420" y="275" text-anchor="middle" class="caption">المهيمنة في عام 2026</text>
+  <text x="420" y="293" text-anchor="middle" class="caption">أخذ العينات التكرارية (20-50 خطوة)</text>
+  <text x="420" y="311" text-anchor="middle" class="caption">يتحول إلى نص، صورة، فيديو، ثلاثي الأبعاد</text>
+
+  <rect x="550" y="155" width="230" height="180" class="box"/>
+  <text x="665" y="178" text-anchor="middle" class="label">3. الكثافة الضمنية</text>
+  <text x="665" y="200" text-anchor="middle" class="mono">G(z) -&gt; x، D(x) -&gt; حقيقي/مزيف</text>
+  <text x="665" y="225" text-anchor="middle" class="content">GAN، ستايلجان، Pix2Pix</text>
+  <text x="665" y="255" text-anchor="middle" class="caption">أخذ العينات طلقة واحدة</text>
+  <text x="665" y="273" text-anchor="middle" class="caption">لا يوجد سجل p(x) على الإطلاق</text>
+  <text x="665" y="291" text-anchor="middle" class="caption">عدم استقرار التدريب، وانهيار الوضع</text>
+  <text x="665" y="309" text-anchor="middle" class="caption">لا يزال SOTA للصور الفوتوغرافية الضيقة</text>
+
+  <rect x="60" y="350" width="350" height="150" class="box"/>
+  <text x="235" y="373" text-anchor="middle" class="label">4. النتيجة / الوقت المستمر</text>
+  <text x="235" y="395" text-anchor="middle" class="mono">تعلم s(x) = ∇_x سجل p(x)</text>
+  <text x="235" y="418" text-anchor="middle" class="content">النتيجة SDE، مطابقة التدفق</text>
+  <text x="235" y="438" text-anchor="middle" class="content">نماذج التدفق المصحح والاتساق</text>
+  <text x="235" y="465" text-anchor="middle" class="caption">تدريب خالي من المحاكاة</text>
+  <text x="235" y="483" text-anchor="middle" class="caption">مسارات مستقيمة =&gt; أخذ العينات من 1 إلى 4 خطوات</text>
+
+  <rect x="430" y="350" width="350" height="150" class="box"/>
+  <text x="605" y="373" text-anchor="middle" class="label">5. الرموز المميزة + AR المحول</text>
+  <text x="605" y="395" text-anchor="middle" class="mono">VQ-VAE + محول فوق الرموز المميزة</text>
+  <text x="605" y="418" text-anchor="middle" class="content">DALL-E 1، الجزء، MuseNet</text>
+  <text x="605" y="438" text-anchor="middle" class="content">AudioLM، VALL-E، MusicGen، تصحيحات Sora</text>
+  <text x="605" y="465" text-anchor="middle" class="caption">إعادة استخدام LLM المكدس</text>
+  <text x="605" y="483" text-anchor="middle" class="caption">الجودة يحدها الرمز المميز</text>
+</svg>

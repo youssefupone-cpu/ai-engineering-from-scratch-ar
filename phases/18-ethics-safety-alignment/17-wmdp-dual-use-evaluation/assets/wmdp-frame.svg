@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">WMDP ومجموعة تقييم الاستخدام المزدوج</text>
+
+  <rect x="60" y="60" width="840" height="150" class="box"/>
+  <text x="480" y="85" text-anchor="middle" class="head">WMDP: 4,157 سؤال متعدد الأسئلة في المنطقة الصفراء عبر ثلاثة مجالات</text>
+
+  <rect x="80" y="110" width="260" height="80" class="cool"/>
+  <text x="210" y="135" text-anchor="middle" class="step">biosecurity</text>
+  <text x="210" y="155" text-anchor="middle" class="small">1,520 سؤال</text>
+  <text x="210" y="175" text-anchor="middle" class="small">مسببات الأمراض، الاستحواذ، التوليف</text>
+
+  <rect x="360" y="110" width="260" height="80" class="cool"/>
+  <text x="490" y="135" text-anchor="middle" class="step">cybersecurity</text>
+  <text x="490" y="155" text-anchor="middle" class="small">2225 سؤال</text>
+  <text x="490" y="175" text-anchor="middle" class="small">استغلال التطوير، المثابرة، C2</text>
+
+  <rect x="640" y="110" width="240" height="80" class="cool"/>
+  <text x="760" y="135" text-anchor="middle" class="step">chemistry</text>
+  <text x="760" y="155" text-anchor="middle" class="small">412 سؤال</text>
+  <text x="760" y="175" text-anchor="middle" class="small">الجدول الزمني -1 السلائف</text>
+
+  <rect x="60" y="230" width="400" height="250" class="box"/>
+  <text x="260" y="255" text-anchor="middle" class="head">رواية الارتقاء (2024-2025)</text>
+  <rect x="80" y="275" width="360" height="50" class="cold"/>
+  <text x="260" y="297" text-anchor="middle" class="step">2024: "صعود معتدل"</text>
+  <text x="260" y="315" text-anchor="middle" class="small">يستفيد المبتدئون بشكل متواضع مقابل البحث</text>
+  <rect x="80" y="335" width="360" height="50" class="cold"/>
+  <text x="260" y="357" text-anchor="middle" class="step">أبريل 2025 (OpenAI PF الإصدار الثاني): "على أعتاب"</text>
+  <text x="260" y="375" text-anchor="middle" class="small">أعتاب مساعدة المبتدئين بشكل هادف</text>
+  <rect x="80" y="395" width="360" height="50" class="hot"/>
+  <text x="260" y="417" text-anchor="middle" class="step">2025 أنثروبي: 2.53 مرة زيادة في الاستحواذ الحيوي</text>
+  <text x="260" y="435" text-anchor="middle" class="small">غير كافية لاستبعاد ASL-3</text>
+
+  <rect x="500" y="230" width="400" height="250" class="box"/>
+  <text x="700" y="255" text-anchor="middle" class="head">تحليل المبتدئين مقابل الخبراء</text>
+  <rect x="520" y="275" width="360" height="80" class="cool"/>
+  <text x="700" y="300" text-anchor="middle" class="step">الارتقاء النسبي المبتدئ</text>
+  <text x="700" y="320" text-anchor="middle" class="small">مضاعف؛ عالية لأن المبتدئين لديهم القليل</text>
+  <text x="700" y="340" text-anchor="middle" class="small">WMDP-shape + تجربة الاستحواذ تقيس ذلك</text>
+  <rect x="520" y="365" width="360" height="80" class="cool"/>
+  <text x="700" y="390" text-anchor="middle" class="step">القدرة المطلقة للخبراء</text>
+  <text x="700" y="410" text-anchor="middle" class="small">سقف المعلومات التي يمكن استخراجها من قبل خبير متحمس</text>
+  <text x="700" y="430" text-anchor="middle" class="small">يقيس التقييم المتشدد هذا الأمر</text>
+
+  <rect x="60" y="490" width="840" height="0" class="box" visibility="hidden"/>
+</svg>

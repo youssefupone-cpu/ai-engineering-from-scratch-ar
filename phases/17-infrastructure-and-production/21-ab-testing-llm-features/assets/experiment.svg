@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .eval { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .ab { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .method { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">ميزات اختبار A/B LLM — التقييمات + عبر الإنترنت، وليس المشاعر</text>
+
+  <rect x="40" y="50" width="440" height="120" class="eval"/>
+  <text x="260" y="72" text-anchor="middle" class="head">التقييمات (غير متصل، مصنفة)</text>
+  <text x="260" y="92" text-anchor="middle" class="step">"هل يستطيع النموذج القيام بهذه المهمة؟"</text>
+  <text x="60" y="116" class="small">· مُصنف كإنسان أو LLM كقاضي</text>
+  <text x="60" y="134" class="small">· التوزيع الثابت (وليس حركة المستخدم)</text>
+  <text x="60" y="152" class="small">· يمسك التراجعات قبل التعرض</text>
+
+  <rect x="500" y="50" width="440" height="120" class="ab"/>
+  <text x="720" y="72" text-anchor="middle" class="head">اختبارات أ/ب (عبر الإنترنت، عشوائية)</text>
+  <text x="720" y="92" text-anchor="middle" class="step">"هل يهتم المستخدمون؟"</text>
+  <text x="520" y="116" class="small">· حركة المرور الحية، والتخصيص العشوائي</text>
+  <text x="520" y="134" class="small">· المقياس المهم على مستوى المستخدم (الاحتفاظ، CTR)</text>
+  <text x="520" y="152" class="small">· يؤكد تأثير المنتج</text>
+
+  <rect x="40" y="190" width="280" height="120" class="method"/>
+  <text x="180" y="212" text-anchor="middle" class="head">ما لاختبار</text>
+  <text x="60" y="236" class="step">· الصياغة السريعة</text>
+  <text x="60" y="254" class="step">· اختيار النموذج (GPT مقابل OSS)</text>
+  <text x="60" y="272" class="step">· معلمات الجيل (درجة الحرارة، أعلى ع)</text>
+  <text x="60" y="290" class="step">· وظائف المكافأة / أجهزة التوجيه</text>
+
+  <rect x="340" y="190" width="280" height="120" class="method"/>
+  <text x="480" y="212" text-anchor="middle" class="head">دقة الطريقة</text>
+  <text x="360" y="236" class="step">· CUPED (خفض التباين بنسبة 30-70%)</text>
+  <text x="360" y="254" class="step">· متسلسل (نظرات خاطفة صالحة دائمًا)</text>
+  <text x="360" y="272" class="step">· بونفيروني / بنجامينى-هوخبرج</text>
+  <text x="360" y="290" class="step">· SRM فحص (نسبة العينة)</text>
+
+  <rect x="640" y="190" width="280" height="120" class="method"/>
+  <text x="780" y="212" text-anchor="middle" class="head">platforms</text>
+  <text x="660" y="236" class="step">Statsig (OpenAI مملوكة، 1.1 مليار دولار)</text>
+  <text x="660" y="254" class="step">GrowthBook (MIT، مستودع أصلي)</text>
+  <text x="660" y="272" class="step">Eppo، التجارب على النحو الأمثل</text>
+  <text x="660" y="290" class="step">إطلاق التجارب المظلمة</text>
+
+  <rect x="40" y="330" width="880" height="140" class="box"/>
+  <text x="480" y="352" text-anchor="middle" class="head">LLM عدم الحتمية يعقد السلطة</text>
+  <text x="480" y="374" text-anchor="middle" class="step">ما يصل إلى 15% تباين التشغيل للتشغيل على مدخلات متطابقة</text>
+  <text x="480" y="394" text-anchor="middle" class="step">حجم العينة المخزن المؤقت ×1.3-1.5 يتجاوز حساب الطاقة التقليدية</text>
+  <text x="480" y="416" text-anchor="middle" class="caption">الحالات الحقيقية: chatbot +70% طول التحويل · Nextdoor +1% CTR · حلقة زمن الاستجابة في Khanmigo مقابل الدقة</text>
+  <text x="480" y="438" text-anchor="middle" class="caption">تلتقط التقييمات الانحدارات؛ A/B يؤكد التأثير؛ انتهى الشحن على المشاعر</text>
+</svg>

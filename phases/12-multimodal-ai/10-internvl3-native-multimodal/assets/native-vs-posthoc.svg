@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">InternVL3 — التدريب المسبق الأصلي متعدد الوسائط مقابل التكيف اللاحق</text>
+
+  <rect x="30" y="50" width="440" height="210" class="hot"/>
+  <text x="250" y="72" text-anchor="middle" class="head">ما بعد المخصص (LLaVA، Qwen-VL v1، Idefics)</text>
+
+  <rect x="60" y="90" width="160" height="40" class="cold"/>
+  <text x="140" y="115" text-anchor="middle" class="small">مُدرب مسبقًا LLM (مجمد)</text>
+  <rect x="240" y="90" width="130" height="40" class="cool"/>
+  <text x="305" y="115" text-anchor="middle" class="small">تشفير الرؤية</text>
+  <rect x="385" y="90" width="60" height="40" class="reg"/>
+  <text x="415" y="115" text-anchor="middle" class="small">projector</text>
+
+  <text x="250" y="150" text-anchor="middle" class="small">1. تدريب جهاز العرض على أزواج التسميات التوضيحية (LLM مجمدة)</text>
+  <text x="250" y="168" text-anchor="middle" class="small">2. قم بإلغاء تجميد LLM، واضبط على LLaVA-Instruct</text>
+  <text x="250" y="186" text-anchor="middle" class="small">3. مهمة اختيارية صقل</text>
+
+  <text x="250" y="212" text-anchor="middle" class="step">التكلفة: ~30 ألف GPU-ساعة، إعادة الاستخدام LLM</text>
+  <text x="250" y="232" text-anchor="middle" class="caption">دين المحاذاة: -2 إلى -8 MMLU، انجراف الإجابة</text>
+
+  <rect x="490" y="50" width="440" height="210" class="cool"/>
+  <text x="710" y="72" text-anchor="middle" class="head">أصلي (InternVL3، Chameleon، GPT-4o)</text>
+
+  <rect x="520" y="90" width="380" height="40" class="reg"/>
+  <text x="710" y="115" text-anchor="middle" class="small">محول واحد، نص + رؤية أصلية من الخطوة 1</text>
+
+  <text x="710" y="150" text-anchor="middle" class="small">جولة تدريب مسبق واحدة، خسارة واحدة</text>
+  <text x="710" y="168" text-anchor="middle" class="small">40% نص + 35% معشق + 20% غطاء + 5% فيديو</text>
+  <text x="710" y="186" text-anchor="middle" class="small">لحن التعليمات بعد، وليس محاذاة متعددة المراحل</text>
+
+  <text x="710" y="212" text-anchor="middle" class="step">التكلفة: ~300 ألف GPU-ساعة، بدون إعادة استخدام LLM</text>
+  <text x="710" y="232" text-anchor="middle" class="caption">لا توجد ديون محاذاة، تتطابق مع Gemini 2.5 Pro عند 78B</text>
+
+  <rect x="30" y="280" width="900" height="230" class="box"/>
+  <text x="480" y="302" text-anchor="middle" class="head">تحسينات النشر: ViR + DvD</text>
+
+  <rect x="60" y="320" width="400" height="180" class="cold"/>
+  <text x="260" y="342" text-anchor="middle" class="step">موجه الدقة المرئية (ViR)</text>
+  <text x="260" y="362" text-anchor="middle" class="small">يختار المصنف الصغير الحد الأدنى من الدقة لكل استعلام</text>
+  <text x="260" y="380" text-anchor="middle" class="small">مستويات منخفضة / متوسطة / عالية</text>
+  <text x="260" y="396" text-anchor="middle" class="small">50% من الاستعلامات الحقيقية هي مرشحات منخفضة الدقة</text>
+  <text x="260" y="412" text-anchor="middle" class="small">انخفض متوسط ​​الرموز المميزة من 2048 إلى 590 تقريبًا لكل استعلام</text>
+  <text x="260" y="438" text-anchor="middle" class="step">التأثير الصافي: 2-3x إنتاجية الاستدلال</text>
+  <text x="260" y="462" text-anchor="middle" class="caption">أوضاع الفشل: المسار منخفض عندما تحتاج المهمة إلى OCR</text>
+
+  <rect x="490" y="320" width="400" height="180" class="reg"/>
+  <text x="690" y="342" text-anchor="middle" class="step">لغة الرؤية المنفصلة (DVD)</text>
+  <text x="690" y="362" text-anchor="middle" class="small">التشفير على GPU-A، LLM على GPU-B</text>
+  <text x="690" y="380" text-anchor="middle" class="small">رموز تصحيح الدفق A -&gt; B عبر NCCL</text>
+  <text x="690" y="396" text-anchor="middle" class="small">يتم تشغيل برنامج التشفير مرة واحدة، ويقوم LLM بتنفيذ العديد من الخطوات</text>
+  <text x="690" y="412" text-anchor="middle" class="small">عنق الزجاجة = الحد الأقصى (enc، llm *output_len)</text>
+  <text x="690" y="438" text-anchor="middle" class="step">~2x الإنتاجية مقابل الموقع المشترك</text>
+  <text x="690" y="462" text-anchor="middle" class="caption">يؤلمني زمن الوصول للطلب الفردي المنخفض</text>
+</svg>

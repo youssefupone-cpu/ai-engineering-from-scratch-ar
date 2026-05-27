@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .cpu { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .gpu { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .agent { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .maint { fill: #ffe1e1; stroke: #b71c1c; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">شجرة قرارات المحرك ذاتية الاستضافة - الأجهزة أولاً، ثم القياس، ثم عبء العمل</text>
+
+  <rect x="40" y="50" width="280" height="200" class="cpu"/>
+  <text x="180" y="72" text-anchor="middle" class="head">CPU / الحافة</text>
+  <text x="180" y="96" text-anchor="middle" class="step">llama.cpp (المهيمن)</text>
+  <text x="60" y="124" class="small">· دعم النموذج الأوسع</text>
+  <text x="60" y="142" class="small">· أسرع CPU الاستدلال</text>
+  <text x="60" y="160" class="small">· السيطرة الكاملة على الكمية / المواضيع</text>
+  <rect x="60" y="180" width="240" height="60" class="box"/>
+  <text x="180" y="202" text-anchor="middle" class="step">Ollama = llama.cpp + UX</text>
+  <text x="180" y="220" text-anchor="middle" class="small">أمر واحد، مستخدم واحد</text>
+  <text x="180" y="236" text-anchor="middle" class="small">15-30% أبطأ من llama.cpp</text>
+
+  <rect x="340" y="50" width="280" height="200" class="gpu"/>
+  <text x="480" y="72" text-anchor="middle" class="head">NVIDIA GPU</text>
+  <rect x="360" y="90" width="240" height="45" class="box"/>
+  <text x="480" y="113" text-anchor="middle" class="step">vLLM (افتراضي واسع النطاق)</text>
+  <text x="480" y="128" text-anchor="middle" class="small">الإصدار 0.15.1 فبراير 2026، بلاكويل SM120</text>
+  <rect x="360" y="145" width="240" height="45" class="box"/>
+  <text x="480" y="168" text-anchor="middle" class="step">TRT-LLM (بلاكويل فقط)</text>
+  <text x="480" y="183" text-anchor="middle" class="small">قائد الإنتاجية في B200/GB200</text>
+  <rect x="360" y="200" width="240" height="45" class="box"/>
+  <text x="480" y="222" text-anchor="middle" class="step">Ollama (للمطورين فقط)</text>
+  <text x="480" y="237" text-anchor="middle" class="small">وليس للإنتاج المشترك</text>
+
+  <rect x="640" y="50" width="280" height="200" class="agent"/>
+  <text x="780" y="72" text-anchor="middle" class="head">وكيل / بادئة ثقيلة</text>
+  <text x="780" y="96" text-anchor="middle" class="step">SGLang (متخصص)</text>
+  <text x="660" y="124" class="small">· RadixAttention (المرحلة 17 · 06)</text>
+  <text x="660" y="142" class="small">· 400,000+ GPUs قيد الإنتاج</text>
+  <text x="660" y="160" class="small">· xAI، LinkedIn، Cursor، Oracle</text>
+  <text x="660" y="178" class="small">· GCP، أزور، AWS</text>
+  <text x="780" y="210" text-anchor="middle" class="caption">RAG إعادة استخدام البادئة الثقيلة → هنا</text>
+  <text x="780" y="228" text-anchor="middle" class="caption">أدوات الوكيل متعددة الأدوار → هنا</text>
+
+  <rect x="40" y="280" width="880" height="90" class="maint"/>
+  <text x="480" y="302" text-anchor="middle" class="head">TGI وضع الصيانة منذ 11 ديسمبر 2025</text>
+  <text x="480" y="324" text-anchor="middle" class="step">إصلاحات الأخطاء فقط من الآن فصاعدا — اضبط NOT على TGI افتراضيًا للمشاريع الجديدة</text>
+  <text x="480" y="344" text-anchor="middle" class="caption">يمكن أن تستمر عمليات نشر TGI الحالية؛ قم بالترحيل إلى SGLang أو vLLM عندما يكون ذلك مناسبًا</text>
+
+  <rect x="40" y="390" width="880" height="100" class="box"/>
+  <text x="480" y="412" text-anchor="middle" class="head">2026 pipنمط الخط</text>
+  <text x="480" y="434" text-anchor="middle" class="step">المطور: Ollama → التدريج: llama.cpp → المنتج: vLLM (أو SGLang)</text>
+  <text x="480" y="454" text-anchor="middle" class="step">نفس أوزان GGUF أو HF عبر المستويات الثلاثة</text>
+  <text x="480" y="476" text-anchor="middle" class="caption">يكرر المهندسون بسرعة محليًا؛ تنظيم المرايا همز الكمية؛ همز هو هدف التقديم</text>
+</svg>

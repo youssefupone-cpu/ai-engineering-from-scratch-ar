@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .old { fill: #eeeeee; stroke: #888; stroke-width: 1.2; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">DeepSeek-V3 التشريح — إجمالي 671 مليار، 37 مليار نشط</text>
+
+  <!-- stack -->
+  <rect x="60" y="50" width="300" height="500" class="box"/>
+  <text x="210" y="72" text-anchor="middle" class="head">مكدس كامل (61 قطعة)</text>
+
+  <rect x="80" y="88" width="260" height="36" class="cool"/>
+  <text x="210" y="110" text-anchor="middle" class="step">التضمين (129 كيلو × 7168)</text>
+
+  <rect x="80" y="130" width="260" height="42" class="old"/>
+  <text x="210" y="148" text-anchor="middle" class="step">3 كتل كثيفة</text>
+  <text x="210" y="164" text-anchor="middle" class="small">MLA الاهتمام + SwiGLU الكثيف MLP (18432)</text>
+
+  <rect x="80" y="180" width="260" height="232" class="dsk"/>
+  <text x="210" y="200" text-anchor="middle" class="step">58 مجمعاً لوزارة التربية والتعليم</text>
+  <text x="210" y="220" text-anchor="middle" class="small">MLA اهتمام + وزارة التربية والتعليم MLP</text>
+  <text x="210" y="242" text-anchor="middle" class="small">256 خبيرًا (2048 مخفيًا لكل منهم)</text>
+  <text x="210" y="262" text-anchor="middle" class="small">+ خبير مشترك واحد (مشغل دائمًا)</text>
+  <text x="210" y="282" text-anchor="middle" class="small">جهاز التوجيه: تحيز خالي من الخسارة</text>
+  <text x="210" y="302" text-anchor="middle" class="small">أعلى 8 توجيه لكل رمز</text>
+  <text x="210" y="324" text-anchor="middle" class="small">نشط لكل رمز:</text>
+  <text x="210" y="340" text-anchor="middle" class="small">8 موجه + 1 مشترك = 9 خبراء</text>
+  <text x="210" y="362" text-anchor="middle" class="small">KV ذاكرة التخزين المؤقت: 512-خافت MLA كامنة</text>
+  <text x="210" y="382" text-anchor="middle" class="small">لكل رمز لكل طبقة</text>
+
+  <rect x="80" y="420" width="260" height="36" class="hot"/>
+  <text x="210" y="442" text-anchor="middle" class="step">1 MTP الوحدة</text>
+
+  <rect x="80" y="462" width="260" height="36" class="cool"/>
+  <text x="210" y="484" text-anchor="middle" class="step">RMSNorm النهائي + LM الرأس (مقيد)</text>
+
+  <text x="210" y="530" text-anchor="middle" class="caption">الإجمالي 671 ب · نشط 37 ب · النسبة 5.5%</text>
+
+  <!-- Innovation callouts -->
+  <rect x="400" y="50" width="520" height="500" class="box"/>
+  <text x="660" y="72" text-anchor="middle" class="head">أربعة ابتكارات DeepSeek</text>
+
+  <rect x="420" y="92" width="480" height="80" class="cool"/>
+  <text x="440" y="114" class="step">1 / MLA — الانتباه الكامن متعدد الرؤوس</text>
+  <text x="440" y="134" class="small">ضغط K وV إلى 512 كامنة مشتركة c^{KV};</text>
+  <text x="440" y="150" class="small">KV تخزن ذاكرة التخزين المؤقت 512 عائمًا/رمزًا مميزًا/طبقة بدلاً من 2 * heads * head_dim.</text>
+  <text x="440" y="166" class="small">عند 128 كيلو: 7.6 GB مقابل 30.5 GB لـ GQA(8/128). توفير 4x.</text>
+
+  <rect x="420" y="180" width="480" height="80" class="hot"/>
+  <text x="440" y="202" class="step">2 / MTP — التنبؤ بالرموز المتعددة</text>
+  <text x="440" y="222" class="small">تتنبأ الوحدة D=1 بـ t+2 من h^(1) + E(t+1).</text>
+  <text x="440" y="238" class="small">إشارة تدريب أكثر كثافة عند 2.1% من الحمل المعياري (14B من 671B).</text>
+  <text x="440" y="254" class="small">عند الاستدلال: 80%+ قبول كمسودة فك تشفير تخمينية.</text>
+
+  <rect x="420" y="268" width="480" height="80" class="cold"/>
+  <text x="440" y="290" class="step">3/ توجيه بدون خسارة aux</text>
+  <text x="440" y="310" class="small">تم تعديل شروط التحيز لكل خبير أثناء التدريب</text>
+  <text x="440" y="326" class="small">لموازنة الحمل - لا حاجة إلى مصطلح خسارة إضافي.</text>
+  <text x="440" y="342" class="small">نفس التأثير، هدف أنظف.</text>
+
+  <rect x="420" y="356" width="480" height="80" class="dsk"/>
+  <text x="440" y="378" class="step">4/ تدريب DualPip</text>
+  <text x="440" y="398" class="small">ثنائي الاتجاه pipeline يتداخل على 2k H800 GPUs.</text>
+  <text x="440" y="414" class="small">يخفي node الكل إلى الكل داخل نوافذ الحساب.</text>
+  <text x="440" y="430" class="small">يستعيد ~245 ألف GPU-ساعة مقابل 1F1B بمقياس V3.</text>
+
+  <rect x="420" y="444" width="480" height="100" class="box"/>
+  <text x="440" y="466" class="step">ما يفتح هذا</text>
+  <text x="440" y="484" class="small">· سياق 128 كيلو بايت مع ذاكرة تخزين مؤقت KV يمكن التحكم فيها (MLA)</text>
+  <text x="440" y="500" class="small">· سعة أكبر لنفس ميزانية FLOP النشطة (256 خبيرًا، أعلى 8)</text>
+  <text x="440" y="516" class="small">· 1.8x إنتاجية فك التشفير مجانًا (MTP كمسودة فك تشفير المواصفات)</text>
+  <text x="440" y="532" class="small">· 95%+ استخدام GPU في التدريب برتبة 2k (DualPipe)</text>
+</svg>

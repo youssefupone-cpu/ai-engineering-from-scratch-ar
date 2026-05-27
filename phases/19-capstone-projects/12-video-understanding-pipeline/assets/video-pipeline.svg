@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">فهم الفيديو pipeline — المشهد -&gt; المتجهات المتعددة -&gt; الإجابة المؤرضة</text>
+
+  <rect x="40" y="50" width="880" height="100" class="box"/>
+  <text x="480" y="70" text-anchor="middle" class="head">استيعاب (ثلاثة pipeline بالتوازي)</text>
+  <rect x="60" y="84" width="270" height="52" class="cool"/>
+  <text x="195" y="104" text-anchor="middle" class="step">تجزئة المشهد</text>
+  <text x="195" y="122" text-anchor="middle" class="small">TransNetV2 / PySceneDetect</text>
+  <rect x="345" y="84" width="270" height="52" class="cool"/>
+  <text x="480" y="104" text-anchor="middle" class="step">VLM تسمية توضيحية + تضمين الإطار</text>
+  <text x="480" y="122" text-anchor="middle" class="small">الجوزاء 2.5 برو / Qwen3-VL / مولمو 2</text>
+  <rect x="630" y="84" width="270" height="52" class="cool"/>
+  <text x="765" y="104" text-anchor="middle" class="step">ASR + الطوابع الزمنية للكلمات</text>
+  <text x="765" y="122" text-anchor="middle" class="small">Whisper-v3-turbo (الهمس الأسرع)</text>
+
+  <rect x="40" y="170" width="880" height="80" class="dsk"/>
+  <text x="480" y="190" text-anchor="middle" class="head">مؤشر Qdrant متعدد المتجهات (ثلاثة نواقل محددة لكل مشهد)</text>
+  <text x="480" y="214" text-anchor="middle" class="small">caption_embframe_emb script_emb</text>
+  <text x="480" y="232" text-anchor="middle" class="small">الحمولة: video_id، scene_id، start_ms، end_ms، keyframe_url</text>
+
+  <rect x="40" y="270" width="440" height="240" class="box"/>
+  <text x="260" y="292" text-anchor="middle" class="head">تدفق الاستعلام</text>
+  <rect x="60" y="310" width="400" height="30" class="cool"/>
+  <text x="260" y="330" text-anchor="middle" class="step">ثلاثة استعلامات كثيفة متوازية</text>
+  <rect x="60" y="346" width="400" height="30" class="cool"/>
+  <text x="260" y="366" text-anchor="middle" class="step">اندماج الرتبة المتبادلة -&gt; مشاهد Top-K</text>
+  <rect x="60" y="382" width="400" height="30" class="hot"/>
+  <text x="260" y="402" text-anchor="middle" class="step">التأريض الزمني (TimeLens / VideoITG)</text>
+  <rect x="60" y="418" width="400" height="30" class="dsk"/>
+  <text x="260" y="438" text-anchor="middle" class="step">VLM موالفة مع الطوابع الزمنية المذكورة</text>
+  <text x="260" y="466" text-anchor="middle" class="small">الإجابة + (البدء، النهاية) + معاينات الإطار</text>
+  <text x="260" y="484" text-anchor="middle" class="caption">UI: الانتقال السريع إلى الإطار + شريط الصور المصغرة</text>
+
+  <rect x="520" y="270" width="400" height="240" class="box"/>
+  <text x="720" y="292" text-anchor="middle" class="head">evaluation</text>
+  <rect x="540" y="310" width="360" height="30" class="cool"/>
+  <text x="720" y="330" text-anchor="middle" class="step">ActivityNet-QA + NeXT-GQA</text>
+  <rect x="540" y="346" width="360" height="30" class="cool"/>
+  <text x="720" y="366" text-anchor="middle" class="step">مجموعة مخصصة تحمل علامة يدوية مكونة من 100 استعلام</text>
+  <rect x="540" y="382" width="360" height="30" class="hot"/>
+  <text x="720" y="402" text-anchor="middle" class="step">الهلوسة مقاعد البدلاء الفرعية</text>
+  <text x="720" y="420" text-anchor="middle" class="small">تم الإبلاغ عن العد + نوع الإجراء بشكل منفصل</text>
+  <text x="720" y="440" text-anchor="middle" class="small">IoU المؤقتة على مجموعة التأريض المعلقة</text>
+  <text x="720" y="466" text-anchor="middle" class="small">استيعاب الإنتاجية: ساعات من الفيديو / $</text>
+  <text x="720" y="488" text-anchor="middle" class="caption">الهدف: 100 ساعة مفهرسة، &lt; 2 دقيقة لكل استعلام</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+  <text x="450" y="28" text-anchor="middle" class="title">الدردشة الجماعية — تجمع مشترك + محدد السماعات (AutoGen / AG2)</text>
+
+  <rect x="220" y="60" width="460" height="80" class="cold"/>
+  <text x="450" y="82" text-anchor="middle" class="head">تجمع الرسائل المشتركة</text>
+  <text x="450" y="104" text-anchor="middle" class="small">m1 [المبرمج]: الكود الأولي... | m2 [المراجع]: تم اكتشاف خطأ... | m3 [المبرمج]: منقح... | م4 [المراجع]: معتمد</text>
+  <text x="450" y="122" text-anchor="middle" class="small">كل وكيل يقرأ كل رسالة</text>
+
+  <rect x="40" y="180" width="140" height="80" class="hot"/>
+  <text x="110" y="202" text-anchor="middle" class="head">Coder</text>
+  <text x="110" y="222" text-anchor="middle" class="small">يكتب الكود</text>
+  <text x="110" y="240" text-anchor="middle" class="small">مراجعات على المراجعة</text>
+
+  <rect x="220" y="180" width="140" height="80" class="cool"/>
+  <text x="290" y="202" text-anchor="middle" class="head">Reviewer</text>
+  <text x="290" y="222" text-anchor="middle" class="small">كود الانتقادات</text>
+  <text x="290" y="240" text-anchor="middle" class="small">العوائد المعتمدة / المرفوضة</text>
+
+  <rect x="400" y="180" width="140" height="80" class="dsk"/>
+  <text x="470" y="202" text-anchor="middle" class="head">Manager</text>
+  <text x="470" y="222" text-anchor="middle" class="small">محركات الإنهاء</text>
+  <text x="470" y="240" text-anchor="middle" class="small">ينبعث إنهاء</text>
+
+  <rect x="580" y="180" width="260" height="80" class="box"/>
+  <text x="710" y="202" text-anchor="middle" class="head">Selector</text>
+  <text x="710" y="222" text-anchor="middle" class="small">جولة روبن (دورة ثابتة)</text>
+  <text x="710" y="240" text-anchor="middle" class="small">LLM-محدد (متوافق مع السياق)</text>
+  <text x="710" y="256" text-anchor="middle" class="small">مخصص (احتياطي قائم على القواعد)</text>
+
+  <line x1="110" y1="180" x2="350" y2="140" class="edge" marker-end="url(#arrow)"/>
+  <line x1="290" y1="180" x2="440" y2="140" class="edge" marker-end="url(#arrow)"/>
+  <line x1="470" y1="180" x2="520" y2="140" class="edge" marker-end="url(#arrow)"/>
+
+  <line x1="450" y1="140" x2="580" y2="200" class="edge" marker-end="url(#arrow)"/>
+  <text x="555" y="168" class="small">محدد يقرأ التجمع</text>
+
+  <path d="M 710 260 Q 710 320 470 300" class="edge" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+  <text x="580" y="300" class="small">إرجاع المحدد: المتحدث التالي = المدير</text>
+
+  <rect x="40" y="340" width="380" height="150" class="box"/>
+  <text x="230" y="362" text-anchor="middle" class="head">عندما تناسب الدردشة الجماعية</text>
+  <text x="230" y="384" text-anchor="middle" class="small">المحادثات الناشئة، وخلط الأدوار</text>
+  <text x="230" y="402" text-anchor="middle" class="small">حل المشكلات الاستكشافية</text>
+  <text x="230" y="420" text-anchor="middle" class="small">الأسلاك المسبقة لكل عملية تسليم خاطئة</text>
+  <text x="230" y="440" text-anchor="middle" class="small">"اجتماع العصف الذهني" وليس "خط التجميع"</text>
+  <text x="230" y="468" text-anchor="middle" class="caption">يستبدل المحدد حواف الرسم البياني الواضحة</text>
+
+  <rect x="460" y="340" width="380" height="150" class="box"/>
+  <text x="650" y="362" text-anchor="middle" class="head">أوضاع الفشل</text>
+  <text x="650" y="384" text-anchor="middle" class="small">المتحدث الساخن (وكيل واحد يهيمن)</text>
+  <text x="650" y="402" text-anchor="middle" class="small">سلسلة التملق (تأجيل بصوت عال)</text>
+  <text x="650" y="420" text-anchor="middle" class="small">انتفاخ السياق (ينمو التجمع بشكل غير محدود)</text>
+  <text x="650" y="440" text-anchor="middle" class="small">عدم تناسق المحدد (LLM عدم الحتمية)</text>
+  <text x="650" y="468" text-anchor="middle" class="caption">جولات الحد الأقصى · توازن المسار · مشاهدات النطاق</text>
+</svg>

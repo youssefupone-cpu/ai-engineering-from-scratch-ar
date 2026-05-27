@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">مكدس Blackwell + TRT-LLM - حيث تأتي فجوة التكلفة بمقدار 7x</text>
+
+  <rect x="40" y="50" width="440" height="470" class="box"/>
+  <text x="260" y="72" text-anchor="middle" class="head">نظام الدقة على بلاكويل</text>
+  <rect x="60" y="90" width="400" height="60" class="cool"/>
+  <text x="260" y="112" text-anchor="middle" class="step">الأوزان: NVFP4 (تحجيم دقيق 4 بت)</text>
+  <text x="260" y="130" text-anchor="middle" class="small">نصف البايتات لكل رمز مميز تم فك تشفيره مقابل FP8</text>
+  <text x="260" y="144" text-anchor="middle" class="small">day-0 FP4 الأوزان التي يتم شحنها بواسطة موفري النماذج</text>
+  <rect x="60" y="160" width="400" height="60" class="hot"/>
+  <text x="260" y="182" text-anchor="middle" class="step">KV ذاكرة التخزين المؤقت: FP8 (يظل حرجًا)</text>
+  <text x="260" y="200" text-anchor="middle" class="small">FP4 KV ينهار ذيول الانتباه</text>
+  <text x="260" y="214" text-anchor="middle" class="small">FP8 البتات الأسية تحافظ على النطاق الديناميكي</text>
+  <rect x="60" y="230" width="400" height="60" class="cold"/>
+  <text x="260" y="252" text-anchor="middle" class="step">التنشيط: NVFP4</text>
+  <text x="260" y="270" text-anchor="middle" class="small">نطاق صغير داخل الطبقة؛ FP4 صامد</text>
+  <text x="260" y="284" text-anchor="middle" class="small">متغير MXFP8 متاح في Tensor Cores</text>
+  <rect x="60" y="300" width="400" height="60" class="dsk"/>
+  <text x="260" y="322" text-anchor="middle" class="step">مراكم الانتباه: FP32</text>
+  <text x="260" y="340" text-anchor="middle" class="small">يتطلب استقرار softmax دقة أعلى</text>
+  <text x="260" y="354" text-anchor="middle" class="small">لا يوجد تفاوض على هذا المستوى</text>
+  <rect x="60" y="370" width="400" height="140" class="box"/>
+  <text x="260" y="392" text-anchor="middle" class="head">تحذير الجودة</text>
+  <text x="260" y="414" text-anchor="middle" class="small">NVFP4 أوزان أعباء العمل المنطقية:</text>
+  <text x="260" y="430" text-anchor="middle" class="small">الرياضيات، سلسلة الأفكار، كود السياق الطويل:</text>
+  <text x="260" y="446" text-anchor="middle" class="small">انخفاض واضح في الجودة بدون معايرة لكل كتلة</text>
+  <text x="260" y="466" text-anchor="middle" class="small">الاسترداد: FP8 الأوزان + FP4 التنشيطات</text>
+  <text x="260" y="482" text-anchor="middle" class="small">أو ابقَ في H200 مع FP8 طوال الوقت</text>
+  <text x="260" y="502" text-anchor="middle" class="caption">التحقق دائمًا من صحة جودة التقييم قبل الترحيل</text>
+
+  <rect x="500" y="50" width="420" height="470" class="box"/>
+  <text x="710" y="72" text-anchor="middle" class="head">طبقات المكدس التي تكدس الفجوة</text>
+
+  <rect x="520" y="90" width="380" height="60" class="cool"/>
+  <text x="710" y="112" text-anchor="middle" class="step">1/ عرض النطاق الترددي للأجهزة</text>
+  <text x="710" y="130" text-anchor="middle" class="small">H100 3.35 TB/s مقابل B200 8.0 TB/s: ~2.4x</text>
+  <text x="710" y="144" text-anchor="middle" class="small">فك التشفير مرتبط بالذاكرة؛ هذه هي الكلمة</text>
+
+  <rect x="520" y="160" width="380" height="60" class="hot"/>
+  <text x="710" y="182" text-anchor="middle" class="step">2/ NVFP4 الأوزان</text>
+  <text x="710" y="200" text-anchor="middle" class="small">نصف البايت لكل رمز: ~2.0x</text>
+  <text x="710" y="214" text-anchor="middle" class="small">NVFP4 هي دقة الوزن الوحيدة التي تهم الآن</text>
+
+  <rect x="520" y="230" width="380" height="60" class="cold"/>
+  <text x="710" y="252" text-anchor="middle" class="step">3 / MTP مسودة</text>
+  <text x="710" y="270" text-anchor="middle" class="small">رأس التنبؤ متعدد الرموز: ~1.8x على الرموز المقبولة</text>
+  <text x="710" y="284" text-anchor="middle" class="small">مدمج في TRT-LLM البناء</text>
+
+  <rect x="520" y="300" width="380" height="60" class="dsk"/>
+  <text x="710" y="322" text-anchor="middle" class="step">4/ التعبئة المسبقة/فك التشفير</text>
+  <text x="710" y="340" text-anchor="middle" class="small">يقوم الدينامو بتنظيم مجموعات GPU المنفصلة: ~1.6-2.5x</text>
+  <text x="710" y="354" text-anchor="middle" class="small">NVLink 5 لنقل ذاكرة التخزين المؤقت KV</text>
+
+  <rect x="520" y="370" width="380" height="60" class="box"/>
+  <text x="710" y="392" text-anchor="middle" class="step">5/ NVLink 5 الكل للكل</text>
+  <text x="710" y="410" text-anchor="middle" class="small">خبراء وزارة التربية والتعليم خفضوا زمن الوصول بمقدار 3 مرات مقابل هوبر</text>
+  <text x="710" y="424" text-anchor="middle" class="small">تحصل نماذج MoE الثقيلة على مضاعف إضافي</text>
+
+  <rect x="520" y="440" width="380" height="70" class="hot"/>
+  <text x="710" y="462" text-anchor="middle" class="step">أرقام العناوين (2026)</text>
+  <text x="710" y="480" text-anchor="middle" class="small">HGX B200: 0.02 دولار/شهر GPT-OSS-120B</text>
+  <text x="710" y="496" text-anchor="middle" class="small">GB200 NVL72 + دينامو: 0.012 دولار/م توك</text>
+  <text x="710" y="510" text-anchor="middle" class="small">H100 + vLLM: 0.09 دولار/م توك</text>
+</svg>

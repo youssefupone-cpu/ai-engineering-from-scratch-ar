@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">الأدوات المتجانسة مقابل الأدوات الذرية، نفس سطح المهمة</text>
+
+  <rect x="40" y="50" width="440" height="450" class="hot"/>
+  <text x="260" y="72" text-anchor="middle" class="head">متجانسة (انخفاض دقة التحديد)</text>
+
+  <rect x="60" y="92" width="400" height="80" class="box"/>
+  <text x="80" y="114" class="step">notes_do_everything({</text>
+  <text x="96" y="132" class="step">  الإجراء: "قائمة" | "الحصول على" | "يبحث"</text>
+  <text x="96" y="148" class="step">         | "إنشاء" | "تحديث" | "يمسح"،</text>
+  <text x="80" y="164" class="step">  الهدف الخيارات: {...}</text>
+
+  <text x="60" y="200" class="step">  problems:</text>
+  <text x="60" y="220" class="small">  - يختار النموذج الإجراء حسب السلسلة، وليس حسب اسم الأداة</text>
+  <text x="60" y="240" class="small">  - الخيارات: {} غير مكتوب -&gt; هلاوس</text>
+  <text x="60" y="260" class="small">  - الوصف يجب أن يوضح ستة سلوكيات</text>
+  <text x="60" y="280" class="small">  - من المستحيل إزالة الغموض عن حالات المنافسين القريبين</text>
+
+  <text x="60" y="320" class="step">  معايير السجلات الداخلية:</text>
+  <text x="60" y="340" class="small">  - دقة اختيار أقل بمقدار 15-30 نقطة مقارنة بالذرية</text>
+  <text x="60" y="360" class="small">  - ارتفاع معدل الهلوسة على حمولة الخيارات</text>
+  <text x="60" y="380" class="small">  - إعادة محاولة الاسترداد أصعب (ما هو الحقل الذي كان خاطئًا؟)</text>
+
+  <text x="60" y="430" class="step">  القاعدة الأساسية:</text>
+  <text x="60" y="450" class="small">  إذا كان تعداد الإجراء يحتوي على &gt; 3 قيم، فقم بتقسيم الأداة.</text>
+  <text x="60" y="470" class="small">  إذا كانت الخيارات تحتوي على شكلين مختلفين، فقم بتقسيم الأداة.</text>
+
+  <rect x="500" y="50" width="420" height="450" class="cool"/>
+  <text x="710" y="72" text-anchor="middle" class="head">الذرية (كل أداة وظيفة واحدة)</text>
+
+  <rect x="520" y="92" width="380" height="280" class="box"/>
+  <text x="540" y="116" class="step">notes_list(tag?)</text>
+  <text x="540" y="134" class="small">  "يستخدم عندما يريد المستخدم جميع الملاحظات أو الملاحظات التي تمت تصفيتها بالعلامات.</text>
+  <text x="540" y="150" class="small">   لا تستخدم لقراءة الجسم. استخدم Notes_get."</text>
+
+  <text x="540" y="178" class="step">notes_get(note_id)</text>
+  <text x="540" y="196" class="small">  "يستخدم عندما يطلب المستخدم نص ملاحظة محدد."</text>
+
+  <text x="540" y="220" class="step">Notes_search(الاستعلام، الحد؟)</text>
+  <text x="540" y="238" class="small">  "يستخدم عندما يبحث المستخدم عن طريق الكلمات الرئيسية للمحتوى."</text>
+
+  <text x="540" y="262" class="step">Notes_create (العنوان، النص، العلامة؟)</text>
+  <text x="540" y="280" class="small">  "يستخدم عندما يكتب المستخدم ملاحظة جديدة."</text>
+
+  <text x="540" y="304" class="step">notes_update(note_id, title?, body?)</text>
+  <text x="540" y="322" class="small">  "يستخدم عندما يقوم المستخدم بتحرير ملاحظة موجودة."</text>
+
+  <text x="540" y="346" class="step">notes_delete(note_id)</text>
+  <text x="540" y="364" class="small">  "يستخدم عندما يقوم المستخدم بالحذف بشكل صريح."</text>
+
+  <text x="520" y="410" class="step">مساحة الاسم: ملاحظات_*</text>
+  <text x="520" y="428" class="small">- البادئة المشتركة = مجمعة في سياق النموذج</text>
+  <text x="520" y="448" class="small">- أوصاف ضيقة = اختيار موثوق</text>
+  <text x="520" y="468" class="small">- المخططات المكتوبة = لا هلوسة حجة</text>
+  <text x="520" y="486" class="small">- دقة اختيار +10 إلى +20 صفحة</text>
+</svg>

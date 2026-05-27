@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 10px; fill: #555; font-style: italic; }
+      .title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">المساعد الصوتي pipeline — 7 مكونات، دورة واحدة</text>
+
+  <rect x="20" y="55" width="100" height="90" class="box"/>
+  <text x="70" y="78" text-anchor="middle" class="label">1. هيئة التصنيع العسكري</text>
+  <text x="70" y="96" text-anchor="middle" class="content">16 كيلو هرتز أحادية</text>
+  <text x="70" y="114" text-anchor="middle" class="content">قطع 20 مللي</text>
+
+  <line x1="122" y1="100" x2="140" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="142" y="55" width="100" height="90" class="hot"/>
+  <text x="192" y="78" text-anchor="middle" class="label">2. VAD</text>
+  <text x="192" y="96" text-anchor="middle" class="content">Silero</text>
+  <text x="192" y="114" text-anchor="middle" class="content">+ ما قبل التشغيل</text>
+
+  <line x1="244" y1="100" x2="262" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="264" y="55" width="100" height="90" class="box"/>
+  <text x="314" y="78" text-anchor="middle" class="label">3. __ مصطلح_0__</text>
+  <text x="314" y="96" text-anchor="middle" class="content">همس / ببغاء</text>
+  <text x="314" y="114" text-anchor="middle" class="content">streaming</text>
+
+  <line x1="366" y1="100" x2="384" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="386" y="55" width="130" height="90" class="box"/>
+  <text x="451" y="78" text-anchor="middle" class="label">4. LLM + الأدوات</text>
+  <text x="451" y="96" text-anchor="middle" class="content">GPT-4o / كلود</text>
+  <text x="451" y="114" text-anchor="middle" class="content">أدوات الدفق + JSON</text>
+
+  <line x1="518" y1="100" x2="536" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="538" y="55" width="110" height="90" class="hot"/>
+  <text x="593" y="78" text-anchor="middle" class="label">5. TTS</text>
+  <text x="593" y="96" text-anchor="middle" class="content">كوكورو / كارتيسيا</text>
+  <text x="593" y="114" text-anchor="middle" class="content">تيار من الرمز المميز 20</text>
+
+  <line x1="650" y1="100" x2="668" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="670" y="55" width="100" height="90" class="box"/>
+  <text x="720" y="78" text-anchor="middle" class="label">6. مكبر الصوت</text>
+  <text x="720" y="96" text-anchor="middle" class="content">التأليف خارج</text>
+  <text x="720" y="114" text-anchor="middle" class="content">تم تمكين PLC</text>
+
+  <line x1="772" y1="100" x2="790" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="792" y="55" width="70" height="90" class="box"/>
+  <text x="827" y="78" text-anchor="middle" class="label">7. المستخدم</text>
+  <text x="827" y="114" text-anchor="middle" class="content">ear</text>
+
+  <path d="M827,55 Q800,30 100,30 Q60,30 60,55" class="line" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="5,3" fill="none"/>
+  <text x="440" y="24" text-anchor="middle" class="caption" fill="#c0392b">المشاركة: إذا تحدث المستخدم، VAD يلغي TTS + LLM، إعادة التشغيل من (2)</text>
+
+  <rect x="20" y="175" width="840" height="130" class="box"/>
+  <text x="440" y="197" text-anchor="middle" class="label">أوضاع الفشل الثلاثة التي ستضربها</text>
+  <text x="50" y="225" class="content">1. مقطع الكلمة الأولى — VAD يتم تشغيله متأخرًا؛ يتم فقدان "مرحبًا" للمستخدم. احتفظ بمخزن مؤقت لما قبل التشغيل يبلغ 200-400 مللي ثانية.</text>
+  <text x="50" y="245" class="content">2. ارتباك في الدخول - LLM يستمر في النشوء بعد مقاطعة المستخدم. سلك VAD → إلغاء-LLM.</text>
+  <text x="50" y="265" class="content">3. صمت الهلوسة - الهمس يقول "شكرًا على المشاهدة" أثناء الإحماء الصامت. دائما VAD-البوابة.</text>
+  <text x="50" y="290" class="caption">أثناء الإنتاج، قم بتسجيل كل دورة + P50/P95/P99 رسوم بيانية لكل مرحلة قبل الشحن.</text>
+
+  <rect x="20" y="315" width="840" height="155" class="hot"/>
+  <text x="440" y="337" text-anchor="middle" class="label">2026 مجموعات مرجعية (اختيار حسب زمن الوصول المستهدف + الترخيص)</text>
+  <text x="50" y="363" class="content">LiveKit + Deepgram + GPT-4o + Cartesia 350-500 مللي ثانية الصناعة الافتراضية</text>
+  <text x="50" y="381" class="content">Pipecat + Whisper-stream + GPT-4o + Kokoro 500-800 مللي ثانية DIY مفتوح المصدر</text>
+  <text x="50" y="399" class="content">موشي (ازدواج كامل، نموذج واحد) 200-300 مللي ثانية بنية مختلفة - الدرس 15</text>
+  <text x="50" y="417" class="content">Vapi / Retell (مُدار) أسرع من 300 إلى 500 مللي ثانية في الشحن</text>
+  <text x="50" y="435" class="content">whisper.cpp + llama.cpp + Kokoro-ONNX حافة / خصوصية غير متصلة بالإنترنت</text>
+  <text x="50" y="460" class="caption">إضافة بوابة تنبيه الكلمات (Porcupine) لأجهزة المستهلك التي تعمل دائمًا؛ لا تقم أبدًا بتسجيل الصوت الخام&gt; 30 يومًا.</text>
+</svg>

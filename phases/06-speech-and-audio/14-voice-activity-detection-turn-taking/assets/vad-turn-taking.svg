@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+      .tag { font-size: 10px; fill: #c0392b; font-weight: 600; }
+      .bar { fill: #c0392b; opacity: 0.5; }
+      .line { stroke: #1a1a1a; stroke-width: 1.3; fill: none; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">سلسلة من ثلاث طبقات VAD + آلة حالة الدوران</text>
+
+  <rect x="20" y="55" width="260" height="130" class="box"/>
+  <text x="150" y="78" text-anchor="middle" class="label">المستوى 1: بوابة الطاقة</text>
+  <text x="150" y="96" text-anchor="middle" class="tag">رخيص، يشتعل على كل ضجيج</text>
+  <text x="30" y="122" class="content">إذا RMS &gt; -40 ديسيبل FS → "الكلام"</text>
+  <text x="30" y="142" class="content">مرشحات الصمت ولكن NOT</text>
+  <text x="30" y="160" class="content">لوحة المفاتيح / السعال / الكرسي</text>
+
+  <rect x="295" y="55" width="260" height="130" class="hot"/>
+  <text x="425" y="78" text-anchor="middle" class="label">المستوى 2: سيليرو VAD</text>
+  <text x="425" y="96" text-anchor="middle" class="tag">الافتراضي 2020-2026</text>
+  <text x="305" y="122" class="content">1M معلمات · 1 مللي ثانية / 30 مللي ثانية قطعة</text>
+  <text x="305" y="142" class="content">87.7% TPR @ 5% FPR</text>
+  <text x="305" y="160" class="content">تدرب على أكثر من 6000 لغة</text>
+  <text x="305" y="176" class="caption">MIT · مفتوح · يرفض العابرين</text>
+
+  <rect x="570" y="55" width="285" height="130" class="box"/>
+  <text x="712" y="78" text-anchor="middle" class="label">المستوى 3: كاشف الانعطاف الدلالي</text>
+  <text x="712" y="96" text-anchor="middle" class="tag">LiveKit كاشف بدوره / مخصص</text>
+  <text x="580" y="122" class="content">VAD + مصنف الكلمات الأخيرة</text>
+  <text x="580" y="142" class="content">توقف مؤقتًا في منتصف الجملة مقابل القيام به</text>
+  <text x="580" y="160" class="content">("حسنًا، دعني أفكر..." يبقى)</text>
+  <text x="580" y="176" class="caption">يقلل المقاطعة الكاذبة بنسبة 5-10%</text>
+
+  <rect x="20" y="205" width="835" height="130" class="box"/>
+  <text x="440" y="226" text-anchor="middle" class="label">آلة حالة الكشف عن الدوران</text>
+  <text x="60" y="254" class="content">الحالة: "خامل" ─ VAD حرائق&gt; 250 مللي ثانية من الكلام ─→ الحالة: "التحدث" (ينبعث START)</text>
+  <text x="60" y="274" class="content">الحالة: "التحدث" ─ VAD صامت لمدة 500 مللي ثانية ─→ الحالة: "خامل" (ينبعث END)</text>
+  <text x="60" y="300" class="caption">المخزن المؤقت لما قبل التشغيل (300 مللي ثانية): استمر في تشغيل الصوت BEFORE VAD، وإلا فسيتم قص الكلمة الأولى</text>
+  <text x="60" y="318" class="caption">الحد الأدنى من الكلام (250 مللي ثانية): رفض العابرين؛ مخلفات الصمت (500 مللي ثانية): لحن لكل حالة استخدام</text>
+
+  <rect x="20" y="345" width="835" height="105" class="hot"/>
+  <text x="440" y="366" text-anchor="middle" class="label">خدعة التدفق (Kyutai Unmute 2025) - أقل من 200 مللي ثانية من النهاية إلى النهاية</text>
+  <text x="60" y="392" class="content">1. VAD يطلق نهاية الكلام عند t=0</text>
+  <text x="60" y="410" class="content">2. أرسل إشارة صوتية + تدفق مخزنة إلى خادم STT</text>
+  <text x="60" y="428" class="content">3. STT تتم العمليات في 4× الوقت الفعلي ← 500 مللي ثانية من المخزن المؤقت للتطلع للأمام ← 125 مللي ثانية من وقت الجدار</text>
+  <text x="60" y="446" class="content">4. النص جاهز عند t+125 مللي ثانية — نفس زمن الوصول للإشارة VAD نفسها</text>
+</svg>

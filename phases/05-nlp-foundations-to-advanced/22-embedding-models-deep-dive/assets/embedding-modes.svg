@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .dim { fill: #999; font-size: 10px; font-family: 'Menlo', monospace; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">ثلاثة أوضاع للتضمين - نفس المقطع، وثلاثة نواقل</text>
+
+  <!-- Input passage -->
+  <rect x="40" y="55" width="820" height="40" class="box"/>
+  <text x="450" y="80" text-anchor="middle" class="content">"أصدرت شركة Apple أول هاتف iPhone في 29 يونيو 2007."</text>
+
+  <!-- Dense column -->
+  <rect x="40" y="115" width="260" height="260" class="box"/>
+  <text x="170" y="140" text-anchor="middle" class="label">dense</text>
+  <text x="170" y="160" text-anchor="middle" class="caption">ناقل واحد، حجم ثابت</text>
+
+  <rect x="60" y="180" width="220" height="30" class="hot"/>
+  <text x="170" y="200" text-anchor="middle" class="content">[0.23, -0.11, ..., 0.08]</text>
+  <text x="170" y="225" text-anchor="middle" class="dim">خافت = 1024 (BGE-M3)</text>
+
+  <text x="170" y="260" text-anchor="middle" class="caption">صفوف تشابه جيب التمام</text>
+  <text x="170" y="278" text-anchor="middle" class="caption">المقاطع حسب المعنى</text>
+  <text x="170" y="310" text-anchor="middle" class="label">خيار ماتريوشكا:</text>
+  <text x="170" y="328" text-anchor="middle" class="content">اقتطاع إلى 256 قاتمة</text>
+  <text x="170" y="346" text-anchor="middle" class="content">≈ فقدان الدقة بنسبة 1%</text>
+  <text x="170" y="364" text-anchor="middle" class="content">6x توفير في التخزين</text>
+
+  <!-- Sparse column -->
+  <rect x="320" y="115" width="260" height="260" class="box"/>
+  <text x="450" y="140" text-anchor="middle" class="label">متناثر (SPLADE-نمط)</text>
+  <text x="450" y="160" text-anchor="middle" class="caption">وزن واحد لكل رمز مفردات</text>
+
+  <rect x="340" y="180" width="220" height="30" class="hot"/>
+  <text x="450" y="200" text-anchor="middle" class="content">{آيفون: 2.1، أبل: 1.8،...}</text>
+  <text x="450" y="225" text-anchor="middle" class="dim">في الغالب أصفار، |مفردات| فتحات</text>
+
+  <text x="450" y="260" text-anchor="middle" class="caption">تعلمت BM25 —</text>
+  <text x="450" y="278" text-anchor="middle" class="caption">أوزان المدى من المحولات</text>
+  <text x="450" y="310" text-anchor="middle" class="label">strength:</text>
+  <text x="450" y="328" text-anchor="middle" class="content">استعلامات كثيفة بالكلمات الرئيسية،</text>
+  <text x="450" y="346" text-anchor="middle" class="content">الكيانات المسماة،</text>
+  <text x="450" y="364" text-anchor="middle" class="content">مصطلحات نادرة</text>
+
+  <!-- Multi-vector column -->
+  <rect x="600" y="115" width="260" height="260" class="box"/>
+  <text x="730" y="140" text-anchor="middle" class="label">متعدد المتجهات (كولبيرت)</text>
+  <text x="730" y="160" text-anchor="middle" class="caption">ناقل واحد لكل رمز</text>
+
+  <rect x="620" y="180" width="220" height="30" class="hot"/>
+  <text x="730" y="200" text-anchor="middle" class="content">[v_Apple، v_released،...]</text>
+  <text x="730" y="225" text-anchor="middle" class="dim">(n_tokens، 128)</text>
+
+  <text x="730" y="260" text-anchor="middle" class="caption">MaxSim: لكل رمز q</text>
+  <text x="730" y="278" text-anchor="middle" class="caption">احصل على أفضل تطابق d-token</text>
+  <text x="730" y="310" text-anchor="middle" class="label">tradeoff:</text>
+  <text x="730" y="328" text-anchor="middle" class="content">مؤشر أكبر,</text>
+  <text x="730" y="346" text-anchor="middle" class="content">من الأفضل أن نتذكر على المدى الطويل</text>
+  <text x="730" y="364" text-anchor="middle" class="content">والاستفسارات المتخصصة</text>
+
+  <text x="450" y="405" text-anchor="middle" class="caption">BGE-M3 يُصدر الثلاثة من تمريرة أمامية واحدة — يدمج مع المجموع المرجح أو RRF</text>
+</svg>

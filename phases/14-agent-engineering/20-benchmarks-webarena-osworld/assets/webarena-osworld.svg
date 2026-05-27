@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .wa { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .osw { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .fail { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">WebArena وOSWorld — معايير وكيل الويب وسطح المكتب</text>
+
+  <rect x="40" y="50" width="440" height="250" class="wa"/>
+  <text x="260" y="72" text-anchor="middle" class="head">وكلاء الويب WebArena</text>
+  <text x="60" y="96" class="small">812 مهمة، 4 تطبيقات ذاتية الاستضافة</text>
+  <rect x="60" y="108" width="400" height="30" class="box"/>
+  <text x="78" y="128" class="step">التسوق، المنتدى، gitالمختبر، الأعمال CMS</text>
+  <rect x="60" y="140" width="400" height="30" class="box"/>
+  <text x="78" y="160" class="step">+ المرافق: الخريطة، الآلة الحاسبة، المسودة</text>
+  <rect x="60" y="172" width="400" height="30" class="box"/>
+  <text x="78" y="192" class="step">التقييم القائم على التنفيذ عبر صالة الألعاب الرياضية APIs</text>
+  <rect x="60" y="204" width="400" height="30" class="box"/>
+  <text x="78" y="224" class="step">الإصدار: GPT-4 الوكيل 14.41%، الإنسان 78.24%</text>
+  <rect x="60" y="236" width="400" height="30" class="box"/>
+  <text x="78" y="256" class="step">الامتدادات: VisualWebArena، TheAgentCompany</text>
+  <rect x="60" y="268" width="400" height="28" class="box"/>
+  <text x="78" y="288" class="step">إصدارات التطبيق المثبتة</text>
+
+  <rect x="500" y="50" width="420" height="250" class="osw"/>
+  <text x="710" y="72" text-anchor="middle" class="head">وكلاء سطح المكتب OSWorld</text>
+  <text x="520" y="96" class="small">369 مهمة، Ubuntu + Windows + macOS</text>
+  <rect x="520" y="108" width="380" height="30" class="box"/>
+  <text x="538" y="128" class="step">لقطات شاشة مقاس 1920 × 1080 كملاحظة</text>
+  <rect x="520" y="140" width="380" height="30" class="box"/>
+  <text x="538" y="160" class="step">لوحة المفاتيح + التحكم بالماوس في التطبيقات الحقيقية</text>
+  <rect x="520" y="172" width="380" height="30" class="box"/>
+  <text x="538" y="192" class="step">الإصدار: أفضل موديل 12.24%، بشري 72.36%</text>
+  <rect x="520" y="204" width="380" height="30" class="box"/>
+  <text x="538" y="224" class="step">OSWorld-G: مجموعة التأريض المكونة من 564 عينة + تدريب الجيداي</text>
+  <rect x="520" y="236" width="380" height="30" class="box"/>
+  <text x="538" y="256" class="step">OSWorld-Human: مسارات الذهب المتخصصة</text>
+  <rect x="520" y="268" width="380" height="28" class="box"/>
+  <text x="538" y="288" class="step">يستخدم كبار الوكلاء 1.4-2.7x خطوات أكثر من اللازم</text>
+
+  <rect x="40" y="320" width="880" height="200" class="fail"/>
+  <text x="480" y="342" text-anchor="middle" class="head">وضعين الفشل الأساسي</text>
+  <rect x="60" y="358" width="840" height="40" class="box"/>
+  <text x="78" y="380" class="step">1. GUI بكسل التأريض لتعيين العناصر</text>
+  <text x="78" y="394" class="small">لا يمكن للنموذج ترجمة الزر بشكل موثوق؛ تهيمن النقرات الخاطئة على حالات الفشل ذات المستوى المنخفض</text>
+  <rect x="60" y="402" width="840" height="40" class="box"/>
+  <text x="78" y="424" class="step">2. المعرفة التشغيلية التي القائمة، والتي الاختصار</text>
+  <text x="78" y="438" class="small">المعرفة التي يبنيها البشر على مر السنين؛ يخمن الوكلاء من لقطات التدريب</text>
+  <rect x="60" y="446" width="840" height="64" class="box"/>
+  <text x="78" y="468" class="step">إصلاح الإنتاج: Claude/OpenAI CUA/استخدام كمبيوتر الجوزاء (الدرس 21)</text>
+  <text x="78" y="486" class="small">على أساس الرؤية. تم تدريبهم على أعباء العمل على شكل WebArena/OSWorld؛</text>
+  <text x="78" y="502" class="small">تقوم خدمات السلامة لكل خطوة بتقييم كل إجراء قبل التنفيذ</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">تقرير معدل النجاح AND كفاءة المسار (الخطوات / الذهب) في كل شوط.</text>
+</svg>

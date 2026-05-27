@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">ثلاث دراسات حالة أساسية لعام 2026 - اختر المرجع الأقرب</text>
+
+  <rect x="40" y="60" width="280" height="230" class="cool"/>
+  <text x="180" y="84" text-anchor="middle" class="head">البحوث الأنثروبولوجية</text>
+  <text x="180" y="104" text-anchor="middle" class="step">مشرف + عمال</text>
+  <text x="180" y="134" text-anchor="middle" class="small">خطط Opus 4 + التجميعات</text>
+  <text x="180" y="152" text-anchor="middle" class="small">بحث عن الوكلاء الفرعيين لـ Sonnet 4</text>
+  <text x="180" y="172" text-anchor="middle" class="small">سياق جديد لكل وكيل فرعي</text>
+  <text x="180" y="200" text-anchor="middle" class="step">+90.2% على Opus 4 المنفردة</text>
+  <text x="180" y="220" text-anchor="middle" class="small">15x الرموز لكل استعلام</text>
+  <text x="180" y="238" text-anchor="middle" class="small">قوس قزح ينشر إلزاميا</text>
+  <text x="180" y="268" text-anchor="middle" class="caption">تستخدم لـ: البحث، المهام المعرفية</text>
+
+  <rect x="340" y="60" width="280" height="230" class="cold"/>
+  <text x="480" y="84" text-anchor="middle" class="head">ميتاغبت / شات ديف</text>
+  <text x="480" y="104" text-anchor="middle" class="step">SOP تحليل الأدوار</text>
+  <text x="480" y="134" text-anchor="middle" class="small">PM · مهندس معماري · مبرمج · QA</text>
+  <text x="480" y="152" text-anchor="middle" class="small">الرمز = SOP(الفريق)</text>
+  <text x="480" y="172" text-anchor="middle" class="small">عمليات تسليم القطع الأثرية المنظمة</text>
+  <text x="480" y="200" text-anchor="middle" class="step">communicative</text>
+  <text x="480" y="218" text-anchor="middle" class="step">dehallucination</text>
+  <text x="480" y="238" text-anchor="middle" class="small">MacNet: أكثر من 1000 وكيل عبر DAG</text>
+  <text x="480" y="268" text-anchor="middle" class="caption">الاستخدام من أجل: سير العمل الهندسي</text>
+
+  <rect x="640" y="60" width="280" height="230" class="hot"/>
+  <text x="780" y="84" text-anchor="middle" class="head">أوبنكلاو / مولتبوك</text>
+  <text x="780" y="104" text-anchor="middle" class="step">الركيزة على نطاق السكان</text>
+  <text x="780" y="134" text-anchor="middle" class="small">Clawdbot نوفمبر 2025 → 247 ألف ⭐</text>
+  <text x="780" y="152" text-anchor="middle" class="small">وكلاء مولتبوك 2.3M</text>
+  <text x="780" y="172" text-anchor="middle" class="small">اكتساب ميتا مارس 2026</text>
+  <text x="780" y="200" text-anchor="middle" class="step">الاقتصاد الناشئ</text>
+  <text x="780" y="218" text-anchor="middle" class="step">الحقن الفوري على نطاق واسع</text>
+  <text x="780" y="238" text-anchor="middle" class="small">استجابة التنظيم على مستوى الدولة</text>
+  <text x="780" y="268" text-anchor="middle" class="caption">تستخدم لـ: المنتجات الاجتماعية/الشبكية</text>
+
+  <rect x="40" y="310" width="880" height="190" class="box"/>
+  <text x="480" y="334" text-anchor="middle" class="head">المشهد الإطاري – أبريل 2026</text>
+
+  <text x="60" y="368" class="step">LangGraph</text>
+  <text x="260" y="368" class="small">قائد الإنتاج · الرسم البياني + نقاط التفتيش + HITL</text>
+
+  <text x="60" y="394" class="step">CrewAI</text>
+  <text x="260" y="394" class="small">قائد الإنتاج · أطقم تعتمد على الأدوار (متسلسلة / هرمية)</text>
+
+  <text x="60" y="420" class="step">OpenAI الوكلاء SDK</text>
+  <text x="260" y="420" class="small">الإنتاج · خليفة السرب · عمليات تسليم الأدوات وإرجاعها</text>
+
+  <text x="60" y="446" class="step">إطار عمل وكيل مايكروسوفت</text>
+  <text x="260" y="446" class="small">RC فبراير 2026 · أنماط التنسيق · تم دمج AutoGen في</text>
+
+  <text x="60" y="472" class="step">جوجل ADK · إنساني SDK</text>
+  <text x="260" y="472" class="small">الإنتاج · A2A- أصلي وبحثي على التوالي</text>
+
+  <text x="60" y="496" class="caption">جميع السفن MCP; معظم السفن A2A — لم يعد توافق البروتوكول عامل تمييز</text>
+</svg>

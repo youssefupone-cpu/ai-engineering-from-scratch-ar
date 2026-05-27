@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .warn { fill: #fde0b4; stroke: #b5651d; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">أوضاع إذن Claude Code ومصنف الوضع التلقائي</text>
+
+  <rect x="40" y="50" width="800" height="460" class="box"/>
+
+  <!-- Permission ladder -->
+  <text x="60" y="80" class="label">سلم الإذن (ضيق -&gt; فضفاض)</text>
+
+  <rect x="60" y="96" width="130" height="46" class="cool"/>
+  <text x="125" y="116" text-anchor="middle" class="label">plan</text>
+  <text x="125" y="132" text-anchor="middle" class="small">اسأل قبل أي شيء</text>
+
+  <rect x="200" y="96" width="130" height="46" class="cold"/>
+  <text x="265" y="116" text-anchor="middle" class="label">default</text>
+  <text x="265" y="132" text-anchor="middle" class="small">اسأل عن العمليات المحفوفة بالمخاطر</text>
+
+  <rect x="340" y="96" width="130" height="46" class="dsk"/>
+  <text x="405" y="116" text-anchor="middle" class="label">acceptEdits</text>
+  <text x="405" y="132" text-anchor="middle" class="small">يكتب تلقائياً؛ يسأل التنفيذي</text>
+
+  <rect x="480" y="96" width="130" height="46" class="warn"/>
+  <text x="545" y="116" text-anchor="middle" class="label">autoMode</text>
+  <text x="545" y="132" text-anchor="middle" class="small">يوافق المصنف</text>
+
+  <rect x="620" y="96" width="90" height="46" class="hot"/>
+  <text x="665" y="116" text-anchor="middle" class="label">yolo</text>
+  <text x="665" y="132" text-anchor="middle" class="small">سريعة الزوال فقط</text>
+
+  <rect x="720" y="96" width="110" height="46" class="hot"/>
+  <text x="775" y="116" text-anchor="middle" class="label">bypassPermissions</text>
+  <text x="775" y="132" text-anchor="middle" class="small">رمل رمي</text>
+
+  <!-- Auto Mode internals -->
+  <rect x="60" y="170" width="770" height="200" class="box"/>
+  <text x="445" y="192" text-anchor="middle" class="label">الوضع التلقائي (24 مارس 2026) - مصنف الأمان على مرحلتين</text>
+
+  <rect x="80" y="210" width="180" height="110" class="cool"/>
+  <text x="170" y="232" text-anchor="middle" class="label">الإجراء المقترح</text>
+  <text x="170" y="252" text-anchor="middle" class="small">الأداة + الحمولة</text>
+  <text x="170" y="270" text-anchor="middle" class="small">من حلقة الوكيل</text>
+
+  <rect x="290" y="210" width="180" height="110" class="warn"/>
+  <text x="380" y="232" text-anchor="middle" class="label">مصنف المرحلة 1</text>
+  <text x="380" y="252" text-anchor="middle" class="small">فحص رمز واحد</text>
+  <text x="380" y="270" text-anchor="middle" class="small">يعمل بالتوازي</text>
+  <text x="380" y="288" text-anchor="middle" class="small">قاعدة الكلمات الرئيسية الرخيصة</text>
+
+  <rect x="500" y="210" width="180" height="110" class="hot"/>
+  <text x="590" y="232" text-anchor="middle" class="label">مراجعة المرحلة الثانية</text>
+  <text x="590" y="252" text-anchor="middle" class="small">chain-of-thought</text>
+  <text x="590" y="270" text-anchor="middle" class="small">سياق المسار</text>
+  <text x="590" y="288" text-anchor="middle" class="small">(فقط على الأعلام)</text>
+
+  <rect x="710" y="210" width="120" height="110" class="cold"/>
+  <text x="770" y="232" text-anchor="middle" class="label">HITL</text>
+  <text x="770" y="252" text-anchor="middle" class="small">ثقة منخفضة</text>
+  <text x="770" y="270" text-anchor="middle" class="small">escalation</text>
+
+  <path d="M260 265 L290 265" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M470 265 L500 265" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M680 265 L710 265" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="380" y="340" text-anchor="middle" class="small">لم يتم وضع علامة -&gt; التنفيذ على الفور</text>
+  <text x="590" y="340" text-anchor="middle" class="small">كتلة صلبة على أشكال priv-esc/exfil</text>
+
+  <!-- Budget line -->
+  <rect x="60" y="390" width="770" height="100" class="hot"/>
+  <text x="445" y="412" text-anchor="middle" class="label">ضوابط الميزانية غير قابلة للتفاوض (الدرس 13)</text>
+  <text x="80" y="434" class="content">max_turns = غطاء ثابت لتكرارات حلقة الوكيل</text>
+  <text x="80" y="450" class="content">max_budget_usd = مفتاح إيقاف الدولار؛ إحباط الجلسة عند الانتهاك</text>
+  <text x="80" y="466" class="content">قبعات لكل أداة = على سبيل المثال ما لا يزيد عن N WebFetch من المكالمات لكل جلسة</text>
+  <text x="80" y="482" class="small">تم شحن الوضع التلقائي الأنثروبي كمعاينة بحثية؛ المصنف هو طبقة وليس حلاً.</text>
+</svg>

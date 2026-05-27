@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .edge { stroke: #555; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">الهجرة pipeline - وصفات حتمية + وكيل احتياطي</text>
+
+  <rect x="40" y="60" width="220" height="100" class="cool"/>
+  <text x="150" y="86" text-anchor="middle" class="step">تمريرة حتمية</text>
+  <text x="150" y="106" text-anchor="middle" class="small">إعادة الكتابة المفتوحة (جافا)</text>
+  <text x="150" y="122" text-anchor="middle" class="small">ليبكست (بايثون)</text>
+  <text x="150" y="142" text-anchor="middle" class="small">70-80% من عمليات إعادة الكتابة</text>
+
+  <rect x="300" y="60" width="220" height="100" class="cold"/>
+  <text x="410" y="86" text-anchor="middle" class="step">رمل دايتونا</text>
+  <text x="410" y="106" text-anchor="middle" class="small">وقت التشغيل المستهدف المثبت مسبقًا</text>
+  <text x="410" y="122" text-anchor="middle" class="small">مدخلات على مستوى الفرع، للقراءة فقط</text>
+  <text x="410" y="142" text-anchor="middle" class="small">بناء لكل فرع</text>
+
+  <rect x="560" y="60" width="360" height="100" class="dsk"/>
+  <text x="740" y="86" text-anchor="middle" class="step">حلقة الوكيل</text>
+  <text x="740" y="106" text-anchor="middle" class="small">كلود أوبوس 4.7 + GPT-5.4-Codex</text>
+  <text x="740" y="122" text-anchor="middle" class="small">تصنيف الفشل -&gt; التصحيح -&gt; إعادة التشغيل</text>
+  <text x="740" y="142" text-anchor="middle" class="small">الميزانية: 30 دقيقة / 8 دولارات / 20 دورة</text>
+
+  <path d="M260,110 L300,110" class="edge"/>
+  <path d="M520,110 L560,110" class="edge"/>
+
+  <rect x="40" y="200" width="440" height="310" class="box"/>
+  <text x="260" y="222" text-anchor="middle" class="head">تصنيف الفشل (عبر 50 اتفاقًا)</text>
+
+  <rect x="60" y="244" width="400" height="28" class="hot"/>
+  <text x="80" y="263" class="small">dep_upgrade_required 30%</text>
+  <rect x="60" y="276" width="400" height="28" class="hot"/>
+  <text x="80" y="295" class="small">build_tool_drift 20%</text>
+  <rect x="60" y="308" width="400" height="28" class="hot"/>
+  <text x="80" y="327" class="small">تعليق توضيحي مخصص 18%</text>
+  <rect x="60" y="340" width="400" height="28" class="cool"/>
+  <text x="80" y="359" class="small">Syntax_edge_case 17%</text>
+  <rect x="60" y="372" width="400" height="28" class="cool"/>
+  <text x="80" y="391" class="small">اختبار_رقاقة 15%</text>
+
+  <rect x="60" y="410" width="400" height="90" class="box"/>
+  <text x="260" y="432" text-anchor="middle" class="head">ما يفتح التصنيف</text>
+  <text x="260" y="452" text-anchor="middle" class="small">تصبح الفئات الثلاثة الأولى هي الهدف التالي للوصفة</text>
+  <text x="260" y="470" text-anchor="middle" class="small">يتوقف الوكيل عن إعادة تعلم الأنماط الميكانيكية</text>
+  <text x="260" y="488" text-anchor="middle" class="small">معدل النجاح لكل فصل يدفع سياسة النمط الحديث</text>
+
+  <rect x="510" y="200" width="410" height="310" class="box"/>
+  <text x="715" y="222" text-anchor="middle" class="head">المقاييس (مجموعة النجاح)</text>
+  <rect x="530" y="244" width="380" height="32" class="cool"/>
+  <text x="720" y="265" text-anchor="middle" class="step">MigrationBench pass@1: هدف بنسبة 60-70%</text>
+
+  <rect x="530" y="284" width="380" height="32" class="cool"/>
+  <text x="720" y="305" text-anchor="middle" class="step">متوسط ​​$/الريبو: 2-4 دولارات بمقياس 50 ريبو</text>
+
+  <rect x="530" y="324" width="380" height="32" class="cool"/>
+  <text x="720" y="345" text-anchor="middle" class="step">دلتا التغطية: ضمن +/- 1% من القاعدة</text>
+
+  <rect x="530" y="364" width="380" height="32" class="cool"/>
+  <text x="720" y="385" text-anchor="middle" class="step">الوقت إلى اللون الأخضر p50: &lt;10 دقائق</text>
+
+  <rect x="530" y="404" width="380" height="96" class="dsk"/>
+  <text x="720" y="426" text-anchor="middle" class="head">compare-to-baseline</text>
+  <text x="720" y="446" text-anchor="middle" class="small">الحتمية فقط: نسبة النجاح 35-45%</text>
+  <text x="720" y="464" text-anchor="middle" class="small">طبقة الوكيل هي المكان الذي تعيش فيه الدلتا</text>
+  <text x="720" y="486" text-anchor="middle" class="caption">النشر جنبًا إلى جنب، حسب فئة الفشل</text>
+</svg>

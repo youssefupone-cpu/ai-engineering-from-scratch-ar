@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .write { fill: #ffe0cc; stroke: #c0392b; stroke-width: 1.5; }
+      .read { fill: #e0f2e0; stroke: #2d7a2d; stroke-width: 1.5; }
+      .miss { fill: #eee; stroke: #666; stroke-width: 1.2; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .sub { font-size: 12px; fill: #333; }
+      .mono { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .tag { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .line { stroke: #1a1a1a; stroke-width: 1.3; fill: none; }
+      .dash { stroke: #666; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">التخزين المؤقت الفوري: كتابة واحدة، العديد من القراءات</text>
+
+  <!-- Request 1 -->
+  <text x="60" y="80" class="label">الطلب 1</text>
+  <rect x="60" y="95" width="500" height="40" class="write"/>
+  <text x="310" y="120" text-anchor="middle" class="sub">[النظام + الأدوات + عدد قليل من اللقطات] 15000 توك (CACHE WRITE)</text>
+  <rect x="560" y="95" width="140" height="40" class="box"/>
+  <text x="630" y="120" text-anchor="middle" class="sub">[رسالة المستخدم] 400 توك</text>
+  <text x="720" y="120" class="mono">الفاتورة: 15,000*1.25x+400*1x</text>
+
+  <!-- Request 2 -->
+  <text x="60" y="170" class="label">الطلب 2</text>
+  <rect x="60" y="185" width="500" height="40" class="read"/>
+  <text x="310" y="210" text-anchor="middle" class="sub">[نفس البادئة] 15000 توك (CACHE READ)</text>
+  <rect x="560" y="185" width="140" height="40" class="box"/>
+  <text x="630" y="210" text-anchor="middle" class="sub">[رسالة المستخدم] 400 توك</text>
+  <text x="720" y="210" class="mono">الفاتورة: 15,000*0.1x+400*1x</text>
+
+  <!-- Request N -->
+  <text x="60" y="260" class="label">طلب ن</text>
+  <rect x="60" y="275" width="500" height="40" class="read"/>
+  <text x="310" y="300" text-anchor="middle" class="sub">[نفس البادئة] 15000 توك (CACHE READ)</text>
+  <rect x="560" y="275" width="140" height="40" class="box"/>
+  <text x="630" y="300" text-anchor="middle" class="sub">[رسالة المستخدم] 400 توك</text>
+  <text x="720" y="300" class="mono">الفاتورة: 15,000*0.1x+400*1x</text>
+
+  <!-- BAD example -->
+  <path d="M60 340 L840 340" class="dash"/>
+  <text x="60" y="370" class="label">مكافحة النمط: الطابع الزمني في الأعلى</text>
+  <rect x="60" y="385" width="140" height="40" class="miss"/>
+  <text x="130" y="410" text-anchor="middle" class="mono">"15:30:02"</text>
+  <rect x="200" y="385" width="360" height="40" class="miss"/>
+  <text x="380" y="410" text-anchor="middle" class="sub">[باقي البادئة] لا يزال 15000 توك</text>
+  <rect x="560" y="385" width="140" height="40" class="box"/>
+  <text x="630" y="410" text-anchor="middle" class="sub">[رسالة المستخدم]</text>
+  <text x="720" y="410" class="mono">كل طلب MISSES: لا توجد بادئة مشتركة</text>
+
+  <text x="450" y="460" text-anchor="middle" class="tag">
+    التعادل: الأنثروبي يدفع بعد القراءة الثانية؛ ساعة واحدة TTL تكلف الكتابة مرتين ولكن يتم إعادة استخدامها لفترة أطول بمقدار 12 مرة.
+  </text>
+</svg>

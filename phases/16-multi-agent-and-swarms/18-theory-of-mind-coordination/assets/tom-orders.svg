@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">نظرية أوامر العقل ووهم التنسيق</text>
+
+  <rect x="40" y="60" width="280" height="200" class="hot"/>
+  <text x="180" y="84" text-anchor="middle" class="head">zeroth-order</text>
+  <text x="180" y="108" text-anchor="middle" class="step">لا نموذج للآخرين</text>
+  <text x="180" y="138" text-anchor="middle" class="small">يتصرف الوكيل بناءً على ملاحظاته الخاصة فقط</text>
+  <text x="180" y="156" text-anchor="middle" class="small">يصطدم مع وكلاء آخرين</text>
+  <text x="180" y="174" text-anchor="middle" class="small">يكرر الجهد على الموارد المشتركة</text>
+  <text x="180" y="206" text-anchor="middle" class="caption">تم القياس: ~0.96 تصادم/تجربة</text>
+  <text x="180" y="224" text-anchor="middle" class="caption">(3 وكلاء، 3 صناديق، لا يوجد كتاب)</text>
+
+  <rect x="340" y="60" width="280" height="200" class="cool"/>
+  <text x="480" y="84" text-anchor="middle" class="head">first-order</text>
+  <text x="480" y="108" text-anchor="middle" class="step">"أ يؤمن X"</text>
+  <text x="480" y="138" text-anchor="middle" class="small">وكيل يتتبع معتقدات بعضهم البعض</text>
+  <text x="480" y="156" text-anchor="middle" class="small">يتنبأ بالعمل من المعتقدات النموذجية</text>
+  <text x="480" y="174" text-anchor="middle" class="small">يتجنب التكرار + يتوقع الحاجة</text>
+  <text x="480" y="206" text-anchor="middle" class="caption">تم قياسها: ~0.00 تصادمات/تجربة</text>
+  <text x="480" y="224" text-anchor="middle" class="caption">(مع التفضيل الأولي)</text>
+
+  <rect x="640" y="60" width="280" height="200" class="cold"/>
+  <text x="780" y="84" text-anchor="middle" class="head">second-order</text>
+  <text x="780" y="108" text-anchor="middle" class="step">"أ يعتقد ب يعتقد X"</text>
+  <text x="780" y="138" text-anchor="middle" class="small">نمذجة الاعتقاد العودية</text>
+  <text x="780" y="156" text-anchor="middle" class="small">يظهر في الألعاب التعاونية</text>
+  <text x="780" y="174" text-anchor="middle" class="small">يتحلل على آفاق طويلة</text>
+  <text x="780" y="206" text-anchor="middle" class="caption">لي وآخرون. وضع فشل السياق 2023:</text>
+  <text x="780" y="224" text-anchor="middle" class="caption">يسقط ربط المعتقد بالهوية مع المنعطفات</text>
+
+  <rect x="40" y="290" width="880" height="200" class="box"/>
+  <text x="480" y="314" text-anchor="middle" class="head">وهم التنسيق (Riedl 2025, arXiv:2510.05174)</text>
+  <text x="70" y="346" class="step">claim</text>
+  <text x="140" y="346" class="small">"عملاؤنا ينسقون بشكل طارئ"</text>
+  <text x="70" y="372" class="step">failure</text>
+  <text x="140" y="372" class="small">يتم التنسيق بسرعة؛ قم بإزالة عبارة "العمل معًا" من موجه النظام، ويختفي التأثير</text>
+  <text x="70" y="398" class="step">audit</text>
+  <text x="140" y="398" class="small">تتطلب حالة التحكم، والاختبار الإحصائي، ومقياس التكامل، وفحص القدرات</text>
+  <text x="70" y="424" class="step">real</text>
+  <text x="140" y="424" class="small">التمايز المرتبط بالهوية + التكامل الموجه نحو الهدف + التآزر العالي المستوى</text>
+  <text x="70" y="450" class="step">only</text>
+  <text x="140" y="450" class="small">تنتج الحالة التي يطالب بها ToM كل الاحتمالات الثلاثة المذكورة أعلاه في تجربة ريدل السكانية</text>
+  <text x="70" y="476" class="caption">تُظهر النماذج الأكبر حجمًا بعض التنسيق دون مطالبة ToM، لكن التأثير أصغر</text>
+</svg>

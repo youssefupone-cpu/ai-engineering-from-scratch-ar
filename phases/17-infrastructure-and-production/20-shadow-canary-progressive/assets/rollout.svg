@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .shadow { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .canary { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .ab { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .gate { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">LLM تسلسل الطرح — الظل → الكناري → A/B → 100%</text>
+
+  <rect x="40" y="50" width="280" height="180" class="shadow"/>
+  <text x="180" y="72" text-anchor="middle" class="head">1. وضع الظل</text>
+  <text x="180" y="92" text-anchor="middle" class="step">تأثير صفر على المستخدم</text>
+  <text x="60" y="118" class="small">· تكرار طلبات همز للمرشح</text>
+  <text x="60" y="136" class="small">· تسجيل النواتج، والتهم رمزية، والكمون</text>
+  <text x="60" y="154" class="small">· الفرق مقابل مخرجات الإنتاج</text>
+  <text x="60" y="172" class="small">· المصيد: ارتفاع التكلفة، وتحولات الطول،</text>
+  <text x="60" y="190" class="small">  التغييرات رفض واضح، والأخطاء الفادحة</text>
+  <text x="180" y="214" text-anchor="middle" class="caption">ليس اختبار جودة — اختبار دخان</text>
+
+  <rect x="340" y="50" width="280" height="180" class="canary"/>
+  <text x="480" y="72" text-anchor="middle" class="head">2. طرح الكناري</text>
+  <text x="480" y="92" text-anchor="middle" class="step">1% → 10% → 25% → 50% → 75% → 100%</text>
+  <text x="360" y="118" class="small">· خمس بوابات في كل خطوة:</text>
+  <text x="360" y="136" class="small">  زمن الوصول P99 &gt; 1.5x خط الأساس</text>
+  <text x="360" y="154" class="small">  التكلفة/الطلب &gt; 1.2x خط الأساس</text>
+  <text x="360" y="172" class="small">  الخطأ/الرفض &gt; 2x خط الأساس</text>
+  <text x="360" y="190" class="small">  إزاحة طول الإخراج&gt; 1.4x</text>
+  <text x="360" y="208" class="small">  إبهام لأسفل &gt; 1.5x خط الأساس</text>
+
+  <rect x="640" y="50" width="280" height="180" class="ab"/>
+  <text x="780" y="72" text-anchor="middle" class="head">3. أ/ب (اختياري)</text>
+  <text x="780" y="92" text-anchor="middle" class="step">فقط للبدائل المتميزة</text>
+  <text x="660" y="118" class="small">· تقسيم 50/50</text>
+  <text x="660" y="136" class="small">· تشغيل حتى أهمية الإحصائيات</text>
+  <text x="660" y="154" class="small">· CUPED / تسلسلي / بنياميني-ح</text>
+  <text x="660" y="172" class="small">· تخطي البديل المحسن فقط</text>
+  <text x="660" y="190" class="small">· المرحلة 17 · 21 يغطي GrowthBook +</text>
+  <text x="660" y="208" class="small">  دلالات الإحصائيات</text>
+
+  <rect x="40" y="250" width="880" height="100" class="gate"/>
+  <text x="480" y="272" text-anchor="middle" class="head">عدم الحتمية تحدد أرضية الضوضاء</text>
+  <text x="480" y="294" text-anchor="middle" class="step">ما يصل إلى 15% تباين التشغيل للتشغيل على مدخلات متطابقة</text>
+  <text x="480" y="314" text-anchor="middle" class="small">الأسباب: GPU FP عدم الترابط، تباين حجم الدُفعة، أخذ العينات</text>
+  <text x="480" y="334" text-anchor="middle" class="caption">يجب أن تكون البوابات أعلى من مستوى الضوضاء، وليس على مستوى خط الأساس</text>
+
+  <rect x="40" y="370" width="880" height="110" class="box"/>
+  <text x="480" y="392" text-anchor="middle" class="head">التراجع في ثوان</text>
+  <text x="480" y="414" text-anchor="middle" class="step">علامة السياسة (إشارات الميزات) + دبوس النموذج (ملخص التسجيل)</text>
+  <text x="480" y="434" text-anchor="middle" class="step">التراجع = قلب العلم + إرجاع الملخص</text>
+  <text x="480" y="454" text-anchor="middle" class="small">إذا كان التراجع يتطلب إعادة النشر، فأنت بطيء جدًا - قم بإصلاح المكدس أولاً</text>
+  <text x="480" y="474" text-anchor="middle" class="caption">الأدوات: Argo Rollouts، وFlagger، وIstio Weighted، وKServe، ونظام العلم المميز</text>
+</svg>

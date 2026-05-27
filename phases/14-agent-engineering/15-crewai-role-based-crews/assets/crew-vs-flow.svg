@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .crew { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .flow { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .primitive { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">CrewAI — الوكيل، المهمة، الطاقم، العملية + التدفق للإنتاج</text>
+
+  <rect x="40" y="50" width="880" height="140" class="primitive"/>
+  <text x="480" y="72" text-anchor="middle" class="head">أربعة البدائيات</text>
+  <rect x="60" y="88" width="200" height="86" class="box"/>
+  <text x="160" y="108" text-anchor="middle" class="step">Agent</text>
+  <text x="78" y="128" class="small">الدور + الهدف + الخلفية الدرامية + الأدوات</text>
+  <text x="78" y="144" class="small">الأشكال الدرامية نغمة + حكم</text>
+  <text x="78" y="160" class="small">أبقِ الأمر محكمًا (&lt;200 كلمة)</text>
+  <rect x="280" y="88" width="200" height="86" class="box"/>
+  <text x="380" y="108" text-anchor="middle" class="step">Task</text>
+  <text x="298" y="128" class="small">الوصف + المتوقع_الناتج</text>
+  <text x="298" y="144" class="small">تم تعيينه لوكيل واحد</text>
+  <text x="298" y="160" class="small">قابلة لإعادة الاستخدام؛ يؤلف في أطقم</text>
+  <rect x="500" y="88" width="200" height="86" class="box"/>
+  <text x="600" y="108" text-anchor="middle" class="step">Crew</text>
+  <text x="518" y="128" class="small">الحاوية: الوكلاء + المهام</text>
+  <text x="518" y="144" class="small">تمتلك العملية</text>
+  <text x="518" y="160" class="small">متسلسل | الهرمي | بالتراضي</text>
+  <rect x="720" y="88" width="180" height="86" class="box"/>
+  <text x="810" y="108" text-anchor="middle" class="step">Process</text>
+  <text x="738" y="128" class="small">استراتيجية التنفيذ</text>
+  <text x="738" y="144" class="small">يضيف التسلسل الهرمي مدير</text>
+  <text x="738" y="160" class="small">الوصول فقط لأكثر من 4 متخصصين</text>
+
+  <rect x="40" y="210" width="420" height="300" class="crew"/>
+  <text x="250" y="232" text-anchor="middle" class="head">تعاون الطاقم المستقل</text>
+  <rect x="60" y="248" width="380" height="40" class="box"/>
+  <text x="78" y="270" class="step">صانع الخطوط العريضة للباحث</text>
+  <text x="78" y="284" class="small">شكل حر؛ تختار العملية الشكل في وقت التشغيل</text>
+  <rect x="60" y="296" width="380" height="40" class="box"/>
+  <text x="78" y="318" class="step">التسلسل الهرمي: يختار المدير الوكيل المتخصص التالي</text>
+  <rect x="60" y="344" width="380" height="40" class="box"/>
+  <text x="78" y="366" class="step">مناسب لـ: الاستكشاف، والمسودات الأولى، والعصف الذهني</text>
+  <rect x="60" y="392" width="380" height="40" class="box"/>
+  <text x="78" y="414" class="step">سيئ بالنسبة إلى: إعادة عرض المنتج، وعمليات التدقيق الحتمية، واتفاقيات مستوى الخدمة</text>
+  <rect x="60" y="440" width="380" height="60" class="box"/>
+  <text x="78" y="462" class="step">تباين الإخراج: مرتفع</text>
+  <text x="78" y="478" class="small">LLM يختار ترتيب المهام إذا كانت العملية=تسلسل هرمي</text>
+  <text x="78" y="494" class="small">مسار التصحيح: قراءة التتبع؛ لا يوجد رسم بياني للقراءة</text>
+
+  <rect x="480" y="210" width="440" height="300" class="flow"/>
+  <text x="700" y="232" text-anchor="middle" class="head">تدفق الحتمية يحركها الحدث</text>
+  <rect x="500" y="248" width="400" height="40" class="box"/>
+  <text x="518" y="270" class="step">@بدء البحث الموضح في الصياغة</text>
+  <text x="518" y="284" class="small">الكود يمتلك الرسم البياني؛ المهندسين يملكون الشكل</text>
+  <rect x="500" y="296" width="400" height="40" class="box"/>
+  <text x="518" y="318" class="step">@listen("researched"): يتم تشغيله عندما ينبعث هذا الموضوع</text>
+  <rect x="500" y="344" width="400" height="40" class="box"/>
+  <text x="518" y="366" class="step">مناسب لـ: الإنتاج، وإعادة التشغيل، واتفاقيات مستوى الخدمة، وعمليات التدقيق</text>
+  <rect x="500" y="392" width="400" height="40" class="box"/>
+  <text x="518" y="414" class="step">سيئ لـ: الإبداع المفتوح</text>
+  <rect x="500" y="440" width="400" height="60" class="box"/>
+  <text x="518" y="462" class="step">مستندات 2026: بدء الإنتاج باستخدام Flow</text>
+  <text x="518" y="478" class="small">قم بطي الطاقم كخطوات فرعية عندما يكتسب الحكم الذاتي تكلفة</text>
+  <text x="518" y="494" class="small">إمكانية الملاحظة: كل حدث هو مدى</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">نفس المهمة المكونة من ثلاث خطوات؛ الطاقم سائل، والتدفق ثابت. الاختيار عملي وليس معماري.</text>
+</svg>

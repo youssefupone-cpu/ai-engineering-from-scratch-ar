@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">حلقة ReAct — الفكر، الإجراء، الملاحظة حتى يتم تفعيل حالة التوقف</text>
+
+  <rect x="40" y="60" width="340" height="460" class="box"/>
+  <text x="210" y="82" text-anchor="middle" class="head">المكونات الخمسة</text>
+
+  <rect x="60" y="100" width="300" height="64" class="cool"/>
+  <text x="80" y="122" class="step">1. المخزن المؤقت للرسائل</text>
+  <text x="80" y="140" class="small">مستخدم، مساعد، أداة، مساعد، أداة،...</text>
+  <text x="80" y="156" class="small">كلا المخططين الإنسانيين + OpenAI يشفران هذا</text>
+
+  <rect x="60" y="172" width="300" height="64" class="cold"/>
+  <text x="80" y="194" class="step">2. أداة التسجيل</text>
+  <text x="80" y="212" class="small">اسم - مخطط - قابل للاستدعاء؛ التحقق من صحتها عند الإرسال</text>
+  <text x="80" y="228" class="small">التسجيل هو حدود وضع الحماية</text>
+
+  <rect x="60" y="244" width="300" height="64" class="hot"/>
+  <text x="80" y="266" class="step">3. حالة التوقف</text>
+  <text x="80" y="284" class="small">تشطيب واضح، لا توجد مكالمات للأدوات، استنفدت الميزانية</text>
+  <text x="80" y="300" class="small">اختر واحدة؛ خلطها يخفي أخطاء الإنهاء المبكر</text>
+
+  <rect x="60" y="316" width="300" height="64" class="dsk"/>
+  <text x="80" y="338" class="step">4. تحويل الميزانية</text>
+  <text x="80" y="356" class="small">غطاء ثابت على التكرارات؛ 40-400 أمر طبيعي</text>
+  <text x="80" y="372" class="small">مقياس لفئة المهمة، وليس العالمية واحدة</text>
+
+  <rect x="60" y="388" width="300" height="64" class="box"/>
+  <text x="80" y="410" class="step">5. منسق الملاحظة</text>
+  <text x="80" y="428" class="small">كل خطأ 400 يصبح سلسلة، وليس تعطلًا</text>
+  <text x="80" y="444" class="small">تحتاج استدعاءات الأداة المتوازية إلى tool_use_id</text>
+
+  <rect x="400" y="60" width="540" height="460" class="box"/>
+  <text x="670" y="82" text-anchor="middle" class="head">دورة واحدة، مشروحة</text>
+
+  <rect x="420" y="100" width="500" height="50" class="cool"/>
+  <text x="440" y="122" class="step">فكرت "أحتاج إلى ضريبة على 120 ثم أضفها"</text>
+  <text x="440" y="140" class="small">قناة الاستدلال الأصلية في عام 2026 (الإجابات API)، الرموز المميزة المضمنة سابقًا</text>
+
+  <rect x="420" y="158" width="500" height="50" class="cold"/>
+  <text x="440" y="180" class="step">حاسبة الحركة (expr='120 * 0.15")</text>
+  <text x="440" y="198" class="small">إخراج منظم، يتم إرساله من خلال سجل الأداة</text>
+
+  <rect x="420" y="216" width="500" height="50" class="hot"/>
+  <text x="440" y="238" class="step">الملاحظة 18.0</text>
+  <text x="440" y="256" class="small">غير موثوق به؛ قد يحتوي المحتوى المسترد على تعليمات محقونة</text>
+
+  <rect x="420" y="274" width="500" height="50" class="cool"/>
+  <text x="440" y="296" class="step">فكرة "أضف 120 + 18.0 وانتهى"</text>
+  <text x="440" y="314" class="small">تتكرر الحلقة حتى لا يكون لدى دور المساعد أي استدعاءات للأداة</text>
+
+  <rect x="420" y="332" width="500" height="50" class="cold"/>
+  <text x="440" y="354" class="step">حاسبة الحركة (expr = "120 + 18.0")</text>
+  <text x="440" y="372" class="small">الإرسال الموازي ممكن؛ Tool_use_id يرتبط بالنتائج</text>
+
+  <rect x="420" y="390" width="500" height="50" class="hot"/>
+  <text x="440" y="412" class="step">الملاحظة 138.0</text>
+  <text x="440" y="430" class="small">ردود الفعل الملاحظات. حلقة تخفيضات الميزانية</text>
+
+  <rect x="420" y="448" width="500" height="50" class="box"/>
+  <text x="440" y="470" class="step">إنهاء "المجموع شاملاً الضريبة 15% هو 138.0"</text>
+  <text x="440" y="488" class="small">حالة التوقف؛ ينبعث التتبع كنطاق لكل OTel GenAI</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">ReAct (Yao et al., 2023) هو الركيزة 2026. الأطر تغلفه؛ الحلقة لا تتغير.</text>
+</svg>

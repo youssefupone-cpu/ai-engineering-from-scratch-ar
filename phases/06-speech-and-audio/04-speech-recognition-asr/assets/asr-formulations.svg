@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="28" text-anchor="middle" class="title">ثلاث طرق لتعيين إطارات الصوت T إلى رموز U</text>
+
+  <!-- CTC column -->
+  <rect x="40" y="60" width="260" height="380" class="box"/>
+  <text x="170" y="85" text-anchor="middle" class="label">CTC — مستوى الإطار + فارغ</text>
+
+  <rect x="60" y="105" width="220" height="30" class="box"/>
+  <text x="170" y="125" text-anchor="middle" class="content">سجل ميل → التشفير</text>
+  <line x1="170" y1="140" x2="170" y2="158" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="163" width="220" height="30" class="hot"/>
+  <text x="170" y="183" text-anchor="middle" class="content">توزيع لكل إطار</text>
+  <line x1="170" y1="198" x2="170" y2="216" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="221" width="220" height="54" class="box"/>
+  <text x="170" y="240" text-anchor="middle" class="content">أرجماكس لكل إطار:</text>
+  <text x="170" y="258" text-anchor="middle" class="content">أ أ _ _ أ ب ب _ ج</text>
+  <line x1="170" y1="282" x2="170" y2="300" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="305" width="220" height="32" class="box"/>
+  <text x="170" y="325" text-anchor="middle" class="content">انهيار + غير فارغ → "aabc"</text>
+
+  <text x="170" y="365" text-anchor="middle" class="caption">غير AR، قابل للبث</text>
+  <text x="170" y="382" text-anchor="middle" class="caption">لا يوجد LM داخلي</text>
+  <text x="170" y="399" text-anchor="middle" class="caption">wav2vec 2.0، MMS</text>
+  <text x="170" y="423" text-anchor="middle" class="content" font-size="11">LibriSpeech-clean: ~1.9 WER</text>
+
+  <!-- RNN-T column -->
+  <rect x="320" y="60" width="260" height="380" class="hot"/>
+  <text x="450" y="85" text-anchor="middle" class="label">RNN-T — التشفير + التوقع</text>
+
+  <rect x="340" y="105" width="220" height="30" class="box"/>
+  <text x="450" y="125" text-anchor="middle" class="content">التشفير الصوتي (الإطارات)</text>
+  <line x1="450" y1="140" x2="450" y2="158" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="163" width="220" height="54" class="box"/>
+  <text x="450" y="182" text-anchor="middle" class="content">المتنبئ: الرموز السابقة →</text>
+  <text x="450" y="200" text-anchor="middle" class="content">state</text>
+  <line x1="450" y1="222" x2="450" y2="240" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="245" width="220" height="30" class="box"/>
+  <text x="450" y="265" text-anchor="middle" class="content">النجار → P(التالي | الإطار، التاريخ)</text>
+  <line x1="450" y1="282" x2="450" y2="300" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="305" width="220" height="30" class="box"/>
+  <text x="450" y="325" text-anchor="middle" class="content">تنبعث رمز مميز أو تخطي الإطار</text>
+
+  <text x="450" y="365" text-anchor="middle" class="caption">قابل للبث، داخلي LM</text>
+  <text x="450" y="382" text-anchor="middle" class="caption">شبكة فقدان ثلاثية الأبعاد معقدة</text>
+  <text x="450" y="399" text-anchor="middle" class="caption">ببغاء، ريفا، جوجل على الجهاز</text>
+  <text x="450" y="423" text-anchor="middle" class="content" font-size="11">LibriSpeech-clean: 1.40 WER (SOTA 2026)</text>
+
+  <!-- Attention Enc-Dec column -->
+  <rect x="600" y="60" width="260" height="380" class="box"/>
+  <text x="730" y="85" text-anchor="middle" class="label">الاهتمام - seq2seq</text>
+
+  <rect x="620" y="105" width="220" height="30" class="box"/>
+  <text x="730" y="125" text-anchor="middle" class="content">جهاز تشفير الصوت (6-32 لتر)</text>
+  <line x1="730" y1="140" x2="730" y2="158" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="620" y="163" width="220" height="30" class="box"/>
+  <text x="730" y="183" text-anchor="middle" class="content">فك التشفير عبر الحضور</text>
+  <line x1="730" y1="198" x2="730" y2="216" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="620" y="221" width="220" height="54" class="box"/>
+  <text x="730" y="240" text-anchor="middle" class="content">رموز الانحدار الذاتي:</text>
+  <text x="730" y="258" text-anchor="middle" class="content">BOS → مرحبًا → العالم → EOS</text>
+  <line x1="730" y1="282" x2="730" y2="300" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="620" y="305" width="220" height="30" class="box"/>
+  <text x="730" y="325" text-anchor="middle" class="content">الطوابع الزمنية من الاهتمام</text>
+
+  <text x="730" y="365" text-anchor="middle" class="caption">أعلى جودة دون اتصال بالإنترنت</text>
+  <text x="730" y="382" text-anchor="middle" class="caption">غير قابل للدفق بشكل افتراضي</text>
+  <text x="730" y="399" text-anchor="middle" class="caption">الهمس v3، SeamlessM4T</text>
+  <text x="730" y="423" text-anchor="middle" class="content" font-size="11">LibriSpeech-clean: 1.58 WER</text>
+</svg>

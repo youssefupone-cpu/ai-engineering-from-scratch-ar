@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 15px; font-weight: 700; fill: #1a1a1a; }
+      .tag { font-size: 10px; fill: #c0392b; font-weight: 600; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">ثلاث طبقات دفاعية – الكشف + العلامة المائية + المصدر</text>
+
+  <rect x="20" y="55" width="270" height="170" class="box"/>
+  <text x="155" y="78" text-anchor="middle" class="label">أ. كشف مكافحة الاحتيال</text>
+  <text x="155" y="96" text-anchor="middle" class="tag">ASVspoof 5 · AASIST · RawNet2</text>
+  <text x="35" y="124" class="content">إدخال الصوت → المصنف</text>
+  <text x="35" y="142" class="content">الإخراج: "حقيقي" أو "اصطناعي"</text>
+  <text x="35" y="162" class="content">EER 0.42% على ASVspoof 2019 LA</text>
+  <text x="35" y="180" class="content">EER 7.23% على ASVspoof 5 (العالم الحقيقي)</text>
+  <text x="35" y="208" class="caption">يتعامل مع الخصوم غير المتعاونين</text>
+
+  <rect x="305" y="55" width="270" height="170" class="hot"/>
+  <text x="440" y="78" text-anchor="middle" class="label">ب. العلامة المائية الصوتية</text>
+  <text x="440" y="96" text-anchor="middle" class="tag">AudioSeal · WaveVerify</text>
+  <text x="320" y="124" class="content">مولد يتضمن إشارة</text>
+  <text x="320" y="142" class="content">كاشف يستخرج الحمولة</text>
+  <text x="320" y="162" class="content">حمولة 16 بت لكل مقطع</text>
+  <text x="320" y="180" class="content">يبقى على قيد الحياة MP3 / EQ / الضوضاء</text>
+  <text x="320" y="208" class="caption">&gt; 99% دقة بت قبل الهجوم</text>
+
+  <rect x="590" y="55" width="270" height="170" class="box"/>
+  <text x="725" y="78" text-anchor="middle" class="label">ج- بيان المصدر</text>
+  <text x="725" y="96" text-anchor="middle" class="tag">C2PA · CAI</text>
+  <text x="605" y="124" class="content">البيان الموقع JSON</text>
+  <text x="605" y="142" class="content">منشئ · أداة · الطابع الزمني</text>
+  <text x="605" y="162" class="content">تجزئة التشفير</text>
+  <text x="605" y="180" class="content">يمكن التحقق منها خارج النطاق</text>
+  <text x="605" y="208" class="caption">يمكن تجاوزه عن طريق إعادة الترميز → الاقتران بالعلامة المائية</text>
+
+  <rect x="20" y="245" width="840" height="95" class="box"/>
+  <text x="440" y="267" text-anchor="middle" class="label">الفجوات الموجودة في كل دفاع - لماذا تحتاج إلى الثلاثة</text>
+  <text x="40" y="294" class="content">الكشف: يحط من OOD؛ overfits لمولدات وقت التدريب</text>
+  <text x="40" y="312" class="content">العلامة المائية: يكسر تغيير درجة الصوت كل علامة مائية 2026 (بت acc &lt;60%)</text>
+  <text x="40" y="330" class="content">المصدر: قابل للتجريد بشكل تافه عن طريق إعادة التشفير ← لا يفعل شيئًا بمفرده</text>
+
+  <rect x="20" y="350" width="840" height="105" class="hot"/>
+  <text x="440" y="372" text-anchor="middle" class="label">قائمة مراجعة الإنتاج لعام 2026 لأي عملية نشر للجيل الصوتي</text>
+  <text x="40" y="398" class="content">1. تضمين AudioSeal في كل جيل (يتم شحن الكاشف في CI)</text>
+  <text x="40" y="416" class="content">2. C2PA-بيان التوقيع بمعرف النموذج + معرف المستخدم + الطابع الزمني</text>
+  <text x="40" y="434" class="content">3. AASIST / كاشف RawNet2 الذي يعمل على صوت المكالمات الواردة (الاحتيال، إعادة التشغيل)</text>
+  <text x="40" y="452" class="content">4. سجل التدقيق + الاحتفاظ لمدة 30 يومًا + قطعة الموافقة + حد المعدل + مفتاح الإيقاف</text>
+</svg>

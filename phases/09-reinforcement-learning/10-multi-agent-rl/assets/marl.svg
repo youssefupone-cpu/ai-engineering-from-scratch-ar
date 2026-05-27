@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e8f1fb; stroke: #2471a3; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">أربعة أنظمة MARL، نفس شكل البيئة</text>
+
+  <rect x="40" y="60" width="200" height="170" class="box"/>
+  <text x="140" y="88" text-anchor="middle" class="label">مستقل PPO / س</text>
+  <text x="60" y="115" class="content">كل وكيل له خاصته</text>
+  <text x="60" y="135" class="content">السياسة والناقد</text>
+  <text x="60" y="160" class="content">يعامل الآخرين على أنهم بيئة</text>
+  <text x="140" y="195" text-anchor="middle" class="caption">بسيطة، لا توجد إشارة التنسيق</text>
+  <text x="140" y="215" text-anchor="middle" class="caption">فشل في اقتران ضيق</text>
+
+  <rect x="260" y="60" width="200" height="170" class="hot"/>
+  <text x="360" y="88" text-anchor="middle" class="label">CTDE (MAPPO/QMIX)</text>
+  <text x="280" y="115" class="content">الفاعل اللامركزي:</text>
+  <text x="280" y="133" class="content">  pi_i(a_i | o_i)</text>
+  <text x="280" y="158" class="content">الناقد المركزي:</text>
+  <text x="280" y="176" class="content">  س(ق، a_1،..، a_n)</text>
+  <text x="360" y="210" text-anchor="middle" class="caption">2026 التعاونية الافتراضية</text>
+
+  <rect x="480" y="60" width="200" height="170" class="cool"/>
+  <text x="580" y="88" text-anchor="middle" class="label">self-play</text>
+  <text x="500" y="115" class="content">وكيل واحد، دورين</text>
+  <text x="500" y="135" class="content">الخصم = لقطة الماضي</text>
+  <text x="500" y="160" class="content">التدرجات المتماثلة</text>
+  <text x="580" y="195" text-anchor="middle" class="caption">ألعاب محصلتها صفر</text>
+  <text x="580" y="215" text-anchor="middle" class="caption">ألفاجو/ألفا زيرو</text>
+
+  <rect x="700" y="60" width="160" height="170" class="box"/>
+  <text x="780" y="88" text-anchor="middle" class="label">لعب الدوري</text>
+  <text x="715" y="115" class="content">عدد السكان</text>
+  <text x="715" y="133" class="content">الماضي + الحالي</text>
+  <text x="715" y="153" class="content">السياسات؛ عينة</text>
+  <text x="715" y="171" class="content">opponents</text>
+  <text x="780" y="210" text-anchor="middle" class="caption">AlphaStar</text>
+
+  <rect x="40" y="260" width="820" height="150" class="box"/>
+  <text x="450" y="285" text-anchor="middle" class="label">الصعوبة الأساسية</text>
+  <text x="60" y="315" class="content">من وجهة نظر الوكيل i، تتضمن البيئة الآن pi_{-i}</text>
+  <text x="60" y="335" class="content">كما تعلم pi_{-i}، فإن الانتقال P(s' | s, a_i) غير ثابت</text>
+  <text x="60" y="355" class="content">فواصل خاصية ماركوف -&gt; لم تعد براهين التقارب الجدولية قابلة للتطبيق</text>
+  <text x="60" y="378" class="caption">CTDE يصلح هذه المشكلة من خلال تكييف الناقد مع العمل المشترك الكامل؛ اللعب الذاتي يعمل على إصلاحه من خلال البنية</text>
+
+  <text x="450" y="445" text-anchor="middle" class="caption">أضف وسيلة تواصل أو لغة أو MCTS وستحصل على أنظمة StarCraft II / Dota 2 / multi-agent LLM</text>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">مساحة تصميم مفتوحة الوزن VLM - خمسة محاور وسحبها القياسي</text>
+
+  <rect x="30" y="50" width="900" height="180" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">المحاور الخمسة لكل وصفة VLM مفتوحة</text>
+
+  <rect x="50" y="90" width="170" height="120" class="hot"/>
+  <text x="135" y="108" text-anchor="middle" class="step">1. برنامج تشفير الصور</text>
+  <text x="135" y="128" text-anchor="middle" class="small">CLIP / سيجليب 2</text>
+  <text x="135" y="144" text-anchor="middle" class="small">دينوف2/إنترنفيت</text>
+  <text x="135" y="164" text-anchor="middle" class="small">concat كثيفة</text>
+  <text x="135" y="184" text-anchor="middle" class="small">MM1: +3 MMMU</text>
+  <text x="135" y="200" text-anchor="middle" class="caption">SigLIP 2 يفوز عام 2026</text>
+
+  <rect x="230" y="90" width="170" height="120" class="cool"/>
+  <text x="315" y="108" text-anchor="middle" class="step">2. موصل</text>
+  <text x="315" y="128" text-anchor="middle" class="small">MLP / س-السابق</text>
+  <text x="315" y="144" text-anchor="middle" class="small">المدرك / C-Abstr</text>
+  <text x="315" y="164" text-anchor="middle" class="small">SVA (الكمبري)</text>
+  <text x="315" y="184" text-anchor="middle" class="small">~1 نقطة بينهما</text>
+  <text x="315" y="200" text-anchor="middle" class="caption">يختار عدد الرموز المميزة</text>
+
+  <rect x="410" y="90" width="170" height="120" class="cold"/>
+  <text x="495" y="108" text-anchor="middle" class="step">3. __ مصطلح_0__</text>
+  <text x="495" y="128" text-anchor="middle" class="small">لاما-3 / ميسترال</text>
+  <text x="495" y="144" text-anchor="middle" class="small">Qwen2.5 / فاي</text>
+  <text x="495" y="164" text-anchor="middle" class="small">7ب -&gt; هضبة 70ب</text>
+  <text x="495" y="184" text-anchor="middle" class="small">+2-4 / مضاعفة</text>
+  <text x="495" y="200" text-anchor="middle" class="caption">يحدد سقف المنطق</text>
+
+  <rect x="590" y="90" width="170" height="120" class="reg"/>
+  <text x="675" y="108" text-anchor="middle" class="step">4. البيانات</text>
+  <text x="675" y="128" text-anchor="middle" class="small">أزواج التسمية التوضيحية</text>
+  <text x="675" y="144" text-anchor="middle" class="small">معشق OBELICS</text>
+  <text x="675" y="164" text-anchor="middle" class="small">instr: LLaVA/ShareGPT4V</text>
+  <text x="675" y="184" text-anchor="middle" class="small">قبعات PixMo البشرية</text>
+  <text x="675" y="200" text-anchor="middle" class="caption">التفاصيل &gt; التقطير</text>
+
+  <rect x="770" y="90" width="150" height="120" class="hot"/>
+  <text x="845" y="108" text-anchor="middle" class="step">5. القرار</text>
+  <text x="845" y="128" text-anchor="middle" class="small">ثابت 336/448</text>
+  <text x="845" y="144" text-anchor="middle" class="small">تبليط AnyRes</text>
+  <text x="845" y="164" text-anchor="middle" class="small">ديناميكية أصلية</text>
+  <text x="845" y="184" text-anchor="middle" class="small">جدول زمني متصاعد</text>
+  <text x="845" y="200" text-anchor="middle" class="caption">OCR المضاعف</text>
+
+  <rect x="30" y="250" width="900" height="270" class="box"/>
+  <text x="480" y="272" text-anchor="middle" class="head">تحليل التباين VLMs المنشورية (مقارنة 7B تسيطر عليها)</text>
+
+  <g transform="translate(80, 290)">
+    <text x="0" y="15" class="step">عدد الرموز المرئية</text>
+    <rect x="200" y="0" width="360" height="18" class="hot"/>
+    <text x="575" y="15" class="small">~60%</text>
+
+    <text x="0" y="45" class="step">تشفير الصورة</text>
+    <rect x="200" y="30" width="120" height="18" class="cool"/>
+    <text x="335" y="45" class="small">~20%</text>
+
+    <text x="0" y="75" class="step">LLM الحجم</text>
+    <rect x="200" y="60" width="90" height="18" class="cold"/>
+    <text x="305" y="75" class="small">~15%</text>
+
+    <text x="0" y="105" class="step">مزيج البيانات</text>
+    <rect x="200" y="90" width="60" height="18" class="reg"/>
+    <text x="275" y="105" class="small">~10%</text>
+
+    <text x="0" y="135" class="step">قوس الموصل</text>
+    <rect x="200" y="120" width="30" height="18" class="hot"/>
+    <text x="245" y="135" class="small">~5%</text>
+
+    <text x="0" y="165" class="step">جدولة القرار</text>
+    <rect x="200" y="150" width="30" height="18" class="cool"/>
+    <text x="245" y="165" class="small">~5%</text>
+  </g>
+
+  <rect x="600" y="290" width="300" height="210" class="reg"/>
+  <text x="750" y="312" text-anchor="middle" class="head">الوصفة الافتراضية 2026</text>
+  <text x="750" y="334" text-anchor="middle" class="small">التشفير: SigLIP 2 SO400m/14</text>
+  <text x="750" y="350" text-anchor="middle" class="small">الموصل: طبقتان MLP</text>
+  <text x="750" y="366" text-anchor="middle" class="small">LLM: Qwen2.5-7B (أو 70B)</text>
+  <text x="750" y="382" text-anchor="middle" class="small">data: PixMo + Cauldron</text>
+  <text x="750" y="398" text-anchor="middle" class="small">الدقة: ديناميكي 256-1280</text>
+  <text x="750" y="414" text-anchor="middle" class="small">الجدول الزمني: 3 مراحل</text>
+  <text x="750" y="440" text-anchor="middle" class="step">تخلص أولاً:</text>
+  <text x="750" y="456" text-anchor="middle" class="small">1. عدد الرموز</text>
+  <text x="750" y="472" text-anchor="middle" class="small">2. التشفير</text>
+  <text x="750" y="488" text-anchor="middle" class="small">3. مزيج البيانات</text>
+</svg>

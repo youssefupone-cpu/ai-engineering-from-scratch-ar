@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .warn { fill: #fde0b4; stroke: #b5651d; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">قضبان الإدخال + النموذج + قضبان الإخراج + قضبان الحوار</text>
+
+  <rect x="40" y="50" width="800" height="460" class="box"/>
+
+  <!-- User turn -->
+  <rect x="60" y="80" width="130" height="60" class="cool"/>
+  <text x="125" y="104" text-anchor="middle" class="label">بدوره المستخدم</text>
+  <text x="125" y="122" text-anchor="middle" class="small">النص / الصورة</text>
+
+  <!-- Normalize -->
+  <rect x="210" y="80" width="130" height="60" class="warn"/>
+  <text x="275" y="104" text-anchor="middle" class="label">normalize</text>
+  <text x="275" y="122" text-anchor="middle" class="small">NFKC + رمز متجانس</text>
+
+  <!-- Input rail -->
+  <rect x="360" y="80" width="130" height="60" class="cold"/>
+  <text x="425" y="104" text-anchor="middle" class="label">السكك الحديدية الإدخال</text>
+  <text x="425" y="122" text-anchor="middle" class="small">حارس اللاما 4</text>
+
+  <!-- Model -->
+  <rect x="510" y="80" width="130" height="60" class="cool"/>
+  <text x="575" y="104" text-anchor="middle" class="label">النموذج الرئيسي</text>
+  <text x="575" y="122" text-anchor="middle" class="small">(الدرس 17 الأوزان)</text>
+
+  <!-- Output rail -->
+  <rect x="660" y="80" width="160" height="60" class="cold"/>
+  <text x="740" y="104" text-anchor="middle" class="label">السكك الحديدية الإخراج</text>
+  <text x="740" y="122" text-anchor="middle" class="small">حارس اللاما / regex</text>
+
+  <path d="M190 110 L210 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M340 110 L360 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M490 110 L510 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M640 110 L660 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Dialog rail -->
+  <rect x="60" y="160" width="760" height="50" class="warn"/>
+  <text x="440" y="184" text-anchor="middle" class="label">سكة الحوار (Colang): قيود المنعطفات المتقاطعة - على سبيل المثال. لا تناقش أبدًا التشخيص الطبي، حتى لو طُلب منك ذلك بثلاث طرق</text>
+
+  <!-- Taxonomy -->
+  <rect x="60" y="230" width="760" height="100" class="cool"/>
+  <text x="440" y="254" text-anchor="middle" class="label">التصنيف (حارس اللاما 4 S1–S14)</text>
+  <text x="80" y="276" class="content">S1 جرائم العنف · S2 الجرائم غير العنيفة · S3 الجرائم الجنسية · S4 استغلال الأطفال</text>
+  <text x="80" y="292" class="content">S5 التشهير · S6 نصيحة متخصصة · S7 الخصوصية · S8 IP · S9 الأسلحة العشوائية</text>
+  <text x="80" y="308" class="content">S10 الكراهية · S11 إيذاء النفس · S12 المحتوى الجنسي · S13 الانتخابات · S14 إساءة استخدام مترجم الكود</text>
+
+  <!-- Attack corpus -->
+  <rect x="60" y="350" width="760" height="140" class="hot"/>
+  <text x="440" y="374" text-anchor="middle" class="label">الممرات الالتفافية الموثقة — هوانغ وآخرون. أرخايف:2504.11168 (2025)</text>
+  <text x="80" y="398" class="content">تهريب الرموز التعبيرية: 100% ASR على أنظمة الحراسة الستة</text>
+  <text x="80" y="414" class="content">NeMo Guard Detect: 72.54% ASR في مجموعة الهروب من السجن العدائية</text>
+  <text x="80" y="430" class="content">استبدال Homoglyph: السيريلية "Р" لللاتينية "p"؛ يفتقد المصنف</text>
+  <text x="80" y="446" class="content">إعادة الصياغة الدلالية: نفس القصد، مفردات جديدة؛ الضبط الدقيق لا يمكن أن يغطي الكل</text>
+  <text x="80" y="466" class="content">التخفيف: التطبيع + المصنف + الدستور (L17) + وقت التشغيل (L10/13/14)</text>
+  <text x="80" y="482" class="small">المصنفات هي طبقة وليست حلاً</text>
+</svg>

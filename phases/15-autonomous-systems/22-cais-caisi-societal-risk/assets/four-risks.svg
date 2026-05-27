@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .warn { fill: #fde0b4; stroke: #b5651d; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">CAIS إطار المخاطر الأربعة + حيث يقوم الممارسون بسحب الرافعة</text>
+
+  <rect x="40" y="50" width="800" height="460" class="box"/>
+
+  <!-- Quadrants -->
+  <rect x="60" y="80" width="370" height="140" class="hot"/>
+  <text x="245" y="104" text-anchor="middle" class="label">1. الاستخدام الضار</text>
+  <text x="76" y="128" class="content">يستخدم الممثل السيئ AI للأذى</text>
+  <text x="76" y="146" class="small">تصنيع الأسلحة البيولوجية · التضليل · الهجمات السيبرانية</text>
+  <text x="76" y="170" class="content">mitigations:</text>
+  <text x="76" y="186" class="small">• المحظورات المضمنة (L17) · حارس اللاما (L18)</text>
+  <text x="76" y="202" class="small">• القائمة المسموح بها للأدوات (L10، L11)</text>
+
+  <rect x="450" y="80" width="370" height="140" class="warn"/>
+  <text x="635" y="104" text-anchor="middle" class="label">2. AI السباقات</text>
+  <text x="466" y="128" class="content">الضغط التنافسي يتجاوز السلامة</text>
+  <text x="466" y="146" class="small">المعامل · الشركات · الأمم</text>
+  <text x="466" y="170" class="content">mitigations:</text>
+  <text x="466" y="186" class="small">• سياسة التوسع مع تقارير المخاطر (L19، L20)</text>
+  <text x="466" y="202" class="small">• التقييم الخارجي (L21)</text>
+
+  <rect x="60" y="240" width="370" height="140" class="cool"/>
+  <text x="245" y="264" text-anchor="middle" class="label">3. المخاطر التنظيمية (يسحبها الممارسون)</text>
+  <text x="76" y="288" class="content">ديناميات المختبر الداخلية</text>
+  <text x="76" y="306" class="small">ثقافة السلامة · التدقيق · الدفاعات · أمن المعلومات</text>
+  <text x="76" y="330" class="content">mitigations:</text>
+  <text x="76" y="346" class="small">• مسارات التصعيد دون تكلفة وظيفية</text>
+  <text x="76" y="362" class="small">• تدقيق مستقل، ودفاعات متعددة الطبقات</text>
+
+  <rect x="450" y="240" width="370" height="140" class="cold"/>
+  <text x="635" y="264" text-anchor="middle" class="label">4. الذكاء الاصطناعي المارق</text>
+  <text x="466" y="288" class="content">قادر AI على متابعة الأهداف المنحرفة</text>
+  <text x="466" y="306" class="small">ينمو مع أفق الحكم الذاتي (L1، L21)</text>
+  <text x="466" y="330" class="content">mitigations:</text>
+  <text x="466" y="346" class="small">• مفاتيح القفل + جزر الكناري (L14)</text>
+  <text x="466" y="362" class="small">• الاقتراح ثم الالتزام (L15) · نقاط التفتيش (L16)</text>
+
+  <!-- Bottom strip: CAIS / CAISI / SB-53 -->
+  <rect x="60" y="400" width="760" height="90" class="box"/>
+  <text x="440" y="424" text-anchor="middle" class="label">الكيانات الثلاثة التي يجب معرفتها</text>
+  <text x="80" y="446" class="content">CAIS (مؤسسة غير ربحية، سان فرانسيسكو، 2022) — إطار المخاطر الأربعة؛ بيان الانقراض 2023</text>
+  <text x="80" y="462" class="content">CAISI (NIST المركز، US الحكومة) — الاتفاقيات الطوعية؛ تقييمات القدرات غير المصنفة</text>
+  <text x="80" y="478" class="content">كاليفورنيا SB-53 — أول US لائحة المخاطر الكارثية على مستوى الولاية إذا تم التوقيع عليها</text>
+</svg>

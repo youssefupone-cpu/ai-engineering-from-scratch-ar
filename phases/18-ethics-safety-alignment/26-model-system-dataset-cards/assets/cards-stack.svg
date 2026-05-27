@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">وثائق الشفافية: ثلاثة نطاقات</text>
+
+  <rect x="40" y="60" width="280" height="200" class="box"/>
+  <text x="180" y="85" text-anchor="middle" class="head">Datasheet</text>
+  <text x="180" y="105" text-anchor="middle" class="small">جيبرو وآخرون. 2018 (CACM 2021)</text>
+  <rect x="60" y="125" width="240" height="50" class="cold"/>
+  <text x="180" y="148" text-anchor="middle" class="step">المنبع: بيانات التدريب</text>
+  <text x="180" y="166" text-anchor="middle" class="small">الدافع والتكوين والجمع</text>
+  <rect x="60" y="185" width="240" height="60" class="cold"/>
+  <text x="180" y="208" text-anchor="middle" class="step">بطاقات البيانات (بوكارنا 2022)</text>
+  <text x="180" y="226" text-anchor="middle" class="small">تلسكوبي / بيريسكوبي / مجهري</text>
+
+  <rect x="340" y="60" width="280" height="200" class="box"/>
+  <text x="480" y="85" text-anchor="middle" class="head">البطاقة النموذجية</text>
+  <text x="480" y="105" text-anchor="middle" class="small">ميتشل وآخرون. 2019</text>
+  <rect x="360" y="125" width="240" height="50" class="cool"/>
+  <text x="480" y="148" text-anchor="middle" class="step">الوسط: النموذج</text>
+  <text x="480" y="166" text-anchor="middle" class="small">الاستخدام المقصود، العوامل، المقاييس</text>
+  <rect x="360" y="185" width="240" height="60" class="cool"/>
+  <text x="480" y="208" text-anchor="middle" class="step">التفصيل الكمي</text>
+  <text x="480" y="226" text-anchor="middle" class="small">الاعتبارات الأخلاقية (0.3% شغل)</text>
+
+  <rect x="640" y="60" width="280" height="200" class="box"/>
+  <text x="780" y="85" text-anchor="middle" class="head">بطاقة النظام</text>
+  <text x="780" y="105" text-anchor="middle" class="small">سيدبوروالا 2024 / المخططات 2025</text>
+  <rect x="660" y="125" width="240" height="50" class="hot"/>
+  <text x="780" y="148" text-anchor="middle" class="step">المصب: النشر</text>
+  <text x="780" y="166" text-anchor="middle" class="small">مكدس الأمان + الاستجابة للحوادث</text>
+  <rect x="660" y="185" width="240" height="60" class="hot"/>
+  <text x="780" y="208" text-anchor="middle" class="step">نطاق نهاية إلى نهاية</text>
+  <text x="780" y="226" text-anchor="middle" class="small">يغطي PI، exfil، المحاذاة</text>
+
+  <rect x="40" y="280" width="880" height="210" class="box"/>
+  <text x="480" y="305" text-anchor="middle" class="head">تطورات 2024-2025</text>
+  <text x="60" y="335" class="small">CardGen (Liu et al. 2024): التوليد الآلي عبر LLMs؛ موضوعية أعلى من العديد من البطاقات التي كتبها الإنسان.</text>
+  <text x="60" y="355" class="small">ارتباط التنزيل (Liang et al. 2024): بطاقات تفصيلية +29% HF تنزيلات - يعتمد الاعتماد على السوق.</text>
+  <text x="60" y="375" class="small">Laminator (Duddu et al. 2024): الأجهزة TEE + شهادات التشفير للمطالبات التي يمكن التحقق منها.</text>
+  <text x="60" y="395" class="small">الاستدامة (جونو وآخرون. يوليو 2025): مجالات الكربون والمياه والطاقة؛ معايير ISO الناشئة.</text>
+  <text x="60" y="415" class="small">EU AI القانون GPAI الفصل الخاص بشفافية قواعد الممارسة: البطاقات النموذجية باعتبارها عناصر امتثال.</text>
+  <text x="60" y="445" class="small">فجوة التبني: 0.3% من بطاقات نموذج HF توثق الاعتبارات الأخلاقية (Oreamuno et al. 2023).</text>
+  <text x="60" y="465" class="small">المعالجة: التوليد التلقائي + ضغط ارتباط التنزيل + المتطلبات التنظيمية.</text>
+  <text x="60" y="485" class="small">"مخططات الثقة" (arXiv:2509.20394) تضفي الطابع الرسمي على بطاقة النظام كمكمل لطبقة النشر.</text>
+</svg>

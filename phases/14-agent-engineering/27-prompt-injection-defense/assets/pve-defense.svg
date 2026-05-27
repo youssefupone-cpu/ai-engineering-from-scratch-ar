@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .attack { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .validator { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .defense { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">الدفاع الفوري عن طريق الحقن - تعامل مع المحتوى المسترد على أنه غير موثوق به</text>
+
+  <rect x="40" y="50" width="880" height="160" class="attack"/>
+  <text x="480" y="72" text-anchor="middle" class="head">جريشيك وآخرون. 2023 — الحقن الفوري غير المباشر</text>
+  <rect x="60" y="88" width="840" height="24" class="box"/>
+  <text x="78" y="104" class="step">1. يتحكم المهاجم في المحتوى القابل للاسترداد (صفحة الويب، PDF، البريد الإلكتروني، مذكرة الذاكرة)</text>
+  <rect x="60" y="116" width="840" height="24" class="box"/>
+  <text x="78" y="132" class="step">2. يستوعب الوكيل تعليمات المهاجم لتجاوز مطالبة المطور</text>
+  <rect x="60" y="144" width="840" height="24" class="box"/>
+  <text x="78" y="160" class="step">3. المآثر المثبتة: سرقة البيانات، والديدان، وتسمم الذاكرة، وتلوث النظام البيئي</text>
+  <rect x="60" y="172" width="840" height="30" class="box"/>
+  <text x="78" y="192" class="step">المطالبة: معالجة المطالبات المستردة = تنفيذ تعليمات برمجية عشوائية على سطح استخدام الأداة</text>
+
+  <rect x="40" y="230" width="440" height="280" class="validator"/>
+  <text x="260" y="252" text-anchor="middle" class="head">PVE نمط موجه، مدقق، منفذ</text>
+  <rect x="60" y="268" width="400" height="36" class="box"/>
+  <text x="78" y="290" class="step">1. يقترح النموذج الرئيسي استدعاء الأداة</text>
+  <rect x="60" y="308" width="400" height="36" class="box"/>
+  <text x="78" y="330" class="step">2. يقوم المدقق السريع الرخيص بفحص الحجج</text>
+  <rect x="60" y="348" width="400" height="36" class="box"/>
+  <text x="78" y="370" class="step">3. يقوم المدقق بفحص مصادر المحتوى المستردة</text>
+  <rect x="60" y="388" width="400" height="36" class="box"/>
+  <text x="78" y="410" class="step">4. رفض علامة الحقن أو الوجهة غير الآمنة</text>
+  <rect x="60" y="428" width="400" height="36" class="box"/>
+  <text x="78" y="450" class="step">5. تمرير منفذ التنفيذ. أخبر النموذج الرئيسي بالرفض</text>
+  <rect x="60" y="468" width="400" height="36" class="box"/>
+  <text x="78" y="490" class="step">التكلفة: استدلال إضافي واحد لكل استدعاء أداة</text>
+
+  <rect x="500" y="230" width="420" height="280" class="defense"/>
+  <text x="710" y="252" text-anchor="middle" class="head">عقيدة الدفاع السداسية (2026)</text>
+  <rect x="520" y="268" width="380" height="36" class="box"/>
+  <text x="538" y="290" class="step">1. جميع المحتويات المستردة غير موثوق بها</text>
+  <rect x="520" y="308" width="380" height="36" class="box"/>
+  <text x="538" y="330" class="step">2. التنقل في القائمة المسموح بها / القائمة المحظورة</text>
+  <rect x="520" y="348" width="380" height="36" class="box"/>
+  <text x="538" y="370" class="step">3. تقييم السلامة لكل خطوة (الجوزاء 2.5)</text>
+  <rect x="520" y="388" width="380" height="36" class="box"/>
+  <text x="538" y="410" class="step">4. حواجز حماية على مدخلات الأداة + مخرجاتها</text>
+  <rect x="520" y="428" width="380" height="36" class="box"/>
+  <text x="538" y="450" class="step">5. الإنسان على اطلاع على الإجراءات الحساسة</text>
+  <rect x="520" y="468" width="380" height="36" class="box"/>
+  <text x="538" y="490" class="step">6. التقاط المحتوى الخارجي + المراجع الممتدة</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">"التعليمات المباشرة فقط من المستخدم تعتبر إذنًا" - OpenAI CUA مستندات</text>
+</svg>

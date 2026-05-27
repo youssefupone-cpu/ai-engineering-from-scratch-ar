@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">Emu3 - نموذج واحد، خسارة واحدة، ثلاثة أدوار</text>
+
+  <rect x="30" y="50" width="900" height="240" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">محول فك تشفير واحد فقط مع مفردات مشتركة</text>
+
+  <rect x="50" y="90" width="270" height="190" class="hot"/>
+  <text x="185" y="110" text-anchor="middle" class="step">Emu3-Gen</text>
+  <text x="185" y="128" text-anchor="middle" class="small">النص -&gt; رموز الصور</text>
+  <text x="185" y="146" text-anchor="middle" class="small">512 × 512 = 4096 رمزًا</text>
+  <text x="185" y="164" text-anchor="middle" class="small">CFG جاما 3-7</text>
+  <text x="185" y="182" text-anchor="middle" class="small">درجة الحرارة 0.8</text>
+  <text x="185" y="210" text-anchor="middle" class="step">يطابق SDXL في FID</text>
+  <text x="185" y="234" text-anchor="middle" class="caption">لا يوجد جدول زمني للانتشار</text>
+  <text x="185" y="252" text-anchor="middle" class="caption">لا يوجد خسارة CLIP</text>
+
+  <rect x="345" y="90" width="270" height="190" class="cool"/>
+  <text x="480" y="110" text-anchor="middle" class="step">Emu3-Chat</text>
+  <text x="480" y="128" text-anchor="middle" class="small">الصورة -&gt; النص</text>
+  <text x="480" y="146" text-anchor="middle" class="small">VQA + تسمية توضيحية</text>
+  <text x="480" y="164" text-anchor="middle" class="small">يطابق LLaVA-1.6</text>
+  <text x="480" y="182" text-anchor="middle" class="small">نفس العمود الفقري</text>
+  <text x="480" y="210" text-anchor="middle" class="step">VQAv2 75.1</text>
+  <text x="480" y="234" text-anchor="middle" class="caption">يفتح الخسارة الموحدة</text>
+  <text x="480" y="252" text-anchor="middle" class="caption">الإدراك + الجنرال</text>
+
+  <rect x="640" y="90" width="270" height="190" class="cold"/>
+  <text x="775" y="110" text-anchor="middle" class="step">Emu3-Stage2</text>
+  <text x="775" y="128" text-anchor="middle" class="small">النص -&gt; رموز الفيديو</text>
+  <text x="775" y="146" text-anchor="middle" class="small">4ث بمعدل 8 إطارات في الثانية، ثلاثي الأبعاد VQ</text>
+  <text x="775" y="164" text-anchor="middle" class="small">4x4x4 الزمانية المكانية</text>
+  <text x="775" y="182" text-anchor="middle" class="small">تكميم التصحيح</text>
+  <text x="775" y="210" text-anchor="middle" class="step">تنافسية FVD</text>
+  <text x="775" y="234" text-anchor="middle" class="caption">نفس المفردات المشتركة</text>
+  <text x="775" y="252" text-anchor="middle" class="caption">يمتد إلى 10S على نطاق واسع</text>
+
+  <rect x="30" y="310" width="900" height="210" class="box"/>
+  <text x="480" y="332" text-anchor="middle" class="head">Emu3 مقابل الانتشار: مقايضة 2026</text>
+
+  <rect x="60" y="350" width="400" height="150" class="reg"/>
+  <text x="260" y="370" text-anchor="middle" class="step">Emu3 (الرموز المنفصلة، ​​NTP)</text>
+  <text x="260" y="390" text-anchor="middle" class="small">+ نموذج واحد للجين + الإدراك</text>
+  <text x="260" y="406" text-anchor="middle" class="small">+ خسارة تدريبية واحدة</text>
+  <text x="260" y="422" text-anchor="middle" class="small">+ الرموز تمتد إلى أي طريقة</text>
+  <text x="260" y="438" text-anchor="middle" class="small">- الاستدلال البطيء (2 دقيقة / 512 × 512)</text>
+  <text x="260" y="454" text-anchor="middle" class="small">- جودة قبعات الرمز المميز</text>
+  <text x="260" y="480" text-anchor="middle" class="caption">الأفضل للبحث، والنماذج الموحدة</text>
+
+  <rect x="490" y="350" width="400" height="150" class="hot"/>
+  <text x="690" y="370" text-anchor="middle" class="step">الانتشار (SDXL، SD3، التدفق)</text>
+  <text x="690" y="390" text-anchor="middle" class="small">+ الاستدلال السريع (2-5 ثوانٍ / 512 × 512)</text>
+  <text x="690" y="406" text-anchor="middle" class="small">+ الكامنة المستمرة = دقة أعلى</text>
+  <text x="690" y="422" text-anchor="middle" class="small">+ الأدوات الناضجة + LoRAs</text>
+  <text x="690" y="438" text-anchor="middle" class="small">- لا يوجد تصور في نفس النموذج</text>
+  <text x="690" y="454" text-anchor="middle" class="small">- هناك حاجة إلى برنامج تشفير نص منفصل</text>
+  <text x="690" y="480" text-anchor="middle" class="caption">الأفضل لإنتاج الصور فقط</text>
+</svg>

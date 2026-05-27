@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">الإنصاف: ثلاث عائلات، استحالة واحدة</text>
+
+  <rect x="40" y="60" width="280" height="200" class="box"/>
+  <text x="180" y="85" text-anchor="middle" class="head">عدالة المجموعة</text>
+  <rect x="60" y="100" width="240" height="50" class="cool"/>
+  <text x="180" y="122" text-anchor="middle" class="step">التكافؤ الديموغرافي</text>
+  <text x="180" y="140" text-anchor="middle" class="small">P(Y=1 | A=a) متساوي</text>
+  <rect x="60" y="160" width="240" height="50" class="cool"/>
+  <text x="180" y="182" text-anchor="middle" class="step">احتمالات متساوية</text>
+  <text x="180" y="200" text-anchor="middle" class="small">TPR/FPR متساوية بين المجموعات</text>
+  <rect x="60" y="220" width="240" height="30" class="cool"/>
+  <text x="180" y="242" text-anchor="middle" class="step">الاستخدام المشروط دقة المساواة</text>
+
+  <rect x="340" y="60" width="280" height="200" class="box"/>
+  <text x="480" y="85" text-anchor="middle" class="head">العدالة الفردية</text>
+  <rect x="360" y="100" width="240" height="80" class="cold"/>
+  <text x="480" y="125" text-anchor="middle" class="step">دورك وآخرون. 2012</text>
+  <text x="480" y="145" text-anchor="middle" class="small">|f(x) - f(x')| &lt;= L * د(س، س')</text>
+  <text x="480" y="165" text-anchor="middle" class="small">ليبشيتز. د مهمة محددة</text>
+  <rect x="360" y="190" width="240" height="60" class="cold"/>
+  <text x="480" y="215" text-anchor="middle" class="step">أفراد مماثلين</text>
+  <text x="480" y="233" text-anchor="middle" class="small">الحصول على قرارات مماثلة</text>
+
+  <rect x="640" y="60" width="280" height="200" class="box"/>
+  <text x="780" y="85" text-anchor="middle" class="head">العدالة المضادة</text>
+  <rect x="660" y="100" width="240" height="80" class="hot"/>
+  <text x="780" y="125" text-anchor="middle" class="step">كوسنر وآخرون. 2017</text>
+  <text x="780" y="145" text-anchor="middle" class="small">ثابت تحت السمة</text>
+  <text x="780" y="165" text-anchor="middle" class="small">counterfactual</text>
+  <rect x="660" y="190" width="240" height="60" class="hot"/>
+  <text x="780" y="215" text-anchor="middle" class="step">يحتاج إلى سببية DAG</text>
+  <text x="780" y="233" text-anchor="middle" class="small">التراجع (2024) التجاوزات</text>
+
+  <rect x="40" y="290" width="880" height="200" class="box"/>
+  <text x="480" y="315" text-anchor="middle" class="head">الاستحالة + المصالحة</text>
+  <text x="60" y="345" class="small">تشولديشوفا، KMR 2017: في ظل المعدلات الأساسية غير المتساوية، لا يمكن لمعايير المجموعة الثلاثة أن تصمد جميعها.</text>
+  <text x="60" y="365" class="small">خيار السياسة: التكافؤ الديموغرافي يمنح المساواة في الوصول؛ تحافظ الاحتمالات المتساوية على الدقة والمساواة؛</text>
+  <text x="60" y="385" class="small">تحافظ المساواة في دقة الاستخدام المشروط على قيمة القيمة التنبؤية. لكل منها دائرة انتخابية.</text>
+  <text x="60" y="415" class="small">2024 NeurIPS: CF- مقايضة الدقة محدودة؛ التحويل الملحد للنموذج الأمثل غير العادل -&gt; CF.</text>
+  <text x="60" y="435" class="small">التراجع عن الحقائق المضادة (arXiv:2401.13935): تجنب التدخل في السمات المحمية.</text>
+  <text x="60" y="455" class="small">ICLR تسوية 2024: مع الرسوم البيانية السببية الصريحة، تعد المجموعة والواقع المضاد وجهين لهيكل واحد.</text>
+  <text x="60" y="475" class="small">ولا تزال الاستحالة قائمة فيما يتعلق بالمعدلات الأساسية؛ المصالحة تدور حول ما يتم قياسه.</text>
+</svg>

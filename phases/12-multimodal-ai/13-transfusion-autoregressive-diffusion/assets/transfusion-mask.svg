@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">نقل الدم - محول واحد، خسارتان، قناع انتباه هجين</text>
+
+  <rect x="30" y="50" width="900" height="240" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">تمريرة للأمام، رأسين للخسارة</text>
+
+  <rect x="60" y="90" width="260" height="180" class="hot"/>
+  <text x="190" y="112" text-anchor="middle" class="step">الرموز النصية</text>
+  <text x="190" y="132" text-anchor="middle" class="small">منفصلة BPE المفردات</text>
+  <text x="190" y="150" text-anchor="middle" class="small">الاهتمام السببي</text>
+  <text x="190" y="168" text-anchor="middle" class="small">إجبار المعلم</text>
+  <text x="190" y="194" text-anchor="middle" class="step">الخسارة: الانتروبيا المتقاطعة</text>
+  <text x="190" y="216" text-anchor="middle" class="small">التنبؤ بالرمز التالي</text>
+  <text x="190" y="232" text-anchor="middle" class="small">vocab-logits الرأس</text>
+  <text x="190" y="258" text-anchor="middle" class="caption">مثل أي LLM</text>
+
+  <rect x="350" y="90" width="260" height="180" class="cool"/>
+  <text x="480" y="112" text-anchor="middle" class="step">هيئة المحولات المشتركة</text>
+  <text x="480" y="132" text-anchor="middle" class="small">مجموعة وزن واحدة</text>
+  <text x="480" y="150" text-anchor="middle" class="small">قناع كتلة الثلاثي</text>
+  <text x="480" y="168" text-anchor="middle" class="small">كلتا الطريقتين في</text>
+  <text x="480" y="186" text-anchor="middle" class="small">تمريرة واحدة إلى الأمام</text>
+  <text x="480" y="218" text-anchor="middle" class="step">يمزج التدرج</text>
+  <text x="480" y="236" text-anchor="middle" class="small">أهداف النص والصورة</text>
+  <text x="480" y="254" text-anchor="middle" class="caption">جسد مشترك ورأسان</text>
+
+  <rect x="640" y="90" width="260" height="180" class="cold"/>
+  <text x="770" y="112" text-anchor="middle" class="step">بقع الصورة</text>
+  <text x="770" y="132" text-anchor="middle" class="small">ناقلات مستمرة</text>
+  <text x="770" y="150" text-anchor="middle" class="small">اهتمام ثنائي الاتجاه</text>
+  <text x="770" y="168" text-anchor="middle" class="small">داخل كتلة الصورة</text>
+  <text x="770" y="194" text-anchor="middle" class="step">الخسارة: MSE على السرعة</text>
+  <text x="770" y="216" text-anchor="middle" class="small">انتشار مطابقة التدفق</text>
+  <text x="770" y="232" text-anchor="middle" class="small">توقع الضوضاء -&gt; البيانات</text>
+  <text x="770" y="258" text-anchor="middle" class="caption">SD3 شقيق MMDiT</text>
+
+  <rect x="30" y="310" width="900" height="200" class="box"/>
+  <text x="480" y="332" text-anchor="middle" class="head">قناع الانتباه الهجين لـ [T T &lt;image&gt; P P P &lt;/image&gt; T T]</text>
+
+  <g transform="translate(200, 350)">
+    <rect x="0" y="0" width="18" height="18" class="hot"/>
+    <rect x="20" y="0" width="18" height="18" class="hot"/>
+    <rect x="40" y="0" width="18" height="18" class="box"/>
+    <rect x="60" y="0" width="18" height="18" class="cold"/>
+    <rect x="80" y="0" width="18" height="18" class="cold"/>
+    <rect x="100" y="0" width="18" height="18" class="cold"/>
+    <rect x="120" y="0" width="18" height="18" class="cold"/>
+    <rect x="140" y="0" width="18" height="18" class="box"/>
+    <rect x="160" y="0" width="18" height="18" class="hot"/>
+    <rect x="180" y="0" width="18" height="18" class="hot"/>
+
+    <text x="9" y="35" text-anchor="middle" class="small">T</text>
+    <text x="29" y="35" text-anchor="middle" class="small">T</text>
+    <text x="49" y="35" text-anchor="middle" class="small">&lt;I&gt;</text>
+    <text x="69" y="35" text-anchor="middle" class="small">P</text>
+    <text x="89" y="35" text-anchor="middle" class="small">P</text>
+    <text x="109" y="35" text-anchor="middle" class="small">P</text>
+    <text x="129" y="35" text-anchor="middle" class="small">P</text>
+    <text x="149" y="35" text-anchor="middle" class="small">&lt;/I&gt;</text>
+    <text x="169" y="35" text-anchor="middle" class="small">T</text>
+    <text x="189" y="35" text-anchor="middle" class="small">T</text>
+  </g>
+
+  <rect x="420" y="340" width="490" height="160" class="reg"/>
+  <text x="665" y="362" text-anchor="middle" class="step">قواعد القناع</text>
+  <text x="665" y="384" text-anchor="middle" class="small">1. تحويل النص إلى نص: سببي (مثلث)</text>
+  <text x="665" y="402" text-anchor="middle" class="small">2. التصحيح إلى التصحيح: ثنائي الاتجاه بالكامل داخل الصورة</text>
+  <text x="665" y="420" text-anchor="middle" class="small">3. تحويل النص إلى صورة سابقة: الحضور بالكامل</text>
+  <text x="665" y="438" text-anchor="middle" class="small">4. الصورة إلى النص السابق: الحضور الكامل</text>
+  <text x="665" y="460" text-anchor="middle" class="small">5. لا يوجد صورة إلى نص لاحق (كتلة سببية)</text>
+  <text x="665" y="480" text-anchor="middle" class="caption">تم تنفيذه كقناع كتلة واحدة مثلثة</text>
+</svg>

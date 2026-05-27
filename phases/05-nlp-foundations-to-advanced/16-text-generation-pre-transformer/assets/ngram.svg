@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .stage { font-size: 11px; fill: #c0392b; font-style: italic; text-anchor: middle; }
+      .note { font-size: 11px; fill: #666; font-style: italic; }
+      .line { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect class="box" x="20" y="30" width="200" height="260" rx="4"/>
+  <text class="label" x="120" y="55" text-anchor="middle">1. العد</text>
+  <text class="content" x="35" y="90">هيئة التدريب</text>
+  <text class="content" x="35" y="115">  "جلست القطة"</text>
+  <text class="content" x="35" y="135">  "ركض القط"</text>
+  <text class="content" x="35" y="155">  "جلس الكلب"</text>
+  <text class="content" x="35" y="190">أعداد التريجرام:</text>
+  <text class="content" x="35" y="210">  (القط، جلس): ١</text>
+  <text class="content" x="35" y="230">  (القط، ركض): 1</text>
+  <text class="content" x="35" y="250">  (ال الكلب، جلس): ١</text>
+  <text class="content" x="35" y="275">  (القط، *): 2</text>
+
+  <path class="line" d="M 220 160 L 260 160" marker-end="url(#arrow)"/>
+
+  <rect class="hot" x="260" y="30" width="220" height="260" rx="4"/>
+  <text class="label" x="370" y="55" text-anchor="middle">2. ناعم</text>
+  <text class="content" x="275" y="90">العد الخام يعطي صفر</text>
+  <text class="content" x="275" y="110">إلى n-gram غير المرئية.</text>
+  <text class="content" x="275" y="145">Kneser-Ney يعيد التوزيع:</text>
+  <text class="content" x="275" y="170">  خصم التهم التي شوهدت</text>
+  <text class="content" x="275" y="190">  استخدام استمرار غالبا</text>
+  <text class="content" x="275" y="210">  للكلمات غير المرئية</text>
+  <text class="content" x="275" y="245">P(w | السابق) = الحد الأقصى(c-D, 0)/N</text>
+  <text class="content" x="275" y="265">        + lect · P_cont(w)</text>
+
+  <path class="line" d="M 480 160 L 520 160" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="520" y="30" width="180" height="260" rx="4"/>
+  <text class="label" x="610" y="55" text-anchor="middle">3. توليد</text>
+  <text class="content" x="535" y="90">عينة من</text>
+  <text class="content" x="535" y="110">ف(ث | السابق):</text>
+  <text class="content" x="535" y="145">"ال" (البدء)</text>
+  <text class="content" x="535" y="165">  -&gt; "قطة" (ع = 0.6)</text>
+  <text class="content" x="535" y="185">     -&gt; "جلس" ​​(ع = 0.4)</text>
+  <text class="content" x="535" y="205">        -&gt; "على"</text>
+  <text class="content" x="535" y="225">           -&gt; "ال"</text>
+  <text class="content" x="535" y="250">معقول محليا</text>
+  <text class="content" x="535" y="270">غير متماسكة عالميا.</text>
+
+  <path class="line" d="M 700 160 L 740 160" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="740" y="30" width="140" height="260" rx="4"/>
+  <text class="label" x="810" y="55" text-anchor="middle">4. تقييم</text>
+  <text class="content" x="755" y="100">perplexity</text>
+  <text class="content" x="755" y="125">= إكس(- (1/ن) Σ</text>
+  <text class="content" x="755" y="145">   سجل P (w_i | ctx))</text>
+  <text class="content" x="755" y="180">أقل = أفضل</text>
+  <text class="content" x="755" y="220">الجسم البني:</text>
+  <text class="content" x="755" y="240">  KN 4 جرام ~140</text>
+  <text class="content" x="755" y="260">  محول ~20</text>
+
+  <text class="stage" x="450" y="330" text-anchor="middle">ظل Kneser-Ney أفضل جرام أكثر سلاسة لمدة 20 عامًا.</text>
+  <text class="stage" x="450" y="350" text-anchor="middle">أغلقت المحولات فجوة الحيرة بمقدار 10x تقريبًا، وليس عن طريق اختراع أكثر سلاسة.</text>
+</svg>

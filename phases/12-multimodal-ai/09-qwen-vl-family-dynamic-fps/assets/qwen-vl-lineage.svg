@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">Qwen-VL نسب الأجيال - 2023 إلى 2025</text>
+
+  <line x1="60" y1="170" x2="920" y2="170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="60" y="180" class="small">2023</text>
+  <text x="310" y="180" class="small">سبتمبر 2024</text>
+  <text x="560" y="180" class="small">فبراير 2025</text>
+  <text x="820" y="180" class="small">نوفمبر 2025</text>
+
+  <rect x="40" y="60" width="200" height="100" class="hot"/>
+  <text x="140" y="82" text-anchor="middle" class="step">Qwen-VL</text>
+  <text x="140" y="100" text-anchor="middle" class="small">OpenCLIP + س-السابق</text>
+  <text x="140" y="116" text-anchor="middle" class="small">دقة 448x448</text>
+  <text x="140" y="132" text-anchor="middle" class="small">التأريض + رموز bbox</text>
+  <text x="140" y="148" text-anchor="middle" class="small">zh + en متعدد اللغات</text>
+
+  <rect x="290" y="60" width="200" height="100" class="cool"/>
+  <text x="390" y="82" text-anchor="middle" class="step">Qwen2-VL</text>
+  <text x="390" y="100" text-anchor="middle" class="small">M-RoPE (موضع ثلاثي الأبعاد)</text>
+  <text x="390" y="116" text-anchor="middle" class="small">الدقة الديناميكية الأصلية</text>
+  <text x="390" y="132" text-anchor="middle" class="small">MLP جهاز العرض فقط</text>
+  <text x="390" y="148" text-anchor="middle" class="small">فيديو بالمتغير FPS</text>
+
+  <rect x="540" y="60" width="200" height="100" class="cold"/>
+  <text x="640" y="82" text-anchor="middle" class="step">Qwen2.5-VL</text>
+  <text x="640" y="100" text-anchor="middle" class="small">FPS أخذ العينات الديناميكية</text>
+  <text x="640" y="116" text-anchor="middle" class="small">رموز الوقت المطلق</text>
+  <text x="640" y="132" text-anchor="middle" class="small">نافذة الاهتمام ViT</text>
+  <text x="640" y="148" text-anchor="middle" class="small">JSON وضع الوكيل</text>
+
+  <rect x="790" y="60" width="140" height="100" class="reg"/>
+  <text x="860" y="82" text-anchor="middle" class="step">Qwen3-VL</text>
+  <text x="860" y="100" text-anchor="middle" class="small">قاعدة Qwen3-72B</text>
+  <text x="860" y="116" text-anchor="middle" class="small">وضع التفكير</text>
+  <text x="860" y="132" text-anchor="middle" class="small">موسعة OCR</text>
+  <text x="860" y="148" text-anchor="middle" class="small">البيانات + المقياس</text>
+
+  <rect x="30" y="210" width="900" height="140" class="box"/>
+  <text x="480" y="232" text-anchor="middle" class="head">M-RoPE: موضع واحد وثلاثة محاور</text>
+
+  <rect x="60" y="250" width="260" height="80" class="hot"/>
+  <text x="190" y="270" text-anchor="middle" class="step">الفرقة الزمنية</text>
+  <text x="190" y="288" text-anchor="middle" class="small">16 درجة (من أصل 48)</text>
+  <text x="190" y="304" text-anchor="middle" class="small">t=0 صورة، t=إطار فيديو</text>
+  <text x="190" y="322" text-anchor="middle" class="small">تدوير بواسطة t * theta_i</text>
+
+  <rect x="340" y="250" width="260" height="80" class="cool"/>
+  <text x="470" y="270" text-anchor="middle" class="step">شريط الارتفاع</text>
+  <text x="470" y="288" text-anchor="middle" class="small">16 يخفت</text>
+  <text x="470" y="304" text-anchor="middle" class="small">h = فهرس صف التصحيح</text>
+  <text x="470" y="322" text-anchor="middle" class="small">تدوير بواسطة h * theta_i</text>
+
+  <rect x="620" y="250" width="280" height="80" class="cold"/>
+  <text x="760" y="270" text-anchor="middle" class="step">شريط العرض</text>
+  <text x="760" y="288" text-anchor="middle" class="small">16 يخفت</text>
+  <text x="760" y="304" text-anchor="middle" class="small">w = فهرس عمود التصحيح</text>
+  <text x="760" y="322" text-anchor="middle" class="small">قم بالتدوير بواسطة w * theta_i</text>
+
+  <rect x="30" y="370" width="900" height="160" class="box"/>
+  <text x="480" y="392" text-anchor="middle" class="head">ديناميكي FPS: الرموز المميزة لكل فيديو = المدة * الإطارات في الثانية * tokens_per_frame</text>
+
+  <rect x="60" y="410" width="200" height="100" class="reg"/>
+  <text x="160" y="430" text-anchor="middle" class="step">حركة عالية</text>
+  <text x="160" y="448" text-anchor="middle" class="small">التنس، الطبخ</text>
+  <text x="160" y="464" text-anchor="middle" class="small">4-8 FPS</text>
+  <text x="160" y="480" text-anchor="middle" class="small">event-dense</text>
+  <text x="160" y="496" text-anchor="middle" class="small">~19 ألف رمز / 30 ثانية</text>
+
+  <rect x="280" y="410" width="200" height="100" class="cool"/>
+  <text x="380" y="430" text-anchor="middle" class="step">حركة متوسطة</text>
+  <text x="380" y="448" text-anchor="middle" class="small">الحوار، التجريبي</text>
+  <text x="380" y="464" text-anchor="middle" class="small">2-4 FPS</text>
+  <text x="380" y="480" text-anchor="middle" class="small">balanced</text>
+  <text x="380" y="496" text-anchor="middle" class="small">~10 آلاف رمز / 30 ثانية</text>
+
+  <rect x="500" y="410" width="200" height="100" class="cold"/>
+  <text x="600" y="430" text-anchor="middle" class="step">حركة منخفضة</text>
+  <text x="600" y="448" text-anchor="middle" class="small">الأمن، محاضرة</text>
+  <text x="600" y="464" text-anchor="middle" class="small">0.5-1 FPS</text>
+  <text x="600" y="480" text-anchor="middle" class="small">long-horizon</text>
+  <text x="600" y="496" text-anchor="middle" class="small">~24 ألف رمز / 10 دقائق</text>
+
+  <rect x="720" y="410" width="200" height="100" class="hot"/>
+  <text x="820" y="430" text-anchor="middle" class="step">إعادة تشغيل الوكيل</text>
+  <text x="820" y="448" text-anchor="middle" class="small">UI تسجيلات الشاشة</text>
+  <text x="820" y="464" text-anchor="middle" class="small">2-4 FPS</text>
+  <text x="820" y="480" text-anchor="middle" class="small">JSON وضع الإخراج</text>
+  <text x="820" y="496" text-anchor="middle" class="small">انقر/التمرير المكالمات</text>
+</svg>

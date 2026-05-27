@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e8f1fb; stroke: #2471a3; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">ثلاث طرق لسد فجوة الواقع</text>
+
+  <rect x="40" y="60" width="820" height="70" class="hot"/>
+  <text x="60" y="85" class="label">فجوة الواقع</text>
+  <text x="60" y="108" class="content">فيزياء المحاكاة تقريبًا = فيزياء حقيقية + إبسيلون (الاحتكاك، التأخير، الإضاءة، الضوضاء،...)</text>
+
+  <rect x="40" y="150" width="260" height="240" class="box"/>
+  <text x="170" y="178" text-anchor="middle" class="label">العشوائية المجال</text>
+  <text x="60" y="205" class="content">ثيتا_سيم ~ ف (ثيتا)</text>
+  <text x="60" y="225" class="content">تدريب على العديد من سيمز</text>
+  <text x="60" y="245" class="content">السياسة ترى خطورة عشوائية،</text>
+  <text x="60" y="265" class="content">الكتلة، الاحتكاك، الكسب الحركي</text>
+  <text x="170" y="300" text-anchor="middle" class="caption">صفر البيانات الحقيقية المطلوبة</text>
+  <text x="170" y="320" text-anchor="middle" class="caption">OpenAI داكتيل (مكعب روبيك)</text>
+  <text x="170" y="345" text-anchor="middle" class="caption">الإفراط في راند. -&gt; الحذر</text>
+  <text x="170" y="365" text-anchor="middle" class="caption">تحت راند. -&gt; هشة</text>
+
+  <rect x="320" y="150" width="260" height="240" class="cool"/>
+  <text x="450" y="178" text-anchor="middle" class="label">تحديد النظام</text>
+  <text x="340" y="205" class="content">قياس حقيقي:</text>
+  <text x="340" y="225" class="content">  الاحتكاك والتأخير والمكاسب</text>
+  <text x="340" y="245" class="content">قم بتوصيله ببطاقة sim</text>
+  <text x="340" y="265" class="content">تدريب على سيم المتطابقة</text>
+  <text x="450" y="300" text-anchor="middle" class="caption">انخفاض مستوى الضجيج ودقيقة</text>
+  <text x="450" y="320" text-anchor="middle" class="caption">لكن الخطأ المتبقي غير مرئي</text>
+  <text x="450" y="345" text-anchor="middle" class="caption">إلى السياسة</text>
+
+  <rect x="600" y="150" width="260" height="240" class="box"/>
+  <text x="730" y="178" text-anchor="middle" class="label">المعلم / الطالب</text>
+  <text x="620" y="205" class="content">المعلم: معلومات مميزة</text>
+  <text x="620" y="225" class="content">  التضاريس، الحقيقة الأرضية</text>
+  <text x="620" y="245" class="content">الطالب: مستشعر obs فقط</text>
+  <text x="620" y="265" class="content">مدرس التقطير -&gt; طالب</text>
+  <text x="730" y="300" text-anchor="middle" class="caption">أنيمال، بوسطن ديناميات</text>
+  <text x="730" y="320" text-anchor="middle" class="caption">قوية عبر المادية</text>
+  <text x="730" y="345" text-anchor="middle" class="caption">المعلمات + الضوضاء obs</text>
+
+  <text x="450" y="435" text-anchor="middle" class="caption">وصفة 2026: GPU-شريحة متوازية + DR + معلم/طالب + درع أمان على أجهزة حقيقية</text>
+</svg>

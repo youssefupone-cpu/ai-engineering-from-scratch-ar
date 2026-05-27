@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .inter { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .semi { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .batch { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">فرز عبء العمل - ثلاثة مسارات، وقاعدة واحدة</text>
+
+  <rect x="40" y="50" width="280" height="340" class="inter"/>
+  <text x="180" y="72" text-anchor="middle" class="head">interactive</text>
+  <text x="180" y="94" text-anchor="middle" class="step">المستخدم ينتظر الرد</text>
+  <text x="60" y="122" class="small">· TTFT مهم</text>
+  <text x="60" y="140" class="small">· مزامنة المكالمة مع ذاكرة التخزين المؤقت السريعة</text>
+  <text x="60" y="158" class="small">· لا يمكن دفعة</text>
+  <text x="60" y="176" class="small">· أمثلة: الدردشة، الوكيل الصوتي، البحث</text>
+  <text x="60" y="220" class="step">100% من التكلفة الأساسية</text>
+  <text x="60" y="238" class="small">(مطروحًا منها مدخرات التخزين المؤقت)</text>
+
+  <rect x="340" y="50" width="280" height="340" class="semi"/>
+  <text x="480" y="72" text-anchor="middle" class="head">semi-interactive</text>
+  <text x="480" y="94" text-anchor="middle" class="step">يتحقق المستخدم مرة أخرى في غضون دقائق</text>
+  <text x="360" y="122" class="small">· قائمة انتظار غير متزامنة + احتياطي للمزامنة</text>
+  <text x="360" y="140" class="small">· تحمل P99 ~5-10 دقائق</text>
+  <text x="360" y="158" class="small">· أمثلة: مؤشر RAG المعتدل،</text>
+  <text x="360" y="176" class="small">  تقرير "تحديث"، وكيل شبه حي</text>
+  <text x="360" y="220" class="step">~ 50% من التكلفة الأساسية</text>
+  <text x="360" y="238" class="small">(مع التخزين المؤقت + استهلاك قائمة الانتظار)</text>
+
+  <rect x="640" y="50" width="280" height="340" class="batch"/>
+  <text x="780" y="72" text-anchor="middle" class="head">batch</text>
+  <text x="780" y="94" text-anchor="middle" class="step">النتيجة "في الصباح"</text>
+  <text x="660" y="122" class="small">· دفعة دائما، كومة ذاكرة التخزين المؤقت دائما</text>
+  <text x="660" y="140" class="small">· 24 ساعة SLA، نموذجي 2-6 ساعات P50</text>
+  <text x="660" y="158" class="small">· أمثلة: المحتوى pipelines،</text>
+  <text x="660" y="176" class="small">  التصنيف، وضع العلامات، التقارير</text>
+  <text x="660" y="220" class="step">~10% من التكلفة الأساسية</text>
+  <text x="660" y="238" class="small">(خصم 50% على الدفعة + إدخال مخبأ 10 مرات)</text>
+
+  <rect x="40" y="410" width="880" height="60" class="box"/>
+  <text x="480" y="432" text-anchor="middle" class="head">القاعدة</text>
+  <text x="480" y="454" text-anchor="middle" class="step">إذا كان زمن الوصول 24 ساعة مقبولاً للمستخدم، فإن عبء العمل ينتمي إلى الدُفعة</text>
+</svg>

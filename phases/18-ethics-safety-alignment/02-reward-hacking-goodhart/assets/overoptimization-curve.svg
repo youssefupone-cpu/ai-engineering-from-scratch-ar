@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .axis { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
+      .grid { stroke: #ddd; stroke-width: 0.5; fill: none; }
+      .proxyline { stroke: #c0392b; stroke-width: 2.2; fill: none; }
+      .goldline { stroke: #2e7d32; stroke-width: 2.2; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">منحنى جاو شولمان هيلتون الإفراط في التحسين</text>
+  <text x="480" y="46" text-anchor="middle" class="caption">مكافأة الوكيل يتسلق رتابة. مكافأة الذهب تصل إلى ذروتها وتنخفض.</text>
+
+  <rect x="60" y="70" width="520" height="380" class="box"/>
+  <line x1="100" y1="420" x2="560" y2="420" class="axis"/>
+  <line x1="100" y1="90" x2="100" y2="420" class="axis"/>
+  <text x="330" y="446" text-anchor="middle" class="small">sqrt(KL) من السياسة الأولية</text>
+  <text x="84" y="250" text-anchor="middle" transform="rotate(-90 84 250)" class="small">المكافأة المتوقعة</text>
+
+  <line x1="100" y1="380" x2="560" y2="380" class="grid"/>
+  <line x1="100" y1="300" x2="560" y2="300" class="grid"/>
+  <line x1="100" y1="220" x2="560" y2="220" class="grid"/>
+  <line x1="100" y1="140" x2="560" y2="140" class="grid"/>
+
+  <path d="M 100 420 Q 200 340 300 260 T 560 120" class="proxyline"/>
+  <path d="M 100 420 Q 180 330 260 260 Q 340 180 400 180 Q 470 180 560 300" class="goldline"/>
+
+  <circle cx="400" cy="180" r="4" fill="#2e7d32"/>
+  <text x="420" y="176" class="small">ذروة الذهب</text>
+
+  <text x="150" y="105" class="step" fill="#c0392b">مكافأة الوكيل</text>
+  <text x="150" y="125" class="step" fill="#2e7d32">مكافأة ذهبية</text>
+
+  <rect x="600" y="70" width="320" height="380" class="box"/>
+  <text x="760" y="94" text-anchor="middle" class="head">الأزياء الأربعة</text>
+
+  <rect x="620" y="110" width="280" height="60" class="hot"/>
+  <text x="635" y="132" class="step">1/ انحياز الإسهاب</text>
+  <text x="635" y="152" class="small">تسجل المخرجات الأطول نتائج أعلى مما تساعد.</text>
+
+  <rect x="620" y="180" width="280" height="60" class="cool"/>
+  <text x="635" y="202" class="step">2/التملق</text>
+  <text x="635" y="222" class="small">الاتفاق مع المستخدم يتفوق على الصحة.</text>
+
+  <rect x="620" y="250" width="280" height="60" class="cold"/>
+  <text x="635" y="272" class="step">3/الكوت غير المخلص</text>
+  <text x="635" y="292" class="small">السلسلة التي تبدو صحيحة ولكنها لا تقود إلى الإجابة.</text>
+
+  <rect x="620" y="320" width="280" height="60" class="box"/>
+  <text x="635" y="342" class="step">4/ تلاعب المقيم</text>
+  <text x="635" y="362" class="small">يقوم الوكيل بتعديل مدخلات المسودة أو env أو RM.</text>
+
+  <text x="760" y="404" text-anchor="middle" class="caption">آلية واحدة: احتمالية التحولات الجماعية</text>
+  <text x="760" y="422" text-anchor="middle" class="caption">إلى الاستدلالات سهلة التعلم مكافآت RM.</text>
+
+  <rect x="60" y="470" width="860" height="70" class="box"/>
+  <text x="80" y="494" class="small">KL التسوية تخفف من الانهيار لكنها لا تمنعه ​​(جاو 2023).</text>
+  <text x="80" y="512" class="small">في ظل خطأ المكافأة الثقيل، يمكن للمثالي المقيد بـ KL أن يضع كل الكتلة في أوضاع تعظيم الأخطاء</text>
+  <text x="80" y="528" class="small">- "جودهارت الكارثي" (OpenReview UXuBzWoZGK). لا يوجد قدر من البيتا يوفر عليك وحدك.</text>
+</svg>

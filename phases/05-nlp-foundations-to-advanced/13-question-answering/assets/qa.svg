@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .stage { font-size: 11px; fill: #c0392b; font-style: italic; text-anchor: middle; }
+      .line { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+      .note { font-size: 11px; fill: #666; font-style: italic; }
+    </style>
+  </defs>
+
+  <rect class="box" x="20" y="20" width="280" height="380" rx="4"/>
+  <text class="label" x="160" y="45" text-anchor="middle">استخراجي QA</text>
+  <text class="note" x="35" y="65">العثور على نطاق الإجابة في فقرة معينة</text>
+
+  <rect class="box" x="35" y="85" width="240" height="70" rx="3"/>
+  <text class="content" x="45" y="105">question:</text>
+  <text class="content" x="45" y="125">"متى تم إصدار iPhone؟"</text>
+  <text class="content" x="45" y="145">السياق: [مقطع طويل]</text>
+
+  <path class="line" d="M 155 155 L 155 180" marker-end="url(#arrow)"/>
+
+  <rect class="hot" x="35" y="180" width="240" height="50" rx="3"/>
+  <text class="content" x="155" y="205" text-anchor="middle">BERT / روبرتا + رأس ممتد</text>
+  <text class="content" x="155" y="220" text-anchor="middle">التنبؤ (start_idx، end_idx)</text>
+
+  <path class="line" d="M 155 230 L 155 255" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="35" y="255" width="240" height="50" rx="3"/>
+  <text class="content" x="155" y="280" text-anchor="middle">"29 يونيو 2007"</text>
+  <text class="content" x="155" y="295" text-anchor="middle">المدى الحرفي، لا يخترع أبدا</text>
+
+  <text class="stage" x="160" y="340">على غرار فرقة. لا يهلوس أبدًا.</text>
+  <text class="note" x="160" y="360" text-anchor="middle">يحتاج مرور + سؤال معا.</text>
+  <text class="note" x="160" y="378" text-anchor="middle">يفشل في الأسئلة التي لا يمكن الإجابة عليها</text>
+  <text class="note" x="160" y="392" text-anchor="middle">ما لم يتم تدريب SQuAD 2.0.</text>
+
+  <rect class="box" x="320" y="20" width="280" height="380" rx="4"/>
+  <text class="label" x="460" y="45" text-anchor="middle">RAG</text>
+  <text class="note" x="335" y="65">استخرج المقاطع ثم أجب</text>
+
+  <rect class="box" x="335" y="85" width="240" height="40" rx="3"/>
+  <text class="content" x="455" y="110" text-anchor="middle">سؤال فقط</text>
+
+  <path class="line" d="M 455 125 L 455 145" marker-end="url(#arrow)"/>
+
+  <rect class="hot" x="335" y="145" width="240" height="50" rx="3"/>
+  <text class="content" x="455" y="170" text-anchor="middle">retriever</text>
+  <text class="content" x="455" y="185" text-anchor="middle">BM25 + كثيف + إعادة ترتيب</text>
+
+  <path class="line" d="M 455 195 L 455 215" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="335" y="215" width="240" height="50" rx="3"/>
+  <text class="content" x="455" y="240" text-anchor="middle">مقاطع توب-ك</text>
+  <text class="content" x="455" y="255" text-anchor="middle">(سياق التأريض)</text>
+
+  <path class="line" d="M 455 265 L 455 285" marker-end="url(#arrow)"/>
+
+  <rect class="hot" x="335" y="285" width="240" height="50" rx="3"/>
+  <text class="content" x="455" y="310" text-anchor="middle">القارئ (LLM أو الاستخراجي)</text>
+
+  <path class="line" d="M 455 335 L 455 355" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="335" y="355" width="240" height="35" rx="3"/>
+  <text class="content" x="455" y="377" text-anchor="middle">الإجابة المؤرضة + الاستشهادات</text>
+
+  <rect class="box" x="620" y="20" width="260" height="380" rx="4"/>
+  <text class="label" x="750" y="45" text-anchor="middle">التوليدية (كتاب مغلق)</text>
+  <text class="note" x="635" y="65">الإجابة من الأوزان النموذجية</text>
+
+  <rect class="box" x="635" y="85" width="230" height="40" rx="3"/>
+  <text class="content" x="750" y="110" text-anchor="middle">question</text>
+
+  <path class="line" d="M 750 125 L 750 145" marker-end="url(#arrow)"/>
+
+  <rect class="hot" x="635" y="145" width="230" height="90" rx="3"/>
+  <text class="content" x="750" y="170" text-anchor="middle">وحدة فك الترميز فقط LLM</text>
+  <text class="content" x="750" y="190" text-anchor="middle">(GPT، كلود، لاما)</text>
+  <text class="content" x="750" y="215" text-anchor="middle">الذاكرة البارامترية فقط</text>
+
+  <path class="line" d="M 750 235 L 750 255" marker-end="url(#arrow)"/>
+
+  <rect class="box" x="635" y="255" width="230" height="50" rx="3"/>
+  <text class="content" x="750" y="280" text-anchor="middle">إجابة حرة</text>
+  <text class="content" x="750" y="295" text-anchor="middle">(قد يهلوس)</text>
+
+  <text class="note" x="750" y="350" text-anchor="middle">جيدة على المعرفة المشتركة.</text>
+  <text class="note" x="750" y="370" text-anchor="middle">سيئة على الحقائق النادرة / الأخيرة.</text>
+  <text class="note" x="750" y="390" text-anchor="middle">يحتاج RAG للموثوقية.</text>
+</svg>

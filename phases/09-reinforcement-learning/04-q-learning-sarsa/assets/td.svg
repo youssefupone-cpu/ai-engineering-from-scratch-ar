@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e8f1fb; stroke: #2471a3; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">Q-learning مقابل SARSA - يفصل بين سطر واحد من التعليمات البرمجية</text>
+
+  <rect x="40" y="60" width="820" height="70" class="box"/>
+  <text x="60" y="85" class="label">الانتقال</text>
+  <text x="60" y="108" class="content">(s, a) --env.step--&gt; (r, s') (خطوة واحدة، عبر الإنترنت، لا حاجة لحدود الحلقة)</text>
+
+  <rect x="40" y="150" width="400" height="180" class="hot"/>
+  <text x="240" y="175" text-anchor="middle" class="label">Q-التعلم (خارج السياسة)</text>
+  <text x="60" y="205" class="content">الهدف = r + جاما * max_{a'} Q(s', a')</text>
+  <text x="60" y="228" class="content">س(ق، أ) += ألفا * (الهدف - س(ق، أ))</text>
+  <text x="60" y="260" class="caption">يفترض سياسة الجشع من فصاعدا</text>
+  <text x="60" y="278" class="caption">يتعلم Q* حتى أثناء الاستكشاف</text>
+  <text x="60" y="300" class="caption">الانحياز الأقصى: يبالغ في تقدير Q المزعج</text>
+  <text x="60" y="320" class="caption">النسخة العميقة: DQN</text>
+
+  <rect x="460" y="150" width="400" height="180" class="cool"/>
+  <text x="660" y="175" text-anchor="middle" class="label">SARSA (في السياسة)</text>
+  <text x="480" y="205" class="content">أ' = epsilon_greedy(س، ق')</text>
+  <text x="480" y="228" class="content">الهدف = r + جاما * Q(s', a')</text>
+  <text x="480" y="251" class="content">س(ق، أ) += ألفا * (الهدف - س(ق، أ))</text>
+  <text x="480" y="283" class="caption">يستخدم ACTION المأخوذ بالفعل</text>
+  <text x="480" y="301" class="caption">يتعلم Q^pi عن epsilon-greedy الحالي</text>
+  <text x="480" y="319" class="caption">المحافظ بالقرب من المنحدرات / الخطر</text>
+
+  <rect x="40" y="350" width="820" height="70" class="box"/>
+  <text x="450" y="375" text-anchor="middle" class="label">نفس الشكل: الهدف - Q(s,a)، متدرج حسب ألفا</text>
+  <text x="450" y="398" text-anchor="middle" class="caption">فرق الرمز ONE: الحد الأقصى مقابل العينة a' — خارج السياسة مقابل ضمن السياسة</text>
+
+  <text x="450" y="450" text-anchor="middle" class="caption">كل شيء في المرحلة 9 بعد هذا الدرس هو متغيرات تقريبية للوظيفة العميقة لهذين التحديثين</text>
+</svg>

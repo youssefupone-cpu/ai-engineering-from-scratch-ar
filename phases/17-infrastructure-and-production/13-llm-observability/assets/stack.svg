@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .dev { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .gw { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .scale { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .otel { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">LLM إمكانية الملاحظة - فئتان، واحدة لاصقة OpenTelemetry</text>
+
+  <rect x="40" y="50" width="280" height="210" class="dev"/>
+  <text x="180" y="72" text-anchor="middle" class="head">منصات التطوير</text>
+  <text x="180" y="92" text-anchor="middle" class="small">آثار + تقييم + مطالبات + جلسات</text>
+  <rect x="60" y="110" width="240" height="35" class="box"/>
+  <text x="180" y="132" text-anchor="middle" class="step">لانج سميث (39 دولارًا / مستخدم / شهر)</text>
+  <rect x="60" y="150" width="240" height="35" class="box"/>
+  <text x="180" y="172" text-anchor="middle" class="step">Langfuse (MIT + 50 ألفًا مجانًا)</text>
+  <rect x="60" y="190" width="240" height="35" class="box"/>
+  <text x="180" y="212" text-anchor="middle" class="step">أوبيك (أباتشي 2.0)</text>
+  <text x="180" y="245" text-anchor="middle" class="caption">مجمعة - الأفضل لحلقات التطوير</text>
+
+  <rect x="340" y="50" width="280" height="210" class="gw"/>
+  <text x="480" y="72" text-anchor="middle" class="head">البوابة / القياس عن بعد</text>
+  <text x="480" y="92" text-anchor="middle" class="small">آثار + مقاييس + ميزات البوابة</text>
+  <rect x="360" y="110" width="240" height="35" class="box"/>
+  <text x="480" y="132" text-anchor="middle" class="step">هيليكون (الوكيل، MIT)</text>
+  <rect x="360" y="150" width="240" height="35" class="box"/>
+  <text x="480" y="172" text-anchor="middle" class="step">سيجنوز (أباتشي 2.0)</text>
+  <rect x="360" y="190" width="240" height="35" class="box"/>
+  <text x="480" y="212" text-anchor="middle" class="step">مفتوحLLMمحاولة (OSS)</text>
+  <text x="480" y="245" text-anchor="middle" class="caption">الحد الأدنى - أزواج مع منصة التطوير</text>
+
+  <rect x="640" y="50" width="280" height="210" class="scale"/>
+  <text x="780" y="72" text-anchor="middle" class="head">مقياس / ديف / بحيرة</text>
+  <text x="780" y="92" text-anchor="middle" class="small">RAG انجراف، نسخة صفرية، طويل المدى</text>
+  <rect x="660" y="110" width="240" height="35" class="box"/>
+  <text x="780" y="132" text-anchor="middle" class="step">فينيكس (مرن L2.0)</text>
+  <rect x="660" y="150" width="240" height="35" class="box"/>
+  <text x="780" y="172" text-anchor="middle" class="step">Arize AX (نسخة صفرية)</text>
+  <rect x="660" y="190" width="240" height="35" class="box"/>
+  <text x="780" y="212" text-anchor="middle" class="step">TruLens (OSS تقييم)</text>
+  <text x="780" y="245" text-anchor="middle" class="caption">RAG + تحليلات طويلة المدى</text>
+
+  <rect x="40" y="280" width="880" height="100" class="otel"/>
+  <text x="480" y="302" text-anchor="middle" class="head">اتفاقيات OpenTelemetry GenAI – الغراء</text>
+  <text x="480" y="325" text-anchor="middle" class="step">gen_ai.system · gen_ai.request.model · gen_ai.usage.input_tokens · gen_ai.usage.output_tokens</text>
+  <text x="480" y="345" text-anchor="middle" class="small">تم شحن 2025 نمط الإنتاج 2026:</text>
+  <text x="480" y="363" text-anchor="middle" class="step">بوابة (هيليكون) + تقييم (فينيكس) + بحيرة (جبل جليدي / أريز AX)</text>
+
+  <rect x="40" y="400" width="880" height="100" class="box"/>
+  <text x="480" y="422" text-anchor="middle" class="head">أخذ العينات على نطاق واسع - لا يمكنك الاحتفاظ بمليون أثر/يوم خام</text>
+  <text x="480" y="444" text-anchor="middle" class="step">احتفظ بنسبة 100% من الأخطاء · احتفظ بنسبة 100% عالية التكلفة · عينة بنسبة 5% من النجاح</text>
+  <text x="480" y="462" text-anchor="middle" class="step">المجاميع دائما · الخام لتصحيح الأخطاء الطويلة الذيل</text>
+  <text x="480" y="482" text-anchor="middle" class="caption">مطالبات Arize AX أرخص بنحو 100 مرة من APM المتجانسة على نطاق واسع - نسخة صفرية في بحيرة البيانات الخاصة بك</text>
+</svg>

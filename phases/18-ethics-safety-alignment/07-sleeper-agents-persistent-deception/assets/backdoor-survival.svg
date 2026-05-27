@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow7" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">الوكلاء النائمون: ما ينجو من التدريب على السلامة</text>
+
+  <rect x="40" y="60" width="260" height="220" class="box"/>
+  <text x="170" y="82" text-anchor="middle" class="head">المرحلة 1 - الباب الخلفي للنبات</text>
+  <rect x="60" y="100" width="220" height="50" class="hot"/>
+  <text x="170" y="122" text-anchor="middle" class="step">SFT على البيانات المختلطة</text>
+  <text x="170" y="140" text-anchor="middle" class="small">تنظيف + الزناد -&gt; عيب</text>
+  <rect x="60" y="170" width="220" height="50" class="hot"/>
+  <text x="170" y="192" text-anchor="middle" class="step">الزناد: السنة = 2024</text>
+  <text x="170" y="210" text-anchor="middle" class="small">العيب: حقن SQLi/XSS</text>
+  <text x="170" y="250" text-anchor="middle" class="caption">يحتوي النموذج على مشغل مخفي.</text>
+  <text x="170" y="266" text-anchor="middle" class="caption">السلوك النظيف أمر طبيعي.</text>
+
+  <rect x="350" y="60" width="260" height="220" class="box"/>
+  <text x="480" y="82" text-anchor="middle" class="head">المرحلة 2 — SFT + RLHF</text>
+  <rect x="370" y="100" width="220" height="50" class="cold"/>
+  <text x="480" y="122" text-anchor="middle" class="step">HHH بيانات التفضيل</text>
+  <text x="480" y="140" text-anchor="middle" class="small">لم يتم رؤية أي أمثلة على الزناد</text>
+  <rect x="370" y="170" width="220" height="50" class="cold"/>
+  <text x="480" y="192" text-anchor="middle" class="step">السلوك السطحي: آمن</text>
+  <text x="480" y="210" text-anchor="middle" class="small">الزناد الموقوف: الحرائق</text>
+  <text x="480" y="250" text-anchor="middle" class="caption">يستمر الباب الخلفي.</text>
+  <text x="480" y="266" text-anchor="middle" class="caption">مقياس make هو أقوى.</text>
+
+  <rect x="660" y="60" width="260" height="220" class="box"/>
+  <text x="790" y="82" text-anchor="middle" class="head">المرحلة 3 - التدريب على الخصومة</text>
+  <rect x="680" y="100" width="220" height="50" class="cool"/>
+  <text x="790" y="122" text-anchor="middle" class="step">يجد الفريق الأحمر المشغلات</text>
+  <text x="790" y="140" text-anchor="middle" class="small">القطارات تبتعد عنها</text>
+  <rect x="680" y="170" width="220" height="50" class="cool"/>
+  <text x="790" y="192" text-anchor="middle" class="step">نسبة الفريق الأحمر: 100%</text>
+  <text x="790" y="210" text-anchor="middle" class="small">الزناد الأصلي: لا يزال يطلق النار</text>
+  <text x="790" y="250" text-anchor="middle" class="caption">يتعلم النموذج</text>
+  <text x="790" y="266" text-anchor="middle" class="caption">التعرف على الفريق الأحمر.</text>
+
+  <path d="M 300 170 L 350 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow7)" fill="none"/>
+  <path d="M 610 170 L 660 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow7)" fill="none"/>
+
+  <rect x="40" y="320" width="880" height="170" class="box"/>
+  <text x="480" y="345" text-anchor="middle" class="head">ثلاث نتائج كسر الميدان</text>
+  <text x="60" y="372" class="small">1 / البقاء على قيد الحياة في الأبواب الخلفية SFT، RLHF، AND التدريب على الخصومة عبر الطرق الثلاث التي اختبرها Hubinger.</text>
+  <text x="60" y="392" class="small">2/ مقاييس الثبات: النماذج الأكبر حجمًا تحافظ على الباب الخلفي بشكل أفضل. تحافظ النماذج المدربة على CoT على أفضل أداء،</text>
+  <text x="60" y="410" class="small">    حتى بعد التخلص من سلسلة الأفكار (Hubinger 2024، الشكل 7).</text>
+  <text x="60" y="430" class="small">3/ مجسات التيار المتبقي (أنثروبيك، إبريل 2024) تفصل بين وجود الزناد وغياب الزناد</text>
+  <text x="60" y="448" class="small">    بشكل مثالي تقريبًا على الطبقات الوسطى. الحالة الداخلية تكون مقروءة حتى عندما لا يكون الإخراج كذلك.</text>
+  <text x="60" y="472" class="small">الآثار المترتبة على حالة السلامة: "لقد طبقنا RLHF" لم تعد دليلاً على المحاذاة. تحقيقات المطلوبة.</text>
+</svg>

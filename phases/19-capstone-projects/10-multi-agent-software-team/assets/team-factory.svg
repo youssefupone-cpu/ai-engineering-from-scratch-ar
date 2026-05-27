@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .edge { stroke: #555; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">مصنع متعدد الوكلاء - مهندس معماري / مبرمجون / مراجع / مختبر</text>
+
+  <rect x="380" y="50" width="200" height="44" class="dsk"/>
+  <text x="480" y="70" text-anchor="middle" class="step">مهندس معماري (أوبوس 4.7)</text>
+  <text x="480" y="86" text-anchor="middle" class="small">الخطة + المهام الفرعية + الواجهات</text>
+
+  <rect x="40" y="130" width="180" height="70" class="cool"/>
+  <text x="130" y="150" text-anchor="middle" class="step">المبرمج أ (السوناتة 4.7)</text>
+  <text x="130" y="168" text-anchor="middle" class="small">شجرة العمل أ + دايتونا</text>
+  <text x="130" y="186" text-anchor="middle" class="small">مهمة فرعية: محلل</text>
+
+  <rect x="240" y="130" width="180" height="70" class="cool"/>
+  <text x="330" y="150" text-anchor="middle" class="step">المبرمج ب</text>
+  <text x="330" y="168" text-anchor="middle" class="small">شجرة العمل ب</text>
+  <text x="330" y="186" text-anchor="middle" class="small">المهمة الفرعية: ذاكرة التخزين المؤقت</text>
+
+  <rect x="440" y="130" width="180" height="70" class="cool"/>
+  <text x="530" y="150" text-anchor="middle" class="step">المبرمج ج</text>
+  <text x="530" y="168" text-anchor="middle" class="small">شجرة العمل ج</text>
+  <text x="530" y="186" text-anchor="middle" class="small">المهمة الفرعية: API</text>
+
+  <rect x="640" y="130" width="180" height="70" class="cool"/>
+  <text x="730" y="150" text-anchor="middle" class="step">المبرمج د</text>
+  <text x="730" y="168" text-anchor="middle" class="small">شجرة العمل د</text>
+  <text x="730" y="186" text-anchor="middle" class="small">المهمة الفرعية: الهجرة</text>
+
+  <path d="M480,94 L130,130" class="edge"/>
+  <path d="M480,94 L330,130" class="edge"/>
+  <path d="M480,94 L530,130" class="edge"/>
+  <path d="M480,94 L730,130" class="edge"/>
+
+  <rect x="340" y="240" width="280" height="54" class="cold"/>
+  <text x="480" y="262" text-anchor="middle" class="step">منسق الدمج</text>
+  <text x="480" y="280" text-anchor="middle" class="small">دمج ثلاثي الاتجاهات + LLM حل التعارض</text>
+
+  <path d="M130,200 L440,240" class="edge"/>
+  <path d="M330,200 L460,240" class="edge"/>
+  <path d="M530,200 L500,240" class="edge"/>
+  <path d="M730,200 L540,240" class="edge"/>
+
+  <rect x="340" y="320" width="280" height="54" class="hot"/>
+  <text x="480" y="342" text-anchor="middle" class="step">المراجع (GPT-5.4)</text>
+  <text x="480" y="360" text-anchor="middle" class="small">لا يمكن الموافقة على الاختلافات التي قام بتأليفها</text>
+  <path d="M480,294 L480,320" class="edge"/>
+
+  <rect x="340" y="400" width="280" height="54" class="dsk"/>
+  <text x="480" y="422" text-anchor="middle" class="step">اختبار (الجوزاء 2.5 برو)</text>
+  <text x="480" y="440" text-anchor="middle" class="small">تشغيل الجناح في وضع الحماية النظيف</text>
+  <path d="M480,374 L480,400" class="edge"/>
+
+  <rect x="340" y="480" width="280" height="40" class="cool"/>
+  <text x="480" y="504" text-anchor="middle" class="step">PR مفتوح</text>
+  <path d="M480,454 L480,480" class="edge"/>
+
+  <rect x="40" y="300" width="260" height="240" class="box"/>
+  <text x="170" y="322" text-anchor="middle" class="head">metrics</text>
+  <text x="170" y="344" text-anchor="middle" class="small">SWE- مقعد Pro pass@1</text>
+  <text x="170" y="362" text-anchor="middle" class="small">ساعة الحائط مقابل وكيل واحد</text>
+  <text x="170" y="380" text-anchor="middle" class="small">موافقة كاذبة على مسبار الأخطاء</text>
+  <text x="170" y="398" text-anchor="middle" class="small">نسبة تضخيم الرمز</text>
+  <text x="170" y="416" text-anchor="middle" class="small">دمج معدل الصراع</text>
+  <text x="170" y="440" text-anchor="middle" class="small">target:</text>
+  <text x="170" y="456" text-anchor="middle" class="small">pass@1&gt; وكيل واحد</text>
+  <text x="170" y="472" text-anchor="middle" class="small">تسريع 2-3x في المهام المتوازية</text>
+  <text x="170" y="490" text-anchor="middle" class="small">رمز أمبير &lt;2x</text>
+  <text x="170" y="508" text-anchor="middle" class="small">موافقة خاطئة &lt; 5%</text>
+  <text x="170" y="528" text-anchor="middle" class="caption">SWE-AF / شكل MetaGPT / AutoGen</text>
+
+  <rect x="660" y="300" width="260" height="240" class="box"/>
+  <text x="790" y="322" text-anchor="middle" class="head">محاسبة التسليم</text>
+  <text x="790" y="344" text-anchor="middle" class="small">حدود كل دور =span</text>
+  <text x="790" y="362" text-anchor="middle" class="small">A2A-الرسائل المكتوبة</text>
+  <text x="790" y="380" text-anchor="middle" class="small">لوحة المهام المدعومة بالملفات</text>
+  <text x="790" y="398" text-anchor="middle" class="small">علامة دور Langfuse + الرمز المميز</text>
+  <text x="790" y="422" text-anchor="middle" class="small">الرسوم البيانية بعد الوفاة:</text>
+  <text x="790" y="438" text-anchor="middle" class="small">خطة غامضة / دمج الصراع /</text>
+  <text x="790" y="454" text-anchor="middle" class="small">موافقة خاطئة للمراجع /</text>
+  <text x="790" y="470" text-anchor="middle" class="small">رقاقة اختبار</text>
+  <text x="790" y="496" text-anchor="middle" class="small">يتم شحنها مع كل تشغيل فاشل</text>
+  <text x="790" y="516" text-anchor="middle" class="caption">عمليات التسليم هي سطح الفشل</text>
+</svg>

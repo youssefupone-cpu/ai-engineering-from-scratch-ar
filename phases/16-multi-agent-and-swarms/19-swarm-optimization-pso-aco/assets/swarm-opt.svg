@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .dot { fill: #2c5ea9; }
+      .dot2 { fill: #c0392b; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">تم تطبيق تحسين السرب لـ LLMs — PSO وACO على المطالبات والتوجيه</text>
+
+  <rect x="40" y="60" width="420" height="210" class="cold"/>
+  <text x="250" y="84" text-anchor="middle" class="head">PSO — تحسين سرب الجسيمات</text>
+
+  <rect x="70" y="110" width="360" height="120" class="box"/>
+  <text x="250" y="130" text-anchor="middle" class="small">مساحة المعلمة (ثنائية الأبعاد هنا؛ عمليًا: التضمين الفوري، LoRA دلتا)</text>
+  <circle cx="290" cy="175" r="5" class="dot2"/>
+  <text x="290" y="190" text-anchor="middle" class="small">optimum</text>
+  <circle cx="90" cy="150" r="4" class="dot"/>
+  <circle cx="130" cy="165" r="4" class="dot"/>
+  <circle cx="180" cy="160" r="4" class="dot"/>
+  <circle cx="220" cy="170" r="4" class="dot"/>
+  <circle cx="260" cy="175" r="4" class="dot"/>
+  <circle cx="340" cy="185" r="4" class="dot"/>
+  <circle cx="400" cy="200" r="4" class="dot"/>
+  <text x="250" y="246" text-anchor="middle" class="caption">v = w*v + c1*r1*(p_best - x) + c2*r2*(g_best - x)</text>
+
+  <text x="250" y="265" text-anchor="middle" class="small">LMPSO: السرعة هي موجه؛ الأسراب النموذجية: الجسيمات ذات أوزان خبيرة (+13.3%)</text>
+
+  <rect x="500" y="60" width="420" height="210" class="cool"/>
+  <text x="710" y="84" text-anchor="middle" class="head">ACO — تحسين مستعمرة النمل</text>
+
+  <rect x="530" y="110" width="360" height="120" class="box"/>
+  <text x="550" y="134" class="small">Task_type المبرمج عالم الرياضيات</text>
+  <text x="550" y="154" class="small">الكود 2.96 0.08 0.08</text>
+  <text x="550" y="172" class="small">الرياضيات 0.08 3.21 0.08</text>
+  <text x="550" y="190" class="small">الكتابة 0.08 0.08 2.97</text>
+  <text x="550" y="208" class="small">التخطيط 0.08 0.25 0.88</text>
+  <text x="710" y="246" text-anchor="middle" class="caption">فرمون (ر، أ) *= (1 - الاضمحلال)؛ += تعزيز*الجودة على الودائع ذات بوابات الجودة</text>
+  <text x="710" y="265" text-anchor="middle" class="small">AMRO-S: تسريع بمعدل 4.7 مرات؛ أدلة التوجيه القابلة للتفسير؛ تحديث غير متزامن</text>
+
+  <rect x="40" y="295" width="880" height="200" class="box"/>
+  <text x="480" y="319" text-anchor="middle" class="head">متى تستخدم ماذا</text>
+
+  <text x="60" y="352" class="step">PSO</text>
+  <text x="180" y="352" class="small">التضمين المستمر الرقمي أو المنخفض الخافت · اللياقة البدنية الرخيصة · البوب ​​10-30</text>
+
+  <text x="60" y="378" class="step">ACO</text>
+  <text x="180" y="378" class="small">التوجيه / اختيار المسار · يتم تعزيز القرارات بمرور الوقت · تحتاج إلى أدلة قابلة للتفسير</text>
+
+  <text x="60" y="404" class="step">GA</text>
+  <text x="180" y="404" class="small">تركيب رمزي/برنامجي منفصل · يعتمد على السكان، ويحركه التقاطع</text>
+
+  <text x="60" y="430" class="step">DPO/RL</text>
+  <text x="180" y="430" class="small">مكافأة متباينة · ميزانية كبيرة · تحسين وقت التدريب</text>
+
+  <text x="60" y="456" class="step">manual</text>
+  <text x="180" y="456" class="small">الميزانية &lt; 100 دولار · معلمات أحادية digit · تبلغ قيمة ذاكرة التخزين المؤقت أكثر من البحث</text>
+
+  <text x="60" y="484" class="caption">يحتاج جميع مُحسِّني السرب إلى بوابة جودة لتجنب تقييد المرشحين السريعين ولكن المخطئين</text>
+</svg>

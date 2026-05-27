@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .curr { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .lib { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .iter { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .env { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">Voyager - المنهج التلقائي، مكتبة المهارات، التحسين التكراري</text>
+
+  <rect x="40" y="60" width="280" height="180" class="curr"/>
+  <text x="180" y="82" text-anchor="middle" class="head">المنهج التلقائي</text>
+  <text x="60" y="108" class="small">يقترح المهمة التالية من فجوة القدرات الحالية</text>
+  <text x="60" y="126" class="small">الاستكشاف المدفوع بالفضول من القاعدة إلى القمة</text>
+  <text x="60" y="146" class="small">"تعلم صناعة الفأس الحديدي" يأتي قبل الماس</text>
+  <rect x="60" y="158" width="240" height="70" class="box"/>
+  <text x="78" y="178" class="step">التناظرية الإنتاج:</text>
+  <text x="78" y="196" class="small">مراجعة الفجوات - ما هي المهارات المفقودة في المكتبة</text>
+  <text x="78" y="212" class="small">اجتياز المنهج الأسبوعي بواسطة زوج من الأفراد + الوكلاء</text>
+
+  <rect x="340" y="60" width="280" height="180" class="lib"/>
+  <text x="480" y="82" text-anchor="middle" class="head">مكتبة المهارات</text>
+  <text x="360" y="108" class="small">المهارة = الكود المسمى + الوصف + Deps</text>
+  <text x="360" y="126" class="small">نسخة، قابلة للاسترجاع، قابلة للتركيب</text>
+  <text x="360" y="146" class="small">تخلص من الكتابة؛ مرشح العلامة عند الاسترداد</text>
+  <rect x="360" y="158" width="240" height="70" class="box"/>
+  <text x="378" y="178" class="step">2026 إنتاج التناظرية:</text>
+  <text x="378" y="196" class="small">مهارات كلود وكيل SDK</text>
+  <text x="378" y="212" class="small">تسجيل Skillkit؛ MCP الموارد</text>
+
+  <rect x="640" y="60" width="280" height="180" class="iter"/>
+  <text x="780" y="82" text-anchor="middle" class="head">المطالبة التكرارية</text>
+  <text x="660" y="108" class="small">خطأ في التنفيذ + تعليقات البيئة + التحقق الذاتي</text>
+  <text x="660" y="126" class="small">إعادة كتابة المهارة، نسخة نتوء</text>
+  <text x="660" y="146" class="small">فشل v1 في التصنيع؛ يضيف الإصدار 2 عمق العصا</text>
+  <rect x="660" y="158" width="240" height="70" class="box"/>
+  <text x="678" y="178" class="step">underpinnings:</text>
+  <text x="678" y="196" class="small">صقل الذات (الدرس 05)</text>
+  <text x="678" y="212" class="small">CRITIC (الدرس 05) مع أداة التحقق من البيئة</text>
+
+  <rect x="80" y="280" width="800" height="230" class="env"/>
+  <text x="480" y="302" text-anchor="middle" class="head">حلقة العمل - craft_iron_pickaxe</text>
+
+  <rect x="100" y="320" width="760" height="40" class="box"/>
+  <text x="120" y="342" class="step">1. استرجاع: Library.search("need a Pickaxe") يُرجع craft_iron_pickaxe v1</text>
+
+  <rect x="100" y="368" width="760" height="40" class="box"/>
+  <text x="120" y="390" class="step">2. تنفيذ الإصدار 1: topo_order place_table mine_ore craft_iron_pickaxe</text>
+
+  <rect x="100" y="416" width="760" height="40" class="box"/>
+  <text x="120" y="438" class="step">3. فشل: خطأ وقت التشغيل "يحتاج إلى عصاتين، يحتوي على 0" من سطح ردود الفعل البيئية</text>
+
+  <rect x="100" y="464" width="760" height="40" class="box"/>
+  <text x="120" y="486" class="step">4. صقل: قم بتسجيل الإصدار 2 من خلال Collect_sticks dep؛ إعادة التنفيذ؛ نجاح؛ المخزون += معول الحديد</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">مساحة العمل = الكود. المهارات تؤلف في DAGs. فشل عثرة الإصدارات. المكتبة تنمو بشكل رتيب.</text>
+</svg>

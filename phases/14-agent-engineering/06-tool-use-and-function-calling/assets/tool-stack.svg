@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">مكدس استخدام الأداة: المخطط -&gt; التحقق من الصحة -&gt; الإرسال -&gt; المراقبة المنظمة</text>
+
+  <rect x="40" y="60" width="880" height="80" class="box"/>
+  <text x="480" y="84" text-anchor="middle" class="head">كتالوج الأدوات (كما يراها النموذج)</text>
+  <text x="60" y="108" class="step">add(a int, b int) - أضف عددين صحيحين a وb. استخدم لأي إضافة عدد صحيح.</text>
+  <text x="60" y="124" class="step">ضرب (a int، b int) - ضرب عددين صحيحين. تفضل الضرب على الإضافة الحلقية.</text>
+
+  <rect x="40" y="160" width="280" height="360" class="box"/>
+  <text x="180" y="184" text-anchor="middle" class="head">التحقق من صحة الحجة</text>
+  <rect x="60" y="200" width="240" height="46" class="cool"/>
+  <text x="80" y="224" class="step">نوع الإكراه</text>
+  <text x="80" y="240" class="small">"5" -&gt; 5 إذا كان لا لبس فيه</text>
+
+  <rect x="60" y="254" width="240" height="46" class="cold"/>
+  <text x="80" y="278" class="step">فحص التعداد</text>
+  <text x="80" y="294" class="small">الحالة في {مفتوح،مغلق،معلق}</text>
+
+  <rect x="60" y="308" width="240" height="46" class="hot"/>
+  <text x="80" y="332" class="step">الحقول المطلوبة</text>
+  <text x="80" y="348" class="small">مفقود -&gt; ملاحظة الأخطاء المنظمة</text>
+
+  <rect x="60" y="362" width="240" height="46" class="dsk"/>
+  <text x="80" y="386" class="step">النطاق/الدقيقة/الحد الأقصى</text>
+  <text x="80" y="402" class="small">تم فحص الحدود الرقمية</text>
+
+  <rect x="60" y="416" width="240" height="46" class="box"/>
+  <text x="80" y="440" class="step">سياسة وضع الحماية</text>
+  <text x="80" y="456" class="small">مهلة لكل أداة، سطح خ، الشبكة</text>
+
+  <text x="60" y="484" class="small">لا ترفع أبدًا إلى الحلقة - كل فشل</text>
+  <text x="60" y="500" class="small">تصبح ملاحظة يقرأها النموذج</text>
+
+  <rect x="340" y="160" width="280" height="360" class="box"/>
+  <text x="480" y="184" text-anchor="middle" class="head">dispatch</text>
+  <rect x="360" y="200" width="240" height="140" class="cool"/>
+  <text x="480" y="224" text-anchor="middle" class="step">استدعاءات الأداة الموازية</text>
+  <text x="380" y="248" class="small">يقوم المساعد بدوره بإصدار كتل N tool_use</text>
+  <text x="380" y="264" class="small">لكل منها أداة_استخدام_id مميزة</text>
+  <text x="380" y="280" class="small">وقت التشغيل ينفذ المستقلين بالتوازي</text>
+  <text x="380" y="296" class="small">النتائج مرتبطة مرة أخرى بواسطة tool_use_id</text>
+  <text x="380" y="312" class="small">قم بتبديل المعرف وسيحدث خطأ في التوجيه</text>
+  <text x="380" y="332" class="small">الأنثروبي، OpenAI، حجر الأساس، كل ذلك يتطلب ذلك</text>
+
+  <rect x="360" y="350" width="240" height="160" class="cold"/>
+  <text x="480" y="374" text-anchor="middle" class="step">execution</text>
+  <text x="380" y="398" class="small">تم القبض على الاستثناءات</text>
+  <text x="380" y="414" class="small">فرض المهلات</text>
+  <text x="380" y="430" class="small">النتائج مقيد مع تلميحات الشكل</text>
+  <text x="380" y="446" class="small">منظم JSON يفضل على النثر</text>
+  <text x="380" y="462" class="small">قاطع الدائرة عند تكرار الأعطال</text>
+  <text x="380" y="478" class="small">النطاق المنبعث (OTel GenAI tool_call)</text>
+  <text x="380" y="494" class="small">مسار التدقيق لحالات ما بعد الوفاة</text>
+
+  <rect x="640" y="160" width="280" height="360" class="box"/>
+  <text x="780" y="184" text-anchor="middle" class="head">BFCL V4 التكوين</text>
+  <rect x="660" y="200" width="240" height="44" class="cool"/>
+  <text x="780" y="226" text-anchor="middle" class="step">ايجينت 40%</text>
+
+  <rect x="660" y="250" width="240" height="44" class="cold"/>
+  <text x="780" y="276" text-anchor="middle" class="step">متعدد المنعطفات 30%</text>
+
+  <rect x="660" y="300" width="240" height="44" class="hot"/>
+  <text x="780" y="326" text-anchor="middle" class="step">لايف 10%</text>
+
+  <rect x="660" y="350" width="240" height="44" class="dsk"/>
+  <text x="780" y="376" text-anchor="middle" class="step">غير الحية 10%</text>
+
+  <rect x="660" y="400" width="240" height="44" class="box"/>
+  <text x="780" y="426" text-anchor="middle" class="step">هلوسة 10%</text>
+
+  <text x="660" y="456" class="small">حل دورة واحدة؛ الذاكرة، ديناميكية</text>
+  <text x="660" y="472" class="small">القرارات، تبقى السلاسل الطويلة مفتوحة</text>
+  <text x="660" y="496" class="small">gorilla.cs.berkeley.edu/leaderboard.html</text>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">المعايير المتعددة الوكلاء للأعوام 2025-2026 وما يقيسه كل منها</text>
+
+  <rect x="40" y="60" width="880" height="220" class="box"/>
+  <text x="480" y="84" text-anchor="middle" class="head">المعايير الخمسة الأساسية</text>
+
+  <rect x="60" y="110" width="170" height="150" class="cool"/>
+  <text x="145" y="134" text-anchor="middle" class="step">MultiAgentBench</text>
+  <text x="145" y="152" text-anchor="middle" class="step">(MARBLE)</text>
+  <text x="145" y="174" text-anchor="middle" class="small">topologies:</text>
+  <text x="145" y="190" text-anchor="middle" class="small">star/chain/tree/graph</text>
+  <text x="145" y="212" text-anchor="middle" class="small">الرسم البياني يفوز بالبحث</text>
+  <text x="145" y="230" text-anchor="middle" class="small">ضريبة التنسيق الماضية ~ 4</text>
+  <text x="145" y="252" text-anchor="middle" class="caption">__المصطلح_0__ 2025</text>
+
+  <rect x="240" y="110" width="170" height="150" class="hot"/>
+  <text x="325" y="134" text-anchor="middle" class="step">COMMA</text>
+  <text x="325" y="174" text-anchor="middle" class="small">multimodal,</text>
+  <text x="325" y="190" text-anchor="middle" class="small">معلومات غير متماثلة</text>
+  <text x="325" y="212" text-anchor="middle" class="small">GPT-4o النضال</text>
+  <text x="325" y="230" text-anchor="middle" class="small">للتغلب بشكل عشوائي</text>
+  <text x="325" y="252" text-anchor="middle" class="caption">إشارة نتيجة فارغة</text>
+
+  <rect x="420" y="110" width="170" height="150" class="cold"/>
+  <text x="505" y="134" text-anchor="middle" class="step">MedAgentBoard</text>
+  <text x="505" y="174" text-anchor="middle" class="small">4 مهام طبية</text>
+  <text x="505" y="190" text-anchor="middle" class="small">واحد-LLM في كثير من الأحيان</text>
+  <text x="505" y="212" text-anchor="middle" class="small">يطابق وكيل متعدد</text>
+  <text x="505" y="230" text-anchor="middle" class="small">فحص الهندسة الزائدة</text>
+  <text x="505" y="252" text-anchor="middle" class="caption">اختبار إجهاد المجال</text>
+
+  <rect x="600" y="110" width="170" height="150" class="cool"/>
+  <text x="685" y="134" text-anchor="middle" class="step">AgentArch</text>
+  <text x="685" y="174" text-anchor="middle" class="small">الأدوات + الذاكرة +</text>
+  <text x="685" y="190" text-anchor="middle" class="small">orchestration</text>
+  <text x="685" y="212" text-anchor="middle" class="small">قيمة لكل طبقة</text>
+  <text x="685" y="230" text-anchor="middle" class="small">attribution</text>
+  <text x="685" y="252" text-anchor="middle" class="caption">مكدس المؤسسة</text>
+
+  <rect x="780" y="110" width="140" height="150" class="hot"/>
+  <text x="850" y="134" text-anchor="middle" class="step">SWE- مقاعد البدلاء برو</text>
+  <text x="850" y="174" text-anchor="middle" class="small">مشاكل 1865</text>
+  <text x="850" y="190" text-anchor="middle" class="small">~23% مقابل 70%+</text>
+  <text x="850" y="212" text-anchor="middle" class="small">Verified</text>
+  <text x="850" y="230" text-anchor="middle" class="small">contamination</text>
+  <text x="850" y="252" text-anchor="middle" class="caption">اختبار 2026</text>
+
+  <rect x="40" y="290" width="880" height="210" class="box"/>
+  <text x="480" y="314" text-anchor="middle" class="head">قراءة المطالبات المعيارية بتشكك</text>
+
+  <text x="60" y="346" class="step">[1]</text>
+  <text x="120" y="346" class="small">ما هو المعيار + الانقسام؟ Verified vs Pro عبارة عن فجوة قدرها 40 نقطة للنماذج الحدودية</text>
+
+  <text x="60" y="372" class="step">[2]</text>
+  <text x="120" y="372" class="small">التلوث: هل هو المعيار بعد قطع التدريب؟</text>
+
+  <text x="60" y="398" class="step">[3]</text>
+  <text x="120" y="398" class="small">خطوط الأساس: مقابل LLM الفردي، مقابل العشوائي، مقابل الوكيل المتعدد السابق</text>
+
+  <text x="60" y="424" class="step">[4]</text>
+  <text x="120" y="424" class="small">الأهمية الإحصائية: تجارب N، CI، القيمة p</text>
+
+  <text x="60" y="450" class="step">[5]</text>
+  <text x="120" y="450" class="small">تنوع المهام: مهمة واحدة أو عدة مهام – التعميم مهم</text>
+
+  <text x="60" y="476" class="step">[6]</text>
+  <text x="120" y="476" class="small">الكشف عن التكلفة: الرموز المميزة + ساعة الحائط — تكلفة 20 ضعفًا مقابل رفع بنسبة 10% هو قرار تجاري</text>
+</svg>

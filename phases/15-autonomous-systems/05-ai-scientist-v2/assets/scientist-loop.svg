@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 12px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">AI العالِم الإصدار الثاني - حلقة البحث، قياس معدلات الفشل</text>
+
+  <rect x="40" y="50" width="800" height="430" class="box"/>
+
+  <!-- Stages across -->
+  <g>
+    <rect x="60" y="80" width="110" height="60" class="cool"/>
+    <text x="115" y="104" text-anchor="middle" class="label">idea</text>
+    <text x="115" y="120" text-anchor="middle" class="small">بحث شجرة وكيل</text>
+
+    <rect x="180" y="80" width="110" height="60" class="hot"/>
+    <text x="235" y="104" text-anchor="middle" class="label">فحص الجدة</text>
+    <text x="235" y="120" text-anchor="middle" class="small">~25% تسمية خاطئة</text>
+
+    <rect x="300" y="80" width="110" height="60" class="hot"/>
+    <text x="355" y="104" text-anchor="middle" class="label">experiment</text>
+    <text x="355" y="120" text-anchor="middle" class="small">42% فشل</text>
+    <text x="355" y="134" text-anchor="middle" class="small">(بيل 2025)</text>
+
+    <rect x="420" y="80" width="110" height="60" class="cold"/>
+    <text x="475" y="104" text-anchor="middle" class="label">VLM نقد ​​الشكل</text>
+    <text x="475" y="120" text-anchor="middle" class="small">تلميع الصور</text>
+    <text x="475" y="134" text-anchor="middle" class="small">أقنعة 70%</text>
+
+    <rect x="540" y="80" width="110" height="60" class="cool"/>
+    <text x="595" y="104" text-anchor="middle" class="label">writeup</text>
+
+    <rect x="660" y="80" width="110" height="60" class="cool"/>
+    <text x="715" y="104" text-anchor="middle" class="label">مراجعة + إرسال</text>
+  </g>
+
+  <!-- Arrows across -->
+  <path d="M170 110 L180 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M290 110 L300 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M410 110 L420 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M530 110 L540 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M650 110 L660 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Results panel -->
+  <rect x="60" y="175" width="740" height="115" class="box"/>
+  <text x="80" y="196" class="label">النتائج المقاسة (يامادا 2025، ساكانا نيتشر 2026)</text>
+  <text x="80" y="218" class="content">· تم قبول الورقة التي تم إنشاؤها بواسطة الإصدار v2 في ورشة عمل ICLR 2025 (تم الكشف عنها)</text>
+  <text x="80" y="236" class="content">· حلقة خالية من القالب تحل محل السقالات الثابتة لـ v1</text>
+  <text x="80" y="254" class="content">· المستندات الورقية Nature 2026 من طرف إلى طرف pipeline</text>
+  <text x="80" y="272" class="content">· بيل وآخرون. 2025 تقييم خارجي تم وضع علامة على عيوب تجربة إخفاء الطلاء</text>
+
+  <!-- Safety box -->
+  <rect x="60" y="305" width="740" height="155" class="hot"/>
+  <text x="80" y="328" class="label">السلامة التشغيلية (Sakana repo README، معاد صياغتها)</text>
+  <text x="80" y="350" class="content">- تقوم قاعدة التعليمات البرمجية بتنفيذ التعليمات البرمجية المكتوبة LLM</text>
+  <text x="80" y="368" class="content">- الحزم الخطيرة، والوصول إلى شبكة الإنترنت غير المنضبط، والعمليات غير المقصودة المحتملة</text>
+  <text x="80" y="386" class="content">- يوصى بعزل Docker (يفضل seccomp / gVisor للتشغيل لعدة أيام)</text>
+  <text x="80" y="404" class="content">- الكشف عن الأوراق التي كتبها الوكيل؛ المراجعة قبل التقديم</text>
+  <text x="80" y="424" class="content">- المرحلة البولندية يمكن أن تخفي ضعف التجربة؛ تتطلب تدقيقًا منفصلاً</text>
+  <text x="80" y="442" class="content">- المقيم هو مراجعة الأقران، وهو ضعيف وصاخب</text>
+
+  <text x="440" y="478" text-anchor="middle" class="caption">المجال الذي لم يتم التحقق منه + سطح إخراج النص الكامل + الأماكن العامة = أقوى عناصر التحكم في المرحلة</text>
+</svg>

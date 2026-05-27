@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .router { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .engine { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .cache { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .disk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">vLLM مكدس الإنتاج + LMCache — إعادة استخدام المحرك المتقاطع KV</text>
+
+  <rect x="40" y="50" width="880" height="60" class="router"/>
+  <text x="480" y="74" text-anchor="middle" class="head">جهاز التوجيه (ذاكرة التخزين المؤقت)</text>
+  <text x="480" y="94" text-anchor="middle" class="small">يستهلك KV من الأحداث، وبادئات التجزئة، والمسارات إلى المحرك باستخدام المطابقة المشتركة OR المحلية</text>
+
+  <rect x="40" y="130" width="200" height="100" class="engine"/>
+  <text x="140" y="152" text-anchor="middle" class="step">vLLM المحرك 1</text>
+  <text x="140" y="170" text-anchor="middle" class="small">H100 80 جيجابايت</text>
+  <text x="140" y="188" text-anchor="middle" class="small">الموصل API الإصدار 0.9+</text>
+  <text x="140" y="206" text-anchor="middle" class="small">0.11.0 التفريغ غير المتزامن</text>
+  <rect x="260" y="130" width="200" height="100" class="engine"/>
+  <text x="360" y="152" text-anchor="middle" class="step">vLLM المحرك 2</text>
+  <text x="360" y="170" text-anchor="middle" class="small">H100 80 جيجابايت</text>
+  <rect x="480" y="130" width="200" height="100" class="engine"/>
+  <text x="580" y="152" text-anchor="middle" class="step">المحرك vLLM 3</text>
+  <text x="580" y="170" text-anchor="middle" class="small">H100 80 جيجابايت</text>
+  <rect x="700" y="130" width="200" height="100" class="engine"/>
+  <text x="800" y="152" text-anchor="middle" class="step">vLLM المحرك 4</text>
+  <text x="800" y="170" text-anchor="middle" class="small">H100 80 جيجابايت</text>
+
+  <rect x="40" y="260" width="880" height="100" class="cache"/>
+  <text x="480" y="282" text-anchor="middle" class="head">LMCache — ذاكرة التخزين المؤقت KV المشتركة بين المجموعات</text>
+  <text x="480" y="306" text-anchor="middle" class="step">CPU DRAM الطبقة (512 GB+ لكل مقبس)</text>
+  <text x="480" y="324" text-anchor="middle" class="small">غير متزامن عبر الرابط API؛ التفريغ لا يواجه المستخدم</text>
+  <text x="480" y="344" text-anchor="middle" class="small">حاسم لـ: المطالبات المشتركة متعددة المستأجرين، RAG إعادة استخدام القطعة، LoRA على القاعدة المشتركة، استعادة الشفعة</text>
+
+  <rect x="40" y="380" width="880" height="80" class="disk"/>
+  <text x="480" y="402" text-anchor="middle" class="head">طبقة متينة — Ceph / S3 / NVMe المحلي</text>
+  <text x="480" y="424" text-anchor="middle" class="step">بالنسبة للكتل التي تم إخلاؤها من DRAM؛ أبطأ ولكن لانهائي</text>
+  <text x="480" y="444" text-anchor="middle" class="caption">16x H100 المعيار: يساعد LMCache عندما يتجاوز KV البصمة HBM؛ يطابق خط الأساس عندما لا يكون كذلك</text>
+</svg>

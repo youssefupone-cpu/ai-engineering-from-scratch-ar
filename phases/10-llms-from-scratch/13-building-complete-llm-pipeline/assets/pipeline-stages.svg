@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .gate { fill: #f0e6ff; stroke: #5e3fbe; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="28" text-anchor="middle" class="title">اثنتا عشرة مرحلة، بيان واحد، بوابة سفينة واحدة</text>
+
+  <!-- Stages grid 4x3 -->
+  <g>
+    <!-- row 1 -->
+    <rect x="30" y="60" width="180" height="60" class="box"/>
+    <text x="120" y="82" text-anchor="middle" class="label">01 / 02 رمزي</text>
+    <text x="120" y="102" text-anchor="middle" class="step">المفردات، الدمج، التجزئة</text>
+    <text x="120" y="115" text-anchor="middle" class="small">~ساعة واحدة · ~5 دولارات</text>
+
+    <rect x="245" y="60" width="180" height="60" class="box"/>
+    <text x="335" y="82" text-anchor="middle" class="label">03 مجموعة البيانات</text>
+    <text x="335" y="102" text-anchor="middle" class="step">شظايا، dedup، الصفوف</text>
+    <text x="335" y="115" text-anchor="middle" class="small">~ساعات · ~50 دولارًا</text>
+
+    <rect x="460" y="60" width="180" height="60" class="hot"/>
+    <text x="550" y="82" text-anchor="middle" class="label">04 / 05 التدريب المسبق</text>
+    <text x="550" y="102" text-anchor="middle" class="step">نقطة التفتيش الأساسية</text>
+    <text x="550" y="115" text-anchor="middle" class="small">أيام · $$$</text>
+
+    <rect x="675" y="60" width="180" height="60" class="box"/>
+    <text x="765" y="82" text-anchor="middle" class="label">06 SFT</text>
+    <text x="765" y="102" text-anchor="middle" class="step">ضبط التعليمات</text>
+    <text x="765" y="115" text-anchor="middle" class="small">~ساعات · $$</text>
+
+    <!-- row 2 -->
+    <rect x="30" y="170" width="180" height="60" class="box"/>
+    <text x="120" y="192" text-anchor="middle" class="label">07 RLHF (PPO)</text>
+    <text x="120" y="212" text-anchor="middle" class="step">مكافأة + سياسة</text>
+    <text x="120" y="225" text-anchor="middle" class="small">بالتوازي ث / 08</text>
+
+    <rect x="245" y="170" width="180" height="60" class="box"/>
+    <text x="335" y="192" text-anchor="middle" class="label">08 DPO</text>
+    <text x="335" y="212" text-anchor="middle" class="step">أزواج التفضيل</text>
+    <text x="335" y="225" text-anchor="middle" class="small">بالتوازي ث / 07</text>
+
+    <rect x="460" y="170" width="180" height="60" class="box"/>
+    <text x="550" y="192" text-anchor="middle" class="label">09 CAI + GRPO</text>
+    <text x="550" y="212" text-anchor="middle" class="step">self-improvement</text>
+    <text x="550" y="225" text-anchor="middle" class="small">مكافآت القاعدة</text>
+
+    <rect x="675" y="170" width="180" height="60" class="box"/>
+    <text x="765" y="192" text-anchor="middle" class="label">10 التقييم</text>
+    <text x="765" y="212" text-anchor="middle" class="step">MMLU، MATH، GPQA</text>
+    <text x="765" y="225" text-anchor="middle" class="small">مجموعة معلقة</text>
+
+    <!-- row 3 -->
+    <rect x="30" y="280" width="180" height="60" class="box"/>
+    <text x="120" y="302" text-anchor="middle" class="label">11 التكميم</text>
+    <text x="120" y="322" text-anchor="middle" class="step">GPTQ / AWQ / GGUF</text>
+    <text x="120" y="335" text-anchor="middle" class="small">4 بت · ~ دقيقة</text>
+
+    <rect x="245" y="280" width="180" height="60" class="box"/>
+    <text x="335" y="302" text-anchor="middle" class="label">12 الاستدلال</text>
+    <text x="335" y="322" text-anchor="middle" class="step">vLLM، TRT-LLM</text>
+    <text x="335" y="335" text-anchor="middle" class="small">دفعة مستمرة</text>
+
+    <rect x="460" y="280" width="180" height="60" class="gate"/>
+    <text x="550" y="302" text-anchor="middle" class="label">بوابة السفينة</text>
+    <text x="550" y="322" text-anchor="middle" class="step">الانحدار + KL + $</text>
+    <text x="550" y="335" text-anchor="middle" class="small">العتبات الرقمية</text>
+
+    <rect x="675" y="280" width="180" height="60" class="cool"/>
+    <text x="765" y="302" text-anchor="middle" class="label">متجر التحف</text>
+    <text x="765" y="322" text-anchor="middle" class="step">content-addressed</text>
+    <text x="765" y="335" text-anchor="middle" class="small">التجزئة، وليس اسم الملف</text>
+  </g>
+
+  <!-- Flow arrows between columns row1 -->
+  <line x1="210" y1="90" x2="245" y2="90" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="425" y1="90" x2="460" y2="90" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="90" x2="675" y2="90" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Down from row1 to row2 (06 SFT -> 07/08 -> 09 -> 10) -->
+  <line x1="765" y1="120" x2="765" y2="160" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="765" y1="160" x2="120" y2="160" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="120" y1="160" x2="120" y2="170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="765" y1="160" x2="335" y2="160" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="335" y1="160" x2="335" y2="170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 2 flow -->
+  <line x1="210" y1="200" x2="460" y2="200" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="425" y1="200" x2="460" y2="200" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="640" y1="200" x2="675" y2="200" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Row 2 to row 3 -->
+  <line x1="550" y1="230" x2="550" y2="270" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="550" y1="270" x2="120" y2="270" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="120" y1="270" x2="120" y2="280" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="310" x2="245" y2="310" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- eval -> gate -->
+  <line x1="765" y1="230" x2="765" y2="270" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="765" y1="270" x2="550" y2="270" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="550" y1="270" x2="550" y2="280" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Manifest and cost labels at bottom -->
+  <rect x="30" y="380" width="400" height="100" class="box"/>
+  <text x="230" y="402" text-anchor="middle" class="label">Manifest</text>
+  <text x="230" y="422" text-anchor="middle" class="step">الإصدار، البذور، git_الالتزام</text>
+  <text x="230" y="440" text-anchor="middle" class="step">تجزئة الإدخال/الإخراج لكل مرحلة</text>
+  <text x="230" y="458" text-anchor="middle" class="step">التكلفة، ساعة الحائط، الحالة</text>
+  <text x="230" y="473" text-anchor="middle" class="small">ملف واحد يكفي لاعادته</text>
+
+  <rect x="460" y="380" width="400" height="100" class="gate"/>
+  <text x="660" y="402" text-anchor="middle" class="label">Gates</text>
+  <text x="660" y="422" text-anchor="middle" class="step">الانحدار: متري ≥ خط الأساس</text>
+  <text x="660" y="440" text-anchor="middle" class="step">KL الميزانية: الانجراف &lt; الحد الأقصى</text>
+  <text x="660" y="458" text-anchor="middle" class="step">السلامة: معدل الرفض &lt;5%</text>
+  <text x="660" y="473" text-anchor="middle" class="step">التكلفة: الإجمالي &lt; الميزانية</text>
+
+  <text x="480" y="508" text-anchor="middle" class="caption">لا يوجد تسجيل شخصي - كل بوابة عبارة عن رقم، وكل بوابة لها إصدار</text>
+</svg>

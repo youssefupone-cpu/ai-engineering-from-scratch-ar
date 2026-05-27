@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .silicon { fill: #ffe1e1; stroke: #c0392b; stroke-width: 1.5; }
+      .gpu { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .api { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">خريطة منصة الاستدلال - ثلاثة قطاعات وستة بائعين</text>
+
+  <rect x="40" y="50" width="280" height="460" class="box"/>
+  <text x="180" y="72" text-anchor="middle" class="head">السيليكون المخصص</text>
+  <rect x="60" y="90" width="240" height="60" class="silicon"/>
+  <text x="180" y="110" text-anchor="middle" class="step">جروك (LPU)</text>
+  <text x="180" y="128" text-anchor="middle" class="small">وكلاء الصوت، والترجمة في الوقت الحقيقي</text>
+  <text x="180" y="144" text-anchor="middle" class="small">فك تشفير أسرع بمعدل 5 إلى 10 مرات من GPU</text>
+  <rect x="60" y="160" width="240" height="60" class="silicon"/>
+  <text x="180" y="180" text-anchor="middle" class="step">المخيخ (WSE)</text>
+  <text x="180" y="198" text-anchor="middle" class="small">محرك على نطاق الرقاقة</text>
+  <text x="180" y="214" text-anchor="middle" class="small">فك تشفير سياق كبير جدًا</text>
+  <rect x="60" y="230" width="240" height="60" class="silicon"/>
+  <text x="180" y="250" text-anchor="middle" class="step">سامبانوفا (RDU)</text>
+  <text x="180" y="268" text-anchor="middle" class="small">تدفق البيانات القابلة لإعادة التشكيل</text>
+  <text x="180" y="284" text-anchor="middle" class="small">المؤسسة خاضعة للتنظيم</text>
+  <text x="180" y="330" text-anchor="middle" class="caption">دفع قسط لكل رمز</text>
+  <text x="180" y="346" text-anchor="middle" class="caption">الفوز في اتفاقيات مستوى الخدمة لزمن الوصول</text>
+
+  <rect x="340" y="50" width="280" height="460" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">GPU الأنظمة الأساسية</text>
+  <rect x="360" y="90" width="240" height="60" class="gpu"/>
+  <text x="480" y="110" text-anchor="middle" class="step">الألعاب النارية - الكمون</text>
+  <text x="480" y="128" text-anchor="middle" class="small">FireAttention، بقيمة 4 مليار دولار</text>
+  <text x="480" y="144" text-anchor="middle" class="small">1 دولار في الساعة GPU زيادة في مايو 2026</text>
+  <rect x="360" y="160" width="240" height="60" class="gpu"/>
+  <text x="480" y="180" text-anchor="middle" class="step">معا - اتساع</text>
+  <text x="480" y="198" text-anchor="middle" class="small">أكثر من 200 نموذج، 50-70% أقل من التكرار</text>
+  <text x="480" y="214" text-anchor="middle" class="small">"AI السحابة الأصلية"</text>
+  <rect x="360" y="230" width="240" height="60" class="gpu"/>
+  <text x="480" y="250" text-anchor="middle" class="step">باستن - مؤسسة</text>
+  <text x="480" y="268" text-anchor="middle" class="small">قيمة القيمة 5 مليار دولار أمريكي في يناير 2026، SOC2+HIPAA</text>
+  <text x="480" y="284" text-anchor="middle" class="small">تروس، الفواتير لكل دقيقة</text>
+  <rect x="360" y="300" width="240" height="60" class="gpu"/>
+  <text x="480" y="320" text-anchor="middle" class="step">مشروط - بايثون DX</text>
+  <text x="480" y="338" text-anchor="middle" class="small">1.1 مليار دولار أمريكي، فاتورة لكل ثانية</text>
+  <text x="480" y="354" text-anchor="middle" class="small">infrastructure-as-Python</text>
+  <rect x="360" y="370" width="240" height="60" class="gpu"/>
+  <text x="480" y="390" text-anchor="middle" class="step">Anyscale - راي الأصلي</text>
+  <text x="480" y="408" text-anchor="middle" class="small">محرك الاستدلال RayTurbo</text>
+  <text x="480" y="424" text-anchor="middle" class="small">مجموعات راي المدارة</text>
+
+  <rect x="640" y="50" width="280" height="460" class="box"/>
+  <text x="780" y="72" text-anchor="middle" class="head">API-الأسواق الأولى</text>
+  <rect x="660" y="90" width="240" height="60" class="api"/>
+  <text x="780" y="110" text-anchor="middle" class="step">Replicate</text>
+  <text x="780" y="128" text-anchor="middle" class="small">pay-per-prediction</text>
+  <text x="780" y="144" text-anchor="middle" class="small">اتساع الوسائط المتعددة الافتراضي</text>
+  <rect x="660" y="160" width="240" height="60" class="api"/>
+  <text x="780" y="180" text-anchor="middle" class="step">DeepInfra</text>
+  <text x="780" y="198" text-anchor="middle" class="small">التسعير العدواني لكل رمز</text>
+  <text x="780" y="214" text-anchor="middle" class="small">الهاوي والنماذج الأولية</text>
+  <rect x="660" y="230" width="240" height="60" class="api"/>
+  <text x="780" y="250" text-anchor="middle" class="step">OpenRouter</text>
+  <text x="780" y="268" text-anchor="middle" class="small">API موحد لأكثر من 100 نموذج</text>
+  <text x="780" y="284" text-anchor="middle" class="small">ائتمان واحد للعديد من مقدمي الخدمات</text>
+  <rect x="660" y="300" width="240" height="60" class="api"/>
+  <text x="780" y="320" text-anchor="middle" class="step">Fal</text>
+  <text x="780" y="338" text-anchor="middle" class="small">التركيز على الصورة / الفيديو</text>
+  <text x="780" y="354" text-anchor="middle" class="small">بدون خادم لكل مكالمة</text>
+  <text x="780" y="420" text-anchor="middle" class="caption">الوقت الأمثل للمكالمة الأولى</text>
+  <text x="780" y="436" text-anchor="middle" class="caption">أرخص للانفجار والصغيرة الحجم</text>
+
+  <rect x="40" y="520" width="880" height="30" class="box"/>
+  <text x="480" y="538" text-anchor="middle" class="step">القاعدة: نبضة في الدقيقة لكل رمز أعلى من ~ 30% من الاستخدام المستمر لواحد GPU</text>
+</svg>

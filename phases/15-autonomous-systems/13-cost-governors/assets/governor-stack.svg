@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .warn { fill: #fde0b4; stroke: #b5651d; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">طبقة محافظي التكلفة حسب النطاق الزمني. تكتشف كل طبقة فشلًا واضحًا.</text>
+
+  <rect x="40" y="50" width="800" height="460" class="box"/>
+
+  <!-- Time-scale rows -->
+  <text x="60" y="80" class="label">النطاق الزمني</text>
+  <text x="240" y="80" class="label">layer</text>
+  <text x="500" y="80" class="label">catches</text>
+
+  <!-- Per request -->
+  <rect x="60" y="90" width="160" height="40" class="cool"/>
+  <text x="140" y="115" text-anchor="middle" class="small">لكل طلب (&lt;1 ثانية)</text>
+  <rect x="230" y="90" width="240" height="40" class="cold"/>
+  <text x="350" y="115" text-anchor="middle" class="content">max_tokens</text>
+  <rect x="480" y="90" width="340" height="40" class="box"/>
+  <text x="650" y="115" text-anchor="middle" class="small">إكمال غير محدود (استدعاء LLM واحد)</text>
+
+  <!-- Per session -->
+  <rect x="60" y="135" width="160" height="40" class="cool"/>
+  <text x="140" y="160" text-anchor="middle" class="small">لكل جلسة (دقيقة)</text>
+  <rect x="230" y="135" width="240" height="40" class="cold"/>
+  <text x="350" y="160" text-anchor="middle" class="content">max_turns، max_budget_usd</text>
+  <rect x="480" y="135" width="340" height="40" class="box"/>
+  <text x="650" y="160" text-anchor="middle" class="small">حلقة تفكير طويلة في جلسة واحدة</text>
+
+  <!-- Per tool -->
+  <rect x="60" y="180" width="160" height="40" class="cool"/>
+  <text x="140" y="205" text-anchor="middle" class="small">لكل أداة (جلسة.)</text>
+  <rect x="230" y="180" width="240" height="40" class="cold"/>
+  <text x="350" y="205" text-anchor="middle" class="content">الحد الأقصى لكل أداة (على سبيل المثال، ≥5 WebFetch)</text>
+  <rect x="480" y="180" width="340" height="40" class="box"/>
+  <text x="650" y="205" text-anchor="middle" class="small">تقوم الأداة الجديدة بتشغيل حلقة جديدة (مثل مسار الطلب)</text>
+
+  <!-- Velocity -->
+  <rect x="60" y="225" width="160" height="40" class="warn"/>
+  <text x="140" y="250" text-anchor="middle" class="small">السرعة (10 دقيقة)</text>
+  <rect x="230" y="225" width="240" height="40" class="cold"/>
+  <text x="350" y="250" text-anchor="middle" class="content">قطع فوق 50 دولارًا / 10 دقائق</text>
+  <rect x="480" y="225" width="340" height="40" class="box"/>
+  <text x="650" y="250" text-anchor="middle" class="small">حلقة هاربة؛ سريع الحرق</text>
+
+  <!-- Daily -->
+  <rect x="60" y="270" width="160" height="40" class="hot"/>
+  <text x="140" y="295" text-anchor="middle" class="small">يوميا</text>
+  <rect x="230" y="270" width="240" height="40" class="cold"/>
+  <text x="350" y="295" text-anchor="middle" class="content">الحد الأقصى اليومي المتداول + تنبيه</text>
+  <rect x="480" y="270" width="340" height="40" class="box"/>
+  <text x="650" y="295" text-anchor="middle" class="small">تسرب بطيء مضاعفة تدريجية</text>
+
+  <!-- Weekly/monthly -->
+  <rect x="60" y="315" width="160" height="40" class="hot"/>
+  <text x="140" y="340" text-anchor="middle" class="small">في الأسبوع / الشهر</text>
+  <rect x="230" y="315" width="240" height="40" class="cold"/>
+  <text x="350" y="340" text-anchor="middle" class="content">الحد الأقصى الشهري الثابت + التنبيه الأسبوعي</text>
+  <rect x="480" y="315" width="340" height="40" class="box"/>
+  <text x="650" y="340" text-anchor="middle" class="small">إطلاق سيء؛ الانحدار عبر الجلسات</text>
+
+  <!-- Cost-reduction row -->
+  <rect x="60" y="370" width="760" height="54" class="cool"/>
+  <text x="440" y="392" text-anchor="middle" class="label">متعامد: تخفيض التكلفة بجودة ثابتة</text>
+  <text x="80" y="412" class="content">التخزين المؤقت السريع · نوافذ السياق / الضغط · توجيه النموذج المتدرج · ذاكرة التخزين المؤقت المتوازية لعمليات التشغيل طويلة الأفق</text>
+
+  <!-- Kill switch row -->
+  <rect x="60" y="430" width="760" height="60" class="hot"/>
+  <text x="440" y="452" text-anchor="middle" class="label">قتل التبديل على الخرق</text>
+  <text x="80" y="472" class="content">يتم تشغيل أي غطاء ← إحباط الجلسة ← تنبيه ← يلزم إعادة التمكين اليدوي ← لا يمكن للوكيل تعديل الحد الأقصى الخاص به</text>
+  <text x="80" y="486" class="small">لوحظ في عام 2026: وكيل التجارة الإلكترونية 1,200 دولار → 4,800 دولار بعد إضافة الأداة؛ وكان تنبيه النمو الأسبوعي هو الحل.</text>
+</svg>

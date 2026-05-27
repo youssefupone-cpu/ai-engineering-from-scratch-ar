@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">بوابة MCP في مستوى التحكم</text>
+
+  <rect x="40" y="60" width="200" height="440" class="cool"/>
+  <text x="140" y="82" text-anchor="middle" class="head">developers</text>
+  <text x="60" y="110" class="small">5000 مستخدم</text>
+  <text x="60" y="128" class="small">عبر IDEs</text>
+  <text x="60" y="162" class="step">ينظر إليها على أنها واحدة</text>
+  <text x="60" y="180" class="step">MCP نقطة النهاية</text>
+  <text x="60" y="212" class="small">المصادقة عبر البوابة</text>
+  <text x="60" y="228" class="small">OAuth 2.1 الخاص</text>
+  <text x="60" y="260" class="small">لا ترى الواجهة الخلفية أبدًا</text>
+  <text x="60" y="276" class="small">tokens</text>
+
+  <path d="M240,280 L340,280" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="340" y="60" width="320" height="440" class="cold"/>
+  <text x="500" y="82" text-anchor="middle" class="head">gateway</text>
+  <text x="356" y="108" class="step">1 / المصادقة (OAuth 2.1)</text>
+  <text x="356" y="124" class="small">مطور الخرائط إلى user_id</text>
+  <text x="356" y="146" class="step">2 / RBAC</text>
+  <text x="356" y="162" class="small">المستخدم -&gt; الأدوات المسموح بها</text>
+  <text x="356" y="184" class="step">3/ فحص التجزئة المثبتة</text>
+  <text x="356" y="200" class="small">رفض الأوصاف المتحورة</text>
+  <text x="356" y="222" class="step">4/ حد المعدل</text>
+  <text x="356" y="238" class="small">دلو الرمز المميز لكل مستخدم</text>
+  <text x="356" y="260" class="step">5/ السياسة كرمز</text>
+  <text x="356" y="276" class="small">OPA / ريجو، كيفيرنو، ستيرا</text>
+  <text x="356" y="298" class="step">6/ سجل التدقيق</text>
+  <text x="356" y="314" class="small">دفق الأحداث للإلحاق فقط</text>
+  <text x="356" y="336" class="step">7 / PII التنقيح</text>
+  <text x="356" y="352" class="small">تصفية النتائج قبل العودة</text>
+  <text x="356" y="374" class="step">8/ يمتد OTel GenAI</text>
+  <text x="356" y="390" class="small">سمات gen_ai.* لكل مكالمة</text>
+  <text x="356" y="420" class="step">البائعون (2026)</text>
+  <text x="356" y="438" class="small">بوابات Cloudflare MCP،</text>
+  <text x="356" y="454" class="small">بوابة كونغ AI، IBM</text>
+  <text x="356" y="470" class="small">سياق فورج، منتMCP،</text>
+  <text x="356" y="486" class="small">بوابة المبعوث AI</text>
+
+  <path d="M660,200 L760,200" class="edge" marker-end="url(#arrow)"/>
+  <path d="M660,280 L760,280" class="edge" marker-end="url(#arrow)"/>
+  <path d="M660,360 L760,360" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="760" y="60" width="160" height="440" class="hot"/>
+  <text x="840" y="82" text-anchor="middle" class="head">backends</text>
+  <text x="776" y="108" class="step">ملاحظات MCP</text>
+  <text x="776" y="126" class="small">التسجيل الرسمي</text>
+
+  <text x="776" y="158" class="step">gitالمركز MCP</text>
+  <text x="776" y="176" class="small">التسجيل الرسمي</text>
+
+  <text x="776" y="208" class="step">بوستجرس MCP</text>
+  <text x="776" y="226" class="small">جلاما / برعاية المشرف</text>
+
+  <text x="776" y="258" class="step">custom</text>
+  <text x="776" y="276" class="small">داخلي / عكسي-DNS</text>
+  <text x="776" y="292" class="small">مساحة الاسم مثبتة</text>
+
+  <text x="776" y="330" class="step">credentials</text>
+  <text x="776" y="348" class="small">البقاء في قبو</text>
+  <text x="776" y="364" class="small">خلف البوابة</text>
+
+  <text x="776" y="396" class="step">معرفات الجلسة</text>
+  <text x="776" y="414" class="small">لكل الخلفية، إعادة كتابتها</text>
+  <text x="776" y="430" class="small">عند حدود البوابة</text>
+</svg>

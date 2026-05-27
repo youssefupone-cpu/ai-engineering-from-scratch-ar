@@ -1,0 +1,62 @@
+{
+  "buildCommand": "node الموقع/build.js",
+  "outputDirectory": "site",
+  "framework": null,
+  "installCommand": "تخطي الصدى",
+  "rewrites": [
+    {
+      "source": "/glossary",
+      "destination": "/glossary.html"
+    },
+    {
+      "source": "/catalog",
+      "destination": "/catalog.html"
+    },
+    {
+      "source": "/path",
+      "destination": "/prereqs.html"
+    },
+    {
+      "source": "/roadmap",
+      "destination": "/prereqs.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(css|js|png|jpg|jpeg|svg|webp|woff2|woff|ttf|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "عام، الحد الأقصى للعمر = 86400، الحد الأقصى للعمر = 604800، لا معنى له أثناء إعادة التحقق = 2592000"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "عام، الحد الأقصى للعمر = 300، الحد الأقصى للعمر = 86400، لا معنى له أثناء إعادة التحقق = 604800"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "عام، الحد الأقصى للعمر = 300، الحد الأقصى للعمر = 86400، لا معنى له أثناء إعادة التحقق = 604800"
+        }
+      ]
+    },
+    {
+      "source": "/(glossary|catalog|path|roadmap)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "عام، الحد الأقصى للعمر = 300، الحد الأقصى للعمر = 86400، لا معنى له أثناء إعادة التحقق = 604800"
+        }
+      ]
+    }
+  ]
+}

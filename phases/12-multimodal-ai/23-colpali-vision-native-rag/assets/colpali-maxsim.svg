@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">ColPali — وثيقة الرؤية الأصلية RAG مع تفاعل ColBERT المتأخر</text>
+
+  <rect x="30" y="50" width="900" height="230" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">الفهرسة: PDF -&gt; صور الصفحة -&gt; تضمينات التصحيح (نسخة مخبأة)</text>
+
+  <rect x="50" y="90" width="200" height="170" class="hot"/>
+  <text x="150" y="112" text-anchor="middle" class="step">PDF الصفحات</text>
+  <text x="150" y="130" text-anchor="middle" class="small">الأرقام والجداول،</text>
+  <text x="150" y="146" text-anchor="middle" class="small">التخطيط، الخطوط</text>
+  <text x="150" y="162" text-anchor="middle" class="small">كل شيء محفوظ</text>
+  <text x="150" y="182" text-anchor="middle" class="step">لا OCR</text>
+  <text x="150" y="202" text-anchor="middle" class="small">لا استخراج النص</text>
+  <text x="150" y="218" text-anchor="middle" class="small">لا تقطيع</text>
+
+  <path d="M 255 170 L 295 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="90" width="220" height="170" class="cool"/>
+  <text x="410" y="112" text-anchor="middle" class="step">باليجيما / كوين-VL</text>
+  <text x="410" y="130" text-anchor="middle" class="small">تشفير لغة الرؤية</text>
+  <text x="410" y="146" text-anchor="middle" class="small">كل رقعة -&gt; ناقل D-dim</text>
+  <text x="410" y="162" text-anchor="middle" class="small">ناقلات N_p لكل صفحة</text>
+  <text x="410" y="182" text-anchor="middle" class="step">storage</text>
+  <text x="410" y="202" text-anchor="middle" class="small">729 × 128 × 4 = 365 KB</text>
+  <text x="410" y="218" text-anchor="middle" class="small">PQ مضغوط ~46 KB</text>
+
+  <path d="M 525 170 L 565 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="570" y="90" width="340" height="170" class="cold"/>
+  <text x="740" y="112" text-anchor="middle" class="step">فهرس المتجهات (جميع الصفحات)</text>
+  <text x="740" y="130" text-anchor="middle" class="small">تقرير مكون من 50 صفحة -&gt; ~2 MB PQ</text>
+  <text x="740" y="146" text-anchor="middle" class="small">مليون صفحة -&gt; ~45 GB PQ</text>
+  <text x="740" y="162" text-anchor="middle" class="small">يبقى على node واحد</text>
+  <text x="740" y="182" text-anchor="middle" class="step">جاهز للاستعلام MaxSim</text>
+  <text x="740" y="202" text-anchor="middle" class="small">جدول واحد، متعدد المتجهات</text>
+  <text x="740" y="218" text-anchor="middle" class="small">لكل صفحة مجمعة</text>
+
+  <rect x="30" y="300" width="900" height="210" class="box"/>
+  <text x="480" y="322" text-anchor="middle" class="head">الاسترجاع: MaxSim عبر الرموز المميزة للاستعلام وتصحيحات الصفحة</text>
+
+  <rect x="60" y="340" width="220" height="160" class="reg"/>
+  <text x="170" y="362" text-anchor="middle" class="step">رموز الاستعلام</text>
+  <text x="170" y="382" text-anchor="middle" class="small">"Q3 نمو الإيرادات"</text>
+  <text x="170" y="398" text-anchor="middle" class="small">4-6 التضمينات الرمزية</text>
+  <text x="170" y="416" text-anchor="middle" class="small">نفس التشفير مثل الفهرس</text>
+  <text x="170" y="442" text-anchor="middle" class="step">حساب في وقت الاستعلام</text>
+  <text x="170" y="462" text-anchor="middle" class="small">دفعة مع ذاكرة التخزين المؤقت كيلو فولت</text>
+  <text x="170" y="482" text-anchor="middle" class="caption">~10 مللي ثانية لكل استعلام</text>
+
+  <path d="M 285 420 L 325 420" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="330" y="340" width="290" height="160" class="hot"/>
+  <text x="475" y="362" text-anchor="middle" class="step">MaxSim = مجموع الرموز المميزة للاستعلام</text>
+  <text x="475" y="378" text-anchor="middle" class="step">من الحد الأقصى على البقع</text>
+  <text x="475" y="398" text-anchor="middle" class="small">"يختار" كل رمز استعلام أفضل تصحيح له</text>
+  <text x="475" y="414" text-anchor="middle" class="small">انتقائي: يتم تجاهل التصحيحات غير ذات الصلة</text>
+  <text x="475" y="430" text-anchor="middle" class="small">درجة الوثيقة = مجموع تلك الحدود القصوى</text>
+  <text x="475" y="452" text-anchor="middle" class="step">يتفوق على استدعاء التشفير الثنائي</text>
+  <text x="475" y="472" text-anchor="middle" class="small">يلتقط بيانات المخطط، وخلايا الجدول،</text>
+  <text x="475" y="488" text-anchor="middle" class="small">التسميات التوضيحية على شكل بقع</text>
+
+  <path d="M 625 420 L 665 420" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="670" y="340" width="240" height="160" class="cool"/>
+  <text x="790" y="362" text-anchor="middle" class="step">صفحات Top-K + VLM الإجابة</text>
+  <text x="790" y="382" text-anchor="middle" class="small">إرسال أعلى 3 صور للصفحة</text>
+  <text x="790" y="398" text-anchor="middle" class="small">+ الاستعلام الأصلي</text>
+  <text x="790" y="414" text-anchor="middle" class="small">إلى Qwen2.5-VL أو كلود</text>
+  <text x="790" y="434" text-anchor="middle" class="step">benchmarks</text>
+  <text x="790" y="454" text-anchor="middle" class="small">ViDoRe nDCG@5: ColPali ~80</text>
+  <text x="790" y="470" text-anchor="middle" class="small">نص-RAG ~55</text>
+  <text x="790" y="486" text-anchor="middle" class="small">نهاية إلى نهاية +20-40 نقطة</text>
+</svg>

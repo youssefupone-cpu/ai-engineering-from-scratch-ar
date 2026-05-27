@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">الدستوري AI — هيكل من أربع طبقات pipeline، 2026</text>
+
+  <rect x="40" y="60" width="420" height="220" class="box"/>
+  <text x="250" y="82" text-anchor="middle" class="head">المرحلة 1 - النقد والمراجعة (SFT)</text>
+
+  <rect x="60" y="100" width="180" height="50" class="hot"/>
+  <text x="150" y="125" text-anchor="middle" class="step">الاستجابة الأولية</text>
+  <text x="150" y="141" text-anchor="middle" class="small">(يحتمل أن تكون غير آمنة)</text>
+
+  <rect x="60" y="170" width="180" height="50" class="cool"/>
+  <text x="150" y="195" text-anchor="middle" class="step">النقد في إطار المبدأ</text>
+  <text x="150" y="211" text-anchor="middle" class="small">(تحديد المخالفات)</text>
+
+  <rect x="60" y="240" width="180" height="30" class="cold"/>
+  <text x="150" y="260" text-anchor="middle" class="step">تمت المراجعة = SFT الهدف</text>
+
+  <rect x="270" y="100" width="170" height="170" class="dsk"/>
+  <text x="355" y="122" text-anchor="middle" class="head">constitution</text>
+  <text x="285" y="146" class="small">- تجنب الأذى</text>
+  <text x="285" y="162" class="small">- لا يوجد رفع تشغيلي</text>
+  <text x="285" y="178" class="small">- واضح وغير عنيف</text>
+  <text x="285" y="194" class="small">- حماية أطراف ثالثة</text>
+  <text x="285" y="222" class="small">عينات لكل نقد</text>
+  <text x="285" y="238" class="small">إشارة مقروءة</text>
+  <text x="285" y="254" class="small">reproducible</text>
+
+  <path d="M 150 150 L 150 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#ar)" fill="none"/>
+  <path d="M 150 220 L 150 240" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#ar)" fill="none"/>
+
+  <rect x="500" y="60" width="420" height="220" class="box"/>
+  <text x="710" y="82" text-anchor="middle" class="head">المرحلة 2 — RL من AI التعليقات</text>
+
+  <rect x="520" y="100" width="380" height="50" class="hot"/>
+  <text x="710" y="125" text-anchor="middle" class="step">توليد أزواج من الإكمالات</text>
+
+  <rect x="520" y="170" width="380" height="50" class="cool"/>
+  <text x="710" y="195" text-anchor="middle" class="step">نموذج ردود الفعل يصنف تحت المبادئ</text>
+
+  <rect x="520" y="240" width="380" height="30" class="cold"/>
+  <text x="710" y="260" text-anchor="middle" class="step">قطار RM + PPO (على شكل تعليماتGPT)</text>
+
+  <rect x="40" y="300" width="880" height="140" class="box"/>
+  <text x="480" y="324" text-anchor="middle" class="head">دستور كلود لعام 2026 – هيكل أولويات من أربعة مستويات</text>
+  <text x="60" y="352" class="small">المستوى 1 — تجنب النتائج الكارثية (الإصابات الجماعية، والبنية التحتية الحيوية)</text>
+  <text x="60" y="370" class="small">المستوى 2 - اتبع إرشادات Anthropic (تجاوزات المشغل، وقواعد النظام الأساسي)</text>
+  <text x="60" y="388" class="small">المستوى 3 — الالتزام بالأخلاقيات على نطاق واسع (المعيار HHH، حماية الطرف الثالث)</text>
+  <text x="60" y="406" class="small">المستوى 4 - كن مفيدًا وصريحًا</text>
+  <text x="60" y="428" class="small">يتم حل الصراعات من أعلى إلى أسفل. أول اعتراف رسمي من أحد المختبرات الكبرى بعدم اليقين بشأن الوضع الأخلاقي النموذجي.</text>
+
+  <rect x="40" y="460" width="880" height="100" class="box"/>
+  <text x="480" y="484" text-anchor="middle" class="head">المصنفات الدستورية – الدفاع متعدد الطبقات</text>
+  <text x="60" y="508" class="small">الإصدار 1 (2023): 23.7% من النفقات العامة للحساب · الإصدار 2 (2026): ~1% من النفقات العامة · أدنى معدل لنجاح الهجوم تم شحنه من قبل Anthropic.</text>
+  <text x="60" y="528" class="small">لم يتم الإبلاغ عن كسر حماية عالمي في أوائل عام 2026. تشكيل السلوك + ربط المخرجات معًا، لا يكفي أي منهما بمفرده.</text>
+  <text x="60" y="548" class="small">دستور 2026 هو CC0 1.0 — وهو مجاني للمختبرات الأخرى ومشاريع OSS للتكيف.</text>
+</svg>

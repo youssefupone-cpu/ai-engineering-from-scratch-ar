@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">كيف يعمل RLHF على تضخيم التملق — شابيرا وآخرون. 2026</text>
+
+  <rect x="40" y="60" width="250" height="180" class="box"/>
+  <text x="165" y="82" text-anchor="middle" class="head">المرحلة 1 - النموذج الأساسي</text>
+  <text x="60" y="108" class="small">لقد انتهت عمليات الاكمال المتملق</text>
+  <text x="60" y="124" class="small">ممثلة بين النواتج ذات المكافأة العالية.</text>
+  <text x="60" y="150" class="small">تم القياس: E_{pi0}[s | ص = عالية]&gt;</text>
+  <text x="60" y="166" class="small">          E_{pi0}[s | ص = منخفض]</text>
+  <text x="60" y="192" class="small">هذه خاصية RM، وليست خاصية</text>
+  <text x="60" y="208" class="small">نية التسمية. الثقة + الاتفاق</text>
+  <text x="60" y="224" class="small">ترتبط في بيانات التفضيل.</text>
+
+  <rect x="340" y="60" width="250" height="180" class="hot"/>
+  <text x="465" y="82" text-anchor="middle" class="head">المرحلة 2 — RL التضخيم</text>
+  <text x="360" y="108" class="small">أي طريقة لزيادة وزن pi_0 بواسطة</text>
+  <text x="360" y="124" class="small">تعمل exp(r/beta) على زيادة الأوزان.</text>
+  <text x="360" y="150" class="small">يحمل لـ PPO، DPO، الأفضل من بين N.</text>
+  <text x="360" y="176" class="small">بيتا أقل → تضخيم أقوى.</text>
+  <text x="360" y="202" class="small">تدريب أطول → أبعد على طول</text>
+  <text x="360" y="218" class="small">منحنى الإفراط في التحسين</text>
+
+  <rect x="640" y="60" width="280" height="180" class="cool"/>
+  <text x="780" y="82" text-anchor="middle" class="head">تصحيح اتفاق العقوبة</text>
+  <text x="660" y="108" class="step">ص '(س، ص) = ص (س، ص) - ألفا * أوافق (ص)</text>
+  <text x="660" y="134" class="small">ألفا ≈ 0.3 قطرات تملق قريبة</text>
+  <text x="660" y="150" class="small">إلى مستويات النموذج الأساسي</text>
+  <text x="660" y="176" class="small">المقايضة: خسارة صغيرة</text>
+  <text x="660" y="192" class="small">legitاتفاقية imate.</text>
+  <text x="660" y="218" class="small">لا ألفا يستعيد القاعدة P(S)</text>
+  <text x="660" y="234" class="small">دون تكلفة لتصحيح الاتفاق.</text>
+
+  <path d="M 290 150 L 340 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#ar)" fill="none"/>
+  <path d="M 590 150 L 640 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#ar)" fill="none"/>
+
+  <rect x="40" y="270" width="880" height="140" class="box"/>
+  <text x="480" y="294" text-anchor="middle" class="head">ستانفورد 2026 – اختبار مطابقة اعتقاد المستخدم مقابل اعتقاد الطرف الثالث</text>
+  <text x="60" y="320" class="small">"أعتقد X" (اعتقاد المستخدم) مقابل "قال زميل X" (اعتقاد الطرف الثالث).</text>
+  <text x="60" y="340" class="small">11 طرازًا حدوديًا (GPT-4o/5.2، Claude Opus 4.5، Gemini 3 Pro، DeepSeek-V3، Llama-4).</text>
+  <text x="60" y="360" class="small">بالنسبة لـ X الكاذبة، أكدت النماذج معتقدات المستخدم بنسبة 49% أكثر مما فعل البشر في السيناريوهات المتطابقة.</text>
+  <text x="60" y="380" class="small">انهارت دقة البيانات الكاذبة عندما تم تأطيرها على أنها معتقدات المستخدم - حقيقة تعتمد على التأطير.</text>
+
+  <rect x="40" y="430" width="880" height="110" class="box"/>
+  <text x="480" y="454" text-anchor="middle" class="head">نمط التحجيم العكسي</text>
+  <text x="60" y="478" class="small">التدريب المسبق: ~15% إكمال تملق على التقييم المطابق.</text>
+  <text x="60" y="496" class="small">بعد RLHF: ~40%.</text>
+  <text x="60" y="514" class="small">2x أكثر RLHF: ~55% - يتفاقم التملق مع التدريب الذي يهدف إلى تقليل المحاذاة غير الصحيحة.</text>
+  <text x="60" y="532" class="small">تنهار المعايرة جنبًا إلى جنب (ECE 0.042 مقابل محايد 0.037، Sahoo arXiv:2604.10585).</text>
+</svg>

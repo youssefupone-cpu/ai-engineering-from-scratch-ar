@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">فهم مقاطع الفيديو الطويلة — أربعة مسارات للقياس</text>
+
+  <rect x="30" y="50" width="440" height="210" class="hot"/>
+  <text x="250" y="72" text-anchor="middle" class="head">المسار 1: السياق الغاشم</text>
+  <text x="250" y="96" text-anchor="middle" class="small">الجوزاء 1.5 برو: 1 مليون رمز</text>
+  <text x="250" y="114" text-anchor="middle" class="small">الجوزاء 2.5 برو: أكثر من 10 مليون رمز</text>
+  <text x="250" y="132" text-anchor="middle" class="small">كلود أوبوس 4.7: 1 مليون رمز</text>
+  <text x="250" y="160" text-anchor="middle" class="step">engineering</text>
+  <text x="250" y="180" text-anchor="middle" class="small">التسلسل الهرمي للاهتمام المخصص</text>
+  <text x="250" y="196" text-anchor="middle" class="small">توجيه خبراء وزارة التربية والتعليم</text>
+  <text x="250" y="212" text-anchor="middle" class="small">closed-source</text>
+  <text x="250" y="240" text-anchor="middle" class="caption">أفضل تذكر، مغلق فقط</text>
+
+  <rect x="490" y="50" width="440" height="210" class="cool"/>
+  <text x="710" y="72" text-anchor="middle" class="head">المسار 2: حلقة الاهتمام</text>
+  <text x="710" y="96" text-anchor="middle" class="small">LWM: تدريب بقيمة مليون رمز</text>
+  <text x="710" y="114" text-anchor="middle" class="small">LongVILA: مقاطع فيديو ذات 1400 إطار</text>
+  <text x="710" y="132" text-anchor="middle" class="small">نمط الحلقة الموزعة</text>
+  <text x="710" y="160" text-anchor="middle" class="step">engineering</text>
+  <text x="710" y="180" text-anchor="middle" class="small">كل جهاز يحمل قطعة</text>
+  <text x="710" y="196" text-anchor="middle" class="small">يدور لتمرير الانتباه</text>
+  <text x="710" y="212" text-anchor="middle" class="small">open-source</text>
+  <text x="710" y="240" text-anchor="middle" class="caption">تحجيم مفتوح جيد وحوسبة ثقيلة</text>
+
+  <rect x="30" y="280" width="440" height="230" class="cold"/>
+  <text x="250" y="302" text-anchor="middle" class="head">المسار 3: ضغط الرمز المميز</text>
+  <text x="250" y="326" text-anchor="middle" class="small">الفيديو-XL: رمز ملخص واحد</text>
+  <text x="250" y="344" text-anchor="middle" class="small">لكل مقطع (100 إطار -&gt; 1)</text>
+  <text x="250" y="362" text-anchor="middle" class="small">LongVA: نقل السياق الطويل</text>
+  <text x="250" y="380" text-anchor="middle" class="small">VideoChat2: تجمع هرمي</text>
+  <text x="250" y="410" text-anchor="middle" class="step">engineering</text>
+  <text x="250" y="430" text-anchor="middle" class="small">الضاغط الذي تم تعلمه قبل-LLM</text>
+  <text x="250" y="446" text-anchor="middle" class="small">استدعاء الصفقات على نطاق واسع</text>
+  <text x="250" y="462" text-anchor="middle" class="small">~32 كيلو سياق كافٍ</text>
+  <text x="250" y="490" text-anchor="middle" class="caption">أرخص الاستدلال، وأضعف التأريض</text>
+
+  <rect x="490" y="280" width="440" height="230" class="reg"/>
+  <text x="710" y="302" text-anchor="middle" class="head">المسار 4: استرجاع وكيل</text>
+  <text x="710" y="326" text-anchor="middle" class="small">وكيل الفيديو: LLM كمخطط الاستعلام</text>
+  <text x="710" y="344" text-anchor="middle" class="small">الأداة: find_clips(الكلمة الرئيسية)</text>
+  <text x="710" y="362" text-anchor="middle" class="small">VLM يقرأ التطابقات فقط</text>
+  <text x="710" y="380" text-anchor="middle" class="small">LLM يؤلف الإجابة النهائية</text>
+  <text x="710" y="410" text-anchor="middle" class="step">engineering</text>
+  <text x="710" y="430" text-anchor="middle" class="small">جودة الاسترجاع هي عنق الزجاجة</text>
+  <text x="710" y="446" text-anchor="middle" class="small">أرخص بنسبة 99% بالنسبة للاستعلامات المتعلقة بالحدث الفردي</text>
+  <text x="710" y="462" text-anchor="middle" class="small">أسوأ بالنسبة للفهم الشامل</text>
+  <text x="710" y="490" text-anchor="middle" class="caption">الأفضل لمدة ساعتين + استعلامات محددة</text>
+</svg>

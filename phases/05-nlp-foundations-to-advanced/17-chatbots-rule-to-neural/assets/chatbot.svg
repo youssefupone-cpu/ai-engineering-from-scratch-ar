@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; fill: #333; font-family: 'Menlo', monospace; }
+      .stage { font-size: 11px; fill: #c0392b; font-style: italic; text-anchor: middle; }
+      .note { font-size: 10px; fill: #666; font-style: italic; }
+      .line { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect class="box" x="20" y="30" width="200" height="300" rx="4"/>
+  <text class="label" x="120" y="55" text-anchor="middle">rule-based</text>
+  <text class="note" x="35" y="78">الستينيات → اليوم للسلامة الحرجة</text>
+  <text class="content" x="35" y="105">IF يطابق "أريد"</text>
+  <text class="content" x="35" y="125">THEN "لماذا تريد"</text>
+  <text class="content" x="35" y="165">مصنف النية</text>
+  <text class="content" x="35" y="183">+ ملء الفتحة</text>
+  <text class="content" x="35" y="201">+ آلة الدولة</text>
+  <text class="note" x="35" y="235">الموالية: يمكن التنبؤ بها،</text>
+  <text class="note" x="35" y="250">deterministic,</text>
+  <text class="note" x="35" y="265">لا هلوسة</text>
+  <text class="note" x="35" y="290">يخدع: نطاق ضيق</text>
+  <text class="note" x="35" y="305">لا يتعامل مع المدخلات الجديدة</text>
+
+  <rect class="box" x="240" y="30" width="200" height="300" rx="4"/>
+  <text class="label" x="340" y="55" text-anchor="middle">retrieval-based</text>
+  <text class="note" x="255" y="78">2010s. لا يزال يتم الشحن للأسئلة الشائعة</text>
+  <text class="content" x="255" y="105">تشفير الكلام،</text>
+  <text class="content" x="255" y="123">العثور على أقرب تطابق،</text>
+  <text class="content" x="255" y="141">إرجاع الاستجابة المخزنة</text>
+  <text class="content" x="255" y="180">عتبة الرفض</text>
+  <text class="note" x="255" y="220">الموالية: يعالج إعادة الصياغة،</text>
+  <text class="note" x="255" y="235">لا هلوسة،</text>
+  <text class="note" x="255" y="250">جداول رخيصة</text>
+  <text class="note" x="255" y="280">يخدع: لا يمكن الجمع بين المعلومات،</text>
+  <text class="note" x="255" y="295">لا يمكن القيام بدورات متعددة</text>
+  <text class="note" x="255" y="310">reasoning</text>
+
+  <rect class="box" x="460" y="30" width="200" height="300" rx="4"/>
+  <text class="label" x="560" y="55" text-anchor="middle">العصبية (seq2seq)</text>
+  <text class="note" x="475" y="78">2014-2019. نادرا ما منفردا الآن</text>
+  <text class="content" x="475" y="105">التشفير فك على</text>
+  <text class="content" x="475" y="123">سجلات المحادثة</text>
+  <text class="content" x="475" y="141">يولد من الصفر</text>
+  <text class="note" x="475" y="180">المؤيد: الصياغة بطلاقة</text>
+  <text class="note" x="475" y="220">يخدع: مخرجات عامة</text>
+  <text class="note" x="475" y="235">("لا أعرف")،</text>
+  <text class="note" x="475" y="250">الانجراف الفعلي، لا التأريض،</text>
+  <text class="note" x="475" y="265">لا يوجد استخدام للأداة</text>
+  <text class="note" x="475" y="290">المستخدمة داخل الهجينة اليوم،</text>
+  <text class="note" x="475" y="305">ليس منفردا</text>
+
+  <rect class="hot" x="680" y="30" width="200" height="300" rx="4"/>
+  <text class="label" x="780" y="55" text-anchor="middle">LLM حلقة الوكيل</text>
+  <text class="note" x="695" y="78">2023 → 2026 الإنتاج</text>
+  <text class="content" x="695" y="105">الخطة → أداة الاتصال</text>
+  <text class="content" x="695" y="123">   → لاحظ → قرر</text>
+  <text class="content" x="695" y="141">   →... → الإجابة</text>
+  <text class="content" x="695" y="175">RAG التأريض</text>
+  <text class="content" x="695" y="195">عقود الأداة</text>
+  <text class="content" x="695" y="215">التقييم + إمكانية الملاحظة</text>
+  <text class="note" x="695" y="245">المؤيد: يتخذ الإجراءات،</text>
+  <text class="note" x="695" y="260">يعالج الجدة</text>
+  <text class="note" x="695" y="290">يخدع: من الصعب التفكير،</text>
+  <text class="note" x="695" y="305">الحقن الفوري،</text>
+  <text class="note" x="695" y="320">حلقات لا نهاية لها</text>
+</svg>

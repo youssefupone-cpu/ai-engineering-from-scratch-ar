@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .primary { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .sleep { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .block { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">Letta V1 — كتل الذاكرة بالإضافة إلى حساب وقت النوم</text>
+
+  <rect x="40" y="50" width="420" height="220" class="primary"/>
+  <text x="250" y="72" text-anchor="middle" class="head">العامل الأساسي (على المسار الحرج)</text>
+  <text x="60" y="96" class="small">يستجيب للمستخدم. يكتب الحقائق الأولية بسرعة؛ لا توحيد</text>
+
+  <rect x="60" y="108" width="380" height="46" class="box"/>
+  <text x="78" y="130" class="step">مستخدم واحد: "اسمي آفا، أعيش في برلين"</text>
+  <text x="78" y="146" class="small">block_append الإنسان "الاسم = مدينة أفا = برلين"</text>
+
+  <rect x="60" y="162" width="380" height="46" class="box"/>
+  <text x="78" y="184" class="step">مستخدم Turn 2: "تخطيط منهج دراسي لكبار المهندسين"</text>
+  <text x="78" y="200" class="small">مهمة block_append "الجمهور = المهندس الأول"</text>
+
+  <rect x="60" y="208" width="380" height="46" class="box"/>
+  <text x="78" y="230" class="step">مستخدم الدورة الثالثة: "لقد انتقلت إلى لشبونة"</text>
+  <text x="78" y="246" class="small">block_append human "city=Lisbon" - كلا المدينتين الآن في منطقة سكن</text>
+
+  <rect x="500" y="50" width="420" height="220" class="sleep"/>
+  <text x="710" y="72" text-anchor="middle" class="head">عامل وقت النوم (خارج المسار الحرج)</text>
+  <text x="520" y="96" class="small">يعمل بين المنعطفات. نموذج أقوى مسموح به؛ لا تكلفة الكمون</text>
+
+  <rect x="520" y="108" width="380" height="46" class="box"/>
+  <text x="538" y="130" class="step">تلخيص كتل المسح إذا كان near_limit</text>
+  <text x="538" y="146" class="small">كتلة بشرية مدمجة: إسقاط التكرارات، والحفاظ على أحدث القيم</text>
+
+  <rect x="520" y="162" width="380" height="46" class="box"/>
+  <text x="538" y="184" class="step">التوفيق بين الأرشيف وإبطال الحقائق التي لا معنى لها</text>
+  <text x="538" y="200" class="small">التناقضات ضد إبطال الزناد الأساسية، وليس حذف</text>
+
+  <rect x="520" y="208" width="380" height="46" class="box"/>
+  <text x="538" y="230" class="step">اكتب learn_context في الكتل المشتركة</text>
+  <text x="538" y="246" class="small">ينتج حقائق ثابتة جديدة للمنعطف التالي</text>
+
+  <rect x="40" y="290" width="880" height="220" class="block"/>
+  <text x="480" y="312" text-anchor="middle" class="head">ثلاثة مستويات من ذاكرة Letta</text>
+
+  <rect x="60" y="322" width="280" height="170" class="box"/>
+  <text x="200" y="342" text-anchor="middle" class="head">الأساسية (مرئية دائما)</text>
+  <text x="78" y="364" class="step">الكتل: الإنسان، الشخصية، المهمة</text>
+  <text x="78" y="382" class="small">قابل للتحرير عبر block_{append,replace,rewrite}</text>
+  <text x="78" y="400" class="small">الحد الأقصى لعدد الأحرف لكل كتلة</text>
+  <text x="78" y="418" class="small">يقوم near_limit بتشغيل تلخيص وقت النوم</text>
+  <text x="78" y="438" class="small">تحتاج عمليات الكتابة الخاصة بالشخصية/السلامة إلى المراجعة</text>
+  <text x="78" y="458" class="small">إصدار؛ الأسطح المختلفة في التتبع</text>
+  <text x="78" y="478" class="small">مثبت في الموجه في كل منعطف</text>
+
+  <rect x="350" y="322" width="280" height="170" class="box"/>
+  <text x="490" y="342" text-anchor="middle" class="head">أذكر (محادثة)</text>
+  <text x="368" y="364" class="step">تشغيل السجل، مرقّم الصفحات</text>
+  <text x="368" y="382" class="small">الكتابة التلقائية في كل منعطف</text>
+  <text x="368" y="400" class="small">الاسترجاع عبر المحادثة_البحث</text>
+  <text x="368" y="418" class="small">طرد الذيل على الحد الأقصى</text>
+  <text x="368" y="438" class="small">الاقتباس: session_id + Turn_id</text>
+  <text x="368" y="458" class="small">القراءات الأولية؛ يلخص وقت النوم</text>
+  <text x="368" y="478" class="small">خاسرة ولكن يمكن معالجتها دائمًا</text>
+
+  <rect x="640" y="322" width="280" height="170" class="box"/>
+  <text x="780" y="342" text-anchor="middle" class="head">أرشيفية (خارجية)</text>
+  <text x="658" y="364" class="step">المتجه + KV + الرسم البياني (الدرس 09)</text>
+  <text x="658" y="382" class="small">archival_memory_{insert,search}</text>
+  <text x="658" y="400" class="small">إبطال وليس حذف للتناقضات</text>
+  <text x="658" y="418" class="small">علامات النطاق: المستخدم/الجلسة/الوكيل</text>
+  <text x="658" y="438" class="small">غير موثوق به عند الاسترجاع (الدرس 27)</text>
+  <text x="658" y="458" class="small">تتداخل عمليات إلغاء وقت النوم بنسبة تزيد عن 90% من الرموز المميزة</text>
+  <text x="658" y="478" class="small">يقيس نافذة السياق الماضية</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">Letta V1 تستبدل send_message+heartbeat بالاستدلال الأصلي؛ شكل الحلقة دون تغيير.</text>
+</svg>

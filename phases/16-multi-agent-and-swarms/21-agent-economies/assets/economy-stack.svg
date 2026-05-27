@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">مكدس اقتصاد الوكيل المكون من 5 طبقات والآليات الأساسية</text>
+
+  <rect x="40" y="60" width="420" height="220" class="box"/>
+  <text x="250" y="84" text-anchor="middle" class="head">كومة 5 طبقة</text>
+
+  <rect x="70" y="100" width="360" height="34" class="cool"/>
+  <text x="250" y="122" text-anchor="middle" class="step">5. الحوكمة – المنظمات اللامركزية المستقلة الوكيلة</text>
+
+  <rect x="70" y="140" width="360" height="34" class="cold"/>
+  <text x="250" y="162" text-anchor="middle" class="step">4. التسوية — ERC-4337 تجريد الحساب</text>
+
+  <rect x="70" y="180" width="360" height="34" class="dsk"/>
+  <text x="250" y="202" text-anchor="middle" class="step">3. الإدراك — LLM + RAG + MCP</text>
+
+  <rect x="70" y="220" width="360" height="34" class="hot"/>
+  <text x="250" y="242" text-anchor="middle" class="step">2. الهوية — W3C معرفات الشخصية + السمعة</text>
+
+  <rect x="70" y="260" width="360" height="34" class="box"/>
+  <text x="250" y="278" text-anchor="middle" class="step">1. DePIN — Bittensor · Akash · Render</text>
+
+  <rect x="500" y="60" width="420" height="220" class="cool"/>
+  <text x="710" y="84" text-anchor="middle" class="head">شبكات الإنتاج (أبريل 2026)</text>
+
+  <text x="530" y="114" class="step">بيتنسور (TAO)</text>
+  <text x="530" y="132" class="small">وتكافئ الشبكات الفرعية النماذج الخاصة بالمهمة؛ التهديف المرجح للرهان</text>
+
+  <text x="530" y="160" class="step">Fetch.ai / ASI</text>
+  <text x="530" y="178" class="small">ASI-1 صغير LLM؛ FET الرمز المميز للدفع من وكيل إلى وكيل</text>
+
+  <text x="530" y="206" class="step">Gonka</text>
+  <text x="530" y="224" class="small">إثبات عمل المحولات؛ مهام الاستدلال التي يمكن التحقق منها</text>
+
+  <text x="530" y="252" class="step">لاماس (AAMAS 2025)</text>
+  <text x="530" y="270" class="small">نظام لامركزي متعدد الوكلاء مع إسناد شابلي</text>
+
+  <rect x="40" y="310" width="880" height="190" class="box"/>
+  <text x="480" y="334" text-anchor="middle" class="head">ثلاث آليات أساسية</text>
+
+  <text x="60" y="366" class="step">إسناد شابلي</text>
+  <text x="230" y="366" class="small">التوزيع العادل للائتمان؛ عينة التباديل N لـ N&gt; 6 وكلاء</text>
+  <text x="230" y="384" class="small">البديهيات: الكفاءة، التماثل، الخطية، العدم</text>
+
+  <text x="60" y="414" class="step">مزاد الثمن الثاني</text>
+  <text x="230" y="414" class="small">صادق في ظل التجميع الرتيب (بحث جوجل)</text>
+  <text x="230" y="432" class="small">الفائز الذي تم اختياره عن طريق المزايدة؛ يدفع ثاني أعلى</text>
+
+  <text x="60" y="462" class="step">رأس مال السمعة</text>
+  <text x="230" y="462" class="small">DID-النتيجة المرتبطة بـ exp. فساد؛ خفضت على فشل التحقق</text>
+  <text x="230" y="480" class="small">رخيصة للقراءة (التوجيه)؛ مكلفة لتزوير (تراكم مع مرور الوقت)</text>
+</svg>

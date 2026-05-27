@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .ram { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .disk { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .tool { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">MemGPT — سياق افتراضي كذاكرة OS (Packer et al., 2023)</text>
+
+  <rect x="40" y="60" width="380" height="200" class="ram"/>
+  <text x="230" y="82" text-anchor="middle" class="head">السياق الرئيسي (RAM التناظرية)</text>
+  <text x="60" y="108" class="small">نافذة مطالبة ذات حجم ثابت، تكون مرئية دائمًا للنموذج</text>
+
+  <rect x="60" y="118" width="340" height="60" class="box"/>
+  <text x="80" y="138" class="step">[الأساسية] الشخصية، المستخدم، المهمة</text>
+  <text x="80" y="156" class="small">الأقسام المسماة مثبتة داخل الموجه</text>
+  <text x="80" y="172" class="small">قابل للتحرير عبر core_memory_{append,replace}</text>
+
+  <rect x="60" y="186" width="340" height="60" class="box"/>
+  <text x="80" y="206" class="step">[الرسائل] المنعطفات الأخيرة</text>
+  <text x="80" y="224" class="small">FIFO المخزن المؤقت؛ أقدم عمليات طرد على الغطاء</text>
+  <text x="80" y="240" class="small">المنعطفات التي تم إخلاؤها متاحة عبر communication_search</text>
+
+  <rect x="40" y="280" width="380" height="240" class="disk"/>
+  <text x="230" y="302" text-anchor="middle" class="head">الذاكرة الأرشيفية (القرص التناظري)</text>
+  <text x="60" y="328" class="small">متجر خارجي غير محدود وقابل للبحث</text>
+
+  <rect x="60" y="340" width="340" height="60" class="box"/>
+  <text x="80" y="360" class="step">سجل: معرف، نص، علامات، جلسة، بدوره</text>
+  <text x="80" y="378" class="small">كتبه archive_memory_insert</text>
+  <text x="80" y="394" class="small">تم استرجاعه بواسطة archive_memory_search(top_k)</text>
+
+  <rect x="60" y="408" width="340" height="60" class="box"/>
+  <text x="80" y="428" class="step">الخلفية القابلة للتوصيل</text>
+  <text x="80" y="446" class="small">المتجه (الدلالي)، KV (حقيقة)، الرسم البياني (العلاقة)</text>
+  <text x="80" y="462" class="small">الدرس 09 (Mem0) يدمج الثلاثة</text>
+
+  <text x="230" y="496" text-anchor="middle" class="caption">تنتقل الاستشهادات (session_id، Turn_id) مع كل كتابة</text>
+
+  <rect x="440" y="60" width="500" height="460" class="box"/>
+  <text x="690" y="82" text-anchor="middle" class="head">نمط المقاطعة - دورة واحدة</text>
+
+  <rect x="460" y="100" width="460" height="46" class="ram"/>
+  <text x="478" y="122" class="step">1. مساعد "أحتاج إلى المشروع الحالي للمستخدم"</text>
+  <text x="478" y="138" class="small">السياق الرئيسي يفتقر إلى الحقيقة؛ لا يمكن الرد من النافذة وحدها</text>
+
+  <rect x="460" y="154" width="460" height="46" class="tool"/>
+  <text x="478" y="176" class="step">2. استدعاء الأداة archive_memory_search("مشروع لـ ava")</text>
+  <text x="478" y="192" class="small">أداة الذاكرة الصادرة؛ خدمات وقت التشغيل مثل OS syscall</text>
+
+  <rect x="460" y="208" width="460" height="46" class="disk"/>
+  <text x="478" y="230" class="step">3. سجل الإرجاعات الأرشيفية a001</text>
+  <text x="478" y="246" class="small">"تقوم شركة Ava ببناء روبوت استرجاع يحتوي على 12 أداة"</text>
+
+  <rect x="460" y="262" width="460" height="46" class="tool"/>
+  <text x="478" y="284" class="step">4. مراقبة وقت التشغيل في المنعطف التالي للمساعد</text>
+  <text x="478" y="300" class="small">نفس شكل أي ملاحظة للأداة في حلقة ReAct</text>
+
+  <rect x="460" y="316" width="460" height="46" class="ram"/>
+  <text x="478" y="338" class="step">5. إجابات المساعد نقلاً عن a001</text>
+  <text x="478" y="354" class="small">يمكن إرجاع الاسترجاع إلى السجل المصدر</text>
+
+  <rect x="460" y="370" width="460" height="46" class="box"/>
+  <text x="478" y="392" class="step">6. ظهور حقيقة جديدة archive_memory_insert</text>
+  <text x="478" y="408" class="small">تؤدي عملية إعادة الكتابة إلى إغلاق الحلقة للجلسة التالية</text>
+
+  <rect x="460" y="424" width="460" height="46" class="box"/>
+  <text x="478" y="446" class="step">7. الدمج الدوري (وقت النوم، الدرس 08)</text>
+  <text x="478" y="462" class="small">السجلات القديمة تخدع، والحقائق المتناقضة تبطل</text>
+
+  <line x1="420" y1="170" x2="460" y2="170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="420" y1="230" x2="460" y2="230" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="460" y1="390" x2="420" y2="390" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">يمتد Letta (2024) إلى ثلاثة مستويات. يقوم Mem0 (2025) بتبديل الأرشيف بـ Vector+KV+graph. النمط على قيد الحياة.</text>
+</svg>

@@ -1,0 +1,78 @@
+{
+  "lesson": "28-self-hosted-serving-selection",
+  "title": "تحديد العرض المستضاف ذاتيًا — llama.cpp, Ollama, TGI, vLLM, SGLang",
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "ما هو المحرك الذي اختاره الدرس باعتباره المحرك الافتراضي لأمر واحد لأجهزة الكمبيوتر المحمول؟",
+      "options": [
+        "TGI",
+        "Ollama",
+        "vLLM",
+        "llama.cpp"
+      ],
+      "correct": 1,
+      "explanation": ""
+    },
+    {
+      "stage": "check",
+      "question": "ما حدث 2025 الذي يغير الإعداد الافتراضي بعيدًا عن TGI للمشاريع الجديدة؟",
+      "options": [
+        "تم الحصول على TGI بواسطة Anthropic",
+        "TGI ارتفاع الأسعار",
+        "تم إسقاط دعم TGI CUDA",
+        "دخل TGI إلى وضع الصيانة في 11 ديسمبر 2025 - سيتم إصلاح الأخطاء فقط من الآن فصاعدا"
+      ],
+      "correct": 3,
+      "explanation": ""
+    },
+    {
+      "stage": "check",
+      "question": "ما هو قيد الأجهزة الذي يفرض llama.cpp ويستبعد vLLM / TRT-LLM؟",
+      "options": [
+        "أبل M4",
+        "AMD MI300X",
+        "NVIDIA هوبر",
+        "CPU فقط (بدون مُسرِّع)"
+      ],
+      "correct": 3,
+      "explanation": ""
+    },
+    {
+      "stage": "check",
+      "question": "ما هو المحرك الذي يحدد موضع الدرس لأحمال العمل الوكيلة متعددة المنعطفات والبادئات الثقيلة بفضل RadixAttention؟",
+      "options": [
+        "Ollama",
+        "llama.cpp",
+        "SGLang",
+        "TGI"
+      ],
+      "correct": 2,
+      "explanation": ""
+    },
+    {
+      "stage": "post",
+      "question": "ما هو خط التطوير إلى الإنتاج pipeline الذي يوصي به الدرس بنفس الأوزان GGUF أو HF؟",
+      "options": [
+        "فقط TRT-LLM، من الأعلى إلى الأسفل",
+        "Ollama في التطوير وOllama في الإنتاج",
+        "Ollama في التطوير، llama.cpp في التدريج، vLLM (أو SGLang للبادئة الثقيلة) في الإنتاج",
+        "TGI في كل مكان"
+      ],
+      "correct": 2,
+      "explanation": ""
+    },
+    {
+      "stage": "post",
+      "question": "لماذا لا يتم تشجيع Ollama على الإنتاج المشترك؟",
+      "options": [
+        "وهو مغلق المصدر",
+        "يعمل فقط على نظام التشغيل Windows",
+        "يضيف تسلسل Go HTTP النفقات العامة، وإدارة التزامن أبسط من vLLM، ويتأخر دعم OpenTelemetry",
+        "لا يمكن تحميل GGUF"
+      ],
+      "correct": 2,
+      "explanation": ""
+    }
+  ]
+}

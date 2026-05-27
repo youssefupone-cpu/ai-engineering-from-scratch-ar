@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">مقاييس الاستدلال - الإنتاجية تكذب، والإنتاجية الجيدة تقول الحقيقة</text>
+
+  <rect x="40" y="50" width="440" height="230" class="box"/>
+  <text x="260" y="72" text-anchor="middle" class="head">الكمون الأربعة</text>
+  <rect x="60" y="90" width="400" height="35" class="cool"/>
+  <text x="260" y="112" text-anchor="middle" class="step">TTFT = قائمة الانتظار + الشبكة + التعبئة المسبقة</text>
+  <rect x="60" y="130" width="400" height="35" class="cold"/>
+  <text x="260" y="152" text-anchor="middle" class="step">TPOT / ITL = فك التشفير لكل رمز مميز بعد الأول</text>
+  <rect x="60" y="170" width="400" height="35" class="dsk"/>
+  <text x="260" y="192" text-anchor="middle" class="step">E2E = TTFT + TPOT *output_len</text>
+  <rect x="60" y="210" width="400" height="35" class="hot"/>
+  <text x="260" y="232" text-anchor="middle" class="step">الإنتاجية = Total_tokens / المنقضي</text>
+  <text x="260" y="263" text-anchor="middle" class="caption">الإنتاجية هي مقياس الأسطول، وليس مقياس المستخدم</text>
+
+  <rect x="500" y="50" width="420" height="230" class="box"/>
+  <text x="710" y="72" text-anchor="middle" class="head">Goodput - بوابة SLO</text>
+  <rect x="520" y="90" width="380" height="115" class="cool"/>
+  <text x="710" y="112" text-anchor="middle" class="step">Goodput = P[تم الاحتفاظ بجميع القيود SLO]</text>
+  <text x="710" y="132" text-anchor="middle" class="small">TTFT P99 &lt;= أ AND</text>
+  <text x="710" y="150" text-anchor="middle" class="small">TPOT P99 &lt;= ب AND</text>
+  <text x="710" y="168" text-anchor="middle" class="small">E2E P99 &lt;= ج</text>
+  <text x="710" y="190" text-anchor="middle" class="small">الطلب يكون "جيدًا" فقط إذا تم عقد كل حد</text>
+  <rect x="520" y="215" width="380" height="55" class="hot"/>
+  <text x="710" y="237" text-anchor="middle" class="step">الهدف: معدل جيد &gt;= 99%</text>
+  <text x="710" y="256" text-anchor="middle" class="small">المستخدمة في عمليات الإرسال MLPerf Inference v6.0</text>
+
+  <rect x="40" y="300" width="440" height="230" class="box"/>
+  <text x="260" y="322" text-anchor="middle" class="head">النسب المئوية - لا تعني أبدًا وحدها</text>
+  <rect x="60" y="340" width="400" height="35" class="cool"/>
+  <text x="260" y="362" text-anchor="middle" class="step">دائمًا P50، P90، P99</text>
+  <rect x="60" y="380" width="400" height="35" class="cold"/>
+  <text x="260" y="402" text-anchor="middle" class="step">LLM التوزيعات منحرفة نحو اليمين</text>
+  <rect x="60" y="420" width="400" height="35" class="hot"/>
+  <text x="260" y="442" text-anchor="middle" class="step">يعني TPOT 7 مللي ثانية يمكن إخفاء P99 لمدة 40 مللي ثانية</text>
+  <rect x="60" y="460" width="400" height="55" class="dsk"/>
+  <text x="260" y="482" text-anchor="middle" class="step">مرجع (Llama-3.1-8B في TRT-LLM، 2026)</text>
+  <text x="260" y="500" text-anchor="middle" class="small">TTFT 162 مللي ثانية، TPOT 7.33 مللي ثانية، E2E 1093 مللي ثانية (متوسط)</text>
+
+  <rect x="500" y="300" width="420" height="230" class="box"/>
+  <text x="710" y="322" text-anchor="middle" class="head">فخ القياس</text>
+  <rect x="520" y="340" width="380" height="50" class="hot"/>
+  <text x="710" y="362" text-anchor="middle" class="step">GenAI-Perf مقابل LLMPerf</text>
+  <text x="710" y="380" text-anchor="middle" class="small">نفس المدى، مختلف TPOT</text>
+  <rect x="520" y="395" width="380" height="55" class="cool"/>
+  <text x="710" y="417" text-anchor="middle" class="step">أداء GenAI (NVIDIA)</text>
+  <text x="710" y="435" text-anchor="middle" class="small">ITL لا يشمل TTFT؛ يبدأ من الرمز المميز 2</text>
+  <rect x="520" y="455" width="380" height="55" class="cold"/>
+  <text x="710" y="477" text-anchor="middle" class="step">LLMالأداء (شعاع / أي مقياس)</text>
+  <text x="710" y="495" text-anchor="middle" class="small">ITL يشمل TTFT؛ يبدأ من الرمز المميز 1</text>
+  <text x="710" y="522" text-anchor="middle" class="caption">أداة الحالة + الإصدار في كل تقرير</text>
+</svg>

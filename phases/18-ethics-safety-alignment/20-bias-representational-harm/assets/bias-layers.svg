@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">التحيز والضرر التمثيلي: القياس والتدخل</text>
+
+  <rect x="40" y="60" width="880" height="150" class="box"/>
+  <text x="480" y="85" text-anchor="middle" class="head">جاليجوس وآخرون. 2024 ثلاث فئات مترية</text>
+  <rect x="60" y="105" width="280" height="90" class="cool"/>
+  <text x="200" y="130" text-anchor="middle" class="step">embedding-based</text>
+  <text x="200" y="150" text-anchor="middle" class="small">WEAT، SEAT</text>
+  <text x="200" y="170" text-anchor="middle" class="small">ما قبل RLHF؛ تدابير التمثيل</text>
+  <rect x="360" y="105" width="280" height="90" class="cool"/>
+  <text x="500" y="130" text-anchor="middle" class="step">probability-based</text>
+  <text x="500" y="150" text-anchor="middle" class="small">احتمالية سجل الصورة النمطية</text>
+  <text x="500" y="170" text-anchor="middle" class="small">جانب فك التشفير؛ السلوك الجزئي</text>
+  <rect x="660" y="105" width="240" height="90" class="cool"/>
+  <text x="780" y="130" text-anchor="middle" class="step">generated-text</text>
+  <text x="780" y="150" text-anchor="middle" class="small">استئناف التهديف، والتوصية</text>
+  <text x="780" y="170" text-anchor="middle" class="small">صالحة بيئيا؛ غالي</text>
+
+  <rect x="40" y="230" width="880" height="130" class="box"/>
+  <text x="480" y="255" text-anchor="middle" class="head">التقاطع + الآلية</text>
+  <rect x="60" y="275" width="420" height="70" class="cold"/>
+  <text x="270" y="298" text-anchor="middle" class="step">التقييم المتقاطع</text>
+  <text x="270" y="316" text-anchor="middle" class="small">وآخرون. 2025 (PNAS Nexus): 5 نماذج، العرق × الجنس</text>
+  <text x="270" y="334" text-anchor="middle" class="small">WinoIdentity (COLM 2025): قائم على عدم اليقين</text>
+  <rect x="500" y="275" width="400" height="70" class="cold"/>
+  <text x="700" y="298" text-anchor="middle" class="step">التحيز الميكانيكي</text>
+  <text x="700" y="316" text-anchor="middle" class="small">الخلايا العصبية بين الجنسين (يو وأنانيادو 2025)</text>
+  <text x="700" y="334" text-anchor="middle" class="small">ميزات SAE (أحسان ووالاس 2025)؛ رؤساء UniBias</text>
+
+  <rect x="40" y="380" width="880" height="110" class="box"/>
+  <text x="480" y="405" text-anchor="middle" class="head">الانفصال من نوع الضرر</text>
+  <rect x="60" y="425" width="400" height="55" class="hot"/>
+  <text x="260" y="450" text-anchor="middle" class="step">representational</text>
+  <text x="260" y="470" text-anchor="middle" class="small">الصور النمطية، والمحو، والتصوير المهين</text>
+  <rect x="480" y="425" width="420" height="55" class="hot"/>
+  <text x="690" y="450" text-anchor="middle" class="step">allocational</text>
+  <text x="690" y="470" text-anchor="middle" class="small">نتائج مادية غير متكافئة (درجة السيرة الذاتية، القرار الائتماني)</text>
+</svg>

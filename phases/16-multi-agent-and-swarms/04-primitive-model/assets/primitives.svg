@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="28" text-anchor="middle" class="title">أربعة عناصر أولية - كل إطار عمل متعدد الوكلاء لعام 2026 يناسب هذا الشكل</text>
+
+  <rect x="40" y="60" width="220" height="180" class="cool"/>
+  <text x="150" y="82" text-anchor="middle" class="head">Agent</text>
+  <text x="150" y="108" text-anchor="middle" class="step">System_prompt + الأدوات</text>
+  <text x="150" y="128" text-anchor="middle" class="small">وظيفة عديمي الجنسية</text>
+  <text x="150" y="146" text-anchor="middle" class="small">من (الموجه، الأدوات، النموذج)</text>
+  <text x="150" y="174" text-anchor="middle" class="small">AutoGen: ConversableAgent</text>
+  <text x="150" y="190" text-anchor="middle" class="small">CrewAI: الدور + الهدف + الخلفية الدرامية</text>
+  <text x="150" y="206" text-anchor="middle" class="small">لانغغراف: node وظيفة</text>
+  <text x="150" y="222" text-anchor="middle" class="small">سرب: وكيل (تعليمات، أدوات)</text>
+
+  <rect x="280" y="60" width="220" height="180" class="hot"/>
+  <text x="390" y="82" text-anchor="middle" class="head">Handoff</text>
+  <text x="390" y="108" text-anchor="middle" class="step">نقل السيطرة</text>
+  <text x="390" y="128" text-anchor="middle" class="small">ثلاثة تطبيقات:</text>
+  <text x="390" y="148" text-anchor="middle" class="small">1 وظيفة العودة (سرب)</text>
+  <text x="390" y="166" text-anchor="middle" class="small">2 حافة الرسم البياني (LangGraph)</text>
+  <text x="390" y="184" text-anchor="middle" class="small">3 اختيارات للسماعات (AutoGen)</text>
+  <text x="390" y="210" text-anchor="middle" class="caption">دائمًا: (من، إلى، الحمولة الاختيارية)</text>
+
+  <rect x="520" y="60" width="220" height="180" class="cold"/>
+  <text x="630" y="82" text-anchor="middle" class="head">الدولة المشتركة</text>
+  <text x="630" y="108" text-anchor="middle" class="step">الشيء ONLY ذو الحالة</text>
+  <text x="630" y="128" text-anchor="middle" class="small">تجمع الرسائل</text>
+  <text x="630" y="146" text-anchor="middle" class="small">blackboard</text>
+  <text x="630" y="164" text-anchor="middle" class="small">مخفض StateGraph</text>
+  <text x="630" y="182" text-anchor="middle" class="small">MCP سياق مشترك</text>
+  <text x="630" y="210" text-anchor="middle" class="caption">تسمم الذاكرة يعيش هنا</text>
+
+  <rect x="760" y="60" width="180" height="180" class="dsk"/>
+  <text x="850" y="82" text-anchor="middle" class="head">Orchestrator</text>
+  <text x="850" y="108" text-anchor="middle" class="step">من يتحدث بعد ذلك</text>
+  <text x="850" y="128" text-anchor="middle" class="small">رسم بياني ثابت</text>
+  <text x="850" y="146" text-anchor="middle" class="small">LLM-selected</text>
+  <text x="850" y="164" text-anchor="middle" class="small">handoff-driven</text>
+  <text x="850" y="182" text-anchor="middle" class="small">queue-driven</text>
+  <text x="850" y="210" text-anchor="middle" class="caption">جدولة على الثلاثة الأخرى</text>
+
+  <rect x="40" y="280" width="900" height="210" class="box"/>
+  <text x="490" y="304" text-anchor="middle" class="head">- رسم خريطة أطر 2026 على المحاور الأربعة</text>
+
+  <text x="60" y="336" class="step">OpenAI السرب / الوكلاء SDK</text>
+  <text x="340" y="336" class="small">الوكيل = الوكيل (التعليمات والأدوات)</text>
+  <text x="340" y="352" class="small">عملية التسليم = أداة إرجاع الوكيل · الحالة المشتركة التي تم دفعها إلى المتصل · المُنسق = مكالمة تسليم LLM</text>
+
+  <text x="60" y="376" class="step">التوليد التلقائي v0.4 / AG2</text>
+  <text x="340" y="376" class="small">وكيل = ConversableAgent</text>
+  <text x="340" y="392" class="small">Handoff = اختيار المتحدث · الحالة المشتركة = تجمع الرسائل · المنسق = محدد fn (LLM أو round-robin)</text>
+
+  <text x="60" y="416" class="step">CrewAI</text>
+  <text x="340" y="416" class="small">الوكيل = الدور + الهدف + الخلفية الدرامية</text>
+  <text x="340" y="432" class="small">عملية التسليم = عملية تسلسلية / هرمية · الحالة المشتركة = مخرجات المهمة · المُنسق = المدير LLM</text>
+
+  <text x="60" y="456" class="step">LangGraph</text>
+  <text x="340" y="456" class="small">الوكيل = node وظيفة</text>
+  <text x="340" y="472" class="small">عملية التسليم = حافة الرسم البياني · الحالة المشتركة = مخفض StateGraph · المنسق = الرسم البياني (حتمي)</text>
+</svg>

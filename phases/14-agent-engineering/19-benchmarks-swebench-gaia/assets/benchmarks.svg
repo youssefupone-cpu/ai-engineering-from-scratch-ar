@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .swe { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .gaia { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .bench { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .warn { fill: #fde8e8; stroke: #c0392b; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">ثلاثة معايير للوكلاء لعام 2026: الكود، والأخصائي العام، والبيئات المتعددة</text>
+
+  <rect x="40" y="50" width="290" height="250" class="swe"/>
+  <text x="185" y="72" text-anchor="middle" class="head">SWE-رمز المقعد</text>
+  <text x="60" y="96" class="small">2,294 إصدار GitHub، و12 إعادة شراء لـ Python</text>
+  <text x="60" y="114" class="small">يحصل الوكيل على: الريبو + نص الإصدار</text>
+  <text x="60" y="132" class="small">ينتج: رقعة</text>
+  <rect x="60" y="144" width="250" height="46" class="box"/>
+  <text x="78" y="164" class="step">FAIL_TO_PASS: يمر الآن</text>
+  <text x="78" y="182" class="small">PASS_TO_PASS: يبقى عابرًا</text>
+  <rect x="60" y="196" width="250" height="46" class="box"/>
+  <text x="78" y="216" class="step">تم التحقق (OpenAI): 500 مهمة نظيفة</text>
+  <text x="78" y="234" class="small">يزيل الغموض، والاختبارات الضعيفة، والإصلاحات غير الواضحة</text>
+  <rect x="60" y="248" width="250" height="46" class="warn"/>
+  <text x="78" y="268" class="step">SWE-bench+: تدقيق التلوث</text>
+  <text x="78" y="286" class="small">تسرب المحلول بنسبة 32.67%؛ 31.08% اختبارات ضعيفة</text>
+
+  <rect x="340" y="50" width="290" height="250" class="gaia"/>
+  <text x="485" y="72" text-anchor="middle" class="head">GAIA اختصاصي</text>
+  <text x="360" y="96" class="small">466 سؤالًا، و300 لوحة صدارة خاصة</text>
+  <text x="360" y="114" class="small">بسيطة للبشر (92%)</text>
+  <text x="360" y="132" class="small">صعب بالنسبة لـ AI (GPT-4+المكونات الإضافية: 15%)</text>
+  <rect x="360" y="144" width="250" height="46" class="box"/>
+  <text x="378" y="164" class="step">أداة واحدة من المستوى الأول، بسيطة</text>
+  <text x="378" y="182" class="small">بحث واقعي</text>
+  <rect x="360" y="196" width="250" height="46" class="box"/>
+  <text x="378" y="216" class="step">المستوى 2 الاستدلال متعدد الخطوات</text>
+  <text x="378" y="234" class="small">بحث + استخراج + حساب</text>
+  <rect x="360" y="248" width="250" height="46" class="box"/>
+  <text x="378" y="268" class="step">سلسلة الأدوات الطويلة من المستوى 3 + الوسائط المتعددة</text>
+  <text x="378" y="286" class="small">الصور وملفات PDF وملاحة الويب المتسلسلة</text>
+
+  <rect x="640" y="50" width="290" height="250" class="bench"/>
+  <text x="785" y="72" text-anchor="middle" class="head">AgentBench متعدد البيئات</text>
+  <text x="660" y="96" class="small">8 بيئات، ~4k-13k دورة/انقسام</text>
+  <rect x="660" y="108" width="250" height="46" class="box"/>
+  <text x="678" y="128" class="step">الكود: باش، DB، KG</text>
+  <rect x="660" y="160" width="250" height="46" class="box"/>
+  <text x="678" y="180" class="step">الألعاب: ألفورلد، LTP</text>
+  <rect x="660" y="212" width="250" height="46" class="box"/>
+  <text x="678" y="232" class="step">الويب: ويب شوب، Mind2Web</text>
+  <rect x="660" y="264" width="250" height="34" class="box"/>
+  <text x="678" y="284" class="step">جيل مفتوح</text>
+
+  <rect x="40" y="320" width="880" height="200" class="warn"/>
+  <text x="480" y="342" text-anchor="middle" class="head">ما هي المعايير التي لا يمكن قياسها</text>
+  <rect x="60" y="358" width="840" height="30" class="box"/>
+  <text x="78" y="378" class="step">التكلفة التشغيلية: الرموز المميزة، وساعة الحائط، والخطوات للوصول إلى الحل</text>
+  <rect x="60" y="392" width="840" height="30" class="box"/>
+  <text x="78" y="412" class="step">سلوك السلامة في ظل الظروف المعاكسة (الدرس 27)</text>
+  <rect x="60" y="426" width="840" height="30" class="box"/>
+  <text x="78" y="446" class="step">الأداء على نطاقك (التقييمات المخصصة، الدرس 30)</text>
+  <rect x="60" y="460" width="840" height="30" class="box"/>
+  <text x="78" y="480" class="step">الأعطال الخلفية (متوسط ​​المعايير؛ يهتم المشغلون بالأسوأ بنسبة 1%)</text>
+  <rect x="60" y="494" width="840" height="20" class="box"/>
+  <text x="78" y="510" class="step">قم دائمًا بالإبلاغ عن النتيجة الأولية AND النتيجة التي تم التحقق منها / + -المدققة</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">تثبيت لوحة المتصدرين ذات الرقم الواحد هو النمط المضاد رقم 1. توزيعات التقارير.</text>
+</svg>

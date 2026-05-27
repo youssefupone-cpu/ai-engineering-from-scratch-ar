@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="440" y="26" text-anchor="middle" class="title">حلقة STaR bootstrap (وكيفية تسلل الاختصارات)</text>
+
+  <!-- Left: the loop -->
+  <rect x="40" y="56" width="380" height="480" class="box"/>
+  <text x="230" y="80" text-anchor="middle" class="label">حلقة ستار</text>
+
+  <rect x="60" y="100" width="340" height="56" class="cool"/>
+  <text x="230" y="124" text-anchor="middle" class="content">1. العينة (السبب المنطقي، الإجابة)</text>
+  <text x="230" y="140" text-anchor="middle" class="small">النموذج الأساسي، T &gt; 0</text>
+
+  <path d="M230 160 L230 180" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="186" width="340" height="56" class="hot"/>
+  <text x="230" y="210" text-anchor="middle" class="content">2. التصفية: احتفظ إذا كانت الإجابة == التسمية</text>
+  <text x="230" y="226" text-anchor="middle" class="small">يتجاهل المبررات غير الصحيحة تماما</text>
+
+  <path d="M230 246 L230 266" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="272" width="340" height="56" class="cool"/>
+  <text x="230" y="296" text-anchor="middle" class="content">3. SFT على المبررات المحفوظة</text>
+  <text x="230" y="312" text-anchor="middle" class="small">فرض المعلم على (المشكلة، الأساس المنطقي، الإجابة)</text>
+
+  <path d="M230 332 L230 352" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="60" y="358" width="340" height="56" class="cold"/>
+  <text x="230" y="382" text-anchor="middle" class="content">4. تبرير الإخفاقات</text>
+  <text x="230" y="398" text-anchor="middle" class="small">أدخل الإجابة، وأعد السؤال عن الأساس المنطقي</text>
+
+  <path d="M60 386 Q 20 386 20 140 Q 20 100 60 128" stroke="#1a1a1a" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  <text x="28" y="260" class="small">repeat</text>
+
+  <rect x="60" y="438" width="340" height="80" class="box"/>
+  <text x="230" y="458" text-anchor="middle" class="label">ما تعززه الحلقة</text>
+  <text x="230" y="478" text-anchor="middle" class="content">المنطق السليم · الإجابة الصحيحة</text>
+  <text x="230" y="494" text-anchor="middle" class="content">المنطق المختصر · الإجابة الصحيحة</text>
+  <text x="230" y="510" text-anchor="middle" class="small">كلاهما يتم الاحتفاظ بهما. لا يمكن للمرشح التمييز بينهما.</text>
+
+  <!-- Right: three variants -->
+  <rect x="450" y="56" width="410" height="480" class="box"/>
+  <text x="655" y="80" text-anchor="middle" class="label">ثلاثة متغيرات، ثلاثة أشكال إشارة</text>
+
+  <rect x="470" y="100" width="372" height="106" class="cool"/>
+  <text x="480" y="122" class="label">ستار (زيلكمان 2022)</text>
+  <text x="480" y="142" class="content">احتفظ بمرشح إذا كان صحيحًا على المولد.</text>
+  <text x="480" y="158" class="content">كرر SFT جولات.</text>
+  <text x="480" y="174" class="content">GPT-J + STaR ≈ طراز أكبر حجمًا بمقدار 30 مرة</text>
+  <text x="480" y="190" class="content">في GSM8K (لا توجد تسميات بشرية جديدة).</text>
+
+  <rect x="470" y="212" width="372" height="110" class="cold"/>
+  <text x="480" y="234" class="label">V-STAR (الحسيني 2024)</text>
+  <text x="480" y="254" class="content">DPO-تدريب المدقق على AND الصحيح</text>
+  <text x="480" y="270" class="content">مبررات غير صحيحة (نفايات STaR).</text>
+  <text x="480" y="286" class="content">الاستدلال: عينة N، اختر الجزء العلوي من أداة التحقق.</text>
+  <text x="480" y="302" class="content">+4 إلى +17 نقطة مقارنة بالتحسين الذاتي السابق.</text>
+
+  <rect x="470" y="328" width="372" height="110" class="hot"/>
+  <text x="480" y="350" class="label">النجم الهادئ (زيليكمان 2024)</text>
+  <text x="480" y="370" class="content">الأساس المنطقي الداخلي لكل رمز.</text>
+  <text x="480" y="386" class="content">رمز نهاية الفكر + رأس الخلط.</text>
+  <text x="480" y="402" class="content">ميسترال 7B GSM8K 5.9% -&gt; 10.9%</text>
+  <text x="480" y="418" class="content">لا يوجد ضبط دقيق لمهمة محددة.</text>
+
+  <rect x="470" y="444" width="372" height="84" class="box"/>
+  <text x="480" y="466" class="label">الضعف المشترك</text>
+  <text x="480" y="486" class="content">يستخدم الثلاثة التدرج المشروط للإجابة.</text>
+  <text x="480" y="502" class="content">يصل منطق الاختصار إلى التسمية.</text>
+  <text x="480" y="518" class="content">الإصلاح: نماذج مكافأة العملية + تقييم OOD.</text>
+</svg>

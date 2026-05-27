@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">ColPali / ColQwen استرجاع التفاعل المتأخر</text>
+
+  <rect x="40" y="50" width="290" height="460" class="box"/>
+  <text x="185" y="72" text-anchor="middle" class="head">جانب الاستعلام</text>
+  <rect x="60" y="90" width="250" height="40" class="cool"/>
+  <text x="185" y="116" text-anchor="middle" class="step">استعلام رمزي</text>
+  <rect x="60" y="140" width="250" height="40" class="cool"/>
+  <text x="185" y="166" text-anchor="middle" class="step">تضمين كل رمز مميز</text>
+  <text x="185" y="190" text-anchor="middle" class="small">رموز الاستعلام n -&gt; n المتجهات</text>
+
+  <rect x="60" y="210" width="250" height="220" class="cold"/>
+  <text x="185" y="232" text-anchor="middle" class="step">MaxSim لكل رمز استعلام</text>
+  <text x="185" y="252" text-anchor="middle" class="small">لكل q_i:</text>
+  <text x="185" y="270" text-anchor="middle" class="small">الحد الأقصى لتصحيحات المستند (q_i. p_j)</text>
+  <text x="185" y="288" text-anchor="middle" class="small">جمع كل الدرجات q_i ماكس</text>
+  <text x="185" y="310" text-anchor="middle" class="small">-&gt; نقاط الصفحة</text>
+  <text x="185" y="336" text-anchor="middle" class="small">O(|q| * |patches|) لكل صفحة</text>
+  <text x="185" y="354" text-anchor="middle" class="small">ولكن تم توجيهها على GPU</text>
+  <text x="185" y="378" text-anchor="middle" class="small">مخازن الفهرس متعدد المتجهات</text>
+  <text x="185" y="396" text-anchor="middle" class="small">بقع + صفوف MaxSim</text>
+  <text x="185" y="418" text-anchor="middle" class="caption">فيسبا / Qdrant متعدد المتجهات / AstraDB</text>
+
+  <rect x="360" y="50" width="290" height="460" class="box"/>
+  <text x="505" y="72" text-anchor="middle" class="head">جانب الوثيقة</text>
+  <rect x="380" y="90" width="250" height="40" class="cool"/>
+  <text x="505" y="116" text-anchor="middle" class="step">صفحة العرض (180 DPI)</text>
+  <rect x="380" y="140" width="250" height="40" class="cool"/>
+  <text x="505" y="166" text-anchor="middle" class="step">ColQwen2.5-v0.2</text>
+  <text x="505" y="190" text-anchor="middle" class="small">رمز التصحيح + رأس LM</text>
+
+  <rect x="380" y="210" width="250" height="220" class="dsk"/>
+  <text x="505" y="232" text-anchor="middle" class="step">تضمينات التصحيح</text>
+  <text x="505" y="252" text-anchor="middle" class="small">~ 2048 تصحيحًا لكل صفحة</text>
+  <text x="505" y="270" text-anchor="middle" class="small">خافت 128 لكل منهما</text>
+  <text x="505" y="288" text-anchor="middle" class="small">لا تجميع: الحفاظ على المنطقة</text>
+  <text x="505" y="310" text-anchor="middle" class="small">DocPruner: احتفظ بـ 50%</text>
+  <text x="505" y="328" text-anchor="middle" class="small">انخفاض الدقة &lt;0.5%</text>
+  <text x="505" y="350" text-anchor="middle" class="small">التخزين إلى النصف</text>
+  <text x="505" y="378" text-anchor="middle" class="small">تم الاحتفاظ بالمربع المحيط لكل تصحيح</text>
+  <text x="505" y="396" text-anchor="middle" class="small">لتسليط الضوء على الأدلة</text>
+  <text x="505" y="418" text-anchor="middle" class="caption">Illuin Tech ColPali + 2026 DocPruner</text>
+
+  <rect x="680" y="50" width="240" height="460" class="box"/>
+  <text x="800" y="72" text-anchor="middle" class="head">التوليف + التقييم</text>
+  <rect x="700" y="90" width="200" height="40" class="cool"/>
+  <text x="800" y="116" text-anchor="middle" class="step">أعلى 5 صفحات</text>
+  <rect x="700" y="140" width="200" height="40" class="hot"/>
+  <text x="800" y="166" text-anchor="middle" class="step">Qwen3-VL-30B</text>
+  <text x="800" y="190" text-anchor="middle" class="small">الرؤية + سياق النص</text>
+
+  <rect x="700" y="210" width="200" height="40" class="cold"/>
+  <text x="800" y="236" text-anchor="middle" class="step">المناطق المذكورة</text>
+  <rect x="700" y="260" width="200" height="40" class="dsk"/>
+  <text x="800" y="286" text-anchor="middle" class="step">تراكب المشاهد</text>
+
+  <rect x="700" y="310" width="200" height="200" class="box"/>
+  <text x="800" y="332" text-anchor="middle" class="head">evaluation</text>
+  <text x="800" y="352" text-anchor="middle" class="small">ViDoRe v3 (استرجاع)</text>
+  <text x="800" y="370" text-anchor="middle" class="small">M3DocVQA (متعدد الصفحات QA)</text>
+  <text x="800" y="388" text-anchor="middle" class="small">نهج فئة المحتوى x</text>
+  <text x="800" y="406" text-anchor="middle" class="small">المصفوفة: نص / جدول / مخطط /</text>
+  <text x="800" y="424" text-anchor="middle" class="small">الكتابة اليدوية / المعادلة</text>
+  <text x="800" y="444" text-anchor="middle" class="small">مقابل OCR-خط الأساس للنص</text>
+  <text x="800" y="472" text-anchor="middle" class="caption">نشر دلتا جنبًا إلى جنب</text>
+</svg>

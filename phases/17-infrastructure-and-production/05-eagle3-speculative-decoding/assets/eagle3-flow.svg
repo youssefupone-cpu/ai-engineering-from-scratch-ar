@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dsk { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">EAGLE-3 فك التشفير التخميني — ألفا هو المقياس الوحيد</text>
+
+  <rect x="40" y="50" width="420" height="240" class="box"/>
+  <text x="250" y="72" text-anchor="middle" class="head">التدفق (ك = 5)</text>
+  <rect x="60" y="90" width="120" height="40" class="cool"/>
+  <text x="120" y="114" text-anchor="middle" class="step">مشروع الرأس</text>
+  <rect x="200" y="90" width="240" height="40" class="cold"/>
+  <text x="320" y="114" text-anchor="middle" class="step">5 رموز مرشحة</text>
+  <line x1="180" y1="110" x2="198" y2="110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="200" y="140" width="240" height="40" class="hot"/>
+  <text x="320" y="164" text-anchor="middle" class="step">التحقق من الهدف (1 للأمام)</text>
+  <line x1="320" y1="132" x2="320" y2="139" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="200" y="190" width="240" height="40" class="cool"/>
+  <text x="320" y="214" text-anchor="middle" class="step">ك * ألفا مقبولة</text>
+  <line x1="320" y1="182" x2="320" y2="189" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="200" y="240" width="240" height="40" class="old" fill="#eeeeee" stroke="#888"/>
+  <text x="320" y="264" text-anchor="middle" class="step">إعادة تدوير الباقي (التمرير الثاني)</text>
+
+  <rect x="480" y="50" width="440" height="240" class="box"/>
+  <text x="700" y="72" text-anchor="middle" class="head">ألفا من عبء العمل</text>
+  <rect x="500" y="90" width="400" height="30" class="cool"/>
+  <text x="510" y="110" class="small">دردشة عامة + EAGLE-3 متدرب على ShareGPT: alpha 0.60 - 0.80</text>
+  <rect x="500" y="125" width="400" height="30" class="cold"/>
+  <text x="510" y="145" class="small">التخصصي (الكود، القانوني، الطبي): ألفا 0.40 - 0.60</text>
+  <rect x="500" y="160" width="400" height="30" class="hot"/>
+  <text x="510" y="180" class="small">عدم تطابق المجال دون مسودة إعادة التدريب: ألفا 0.30 - 0.45</text>
+  <rect x="500" y="195" width="400" height="30" class="dsk"/>
+  <text x="510" y="215" class="small">نموذج المسودة الكلاسيكي (Llama 3.2 1B for 70B): ألفا 0.30 - 0.50</text>
+  <rect x="500" y="230" width="400" height="50" class="box"/>
+  <text x="510" y="250" class="small">نقطة التعادل ألفا عند 256 متزامنة: ~0.55</text>
+  <text x="510" y="268" class="small">أدناه: P99 الذيل يزداد سوءًا حتى لو تحسن المتوسط</text>
+
+  <rect x="40" y="310" width="880" height="100" class="box"/>
+  <text x="480" y="332" text-anchor="middle" class="head">generations</text>
+  <text x="60" y="356" class="step">نموذج مسودة كلاسيكي</text>
+  <text x="60" y="374" class="small">تم تحميل نموذجين؛ K إلى الأمام لكل هدف؛ ألفا 0.3-0.5</text>
+  <text x="280" y="356" class="step">EAGLE-1</text>
+  <text x="280" y="374" class="small">رأس السحب على الطبقة المستهدفة الأخيرة؛ ألفا ~0.5-0.6</text>
+  <text x="500" y="356" class="step">EAGLE-2</text>
+  <text x="500" y="374" class="small">مسودات الشجرة، التكيف K؛ ألفا ~0.6-0.7</text>
+  <text x="720" y="356" class="step">EAGLE-3 (2025-2026)</text>
+  <text x="720" y="374" class="small">رأس مسودة متعدد الطبقات؛ ألفا ~0.6-0.8</text>
+  <text x="60" y="396" class="caption">جميع متغيرات EAGLE تتدرب بسرعة وتضيف معلمات صغيرة إلى الهدف</text>
+
+  <rect x="40" y="430" width="880" height="110" class="hot"/>
+  <text x="480" y="452" text-anchor="middle" class="head">قائمة مرجعية للإنتاج</text>
+  <text x="60" y="474" class="small">1. نموذج الهدف الأساسي البسيط: TTFT، ITL، الإنتاجية عند التزامن المستهدف</text>
+  <text x="60" y="490" class="small">2. قم بتمكين speculative_config باستخدام EAGLE-3 مسودة؛ إعادة تشغيل المعيار</text>
+  <text x="60" y="506" class="small">3. سجل ألفا (vLLM V1 تقبل التقارير الرموز المميزة لكل طلب) ؛ بوابة على ألفا &gt;= 0.55</text>
+  <text x="60" y="522" class="small">4. شاهد P99 ITL، وليس P50 — ذيل محركات الأقراص ذات المسودة المرفوضة ذات التمريرتين</text>
+  <text x="60" y="538" class="small">5. vLLM v0.18.0: فك تشفير مواصفات نموذج المسودة غير متوافق مع التعبئة المسبقة المقسمة؛ N-gram في V1 هو الاستثناء</text>
+</svg>

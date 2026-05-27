@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .actor { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .msg { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .rt { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .dlq { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">AutoGen v0.4 — وقت تشغيل نموذج الممثل مع عزل الأخطاء</text>
+
+  <rect x="40" y="50" width="880" height="200" class="rt"/>
+  <text x="480" y="72" text-anchor="middle" class="head">وقت التشغيل - حلقة الأحداث، البريد الوارد لكل ممثل، التسليم مع عزل الفشل</text>
+
+  <rect x="60" y="90" width="220" height="140" class="actor"/>
+  <text x="170" y="112" text-anchor="middle" class="head">الفاعل: قائمة المراجعة</text>
+  <text x="78" y="134" class="small">الدولة الخاصة (النتائج، الإجماع)</text>
+  <text x="78" y="152" class="small">البريد الوارد</text>
+  <text x="78" y="170" class="small">تلقي (رسالة، وقت التشغيل)</text>
+  <text x="78" y="188" class="small">إرسال () يتم وضعه في قائمة انتظار وقت التشغيل</text>
+  <text x="78" y="208" class="small">لا توجد ذاكرة مشتركة مع الجهات الفاعلة الأخرى</text>
+
+  <rect x="300" y="90" width="220" height="140" class="actor"/>
+  <text x="410" y="112" text-anchor="middle" class="head">الممثل: المراجع</text>
+  <text x="318" y="134" class="small">الدولة الخاصة (الأحكام)</text>
+  <text x="318" y="152" class="small">يعالج الموضوع = المراجعة</text>
+  <text x="318" y="170" class="small">الردود مع review_result</text>
+  <text x="318" y="188" class="small">قد يرفع المعالج التوجيه إلى DLQ</text>
+  <text x="318" y="208" class="small">الجهات الفاعلة الأخرى تستمر في الجري</text>
+
+  <rect x="540" y="90" width="360" height="140" class="box"/>
+  <text x="720" y="112" text-anchor="middle" class="head">قائمة انتظار وقت التشغيل المشتركة</text>
+  <rect x="560" y="128" width="320" height="26" class="msg"/>
+  <text x="578" y="146" class="step">قائمة التحقق m001 "البدء" [مقتطفات]</text>
+  <rect x="560" y="160" width="320" height="26" class="msg"/>
+  <text x="578" y="178" class="step">مراجع m002 "crash_me" (سوف يفشل)</text>
+  <rect x="560" y="192" width="320" height="26" class="msg"/>
+  <text x="578" y="210" class="step">m003-m005 المراجع "مراجعة" 3x</text>
+
+  <rect x="40" y="270" width="440" height="220" class="box"/>
+  <text x="260" y="292" text-anchor="middle" class="head">أثر العمل — عزل الخطأ</text>
+  <rect x="60" y="308" width="400" height="26" class="box"/>
+  <text x="78" y="326" class="step">يوفر وقت التشغيل زيادات للمراجعين m002</text>
+  <rect x="60" y="340" width="400" height="26" class="box"/>
+  <text x="78" y="358" class="step">DLQ: m002 "خطأ وقت التشغيل: محاكاة فشل المعالج"</text>
+  <rect x="60" y="372" width="400" height="26" class="box"/>
+  <text x="78" y="390" class="step">يستمر وقت التشغيل في تقديم m003-m005</text>
+  <rect x="60" y="404" width="400" height="26" class="box"/>
+  <text x="78" y="422" class="step">ردود المراجع review_result لكل منهما</text>
+  <rect x="60" y="436" width="400" height="26" class="box"/>
+  <text x="78" y="454" class="step">تصل القائمة المرجعية إلى توافق في الآراء عبر 3 نتائج</text>
+
+  <rect x="500" y="270" width="420" height="220" class="dlq"/>
+  <text x="710" y="292" text-anchor="middle" class="head">ثلاث طبقات API في الإصدار 0.4</text>
+  <rect x="520" y="308" width="380" height="46" class="box"/>
+  <text x="538" y="330" class="step">الوكيل الأساسي وقت التشغيل، الوكيل، الرسالة، الموضوع</text>
+  <text x="538" y="346" class="small">مستوى منخفض، غير متزامن، يحركه الحدث</text>
+  <rect x="520" y="360" width="380" height="46" class="box"/>
+  <text x="538" y="382" class="step">AgentChat RoundRobin، Selector، AssistantAgent</text>
+  <text x="538" y="398" class="small">مستوى عالٍ يعتمد على المهام API (استبدال الإصدار 0.2)</text>
+  <rect x="520" y="412" width="380" height="66" class="box"/>
+  <text x="538" y="434" class="step">الامتدادات OpenAI، الأنثروبي، الأزرق السماوي، الأدوات</text>
+  <text x="538" y="452" class="small">Magentic-One هو الفريق المرجعي المبني على AgentChat</text>
+  <text x="538" y="470" class="small">يمتد OTel GenAI بشكل افتراضي (الدرس 23)</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">v0.7.x في الصيانة. Microsoft Agent Framework (المعاينة في أكتوبر 2025) هو المسار الأمامي - نفس الأفكار.</text>
+</svg>

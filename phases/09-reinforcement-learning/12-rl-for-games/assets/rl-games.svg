@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e8f1fb; stroke: #2471a3; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="30" text-anchor="middle" class="title">اللعب الذاتي + البحث + تحسين السياسات – وصفة واحدة، ثلاثة عصور</text>
+
+  <rect x="40" y="60" width="260" height="360" class="box"/>
+  <text x="170" y="88" text-anchor="middle" class="label">ألفا زيرو (2017)</text>
+  <text x="60" y="115" class="content">البيئة: الشطرنج / شوغي / اذهب</text>
+  <text x="60" y="135" class="content">القواعد: معروفة</text>
+  <text x="60" y="160" class="content">صافي قيمة السياسة (ع، ت)</text>
+  <text x="60" y="180" class="content">MCTS مع PUCT</text>
+  <text x="60" y="205" class="content">الهدف: pi_MCTS، z_outcome</text>
+  <text x="60" y="225" class="content">L = (v-z)^2 - pi * log p</text>
+  <text x="170" y="265" text-anchor="middle" class="caption">الطبلة راسا اللعب الذاتي</text>
+  <text x="170" y="285" text-anchor="middle" class="caption">اذهب، الشطرنج، شوغي</text>
+  <text x="170" y="320" text-anchor="middle" class="caption">يتطلب: سيم مثالي</text>
+  <text x="170" y="340" text-anchor="middle" class="caption">إجراءات منفصلة</text>
+  <text x="170" y="360" text-anchor="middle" class="caption">zero-sum</text>
+
+  <rect x="320" y="60" width="260" height="360" class="hot"/>
+  <text x="450" y="88" text-anchor="middle" class="label">موزيرو (2019)</text>
+  <text x="340" y="115" class="content">البيئة: أي شيء</text>
+  <text x="340" y="135" class="content">القواعد: تعلمت (ز)</text>
+  <text x="340" y="160" class="content">التشفير ح، ديناميات ز</text>
+  <text x="340" y="180" class="content">MCTS في الفضاء الكامن</text>
+  <text x="340" y="205" class="content">الهدف: pi_MCTS، z، مكافأة</text>
+  <text x="340" y="225" class="content">L = المجموع فوق الأفق</text>
+  <text x="450" y="265" text-anchor="middle" class="caption">لا حاجة لبطاقة SIM</text>
+  <text x="450" y="285" text-anchor="middle" class="caption">أتاري، اذهب، الشطرنج، شوغي</text>
+  <text x="450" y="320" text-anchor="middle" class="caption">نفس الحلقة، النموذج المستفادة</text>
+  <text x="450" y="340" text-anchor="middle" class="caption">تكلفة حسابية أعلى</text>
+  <text x="450" y="360" text-anchor="middle" class="caption">توجد امتدادات عشوائية</text>
+
+  <rect x="600" y="60" width="260" height="360" class="cool"/>
+  <text x="730" y="88" text-anchor="middle" class="label">GRPO (2024-2025)</text>
+  <text x="620" y="115" class="content">env: LLM المنطق</text>
+  <text x="620" y="135" class="content">الإجراء: الرمز التالي</text>
+  <text x="620" y="160" class="content">المدقق: الاختبارات / فحص الرياضيات</text>
+  <text x="620" y="180" class="content">أخذ العينات الجماعية (طرح G)</text>
+  <text x="620" y="205" class="content">A_i = (r_i - mean_r) / std_r</text>
+  <text x="620" y="225" class="content">L = -A * سجل pi + بيتا KL</text>
+  <text x="730" y="265" text-anchor="middle" class="caption">لا يوجد ناقد ولا نموذج للمكافأة</text>
+  <text x="730" y="285" text-anchor="middle" class="caption">الرياضيات، الكود، المنطق</text>
+  <text x="730" y="320" text-anchor="middle" class="caption">DeepSeek-R1 وصفة</text>
+  <text x="730" y="340" text-anchor="middle" class="caption">خط الأساس النسبي للمجموعة</text>
+  <text x="730" y="360" text-anchor="middle" class="caption">نفس روح AlphaZero</text>
+
+  <text x="450" y="445" text-anchor="middle" class="caption">النمط: أخذ عينات من العديد من المسارات، وتصنيفها، وتدريب السياسة على زيادة احتمالية المسارات الجيدة</text>
+</svg>

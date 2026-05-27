@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .reg { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">وحدات VLM للفيديو - أخذ عينات الإطار، والرموز المؤقتة، ومخرجات التأريض</text>
+
+  <rect x="30" y="50" width="900" height="220" class="box"/>
+  <text x="480" y="72" text-anchor="middle" class="head">ثلاثة أنماط معمارية من 2023 إلى 2025</text>
+
+  <rect x="50" y="90" width="280" height="160" class="hot"/>
+  <text x="190" y="110" text-anchor="middle" class="step">فيديو لاما (2023)</text>
+  <text x="190" y="128" text-anchor="middle" class="small">س-السابق + فرع الصوت</text>
+  <text x="190" y="144" text-anchor="middle" class="small">تم إصلاح 16 إطارًا عند 2 FPS</text>
+  <text x="190" y="160" text-anchor="middle" class="small">32 استعلام فيديو، 32 استعلام صوتي</text>
+  <text x="190" y="184" text-anchor="middle" class="step">القوة: التأريض الصوتي</text>
+  <text x="190" y="204" text-anchor="middle" class="small">الضعف: مقطع ثابت 8s</text>
+  <text x="190" y="220" text-anchor="middle" class="small">لا يوجد توطين وقت الحدث</text>
+
+  <rect x="340" y="90" width="280" height="160" class="cool"/>
+  <text x="480" y="110" text-anchor="middle" class="step">فيديو-LLaVA (2023)</text>
+  <text x="480" y="128" text-anchor="middle" class="small">MLP + برنامج التشفير المشترك</text>
+  <text x="480" y="144" text-anchor="middle" class="small">8 إطارات @ 1-2 FPS</text>
+  <text x="480" y="160" text-anchor="middle" class="small">المحاذاة قبل الإسقاط</text>
+  <text x="480" y="184" text-anchor="middle" class="step">القوة: بسيطة + فعالة</text>
+  <text x="480" y="204" text-anchor="middle" class="small">الضعف: مقاطع قصيرة فقط</text>
+  <text x="480" y="220" text-anchor="middle" class="small">لا يوجد ديناميكية FPS</text>
+
+  <rect x="630" y="90" width="280" height="160" class="cold"/>
+  <text x="770" y="110" text-anchor="middle" class="step">Qwen2.5-VL (2025)</text>
+  <text x="770" y="128" text-anchor="middle" class="small">TMRoPE + ديناميكي FPS</text>
+  <text x="770" y="144" text-anchor="middle" class="small">مدة تعسفية</text>
+  <text x="770" y="160" text-anchor="middle" class="small">رموز الوقت المطلق</text>
+  <text x="770" y="184" text-anchor="middle" class="step">القوة: تأريض الحدث</text>
+  <text x="770" y="204" text-anchor="middle" class="small">JSON تنسيق الإخراج</text>
+  <text x="770" y="220" text-anchor="middle" class="small">مفتوح SOTA 2026</text>
+
+  <rect x="30" y="290" width="900" height="230" class="box"/>
+  <text x="480" y="312" text-anchor="middle" class="head">أخذ عينات الإطار + تنسيق الإخراج</text>
+
+  <rect x="60" y="330" width="260" height="170" class="reg"/>
+  <text x="190" y="352" text-anchor="middle" class="step">استراتيجيات أخذ العينات الإطارية</text>
+  <text x="190" y="372" text-anchor="middle" class="small">موحد: إطارات N / المدة</text>
+  <text x="190" y="388" text-anchor="middle" class="small">- بسيطة، تفقد قمم الحركة</text>
+  <text x="190" y="408" text-anchor="middle" class="small">ديناميكي FPS: مرجح للحركة</text>
+  <text x="190" y="424" text-anchor="middle" class="small">- أكثر كثافة في فترات الحركة العالية</text>
+  <text x="190" y="444" text-anchor="middle" class="small">يحركها الحدث: كاشف + عينة</text>
+  <text x="190" y="460" text-anchor="middle" class="small">- الأفضل للتعرف على العمل</text>
+  <text x="190" y="480" text-anchor="middle" class="caption">إقران مع تجميع 3x3 لكل إطار</text>
+
+  <rect x="340" y="330" width="280" height="170" class="hot"/>
+  <text x="480" y="352" text-anchor="middle" class="step">تنسيقات إخراج التأريض</text>
+  <text x="480" y="372" text-anchor="middle" class="small">نص حر:</text>
+  <text x="480" y="388" text-anchor="middle" class="small">"القطة تقفز حوالي 4 ثواني"</text>
+  <text x="480" y="412" text-anchor="middle" class="small">JSON:</text>
+  <text x="480" y="428" text-anchor="middle" class="small">{"event":"jump","start":4.1,"end":4.3}</text>
+  <text x="480" y="452" text-anchor="middle" class="small">token:</text>
+  <text x="480" y="468" text-anchor="middle" class="small">"قفزة &lt;time&gt;4.1&lt;/time&gt;"</text>
+  <text x="480" y="488" text-anchor="middle" class="caption">JSON هو الأسهل في التحليل</text>
+
+  <rect x="640" y="330" width="280" height="170" class="cool"/>
+  <text x="780" y="352" text-anchor="middle" class="step">benchmarks</text>
+  <text x="780" y="372" text-anchor="middle" class="small">VideoMME: عام، 2500 عينة</text>
+  <text x="780" y="388" text-anchor="middle" class="small">TempCompass: قبل/بعد</text>
+  <text x="780" y="404" text-anchor="middle" class="small">EgoSchema: 3 دقائق من منظور الشخص الأول</text>
+  <text x="780" y="420" text-anchor="middle" class="small">فيديو-MMMU: متعدد التخصصات</text>
+  <text x="780" y="446" text-anchor="middle" class="step">مفتوح SOTA 2026</text>
+  <text x="780" y="462" text-anchor="middle" class="small">Qwen2.5-VL-72B</text>
+  <text x="780" y="478" text-anchor="middle" class="small">TMRoPE هو المفرق</text>
+</svg>

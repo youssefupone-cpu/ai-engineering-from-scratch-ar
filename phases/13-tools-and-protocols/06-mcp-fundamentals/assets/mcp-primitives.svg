@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #333; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text x="490" y="26" text-anchor="middle" class="title">MCP البدائيات ودورة الحياة ثلاثية المراحل</text>
+
+  <rect x="40" y="60" width="440" height="240" class="cool"/>
+  <text x="260" y="82" text-anchor="middle" class="head">بدايات الخادم</text>
+
+  <rect x="60" y="100" width="400" height="50" class="box"/>
+  <text x="80" y="120" class="step">tools</text>
+  <text x="80" y="138" class="small">الإجراءات القابلة للاستدعاء؛ الأدوات/القائمة، الأدوات/الاتصال</text>
+
+  <rect x="60" y="160" width="400" height="50" class="box"/>
+  <text x="80" y="180" class="step">resources</text>
+  <text x="80" y="198" class="small">URI-بيانات قابلة للعنونة؛ الموارد / القائمة، اقرأ، اشترك</text>
+
+  <rect x="60" y="220" width="400" height="50" class="box"/>
+  <text x="80" y="240" class="step">prompts</text>
+  <text x="80" y="258" class="small">قوالب قابلة لإعادة الاستخدام؛ المطالبات/القائمة، المطالبات/الحصول على</text>
+
+  <rect x="500" y="60" width="440" height="240" class="cold"/>
+  <text x="720" y="82" text-anchor="middle" class="head">البدائيات العميلة</text>
+
+  <rect x="520" y="100" width="400" height="50" class="box"/>
+  <text x="540" y="120" class="step">roots</text>
+  <text x="540" y="138" class="small">عناوين URI التي قد يلمسها الخادم؛ الجذور/القائمة</text>
+
+  <rect x="520" y="160" width="400" height="50" class="box"/>
+  <text x="540" y="180" class="step">sampling</text>
+  <text x="540" y="198" class="small">يطلب الخادم من العميل LLM الإكمال؛ أخذ العينات/createMessage</text>
+
+  <rect x="520" y="220" width="400" height="50" class="box"/>
+  <text x="540" y="240" class="step">elicitation</text>
+  <text x="540" y="258" class="small">يطلب الخادم من المستخدم مدخلات منظمة؛ استنباط / إنشاء</text>
+
+  <rect x="40" y="320" width="900" height="220" class="box"/>
+  <text x="490" y="342" text-anchor="middle" class="head">دورة حياة ثلاثية المراحل (JSON-RPC 2.0)</text>
+
+  <rect x="60" y="360" width="270" height="160" class="hot"/>
+  <text x="195" y="382" text-anchor="middle" class="step">1/ التهيئة</text>
+  <text x="74" y="408" class="small">العميل -&gt; تهيئة {caps،</text>
+  <text x="74" y="424" class="small">                 protocolVersion}</text>
+  <text x="74" y="442" class="small">الخادم -&gt; النتيجة {caps، info،</text>
+  <text x="74" y="458" class="small">                  protocolVersion}</text>
+  <text x="74" y="478" class="small">العميل -&gt; تهيئة الإخطار</text>
+  <text x="74" y="502" class="small">اكتمل التفاوض بشأن القدرة</text>
+
+  <rect x="350" y="360" width="270" height="160" class="cool"/>
+  <text x="485" y="382" text-anchor="middle" class="step">2/ العملية</text>
+  <text x="364" y="408" class="small">الأدوات/القائمة، الأدوات/الاتصال</text>
+  <text x="364" y="424" class="small">الموارد/القائمة، الموارد/القراءة</text>
+  <text x="364" y="442" class="small">المطالبات/القائمة، المطالبات/الحصول على</text>
+  <text x="364" y="462" class="small">أخذ العينات/إنشاء رسالة (S-&gt;C)</text>
+  <text x="364" y="478" class="small">الاستنباط/الإنشاء (S-&gt;C)</text>
+  <text x="364" y="496" class="small">notifications/*_changed</text>
+
+  <rect x="640" y="360" width="280" height="160" class="cold"/>
+  <text x="780" y="382" text-anchor="middle" class="step">3/ الاغلاق</text>
+  <text x="654" y="408" class="small">إغلاق على مستوى النقل؛ لا</text>
+  <text x="654" y="424" class="small">JSON-RPC الطريقة. ستديو EOF أو</text>
+  <text x="654" y="442" class="small">HTTP انتهاء صلاحية الجلسة.</text>
+  <text x="654" y="472" class="small">التنظيف: مسح الاستجابات المعلقة،</text>
+  <text x="654" y="488" class="small">إلغاء المهام المعلقة، سجل.</text>
+</svg>

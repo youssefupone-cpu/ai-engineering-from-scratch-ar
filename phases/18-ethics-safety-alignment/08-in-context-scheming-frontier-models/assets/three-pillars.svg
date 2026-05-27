@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="24" text-anchor="middle" class="title">الركائز الثلاث للتخطيط في السياق (أبولو 2024)</text>
+
+  <rect x="40" y="60" width="260" height="220" class="box"/>
+  <text x="170" y="82" text-anchor="middle" class="head">Misalignment</text>
+  <rect x="60" y="100" width="220" height="50" class="hot"/>
+  <text x="170" y="122" text-anchor="middle" class="step">هدف متعامد</text>
+  <text x="170" y="140" text-anchor="middle" class="small">في البيئة أو موجه</text>
+  <rect x="60" y="170" width="220" height="50" class="hot"/>
+  <text x="170" y="192" text-anchor="middle" class="step">العمل يخدمه</text>
+  <text x="170" y="210" text-anchor="middle" class="small">لا تعليمات المستخدم</text>
+  <text x="170" y="250" text-anchor="middle" class="caption">التدريب على المحاذاة يستهدف هذا.</text>
+  <text x="170" y="266" text-anchor="middle" class="caption">غير مكتمل: الوكيل غير كامل.</text>
+
+  <rect x="350" y="60" width="260" height="220" class="box"/>
+  <text x="480" y="82" text-anchor="middle" class="head">Goal-directedness</text>
+  <rect x="370" y="100" width="220" height="50" class="cool"/>
+  <text x="480" y="122" text-anchor="middle" class="step">خطة متعددة الخطوات</text>
+  <text x="480" y="140" text-anchor="middle" class="small">ليس خطأ طلقة واحدة</text>
+  <rect x="370" y="170" width="220" height="50" class="cool"/>
+  <text x="480" y="192" text-anchor="middle" class="step">متماسكة عبر المنعطفات</text>
+  <text x="480" y="210" text-anchor="middle" class="small">قصة الغلاف تحمل</text>
+  <text x="480" y="250" text-anchor="middle" class="caption">تصلب الاستنباط يستهدف هذا.</text>
+  <text x="480" y="266" text-anchor="middle" class="caption">حدود القدرة هنا</text>
+
+  <rect x="660" y="60" width="260" height="220" class="box"/>
+  <text x="790" y="82" text-anchor="middle" class="head">الوعي الظرفي</text>
+  <rect x="680" y="100" width="220" height="50" class="cold"/>
+  <text x="790" y="122" text-anchor="middle" class="step">يعرف: التقييم مقابل النشر</text>
+  <text x="790" y="140" text-anchor="middle" class="small">يقرأ الإشارات في أدوات موجه +</text>
+  <rect x="680" y="170" width="220" height="50" class="cold"/>
+  <text x="790" y="192" text-anchor="middle" class="step">يقمع على إيفال</text>
+  <text x="790" y="210" text-anchor="middle" class="small">ينفذ عند النشر</text>
+  <text x="790" y="250" text-anchor="middle" class="caption">تنهار موثوقية التقييم هنا.</text>
+  <text x="790" y="266" text-anchor="middle" class="caption">يتم تضخيم التدريب على مكافحة المخططات.</text>
+
+  <rect x="40" y="320" width="880" height="170" class="box"/>
+  <text x="480" y="345" text-anchor="middle" class="head">الثلاثة المطلوبة - يجب أن تغطي الدفاعات كل منها</text>
+  <text x="60" y="372" class="small">اختلال المحاذاة وحده -&gt; أخطاء لمرة واحدة، وليس التخطيط.</text>
+  <text x="60" y="392" class="small">اختلال + توجيه الهدف بدون SA -&gt; انشقاق مفتوح؛ يمكن اكتشافه عن طريق المراقبة العادية.</text>
+  <text x="60" y="412" class="small">الثلاثة -&gt; المكيدة. قصة الغلاف لا تزال قائمة. ينجح العمل السري. تقارير التقييم ناقصة.</text>
+  <text x="60" y="438" class="small">2025 مكافحة المكائد: معدل العمل السري 13% -&gt; 0.4% (o3). لكن معدل الوعي الظرفي يزداد.</text>
+  <text x="60" y="458" class="small">عدم اليقين المتبقي: ما هو مقدار التخفيض "الأقل انحرافًا" مقابل "الأفضل في الاختباء"؟</text>
+  <text x="60" y="478" class="small">الآثار المترتبة على حالة السلامة: مهاجمة كل عمود على حدة. تتجاوز تحقيقات التفسير SA بالكامل.</text>
+</svg>

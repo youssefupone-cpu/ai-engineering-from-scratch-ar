@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .label { font-size: 13px; font-weight: 600; fill: #1a1a1a; }
+      .step { font-size: 13px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 11px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">حلقة استدعاء الأداة المكونة من أربع خطوات</text>
+
+  <rect x="40" y="70" width="200" height="110" class="cool"/>
+  <text x="140" y="96" text-anchor="middle" class="head">1/ وصف</text>
+  <text x="140" y="122" text-anchor="middle" class="small">أدوات تسجيل المضيف</text>
+  <text x="140" y="138" text-anchor="middle" class="small">الاسم + الوصف</text>
+  <text x="140" y="154" text-anchor="middle" class="small">+ JSON إدخال المخطط</text>
+  <text x="140" y="170" text-anchor="middle" class="small">+ وظيفة المنفذ</text>
+
+  <rect x="280" y="70" width="200" height="110" class="cold"/>
+  <text x="380" y="96" text-anchor="middle" class="head">2/ قرر</text>
+  <text x="380" y="122" text-anchor="middle" class="small">نموذج ينبعث سواء</text>
+  <text x="380" y="138" text-anchor="middle" class="small">إجابة نصية OR</text>
+  <text x="380" y="154" text-anchor="middle" class="small">أداة_المكالمات: [ {المعرف،</text>
+  <text x="380" y="170" text-anchor="middle" class="small">الاسم، الحجج} ]</text>
+
+  <rect x="520" y="70" width="200" height="110" class="hot"/>
+  <text x="620" y="96" text-anchor="middle" class="head">3/ تنفيذ</text>
+  <text x="620" y="122" text-anchor="middle" class="small">يقوم المضيف بالتحقق من صحة الحجج</text>
+  <text x="620" y="138" text-anchor="middle" class="small">ضد المخطط</text>
+  <text x="620" y="154" text-anchor="middle" class="small">بوابات تبعية</text>
+  <text x="620" y="170" text-anchor="middle" class="small">الأدوات، يدير المنفذ</text>
+
+  <rect x="760" y="70" width="180" height="110" class="box"/>
+  <text x="850" y="96" text-anchor="middle" class="head">4/ لاحظ</text>
+  <text x="850" y="122" text-anchor="middle" class="small">يلحق المضيف</text>
+  <text x="850" y="138" text-anchor="middle" class="small">نتيجة الأداة مع</text>
+  <text x="850" y="154" text-anchor="middle" class="small">معرف المطابقة؛ يكرر-</text>
+  <text x="850" y="170" text-anchor="middle" class="small">يستدعي النموذج</text>
+
+  <path d="M240,125 L280,125" class="edge" marker-end="url(#arrow)"/>
+  <path d="M480,125 L520,125" class="edge" marker-end="url(#arrow)"/>
+  <path d="M720,125 L760,125" class="edge" marker-end="url(#arrow)"/>
+  <path d="M850,180 C850,240 380,240 380,220" class="edge" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
+
+  <text x="600" y="256" text-anchor="middle" class="caption">يتم إغلاق الحلقة حتى يقوم النموذج بإرجاع النص أو يصل المضيف إلى MAX_TURNS</text>
+
+  <rect x="40" y="290" width="440" height="210" class="box"/>
+  <text x="260" y="316" text-anchor="middle" class="head">نفس الحلقة، وأسماء مختلفة</text>
+  <text x="60" y="342" class="step">OpenAI: الأدوات / مكالمات_الأدوات / اختيار_الأدوات</text>
+  <text x="60" y="362" class="step">أنثروبي: الأدوات / Tool_use / Tool_result</text>
+  <text x="60" y="382" class="step">الجوزاء: تصريحات الوظيفة / استدعاء الوظيفة</text>
+  <text x="60" y="402" class="step">MCP: أدوات/قائمة/أدوات/اتصال/محتوى</text>
+  <text x="60" y="422" class="step">A2A: المهارات / المهام / الإرسال / الأجزاء الأثرية</text>
+  <text x="60" y="442" class="step">WebMCP (2026): بيان/إرسال أداة المتصفح</text>
+  <text x="60" y="472" class="small">كل صف هو نفس الخطوات الأربع مع تسميات أعمدة مختلفة.</text>
+
+  <rect x="520" y="290" width="420" height="210" class="cool"/>
+  <text x="730" y="316" text-anchor="middle" class="head">نقية مقابل تبعية</text>
+  <text x="540" y="342" class="step">نقي (آمن لإعادة التشغيل)</text>
+  <text x="540" y="360" class="small">get_weather، search_docs، get_time</text>
+  <text x="540" y="380" class="step">تبعية (البوابة مطلوبة)</text>
+  <text x="540" y="398" class="small">إرسال_البريد الإلكتروني، حذف_ملف، تنفيذ_التجارة</text>
+  <text x="540" y="424" class="step">القاعدة الفوقية لاثنين (2026)</text>
+  <text x="540" y="442" class="small">قد تجمع دورة واحدة AT MOST اثنين من:</text>
+  <text x="540" y="458" class="small">  - مدخلات غير موثوقة</text>
+  <text x="540" y="474" class="small">  - البيانات الحساسة</text>
+  <text x="540" y="490" class="small">  - الفعل التبعي</text>
+</svg>

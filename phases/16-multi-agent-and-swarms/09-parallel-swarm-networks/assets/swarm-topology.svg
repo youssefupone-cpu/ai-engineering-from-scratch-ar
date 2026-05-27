@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cool { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .cold { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 13px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+  <text x="450" y="28" text-anchor="middle" class="title">بنية سرب / متوازية / شبكية - لا يوجد منسق</text>
+
+  <rect x="180" y="70" width="540" height="60" class="cold"/>
+  <text x="450" y="90" text-anchor="middle" class="head">قائمة الانتظار المشتركة (حافلة الأحداث الدائمة في الإنتاج)</text>
+  <text x="450" y="110" text-anchor="middle" class="small">T1 (بطيء) · T2 (سريع) · T3 (بطيء) · T4 (سريع) · T5 (سريع) ·...</text>
+
+  <line x1="250" y1="130" x2="180" y2="170" class="edge" marker-end="url(#arrow)"/>
+  <line x1="350" y1="130" x2="340" y2="170" class="edge" marker-end="url(#arrow)"/>
+  <line x1="550" y1="130" x2="560" y2="170" class="edge" marker-end="url(#arrow)"/>
+  <line x1="650" y1="130" x2="720" y2="170" class="edge" marker-end="url(#arrow)"/>
+
+  <rect x="100" y="170" width="150" height="90" class="cool"/>
+  <text x="175" y="192" text-anchor="middle" class="head">العامل أ</text>
+  <text x="175" y="212" text-anchor="middle" class="small">مهمة السحب</text>
+  <text x="175" y="228" text-anchor="middle" class="small">process</text>
+  <text x="175" y="244" text-anchor="middle" class="small">كتابة النتيجة</text>
+
+  <rect x="280" y="170" width="150" height="90" class="cool"/>
+  <text x="355" y="192" text-anchor="middle" class="head">العامل ب</text>
+  <text x="355" y="212" text-anchor="middle" class="small">مهمة السحب</text>
+  <text x="355" y="228" text-anchor="middle" class="small">process</text>
+  <text x="355" y="244" text-anchor="middle" class="small">كتابة النتيجة</text>
+
+  <rect x="470" y="170" width="150" height="90" class="cool"/>
+  <text x="545" y="192" text-anchor="middle" class="head">العامل ج</text>
+  <text x="545" y="212" text-anchor="middle" class="small">مهمة السحب</text>
+  <text x="545" y="228" text-anchor="middle" class="small">process</text>
+  <text x="545" y="244" text-anchor="middle" class="small">كتابة النتيجة</text>
+
+  <rect x="650" y="170" width="150" height="90" class="cool"/>
+  <text x="725" y="192" text-anchor="middle" class="head">العامل د</text>
+  <text x="725" y="212" text-anchor="middle" class="small">مهمة السحب</text>
+  <text x="725" y="228" text-anchor="middle" class="small">process</text>
+  <text x="725" y="244" text-anchor="middle" class="small">كتابة النتيجة</text>
+
+  <line x1="175" y1="260" x2="350" y2="320" class="edge"/>
+  <line x1="355" y1="260" x2="400" y2="320" class="edge"/>
+  <line x1="545" y1="260" x2="500" y2="320" class="edge"/>
+  <line x1="725" y1="260" x2="550" y2="320" class="edge"/>
+
+  <rect x="300" y="320" width="300" height="50" class="hot"/>
+  <text x="450" y="340" text-anchor="middle" class="head">تجمع النتائج</text>
+  <text x="450" y="358" text-anchor="middle" class="small">معرفات تتبع ضعيفة ومتينة لكل مهمة</text>
+
+  <rect x="60" y="400" width="780" height="100" class="box"/>
+  <text x="450" y="422" text-anchor="middle" class="head">tradeoffs</text>
+  <text x="450" y="442" text-anchor="middle" class="small">✓ موازنة لمدة متغيرة · ✓ يتسع للآلاف · ✓ متسامح مع الأخطاء مع قائمة انتظار متينة</text>
+  <text x="450" y="460" text-anchor="middle" class="small">✗ لا يوجد تتبع مركزي · ✗ انقطاع سير العمل المطلوب · ✗ احتياجات تصحيح الأخطاء معرفات لكل مهمة</text>
+  <text x="450" y="478" text-anchor="middle" class="small">أوضاع الفشل: التجويع (طابور الشيخوخة)، البقعة الساخنة (تخصص العمال)، الضغط الخلفي (طابور محدد)</text>
+</svg>

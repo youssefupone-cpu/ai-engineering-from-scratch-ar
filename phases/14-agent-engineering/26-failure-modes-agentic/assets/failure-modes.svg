@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .mode { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .mit { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .tax { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">أوضاع فشل الوكيل - التصنيف، والخمسة المتكررة، والتخفيف</text>
+
+  <rect x="40" y="50" width="440" height="250" class="tax"/>
+  <text x="260" y="72" text-anchor="middle" class="head">التصنيفات 2024-2026</text>
+  <rect x="60" y="88" width="400" height="46" class="box"/>
+  <text x="78" y="108" class="step">MASFT (بيركلي 2025) 14 وضعًا، 3 فئات</text>
+  <text x="78" y="124" class="small">كوهين كابا 0.88 على الشرح المتميز بشكل موثوق</text>
+  <rect x="60" y="140" width="400" height="46" class="box"/>
+  <text x="78" y="160" class="step">تعمل استقلالية التصنيف في Microsoft على تضخيم حالات الفشل AI</text>
+  <text x="78" y="176" class="small">التحيز والهلوسة والتسرب أسوأ عندما يكون لدى العميل الأدوات</text>
+  <rect x="60" y="192" width="400" height="46" class="box"/>
+  <text x="78" y="212" class="step">توصيف الأخطاء في الوكيل AI</text>
+  <text x="78" y="228" class="small">التزامن + تطور الحالة + تفاعل البيئة</text>
+  <rect x="60" y="244" width="400" height="46" class="box"/>
+  <text x="78" y="264" class="step">مسح الهلوسة (arXiv:2509.18970)</text>
+  <text x="78" y="280" class="small">انحراف التعليمات + سوء استخدام السياق بعيد المدى</text>
+
+  <rect x="500" y="50" width="420" height="250" class="mode"/>
+  <text x="710" y="72" text-anchor="middle" class="head">خمسة أوضاع متكررة للصناعة</text>
+  <rect x="520" y="88" width="380" height="36" class="box"/>
+  <text x="538" y="110" class="step">1. أفعال الهلوسة أداة وهمية، وحجج ملفقة</text>
+  <rect x="520" y="128" width="380" height="36" class="box"/>
+  <text x="538" y="150" class="step">2. يزحف النطاق إلى العلاقات العامة الإضافية ورسائل البريد الإلكتروني الإضافية وعمليات الكتابة الإضافية</text>
+  <rect x="520" y="168" width="380" height="36" class="box"/>
+  <text x="538" y="190" class="step">3. الأخطاء المتتالية خطأ واحد، N العمليات النهائية</text>
+  <rect x="520" y="208" width="380" height="36" class="box"/>
+  <text x="538" y="230" class="step">4. ينسى فقدان السياق قيود المنعطف المبكر</text>
+  <rect x="520" y="248" width="380" height="36" class="box"/>
+  <text x="538" y="270" class="step">5. أداة تسيء استخدام الحجج الخاطئة، أداة خاطئة</text>
+
+  <rect x="40" y="320" width="880" height="190" class="mit"/>
+  <text x="480" y="342" text-anchor="middle" class="head">بوابات التخفيف في كل خطوة</text>
+  <rect x="60" y="358" width="840" height="30" class="box"/>
+  <text x="78" y="378" class="step">مُصنف السلامة لكل خطوة (الدرس 21)</text>
+  <rect x="60" y="392" width="840" height="30" class="box"/>
+  <text x="78" y="412" class="step">التحقق من صحة وسيطة استدعاء الأداة (الدرس 06)</text>
+  <rect x="60" y="426" width="840" height="30" class="box"/>
+  <text x="78" y="446" class="step">CRITIC-نمط التأريض الخارجي للمطالبات (الدرس 05)</text>
+  <rect x="60" y="460" width="840" height="30" class="box"/>
+  <text x="78" y="480" class="step">قم بإعادة التحقيق للقبض على هلوسة النجاح ("هل تم إنشاء الملف بالفعل؟")</text>
+  <rect x="60" y="494" width="840" height="14" class="box"/>
+  <text x="78" y="506" class="step">مجموعات تتبع العنقاء للكشف عن الانجراف في الإنتاج</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">التتالي هو القاتل - يستدعي شبح واحد SKU 4 API حادثة متعددة الأنظمة.</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .l1 { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .l2 { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .bad { fill: #ffe1e1; stroke: #b71c1c; stroke-width: 1.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+    </style>
+  </defs>
+  <text x="480" y="24" text-anchor="middle" class="title">التخزين المؤقت على طبقتين — L1 يتخطى LLM، L2 يعيد الاستخدام KV</text>
+
+  <rect x="40" y="50" width="420" height="220" class="l1"/>
+  <text x="250" y="72" text-anchor="middle" class="head">L1 — الدلالي (على مستوى التطبيق)</text>
+  <text x="250" y="94" text-anchor="middle" class="step">تضمين موجه → ابحث عن ذاكرة تخزين مؤقت مماثلة</text>
+  <text x="60" y="118" class="small">الأدوات: GPTCache، Redis Vec، Portkey، Helicone</text>
+  <text x="60" y="136" class="small">العتبة: جيب التمام ≥ 0.95 (البداية)، لحن</text>
+  <text x="60" y="154" class="small">معدلات النجاح في الإنتاج:</text>
+  <text x="60" y="172" class="small">  دردشة مفتوحة: 10-15%</text>
+  <text x="60" y="190" class="small">  منظم FAQ: 40-70%</text>
+  <text x="60" y="208" class="small">  أسئلة الكود: 20-30%</text>
+  <text x="60" y="226" class="small">  تكرار الوكيل الصوتي: 50-80%</text>
+  <text x="250" y="254" text-anchor="middle" class="caption">البائع "دقة 95%" = صحة المطابقة، وليس معدل النجاح</text>
+
+  <rect x="500" y="50" width="420" height="220" class="l2"/>
+  <text x="710" y="72" text-anchor="middle" class="head">L2 — ذاكرة التخزين المؤقت لبادئة الموفر</text>
+  <text x="710" y="94" text-anchor="middle" class="step">إعادة استخدام الانتباه KV للبادئة المتكررة</text>
+  <text x="520" y="118" class="small">الأنثروبي: علامة التحكم في ذاكرة التخزين المؤقت الصريحة</text>
+  <text x="520" y="136" class="small">  قراءة ذاكرة التخزين المؤقت 0.30 دولارًا أمريكيًا/م مقابل 3.00 دولارًا أمريكيًا/م (10x)</text>
+  <text x="520" y="154" class="small">  كتابة قسط: 1.25x (5-min TTL) أو 2x (1-hr TTL)</text>
+  <text x="520" y="172" class="small">OpenAI: تلقائي، المطالبات &gt; 1024 رمزًا مميزًا</text>
+  <text x="520" y="190" class="small">  الإدخال المخزن مؤقتًا أرخص بـ 10 مرات تقريبًا؛ ~50% إصابة نموذجية</text>
+  <text x="520" y="208" class="small">الجوزاء: التخزين المؤقت للسياق الصريح API</text>
+  <text x="520" y="226" class="small">استضافة ذاتية: المرحلة 17 · 06 RadixAttention</text>
+  <text x="710" y="254" text-anchor="middle" class="caption">ProjectDiscovery: معدل نجاح 7% → 74% مع إعادة الهيكلة السريعة</text>
+
+  <rect x="40" y="290" width="880" height="110" class="bad"/>
+  <text x="480" y="312" text-anchor="middle" class="head">الأنماط المضادة التي تنهار معدل الضرب</text>
+  <text x="60" y="338" class="step">· عقوبة الموازية</text>
+  <text x="60" y="356" class="small">  10 مكالمات متوازية قبل الكتابة في ذاكرة التخزين المؤقت الأولى = 10 عمليات كتابة، 0 قراءة → 5-10x فاتورة</text>
+  <text x="60" y="374" class="step">· المحتوى الديناميكي في البادئة</text>
+  <text x="60" y="392" class="small">  الوقت الحالي، الطلب ID، أمثلة عشوائية: كل طلب فريد من نوعه → 0 زيارة</text>
+
+  <rect x="40" y="420" width="880" height="80" class="box"/>
+  <text x="480" y="442" text-anchor="middle" class="head">كومة بين عشية وضحاها</text>
+  <text x="480" y="464" text-anchor="middle" class="step">الدفعة API (خصم 50%) + الإدخال المخزن مؤقتًا (10x عند الإدخال) → ~10% من تكلفة المزامنة غير المخزنة مؤقتًا</text>
+  <text x="480" y="484" text-anchor="middle" class="caption">أي شيء يتحمل زمن الوصول لمدة 24 ساعة يجب أن يجمع كليهما</text>
+</svg>

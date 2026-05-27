@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .hot { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .cold { fill: #eaf4ff; stroke: #2c5f8c; stroke-width: 1.5; }
+      .label { font-size: 14px; font-weight: 600; fill: #1a1a1a; }
+      .content { font-size: 12px; fill: #333; }
+      .mono { font-size: 12px; fill: #333; font-family: 'Menlo', monospace; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="450" y="28" text-anchor="middle" class="title">مطابقة التدفق: القطار على خط مستقيم</text>
+
+  <!-- DDPM vs FM comparison -->
+  <text x="225" y="70" text-anchor="middle" class="label">DDPM: مسار منحني</text>
+  <rect x="50" y="90" width="350" height="170" class="box"/>
+
+  <!-- data cluster -->
+  <circle cx="95" cy="210" r="18" fill="#c0392b" opacity="0.4"/>
+  <text x="95" y="240" text-anchor="middle" class="caption">x_0 (بيانات)</text>
+  <!-- noise -->
+  <circle cx="365" cy="130" r="18" fill="#2c5f8c" opacity="0.4"/>
+  <text x="365" y="110" text-anchor="middle" class="caption">س_T ~ ن(0، أنا)</text>
+
+  <path d="M 95,210 Q 160,160 200,200 T 280,150 T 365,130" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="225" y="190" text-anchor="middle" class="caption">1000 خطوة SDE</text>
+  <text x="225" y="253" text-anchor="middle" class="caption">DDIM يتقلص إلى 50 خطوة تقريبًا</text>
+
+  <text x="665" y="70" text-anchor="middle" class="label">مطابقة التدفق: خط مستقيم</text>
+  <rect x="490" y="90" width="380" height="170" class="box"/>
+
+  <circle cx="535" cy="210" r="18" fill="#c0392b" opacity="0.4"/>
+  <text x="535" y="240" text-anchor="middle" class="caption">x_0</text>
+  <circle cx="835" cy="130" r="18" fill="#2c5f8c" opacity="0.4"/>
+  <text x="835" y="110" text-anchor="middle" class="caption">x_1 ~ ن(0، أنا)</text>
+
+  <line x1="535" y1="210" x2="835" y2="130" stroke="#1a1a1a" stroke-width="2"/>
+  <text x="685" y="190" text-anchor="middle" class="mono">x_t = t · x_1 + (1-t) · x_0</text>
+  <text x="685" y="253" text-anchor="middle" class="caption">2-8 خطوات أويلر في الاستدلال</text>
+
+  <!-- loss -->
+  <rect x="50" y="290" width="820" height="70" class="hot"/>
+  <text x="460" y="315" text-anchor="middle" class="label">الخسارة = || v_θ(x_t, t) - (x_1 - x_0) ||²</text>
+  <text x="460" y="340" text-anchor="middle" class="caption">التدريب الخالي من المحاكاة؛ الهدف هو متجه ثابت على طول الخط المستقيم</text>
+
+  <!-- rectified flow -->
+  <rect x="50" y="380" width="820" height="110" class="cold"/>
+  <text x="460" y="402" text-anchor="middle" class="label">التدفق المصحح: التصويب التكراري</text>
+  <text x="460" y="425" text-anchor="middle" class="caption">1. تدريب v_1 مع أزواج عشوائية (x_0، x_1).</text>
+  <text x="460" y="445" text-anchor="middle" class="caption">2. العينة المقترنة (x_0، x_1) عن طريق دمج v_1 -&gt; الأزواج متطابقة مع ODE</text>
+  <text x="460" y="465" text-anchor="middle" class="caption">3. أعد تدريب v_2 على تلك الأزواج -&gt; تدفق أكثر استقامة حقًا</text>
+  <text x="460" y="482" text-anchor="middle" class="caption">تكراران لإعادة التدفق يتيحان الاستدلال بخطوة واحدة (SDXL-Turbo، SD3-Turbo، Flux-schnell)</text>
+</svg>

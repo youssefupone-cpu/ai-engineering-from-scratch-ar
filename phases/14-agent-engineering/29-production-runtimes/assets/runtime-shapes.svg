@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a1a1a"/>
+    </marker>
+    <style>
+      .box { fill: #faf6ef; stroke: #1a1a1a; stroke-width: 1.5; }
+      .req { fill: #e6f4ea; stroke: #2e7d32; stroke-width: 1.5; }
+      .stream { fill: #dfe9ff; stroke: #2c5ea9; stroke-width: 1.5; }
+      .queue { fill: #fff1d6; stroke: #c0392b; stroke-width: 1.5; }
+      .event { fill: #e9e6ff; stroke: #5a4fcf; stroke-width: 1.5; }
+      .step { font-size: 12px; font-family: 'Menlo', monospace; fill: #222; }
+      .small { font-size: 10px; font-family: 'Menlo', monospace; fill: #555; }
+      .caption { font-size: 11px; fill: #555; font-style: italic; }
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a1a; }
+      .head { font-size: 12px; font-weight: 700; fill: #1a1a1a; }
+    </style>
+  </defs>
+
+  <text x="480" y="26" text-anchor="middle" class="title">أشكال وقت تشغيل الإنتاج - اختر حسب المهمة، وليس حسب إطار العمل</text>
+
+  <rect x="40" y="50" width="220" height="220" class="req"/>
+  <text x="150" y="72" text-anchor="middle" class="head">request-response</text>
+  <text x="60" y="96" class="small">متزامن HTTP</text>
+  <text x="60" y="114" class="small">ينتظر المستخدم الانتهاء</text>
+  <text x="60" y="132" class="small">المهام القصيرة فقط (&lt;30 ثانية)</text>
+  <rect x="60" y="148" width="180" height="30" class="box"/>
+  <text x="78" y="168" class="step">أجنو، ماسترا، خام SDK</text>
+  <rect x="60" y="186" width="180" height="30" class="box"/>
+  <text x="78" y="206" class="step">يمتد Otel لكل طلب</text>
+  <rect x="60" y="224" width="180" height="30" class="box"/>
+  <text x="78" y="244" class="step">يناسب: الدردشة UX، استدعاءات الأداة</text>
+
+  <rect x="280" y="50" width="220" height="220" class="stream"/>
+  <text x="390" y="72" text-anchor="middle" class="head">streaming</text>
+  <text x="300" y="96" class="small">SSE / WebSocket / WebRTC</text>
+  <text x="300" y="114" class="small">الإخراج التدريجي</text>
+  <text x="300" y="132" class="small">يضيف LiveKit WebRTC</text>
+  <rect x="300" y="148" width="180" height="30" class="box"/>
+  <text x="318" y="168" class="step">بيبيكات، لايف كيت، SDK</text>
+  <rect x="300" y="186" width="180" height="30" class="box"/>
+  <text x="318" y="206" class="step">الكمون الأول مهم</text>
+  <rect x="300" y="224" width="180" height="30" class="box"/>
+  <text x="318" y="244" class="step">يناسب: صوت، مساعد الطيار UX</text>
+
+  <rect x="520" y="50" width="220" height="220" class="queue"/>
+  <text x="630" y="72" text-anchor="middle" class="head">queue-based</text>
+  <text x="540" y="96" class="small">تجمع العمال المنتجين DLQ</text>
+  <text x="540" y="114" class="small">webhook / pubsub للحصول على النتائج</text>
+  <text x="540" y="132" class="small">مهام طويلة الأفق</text>
+  <rect x="540" y="148" width="180" height="30" class="box"/>
+  <text x="558" y="168" class="step">الكرفس، BullMQ، SQS</text>
+  <rect x="540" y="186" width="180" height="30" class="box"/>
+  <text x="558" y="206" class="step">عمق قائمة الانتظار + مقاييس DLQ</text>
+  <rect x="540" y="224" width="180" height="30" class="box"/>
+  <text x="558" y="244" class="step">يناسب: استخدام الكمبيوتر والبحث</text>
+
+  <rect x="760" y="50" width="160" height="220" class="event"/>
+  <text x="840" y="72" text-anchor="middle" class="head">حدث + كرون</text>
+  <text x="778" y="96" class="small">trigger-based</text>
+  <text x="778" y="114" class="small">+ المقرر</text>
+  <rect x="778" y="132" width="120" height="30" class="box"/>
+  <text x="796" y="152" class="step">تدفقات CrewAI</text>
+  <rect x="778" y="170" width="120" height="30" class="box"/>
+  <text x="796" y="190" class="step">الوكلاء المدارون</text>
+  <rect x="778" y="208" width="120" height="30" class="box"/>
+  <text x="796" y="228" class="step">كرون + دائم</text>
+
+  <rect x="40" y="290" width="880" height="220" class="box"/>
+  <text x="480" y="312" text-anchor="middle" class="head">التنفيذ الدائم يشمل جميع الأشكال (LangGraph، AutoGen v0.4، الوكلاء المُدارون)</text>
+  <rect x="60" y="328" width="840" height="30" class="box"/>
+  <text x="78" y="348" class="step">يتم فحص الحالة بعد كل خطوة، ويتم التقاط السيرة الذاتية في الخطوة المحددة</text>
+  <rect x="60" y="362" width="840" height="30" class="box"/>
+  <text x="78" y="382" class="step">عزل خطأ الممثل-النموذجي، لا يؤدي تعطل وكيل واحد إلى تعطل أقرانه</text>
+  <rect x="60" y="396" width="840" height="30" class="box"/>
+  <text x="78" y="416" class="step">ضروري عندما يكون عدد الخطوات غير معروف وتكون تكلفة الاسترداد مرتفعة</text>
+  <rect x="60" y="430" width="840" height="30" class="box"/>
+  <text x="78" y="450" class="step">حاملة إمكانية المراقبة: OTel GenAI (الدرس 23) + Langfuse/Phoenix/Opik (الدرس 24)</text>
+  <rect x="60" y="464" width="840" height="30" class="box"/>
+  <text x="78" y="484" class="step">بدون امتدادات + تقييم: الفشل في الخطوة 40 غير قابل للتصحيح؛ يمكنك إعادة تشغيله من الصفر</text>
+
+  <text x="480" y="540" text-anchor="middle" class="caption">اختر الشكل أولاً؛ الإطار هو خيار من الدرجة الثانية.</text>
+</svg>
