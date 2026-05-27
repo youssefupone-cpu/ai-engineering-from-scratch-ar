@@ -43,4 +43,4 @@
 - Initial scaffolding for all 20 phases (`phases/00-*` through `phases/19-*`).
 - `LESSON_TEMPLATE.md`, `CONTRIBUTING.md`, `ROADMAP.md`, `README.md`.
 
-[غير منشور]: https://__TERM_0__hub.com/rohitg00/ai-engineering-from-scratch/compare/__TERM_1__...__TERM_2__
+[غير منشور]: https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/compare/__TERM_1__...__TERM_2__

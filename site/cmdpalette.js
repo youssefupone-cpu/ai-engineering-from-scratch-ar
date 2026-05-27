@@ -361,7 +361,7 @@
         // انتقل إلى الدرس الذي أنتج هذه القطعة الأثرية
         dest = r.lessonPath
           ? 'lesson.html?path=' + encodeURIComponent(r.lessonPath)
-          : ('https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/' + r.file);
+          : ('https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/' + r.file);
         var ak = (r.artKind || 'artifact');
         chip = ak.charAt(0).toUpperCase() + ak.slice(1);
         chipClass += ' cp-item-chip--alt';

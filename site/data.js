@@ -13,7 +13,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, TypeScript, Rust",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/01-dev-environment/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/01-dev-environment/",
         "summary": "أدواتك تشكل تفكيرك. قم بإعدادهم مرة واحدة، قم بإعدادهم بشكل صحيح.",
         "keywords": "الخطوة 1: تأسيس النظام · الخطوة 2: بايثون مع uv · الخطوة 3: Node.js مع pnpm · الخطوة 4: Rust · الخطوة 5: جوليا (اختياري) · الخطوة 6: GPU الإعداد (إذا كان لديك واحدة) · الخطوة 7: التحقق من كل شيء"
       },
@@ -22,7 +22,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/02-git-and-collaboration/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/02-git-and-collaboration/",
         "summary": "التحكم في الإصدار ليس اختياريًا. يتم تتبع كل تجربة وكل نموذج وكل درس تقوم بإنشائه هنا.",
         "keywords": "الخطوة 1: تكوين git · الخطوة 2: سير العمل اليومي · الخطوة 3: التفرع للتجارب · الخطوة 4: العمل مع مستودع الدورة التدريبية هذا"
       },
@@ -31,7 +31,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/03-gpu-setup-and-cloud/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/03-gpu-setup-and-cloud/",
         "summary": "التدريب على CPU جيد للتعلم. التدريب على الاحتياجات الحقيقية GPU.",
         "keywords": "الخيار 1: NVIDIA محلي GPU · الخيار 2: Google Colab · الخيار 3: السحابة GPU · لا GPU؟ لا مشكلة."
       },
@@ -40,7 +40,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/04-apis-and-keys/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/04-apis-and-keys/",
         "summary": "يعمل كل AI API بنفس الطريقة: أرسل طلبًا واحصل على رد. التفاصيل تتغير، والنمط لا يتغير.",
         "keywords": "الخطوة 1: تخزين مفاتيح API بأمان · الخطوة 2: الاتصال API الأول (Python) · الخطوة 3: الاتصال API الأول (TypeScript) · الخطوة 4: أول HTTP (لا يوجد SDK)"
       },
@@ -49,7 +49,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/05-jupyter-notebooks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/05-jupyter-notebooks/",
         "summary": "أجهزة الكمبيوتر المحمولة هي منضدة مختبر هندسة AI. أنت تصنع نموذجًا أوليًا هنا، ثم تنقل ما ينجح إلى الإنتاج.",
         "keywords": "الخطوة 1: اختر الواجهة الخاصة بك · الخطوة 2: اختصارات لوحة المفاتيح المهمة · الخطوة 3: أنواع الخلايا · الخطوة 4: الأوامر السحرية · الخطوة 5: عرض المخرجات الغنية المضمنة · الخطوة 6: Google Colab · أجهزة الكمبيوتر المحمولة مقابل البرامج النصية: متى يتم استخدام أي منها · الفخاخ الشائعة"
       },
@@ -58,7 +58,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/06-python-environments/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/06-python-environments/",
         "summary": "جحيم التبعية حقيقي. البيئات الافتراضية هي العلاج.",
         "keywords": "الخيار 1: uv venv (موصى به) · الخيار 2: venv (مدمج) · الخيار 3: conda (عندما تحتاج إليه) · لهذه الدورة: استراتيجية لكل مرحلة · 1. التثبيت عالميًا · 2. خلط pip وconda · 3. نسيان التنشيط · 4. الالتزام.venv بـ git · 5. إصدار CUDA غير متطابق"
       },
@@ -67,7 +67,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/07-docker-for-ai/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/07-docker-for-ai/",
         "summary": "الحاويات make \"تعمل على جهازي\" أصبحت شيئاً من الماضي.",
         "keywords": "لماذا تحتاج مشاريع AI إلى Docker أكثر من معظم المشاريع · المفردات الأساسية · أنماط الحاويات الشائعة في AI · الخطوة 1: تثبيت Docker · الخطوة 2: تثبيت NVIDIA مجموعة أدوات الحاوية (Linux مع NVIDIA GPU) · الخطوة 3: فهم الصور الأساسية · الخطوة 4: كتابة ملف Dockerfile لتطوير AI · الخطوة 5: زيادة حجم البيانات والنماذج · الخطوة 6: Docker Compose لتطبيقات AI متعددة الخدمات · الخطوة 7: أوامر Docker المفيدة لعمل AI · لا يوجد GPU؟"
       },
@@ -76,7 +76,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/08-editor-setup/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/08-editor-setup/",
         "summary": "المحرر الخاص بك هو مساعد الطيار الخاص بك. قم بتكوينه مرة واحدة حتى يظل بعيدًا عن طريقك ويبدأ في سحب ثقله.",
         "keywords": "الخطوة 1: تثبيت كود VS · الخطوة 2: تثبيت الامتدادات الأساسية · الخطوة 3: تكوين الإعدادات · الخطوة 4: التكامل الطرفي · الخطوة 5: التطوير عن بعد (SSH في مربعات GPU) · المؤشر · ركوب الأمواج · Vim/Neovim"
       },
@@ -85,7 +85,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/09-data-management/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/09-data-management/",
         "summary": "البيانات هي الوقود. إن كيفية إدارتك لها تحدد مدى سرعة تقدمك.",
         "keywords": "الخطوة 1: تثبيت مكتبة مجموعات البيانات · الخطوة 2: تحميل مجموعة بيانات · الخطوة 3: دفق مجموعات البيانات الكبيرة · الخطوة 4: تنسيقات مجموعة البيانات · الخطوة 5: تقسيم البيانات · الخطوة 6: تنزيل النماذج وتخزينها مؤقتًا · الخطوة 7: التعامل مع الملفات الكبيرة · الخطوة 8: أنماط التخزين"
       },
@@ -94,7 +94,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/10-terminal-and-shell/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/10-terminal-and-shell/",
         "summary": "المحطة هي المكان الذي يعيش فيه مهندسو AI. احصل على الراحة هنا.",
         "keywords": "الخطوة 1: تعرف على الصدفة الخاصة بك · الخطوة 2: توصيل الأنابيب وعمليات إعادة التوجيه · الخطوة 3: العمليات الخلفية · الخطوة 4: tmux · الخطوة 5: المراقبة باستخدام htop وnvtop · الخطوة 6: SSH لمربعات GPU البعيدة · الخطوة 7: الأسماء المستعارة المفيدة لعمل AI · الخطوة 8: أنماط AI الطرفية الشائعة"
       },
@@ -103,7 +103,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/11-linux-for-ai/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/11-linux-for-ai/",
         "summary": "معظم AI تعمل على Linux. عليك أن تعرف ما يكفي حتى لا تتعثر.",
         "keywords": "التنقل · الملفات والدلائل · قراءة الملفات · البحث"
       },
@@ -112,7 +112,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/00-setup-and-tooling/12-debugging-and-profiling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/00-setup-and-tooling/12-debugging-and-profiling/",
         "summary": "أسوأ أخطاء AI لا تتعطل. إنهم يتدربون بصمت على القمامة ويبلغون عن منحنى خسارة جميل.",
         "keywords": "الجزء 1: تصحيح أخطاء الطباعة (نعم، إنه يعمل) · الجزء 2: مصحح أخطاء Python (pdb ونقطة التوقف) · الجزء 3: تسجيل Python · الجزء 4: أقسام رمز التوقيت · الجزء 5: cProfile وline_profiler · الجزء 6: ملفات تعريف الذاكرة · الجزء 7: أخطاء AI الشائعة وكيفية اكتشافها · الجزء 8: أساسيات TensorBoard · الجزء 9: VS مصحح أخطاء الكود"
       }
@@ -129,7 +129,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python, Julia",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/01-linear-algebra-intuition/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/01-linear-algebra-intuition/",
         "summary": "كل نموذج AI هو مجرد مصفوفة رياضية يرتدي قبعة فاخرة.",
         "keywords": "المتجهات هي نقاط (واتجاهات) · المصفوفات هي تحويلات · منتج النقاط يقيس التشابه · الاستقلال الخطي · الأساس والرتبة · الإسقاط · عملية جرام شميدت · الخطوة 1: المتجهات من الصفر (بايثون) · الخطوة 2: المصفوفات من الصفر (بايثون) · الخطوة 3: لماذا هذا مهم لـ AI · الخطوة 4: نسخة جوليا · الخطوة 5: الاستقلال الخطي والإسقاط من خدش (بايثون) · الرتبة والإسقاط وQR مع NumPy · PyTorch - الموترات هي متجهات ذات تمييز تلقائي"
       },
@@ -138,7 +138,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Julia",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/02-vectors-matrices-operations/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/02-vectors-matrices-operations/",
         "summary": "كل شبكة عصبية هي مجرد عملية ضرب للمصفوفات بخطوات إضافية.",
         "keywords": "المتجهات: قوائم مرتبة من الأرقام · المصفوفات: شبكات الأرقام · سبب أهمية الأشكال · خريطة العمليات · العناصر الحكيمة مقابل مضاعفة المصفوفات · البث · الخطوة 1: فئة المتجهات · الخطوة 2: فئة المصفوفة مع العمليات الأساسية · الخطوة 3: شاهد نجاحها · الخطوة 4: الاتصال بالشبكات العصبية"
       },
@@ -147,7 +147,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Julia",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/03-matrix-transformations/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/03-matrix-transformations/",
         "summary": "المصفوفة هي آلة تعيد تشكيل الفضاء. تعرف على ما يفعله في كل نقطة، وستفهم التحول بأكمله.",
         "keywords": "التحولات كمصفوفات · الدوران · القياس · القص · الانعكاس · التركيب: تحويلات التسلسل · القيم الذاتية والمتجهات الذاتية · التركيب الذاتي · لماذا تهم القيم الذاتية · المحدد كعامل قياس الحجم · الخطوة 1: مصفوفات التحويل من الصفر (بايثون) · الخطوة 2: تكوين التحولات · الخطوة 3: القيم الذاتية من الصفر (2x2) · الخطوة 4: المحدد كعامل قياس الحجم · دورات ثلاثية الأبعاد باستخدام NumPy"
       },
@@ -156,7 +156,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/04-calculus-for-ml/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/04-calculus-for-ml/",
         "summary": "تخبرك المشتقات بأي طريق هو الإنحدار. هذا هو كل ما تحتاج الشبكة العصبية إلى تعلمه.",
         "keywords": "ما هو المشتق؟ · المشتقات الجزئية: متغير واحد في كل مرة · التدرج: متجه جميع المشتقات الجزئية · الاتصال بالتحسين · المشتقات العددية مقابل التحليلية · المشتقات اليدوية للوظائف البسيطة · قاعدة السلسلة · مصفوفة هسي · تقريب سلسلة تايلور · التكاملات في ML · قاعدة السلسلة متعددة المتغيرات في الرسم البياني الحسابي · المصفوفة اليعقوبية · لماذا يهم هذا بالنسبة للشبكات العصبية · الخطوة 1: العددية مشتق من الصفر · الخطوة 2: المشتقات الجزئية والتدرجات · الخطوة 3: نزول التدرج للعثور على الحد الأدنى لـ f(x) = x^2 · الخطوة 4: نزول التدرج في دالة ثنائية الأبعاد · الخطوة 5: مقارنة المشتقات العددية والتحليلية · الخطوة 6: حساب الهسي عدديًا · الخطوة 7: تقريب تايلور عمليًا · الخطوة 8: لماذا يهم هذا بالنسبة للشبكة العصبية"
       },
@@ -165,7 +165,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/05-chain-rule-and-autodiff/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/05-chain-rule-and-autodiff/",
         "summary": "قاعدة السلسلة هي المحرك وراء كل شبكة عصبية تتعلم.",
         "keywords": "قاعدة السلسلة · الرسوم البيانية الحسابية · الوضع الأمامي مقابل الوضع العكسي · الأرقام المزدوجة للوضع الأمامي · بناء محرك Autograd · كيف يعمل PyTorch Autograd تحت الغطاء · الخطوة 1: فئة القيمة · الخطوة 2: العمليات الحسابية مع تتبع التدرج · الخطوة 3: التمريرة الخلفية · الخطوة 4: المزيد من العمليات لمحرك كامل · الخطوة 5: Mini MLP من الصفر · الخطوة 6: فحص التدرج · الخطوة 7: التحقق من الحساب اليدوي · التحقق من PyTorch · تعبير أكثر تعقيدًا"
       },
@@ -174,7 +174,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/06-probability-and-distributions/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/06-probability-and-distributions/",
         "summary": "الاحتمال هو اللغة التي يستخدمها AI للتعبير عن عدم اليقين.",
         "keywords": "الأحداث ومساحات العينة والاحتمالات · الاحتمالية الشرطية والاستقلال · الدوال الجماعية الاحتمالية مقابل دوال الكثافة الاحتمالية · التوزيعات الشائعة · القيمة المتوقعة والتباين · التوزيعات المشتركة والهامشية · لماذا يظهر التوزيع الطبيعي في كل مكان · احتمالات السجل · Softmax كتوزيع احتمالي · أخذ العينات · الخطوة 1: أساسيات الاحتمالية · الخطوة 2: PMF و PDF من الصفر · الخطوة 3: القيمة المتوقعة والتباين · الخطوة 4: أخذ العينات من التوزيعات · الخطوة 5: Softmax واحتمالات السجل · الخطوة 6: عرض نظرية الحد المركزي · الخطوة 7: التصور"
       },
@@ -183,7 +183,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/07-bayes-theorem/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/07-bayes-theorem/",
         "summary": "الاحتمال هو حول ما تتوقعه. نظرية بايز تدور حول ما تتعلمه.",
         "keywords": "من الاحتمالية المشتركة إلى بايز · الأجزاء الأربعة · مثال اختبار طبي · مثال مرشح البريد العشوائي · بايز الساذج: افتراض الاستقلال · تقدير الاحتمال الأقصى (MLE) · الحد الأقصى البعدي (MAP) · بايزي مقابل التكرار: الفرق العملي · لماذا يهم التفكير البايزي لـ ML · الخطوة 1: دالة نظرية بايز · الخطوة 2: مصنف ساذج بايز · الخطوة 3: التدريب على بيانات البريد العشوائي · الخطوة 4: فحص الاحتمالات المكتسبة · الأسبقية المترافقة · التحديث الافتراضي المتسلسل · الاتصال باختبار A/B"
       },
@@ -192,7 +192,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/08-optimization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/08-optimization/",
         "summary": "إن تدريب الشبكة العصبية ليس أكثر من العثور على قاع الوادي.",
         "keywords": "ماذا يعني التحسين · نزول التدرج (الفانيليا) · معدل التعلم: أهم المعلمة الفائقة · SGD مقابل دفعة مقابل دفعة صغيرة · الزخم: الكرة تتدحرج إلى أسفل · آدم: معدلات التعلم التكيفية · جداول معدل التعلم · محدبة مقابل غير محدبة · تصور فقدان المشهد · الخطوة 1: تحديد دالة اختبار · الخطوة 2: نزول التدرج الفانيليا · الخطوة 3: SGD مع الزخم · الخطوة 4: آدم · الخطوة 5: تشغيل ومقارنة"
       },
@@ -201,7 +201,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/09-information-theory/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/09-information-theory/",
         "summary": "نظرية المعلومات تقيس المفاجأة وظائف الخسارة مبنية عليها.",
         "keywords": "محتوى المعلومات (مفاجأة) · الإنتروبيا (متوسط المفاجأة) · إنتروبيا متقاطعة (وظيفة الخسارة التي تستخدمها كل يوم) · KL التباعد (المسافة بين التوزيعات) · معلومات متبادلة · إنتروبيا مشروطة · إنتروبيا مشتركة · معلومات متبادلة (الغوص العميق) · تجانس العلامات والإنتروبيا المتقاطعة · لماذا يعتبر الإنتروبيا المتقاطعة THE خسارة التصنيف · البتات مقابل Nats · الحيرة · الخطوة 1: محتوى المعلومات والإنتروبيا · الخطوة 2: الإنتروبيا المتقاطعة والتباعد KL · الخطوة 3: الإنتروبيا المتقاطعة كخسارة في التصنيف · الخطوة 4: الإنتروبيا المتقاطعة تساوي احتمالية سجل سلبية · الخطوة 5: المعلومات المتبادلة"
       },
@@ -210,7 +210,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/10-dimensionality-reduction/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/10-dimensionality-reduction/",
         "summary": "البيانات عالية الأبعاد لها هيكل. يمكنك العثور عليه من خلال النظر من الزاوية الصحيحة.",
         "keywords": "لعنة الأبعاد · PCA: العثور على الاتجاهات التي تهم · شرح نسبة التباين · اختيار عدد المكونات · t-SNE: الحفاظ على الأحياء · UMAP: هيكل عالمي أسرع وأفضل · متى يتم استخدام أي منها · Kernel PCA · خطأ في إعادة البناء · الخطوة 1: PCA من الصفر · الخطوة 2: اختبار البيانات الاصطناعية · الخطوة 3: MNIST digits في ثنائي الأبعاد · الخطوة 4: المقارنة مع sklearn · الخطوة 5: UMAP المقارنة"
       },
@@ -219,7 +219,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Julia",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/11-singular-value-decomposition/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/11-singular-value-decomposition/",
         "summary": "SVD هو سكين الجيش السويسري للجبر الخطي. كل مصفوفة لديها واحدة. كل عالم بيانات يحتاج إلى واحد.",
         "keywords": "ما يفعله SVD هندسيًا · التحلل الكامل · المتجهات المفردة اليسرى، القيم المفردة، المتجهات المفردة اليمنى · شكل المنتج الخارجي · العلاقة بالتحلل الذاتي · SVD المقتطعة: تقريب منخفض الرتبة · ضغط الصور باستخدام SVD · SVD لأنظمة التوصية · SVD في NLP: التحليل الدلالي الكامن · SVD لتقليل الضوضاء · العكس الزائف عبر SVD · مزايا الاستقرار العددي · الاتصال بـ PCA · الخطوة 1: SVD من الصفر باستخدام تكرار الطاقة · الخطوة 2: الاختبار والمقارنة مع NumPy · الخطوة 3: عرض توضيحي لضغط الصور · الخطوة 4: تقليل الضوضاء · الخطوة 5: العكس الزائف"
       },
@@ -228,7 +228,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/12-tensor-operations/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/12-tensor-operations/",
         "summary": "Tensors هي اللغة المشتركة بين البيانات والتعلم العميق. كل صورة، كل جملة، كل تدرج يتدفق من خلالها.",
         "keywords": "ما هو الموتر · أشكال الموتر في التعلم العميق · كيف يعمل تخطيط الذاكرة · قواعد البث · Einsum: عملية الموتر العالمي · الخطوة 1: تخزين الموتر والخطوات · الخطوة 2: إعادة التشكيل، الضغط، إلغاء الضغط · الخطوة 3: النقل والتبديل · الخطوة 4: العمليات الحكيمة للعناصر والتخفيضات · الخطوة 5: البث باستخدام NumPy · الخطوة 6: عمليات Einsum · الخطوة 7: آلية الانتباه عبر einsum · Scratch vs NumPy · Scratch vs PyTorch · كل طبقة شبكة عصبية كعملية موتر"
       },
@@ -237,7 +237,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/13-numerical-stability/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/13-numerical-stability/",
         "summary": "النقطة العائمة هي تجريد متسرب. سوف يعضك أثناء التدريب، ولن تراه قادمًا.",
         "keywords": "IEEE 754: كيف تقوم أجهزة الكمبيوتر بتخزين الأرقام الحقيقية · لماذا 0.1 + 0.2! = 0.3 · الإلغاء الكارثي · الفائض والتدفق السفلي · خدعة مجموع السجل والكسب · لماذا يحتاج Softmax إلى خدعة الطرح الأقصى · NaN وInf: الكشف والوقاية · فحص التدرج العددي · التدريب الدقيق المختلط · bfloat16 مقابل float16: لماذا bfloat16 مكاسب التدريب · قص التدرج · طبقات التطبيع كمثبتات رقمية · الأخطاء العددية الشائعة ML · الخطوة 1: إظهار حدود دقة النقطة العائمة · الخطوة 2: تنفيذ softmax الساذج مقابل المستقر · الخطوة 3: تنفيذ مجموع سجل ثابت · الخطوة 4: تنفيذ إنتروبيا مستقرة · الخطوة 5: فحص التدرج · محاكاة الدقة المختلطة · قص التدرج · كشف NaN/Inf"
       },
@@ -246,7 +246,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/14-norms-and-distances/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/14-norms-and-distances/",
         "summary": "تحدد دالة المسافة ما تعنيه كلمة \"مشابه\". اختر خطأ وكل شيء ينهار.",
         "keywords": "المعايير: قياس حجم المتجه · L1 المعيار (مسافة مانهاتن) · L2 المعيار (المسافة الإقليدية) · معايير Lp: العائلة العامة · معيار L-infinity (مسافة Chebyshev) · تشابه جيب التمام ومسافة جيب التمام · تشابه منتج النقطة مقابل تشابه جيب التمام · مسافة Mahalanobis · تشابه جاكارد (للمجموعات) · تعديل المسافة (مسافة ليفنشتاين) · KL التباعد (ليس مسافة، ولكنه يستخدم مثل مسافة) · مسافة فاسرشتاين (مسافة محرك الأرض) · لماذا تحتاج المهام المختلفة إلى مسافات مختلفة · الاتصال بوظائف الخسارة · الاتصال بالتنظيم · البحث عن أقرب جار · الخطوة 1: جميع وظائف القاعدة والمسافة · الخطوة 2: نفس البيانات، مسافات مختلفة، جيران مختلفون · الخطوة 3: تضمين بحث التشابه"
       },
@@ -255,7 +255,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/15-statistics-for-ml/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/15-statistics-for-ml/",
         "summary": "الإحصائيات هي الطريقة التي تعرف بها ما إذا كان نموذجك يعمل بالفعل أم أنه محظوظ.",
         "keywords": "الإحصائيات الوصفية: تلخيص بياناتك · الارتباط: كيف تتحرك المتغيرات معًا · مصفوفة التغاير · اختبار الفرضيات · اختبار t · اختبار مربع كاي · اختبار A/B لنماذج ML · الدلالة الإحصائية مقابل الدلالة العملية · مشكلة المقارنة المتعددة · طرق Bootstrap · الاختبارات البارامترية مقابل الاختبارات غير البارامترية · نظرية الحد المركزي: آثار عملية · شائع الأخطاء الإحصائية في ML الأوراق"
       },
@@ -264,7 +264,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/16-sampling-methods/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/16-sampling-methods/",
         "summary": "أخذ العينات هو الطريقة التي يستكشف بها AI مساحة الاحتمالات.",
         "keywords": "لماذا يهم أخذ العينات · أخذ العينات العشوائية الموحدة · طريقة CDF العكسية (أخذ عينات التحويل العكسي) · أخذ عينات الرفض · أخذ عينات الأهمية · تقدير مونت كارلو · سلسلة ماركوف مونت كارلو (MCMC): متروبوليس-هاستينغز · أخذ عينات جيبس · أخذ عينات درجة الحرارة (يستخدم في LLMs) · أخذ عينات Top-k · Top-p (النواة) أخذ العينات · خدعة إعادة المعلمة (المستخدمة في VAEs) · Gumbel-Softmax (أخذ العينات الفئوية التفاضلية) · أخذ العينات الطبقية · الاتصال بنماذج الانتشار · الخطوة 1: أخذ العينات الموحدة والمعكوسة CDF · الخطوة 2: أخذ عينات الرفض · الخطوة 3: أخذ عينات الأهمية · الخطوة 4: تقدير مونت كارلو لـ pi · الخطوة 5: متروبوليس-هاستينغز MCMC · الخطوة 6: أخذ عينات Gibbs · الخطوة 7: أخذ عينات درجة الحرارة · الخطوة 8: أخذ عينات Top-k وtop-p · الخطوة 9: خدعة إعادة المعلمة · الخطوة 10: Gumbel-Softmax"
       },
@@ -273,7 +273,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/17-linear-systems/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/17-linear-systems/",
         "summary": "يعد حل Ax = b أقدم مشكلة في الرياضيات والتي لا تزال تدير شبكتك العصبية.",
         "keywords": "ماذا يعني Ax = b هندسيًا · صورة العمود مقابل صورة الصف · الحذف الغوسي · التمحور الجزئي: لماذا يهم · LU التحلل · QR التحلل · تحلل Cholesky · المربعات الصغرى: عندما لا يكون Ax = b له حل دقيق · المعادلات العادية = الانحدار الخطي · المعكوس الزائف (مور بنروز) · رقم الشرط · الطرق التكرارية: التدرج المترافق · الكامل الصورة: ما هي الطريقة عند الاتصال بـ ML · الخطوة 1: الحذف الغاوسي مع التمحور الجزئي · الخطوة 2: LU التحلل · الخطوة 3: تحلل تشولسكي · الخطوة 4: المربعات الصغرى عبر المعادلات العادية · الخطوة 5: رقم الشرط"
       },
@@ -282,7 +282,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/18-convex-optimization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/18-convex-optimization/",
         "summary": "المشاكل المحدبة لها وادي واحد. الشبكات العصبية لديها الملايين. معرفة الفرق مهم.",
         "keywords": "مجموعات محدبة · وظائف محدبة · اختبار التحدب · لماذا يهم التحدب · المحدب مقابل غير المحدب في ML · مصفوفة هسه · طريقة نيوتن · التحسين المقيد · مضاعفات لاغرانج · شروط KKT · التنظيم باعتباره التحسين المقيد · الازدواجية · لماذا يعمل التعلم العميق على الرغم من عدم التحدب · أساليب الدرجة الثانية في الممارسة · الخطوة 1: مدقق التحدب · الخطوة 2: طريقة نيوتن للثنائي الأبعاد · الخطوة 3: حل مضاعف لاغرانج · الخطوة 4: مقارنة الترتيب الأول مع الترتيب الثاني"
       },
@@ -291,7 +291,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/19-complex-numbers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/19-complex-numbers/",
         "summary": "الجذر التربيعي لـ -1 ليس وهميًا. إنه مفتاح الدوران والترددات ونصف معالجة الإشارات.",
         "keywords": "ما هو العدد المركب؟ · الحساب المركب · المستوى المركب · الشكل القطبي · صيغة أويلر · لماذا تعتبر صيغة أويلر مهمة لـ ML · الاتصال بالدورات ثنائية الأبعاد · المراحل والإشارات الدوارة · جذور الوحدة · الاتصال بـ DFT · لماذا i ليس خياليًا · الأسيات المعقدة مقابل الدوال المثلثية · الاتصال بالمحولات · الخطوة 1: الطبقة المعقدة · الخطوة 2: التحويل القطبي وصيغة أويلر · الخطوة 3: التدوير · الخطوة 4: DFT من الحساب المركب · الخطوة 5: معكوس DFT · الخطوة 6: جذور الوحدة"
       },
@@ -300,7 +300,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/20-fourier-transform/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/20-fourier-transform/",
         "summary": "كل إشارة هي مجموع موجات جيبية. يخبرك تحويل فورييه بأي منها.",
         "keywords": "تعريف DFT · ماذا يعني كل معامل · معكوس DFT · FFT: جعله سريعًا · التحليل الطيفي · دقة التردد · نظرية الالتواء · النوافذ · خصائص DFT · الاتصال بالتشفيرات الموضعية · الاتصال بشبكات CNN · المخططات الطيفية وتحويل فورييه القصير · التعرج · الحشو الصفري لا يزيد من الدقة · الخطوة 1: DFT من الصفر · الخطوة 2: معكوس DFT · الخطوة 3: FFT (Cooley-Tukey) · الخطوة 4: مساعدات التحليل الطيفي"
       },
@@ -309,7 +309,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/21-graph-theory/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/21-graph-theory/",
         "summary": "الرسوم البيانية هي بنية بيانات العلاقات. إذا كانت بياناتك تحتوي على اتصالات، فأنت بحاجة إلى نظرية الرسم البياني.",
         "keywords": "الرسوم البيانية: العقد والحواف · مصفوفة التجاور · الدرجة · BFS و DFS · الرسم البياني Laplacian · الخصائص الطيفية · تمرير الرسائل · المفاهيم وتطبيقات ML · الخطوة 1: فئة الرسم البياني من الصفر · الخطوة 2: BFS و DFS · الخطوة 3: المكونات المتصلة وقيم Laplacian الذاتية · الخطوة 4: التجميع الطيفي · الخطوة 5: تمرير الرسائل · التحليل الطيفي غير المكتمل"
       },
@@ -318,7 +318,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/01-math-foundations/22-stochastic-processes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/01-math-foundations/22-stochastic-processes/",
         "summary": "العشوائية مع البنية. الرياضيات وراء المشي العشوائي، وسلاسل ماركوف، ونماذج الانتشار.",
         "keywords": "المشي العشوائي · سلاسل ماركوف · الاتصال بنماذج اللغة · الحركة البراونية · ديناميكيات لانجفين · MCMC: سلسلة ماركوف مونت كارلو · العمليات العشوائية في AI · الخطوة 1: محاكاة المشي العشوائي · الخطوة 2: سلسلة ماركوف · الخطوة 3: ديناميكيات لانجفين · الخطوة 4: متروبوليس هاستينغز · numpy لمصفوفات الانتقال · الاتصالات بالأطر الحقيقية · التحقق من سلسلة ماركوف التقارب"
       }
@@ -335,7 +335,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/01-what-is-machine-learning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/01-what-is-machine-learning/",
         "summary": "يقوم التعلم الآلي بتعليم أجهزة الكمبيوتر كيفية العثور على أنماط في البيانات بدلاً من كتابة القواعد يدويًا.",
         "keywords": "التعلم من البيانات، وليس القواعد · الأنواع الثلاثة للتعلم الآلي · ما وراء الثلاثة الكبار · التصنيف مقابل الانحدار · سير العمل ML · تقسيمات التدريب والتحقق والاختبار · التجهيز الزائد مقابل التجهيز غير المناسب · مقايضة التحيز والتباين · لا نظرية غداء مجانية · متى NOT لاستخدام التعلم الآلي · الخطوة 1: أقرب مصنف للنقطتين المركزيتين من الصفر · الخطوة 2: التدريب على البيانات الاصطناعية · الخطوة 3: قارن مع خط الأساس · لماذا هذا مهم · الخطوة 4: ما لا يستطيع مصنف النقطه الوسطى فعله"
       },
@@ -344,7 +344,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/02-linear-regression/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/02-linear-regression/",
         "summary": "يرسم الانحدار الخطي أفضل خط مستقيم عبر بياناتك. إنه \"مرحبا بالعالم\" للتعلم الآلي.",
         "keywords": "النموذج · دالة التكلفة (متوسط الخطأ التربيعي) · نزول التدرج · المعادلة العادية (حل مغلق النموذج) · الانحدار الخطي المتعدد · الانحدار متعدد الحدود · نتيجة R-Squared · معاينة التنظيم (انحدار ريدج) · الخطوة 1: إنشاء بيانات عينة · الخطوة 2: الانحدار الخطي من الصفر مع نزول متدرج · الخطوة 3: المعادلة العادية (حل مغلق الشكل) · الخطوة 4: خطي متعدد الانحدار · الخطوة 5: انحدار كثير الحدود · الخطوة 6: انحدار ريدج (L2 التنظيم)"
       },
@@ -353,7 +353,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/03-logistic-regression/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/03-logistic-regression/",
         "summary": "ينحني الانحدار اللوجستي خطًا مستقيمًا إلى منحنى S للإجابة على أسئلة نعم أو لا مع الاحتمالات.",
         "keywords": "لماذا يفشل الانحدار الخطي في التصنيف · الدالة السينيه · الانحدار اللوجستي = النموذج الخطي + السيني · فقدان الانتروبيا الثنائي · الهبوط المتدرج للانحدار اللوجستي · حدود القرار · التصنيف متعدد الفئات مع Softmax · مقاييس التقييم · الخطوة 1: الدالة السينيه وتوليد البيانات · الخطوة 2: الانحدار اللوجستي من الصفر · الخطوة 3: مصفوفة الارتباك والمقاييس من الصفر · الخطوة 4: تحليل حدود القرار · الخطوة 5: متعدد الفئات مع softmax · الخطوة 6: ضبط العتبة"
       },
@@ -362,7 +362,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/04-decision-trees/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/04-decision-trees/",
         "summary": "شجرة القرار هي مجرد مخطط انسيابي. لكن الغابة منها هي واحدة من أقوى الأدوات في ML.",
         "keywords": "ماذا تفعل شجرة القرار · معايير الانقسام: قياس الشوائب · كيف يعمل التقسيم · شروط التوقف · أشجار القرار للانحدار · الغابات العشوائية: قوة المجموعات · أهمية الميزة · عندما تتغلب الأشجار على الشبكات العصبية · الخطوة 1: شوائب جيني والإنتروبيا · الخطوة 2: ابحث عن أفضل تقسيم · الخطوة 3: بناء فئة DecisionTree · الخطوة 4: بناء فئة RandomForest"
       },
@@ -371,7 +371,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/05-support-vector-machines/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/05-support-vector-machines/",
         "summary": "العثور على أوسع شارع بين فئتين. هذه هي الفكرة بأكملها.",
         "keywords": "الحد الأقصى لمصنف الهامش · ناقلات الدعم: القلة الحرجة · الهامش الناعم: التعامل مع الضوضاء باستخدام المعلمة C · خسارة المفصلة: دالة الخسارة SVM · تدريب SVM خطي مع نزول متدرج · الصيغة المزدوجة وخدعة النواة · SVM للانحدار (SVR) · لماذا خسرت SVMs أمام التعلم العميق (وعندما لا تزال تفوز) · الخطوة 1: خسارة المفصلة والتدرج · الخطوة 2: الخطي SVM عبر النسب المتدرج · الخطوة 3: وظائف النواة · الخطوة 4: تحديد الهامش ودعم المتجهات"
       },
@@ -380,7 +380,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/06-knn-and-distances/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/06-knn-and-distances/",
         "summary": "قم بتخزين كل شيء. توقع من خلال النظر إلى جيرانك. أبسط خوارزمية تعمل بالفعل.",
         "keywords": "كيف يعمل KNN · اختيار K · مقاييس المسافة · الموزون KNN · لعنة الأبعاد · KD-الأشجار: البحث السريع عن أقرب جار · الأشجار الكروية: أفضل للأبعاد المعتدلة · التعلم البطيء مقابل التعلم المتحمس · KNN للانحدار · الخطوة 1: وظائف المسافة · الخطوة 2: KNN المصنف والتراجع · الخطوة 3: KD-tree للبحث الفعال · الخطوة 4: قياس الميزة"
       },
@@ -389,7 +389,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/07-unsupervised-learning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/07-unsupervised-learning/",
         "summary": "لا تسميات، لا معلم. تجد الخوارزمية البنية من تلقاء نفسها.",
         "keywords": "التجميع: تجميع الأشياء المتشابهة معًا · وسائل K: العمود الفقري · اختيار K · DBSCAN: التجميع على أساس الكثافة · التجميع الهرمي · نماذج الخليط الغوسي (GMM) · متى يتم استخدام أي منها · اكتشاف الشذوذ مع التجميع · الخطوة 1: وسائل K من الصفر · الخطوة 2: طريقة الكوع ودرجة الصورة الظلية · الخطوة 3: DBSCAN من الصفر · الخطوة 4: نموذج الخليط الغوسي (خوارزمية EM) · الخطوة 5: إنشاء بيانات الاختبار وتشغيل كل شيء"
       },
@@ -398,7 +398,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/08-feature-engineering/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/08-feature-engineering/",
         "summary": "الميزة الجيدة تستحق ألف نقطة بيانات.",
         "keywords": "خط الميزات · الميزات العددية · الميزات الفئوية · ميزات النص · القيم المفقودة · تفاعل الميزات · اختيار الميزة · الخطوة 1: التحويلات الرقمية من الصفر · الخطوة 2: الترميز القاطع من الصفر · الخطوة 3: ميزات النص من الصفر · الخطوة 4: فقدان القيمة المنسوبة من الصفر · الخطوة 5: اختيار الميزة من الصفر · الخطوة 6: pipeline الكامل والعرض التوضيحي"
       },
@@ -407,7 +407,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/09-model-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/09-model-evaluation/",
         "summary": "إن جودة النموذج تكون جيدة بقدر الطريقة التي تقيسه بها.",
         "keywords": "التدريب والتحقق والاختبار · التحقق من صحة K-Fold · مقاييس التصنيف · مقاييس الانحدار · منحنيات التعلم · منحنيات التحقق من الصحة · أخطاء التقييم الشائعة · الخطوة 1: التدريب / التحقق من الصحة / تقسيم الاختبار · الخطوة 2: التحقق من صحة K-fold والطبقية K-fold · الخطوة 3: مصفوفة الارتباك ومقاييس التصنيف · الخطوة 4: مقاييس الانحدار · الخطوة 5: منحنيات التعلم · الخطوة 6: مصنف بسيط للاختبار، بالإضافة إلى العرض التوضيحي الكامل"
       },
@@ -416,7 +416,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/10-bias-variance/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/10-bias-variance/",
         "summary": "يأتي كل خطأ في النموذج من واحد من ثلاثة مصادر: التحيز أو التباين أو الضوضاء. يمكنك التحكم في الأولين فقط.",
         "keywords": "التحيز: خطأ منهجي · التباين: الحساسية لبيانات التدريب · التحلل · تعقيد النموذج مقابل الخطأ · التنظيم كتحكم في التحيز والتباين · النسب المزدوج: المنظور الحديث · تشخيص النموذج الخاص بك · الاستراتيجيات العملية · طرق التجميع وتقليل التباين · منحنيات التعلم · كيفية إنشاء منحنيات التعلم · الخطوة 1: إنشاء بيانات تركيبية من وظيفة معروفة · الخطوة 2: أخذ عينات Bootstrap وتركيب متعدد الحدود · الخطوة 3: التحيز الحسابي ^ 2، تحليل التباين · الخطوة 4: منحنيات التعلم · الخطوة 5: مسح التنظيم · منحنى التحقق: تعقيد نموذج المسح · منحنى التعلم: حجم مجموعة تدريب المسح · التحقق المتقاطع مع مسح التنظيم · تجميع كل ذلك معًا: سير عمل تشخيصي كامل"
       },
@@ -425,7 +425,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/11-ensemble-methods/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/11-ensemble-methods/",
         "summary": "إن مجموعة من المتعلمين الضعفاء، إذا تم دمجهم بشكل صحيح، يصبحون متعلمين أقوياء. هذه ليست استعارة. إنها نظرية.",
         "keywords": "لماذا تعمل المجموعات · التعبئة (تجميع Bootstrap) · التعزيز (تصحيح الخطأ المتسلسل) · AdaBoost · تعزيز التدرج · XGBoost: لماذا تهيمن على البيانات الجدولية · التراص (التعلم التلوي) · التصويت · الخطوة 1: جذع القرار (المتعلم الأساسي) · الخطوة 2: AdaBoost من الصفر · الخطوة 3: تعزيز التدرج من الصفر · الخطوة 4: المقارنة ضد sklearn · متى يتم استخدام كل طريقة · مكدس الإنتاج للبيانات الجدولية"
       },
@@ -434,7 +434,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/12-hyperparameter-tuning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/12-hyperparameter-tuning/",
         "summary": "المعلمات الفائقة هي المقابض التي تديرها قبل بدء التدريب. إن تحويلها جيدًا هو الفرق بين النموذج المتوسط ​​والنموذج الرائع.",
         "keywords": "المعلمات مقابل المعلمات الفائقة · بحث الشبكة · البحث العشوائي · التحسين بايزي · التوقف المبكر · جدولة معدل التعلم · أهمية المعلمة الفائقة · استراتيجية عملية · تكامل التحقق من الصحة · نصائح عملية · الخطوة 1: بحث الشبكة من الصفر · الخطوة 2: البحث العشوائي من الصفر · الخطوة 3: التحسين بايزي (المبسطة) · الخطوة 4: مقارنة جميع الطرق · Optuna في الممارسة · Optuna مع التقليم · موالفات sklearn المضمنة · الأخطاء الشائعة في ضبط Hyperparameter"
       },
@@ -443,7 +443,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/13-ml-pipelines/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/13-ml-pipelines/",
         "summary": "النموذج ليس منتجا. pipeline هو. يمثل الخط pipeline كل شيء بدءًا من البيانات الأولية وحتى التنبؤ المنشور، ويجب أن تكون كل خطوة قابلة للتكرار.",
         "keywords": "ما هو خط الأنابيب · تسرب البيانات: القاتل الصامت · خط أنابيب sklearn · محول العمود: خطوط أنابيب مختلفة لأعمدة مختلفة · تتبع التجارب · إصدار النموذج · إصدار البيانات باستخدام DVC · التجارب القابلة للتكرار · من الكمبيوتر المحمول إلى خط أنابيب الإنتاج · الأخطاء الشائعة في خط الأنابيب · الخطوة 1: محول مخصص · الخطوة 2: خط الأنابيب من الصفر · الخطوة 3: التحقق المتبادل مع خط الأنابيب · الخطوة 4: خط أنابيب الإنتاج الكامل مع sklearn"
       },
@@ -452,7 +452,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/14-naive-bayes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/14-naive-bayes/",
         "summary": "إن الافتراض \"الساذج\" خاطئ، وهو يعمل على أية حال. هذا هو جمال ذلك.",
         "keywords": "نظرية بايز (مراجعة سريعة) · افتراض الاستقلال الساذج · لماذا لا يزال يعمل · الرياضيات خطوة بخطوة · ثلاثة متغيرات · متى تستخدم كل متغير · تجانس لابلاس · حساب مساحة السجل · بايز الساذج مقابل الانحدار اللوجستي · خط أنابيب التصنيف · متعدد الحدودNB · GaussianNB · العرض التوضيحي: تصنيف النص · العرض التوضيحي: الميزات المستمرة · سرعة التنبؤ · TF-IDF مع Naive Bayes · BernoulliNB للنص القصير · معايرة NB الاحتمالات · الأخطاء الشائعة · عندما يفشل Naive Bayes"
       },
@@ -461,7 +461,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/15-time-series/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/15-time-series/",
         "summary": "يتنبأ الأداء السابق بالنتائج المستقبلية - إذا قمت بالتحقق من الثبات أولاً.",
         "keywords": "ما الذي يجعل السلاسل الزمنية مختلفة · مكونات السلسلة الزمنية · الثبات · الارتباط التلقائي · ميزات التأخر: تحويل السلاسل الزمنية إلى تعلم خاضع للإشراف · التحقق من صحة السير إلى الأمام · ARIMA الحدس · متى يجب استخدام ماذا · آفاق واستراتيجيات التنبؤ · الأخطاء الشائعة في السلاسل الزمنية · منشئ ميزة التأخر · التحقق من صحة السير إلى الأمام · نموذج الانحدار التلقائي البسيط · التحقق من الثبات · الارتباط التلقائي · sklearn TimeSeriesSplit · مقاييس التقييم · الميزات المتداولة · الخطوط الأساسية التي يجب عليك التغلب عليها · نصائح عملية"
       },
@@ -470,7 +470,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/16-anomaly-detection/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/16-anomaly-detection/",
         "summary": "من السهل تحديد الطبيعي. غير الطبيعي هو كل ما لا يصلح.",
         "keywords": "أنواع الحالات الشاذة · التأطير غير الخاضع للرقابة · الخاضع للإشراف مقابل غير الخاضع للإشراف: المفاضلة · طريقة Z-Score · طريقة IQR · غابة العزل · العامل الخارجي المحلي (LOF) · المقارنة · تحديات التقييم · خط أنابيب اكتشاف الحالات الشاذة · كاشف Z-Score · كاشف IQR · غابة العزل من الصفر · السيناريوهات التجريبية · معلمة التلوث sklearn · فئة واحدة SVM · نهج التشفير التلقائي (معاينة) · الكشف عن شذوذ المجموعة · اعتبارات الإنتاج · اختيار العتبة · التوسع في الإنتاج"
       },
@@ -479,7 +479,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/17-imbalanced-data/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/17-imbalanced-data/",
         "summary": "عندما تكون 99% من بياناتك \"طبيعية\"، فإن الدقة تكون كذبة.",
         "keywords": "لماذا تفشل الدقة · مقاييس أفضل · خط البيانات غير المتوازن · SMOTE: تقنية الإفراط في أخذ عينات الأقليات الاصطناعية · مقارنة استراتيجيات أخذ العينات · أوزان الفئات · ضبط العتبة · التعلم الحساس للتكلفة · مخطط انسيابي للقرار · الخطوة 1: إنشاء مجموعة بيانات غير متوازنة · الخطوة 2: SMOTE من الصفر · الخطوة 3: الإفراط العشوائي في أخذ العينات والاختزال · الخطوة 4: الانحدار اللوجستي مع أوزان الفئات · الخطوة 5: ضبط العتبة · الخطوة 6: وظائف التقييم · الخطوة 7: مقارنة جميع الأساليب"
       },
@@ -488,7 +488,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/02-ml-fundamentals/18-feature-selection/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/02-ml-fundamentals/18-feature-selection/",
         "summary": "المزيد من الميزات ليست أفضل. الميزات الصحيحة أفضل.",
         "keywords": "ثلاث فئات لاختيار الميزة · عتبة التباين · المعلومات المتبادلة · إزالة الميزة العودية (RFE) · L1 (Lasso) التنظيم · أهمية الميزة المستندة إلى الشجرة · أهمية التقليب · جدول المقارنة · مخطط انسيابي للقرار · الخطوة 1: إنشاء بيانات تركيبية ببنية ميزات معروفة · الخطوة 2: عتبة التباين · الخطوة 3: المعلومات المتبادلة (منفصلة) · الخطوة 4: إزالة الميزة العودية · الخطوة 5: L1 اختيار الميزة · الخطوة 6: الأهمية المستندة إلى الشجرة (شجرة القرار البسيطة) · الخطوة 7: تشغيل جميع الطرق والمقارنة"
       }
@@ -505,7 +505,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/01-the-perceptron/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/01-the-perceptron/",
         "summary": "الإدراك الحسي هو ذرة الشبكات العصبية. قم بتقسيمها وستجد الأوزان والتحيز والقرار.",
         "keywords": "خلية عصبية واحدة، قرار واحد · حدود القرار · قاعدة التعلم · مشكلة XOR · الخطوة 1: فئة Perceptron · الخطوة 2: التدريب على البوابات المنطقية · الخطوة 3: مشاهدة XOR يفشل · الخطوة 4: حل XOR بطبقتين · الخطوة 5: تدريب شبكة من طبقتين"
       },
@@ -514,7 +514,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/02-multi-layer-networks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/02-multi-layer-networks/",
         "summary": "إحدى الخلايا العصبية ترسم خطًا. كومة لهم، ويمكنك رسم أي شيء.",
         "keywords": "الطبقات: المدخلات، المخفية، المخرجات · الخلايا العصبية والتنشيطات · التمرير الأمامي: كيف تتدفق البيانات · أبعاد المصفوفة · نظرية التقريب العالمي · قابلية التركيب · الخطوة 1: التنشيط السيني · الخطوة 2: فئة الطبقة · الخطوة 3: فئة الشبكة · الخطوة 4: XOR مع الأوزان المضبوطة يدويًا · الخطوة 5: تصنيف الدوائر"
       },
@@ -523,7 +523,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/03-backpropagation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/03-backpropagation/",
         "summary": "Backpropagation هي الخوارزمية التي يمكن تعلمها make. وبدونها، تصبح الشبكات العصبية مجرد مولدات أرقام عشوائية باهظة الثمن.",
         "keywords": "قاعدة السلسلة المطبقة على الشبكات · الرسوم البيانية الحسابية · الأمام مقابل الخلف · التدفق المتدرج عبر الشبكة · تلاشي التدرجات · اشتقاق التدرجات لشبكة مكونة من طبقتين · الخطوة 1: عقدة القيمة · الخطوة 2: العمليات مع الوظائف الخلفية · الخطوة 3: السيني والخسارة · الخطوة 4: التمريرة الخلفية · الخطوة 5: الطبقة والشبكة · الخطوة 6: التدريب على XOR · الخطوة 7: تصنيف الدائرة"
       },
@@ -532,7 +532,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/04-activation-functions/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/04-activation-functions/",
         "summary": "بدون اللاخطية، ستكون شبكتك المكونة من 100 طبقة عبارة عن مصفوفة مضاعفة رائعة. التنشيطات هي البوابات التي تسمح للشبكات العصبية بالتفكير في المنحنيات.",
         "keywords": "لماذا تعد اللاخطية ضرورية · السيني · Tanh · ReLU: الاختراق · Leaky ReLU · GELU: الافتراضي الحديث · Swish / SiLU · Softmax: تنشيط المخرجات · مقارنة الأشكال · مقارنة التدفق المتدرج · أي نوع من التنشيط متى · الخطوة 1: تنفيذ جميع وظائف التنشيط مع المشتقات · الخطوة 2: تصور أين تموت التدرجات · الخطوة 3: تجربة تلاشي التدرج · الخطوة 4: كاشف الخلايا العصبية الميتة · الخطوة 5: مقارنة التدريب - Sigmoid vs ReLU vs GELU"
       },
@@ -541,7 +541,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/05-loss-functions/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/05-loss-functions/",
         "summary": "شبكتك make هي توقع. والحقيقة الأرضية تقول خلاف ذلك. ما مدى الخطأ؟ هذا الرقم هو الخسارة. اختر دالة الخسارة الخاطئة وسيعمل نموذجك على تحسين الوظيفة الخاطئة...",
         "keywords": "متوسط الخطأ التربيعي (MSE) · خسارة الإنتروبيا المتقاطعة · لماذا MSE يفشل في التصنيف · تجانس التسمية · الخسارة المتباينة · الخسارة البؤرية · شجرة قرار دالة الخسارة · منظر الخسارة · الخطوة 1: MSE وتدرجه · الخطوة 2: الإنتروبيا الثنائية المتقاطعة · الخطوة 3: الإنتروبيا المتقاطعة الفئوية مع Softmax · الخطوة 4: تجانس الملصقات · الخطوة 5: الخسارة المقارنة (InfoNCE المبسطة) · الخطوة 6: MSE مقابل الانتروبيا المتقاطعة في التصنيف"
       },
@@ -550,7 +550,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/06-optimizers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/06-optimizers/",
         "summary": "يخبرك النسب المتدرج بالاتجاه الذي يجب التحرك فيه. لا يقول شيئًا عن مدى المسافة أو السرعة. SGD بوصلة. آدم هو GPS مع بيانات حركة المرور.",
         "keywords": "نزول التدرج العشوائي (SGD) · الزخم · RMSProp · آدم: الزخم + RMSProp · AdamW: تم تناقص الوزن بشكل صحيح · معدل التعلم: أهم معلمة مفرطة · مقارنة المحسن · عندما يفوز كل محسن · الخطوة 1: الفانيليا SGD · الخطوة 2: SGD مع الزخم · الخطوة 3: آدم · الخطوة 4: AdamW · الخطوة 5: مقارنة التدريب"
       },
@@ -559,7 +559,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/07-regularization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/07-regularization/",
         "summary": "يحصل نموذجك على 99% من بيانات التدريب و60% من بيانات الاختبار. لقد حفظت بدلا من التعلم. التنظيم هو الضريبة التي تفرضها على التعقيد لفرض التعميم.",
         "keywords": "طيف التجاوز · التسرب · تناقص الوزن (L2 التنظيم) · تسوية الدفعة · تسوية الطبقة · RMSNorm · مقارنة التسوية · زيادة البيانات كتنظيم · الإيقاف المبكر · متى يتم تطبيق ما · الخطوة 1: التسرب (وضع القطار والتقييم) · الخطوة 2: L2 تسوس الوزن · الخطوة 3: تسوية الدفعة · الخطوة 4: تسوية الطبقة · الخطوة 5: RMSNorm · الخطوة السادسة: التدريب مع وبدون تنظيم"
       },
@@ -568,7 +568,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/08-weight-initialization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/08-weight-initialization/",
         "summary": "التهيئة الخاطئة والتدريب لا يبدأ أبدًا. قم بالتهيئة بشكل صحيح وسيتم تدريب 50 طبقة بسلاسة مثل 3.",
         "keywords": "مشكلة التماثل · انتشار التباين من خلال الطبقات · تهيئة Xavier/Glorot · تهيئة Kaiming/He · تهيئة المحول · حجم التنشيط من خلال 50 طبقة · اختيار Init الصحيح · الخطوة 1: استراتيجيات التهيئة · الخطوة 2: وظائف التنشيط · الخطوة 3: المرور الأمامي عبر 50 طبقة · الخطوة 4: التجربة · الخطوة 5: عرض التماثل · الخطوة 6: تقرير حجم طبقة تلو الأخرى"
       },
@@ -577,7 +577,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/09-learning-rate-schedules/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/09-learning-rate-schedules/",
         "summary": "معدل التعلم هو المعلمة الفائقة الأكثر أهمية. ليس الهندسة المعمارية. ليس حجم مجموعة البيانات. ليست وظيفة التنشيط. معدل التعلم. إذا لم تقم بضبط أي شيء...",
         "keywords": "معدل التعلم الثابت · اضمحلال الخطوة · تلدين جيب التمام · الإحماء: لماذا تبدأ صغيرًا · الإحماء الخطي + اضمحلال جيب التمام · سياسة الدورة الواحدة · جدول الأشكال · مخطط انسيابي للقرار · الأرقام الحقيقية من النماذج المنشورة · الخطوة 1: جدولة الوظائف · الخطوة 2: تصور جميع الجداول · الخطوة 3: شبكة التدريب · الخطوة 4: مقارنة جميع الجداول · الخطوة 5: LR مرتفع جدًا مقابل منخفض جدًا"
       },
@@ -586,7 +586,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/10-mini-framework/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/10-mini-framework/",
         "summary": "لقد قمت ببناء الخلايا العصبية، والطبقات، والشبكات، والدعامة الخلفية، والتنشيطات، ووظائف الخسارة، والمحسنات، والتنظيم، والتهيئة، وجداول LR. كل ذلك كقطع منفصلة. الآن سلك ر…",
         "keywords": "تجريد الوحدة · الحاوية التسلسلية · التدريب مقابل وضع التقييم · المحسن · DataLoader · بنية الإطار · حلقة التدريب · التسلسل الهرمي للوحدة · الخطوة 1: فئة الوحدة الأساسية · الخطوة 2: الطبقة الخطية · الخطوة 3: وحدات التنشيط · الخطوة 4: وحدة التسرب · الخطوة 5: وحدة BatchNorm · الخطوة 6: الحاوية التسلسلية · الخطوة 7: وظائف الخسارة · الخطوة 8: SGD و Adam أدوات تحسين الأداء · الخطوة 9: DataLoader · الخطوة 10: تدريب شبكة من 4 طبقات على تصنيف الدوائر"
       },
@@ -595,7 +595,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/11-intro-to-pytorch/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/11-intro-to-pytorch/",
         "summary": "لقد صنعت المحرك من المكابس وأعمدة الكرنك. الآن تعرف على السيارة التي يقودها الجميع بالفعل.",
         "keywords": "لماذا فاز PyTorch · Tensors · Autograd · nn.Module · وظائف الخسارة والمحسنات · حلقة التدريب · مجموعة البيانات وDataLoader · GPU التدريب · المقارنة: Mini Framework vs PyTorch vs JAX · الخطوة 1: تحميل MNIST من الملفات الأولية · الخطوة 2: تحديد النموذج · الخطوة 3: حلقة التدريب · الخطوة 4: ربط كل شيء معًا · مقارنة سريعة: الإطار المصغر مقابل PyTorch · نماذج الحفظ والتحميل · جدولة معدل التعلم"
       },
@@ -604,7 +604,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/12-intro-to-jax/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/12-intro-to-jax/",
         "summary": "PyTorch يغير الموترات. TensorFlow يبني الرسوم البيانية. JAX يجمع الوظائف النقية. هذا الأخير يغير طريقة تفكيرك في التعلم العميق.",
         "keywords": "فلسفة JAX · jax.numpy: السطح المألوف · jax.grad: التصنيف التلقائي الوظيفي · jit: ترجمة إلى XLA · vmap: التوجيه التلقائي · pmap: توازي البيانات عبر الأجهزة · Pytrees: بنية البيانات العالمية · الوظيفية مقابل التوجه الكائني · النظام البيئي JAX · متى يتم استخدام JAX مقابل PyTorch · أرقام عشوائية في JAX · الخطوة 1: الإعداد والبيانات · الخطوة 2: تهيئة المعلمات · الخطوة 3: تمرير للأمام · الخطوة 4: JIT- خطوة التدريب المجمعة · الخطوة 5: حلقة التدريب · الكتان: معيار Google · الاعتدال: البديل Pythonic · Optax: المُحسِّنات القابلة للتركيب"
       },
@@ -613,7 +613,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/03-deep-learning-core/13-debugging-neural-networks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/03-deep-learning-core/13-debugging-neural-networks/",
         "summary": "شبكتك المترجمة. ركض. أنتجت عددا. الرقم خاطئ ولا شيء تحطم. مرحبًا بك في أصعب أنواع تصحيح الأخطاء - النوع الذي لا توجد فيه أي رسالة خطأ.",
         "keywords": "عقلية تصحيح الأخطاء · العَرَض 1: الخسارة لا تتناقص · العَرَض 2: انخفاض الخسارة ولكن النموذج سيء · العَرَض 3: NaN أو Inf في الخسارة · التقنية 1: التحقق من التدرج · التقنية 2: إحصائيات التنشيط · التقنية 3: تصور التدفق المتدرج · التقنية 4: اختبار التجهيز الزائد دفعة واحدة · التقنية 5: مكتشف معدل التعلم · أخطاء PyTorch الشائعة · جدول تصحيح الأخطاء الرئيسي · الخطوة 1: فئة NetworkDebugger · الخطوة 2: اختبار التجهيز الزائد دفعة واحدة · الخطوة 3: مكتشف معدل التعلم · الخطوة 4: مدقق التدرج · الخطوة 5: الشبكات المعطلة عمدًا · PyTorch الأدوات المضمنة · تكامل الأوزان والتحيزات · TensorBoard · قائمة تصحيح الأخطاء (قبل التدريب الكامل)"
       }
@@ -630,7 +630,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/01-image-fundamentals/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/01-image-fundamentals/",
         "summary": "الصورة عبارة عن موتر لعينات الضوء. كل نموذج رؤية ستستخدمه يبدأ من هذه الحقيقة الواحدة.",
         "keywords": "المعالجة المسبقة الكاملة pipeline في لمحة · البكسل هو عينة، وليس مربع · لماذا ثلاث قنوات · تقليدان للتخطيط: HWC و CHW · نطاقات البايت وdtype · مساحات الألوان وسبب وجودها · نسبة العرض إلى الارتفاع، وتغيير الحجم، والاستيفاء · الخطوة 1: تحميل صورة وفحص شكلها · الخطوة 2: تقسيم القنوات وإعادة ترتيب التخطيط · الخطوة 3: تدرج الرمادي و HSV التحويلات · الخطوة 4: تطبيعها وتوحيدها وعكسها · الخطوة 5: تغيير الحجم باستخدام ثلاث طرق استيفاء"
       },
@@ -639,7 +639,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/02-convolutions-from-scratch/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/02-convolutions-from-scratch/",
         "summary": "الالتواء عبارة عن طبقة كثيفة صغيرة تقوم بتمريرها عبر الصورة، وتتقاسم نفس الأوزان في كل مكان.",
         "keywords": "نواة واحدة، منزلقة · معادلة حجم الإخراج · الحشو · الخطوة · قنوات إدخال متعددة · خدعة im2col · حقل الاستقبال · الخطوة 1: لوحة مصفوفة · الخطوة 2: التفاف ثنائي الأبعاد مع حلقات متداخلة · الخطوة 3: التحقق باستخدام نواة مصممة يدويًا · الخطوة 4: im2col · الخطوة 5: تحويل سريع عبر im2col + matmul · الخطوة 6: بنك من النوى المصممة يدويًا"
       },
@@ -648,7 +648,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/03-cnns-lenet-to-resnet/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/03-cnns-lenet-to-resnet/",
         "summary": "كل CNN رئيسي خلال الثلاثين عامًا الماضية هو نفس وصفة التحويل غير الخطية مع فكرة واحدة جديدة مثبتة. تعلم الأفكار بالترتيب.",
         "keywords": "الأفكار الأربعة التي غيرت الرؤية · LeNet-5 (1998) · AlexNet (2012) · VGG (2014) · البداية (2014، نفس العام) · مشكلة التدهور · ResNet (2015) · لماذا يهم المخلفات خارج نطاق الرؤية · الخطوة 1: LeNet-5 · الخطوة 2: كتلة VGG الخطوة 3: كتلة ResNet الأساسية · الخطوة 4: أ ResNet الصغيرة · الخطوة 5: مقارنة كفاءة المعلمة بالميزة"
       },
@@ -657,7 +657,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/04-image-classification/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/04-image-classification/",
         "summary": "المصنف هو دالة من وحدات البكسل إلى التوزيع الاحتمالي على الفئات. كل شيء آخر هو السباكة.",
         "keywords": "التصنيف pipeline · الانتروبيا المتقاطعة، logits، و softmax · لماذا يعمل التعزيز · الخلط والقطع · تجانس الملصقات · التقييم بما يتجاوز الدقة · الخطوة 1: مجموعة بيانات تركيبية حتمية · الخطوة 2: التطبيع والتكبير · الخطوة 3: الخلط · الخطوة 4: حلقة التدريب · الخطوة 5: تجميعها معًا · الخطوة 6: قراءة مصفوفة الارتباك"
       },
@@ -666,7 +666,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/05-transfer-learning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/05-transfer-learning/",
         "summary": "قضى شخص آخر مليون GPU ساعة في تعليم الشبكة كيف تبدو الحواف والأنسجة وأجزاء الكائن. يجب عليك استعارة هذه الميزات قبل تدريب الميزات الخاصة بك.",
         "keywords": "استخراج الميزات مقابل الضبط الدقيق · لماذا يعمل التجميد على الإطلاق · معدلات التعلم التمييزية · مشكلة BatchNorm · تصميم الرأس · اضمحلال الطبقة LR · ما يجب تقييمه · الخطوة 1: تحميل العمود الفقري المدرب مسبقًا وفحصه · الخطوة 2: استخراج الميزات - تجميد كل شيء، استبدال الرأس · الخطوة 3: الضبط التمييزي الدقيق · الخطوة 4: معالجة BatchNorm · الخطوة 5: الحد الأدنى من حلقة الضبط الدقيق من طرف إلى طرف · الخطوة 6: التجميد التدريجي"
       },
@@ -675,7 +675,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/06-object-detection-yolo/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/06-object-detection-yolo/",
         "summary": "يتم الكشف عن التصنيف بالإضافة إلى الانحدار، ويتم تشغيله في كل موضع في خريطة المعالم، ثم يتم تنظيفه باستخدام الحد الأقصى من القمع.",
         "keywords": "الكشف كتنبؤ كثيف · لماذا الشبكات والمراسي · تنبؤات فك التشفير · IoU · القمع غير الأقصى · الخسارة · مقاييس الكشف · الخطوة 1: IoU · الخطوة 2: القمع غير الأقصى · الخطوة 3: تشفير الصندوق وفك التشفير · الخطوة 4: رأس YOLO الحد الأدنى · الخطوة 5: تعيين الحقيقة الأرضية · الخطوة 6: الخسائر الثلاثة · الخطوة 7: الاستدلال pipeline"
       },
@@ -684,7 +684,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/07-semantic-segmentation-unet/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/07-semantic-segmentation-unet/",
         "summary": "يتم تصنيف التجزئة في كل بكسل. يعمل U-Net makes عن طريق إقران جهاز تشفير الاختزال مع وحدة فك ترميز الاختزال وتوصيل تخطي الأسلاك بينهما.",
         "keywords": "الدلالي مقابل المثيل مقابل البانوبتيك · شكل U-Net · النقل مقابل العينة الخطية · الانتروبيا المتقاطعة على شبكة البكسل · فقدان النرد ولماذا تحتاجه · مقاييس التقييم · مقايضة دقة الإدخال · الخطوة 1: كتلة التشفير · الخطوة 2: الكتل السفلية والأعلى · الخطوة 3: شبكة U · الخطوة 4: الخسائر · الخطوة 5: متري IoU · الخطوة 6: مجموعة البيانات الاصطناعية للتحقق الشامل · الخطوة 7: حلقة التدريب"
       },
@@ -693,7 +693,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/08-instance-segmentation-mask-rcnn/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/08-instance-segmentation-mask-rcnn/",
         "summary": "أضف فرع قناع صغير إلى كاشف R-CNN الأسرع وسيكون لديك تجزئة المثيل. الجزء الصعب هو RoIAlign، وهو أصعب مما يبدو.",
         "keywords": "البنية · لماذا RoIAlign، وليس RoIPool · RPN في فقرة واحدة · رأس القناع · الخسائر · تنسيق الإخراج · الخطوة 1: RoIAlign من الصفر · الخطوة 2: قارن مع RoIAlign الخاص بـ torchvision · الخطوة 3: تحميل قناع مُدرب مسبقًا R-CNN · الخطوة 4: تشغيل الاستدلال · الخطوة 5: مبادلة الرؤوس بعدد فئات مخصص · الخطوة 6: تجميد ما لا يحتاج إليه التدريب"
       },
@@ -702,7 +702,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/09-image-generation-gans/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/09-image-generation-gans/",
         "summary": "GAN عبارة عن شبكتين عصبيتين في لعبة ثابتة. واحد يرسم والآخر ينتقد. إنهم يتحسنون معًا حتى تخدع الرسومات الناقد.",
         "keywords": "الشبكتان · اللعبة · الخسارة غير المشبعة · قواعد معمارية DCGAN · أوضاع الفشل وتوقيعاتها · التقييم · الخطوة 1: المولد · الخطوة 2: التمييز · الخطوة 3: خطوة التدريب · الخطوة 4: حلقة تدريب كاملة على الأشكال الاصطناعية · الخطوة 5: أخذ العينات · الخطوة 6: التطبيع الطيفي"
       },
@@ -711,7 +711,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/10-image-generation-diffusion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/10-image-generation-diffusion/",
         "summary": "يتعلم نموذج الانتشار تقليل الضوضاء. قم بتدريبه على إزالة القليل من التشويش من الصورة المزعجة، وكرر ذلك ألف مرة، وسيصبح لديك مولد صور.",
         "keywords": "العملية الأمامية · القفزة المغلقة · العملية العكسية · فقدان التدريب · أخذ العينات (DDPM) · لماذا 1000 خطوة · DDIM: أخذ عينات أسرع 20 مرة · تكييف الوقت · الخطوة 1: جدول الضوضاء · الخطوة 2: الانتشار الأمامي (q_sample) · الخطوة 3: شبكة U-Net صغيرة مكيفة بالوقت · الخطوة 4: حلقة تدريب · الخطوة 5: أخذ العينات (DDPM) · الخطوة 6: DDIM أخذ العينات (حتمية، أسرع بنحو 20 مرة)"
       },
@@ -720,7 +720,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/11-stable-diffusion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/11-stable-diffusion/",
         "summary": "النشر المستقر هو DDPM يتم تشغيله في المساحة الكامنة لـ VAE المُدرب مسبقًا، مشروطًا بالنص عبر الانتباه المتبادل، ويتم أخذ عينات منه باستخدام حل ODE حتمي سريع، ويتم توجيهه...",
         "keywords": "pipeline · التوجيه الخالي من المصنف (CFG) · هندسة الفضاء الكامنة · بنية U-Net · LoRA الضبط الدقيق · المجدولون الذين ستشاهدهم · الخطوة 1: نص إلى صورة · الخطوة 2: تبديل المجدول · الخطوة 3: صورة إلى صورة · الخطوة 4: الطلاء الداخلي · الخطوة 5: LoRA التحميل · الخطوة 6: LoRA تدريب (رسم)"
       },
@@ -729,7 +729,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/12-video-understanding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/12-video-understanding/",
         "summary": "الفيديو عبارة عن سلسلة من الصور بالإضافة إلى الفيزياء التي تربط بينها. يتعامل كل نموذج فيديو مع الوقت كمحور إضافي (تحويل ثلاثي الأبعاد)، أو كتسلسل يجب متابعته (محول)، أو...",
         "keywords": "العائلات المعمارية الثلاث · 2D + تجمع · تلافيفات ثلاثية الأبعاد · المحولات المكانية والزمانية · أخذ عينات الإطار · التقييم · مجموعات البيانات التي ستقابلها · الخطوة 1: أخذ عينات الإطار · الخطوة 2: خط الأساس ثنائي الأبعاد + التجمع · الخطوة 3: تحويل ثلاثي الأبعاد متضخم بنمط I3D · الخطوة 4: تحويل عامل (2 + 1) D"
       },
@@ -738,7 +738,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/13-3d-vision-nerf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/13-3d-vision-nerf/",
         "summary": "الرؤية ثلاثية الأبعاد تأتي في نكهتين. السحب النقطية هي المخرجات الأولية للمستشعر. NeRFs هو المجال الحجمي المستفادة. كلاهما يجيب \"ما هو المكان في الفضاء\".",
         "keywords": "السحب النقطية · بنية PointNet · حقول الإشعاع العصبي (NeRFs) · التشفير الموضعي في NeRF · العرض الحجمي · ما الذي حل محل NeRFs · مجموعات البيانات والمعايير · الخطوة 1: مصنف PointNet · الخطوة 2: التشفير الموضعي · الخطوة 3: Tiny NeRF MLP · الخطوة 4: العرض الحجمي على طول الشعاع"
       },
@@ -747,7 +747,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/14-vision-transformers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/14-vision-transformers/",
         "summary": "قم بقص الصورة إلى بقع، وتعامل مع كل رقعة على أنها كلمة، وقم بتشغيل محول قياسي. لا تنظر إلى الوراء.",
         "keywords": "pipeline · تضمين التصحيح · رمز الفئة · التضمين الموضعي · كتلة تشفير المحولات · لماذا ما قبل LN · مقايضة حجم التصحيح · وصفة DeiT لتدريب ViT على ImageNet-1k · Swin vs ConvNeXt · MAE التدريب المسبق · الخطوة 1: تضمين التصحيح · الخطوة 2: كتلة المحولات · الخطوة 3: ViT · الخطوة 4: التحقق من السلامة - استنتاج صورة واحدة"
       },
@@ -756,7 +756,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Rust",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/15-real-time-edge/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/15-real-time-edge/",
         "summary": "استنتاج الحافة هو نظام الحصول على نموذج بدقة 90 ليتم تشغيله بمعدل 30 إطارًا في الثانية على جهاز به 2 GB من RAM. يتم تداول كل نقطة مئوية من الدقة مقابل ميلي ثانية …",
         "keywords": "الموازنات الثلاث · نظام القياس · FLOPs كبديل · القياس الكمي في فقرة واحدة · التقليم والتقطير · أوقات تشغيل الاستدلال · منتقي بنية الحافة · الخطوة 1: قياس زمن الوصول بشكل صحيح · الخطوة 2: المعلمة وأعداد FLOP · الخطوة 3: القياس الكمي الثابت بعد التدريب · الخطوة 4: تصدير إلى ONNX · الخطوة 5: قياس الأداء ومقارنة الأنظمة"
       },
@@ -765,7 +765,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/16-vision-pipeline-capstone/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/16-vision-pipeline-capstone/",
         "summary": "نظام رؤية الإنتاج عبارة عن سلسلة من النماذج والقواعد المُدمجة بعقود البيانات. القطع موجودة بالفعل في هذه المرحلة؛ يقوم حجر التتويج بتوصيلهم معًا من طرف إلى طرف.",
         "keywords": "pipeline · عقود البيانات مع Pydantic · أين يذهب زمن الوصول · أوضاع الفشل · التجميع · الخطوة 1: عقود البيانات · الخطوة 2: الحد الأدنى من فئة خط الأنابيب · الخطوة 3: توصيل كاشف ومصنف · الخطوة 4: خدمة FastAPI · الخطوة 5: قياس خط pipeline"
       },
@@ -774,7 +774,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/17-self-supervised-vision/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/17-self-supervised-vision/",
         "summary": "التسميات هي عنق الزجاجة للرؤية تحت الإشراف. يزيلها التدريب المسبق الخاضع للإشراف الذاتي: تعلم الميزات المرئية من 100 مليون صورة غير مصنفة، وقم بضبطها على 10 آلاف صورة مصنفة.",
         "keywords": "ثلاث عائلات · التعلم المتباين (SimCLR) · المعلم والطالب (DINO) · إعادة البناء المقنع (MAE) · لماذا 75% وليس 15% · تقييم المسبار الخطي · الخطوة 1: زيادة العرض المزدوج pipeline · الخطوة 2: فقدان InfoNCE · الخطوة 3: التحقق من سلامة InfoNCE · الخطوة 4: إخفاء نمط MAE"
       },
@@ -783,7 +783,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/18-open-vocab-clip/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/18-open-vocab-clip/",
         "summary": "قم بتدريب برنامج تشفير الصور وبرنامج تشفير النص معًا بحيث تصل الأزواج المتطابقة (الصورة والتسمية التوضيحية) إلى نفس النقطة في مساحة مشتركة. هذه هي الحيلة كلها.",
         "keywords": "برجين · الهدف · SigLIP: خسارة أفضل · تصنيف الطلقة الصفرية · حيث يتم استخدام نماذج نمط CLIP في عام 2026 · الخطوة 1: نموذج صغير مكون من برجين · الخطوة 2: خسارة متباينة · الخطوة 3: مصنف الطلقة الصفرية · الخطوة 4: التحقق من السلامة"
       },
@@ -792,7 +792,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/19-ocr-document-understanding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/19-ocr-document-understanding/",
         "summary": "OCR عبارة عن خط pipe مكون من ثلاث مراحل — اكتشاف مربعات النص، والتعرف على الأحرف، ثم تخطيطها. كل نظام OCR حديث يعيد ترتيب هذه المراحل أو يدمجها.",
         "keywords": "الخط pipeline الكلاسيكي · CTC في فقرة واحدة · النماذج الحديثة الشاملة · تحليل التخطيط · مقاييس التقييم · الخطوة 1: خسارة CTC + وحدة فك التشفير الجشعة · الخطوة 2: أداة التعرف CRNN الصغيرة · الخطوة 3: OCR الاصطناعية · الخطوة 4: رسم تخطيطي للتدريب"
       },
@@ -801,7 +801,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/20-image-retrieval-metric/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/20-image-retrieval-metric/",
         "summary": "يقوم نظام الاسترجاع بتصنيف المرشحين حسب المسافة في مساحة التضمين. التعلم المتري هو نظام تشكيل تلك المساحة بحيث تعني المسافات ما تريد.",
         "keywords": "الاسترجاع في لمحة · عائلات الخسارة الأربعة · الخسارة الثلاثية رسميًا · تشابه جيب التمام مقابل L2 · Recall@K · FAISS في فقرة واحدة · الاسترجاع على مستوى المثيل مقابل الاسترجاع على مستوى الفئة · الخطوة 1: خسارة الثلاثية · الخطوة 2: التعدين شبه الصلب · الخطوة 3: Recall@K · الخطوة 4: تجميعها معًا"
       },
@@ -810,7 +810,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/21-keypoint-pose/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/21-keypoint-pose/",
         "summary": "الوضعية عبارة عن مجموعة من النقاط الرئيسية المرتبة. كاشف النقاط الرئيسية هو تراجع للخريطة الحرارية. كل شيء آخر هو مسك الدفاتر.",
         "keywords": "من أعلى إلى أسفل مقابل من أسفل إلى أعلى · انحدار الخريطة الحرارية · توطين البكسل الفرعي · حقول تقارب الأجزاء (PAFs) · COCO نقاط رئيسية · ثنائية الأبعاد مقابل ثلاثية الأبعاد · الخطوة 1: هدف الخريطة الحرارية الغوسية · الخطوة 2: رأس نقطة رئيسية صغيرة · الخطوة 3: الاستدلال - استخراج إحداثيات النقطة الرئيسية · الخطوة 4: مجموعة بيانات النقطة الرئيسية الاصطناعية · الخطوة 5: التدريب"
       },
@@ -819,7 +819,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/22-3d-gaussian-splatting/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/22-3d-gaussian-splatting/",
         "summary": "المشهد عبارة عن سحابة من الملايين من الغاوسيين ثلاثي الأبعاد. كل واحد له موضع واتجاه ومقياس وعتامة ولون يعتمد على اتجاه العرض. تنقيط لهم، backprop...",
         "keywords": "ما يحمله الغاوسي · التنقيط، وليس مسيرة الشعاع · خطوة الإسقاط · قاعدة تكوين ألفا · لماذا هذا قابل للتمييز · التكثيف والتشذيب · التوافقيات الكروية في فقرة واحدة · مكدس الإنتاج 2026 · 4D والمتغيرات التوليدية · الخطوة 1: غاوسي ثنائي الأبعاد · الخطوة 2: تنقيط رش ثنائي الأبعاد · الخطوة 3: مشهد 2D قابل للتدريب · الخطوة 4: ملائمة 2D Gaussians لصورة مستهدفة · الخطوة 5: من 2D إلى 3D · الخطوة 6: تقييم التوافقيات الكروية"
       },
@@ -828,7 +828,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/23-diffusion-transformers-rectified-flow/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/23-diffusion-transformers-rectified-flow/",
         "summary": "الـ U-Net ليس سر الانتشار. استبدله بمحول، واستبدل جدول الضوضاء بتدفق خط مستقيم، وفجأة لديك SD3، FLUX، وكل 2026 نص-t...",
         "keywords": "من U-Net إلى المحول · التدفق المعدل في فقرة واحدة · تكييف AdaLN · برامج ترميز النص في SD3 و FLUX · لا يزال التوجيه الخالي من المصنفات قائمًا · الاتساق، Turbo، Schnell، LCM · المشهد النموذجي في عام 2026 · لماذا يهم هذا التحول في المرحلة · الخطوة 1: كتلة DiT مع AdaLN · الخطوة 2: DiT صغير · الخطوة 3: التدريب على التدفق المعدل · الخطوة 4: أخذ عينات أويلر · الخطوة 5: اختبار الدخان الشامل"
       },
@@ -837,7 +837,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/24-sam3-open-vocab-segmentation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/24-sam3-open-vocab-segmentation/",
         "summary": "قم بإعطاء نموذج موجه نصي وصورة واحصل على أقنعة لكل كائن مطابق. SAM 3 قام بتمريرة أمامية واحدة.",
         "keywords": "الأجيال الثلاثة · تجزئة المفهوم الفوري · القطع المعمارية الرئيسية · التدريب على نطاق واسع · SAM 3.1 تعدد إرسال الكائنات · حيث لا يزال SAM مؤرضًا مهمًا في عام 2026 · YOLO-World vs SAM 3 · SAM-MI الكفاءة · تنسيق الإخراج للنماذج الثلاثة · الخطوة 1: البناء الفوري · الخطوة 2: مرحلة ما بعد المعالجة المساعدون · الخطوة 3: واجهة موحدة لتجزئة المفردات المفتوحة · الخطوة 4: Hugging Face SAM 3 الاستخدام (المرجع) · الخطوة 5: قياس ما قدمه لك SAM 2 المؤرض مجانًا"
       },
@@ -846,7 +846,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/25-vision-language-models/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/25-vision-language-models/",
         "summary": "يقوم برنامج تشفير الرؤية بتحويل الصورة إلى رموز مميزة. يقوم جهاز العرض MLP بتعيين هذه الرموز المميزة في مساحة التضمين الخاصة بـ LLM. نموذج اللغة يقوم بالباقي. هذا النمط — ViT-MLP-LLM — أنا...",
         "keywords": "بنية ViT-MLP-LLM · DeepStack · ثلاث مراحل تدريب · مقارنة عائلة النموذج (أوائل 2026) · الوكلاء المرئيون · قدرات الوكيل + متغيرات RoPE · مشكلة المحاذاة · الضبط الدقيق باستخدام LoRA / QLoRA · لا يزال التفكير المكاني ضعيفًا · الخطوة 1: جهاز العرض · الخطوة 2: التجميع ViT-MLP-LLM من النهاية إلى النهاية · الخطوة 3: CMER الحساب · الخطوة 4: لعبة VLM المصنف (قابل للتشغيل)"
       },
@@ -855,7 +855,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/26-monocular-depth/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/26-monocular-depth/",
         "summary": "خريطة العمق هي صورة ذات قناة واحدة حيث يكون كل بكسل على مسافة من الكاميرا. كان التنبؤ به من إطار RGB واحدًا مستحيلًا بدون استريو أو LiDAR. في عام 2026 ف…",
         "keywords": "العمق النسبي مقابل المتري · نمط التشفير وفك التشفير · لماذا تنتج صورة واحدة عمقًا على الإطلاق · ما لا يمكن للعمق الأحادي فعله · العمق أي شيء V3 في عام 2026 · القطيفة - الانتشار للعمق · الجوهرية والكاميرا ذات الثقب · التقييم · الخطوة 1: مقاييس العمق · الخطوة 2: محاذاة المقياس والتحول · الخطوة 3: رفع العمق إلى سحابة نقطية · الخطوة 4: دخان اختبار باستخدام مشهد عمق اصطناعي · الخطوة 5: عمق أي شيء V3 الاستخدام (مرجع)"
       },
@@ -864,7 +864,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/27-multi-object-tracking/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/27-multi-object-tracking/",
         "summary": "التتبع هو الكشف بالإضافة إلى الارتباط. كشف كل إطار. قم بمطابقة اكتشافات هذا الإطار مع مسارات الإطار الأخير بحلول ID.",
         "keywords": "التتبع عن طريق الكشف · مرشح كالمان في فقرة واحدة · الخوارزمية المجرية · الفكرة الرئيسية لـ ByteTrack · SAM 2 التتبع القائم على الذاكرة · SAM 3.1 تعدد إرسال الكائنات · ثلاثة مقاييس يجب معرفتها · الخطوة 1: مصفوفة التكلفة المستندة إلى IoU · الخطوة 2: الحد الأدنى من تعقب نمط SORT · الخطوة 3: اختبار المسار الاصطناعي · الخطوة 4: ID-تبديل المقياس"
       },
@@ -873,7 +873,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/04-computer-vision/28-world-models-video-diffusion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/04-computer-vision/28-world-models-video-diffusion/",
         "summary": "نموذج الفيديو الذي يتنبأ بالثواني التالية للمشهد هو محاكاة عالمية. قم بشرط هذا التنبؤ على الإجراءات وسيكون لديك محرك لعبة مكتسب.",
         "keywords": "ثلاث عائلات من النمذجة العالمية · بنية Video DiT · التكييف على الإجراءات: نماذج العمل الكامنة · المعقولية المادية · نماذج عالمية للقيادة الذاتية · حزمة الروبوتات: VLM + نموذج فيديو + ديناميكيات عكسية · التقييم · نموذج المشهد في عام 2026 · الخطوة 1: تصحيح ثلاثي الأبعاد للفيديو · الخطوة 2: ترميز الموضع الدوار ثلاثي الأبعاد · الخطوة 3: كتلة الاهتمام المقسمة · الخطوة 4: إنشاء فيديو صغير DiT · الخطوة 5: التحقق من الأشكال"
       }
@@ -890,7 +890,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/01-text-processing/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/01-text-processing/",
         "summary": "اللغة مستمرة. النماذج منفصلة. المعالجة المسبقة هي الجسر.",
         "keywords": "الخطوة 1: أداة رمزية لكلمة regex · الخطوة 2: أداة Porter Stemmer (الخطوة 1 أ فقط) · الخطوة 3: أداة lemmatizer المستندة إلى البحث · الخطوة 4: pipe معًا · NLTK · spaCy · متى تختار أي منهما · وضعي الفشل لا أحد يحذرك منهما"
       },
@@ -899,7 +899,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/02-bag-of-words-tfidf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/02-bag-of-words-tfidf/",
         "summary": "عد أولا، فكر لاحقا. لا يزال TF-IDF يتفوق على عمليات التضمين في المهام المحددة جيدًا في عام 2026.",
         "keywords": "الخطوة 1: بناء المفردات · الخطوة 2: حقيبة الكلمات · الخطوة 3: تكرار المصطلح وتكرار المستند · الخطوة 4: TF-IDF · الخطوة 5: L2 - تسوية الصفوف · عندما لا يزال TF-IDF يفوز (اعتبارًا من 2026) · عندما يفشل TF-IDF · مختلط: TF-IDF التضمينات الموزونة"
       },
@@ -908,7 +908,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/03-word-embeddings-word2vec/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/03-word-embeddings-word2vec/",
         "summary": "الكلمة هي الشركة التي تحافظ عليها. قم بتدريب شبكة ضحلة على هذه الفكرة وستسقط الهندسة.",
         "keywords": "الخطوة 1: تدريب الأزواج من مجموعة ألعاب · الخطوة 2: تضمين الجداول · الخطوة 3: هدف أخذ العينات السلبي · الخطوة 4: التدريب على مجموعة ألعاب · الخطوة 5: خدعة القياس · عندما لا يزال Word2Vec يفوز في عام 2026 · حيث يفشل Word2Vec"
       },
@@ -917,7 +917,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/04-glove-fasttext-subword/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/04-glove-fasttext-subword/",
         "summary": "قام Word2Vec بتدريب عملية تضمين واحدة لكل كلمة. قام GloVe بتحليل مصفوفة التواجد المشترك. قام FastText بدمج القطع. BPE تم توصيله بالمحولات.",
         "keywords": "GloVe: تحليل مصفوفة التكرار المشترك · FastText: تضمينات مدركة للكلمات الفرعية · BPE: مفردات الكلمات الفرعية المستفادة · متى يتم اختيار أي منها"
       },
@@ -926,7 +926,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/05-sentiment-analysis/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/05-sentiment-analysis/",
         "summary": "المهمة NLP الأساسية. يظهر هنا معظم ما تحتاج إلى معرفته حول تصنيف النص الكلاسيكي.",
         "keywords": "الخطوة 1: مجموعة بيانات مصغرة حقيقية · الخطوة 2: Naive Bayes متعددة الحدود من الصفر · الخطوة 3: الانحدار اللوجستي من الصفر · الخطوة 4: التعامل مع النفي (وضع الفشل) · الخطوة 5: مقاييس التقييم المهمة · متى يتم الوصول إلى محول · فخ التكرار (مرة أخرى)"
       },
@@ -935,7 +935,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/06-named-entity-recognition/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/06-named-entity-recognition/",
         "summary": "سحب الأسماء. يبدو الأمر سهلاً حتى تتعامل مع الحدود الغامضة والكيانات المتداخلة ومصطلحات المجال.",
         "keywords": "الخطوة 1: مساعدات وضع العلامات BIO · الخطوة 2: ميزات مصنوعة يدويًا · الخطوة 3: خط أساس بسيط قائم على القواعد + قاموس أساسي · الخطوة 4: خطوة CRF (رسم تخطيطي، وليس ضمنيًا كاملاً) · الخطوة 5: ما يضيفه BiLSTM-CRF · NER المستند إلى LLM (خيار 2026) · حيث لا يزال NER الكلاسيكي يفوز · حيث ينهار"
       },
@@ -944,7 +944,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/07-pos-tagging-parsing/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/07-pos-tagging-parsing/",
         "summary": "كانت القواعد غير عصرية لفترة من الوقت. ثم كل LLM pipeline مطلوب للتحقق من صحة الاستخراج المنظم، وقد عاد.",
         "keywords": "الخطوة 1: خط الأساس للعلامات الأكثر تكرارًا · الخطوة 2: بيجرام HMM tagger · الخطوة 3: لماذا تتفوق أدوات العلامات الحديثة على هذا · الخطوة 4: رسم تحليل التبعية · حيث لا يزال هذا مهمًا في عام 2026"
       },
@@ -953,7 +953,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/08-cnns-rnns-for-text/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/08-cnns-rnns-for-text/",
         "summary": "تتعلم التلافيفات n-gram. تذكر التكرارات. كلاهما يحل محله الاهتمام. كلاهما لا يزال مهمًا على الأجهزة المقيدة.",
         "keywords": "الخطوة 1: TextCNN في PyTorch · الخطوة 2: LSTM المصنف · الخطوة 3: عرض التدرج المتلاشي (الحدس) · الخطوة 4: لماذا لا يزال هذا غير كافٍ"
       },
@@ -962,7 +962,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/09-sequence-to-sequence/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/09-sequence-to-sequence/",
         "summary": "اثنان من RNN يتظاهران بأنهما مترجمان. إن عنق الزجاجة الذي وصلوا إليه هو سبب وجود الاهتمام.",
         "keywords": "الخطوة 1: أداة التشفير · الخطوة 2: أداة فك التشفير · الخطوة 3: حلقة تدريب مع إجبار المعلم · الخطوة 4: حلقة الاستدلال (الجشع) · الخطوة 5: توضيح عنق الزجاجة · متى يجب الاستمرار في الوصول إلى seq2seq المستند إلى RNN · تحيز التعرض وتخفيفه"
       },
@@ -971,7 +971,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/10-attention-mechanism/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/10-attention-mechanism/",
         "summary": "يتوقف جهاز فك التشفير عن التحديق في الملخص المضغوط ويبدأ في النظر إلى المصدر بأكمله. كل شيء بعد هذا هو الاهتمام بالإضافة إلى الهندسة.",
         "keywords": "الخطوة 1: الاهتمام الإضافي (بهداناو) · الخطوة 2: نقطة لونج والعامة · الخطوة 3: مثال عددي عملي · الخطوة 4: لماذا يعد هذا هو الجسر إلى المحولات · عندما لا يزال الاهتمام الكلاسيكي مهمًا · فخ وزن الانتباه كتفسير"
       },
@@ -980,7 +980,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/11-machine-translation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/11-machine-translation/",
         "summary": "الترجمة هي المهمة التي دفعت تكاليف بحث NLP لمدة ثلاثين عامًا وتستمر في الدفع حتى الآن.",
         "keywords": "الخطوة 1: استدعاء MT مُدرب مسبقًا · الخطوة 2: BLEU وchrF · التسلسل الهرمي للتقييم ثلاثي المستويات (2026) · الخطوة 3: ما يكسر الإنتاج · الخطوة 4: الضبط الدقيق للمجال"
       },
@@ -989,7 +989,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/12-text-summarization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/12-text-summarization/",
         "summary": "تخبرك الأنظمة الاستخراجية بما جاء في الوثيقة. تخبرك الأنظمة التجريدية بما يعنيه المؤلف. مهام مختلفة، ومزالق مختلفة.",
         "keywords": "الخطوة 1: TextRank (استخراجي) · الخطوة 2: مجردة مع BART · الخطوة 3: تقييم ROUGE · ما بعد ROUGE (تقييم التلخيص 2026) · الخطوة 4: مشكلة الوقائع"
       },
@@ -998,7 +998,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/13-question-answering/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/13-question-answering/",
         "summary": "ثلاثة أنظمة على شكل حديث QA. تم العثور على الاستخراجية تمتد. لقد أدى الاسترجاع المعزز إلى تأريضهم في المستندات. الإجابات المنتجة التوليدية. كل مساعد AI حديث هو مزيج من...",
         "keywords": "الخطوة 1: الاستخراج QA بنموذج مُدرب مسبقًا · الخطوة 2: خط pipeline (رسم تخطيطي) المعزز بالاسترجاع · الخطوة 3: الاستخراجي باستخدام RAG · الخطوة 4: التقييم الذي يعكس العالم الحقيقي · RAGAS: إطار تقييم الإنتاج لعام 2026"
       },
@@ -1007,7 +1007,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/14-information-retrieval-search/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/14-information-retrieval-search/",
         "summary": "BM25 دقيق ولكنه هش. يلقي كثيف شبكة واسعة ولكنه يفتقد الكلمات الرئيسية. الهجين هو الإعداد الافتراضي لعام 2026. كل شيء آخر يتم ضبطه.",
         "keywords": "الخطوة 1: BM25 من الصفر · الخطوة 2: استرجاع كثيف باستخدام جهاز تشفير ثنائي · الخطوة 3: دمج الرتب المتبادل · الخطوة 4: بحث مختلط + إعادة ترتيب · الخطوة 5: التقييم · الدروس المستفادة بشق الأنفس من إنتاج 2026 RAG"
       },
@@ -1016,7 +1016,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/15-topic-modeling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/15-topic-modeling/",
         "summary": "LDA: المستندات عبارة عن خليط من المواضيع، والموضوعات عبارة عن توزيعات على الكلمات. BERTopic: مجموعة المستندات في مساحة التضمين، والمجموعات عبارة عن موضوعات. نفس الهدف، بدائيات مختلفة.",
         "keywords": "الخطوة 1: LDA عبر scikit-learn · الخطوة 2: موضوع BERT (الإنتاج) · الخطوة 3: التقييم"
       },
@@ -1025,7 +1025,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/16-text-generation-pre-transformer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/16-text-generation-pre-transformer/",
         "summary": "إذا كانت الكلمة مفاجئة، فالنموذج سيء. الحيرة makes مفاجأة رقم. التنعيم يبقيه محدودًا.",
         "keywords": "الخطوة 1: أعداد المثلثات · الخطوة 2: تجانس لابلاس · الخطوة 3: Kneser-Ney (bigram، محرف) · الخطوة 4: إنشاء نص مع أخذ العينات · الخطوة 5: الحيرة"
       },
@@ -1034,7 +1034,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/17-chatbots-rule-to-neural/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/17-chatbots-rule-to-neural/",
         "summary": "تم الرد بواسطة ELIZA بمطابقات النمط. DialogFlow المعينة النوايا. GPT أجاب من الأوزان. يقوم كلود بتشغيل الأدوات والتحقق. كل عصر حل أسوأ فشل في العصر السابق.",
         "keywords": "الخطوة 1: مطابقة الأنماط المستندة إلى القواعد · الخطوة 2: المستندة إلى الاسترجاع (FAQ) · الخطوة 3: الجيل العصبي (خط الأساس) · الخطوة 4: LLM حلقة الوكيل · الخطوة 5: التوجيه المختلط"
       },
@@ -1043,7 +1043,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/18-multilingual-nlp/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/18-multilingual-nlp/",
         "summary": "نموذج واحد، أكثر من 100 لغة، ولا توجد بيانات تدريب لمعظمها. يعد النقل بين اللغات المعجزة العملية لعقد 2020.",
         "keywords": "الخطوة 1: التصنيف الصفري عبر اللغات · الخطوة 2: مساحة التضمين متعددة اللغات · الخطوة 3: استراتيجية الضبط الدقيق لعدد قليل من اللقطات · ضريبة الترميز (ما الخطأ في اللغات منخفضة الموارد)"
       },
@@ -1052,7 +1052,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/19-subword-tokenization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/19-subword-tokenization/",
         "summary": "رموز الكلمات تختنق بالكلمات غير المرئية. تعمل الرموز المميزة للشخصية على تفجير طول التسلسل. تعمل رموز الكلمات الفرعية على تقسيم الفرق. يتم شحن كل LLM الحديثة على واحدة.",
         "keywords": "الخطوة 1: BPE من الصفر · الخطوة 2: التشفير باستخدام عمليات الدمج التي تم تعلمها · الخطوة 3: تطبيق SentencePiece · الخطوة 4: tiktoken للمفردات المتوافقة مع OpenAI"
       },
@@ -1061,7 +1061,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/20-structured-outputs-constrained-decoding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/20-structured-outputs-constrained-decoding/",
         "summary": "اطرح LLM لـ JSON. احصل على JSON في معظم الأوقات. في الإنتاج، \"الأكثر\" هو المشكلة. يقوم فك التشفير المقيد بتحويل \"معظم\" إلى \"دائمًا\" عن طريق تحرير logits قبل أخذ العينات.",
         "keywords": "النتيجة غير البديهية · المأزق الذي يكلفك · الخطوة 1: إنشاء مقيد regex من الصفر · الخطوة 2: الخطوط العريضة لمخطط JSON · الخطوة 3: مدرب Pydantic اللاأدري بمزود الخدمة · الخطوة 4: البائع الأصلي APIs"
       },
@@ -1070,7 +1070,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/21-nli-textual-entailment/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/21-nli-textual-entailment/",
         "summary": "\"t يستلزم h\" يعني أن القراءة البشرية t ستستنتج أن h صحيح. NLI هي مهمة التنبؤ بالاستلزام / التناقض / الحياد. مملة على السطح، حاملة في المنتج...",
         "keywords": "الخطوة 1: تشغيل نموذج NLI مُدرب مسبقًا · الخطوة 2: التصنيف الصفري · الخطوة 3: التحقق من صحة RAG · الخطوة 4: المصنف NLI المدلفن يدويًا (مفاهيمي)"
       },
@@ -1079,7 +1079,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/22-embedding-models-deep-dive/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/22-embedding-models-deep-dive/",
         "summary": "أعطاك Word2Vec ناقلًا لكل كلمة. تمنحك نماذج التضمين الحديثة متجهًا لكل مقطع، متعدد اللغات، مع عروض متفرقة وكثيفة ومتعددة المتجهات، بحجم يناسب الفهرس الخاص بك. ص…",
         "keywords": "تحكي لوحة المتصدرين MTEB قصة جزئية · النمط ثلاثي المستويات · الخطوة 1: خط الأساس - التضمين الكثيف مع الجملة-BERT · الخطوة 2: اقتطاع ماتريوشكا · الخطوة 3: BGE-M3 متعددة الوظائف · الخطوة 4: MTEB تقييم على مهمة مخصصة · الخطوة 5: جيب التمام ملفوف يدويًا من البداية"
       },
@@ -1088,7 +1088,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/23-chunking-strategies-rag/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/23-chunking-strategies-rag/",
         "summary": "يؤثر تكوين القطع على جودة الاسترجاع بقدر ما يؤثر على اختيار نموذج التضمين (Vectara NAACL 2025). أخطأ في التقطيع ولن يوفر عليك أي قدر من إعادة الترتيب.",
         "keywords": "القاعدة التي تتغلب على كل افتراضي · الخطوة 1: التقطيع الثابت والتكراري · الخطوة 2: التقطيع الدلالي · الخطوة 3: المستند الأصلي · الخطوة 4: الاسترجاع السياقي (النمط الأنثروبي) · الخطوة 5: التقييم"
       },
@@ -1097,7 +1097,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/24-coreference-resolution/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/24-coreference-resolution/",
         "summary": "\"اتصلت به. ولم يرد. كان الطبيب يتناول الغداء\". ثلاث إشارات إلى شخصين ولم يتم ذكر أحد. يحدد القرار الأساسي من هو من.",
         "keywords": "الخطوة 1: المرجع العصبي المدرّب مسبقًا (AllenNLP / spaCy-experimental) · الخطوة 2: محلل الضمائر القائم على القواعد (التدريس) · الخطوة 3: استخدام LLMs للمرجع الأساسي · الخطوة 4: التقييم"
       },
@@ -1106,7 +1106,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/25-entity-linking/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/25-entity-linking/",
         "summary": "تم العثور على NER \"باريس\". ربط الكيان يقرر: باريس، فرنسا؟ باريس هيلتون؟ باريس، تكساس؟ باريس (أمير طروادة)؟ بدون الربط، يظل الرسم البياني المعرفي الخاص بك غامضًا.",
         "keywords": "القياسان · الخطوة 1: إنشاء فهرس اسم مستعار من عمليات إعادة توجيه ويكيبيديا · الخطوة 2: توضيح يعتمد على السياق · الخطوة 3: القائم على التضمين (نمط BLINK) · الخطوة 4: ربط الكيان التوليدي (مفهوم) · الخطوة 5: التقييم على AIDA-CoNLL"
       },
@@ -1115,7 +1115,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/26-relation-extraction-kg/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/26-relation-extraction-kg/",
         "summary": "NER عثر على الكيانات. الكيان الذي يربطهم. استخراج العلاقة يجد الحواف بينهما. الرسم البياني المعرفي هو مجموع nodes والحواف ومصدرها.",
         "keywords": "الخطوة 1: الاستخراج القائم على النمط · الخطوة 2: تصنيف العلاقات الخاضعة للإشراف · الخطوة 3: LLM- الاستخراج الموجه مع التثبيت · الخطوة 4: تحديد الأساس في علم الوجود المغلق · الخطوة 5: إنشاء رسم بياني صغير واستعلام"
       },
@@ -1124,7 +1124,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/27-llm-evaluation-frameworks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/27-llm-evaluation-frameworks/",
         "summary": "التطابق التام وF1 يغيب عن التكافؤ الدلالي. المراجعة البشرية لا تتسع. LLM-as-dudge هو إجابة الإنتاج - مع معايرة كافية للثقة في الرقم.",
         "keywords": "الخطوة 1: الإخلاص باستخدام NLI (نمط RAGAS) · الخطوة 2: مدى ملاءمة الإجابة · الخطوة 3: مقياس G-Eval المخصص · الخطوة 4: بوابة CI · الخطوة 5: تقييم اللعبة من البداية"
       },
@@ -1133,7 +1133,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/28-long-context-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/28-long-context-evaluation/",
         "summary": "يعلن Gemini 3 Pro عن 10 ملايين رمز مميز للسياق. عند استخدام مليون رمز، تنخفض نسبة 8 إبر MRCR إلى 26.3%. المعلن عنها ≠ صالحة للاستعمال. يخبرك تقييم السياق الطويل بالقدرة الفعلية للوضع...",
         "keywords": "ما يجب الإبلاغ عنه فعليًا · الخطوة 1: NIAH مخصص لنطاقك · الخطوة 2: متغير متعدد الإبر · الخطوة 3: تتبع متغير متعدد القفزات (نمط RULER) · الخطوة 4: LongBench v2 على مجموعتك"
       },
@@ -1142,7 +1142,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/05-nlp-foundations-to-advanced/29-dialogue-state-tracking/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/05-nlp-foundations-to-advanced/29-dialogue-state-tracking/",
         "summary": "\"أريد مطعمًا رخيصًا في الشمال... في الواقع make معتدل... وأضف الإيطالية.\" ثلاث دورات، وثلاثة تحديثات للحالة. DST يحافظ على مزامنة قيمة الفتحة بحيث يكون الحجز...",
         "keywords": "أوضاع الفشل الكلاسيكية · الخطوة 1: مستخرج الفتحات المستند إلى القواعد · الخطوة 2: حلقة تحديث الحالة · الخطوة 3: DST المستندة إلى LLM مع مخرجات منظمة · الخطوة 4: تقييم JGA · الخطوة 5: التعامل مع التصحيح"
       }
@@ -1159,7 +1159,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/01-audio-fundamentals",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/01-audio-fundamentals",
         "summary": "الأشكال الموجية هي الإشارة الخام. الطيفية هي التمثيل. ميزات Mel هي النموذج المناسب لـ ML. كل خط ASR وTTS pipe حديث يسير على هذا السلم، والدرجة الأولى...",
         "keywords": "الخطوة 1: قراءة مقطع ورسم الشكل الموجي · الخطوة 2: تصنيع موجة جيبية من المبادئ الأولى · الخطوة 3: حساب DFT يدويًا · الخطوة 4: العثور على التردد السائد · الخطوة 5: إظهار التعرجات"
       },
@@ -1168,7 +1168,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/02-spectrograms-mel-features",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/02-spectrograms-mel-features",
         "summary": "لا تستهلك الشبكات العصبية الأشكال الموجية الخام جيدًا. أنها تستهلك الطيفية. إنهم يستهلكون مطياف ميل بشكل أفضل. كل ASR، TTS، ومصنف صوتي في عام 2026 يعيش أو يموت ب...",
         "keywords": "الخطوة 1: تأطير الشكل الموجي · الخطوة 2: نافذة هان · الخطوة 3: STFT الحجم · الخطوة 4: بنك التصفية ميل · الخطوة 5: سجل ميل · الخطوة 6: MFCCs"
       },
@@ -1177,7 +1177,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/03-audio-classification",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/03-audio-classification",
         "summary": "كل شيء بدءًا من \"نباح الكلب مقابل صفارات الإنذار\" إلى \"أي لغة هذه\" هو تصنيف صوتي. الميزات ميلز. تتحرك الهندسة المعمارية كل عقد. يبقى التقييم AUC،...",
         "keywords": "التحدي الحقيقي هو عدم توازن الفئة · التقييم · الخطوة 1: الميزة · الخطوة 2: ملخص ثابت الطول · الخطوة 3: k-NN · الخطوة 4: الترقية إلى CNN في سجل الميلز · الخطوة 5: الإعداد الافتراضي لعام 2026 - ضبط الضربات بدقة"
       },
@@ -1186,7 +1186,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/04-speech-recognition-asr",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/04-speech-recognition-asr",
         "summary": "التعرف على الكلام هو تصنيف صوتي في كل خطوة زمنية، ويتم لصقه معًا بواسطة نموذج تسلسلي يعرف اللغة الإنجليزية والصمت. CTC، RNN-T، والاهتمام هي الطرق الثلاث لـ...",
         "keywords": "WER: الرقم الواحد · الخطوة 1: فك تشفير CTC الجشع · الخطوة 2: البحث عن الشعاع CTC · الخطوة 3: WER · الخطوة 4: الاستدلال ضد Whisper · الخطوة 5: البث باستخدام Parakeet أو wav2vec 2.0"
       },
@@ -1195,7 +1195,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/05-whisper-architecture-finetuning",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/05-whisper-architecture-finetuning",
         "summary": "Whisper عبارة عن وحدة فك ترميز وتشفير محولات نافذة مدتها 30 ثانية، تم تدريبها على 680 ألف ساعة من أزواج نصية صوتية متعددة اللغات ضعيفة الإشراف. بنية واحدة، ومهام متعددة، وبنية قوية...",
         "keywords": "المتغيرات في عام 2026 · الضبط الدقيق · الخطوة 1: تشغيل Whisper خارج الصندوق · الخطوة 2: الشكل الطويل المقسم · الخطوة 3: الضبط الدقيق باستخدام LoRA · الخطوة 4: فحص ما تتعلمه كل طبقة"
       },
@@ -1204,7 +1204,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/06-speaker-recognition-verification",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/06-speaker-recognition-verification",
         "summary": "ASR يسأل \"ماذا قالوا؟\" التعرف على المتحدث يسأل \"من قال ذلك؟\" تبدو الرياضيات متشابهة - التضمينات بالإضافة إلى جيب التمام - ولكن كل قرار إنتاج يعتمد على رقم EER واحد...",
         "keywords": "التسجيل · الأرقام التي يجب أن تعرفها (2026) · Diarization · الخطوة 1: تضمين اللعبة من إحصائيات MFCC · الخطوة 2: تشابه جيب التمام + العتبة · الخطوة 3: EER من أزواج التشابه · الخطوة 4: الإنتاج باستخدام SpeechBrain · الخطوة 5: التدوين باستخدام البيانونوت"
       },
@@ -1213,7 +1213,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/07-text-to-speech",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/07-text-to-speech",
         "summary": "ASR يحول الكلام إلى نص؛ TTS يحول النص إلى كلام. تتكون حزمة 2026 من ثلاثة أجزاء: النص ← الرموز المميزة، الرموز المميزة ← ميل، ميل ← شكل الموجة. يحتوي كل جزء على نموذج افتراضي يناسب...",
         "keywords": "تطور المشفر الصوتي · التقييم · الخطوة 1: تحويل الإدخال الصوتي · الخطوة 2: تشغيل Kokoro (2026 CPU الافتراضي) · الخطوة 3: تشغيل F5-TTS مع استنساخ الصوت · الخطوة 4: HiFi-GAN المشفر الصوتي من البداية · الخطوة 5: خط pipe الكامل (الرمز الكاذب)"
       },
@@ -1222,7 +1222,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/08-voice-cloning-conversion",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/08-voice-cloning-conversion",
         "summary": "يقوم استنساخ الصوت بقراءة النص الخاص بك بصوت شخص آخر. يقوم تحويل الصوت بإعادة كتابة صوتك إلى صوت شخص آخر مع الحفاظ على ما قلته. كلاهما معلقان على نفس البدائية: …",
         "keywords": "جزء الأخلاق، وليس الترباس · الأرقام (2026) · الخطوة 1: التحلل من خلال تركيب التعرف (عرض توضيحي للكود فقط في main.py) · الخطوة 2: استنساخ بدون إطلاق باستخدام F5-TTS · الخطوة 3: تحويل الصوت باستخدام KNN-VC · الخطوة 4: تضمين علامة مائية · الخطوة 5: بوابة الموافقة"
       },
@@ -1231,7 +1231,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/09-music-generation",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/09-music-generation",
         "summary": "جيل الموسيقى 2026: يهيمن Suno v5 وUdio v4 على الإعلانات التجارية؛ MusicGen وStable Audio Open وACE-Step يقودان المصادر المفتوحة. تم حل المشكلة الفنية في الغالب. العمل القانوني…",
         "keywords": "الرمز المميز LM فوق رموز الترميز العصبي · الانتشار عبر العناصر أو العناصر الكامنة · الهجين (الإنتاج) — Suno، Udio، Lyria · التقييم · الخطوة 1: الإنشاء باستخدام MusicGen · الخطوة 2: تكييف اللحن · الخطوة 3: تقييم FAD · الخطوة 4: الإضافة إلى سير عمل LLM الموسيقى"
       },
@@ -1240,7 +1240,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/10-audio-language-models",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/10-audio-language-models",
         "summary": "2026 نماذج لغة صوتية تفسر الكلام + الصوت البيئي + الموسيقى. Qwen2.5-Omni-7B يطابق GPT-4o الصوت على MMAU-Pro. الصوت Flamingo Next يتفوق على Gemini 2.5 Pro على LongAu...",
         "keywords": "القالب المكون من ثلاثة مكونات · خريطة نموذج 2026 · التحقق من الواقع المعياري (2026) · حيث تكون LALMs مفيدة في عام 2026 · أين تكون NOT (حتى الآن) مفيدة · الخطوة 1: الاستعلام Qwen2.5-Omni · الخطوة 2: نمط جهاز العرض · الخطوة 3: قياس الأداء MMAU / LongAudioBench"
       },
@@ -1249,7 +1249,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Rust",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/11-real-time-audio-processing",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/11-real-time-audio-processing",
         "summary": "تقوم الدفعة pipelines بمعالجة ملف. تقوم خطوط pipeline في الوقت الفعلي بمعالجة الـ 20 مللي ثانية التالية قبل وصول الـ 20 مللي ثانية التالية. كل محادثة AI واستوديو بث وروبوت هاتفي مباشر...",
         "keywords": "الأخطاء الشائعة · الخطوة 1: المخزن المؤقت للحلقة · الخطوة 2: بوابة VAD · الخطوة 3: البث ASR · الخطوة 4: معالج الانقطاع"
       },
@@ -1258,7 +1258,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/12-voice-assistant-pipeline",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/12-voice-assistant-pipeline",
         "summary": "تم تجميع كل شيء بدءًا من الدروس 01 إلى 11 معًا. أنشئ مساعدًا صوتيًا يستمع ويفكر ويتحدث. في عام 2026، ستكون هذه مشكلة هندسية محلولة، وليست عملية بحثية.",
         "keywords": "المكونات السبعة · أوضاع الفشل الثلاثة التي ستضربها · مجموعات مرجعية للإنتاج 2026 · الخطوة 1: التقاط الميكروفون مع التقطيع (الكود الكاذب) · الخطوة 2: التقاط الدوران ببوابة VAD · الخطوة 3: البث STT → LLM → TTS · الخطوة 4: استدعاء الأداة داخل حلقة LLM · الخطوة 5: معالجة المقاطعة"
       },
@@ -1267,7 +1267,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/13-neural-audio-codecs",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/13-neural-audio-codecs",
         "summary": "2026 توليد الصوت هو كل الرموز تقريبًا. يقوم EnCodec وSNAC وMimi وDAC بتحويل أشكال الموجات المستمرة إلى تسلسلات منفصلة يمكن للمحول التنبؤ بها. الدلالي مقابل الصوت…",
         "keywords": "الخدعة الأساسية: تكميم المتجهات المتبقية (RVQ) · برامج الترميز الأربعة المهمة في عام 2026 · معدلات الإطارات مهمة لنمذجة اللغة · الرموز الدلالية مقابل الرموز الصوتية · جودة إعادة الإعمار 2026 (بت في الثانية، معدل البت الأقل أفضل) · الخطوة 1: التشفير باستخدام EnCodec · الخطوة 2: فك التشفير وقياس إعادة البناء · الخطوة 3: الانقسام الدلالي الصوتي (نمط ميمي) · الخطوة 4: لماذا يعمل AR LM على الرموز المميزة لبرنامج الترميز"
       },
@@ -1276,7 +1276,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/14-voice-activity-detection-turn-taking",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/14-voice-activity-detection-turn-taking",
         "summary": "يعيش كل وكيل صوتي أو يموت بناءً على قرارين: هل يتحدث المستخدم الآن، وهل انتهى؟ VAD يجيب على السؤال الأول. كشف الدوران (VAD + مخلفات الصمت + نقطة النهاية الدلالية...",
         "keywords": "سلسلة VAD ثلاثية الطبقات · المعلمات الرئيسية وافتراضياتها · خدعة التدفق (Kyutai 2025) · مقارنة VAD 2026 · الخطوة 1: بوابة الطاقة · الخطوة 2: Silero VAD في بايثون · الخطوة 3: آلة حالة الدوران · الخطوة 4: هيكل خدعة التدفق"
       },
@@ -1285,7 +1285,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/15-streaming-speech-to-speech-moshi-hibiki",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/15-streaming-speech-to-speech-moshi-hibiki",
         "summary": "2024-2026 إعادة تعريف الصوت AI. يشحن Moshi نموذجًا واحدًا يستمع ويتحدث في وقت واحد بزمن وصول قدره 200 مللي ثانية. يقوم Hibiki بترجمة الكلام إلى كلام قطعة تلو الأخرى. كلاهما …",
         "keywords": "بنية موشي · لماذا يساعد نص المونولوج الداخلي · الهيبيكي: دفق ترجمة الكلام إلى كلام · مكدس كيوتاي الأوسع (2026) · السمسم CSM — ابن العم · أرقام الأداء 2026 · الخطوة 1: الواجهة · الخطوة 2: حلقة الازدواج الكامل · الخطوة 3: هدف التدريب (المفاهيمي) · الخطوة 4: حيث يفوز موشي وأين لا يفوز"
       },
@@ -1294,7 +1294,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking",
         "summary": "يتم شحن استنساخ الصوت بشكل أسرع من الدفاعات. تحتاج الأنظمة الصوتية للإنتاج لعام 2026 إلى شيئين: كاشف (AASIST، RawNet2) يصنف الكلام الحقيقي مقابل الكلام المزيف، وعلامة مائية (Aud...",
         "keywords": "ASVspoof 5 - المعيار 2024-2025 · AASIST وRawNet2 - عائلات نماذج الكشف · AudioSeal - العلامة المائية الافتراضية لعام 2024 · WavMark · WaveVerify (يوليو 2025) · استغلال الخصوم للفجوة · C2PA / مبادرة مصادقة المحتوى · الخطوة 1: كاشف بسيط للميزات الطيفية (لعبة) · الخطوة 2: تضمين AudioSeal + الكشف · الخطوة 3: التقييم — EER · الخطوة 4: تكامل الإنتاج"
       },
@@ -1303,7 +1303,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/06-speech-and-audio/17-audio-evaluation-metrics",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/06-speech-and-audio/17-audio-evaluation-metrics",
         "summary": "لا يمكنك شحن ما لا يمكنك قياسه. يسمي هذا الدرس مقاييس 2026 لكل مهمة صوتية: ASR (WER، CER، RTFx)، TTS (MOS، UTMOS، SECS، WER-on-ASR-round-trip)، اللغة الصوتية...",
         "keywords": "مقاييس ASR · مقاييس TTS · خاص باستنساخ الصوت · التحقق من المتحدث · تسجيل الصوت · تصنيف الصوت · توليد الموسيقى · معايير اللغة الصوتية · بث تحويل الكلام إلى كلام · لوحات المتصدرين لعام 2026 · الخطوة 1: WER مع التطبيع · الخطوة 2: TTS ذهابًا وإيابًا WER · الخطوة 3: SECS لاستنساخ الصوت · الخطوة 4: FAD لتوليد الموسيقى · الخطوة 5: EER للتحقق من المتحدث (نفس رمز الدرس 6)"
       }
@@ -1320,7 +1320,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/01-why-transformers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/01-why-transformers/",
         "summary": "تقوم RNNs بمعالجة الرموز المميزة واحدًا تلو الآخر. تقوم المحولات بمعالجة جميع الرموز المميزة مرة واحدة. لقد غيّر هذا الرهان المعماري الوحيد كل منحنى القياس في التعلم العميق بعد عام 2017.",
         "keywords": "الخطوة 1: قياس العمق التسلسلي · الخطوة 2: عد العمليات النظرية · الخطوة 3: القياس التجريبي على تسلسلات طويلة"
       },
@@ -1329,7 +1329,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/02-self-attention-from-scratch/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/02-self-attention-from-scratch/",
         "summary": "الانتباه عبارة عن جدول بحث حيث تسأل كل كلمة \"من يهمني؟\" - ويتعلم الجواب.",
         "keywords": "تشبيه البحث في قاعدة البيانات · حساب Q، K، V · مصفوفة الاهتمام · لماذا القياس؟ · Softmax يحول النتائج إلى أوزان · المجموع المرجح للقيم · المسار الكامل · الخطوة 1: Softmax من الصفر · الخطوة 2: الاهتمام بمنتج النقطة المقياس · الخطوة 3: فصل الاهتمام الذاتي مع الإسقاطات المستفادة · الخطوة 4: تشغيله على جملة · الخطوة 5: تصور الاهتمام باستخدام خريطة الحرارة ASCII"
       },
@@ -1338,7 +1338,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/03-multi-head-attention/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/03-multi-head-attention/",
         "summary": "يتعلم رأس الاهتمام علاقة واحدة في كل مرة. ثمانية رؤوس تتعلم ثمانية. الرؤوس مجانية. خذ المزيد منهم.",
         "keywords": "الخطوة 1: فصل الرؤوس عن انتباه الرأس الواحد الذي لدينا بالفعل · الخطوة 2: تشغيل اهتمام المنتج النقطي المقياس لكل رأس · الخطوة 3: متغير انتباه الاستعلام المجمع · الخطوة 4: استكشاف ما تعلمه كل رأس"
       },
@@ -1347,7 +1347,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/04-positional-encoding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/04-positional-encoding/",
         "summary": "الاهتمام هو التقليب ثابت. \"جلست القطة على السجادة\" و\"جلست القطة على السجادة\" تنتج نفس الإخراج بدون إشارة موضعية. تعمل ثلاث خوارزميات على حل المشكلة، كل واحدة منها تحتوي على...",
         "keywords": "الجيبي المطلق · RoPE · ALiBi · ما يجب اختياره في عام 2026 · الخطوة 1: التشفير الجيبي · الخطوة 2: تطبيق RoPE على Q وK · الخطوة 3: منحدرات ALiBi وتحيزها · الخطوة 4: التحقق من خاصية المسافة النسبية لـ RoPE"
       },
@@ -1356,7 +1356,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/05-full-transformer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/05-full-transformer/",
         "summary": "الاهتمام هو النجم. كل شيء آخر - البقايا، والتطبيع، والتغذية الأمامية، والانتباه المتبادل - هو السقالات التي تتيح لك تكديسها بعمق.",
         "keywords": "القطع الست · كتلة التشفير (المستخدمة بواسطة برنامج التشفير BERT، T5) · كتلة وحدة فك التشفير (المستخدمة بواسطة وحدة فك التشفير GPT، T5) · المعيار المسبق مقابل المعيار اللاحق · الكتلة الحديثة لعام 2026 · عدد المعلمات · الخطوة 1: اللبنات الأساسية · الخطوة 2: قم بتوصيل جهاز تشفير من طبقتين ووحدة فك ترميز من طبقتين · الخطوة 3: تشغيل للأمام على مثال لعبة · الخطوة 4: التبديل في RMSNorm + SwiGLU"
       },
@@ -1365,7 +1365,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/06-bert-masked-language-modeling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/06-bert-masked-language-modeling/",
         "summary": "GPT يتنبأ بالكلمة التالية. BERT يتنبأ بكلمة مفقودة. جملة واحدة من الاختلاف - ونصف عقد من كل شيء مدمج.",
         "keywords": "إشارة التدريب · قواعد قناع BERT · توقع الجملة التالية (NSP) - ولماذا تم إسقاطها · ما الذي تغير في عام 2026: ModernBERT · حالات الاستخدام التي لا تزال تختار برنامج تشفير في عام 2026 · الخطوة 1: منطق الإخفاء · الخطوة 2: تشغيل توقع MLM على مجموعة صغيرة · الخطوة 3: مقارنة أنواع الأقنعة · الخطوة 4: ضبط الرأس بدقة"
       },
@@ -1374,7 +1374,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/07-gpt-causal-language-modeling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/07-gpt-causal-language-modeling/",
         "summary": "BERT يرى كلا الجانبين. GPT يرى الماضي فقط. قناع المثلث هو السطر الفردي الأكثر أهمية في التعليمات البرمجية الحديثة AI.",
         "keywords": "القناع · التدريب المتوازي، الاستدلال التسلسلي · الخسارة - التحول تلو الآخر · استراتيجيات فك التشفير · ما الذي جعل \"وصفة GPT\" تعمل · الخطوة 1: القناع السببي · الخطوة 2: نموذج GPT-ish المكون من طبقتين · الخطوة 3: التنبؤ بالرمز المميز التالي، من النهاية إلى النهاية · الخطوة 4: أخذ العينات"
       },
@@ -1383,7 +1383,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/08-t5-bart-encoder-decoder/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/08-t5-bart-encoder-decoder/",
         "summary": "يفهم التشفير. تولد أجهزة فك التشفير. قم بجمعها معًا مرة أخرى وستحصل على نموذج مصمم لمهام الإدخال → الإخراج: الترجمة والتلخيص وإعادة الكتابة والنسخ.",
         "keywords": "الحلقة الأمامية · T5 التدريب المسبق - فساد النطاق · BART التدريب المسبق - تقليل الضوضاء المتعددة · الاستدلال · متى يتم اختيار كل متغير في عام 2026 · الخطوة 1: فساد النطاق · الخطوة 2: التحقق من الذهاب والإياب · الخطوة 3: BART الضوضاء"
       },
@@ -1392,7 +1392,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/09-vision-transformers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/09-vision-transformers/",
         "summary": "الصورة عبارة عن شبكة من التصحيحات. الجملة عبارة عن شبكة من الرموز. نفس المحول يأكل كليهما.",
         "keywords": "الخطوة 1 - التصحيح · الخطوة 2 - التضمين الخطي · الخطوة 3 - إلحاق الرمز المميز `[__TERM_0__]` مسبقًا، إضافة التضمينات الموضعية · الخطوة 4 - أداة تشفير المحولات القياسية · الخطوة 5 - الرأس · المتغيرات المهمة · لماذا استغرق الأمر بعض الوقت · الخطوة 1: صورة مزيفة · الخطوة 2: التصحيح · الخطوة 3: التضمين الخطي · الخطوة 4: حساب المعلمات للحصول على ViT واقعي"
       },
@@ -1401,7 +1401,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/10-audio-transformers-whisper/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/10-audio-transformers-whisper/",
         "summary": "الصوت هو صورة التردد مع مرور الوقت. Whisper هو ViT الذي يأكل الطيف الطيفي ويتحدث مرة أخرى.",
         "keywords": "الخطوة 1 - إعادة تشكيل + نافذة · الخطوة 2 - الجذع التلافيفي · الخطوة 3 - التشفير · الخطوة 4 - وحدة فك التشفير · الخطوة 5 - رموز المهمة · الخطوة 6 - الإخراج · أحجام الهمس · ما لا يفعله Whisper · منظر طبيعي 2026 · الخطوة 1: توليف الصوت · الخطوة 2: مخطط طيفي log-mel (مبسط) · الخطوة 3: لوحة إلى 30 ثانية · الخطوة 4: إنشاء الرموز المميزة"
       },
@@ -1410,7 +1410,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/11-mixture-of-experts/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/11-mixture-of-experts/",
         "summary": "يقوم محول كثيف 70B بتنشيط كل معلمة لكل رمز مميز. تقوم 671B MoE بتنشيط 37B فقط لكل رمز مميز وتتفوق عليه في كل معيار. Sparsity هو المقياس الأكثر أهمية …",
         "keywords": "مبادلة FFN · مشكلة موازنة التحميل · الخبراء المشتركون · خبراء دقيقون · ملف تعريف التكلفة · المصيد: الذاكرة · الخطوة 1: جهاز التوجيه · الخطوة 2: تشغيل 100 رمز مميز من خلال جهاز التوجيه · الخطوة 3: مقارنة عدد المعلمات"
       },
@@ -1419,7 +1419,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/12-kv-cache-flash-attention/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/12-kv-cache-flash-attention/",
         "summary": "التدريب متوازي ومقيد بـ FLOP. الاستدلال متسلسل ومرتبط بالذاكرة. اختناقات مختلفة، وحيل مختلفة.",
         "keywords": "KV رياضيات ذاكرة التخزين المؤقت · الانتباه السريع - خدعة التجانب · فك التشفير التخميني - فوز زمن الاستجابة الآخر · التجميع المستمر · PagedAttention — KV ذاكرة التخزين المؤقت كذاكرة افتراضية · الخطوة 1: KV ذاكرة التخزين المؤقت · الخطوة 2: softmax المتجانب · الخطوة 3: مقارنة فك التشفير الساذج مقابل فك التشفير المخبأ عند إنشاء 100 رمز مميز"
       },
@@ -1428,7 +1428,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/13-scaling-laws/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/13-scaling-laws/",
         "summary": "قالت ورقة كابلان لعام 2020: نموذج أكبر، خسارة أقل. قالت ورقة هوفمان لعام 2022: لقد كنت تحت التدريب. تنقسم عملية الحوسبة إلى مجموعتين - المعلمات والرموز المميزة - والتقسيم...",
         "keywords": "قانون هوفمان · لماذا الإفراط في التدريب على أي حال · الظهور مقابل النعومة · صورة 2026 · الخطوة 1: خسارة شينشيلا · الخطوة 2: حدود الحساب الأمثل · الخطوة 3: تكلفة التدريب الزائد · الخطوة 4: المقارنة بالنماذج الحقيقية"
       },
@@ -1437,7 +1437,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/07-transformers-deep-dive/14-build-a-transformer-capstone/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/07-transformers-deep-dive/14-build-a-transformer-capstone/",
         "summary": "ثلاثة عشر درسا. نموذج واحد. لا توجد اختصارات.",
         "keywords": "ما نشحنه · ما لا نشحنه · المقاييس المستهدفة · الخطوة 1: البيانات · الخطوة 2: النموذج · الخطوة 3: حلقة التدريب · الخطوة 4: العينة · الخطوة 5: قراءة المخرجات"
       }
@@ -1454,7 +1454,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/01-generative-models-taxonomy-history/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/01-generative-models-taxonomy-history/",
         "summary": "يتم وضع كل نموذج صورة، ونموذج نص، ونموذج فيديو، ونموذج ثلاثي الأبعاد في واحدة من خمس مجموعات. اختر الدلو الخطأ وسوف تحارب الرياضيات لأسابيع. اختاري الصواب والخطأ…"
       },
       {
@@ -1462,7 +1462,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/02-autoencoders-vae/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/02-autoencoders-vae/",
         "summary": "يقوم جهاز التشفير التلقائي العادي بالضغط ثم إعادة البناء. إنه يحفظ. لا يولد. أضف خدعة واحدة - اجعل الكود يبدو غاوسيًا - وستحصل على عينة. تلك الخدعة الوحيدة،...",
         "keywords": "الخطوة 1: إعادة التشفير إلى الأمام · الخطوة 2: إعادة قياس المعلمات وفك التشفير · الخطوة 3: ELBO · الخطوة 4: إنشاء"
       },
@@ -1471,7 +1471,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/03-gans-generator-discriminator/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/03-gans-generator-discriminator/",
         "summary": "كانت حيلة جودفيلو في عام 2014 هي تخطي الكثافة بالكامل. شبكتين. واحد makes مزيف. واحد يمسك بهم. إنهم يقاتلون حتى لا يمكن تمييز المنتجات المزيفة عن الحقيقية. لا ينبغي…",
         "keywords": "الخطوة 1: الخسارة غير المشبعة · الخطوة 2: خطوة تمييز واحدة لكل خطوة مولد · الخطوة 3: مراقبة انهيار الوضع"
       },
@@ -1480,7 +1480,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/04-conditional-gans-pix2pix/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/04-conditional-gans-pix2pix/",
         "summary": "كان أول فتح كبير في 2014-2017 هو التحكم في ما GAN makes. أرفق تسمية، أو صورة، أو جملة. قامت Pix2Pix بإصدار الصورة وما زالت تتفوق على كل التقنيات العامة...",
         "keywords": "الخطوة 1: إلحاق الشرط بكل من مدخلات G وD · الخطوة 2: التدريب المشروط · الخطوة 3: التحقق من مخرجات كل فئة"
       },
@@ -1489,7 +1489,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/05-stylegan/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/05-stylegan/",
         "summary": "تقوم معظم المولدات بتحريك `z` في كل طبقة في نفس الوقت. قام StyleGAN بتقسيمه إلى أجزاء: قم أولاً بتعيين `z` إلى `w` متوسط، ثم *احقن* `w` في كل مستوى دقة من خلال الإعلان...",
         "keywords": "الخطوة 1: رسم خرائط الشبكة · الخطوة 2: تطبيع المثيل التكيفي · الخطوة 3: الضوضاء لكل طبقة"
       },
@@ -1498,7 +1498,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/06-diffusion-ddpm-from-scratch/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/06-diffusion-ddpm-from-scratch/",
         "summary": "أعطى Ho، Jain، Abeel (2020) للحقل وصفة لا يستطيع الإقلاع عنها. قم بتدمير البيانات بالضوضاء على مدى ألف خطوة صغيرة. تدريب شبكة عصبية واحدة للتنبؤ بالضوضاء. عكس ال…",
         "keywords": "الخطوة 1: الجدول الزمني المسبق (نموذج مغلق) · الخطوة 2: عينة `x_t` في طلقة واحدة · الخطوة 3: خطوة تدريب واحدة · الخطوة 4: أخذ العينات العكسية"
       },
@@ -1507,7 +1507,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/07-latent-diffusion-stable-diffusion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/07-latent-diffusion-stable-diffusion/",
         "summary": "يعد نشر مساحة البكسل على صور مقاس 512 × 512 جريمة حرب حسابية. رومباخ وآخرون. (2022) لاحظت أنك لا تحتاج إلى جميع أبعاد 786 كيلو بايت لإنشاء صورة - فأنت بحاجة إلى ما يكفي...",
         "keywords": "الخطوة 1: التشفير/فك التشفير · الخطوة 2: الانتشار في `z`-space · الخطوة 3: إرشادات خالية من المصنف · الخطوة 4: تكييف النص (مفهوم، وليس كود)"
       },
@@ -1516,7 +1516,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/08-controlnet-lora-conditioning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/08-controlnet-lora-conditioning/",
         "summary": "النص وحده هو إشارة تحكم خرقاء. يتيح لك ControlNet استنساخ نموذج نشر تم تدريبه مسبقًا وتوجيهه باستخدام خريطة عمق أو هيكل عظمي أو صورة خربشة أو حافة. LoRA يتيح لك...",
         "keywords": "ControlNet (Zhang et al., 2023) · LoRA (Hu et al., 2021) · IP-Adapter (Ye et al., 2023) · الخطوة 1: LoRA الرياضيات · الخطوة 2: شبكة جانبية بدون بداية"
       },
@@ -1525,7 +1525,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/09-inpainting-outpainting-editing/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/09-inpainting-outpainting-editing/",
         "summary": "تحويل النص إلى صورة makes أشياء جديدة. Inpainting إصلاح القديمة. في مرحلة الإنتاج، يتم تحرير 70% من أعمال الصور القابلة للفوترة — تبديل الخلفية، وإزالة الشعار، وتوسيع اللوحة القماشية، وتجديد...",
         "keywords": "النهج الساذج (ولماذا هو خاطئ) · نموذج الطلاء المناسب · SDEdit (Meng et al., 2022) - تحرير مجاني · InstructPix2Pix (Brooks et al., 2023) · إعادة الطلاء (Lugmayr et al., 2022) · الخطوة 1: بيانات DDPM 5-D · الخطوة 2: قطار مزيل الضوضاء على جميع الأبعاد الخمسة · الخطوة 3: عند الاستدلال، عكس القناع · الخطوة 4: الطلاء الخارجي"
       },
@@ -1534,7 +1534,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/10-video-generation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/10-video-generation/",
         "summary": "الصورة عبارة عن موتر ثنائي الأبعاد. الفيديو هو فيديو ثلاثي الأبعاد. النظرية هي نفسها. الحساب أصعب بمقدار 10-100x. أثبتت سورا من OpenAI (فبراير 2024) أن ذلك ممكن. بحلول عام 2026، Veo 2، Kling 1.5،…",
         "keywords": "Patchify · DiT الزماني المكاني · تكييف النص · التدريب · الخطوة 1: تصحيح \"فيديو\" اصطناعي أحادي الأبعاد · الخطوة 2: تضمين الموضع لكل إطار · الخطوة 3: يرى مزيل الضوضاء التسلسل بأكمله · الخطوة 4: اختبار التماسك الزمني"
       },
@@ -1543,7 +1543,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/11-audio-generation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/11-audio-generation/",
         "summary": "الصوت عبارة عن إشارة أحادية الأبعاد بتردد 16-48 كيلو هرتز. مقطع مدته خمس ثوانٍ يحتوي على 80-240 ألف عينة. لا يوجد محول يحضر لهذا التسلسل مباشرة. الحل لكل نموذج صوتي للإنتاج في 202...",
         "keywords": "برامج ترميز الصوت العصبية · نموذجان توليديان في الأعلى · الخطوة 1: الرموز الصوتية الاصطناعية · الخطوة 2: تدريب متنبئ رمزي صغير · الخطوة 3: عينة مشروطة"
       },
@@ -1552,7 +1552,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/12-3d-generation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/12-3d-generation/",
         "summary": "3D هي الطريقة التي تكون فيها الرافعة المالية ثنائية الأبعاد إلى ثلاثية الأبعاد أقوى. كان الإنجاز في عام 2023 هو تقنية 3D Gaussian Splatting. طبقات الدفع التوليدية 2024-2026 نشر متعدد المشاهدة + إعادة بناء ثلاثية الأبعاد...",
         "keywords": "التمثيل: 3D Gaussian Splatting (Kerbl et al., 2023) · نشر متعدد المشاهد · تحويل النص إلى 3D pipelines · NeRF (للسياق) · الخطوة 1: 2D Gaussian splat · الخطوة 2: العرض عن طريق جمع البقع · الخطوة 3: الملاءمة عن طريق نزول التدرج"
       },
@@ -1561,7 +1561,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/13-flow-matching-rectified-flows/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/13-flow-matching-rectified-flows/",
         "summary": "تأخذ نماذج الانتشار من 20 إلى 50 خطوة لأخذ العينات لأنها تسير في مسار منحني من الضوضاء إلى البيانات. تم تدريب مطابقة التدفق (ليبمان وآخرون، 2023) والتدفق المصحح (ليو وآخرون، 2022) …",
         "keywords": "التدفق المستقيم · أخذ العينات · التدفق المصحح (ليو 2022) · لماذا فاز هذا للصور في 2024 · الخطوة 1: فقدان التدريب · الخطوة 2: الاستدلال متعدد الخطوات · الخطوة 3: مقارنة عدد الخطوات"
       },
@@ -1570,7 +1570,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/08-generative-ai/14-evaluation-fid-clip-score/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/08-generative-ai/14-evaluation-fid-clip-score/",
         "summary": "تستشهد كل لوحة صدارة للنموذج التوليدي بـ FID وCLIP النتيجة ومعدل الفوز من ساحة التفضيل البشري. كل رقم له وضع فشل يمكن للباحث المصمم أن يلعبه. إذا كنت د…",
         "keywords": "FID — جودة العينة · درجة CLIP — الالتزام الفوري · التفضيل البشري — الحقيقة الأساسية · الخطوة 1: FID في أربعة أسطر · الخطوة 2: CLIP نمط جيب التمام · الخطوة 3: تجميع Elo"
       }
@@ -1587,7 +1587,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/01-mdps-states-actions-rewards/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/01-mdps-states-actions-rewards/",
         "summary": "تتكون عملية اتخاذ القرار لماركوف من خمسة أشياء: الحالات، والإجراءات، والانتقالات، والمكافآت، والخصم. كل شيء في RL - Q-learning، PPO، DPO، GRPO - يعمل على تحسين هذا الشكل. تعلمها…",
         "keywords": "الخطوة 1: حتمية صغيرة MDP · الخطوة 2: طرح سياسة · الخطوة 3: حساب `V^π` تمامًا عبر معادلة بيلمان · الخطوة 4: `γ` عبارة عن معلمة مفرطة ذات معنى مادي"
       },
@@ -1596,7 +1596,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/02-dynamic-programming/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/02-dynamic-programming/",
         "summary": "البرمجة الديناميكية هي RL مع الغش. أنت تعرف بالفعل وظائف الانتقال والمكافأة؛ ما عليك سوى تكرار معادلة بيلمان حتى يتوقف `V` أو `π` عن الحركة. إنه بن…",
         "keywords": "الخطوة 1: بناء نموذج GridWorld MDP · الخطوة 2: تقييم السياسات · الخطوة 3: تحسين السياسات · الخطوة 4: ربطها معًا · الخطوة 5: تكرار القيمة (إصدار الحلقة الواحدة)"
       },
@@ -1605,7 +1605,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/03-monte-carlo-methods/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/03-monte-carlo-methods/",
         "summary": "البرمجة الديناميكية تحتاج إلى نموذج. مونت كارلو لا تحتاج إلا إلى حلقات. قم بتشغيل السياسة، وشاهد العائدات، ومتوسطها. أبسط فكرة في RL — والتي تفتح أبوابها للجميع...",
         "keywords": "الخطوة 1: الطرح ← قائمة (s, a, r) ​​· الخطوة 2: حساب المرتجعات (المسح العكسي) · الخطوة 3: تقييم MC للزيارة الأولى · الخطوة 4: التحكم ε-الجشع MC (حسب السياسة) · الخطوة 5: المقارنة بالمعيار الذهبي DP"
       },
@@ -1614,7 +1614,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/04-q-learning-sarsa/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/04-q-learning-sarsa/",
         "summary": "مونت كارلو تنتظر انتهاء الحلقة. يتم تحديث TD بعد كل خطوة عن طريق تمهيد القيمة التقديرية التالية. إن التعلم Q خارج السياسة ومتفائل. SARSA متبع في السياسة و...",
         "keywords": "الخطوة 1: SARSA حول سياسة الجشع ε · الخطوة 2: التعلم Q · الخطوة 3: منحنيات التعلم · الخطوة 4: المقارنة بـ DP الحقيقة"
       },
@@ -1623,7 +1623,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/05-dqn/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/05-dqn/",
         "summary": "2013: قام منيه بتدريب إحدى شبكات Q-learning على وحدات البكسل الخام، متغلبًا على كل وكيل RL كلاسيكي في سبع ألعاب Atari. 2015: امتدت إلى 49 لعبة، نُشرت في مجلة Nature، وأثارت جدلًا عميقًا-RL...",
         "keywords": "الخطوة 1: إعادة تشغيل المخزن المؤقت · الخطوة 2: شبكة Q صغيرة (يدوية MLP) · الخطوة 3: تحديث DQN · الخطوة 4: الحلقة الخارجية"
       },
@@ -1632,7 +1632,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/06-policy-gradients-reinforce/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/06-policy-gradients-reinforce/",
         "summary": "التوقف عن تقدير القيمة. قم بوضع معلمات السياسة مباشرة، وحساب تدرج العائد المتوقع، والخطوة صعودًا. كتبه ويليامز (1992) في نظرية واحدة. ولهذا السبب PPO، GRPO، و...",
         "keywords": "الخطوة 1: شبكة سياسة softmax · الخطوة 2: أخذ العينات واحتمالية السجل · الخطوة 3: الطرح باستخدام اختبارات السجل التي تم التقاطها · الخطوة 4: تحديث التعزيز · الخطوة 5: خطوط الأساس"
       },
@@ -1641,7 +1641,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/07-actor-critic-a2c-a3c/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/07-actor-critic-a2c-a3c/",
         "summary": "REINFORCE صاخبة. أضف ناقدًا يتعلم `V̂(s)`، واطرحه من العائد، وستحصل على ميزة لها نفس التوقعات ولكن بتباين أقل بكثير. هذا هو الممثل ج…",
         "keywords": "الخطوة 1: الناقد · الخطوة 2: ميزة n-step · الخطوة 3: التحديث المدمج · الخطوة 4: التوازي (A3C vs A2C)"
       },
@@ -1650,7 +1650,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/08-ppo/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/08-ppo/",
         "summary": "A2C يتخلص من كل عملية طرح بعد تحديث واحد. يقوم PPO بتغليف تدرج السياسة بنسبة أهمية مقطوعة حتى تتمكن من إجراء أكثر من 10 فترات على نفس البيانات دون انفجار السياسة...",
         "keywords": "الخطوة 1: التقاط `log π_old(a | s)` في وقت التشغيل · الخطوة 2: حساب مزايا GAE (الدرس 07) · الخطوة 3: التحديث البديل المقطوع · الخطوة 4: القيمة والإنتروبيا · الخطوة 5: التشخيص"
       },
@@ -1659,7 +1659,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/09-reward-modeling-rlhf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/09-reward-modeling-rlhf/",
         "summary": "لا يستطيع البشر كتابة دالة مكافأة لـ \"الاستجابة المساعدة الجيدة\"، لكن يمكنهم مقارنة استجابتين واختيار الأفضل. قم بملاءمة نموذج المكافأة مع تلك المقارنات، ثم RL...",
         "keywords": "الخطوة 1: بيانات التفضيل الاصطناعية · الخطوة 2: نموذج مكافأة برادلي-تيري · الخطوة 3: سياسة تشبه PPO أعلى RM · الخطوة 4: مراقبة KL · الخطوة 5: وصفة الإنتاج مع TRL"
       },
@@ -1668,7 +1668,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/10-multi-agent-rl/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/10-multi-agent-rl/",
         "summary": "يفترض الوكيل الفردي RL أن البيئة ثابتة. ضع وكيلين للتعلم في نفس العالم وسينتهي هذا الافتراض: كل وكيل هو جزء من بيئة الآخر، وب...",
         "keywords": "الخطوة 1: البيئة متعددة الوكلاء · الخطوة 2: تعلم Q المستقل · الخطوة 3: Q مركزي مع تحديث القيمة المتحللة · الخطوة 4: اللعب الذاتي البسيط (الخصم 2 الوكيل)"
       },
@@ -1677,7 +1677,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/11-sim-to-real-transfer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/11-sim-to-real-transfer/",
         "summary": "السياسة التي تم تدريبها في جهاز محاكاة تفشل على الأجهزة هي سياسة تحفظ جهاز المحاكاة. العشوائية المجال، وتكييف المجال، وتحديد النظام هي الثلاثة...",
         "keywords": "الخطوة 1: شريحة ذات معلمات · الخطوة 2: التدريب باستخدام DR · الخطوة 3: تقييم اللقطة الصفرية على الزلات \"الحقيقية\" · الخطوة 4: المقارنة بالتدريب الضيق"
       },
@@ -1686,7 +1686,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/09-reinforcement-learning/12-rl-for-games/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/09-reinforcement-learning/12-rl-for-games/",
         "summary": "1992: TD-تغلب Gammon على أبطال البشر في لعبة الطاولة بنتيجة TD خالصة. 2016: فاز AlphaGo على Lee Sedol. 2017: سيطر AlphaZero على لعبة الشطرنج، وshogi، وGo from الصفر. 2024: DeepSeek-R1 محترف...",
         "keywords": "الخطوة 1: بيئة تحقق صغيرة · الخطوة 2: السياسة: softmax فوق K رموز الإجابة لكل موجه · الخطوة 3: أخذ العينات الجماعية والميزة النسبية للمجموعة · الخطوة 4: المقارنة بخط الأساس REINFORCE (خالية من القيمة) · الخطوة 5: مراقبة الإنتروبيا وKL"
       }
@@ -1703,7 +1703,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/01-tokenizers/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/01-tokenizers/",
         "summary": "LLM الخاص بك لا يقرأ اللغة الإنجليزية. يقرأ الأعداد الصحيحة. يقرر المُرمز ما إذا كانت هذه الأعداد الصحيحة تحمل معنى أم تضيعه.",
         "keywords": "ثلاث طرق فاشلة (وواحدة فازت) · BPE: ترميز زوج البايت · مستوى البايت BPE (GPT-2، GPT-3، GPT-4) · WordPiece (BERT) · قطعة الجملة (Llama، T5) · حجم المفردات المقايضات · الضريبة المتعددة اللغات · الخطوة 1: رمز مميز على مستوى الشخصية · الخطوة 2: BPE رمز مميز من الصفر · الخطوة 3: التشفير وفك التشفير ذهابًا وإيابًا · الخطوة 4: المقارنة مع tiktoken · الخطوة 5: تحليل المفردات · tiktoken (OpenAI) · Hugging Face الرموز المميزة · تحميل رمز اللاما"
       },
@@ -1712,7 +1712,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/02-building-a-tokenizer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/02-building-a-tokenizer/",
         "summary": "الدرس 01 أعطاك لعبة. هذا الدرس يعطيك سلاحا.",
         "keywords": "خط الأنابيب الكامل · مستوى البايت BPE · الترميز المسبق · الرموز الخاصة · قوالب الدردشة · السرعة · الخطوة 1: تشفير مستوى البايت · الخطوة 2: أداة الرمز المميز مسبقًا مع Regex · الخطوة 3: BPE على تسلسلات البايت · الخطوة 4: التعامل مع الرمز المميز · الخطوة 5: فئة أداة الرموز الكاملة · الخطوة 6: اختبار متعدد اللغات · مقارنة الرموز المميزة الحقيقية"
       },
@@ -1721,7 +1721,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/03-data-pipelines/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/03-data-pipelines/",
         "summary": "النموذج عبارة عن مرآة. إنه يعكس أي بيانات تقوم بإطعامها بها. قم بإطعامها بالقمامة، فهي تعكس القمامة بطلاقة مثالية.",
         "keywords": "من أين تأتي البيانات · تنظيف البيانات · إلغاء البيانات المكررة باستخدام MinHash · تعبئة التسلسل · قانون قياس شينشيلا · الخطوة 1: تنظيف النص · الخطوة 2: إلغاء البيانات المكررة MinHash · الخطوة 3: ترميز وحزمة التسلسلات · الخطوة 4: أداة تحميل البيانات للتدريب · الخطوة 5: إحصائيات مجموعة البيانات · المقارنة مع مجموعات بيانات HuggingFace"
       },
@@ -1730,7 +1730,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/04-pre-training-mini-gpt/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/04-pre-training-mini-gpt/",
         "summary": "GPT-2 يحتوي الحجم الصغير على 124 مليون معلمة. هذه 12 طبقة محولات، و12 رأس انتباه، و768 بُعدًا للتضمين. يمكنك تدريبه من الصفر على GPU واحد في بضع...",
         "keywords": "بنية GPT · كتلة المحولات · الانتباه: الآلية الأساسية · KV ذاكرة التخزين المؤقت: لماذا يكون الاستدلال سريعًا · التعبئة المسبقة مقابل فك التشفير: مرحلتان من الاستدلال · حلقة التدريب · GPT-2 صغيرة: الأرقام · الخطوة 1: طبقة التضمين · الخطوة 2: الانتباه الذاتي باستخدام القناع السببي · الخطوة 3: انتباه متعدد الرؤوس · الخطوة 4: كتلة المحولات · الخطوة 5: نموذج GPT كامل · الخطوة 6: حلقة التدريب · الخطوة 7: إنشاء النص · التدريب الكامل والعرض التوضيحي للإنشاء"
       },
@@ -1739,7 +1739,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/05-scaling-distributed/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/05-scaling-distributed/",
         "summary": "تم تدريب نموذج 124M الخاص بك على GPU واحد. جرب الآن 7 مليار معلمة. النموذج لا يتناسب مع الذاكرة تستغرق البيانات أسابيع على جهاز واحد. التدريب الموزع ليس اختياريا...",
         "keywords": "لماذا التوزيع مطلوب · توازي البيانات · توازي الموتر · توازي خطوط الأنابيب · FSDP: توازي البيانات المجزأة بالكامل · DeepSpeed Zero · التدريب الدقيق المختلط · Megatron-LM والتوازي ثلاثي الأبعاد · الخطوة 1: محاكاة توازي البيانات · الخطوة 2: محاكاة توازي الموتر · الخطوة 3: محاكاة توازي خطوط الأنابيب · الخطوة 4: حاسبة الذاكرة · الخطوة 5: محاكاة دقيقة مختلطة · تشغيل كافة عمليات المحاكاة"
       },
@@ -1748,7 +1748,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/06-instruction-tuning-sft/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/06-instruction-tuning-sft/",
         "summary": "يتنبأ النموذج الأساسي بالرمز التالي. هذا كل شيء. ولا يتبع التعليمات أو يجيب على الأسئلة أو يرفض الطلبات الضارة. SFT هو الجسر بين المتنبئ المميز و...",
         "keywords": "ما يفعله SFT فعليًا · تنسيقات البيانات · لماذا يعمل · الخسارة المقنعة · تدريب المعلمات الفائقة · النسيان الكارثي · الأرقام الحقيقية · الخطوة 1: مجموعة بيانات التعليمات · الخطوة 2: الترميز باستخدام قالب الدردشة · الخطوة 3: خسارة الإنتروبيا المقنعة · الخطوة 4: SFT حلقة التدريب · الخطوة 5: مقارنة القاعدة مع SFT النموذج · الخطوة 6: القياس النسيان الكارثي · العرض التوضيحي الكامل لخط الأنابيب SFT"
       },
@@ -1757,7 +1757,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/07-rlhf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/07-rlhf/",
         "summary": "SFT يعلم النموذج اتباع التعليمات. لكنها لا تعلم النموذج أي استجابة هي BETTER. يمكن أن تختلف إجابتان صحيحتان نحويًا ودقيقتان بشكل كبير...",
         "keywords": "المراحل الثلاث · نموذج المكافأة · PPO: تحسين السياسة القريبة · هدف PPO بالتفصيل · اختراق المكافأة · خطوط الأنابيب RLHF الحقيقية · الخطوة 1: بيانات التفضيلات الاصطناعية · الخطوة 2: هندسة نموذج المكافأة · الخطوة 3: خسارة برادلي تيري · الخطوة 4: حلقة PPO المبسطة · الخطوة 5: مقارنة نقاط المكافأة · كاملة RLHF العرض التوضيحي لخط الأنابيب"
       },
@@ -1766,7 +1766,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/08-dpo/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/08-dpo/",
         "summary": "RLHF يعمل. ويتطلب أيضًا تدريب ثلاثة نماذج (SFT، نموذج المكافأة، السياسة)، وإدارة عدم استقرار PPO، وضبط عقوبة KL. DPO يسأل: ماذا لو كان بإمكانك تخطي كل ذلك...",
         "keywords": "الفكرة الرئيسية · خسارة DPO · لماذا يكون DPO أبسط · عندما يتفوق DPO على RLHF · عندما يتفوق RLHF على DPO · ما بعد DPO: KTO، ORPO، SimPO · عمليات النشر DPO الحقيقية · الخطوة 1: مجموعة بيانات التفضيلات · الخطوة 2: احتمالية سجل التسلسل · الخطوة 3: خسارة DPO · الخطوة 4: DPO حلقة التدريب · الخطوة 5: مقارنة DPO مقابل RLHF · الخطوة 6: تحليل حساسية بيتا · العرض التوضيحي الكامل لخط أنابيب DPO"
       },
@@ -1775,7 +1775,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/09-constitutional-ai-self-improvement/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/09-constitutional-ai-self-improvement/",
         "summary": "RLHF يحتاج إلى أشخاص في الحلقة. AI الدستوري يستبدل معظمها بالنموذج نفسه. اكتب قائمة بالمبادئ، واطلب من النموذج أن ينتقد مخرجاته الخاصة مقابل تلك...",
         "keywords": "حلقة AI الدستورية · ما يفعله الدستور فعليًا · GRPO: تحسين السياسات النسبية للمجموعة · لماذا GRPO مهم للاستدلال · نماذج مكافآت العمليات مقابل نماذج مكافآت النتائج · التحسين الذاتي: مضاعف الملاحظات · متى نستخدم ماذا · الخطوة 1: الدستور · الخطوة 2: النقد الذاتي والمراجعة · الخطوة 3: المكافآت المستندة إلى القواعد · الخطوة 4: الميزة النسبية للمجموعة · الخطوة 5: تحديث GRPO · الخطوة 6: جولة التحسين الذاتي"
       },
@@ -1784,7 +1784,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/10-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/10-evaluation/",
         "summary": "قانون جودهارت: عندما يصبح المقياس هدفًا، فإنه يتوقف عن أن يكون مقياسًا جيدًا. كل معايير ألعاب Frontier Lab. MMLU ترتفع النتائج بينما لا تزال النماذج غير قادرة على حساب عددها بشكل موثوق...",
         "keywords": "مشهد التقييم · لماذا تنكسر المعايير · الحيرة: فحص صحي سريع · LLM-as-قاضي · ELO التقييمات من المقارنات الزوجية · أطر التقييم · بناء تقييمات مخصصة · الخطوة 1: إطار تقييم أدنى · الخطوة 2: وظائف تسجيل النقاط · الخطوة 3: ELO نظام التقييم · الخطوة 4: حساب الحيرة · الخطوة 5: تجميع النتائج · الخطوة 6: تشغيل المسار الكامل · الخطوة 7: ELO البطولة · الخطوة 8: مقارنة الحيرة · lm-evaluation-harness (EleutherAI) · Promptfoo · RAGAS لتقييم RAG"
       },
@@ -1793,7 +1793,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, Rust",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/11-quantization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/11-quantization/",
         "summary": "يحتاج الطراز 70B في FP16 إلى 140 جيجابايت. طائرتان من طراز A100 للأوزان فقط. الكمية إلى FP8: 80 جيجابايت GPU واحد. INT4: ماك بوك.",
         "keywords": "تنسيقات الأرقام: ماذا يفعل كل بت · كيف يعمل التكميم · التسلسل الهرمي للحساسية · PTQ vs QAT · GPTQ، AWQ، GGUF · قياس الجودة · الأرقام الحقيقية · الخطوة 1: تمثيل تنسيق الأرقام · الخطوة 2: التكميم المتماثل (لكل موتر ولكل قناة) · الخطوة 3: قياس الجودة · الخطوة 4: مسح عرض البت · الخطوة 5: تجربة الحساسية · الخطوة 6: المحاكاة GPTQ · الخطوة 7: AWQ المحاكاة · الخطوة 8: المسار الكامل · القياس الكمي باستخدام AutoGPTQ · القياس الكمي باستخدام AutoAWQ · التحويل إلى GGUF · الخدمة باستخدام vLLM"
       },
@@ -1802,7 +1802,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/12-inference-optimization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/12-inference-optimization/",
         "summary": "مرحلتان تحددان LLM الاستدلال. تقوم عملية التعبئة المسبقة بمعالجة المطالبة بالتوازي - وهي مرتبطة بالحوسبة. يقوم فك التشفير بإنشاء الرموز المميزة واحدة تلو الأخرى - مرتبطة بالذاكرة. يستهدف كل تحسين…",
         "keywords": "التعبئة المسبقة مقابل فك التشفير · KV ذاكرة التخزين المؤقت · التجميع المستمر · PagedAttention · فك التشفير التخميني · التخزين المؤقت للبادئة · محركات الاستدلال · العمليات: Byte Framework · الخطوة 1: KV ذاكرة التخزين المؤقت من الصفر · الخطوة 2: الانتباه مع KV ذاكرة التخزين المؤقت · الخطوة 3: محاكي الخلط المستمر · الخطوة 4: ذاكرة التخزين المؤقت للبادئة · الخطوة 5: فك التشفير التخميني المحاكاة · الخطوة 6: KV ملف تعريف ذاكرة التخزين المؤقت"
       },
@@ -1811,7 +1811,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/13-building-complete-llm-pipeline/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/13-building-complete-llm-pipeline/",
         "summary": "كل شيء من الدروس 01 إلى 12 هو مرحلة واحدة من pipeline. هذا الدرس هو السقالة التي تحول تلك المراحل إلى تشغيل واحد شامل: الرمز المميز، التدريب المسبق، النطاق، SFT،...",
         "keywords": "المراحل الاثنتي عشرة · البيان · كتابة القطع الأثرية · بوابة التقييم · المنسق · تتبع التجارب وتخزين القطع الأثرية · التكلفة · التكاثر مقابل الحتمية · خطة التراجع · وصفات الإنتاج التي تمت ملاحظتها في عام 2026"
       },
@@ -1820,7 +1820,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs/",
         "summary": "لقد قمت ببناء GPT-2 صغير من الصفر في الدرس 04. نماذج Frontier المفتوحة في عام 2026 هي نفس العائلة مع خمسة أو ستة تغييرات ملموسة. RMSNorm بدلاً من LayerNorm. سويغلو إنست…",
         "keywords": "النواة الثابتة · المقابض الستة التي تتحرك فعليًا · المقبض 1: RMSNorm · المقبض 2: RoPE · المقبض 3: SwiGLU · المقبض 4: مشاركة رأس الانتباه · المقبض 5: مزيج من الخبراء · المقبض 6: الإبقاء على المعيار المسبق · الاختلاف بين النموذج حسب النموذج · قراءة config.json · ميزانية ذاكرة التنشيط · KV ميزانية ذاكرة التخزين المؤقت · عندما يفوز كل نموذج"
       },
@@ -1829,7 +1829,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/15-speculative-decoding-eagle3/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/15-speculative-decoding-eagle3/",
         "summary": "المرحلة 7 · الدرس 16 أثبت العملية الحسابية: قاعدة رفض الطاغوت تحافظ على توزيع المدقق بشكل دقيق. هذا الدرس هو عرض مكدس التدريب لتوقعات الإنتاج لعام 2026...",
         "keywords": "الثابت: أخذ عينات رفض Leviathan · ما الذي يحدد التسريع · التقدم لمدة عامين · KV التراجع عن ذاكرة التخزين المؤقت · مسودة البنيات في عام 2026 · الخطوة 1: قاعدة الرفض · الخطوة 2: التوزيع المتبقي · الخطوة 3: خطوة تخمينية كاملة · الخطوة 4: KV مسك الدفاتر التراجع · الخطوة 5: فحص Leviathan · الخطوة 6: التسريع مقابل α"
       },
@@ -1838,7 +1838,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/16-differential-attention-v2/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/16-differential-attention-v2/",
         "summary": "ينشر اهتمام Softmax قدرًا صغيرًا من الاحتمالية على كل رمز مميز غير مطابق. أكثر من 100 ألف رمز تضيفه الضوضاء وتغرق الإشارة. المحول التفاضلي (يي وآخرون)",
         "keywords": "أرضية الضوضاء لـ softmax · الفكرة التفاضلية · لماذا يتطابق هذا مع إلغاء الضوضاء · V1 vs V2: الفرق · متى يتم الوصول إليها · كيف تتكدس مع مقابض 2026 الأخرى · الخطوة 1: اهتمام softmax القياسي · الخطوة 2: تقسيم Q وK إلى نصفين · الخطوة 3: فرعين softmax + طرح · الخطوة 4: قياس إلغاء الضوضاء · الخطوة 5: V1 مقابل V2 محاسبة المعلمات"
       },
@@ -1847,7 +1847,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/17-native-sparse-attention/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/17-native-sparse-attention/",
         "summary": "عند استخدام 64 ألف رمز، يستهلك الاهتمام 70-80% من زمن الوصول لفك التشفير. كل مختبر نموذجي مفتوح لديه خطة لإصلاحه. إن NSA من DeepSeek (ACL أفضل ورقة بحثية لعام 2025) هو الذي ظل عالقًا: ثلاث محاولات متوازية...",
         "keywords": "ثلاثة فروع متوازية · لماذا هذا \"قابل للتدريب محليًا\" · النواة المتوافقة مع الأجهزة · ميزانية الحوسبة · كيف يمكن مقارنتها · الخطوة 1: ضغط الرموز المميزة إلى كتل · الخطوة 2: انتباه الفرع المضغوط · الخطوة 3: اختيار كتلة top-k · الخطوة 4: انتباه النافذة المنزلقة · الخطوة 5: البوابة + الجمع · الخطوة 6: حساب العد"
       },
@@ -1856,7 +1856,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/18-multi-token-prediction/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/18-multi-token-prediction/",
         "summary": "كل انحدار ذاتي LLM من GPT-2 إلى Llama 3 يتدرب على خسارة واحدة لكل مركز: توقع الرمز المميز التالي. أضاف DeepSeek-V3 خسارة ثانية لكل موضع: توقع الرمز المميز بعد ذلك...",
         "keywords": "الوصفة التسلسلية MTP · لماذا التسلسل وليس التوازي · محاسبة المعلمات · مكافأة فك التشفير المضاربة · العلاقة بـ EAGLE · الخطوة 1: جدول التضمين المشترك · الخطوة 2: التركيبة لكل عمق · الخطوة 3: كتلة المحولات عند العمق k · الخطوة 4: رأس الإخراج المشترك · الخطوة 5: الخسارة لكل عمق · الخطوة 6: حساب المعلمة"
       },
@@ -1865,7 +1865,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/19-dualpipe-parallelism/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/19-dualpipe-parallelism/",
         "summary": "تم تدريب DeepSeek-V3 على 2,048 H800 GPUs مع خبراء وزارة التربية والتعليم المنتشرين في nodes. Cross-node تكلفة الاتصال الشامل للخبير 1 GPU ساعة اتصال لكل 1 GPU ساعة من التعاون...",
         "keywords": "تجديد توازى خطوط الأنابيب · الفكرة 1: تحلل القطع · الفكرة 2: جدولة ثنائية الاتجاه · جدول يتم تتبعه يدويًا · محاسبة الفقاعات · DualPipeV - التحسين · ماذا يعني تشغيل 14.8T-token · مكان وجوده في المكدس"
       },
@@ -1874,7 +1874,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/20-deepseek-v3-walkthrough/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/20-deepseek-v3-walkthrough/",
         "summary": "المرحلة 10 · قام الدرس 14 بتسمية المقابض المعمارية الستة التي يدورها كل نموذج مفتوح. DeepSeek-V3 (ديسمبر 2024، إجمالي 671 مليار معلمة، 37 مليار نشطة) يحول الستة جميعًا ويضيف أربعة آخرين: M...",
         "keywords": "النواة الثابتة، مرة أخرى · الالتواء: MLA بدلاً من GQA · التوجيه: موازنة تحميل مساعدة بدون خسارة · MTP: تدريب أكثر كثافة + مسودة مجانية · التدريب: DualPipe · التكوين، حقل تلو الآخر · محاسبة المعلمات · نسبة 671B / 37B · حيث يوجد DeepSeek-V3 · المتابعة: R1، V4"
       },
@@ -1883,7 +1883,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer/",
         "summary": "تريد نماذج الفضاء الحكومية (SSMs) والمحولات أشياء مختلفة. تشتري المحولات الجودة من خلال الاهتمام بتكلفة تربيعية. تشتري أجهزة SSM الاستدلال الزمني الخطي والذاكرة الثابتة...",
         "keywords": "SSM في صفحة واحدة · كتلة Jamba · لماذا نسبة 1:7 · التشفير الموضعي · ميزانية الذاكرة · Mamba-3: خط الأساس SSM النقي في عام 2026 · متى نصل إلى الهجين · المشهد التنافسي"
       },
@@ -1892,7 +1892,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/10-llms-from-scratch/22-async-hogwild-inference/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/10-llms-from-scratch/22-async-hogwild-inference/",
         "summary": "يقوم فك التشفير التأملي (المرحلة 10 · 15) بموازاة الرموز المميزة ضمن تسلسل واحد. تتوازي الأطر متعددة الوكلاء عبر تسلسلات كاملة ولكنها تفرض تنسيقًا واضحًا (التصويت،...",
         "keywords": "الإعداد · لماذا يظهر التنسيق · التسمية · RoPE makes هذا المسار · الرياضيات في وقت الحائط · مثال ملموس · متى تصل إلى Hogwild! · متى لا تفعل ذلك · الحالة التجريبية · الخطوة 1: ذاكرة التخزين المؤقتة المشتركة · الخطوة 2: حلقة العامل · الخطوة 3: التنسيق الإرشادي · الخطوة 4: قياس السرعة · الخطوة 5: التأكيد على التنسيق"
       }
@@ -1909,7 +1909,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/01-prompt-engineering/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/01-prompt-engineering/",
         "summary": "يكتب معظم الأشخاص مطالبات وكأنهم يرسلون رسالة نصية إلى صديق. ثم يتساءلون لماذا يقدم نموذج ذو 200 مليار معلمة إجابات متواضعة. الهندسة السريعة لا تتعلق بالحيل. أنا…",
         "keywords": "تشريح الموجه · المطالبة بالدور: لماذا يعمل \"أنت خبير X\" · وضوح التعليمات: إيقاعات محددة غامضة · التحكم في تنسيق الإخراج · مواصفات القيد · درجة الحرارة وأخذ العينات · نوافذ السياق: ما يناسب المكان · أنماط موجهة · أنماط مضادة · تصميم موجه عبر النماذج · الخطوة 1: مكتبة قوالب موجه · الخطوة 2: منشئ موجه · الخطوة 3: أداة اختبار النماذج المتعددة · الخطوة 4: موجه المقارنة والتسجيل · الخطوة 5: اختبار مجموعة التشغيل · الخطوة 6: تشغيل كل شيء · OpenAI: درجة الحرارة ورسائل النظام · إنساني: رسالة النظام + ملء مساعد مسبق · Google: Gemini مع إعدادات الأمان · LangChain: مطالبات الموفر غير الملحدة"
       },
@@ -1918,7 +1918,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/02-few-shot-cot/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/02-few-shot-cot/",
         "summary": "إن إخبار النموذج بما يجب فعله هو الحث. إن إظهار كيفية التفكير هو هندسة. الفجوة بين 78% و91% من الدقة في نفس النموذج، ونفس المهمة، ونفس البيانات ليست طريقة أفضل...",
         "keywords": "صفر لقطة مقابل لقطة قليلة: عندما تتفوق الأمثلة على التعليمات · اختيار المثال: إيقاعات متشابهة عشوائية · سلسلة الأفكار: إعطاء النماذج ورقة مسودة · الاتساق الذاتي: عينة متعددة، تصويت مرة واحدة · شجرة الأفكار: الاستكشاف المتفرع · رد الفعل: التفكير + التنفيذ · المطالبة المنظمة: XML العلامات، المحددات، العناوين · التسلسل الفوري: التحليل المتسلسل · مقارنة الأداء · الخطوة 1: متجر أمثلة قليلة · الخطوة 2: إنشاء سلسلة الأفكار السريعة · الخطوة 3: التصويت على الاتساق الذاتي · الخطوة 4: حل شجرة الفكر · الخطوة 5: خط أنابيب كامل · مع LangChain · مع DSPy · المقارنة: من الصفر مقابل الإطارات"
       },
@@ -1927,7 +1927,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/03-structured-outputs/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/03-structured-outputs/",
         "summary": "يقوم LLM بإرجاع سلسلة. يحتاج طلبك إلى JSON. لقد أدت هذه الفجوة إلى تحطيم أنظمة الإنتاج أكثر من أي هلوسة نموذجية. الإخراج المنظم هو الجسر بين الطبيعة...",
         "keywords": "طيف المخرجات المنظم · JSON المخطط: لغة العقد · النمط Pydantic · استدعاء الوظيفة / استخدام الأداة · أوضاع الفشل الشائعة · الخطوة 1: JSON مدقق المخطط · الخطوة 2: نموذج نمط Pydantic للمخطط · الخطوة 3: مرشح الرمز المميز المقيد · الخطوة 4: خط أنابيب الاستخراج · الخطوة 5: تشغيل المسار الكامل · OpenAI منظم المخرجات · استخدام الأداة الإنسانية · مكتبة المدرب"
       },
@@ -1936,7 +1936,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/04-embeddings/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/04-embeddings/",
         "summary": "النص منفصل. الرياضيات مستمرة. في كل مرة تطلب فيها LLM العثور على مستندات \"مشابهة\"، أو مقارنة المعاني، أو البحث فيما وراء الكلمات الرئيسية، فإنك تعتمد على جسر بين هذه المستندات...",
         "keywords": "ما هو التضمين؟ · اختراق Word2Vec · من الكلمات إلى الجمل · نماذج التضمين الحديثة · مقاييس التشابه · قواعد بيانات المتجهات وHNSW · استراتيجيات التقطيع · المشفرات الثنائية مقابل المشفرات المتقاطعة · تضمينات ماتريوشكا · التكميم الثنائي · الخطوة 1: تقطيع النص · الخطوة 2: بناء التضمينات من الصفر · الخطوة 3: وظائف التشابه · الخطوة 4: المتجهات الفهرسة باستخدام بحث القوة الغاشمة · الخطوة 5: محرك البحث الدلالي · الخطوة 6: مقارنة مقاييس التشابه"
       },
@@ -1945,7 +1945,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/05-context-engineering/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/05-context-engineering/",
         "summary": "الهندسة السريعة هي مجموعة فرعية. هندسة السياق هي اللعبة بأكملها. المطالبة هي سلسلة تكتبها. السياق هو كل ما يدخل في نافذة النموذج: تعليمات النظام...",
         "keywords": "نافذة السياق هي مورد نادر · ضائع في الوسط · مكونات السياق · إستراتيجيات ضغط السياق · أنظمة الذاكرة · تجميع السياق الديناميكي · الخطوة 1: عداد الرمز المميز · الخطوة 2: مدير ميزانية السياق · الخطوة 3: إعادة ترتيب المفقود في الوسط · الخطوة 4: ضاغط سجل المحادثة · الخطوة 5: محدد الأدوات الديناميكي · الخطوة 6: مسار تجميع السياق الكامل · إستراتيجية سياق كلود كود · تحميل السياق الديناميكي للمؤشر · ذاكرة ChatGPT · RAG كهندسة السياق"
       },
@@ -1954,7 +1954,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python, TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/06-rag/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/06-rag/",
         "summary": "يعرف LLM كل شيء حتى الموعد النهائي للتدريب. فهو لا يعرف شيئًا عن مستندات شركتك أو قاعدة التعليمات البرمجية الخاصة بك أو ملاحظات اجتماع الأسبوع الماضي. RAG يحل هذه المشكلة عن طريق استرداد الصلة...",
         "keywords": "نمط RAG · لماذا يتفوق RAG على الضبط الدقيق · تضمين النماذج · تشابه المتجهات · استراتيجيات التقطيع · قواعد بيانات المتجهات · المسار الكامل · الأرقام الحقيقية · الخطوة 1: تقطيع المستندات · الخطوة 2: TF-IDF التضمين · الخطوة 3: بحث تشابه جيب التمام · الخطوة 4: البناء الفوري · الخطوة 5: خط RAG الكامل · الخطوة 6: الجيل (محاكاة)"
       },
@@ -1963,7 +1963,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/07-advanced-rag/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/07-advanced-rag/",
         "summary": "يسترد RAG الأساسي الأجزاء الأكثر تشابهًا. هذا يعمل على الأسئلة البسيطة. إنه ينهار بسبب التفكير متعدد القفزات والاستعلامات الغامضة والمجموعات الكبيرة. المتقدم RAG هو...",
         "keywords": "البحث المختلط: الدلالي + الكلمة الرئيسية · دمج الرتب المتبادل (RRF) · إعادة الترتيب · تحويل الاستعلام · تقسيم الوالدين والطفل · تصفية البيانات الوصفية · التقييم · الخطوة 1: BM25 التنفيذ · الخطوة 2: دمج الرتب المتبادل · الخطوة 3: خط أنابيب البحث المختلط · الخطوة 4: إعادة ترتيب بسيطة · الخطوة 5: HyDE (وثيقة افتراضية) التضمين) · الخطوة 6: تقطيع الوالدين والطفل. · الخطوة 7: تقييم الإخلاص"
       },
@@ -1972,7 +1972,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/08-fine-tuning-lora/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/08-fine-tuning-lora/",
         "summary": "يتطلب الضبط الدقيق الكامل لنموذج 7B سعة 56 جيجابايت من VRAM. ليس لديك ذلك. ولا تفعل معظم الشركات. LoRA يتيح لك ضبط نفس النموذج بسعة 6 جيجابايت من خلال تدريب أقل من 1% من...",
         "keywords": "LoRA: التكيف ذو الرتبة المنخفضة · عامل القياس: ألفا · مكان التطبيق LoRA · اختيار الرتبة · QLoRA: تكميم 4 بت + LoRA · سؤال الجودة · تكاليف العالم الحقيقي · مكدس PEFT 2026 · دمج المحولات · عندما يتم ضبط NOT · الخطوة 1: LoRA طبقة · الخطوة 2: LoRA - طبقة خطية ملفوفة · الخطوة 3: إدخال LoRA في النموذج · الخطوة 4: عد المعلمات · الخطوة 5: دمج الأوزان مرة أخرى · الخطوة 6: محاكاة QLoRA التكميم · الخطوة 7: حلقة التدريب · الخطوة 8: العرض التوضيحي الكامل"
       },
@@ -1981,7 +1981,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/09-function-calling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/09-function-calling/",
         "summary": "LLMs لا يمكنه فعل أي شيء. أنها تولد النص. هذه هي القدرة بأكملها. لا يمكنهم التحقق من الطقس أو الاستعلام عن قاعدة بيانات أو إرسال بريد إلكتروني أو تشغيل التعليمات البرمجية أو قراءة ملف. كل \"AI أ...",
         "keywords": "حلقة استدعاء الوظائف · تعريفات الأداة: عقد مخطط JSON · مقارنة الموفر · اختيار الأداة: تلقائي، مطلوب، محدد · استدعاء الوظائف المتوازية · المخرجات المنظمة مقابل استدعاء الوظيفة · الأمان: القواعد غير القابلة للتفاوض · معالجة الأخطاء · MCP: بروتوكول السياق النموذجي · الخطوة 1: تحديد سجل الأداة · الخطوة 2: تنفيذ 5 أدوات · الخطوة 3: تسجيل جميع الأدوات · الخطوة 4: إنشاء حلقة استدعاء الوظائف · الخطوة 5: التحقق من صحة الوسيطة · الخطوة 6: تشغيل العرض التوضيحي · OpenAI استدعاء الوظائف · استخدام الأداة البشرية · MCP التكامل"
       },
@@ -1990,7 +1990,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/10-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/10-evaluation/",
         "summary": "لن تقوم أبدًا بنشر تطبيق ويب بدون اختبارات. لن تقوم مطلقًا بشحن ترحيل قاعدة البيانات بدون خطة التراجع. لكن في الوقت الحالي، تقوم معظم الفرق بشحن طلبات LLM من خلال قراءة 10...",
         "keywords": "تصنيف التقييم · LLM-as-Judge: العمود الفقري · تصميم القواعد · خط أنابيب Eval · مجموعات بيانات التقييم: المؤسسة · حجم العينة والثقة · اختبار الانحدار · تكلفة التقييمات · الأنماط المضادة · الأدوات الحقيقية · الخطوة 1: تحديد هياكل بيانات التقييم · الخطوة 2: بناء LLM-as-Judge Scorer · الخطوة 3: البناء تلقائيًا المقاييس · الخطوة 4: إنشاء حاسبة الفاصل الزمني للثقة · الخطوة 5: إنشاء Eval Runner وتقرير المقارنة · الخطوة 6: تشغيل العرض التوضيحي · تكامل موجه · تكامل DeepEval · CI/CD نمط التكامل"
       },
@@ -1999,7 +1999,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/11-caching-cost/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/11-caching-cost/",
         "summary": "معظم الشركات الناشئة AI لا تموت بسبب نماذج سيئة. يموتون من اقتصاديات الوحدة السيئة. مكالمة واحدة GPT-4o تكلف كسورًا من السنت. عشرة آلاف مستخدم يقومون بعشر مكالمات يوميا بتكاليف…",
         "keywords": "تحليل التكلفة لمكالمة LLM · التخزين المؤقت للموفر: الخصومات المضمنة · التخزين المؤقت الدلالي: الطبقة المخصصة الخاصة بك · التخزين المؤقت الدقيق: التجزئة والمطابقة · تحديد المعدل: حماية ميزانيتك · توجيه النموذج: النموذج الصحيح للوظيفة المناسبة · تتبع التكلفة: معرفة أين تذهب الأموال · التجميع: الخصومات المجمعة · تنبيهات الميزانية وقواطع الدائرة · حزمة التحسين · المدخرات الحقيقية: قبل وبعد · الخطوة 1: التكلفة الحاسبة · الخطوة 2: ذاكرة التخزين المؤقت الدقيقة · الخطوة 3: ذاكرة التخزين المؤقت الدلالية · الخطوة 4: محدد المعدل · الخطوة 5: تعقب التكلفة · الخطوة 6: جهاز التوجيه النموذجي · الخطوة 7: تشغيل العرض التوضيحي · التخزين المؤقت الفوري الفوري · OpenAI التخزين المؤقت التلقائي · OpenAI الدفعة API · إنتاج ذاكرة التخزين المؤقت الدلالية باستخدام Redis"
       },
@@ -2008,7 +2008,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/12-guardrails/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/12-guardrails/",
         "summary": "سيتم مهاجمة تطبيق LLM الخاص بك. لا ربما. سوف. ستتم أول محاولة سريعة للحقن ضد نظام الإنتاج الخاص بك خلال 48 ساعة من الإطلاق. السؤال هو لا…",
         "keywords": "ساندويتش الدرابزين · تصنيف الهجوم · حواجز الإدخال · حواجز الإخراج · حزمة تصفية المحتوى · أدوات التجارة · الدفاع المتعمق · دراسات حالة الهجوم الحقيقي · الحقيقة الصادقة · الخطوة 1: حواجز الإدخال · الخطوة 2: حواجز الإخراج · الخطوة 3: خط أنابيب الدرابزين · الخطوة 4: لوحة مراقبة المراقبة · الخطوة 5: تشغيل العرض التوضيحي · OpenAI الإشراف API · LlamaGuard · حواجز الحماية NeMo · حواجز الحماية AI"
       },
@@ -2017,7 +2017,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/13-production-app/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/13-production-app/",
         "summary": "لقد قمت ببناء المطالبات، والتضمينات، وخطوط RAG pip، واستدعاء الوظائف، وطبقات التخزين المؤقت، وحواجز الحماية. بشكل منفصل. في العزل. مثل التدرب على سلاسل الجيتار دون العزف على الإطلاق...",
         "keywords": "هندسة الإنتاج · المكدس · التدفق: لماذا يهم · معالجة الأخطاء: الطبقات الثلاث · إمكانية الملاحظة: ما يجب قياسه · مطالبات اختبار A/B في الإنتاج · أمثلة معمارية حقيقية · القياس · إسقاط التكلفة · قائمة مراجعة النشر · الخطوة 1: البنية التحتية الأساسية · الخطوة 2: الإدارة الفورية · الخطوة 3: ذاكرة التخزين المؤقت الدلالية · الخطوة 4: الدرابزين · الخطوة 5: LLM المتصل مع إعادة المحاولة و البث · الخطوة 6: مسار الطلب · الخطوة 7: تشغيل العرض التوضيحي الكامل · خادم FastAPI (نشر الإنتاج) · التكامل الحقيقي API · نشر Docker"
       },
@@ -2026,7 +2026,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/14-model-context-protocol/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/14-model-context-protocol/",
         "summary": "كل تطبيق LLM تم إنشاؤه قبل عام 2025 اخترع مخطط الأداة الخاص به. ثم قامت Anthropic بشحن MCP، واعتمده كلود، واعتمده OpenAI، وبحلول عام 2026 أصبح تنسيق السلك الافتراضي لـ con...",
         "keywords": "المصافحة · ما ليس MCP · الخطوة 1: الحد الأدنى من خادم MCP · الخطوة 2: الاتصال بخادم MCP من مضيف · الخطوة 3: نقل HTTP القابل للبث · الخطوة 4: تحديد النطاق والسلامة"
       },
@@ -2035,7 +2035,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/15-prompt-caching/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/15-prompt-caching/",
         "summary": "موجه النظام الخاص بك هو 4000 رمزًا. سياق RAG الخاص بك هو 20000 رمزًا مميزًا. يمكنك إرسال كليهما مع كل طلب. أنت تدفع أيضًا مقابل كليهما – في كل مرة. يتيح التخزين المؤقت الفوري للموفر الاحتفاظ…",
         "keywords": "التخطيط الملائم لذاكرة التخزين المؤقت · حساب التعادل · الخطوة 1: التخزين المؤقت الفوري الإنساني باستخدام علامات واضحة · الخطوة 2: تمديد لمدة ساعة واحدة TTL · الخطوة 3: OpenAI التخزين المؤقت التلقائي · الخطوة 4: التخزين المؤقت لسياق الجوزاء الصريح · الخطوة 5: قياس معدل النجاح في الإنتاج"
       },
@@ -2044,7 +2044,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/16-langgraph-state-machines/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/16-langgraph-state-machines/",
         "summary": "حلقة ReAct المكتوبة بخط اليد هي `while True`. حلقة ReAct المكتوبة بلغة LangGraph عبارة عن رسم بياني يمكنك التحقق منه ومقاطعته وتفرعه والسفر عبر الزمن. الوكيل لم يقم…",
         "keywords": "القوى العظمى الأربع · المخفضات هي النقطة · الرسم البياني ReAct في أربعة nodes · StateGraph vs Send (fanout) · الرسوم البيانية الفرعية · الخطوة 1: الحالة وnodes · الخطوة 2: التشغيل بخيط · الخطوة 3: إضافة مقاطعة بشرية في الحلقة · الخطوة 4: السفر عبر الزمن لتصحيح الأخطاء · الخطوة 5: مبادلة نقطة التفتيش بالإنتاج"
       },
@@ -2053,7 +2053,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/11-llm-engineering/17-agent-framework-tradeoffs/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/11-llm-engineering/17-agent-framework-tradeoffs/",
         "summary": "يبيع كل إطار نفس العرض التوضيحي (يقوم وكيل البحث بإنشاء تقرير) ويخفي نفس الخطأ (يحارب مخطط الحالة مع طبقة التنسيق). اختر الإطار الذي ملخصه...",
         "keywords": "ماذا يعني \"التجريد\" في الواقع · سؤال الحالة · سؤال التفرع · سؤال إمكانية الملاحظة · التكلفة وزمن الوصول · إمكانية التشغيل البيني"
       }
@@ -2070,7 +2070,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/01-vision-transformer-patch-tokens/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/01-vision-transformer-patch-tokens/",
         "summary": "قبل أي شيء متعدد الوسائط، يجب أن تصبح الصورة سلسلة من الرموز التي يمكن للمحول أن يأكلها. أجابت ورقة ViT لعام 2020 على هذا من خلال تصحيحات مقاس 16 × 16 بكسل، وإسقاط خطي، و...",
         "keywords": "التصحيحات كرموز مميزة · التضمينات الموضعية · رمز CLS المميز، والمخرجات المجمعة، ورموز التسجيل · التدريب المسبق: خاضع للإشراف، ومتباين، ومقنع، ومقطر ذاتيًا · قوانين القياس · عدد المعلمات لـ ViT · تكوين الإنتاج 2026"
       },
@@ -2079,7 +2079,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/02-clip-contrastive-pretraining/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/02-clip-contrastive-pretraining/",
         "summary": "أثبت OpenAI's CLIP (2021) فكرة واحدة كبيرة بما يكفي لتشغيل السنوات الخمس المقبلة: محاذاة برنامج تشفير الصور وبرنامج تشفير النص في نفس مساحة المتجهات باستخدام صورة الويب المزعجة فقط-...",
         "keywords": "التشفير المزدوج · فقدان InfoNCE · درجة الحرارة · لماذا المقاييس السيني أفضل (SigLIP) · تصنيف اللقطة الصفرية · المجسات الخطية والضبط الدقيق · SigLIP 2: NaFlex والميزات الكثيفة · ALIGN، BASIC، OpenCLIP، EVA-CLIP · سقف الطلقة الصفرية"
       },
@@ -2088,7 +2088,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/03-blip2-qformer-bridge/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/03-blip2-qformer-bridge/",
         "summary": "CLIP يقوم بمحاذاة الصورة والنص ولكن لا يمكنه إنشاء تسميات توضيحية أو الإجابة على الأسئلة أو إجراء محادثة. BLIP-2 (Salesforce, 2023) حل هذه المشكلة من خلال جسر صغير قابل للتدريب: 32 تعلمًا...",
         "keywords": "الاستعلامات القابلة للتعلم · الهندسة المعمارية · التدريب على مرحلتين · اقتصاديات المعلمات · InstructBLIP وQ-Former المدرك للتعليمات · MiniGPT-4 ونهج جهاز العرض فقط · لماذا أصبح LLaVA أكثر بساطة · الاهتمام المتبادل المسور: فلامنغو، الجد · أحفاد 2026"
       },
@@ -2097,7 +2097,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/04-flamingo-gated-cross-attention/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/04-flamingo-gated-cross-attention/",
         "summary": "DeepMind's Flamingo (2022) فعل شيئين قبل أي شخص آخر. لقد أظهر أن نموذجًا واحدًا يمكنه معالجة تسلسلات متداخلة بشكل تعسفي من الصور ومقاطع الفيديو والنصوص. و أظهرت…",
         "keywords": "LLM المجمدة · أداة إعادة تشكيل المتلقي · الانتباه المتبادل المسور · الانتباه المتبادل المقنع للمدخلات المتداخلة · التعلم في سياق اللقطات القليلة · بيانات التدريب · OpenFlamingo وOtter · الأحفاد · المقارنة بـ BLIP-2"
       },
@@ -2106,7 +2106,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/05-llava-visual-instruction-tuning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/05-llava-visual-instruction-tuning/",
         "summary": "LLaVA (أبريل 2023) هي البنية متعددة الوسائط الأكثر نسخًا على هذا الكوكب. لقد استبدلت Q-Former لـ BLIP-2 بطبقة MLP المكونة من طبقتين، واستبدلت الانتباه المتبادل لـ Flamingo بـ nai...",
         "keywords": "الهندسة المعمارية · المرحلة 1: محاذاة جهاز العرض · المرحلة 2: ضبط التعليمات المرئية · لماذا قام المجتمع بنسخ هذا · LLaVA-1.5 و LLaVA-NeXT · LLaVA-OneVision · المقارنة مع Q-Former · التنسيق الفوري · اقتصاد المعلمات"
       },
@@ -2115,7 +2115,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/06-any-resolution-patch-n-pack/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/06-any-resolution-patch-n-pack/",
         "summary": "الصور الحقيقية ليست مربعات 224×224. الإيصال هو 9:16، الرسم البياني هو 16:9، الفحص الطبي قد يكون 4096x4096، لقطة شاشة الهاتف المحمول هي 9:19.5. إجابة ما قبل 2024 VLM - قم بتغيير الحجم كل...",
         "keywords": "NaViT و patch-n'-pack · AnyRes (LLaVA-NeXT) · M-RoPE (Qwen2-VL) · NaFlex (SigLIP 2) · قناع التعبئة · ميزانيات الرموز المميزة"
       },
@@ -2124,7 +2124,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/07-open-weight-vlm-recipes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/07-open-weight-vlm-recipes/",
         "summary": "تُعد أدبيات VLM ذات الوزن المفتوح للفترة 2024-2026 عبارة عن غابة من جداول الاجتثاث. قام MM1 من Apple باختبار 13 مجموعة من برامج تشفير الصور والموصلات ومزيج البيانات. أثبت مولمو من Allen AI أنه...",
         "keywords": "مساحة التصميم ذات المحاور الخمسة · المحور 1: التشفير > الموصل · المحور 2: تصميم الموصل مغسول · المحور 3: حجم LLM يحدد السقف · المحور 4: البيانات - التسميات التوضيحية البشرية التفصيلية تغلب على التقطير · المحور 5: الدقة وجدولها الزمني · المقارنة المنشورية المتحكم فيها · منتقي لعام 2026"
       },
@@ -2133,7 +2133,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/08-llava-onevision-single-multi-video/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/08-llava-onevision-single-multi-video/",
         "summary": "قبل LLaVA-OneVision (لي وآخرون، أغسطس 2024) كان للعالم المفتوح VLM سلالات منفصلة: LLaVA-1.5 للصور الفردية، ونماذج الصور المتعددة مثل Mantis وVILA، ونماذج الفيديو مثل...",
         "keywords": "ميزانية رمز OneVision · المنهج المكون من ثلاث مراحل · لماذا ينجح المنهج · المهارات الناشئة عبر السيناريوهات · تجميع الرموز المرئية · LLaVA-OneVision-1.5 · التباين مع Qwen2.5-VL"
       },
@@ -2142,7 +2142,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/09-qwen-vl-family-dynamic-fps/",
         "summary": "عائلة Qwen-VL - Qwen-VL (2023)، Qwen2-VL (2024)، Qwen2.5-VL (2025)، Qwen3-VL (2025) - هي سلالة نموذج لغة الرؤية المفتوحة الأكثر تأثيرًا في عام 2026. كل جيل يصنع...",
         "keywords": "Qwen-VL (أغسطس 2023) · Qwen2-VL (سبتمبر 2024) - M-RoPE والدقة الأصلية · Qwen2.5-VL (فبراير 2025) - ديناميكي FPS + الوقت المطلق · Qwen3-VL (نوفمبر 2025) · M-RoPE رياضيًا · منطق أخذ العينات الديناميكي FPS · مخرجات الوكيل المنظم"
       },
@@ -2151,7 +2151,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/10-internvl3-native-multimodal/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/10-internvl3-native-multimodal/",
         "summary": "اتبع كل VLM مفتوح قبل InternVL3 نفس الوصفة المكونة من ثلاث خطوات: خذ نصًا LLM تم تدريبه على تريليونات من الرموز النصية، ثم قم بتثبيته على برنامج تشفير الرؤية، ثم قم بضبط اللحامات. ثي…",
         "keywords": "التدريب المسبق متعدد الوسائط الأصلي · V2PE (ترميز الموضع المرئي المتغير) · موجه الدقة المرئية (ViR) · نشر لغة الرؤية المنفصلة (DvD) · جودة المرحلة الواحدة مقابل الجودة متعددة المراحل · InternVL3.5 وInternVL-U · مقايضات التدريب المسبق الأصلي"
       },
@@ -2160,7 +2160,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/11-chameleon-early-fusion-tokens/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/11-chameleon-early-fusion-tokens/",
         "summary": "كل VLM رأيناه حتى الآن يفصل بين الصور والنصوص. تأتي الرموز المرئية من جهاز تشفير الرؤية، وتتدفق إلى جهاز العرض، ثم تقابل النص داخل LLM. الرؤية والنص...",
         "keywords": "VQ-VAE كمرمز للصور · المفردات المشتركة · إنشاء طريقة مختلطة · استقرار التدريب — QK- المعيار، التسرب، ترتيب LayerNorm · سقف إعادة بناء الرمز المميز · Chameleon vs BLIP-2 / LLaVA · Fuyu و AnyGPT"
       },
@@ -2169,7 +2169,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/12-emu3-next-token-for-generation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/12-emu3-next-token-for-generation/",
         "summary": "إن Emu3 الخاص بـ BAAI (وانغ وآخرون، سبتمبر 2024) هي نتيجة 2024 التي كان ينبغي أن تنهي جدل الانتشار مقابل الانحدار الذاتي. محول فك تشفير واحد فقط على طراز اللاما،...",
         "keywords": "رمز Emu3 · التدريب على خسارة واحدة · التوجيه ودرجة الحرارة بدون مصنف · ثلاثة أدوار، نموذج واحد · المعايير · حساب التكلفة · سبب أهمية ذلك"
       },
@@ -2178,7 +2178,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/13-transfusion-autoregressive-diffusion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/13-transfusion-autoregressive-diffusion/",
         "summary": "يراهن Chameleon وEmu3 بكل شيء على رموز منفصلة. لقد نجحوا، لكن عنق الزجاجة الكمي واضح - ثبات جودة الصورة تحت نماذج الانتشار في الفضاء المستمر.",
         "keywords": "بنية الخسارة الثنائية · قناع الانتباه: نص سببي + صورة ثنائية الاتجاه · فقدان الانتشار داخل المحول · MMDiT: متغير Stable Diffusion 3 · لماذا يتفوق هذا على أسلوب Chameleon · ما الذي يقع في اتجاه مجرى النهر"
       },
@@ -2187,7 +2187,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/14-show-o-discrete-diffusion-unified/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/14-show-o-discrete-diffusion-unified/",
         "summary": "يمزج نقل الدم بين التمثيلات المستمرة والمنفصلة. يذهب Show-o (Xie et al.، أغسطس 2024) في الاتجاه الآخر: تستخدم الرموز النصية التنبؤ السببي للرمز التالي، وتستخدم الرموز المميزة للصور...",
         "keywords": "الانتشار المنفصل المقنع (MaskGIT) · Show-o: محول واحد، قناع هجين · أخذ عينات متوازية · المهام في نقطة تفتيش واحدة · جدول الأقنعة · Show-o2 · مكان تواجد Show-o"
       },
@@ -2196,7 +2196,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/15-janus-pro-decoupled-encoders/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/15-janus-pro-decoupled-encoders/",
         "summary": "نماذج الوسائط المتعددة الموحدة لديها توتر لا مفر منه. يتطلب الفهم ميزات دلالية - متجهات إخراج SigLIP أو DINOv2 غنية بالمعلومات على مستوى المفهوم. جيل وا…",
         "keywords": "التشفير المرئي المنفصل · لماذا يعمل هذا · قياس البيانات — Janus vs Janus-Pro · JanusFlow — متغير التدفق المصحح · وظيفة الجسم المشترك · مقارنة بـ InternVL-U · القيود"
       },
@@ -2205,7 +2205,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/16-mio-any-to-any-streaming/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/16-mio-any-to-any-streaming/",
         "summary": "GPT-4o يشحن منتجًا لا يمكن لمعظم النماذج المفتوحة تكراره: وكيل يسمع الصوت، ويرى الفيديو، ويتحدث مرة أخرى في الوقت الفعلي. كانت إجابة النظام البيئي المفتوح بحلول أواخر عام 2024 هي MIO (وا...",
         "keywords": "أربعة رموز مميزة لأربع طرائق · فك تشفير البث · منهج من أربع مراحل · سلسلة من الأفكار المرئية · المنافسون في أي شيء إلى أي شخص · ميزانية الكمون · لماذا يظل أي شيء إلى أي شيء صعبًا"
       },
@@ -2214,7 +2214,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/17-video-language-temporal-grounding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/17-video-language-temporal-grounding/",
         "summary": "الفيديو ليس كومة من الصور. يحتوي مقطع مدته 5 ثوانٍ على ترتيب سببي وأفعال حركة وتوقيت حدث لا يمكن لنموذج الصورة تمثيله. فيديو-LLaMA (Zhang et al.، يونيو 2023)…",
         "keywords": "Video-LLaMA: Q-former لكل مقطع + فرع صوتي · VideoChat وVideo-LLaVA · Qwen2.5-VL وTMRoPE · استراتيجيات أخذ عينات الإطار · التجميع لكل إطار · معايير الفيديو الأربعة · تنسيقات إخراج التأريض · أفضل الممارسات لعام 2026"
       },
@@ -2223,7 +2223,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/18-long-video-million-token/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/18-long-video-million-token/",
         "summary": "فيديو بدقة 4K مدته ساعة واحدة في 24 FPS، مصحح ومدمج، ينتج ما يصل إلى 60 مليون رمز مميز. تبلغ تكلفة حلقة البودكاست المكتوبة لمدة ساعتين 30000 رمزًا. فيلم روائي كامل بلو راي…",
         "keywords": "المسار 1: السياق الغاضب (Gemini 1.5, Claude Opus) · المسار 2: الانتباه الدائري (LWM, LongVILA) · المسار 3: ضغط الرمز المميز (Video-XL, LongVA) · المسار 4: الاسترجاع الوكيل (VideoAgent) · معايير إبرة في كومة قش · أي مسار يجب اختياره · نمط الإنتاج 2026"
       },
@@ -2232,7 +2232,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/19-audio-language-whisper-to-af3/",
         "summary": "نجح Whisper (Radford et al.، ديسمبر 2022) في التعرف على الكلام - 680 ألف ساعة من الكلام متعدد اللغات الخاضع للإشراف الضعيف، وهو محول بسيط لوحدة تشفير وفك تشفير، وهو معيار...",
         "keywords": "مخطط Log-Mel الطيفي: ميزة الإدخال · جهاز تشفير Whisper · BEATs وأجهزة تشفير خاصة بالصوت · Audio Q-former · القوس — SALMONN، Qwen-Audio، AF3 · متتالي مقابل نهاية إلى نهاية · وصفة إنتاج 2026 · MMAU — معيار الاستدلال الصوتي"
       },
@@ -2241,7 +2241,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/20-omni-models-thinker-talker/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/20-omni-models-thinker-talker/",
         "summary": "كان العرض التوضيحي لمنتج GPT-4o في مايو 2024 مدمرًا ليس بسبب النموذج الأساسي ولكن بسبب شكل المنتج - واجهة صوتية حيث تتحدث، ويرى النموذج ما...",
         "keywords": "المفكر والمتحدث · TMRoPE — أوضاع الوسائط المتعددة المتوافقة مع الوقت · تركيب الكلام المتدفق · VAD وأخذ الأدوار · Qwen3-Omni (نوفمبر 2025) · ميزانية زمن الوصول للإنتاج · رياضيات معدل الرمز المميز"
       },
@@ -2250,7 +2250,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/21-embodied-vlas-openvla-pi0-groot/",
         "summary": "المرة الأولى التي قرأ فيها أحد النماذج وصفة من موقع ويب وقام بتنفيذها في روبوت المطبخ كانت RT-2 (Google DeepMind، يوليو 2023). RT-2 إجراءات منفصلة كرموز نصية، وضبط مشترك...",
         "keywords": "ترميز الإجراء (RT-2) · OpenVLA — مرجع 7B المفتوح · FAST رمز مميز — فك تشفير الإجراء بشكل أسرع · π0 وإجراءات مطابقة التدفق · GR00T N1 — نظام مزدوج للكائنات البشرية · Open X-Embodiment · الضبط الدقيق المشترك مقابل الروبوت فقط · حدود الأمان والإجراء"
       },
@@ -2259,7 +2259,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/22-document-diagram-understanding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/22-document-diagram-understanding/",
         "summary": "الوثائق ليست صور. يحتوي PDF أو الورقة العلمية أو الفاتورة أو النموذج المكتوب بخط اليد على تخطيط وجداول ورسوم بيانية وحواشي سفلية ورؤوس وبنية دلالية تفهمها الصورة البسيطة...",
         "keywords": "العصر 1 - OCR pipeline (ما قبل 2021) · TrOCR (2021) · العصر 2 — OCR-مجاني (2022-2023) · LayoutLMv3 (2022) · DocLLM (2023) · العصر 3 — VLM- أصلي (2024+) · كلود 4.7 / GPT-5 الحدود · المعادلات الرياضية ومخرجات LaTeX · الكتابة اليدوية · وصفة 2026"
       },
@@ -2268,7 +2268,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/23-colpali-vision-native-rag/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/23-colpali-vision-native-rag/",
         "summary": "يقوم RAG التقليدي بتحليل ملفات PDF إلى نص، وتقسيمها إلى أجزاء، وتضمين الأجزاء، وتخزين المتجهات. تفقد كل خطوة إشارة: OCR يسقط بيانات المخطط، ويكسر التجزئة صفوف الجدول، ويدمج النص...",
         "keywords": "ColBERT (2020) · ColPali · ColQwen2 وColSmol · VisRAG · M3DocRAG · ViDoRe - المعيار · النهاية إلى النهاية RAG pipeline · رياضيات التخزين · عندما يظل النص RAG يفوز"
       },
@@ -2277,7 +2277,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/24-multimodal-rag-cross-modal/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/24-multimodal-rag-cross-modal/",
         "summary": "وثيقة الرؤية الأصلية RAG عبارة عن شريحة واحدة. أصبح الإنتاج المتعدد الوسائط RAG أوسع نطاقًا - حيث يتم استرجاع النصوص والصور والصوت والفيديو لعمليات سير العمل مثل تخطيط الرحلات (\"ابحث عن سؤال...",
         "keywords": "الاسترجاع عبر الوسائط · استراتيجيات الدمج · تأسيس الجيل · مسوحات 2025 · MuRAG - الورقة التأسيسية · مثال على مخطط رحلة الإنتاج · الوسائط المتعددة الوكيلة RAG · التقييم"
       },
@@ -2286,7 +2286,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/12-multimodal-ai/25-multimodal-agents-computer-use/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/12-multimodal-ai/25-multimodal-agents-computer-use/",
         "summary": "المنتج الحدودي 2026 هو وكيل متعدد الوسائط يقرأ لقطات الشاشة، وينقر على الأزرار، ويتنقل عبر واجهات مستخدم الويب، ويملأ النماذج، ويكمل سير العمل من البداية إلى النهاية. SeeClick وCogAgent…",
         "keywords": "GUI التأريض - البدائي · مخططات العمل · لقطة الشاشة فقط مقابل شجرة إمكانية الوصول · الذاكرة طويلة الأفق · استخدام الأداة المرئية · معايير 2026 · لماذا لا يزال الأمر صعبًا · البناء النهائي"
       }
@@ -2303,7 +2303,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/01-the-tool-interface/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/01-the-tool-interface/",
         "summary": "نموذج اللغة ينتج الرموز. برنامج يتخذ الإجراءات. الفجوة بين هذين الاثنين هي واجهة الأداة: عقد يسمح للنموذج بطلب إجراء ويقوم المضيف بتنفيذه...",
         "keywords": "الخطوة الأولى: الوصف · الخطوة الثانية: اتخاذ القرار · الخطوة الثالثة: التنفيذ · الخطوة الرابعة: الملاحظة · انقسام الثقة · أين تعيش الحلقة · لماذا لا نطالب النموذج بإصدار JSON فقط؟ · قواطع الدائرة · من أين تبدأ المرحلة 13 من هنا"
       },
@@ -2312,7 +2312,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/02-function-calling-deep-dive/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/02-function-calling-deep-dive/",
         "summary": "وقد تقارب مقدمو الخدمات الحدوديون الثلاثة على نفس حلقة استدعاء الأدوات في عام 2024 ثم تباعدوا في كل شيء آخر. OpenAI يستخدم `tools` و`tool_calls`. يستخدم الأنثروبي `tool_use` أ...",
         "keywords": "البنية المشتركة · اختلافات الشكل، مجال تلو الآخر · الحدود التي ستصل إليها فعليًا · `tool_choice` السلوك · المكالمات المتوازية · البث · الأخطاء والإصلاح · نمط المترجم"
       },
@@ -2321,7 +2321,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/03-parallel-and-streaming-tool-calls/",
         "summary": "ثلاث عمليات بحث مستقلة عن الطقس متسلسلة هي ثلاث رحلات ذهابًا وإيابًا. قم بتشغيلها بالتوازي وينهار الوقت الإجمالي إلى أبطأ مكالمة فردية. يقوم كل مزود حدودي الآن بإصدار…",
         "keywords": "تمكين التوازي · ارتباط المعرف · تشغيل المكالمات بشكل متزامن · استدعاءات أداة البث · JSON الجزئي ومصيدة التحليل المبكر · الإكمال خارج الترتيب · المعيار: متسلسل مقابل متوازي · ساعة حائط متدفقة للخارج"
       },
@@ -2330,7 +2330,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/04-structured-output/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/04-structured-output/",
         "summary": "\"اطلب من النموذج بلطف إرجاع JSON\" يفشل بنسبة 5 إلى 15 بالمائة من الوقت، حتى في النماذج الرائدة. تقوم المخرجات المنظمة بإغلاق هذه الفجوة من خلال فك تشفير مقيد: النموذج لتر...",
         "keywords": "JSON مخطط 2020-12 — اللغة المشتركة · Pydantic، ربط Python · Zod، ربط TypeScript · الرفض · فك التشفير المقيد في العلن · أوضاع الفشل الثلاثة · استراتيجية إعادة المحاولة · دعم النماذج الصغيرة"
       },
@@ -2339,7 +2339,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/05-tool-schema-design/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/05-tool-schema-design/",
         "summary": "تفشل الأداة الصحيحة بصمت عندما لا يستطيع النموذج معرفة متى يجب استخدامها. تؤدي التسمية والأوصاف وأشكال المعلمات إلى تأرجح يتراوح بين 10 إلى 20 نقطة مئوية في دقة اختيار الأداة...",
         "keywords": "قواعد التسمية · نمط الوصف · الذرية مقابل المتجانسة · تصميم المعلمة · رسائل الخطأ كإشارات تعليمية · الإصدار · منع تسمم الأدوات · المعايير"
       },
@@ -2348,7 +2348,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/06-mcp-fundamentals/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/06-mcp-fundamentals/",
         "summary": "كل عملية تكامل قبل MCP كانت لمرة واحدة. بروتوكول السياق النموذجي، الذي تم شحنه لأول مرة بواسطة Anthropic في نوفمبر 2024 ويشرف عليه الآن وكيل مؤسسة Linux AI Founda...",
         "keywords": "ثلاثة أساسيات للخادم · ثلاثة أساسيات للعميل · تنسيق السلك: JSON-RPC 2.0 · دورة حياة ثلاثية الطور · تفاوض القدرة · المحتوى المنظم وأشكال الأخطاء · قدرات العميل مقابل تفاصيل استدعاء الأداة · لماذا JSON-RPC وليس REST؟"
       },
@@ -2357,7 +2357,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/07-building-an-mcp-server/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/07-building-an-mcp-server/",
         "summary": "تعرض معظم البرامج التعليمية MCP فقط عوالم hello-worlds الخاصة بـ stdio. يكشف الخادم الحقيقي عن الأدوات بالإضافة إلى الموارد بالإضافة إلى المطالبات، ويتعامل مع التفاوض بشأن الإمكانيات، ويصدر أخطاء منظمة، ويعمل...",
         "keywords": "حلقة الإرسال · تنفيذ `initialize` · تنفيذ `tools/list` و `tools/call` · تنفيذ الموارد · تنفيذ المطالبات · تفاصيل نقل Stdio · التعليقات التوضيحية · مسار التخرج"
       },
@@ -2366,7 +2366,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/08-building-an-mcp-client/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/08-building-an-mcp-client/",
         "summary": "معظم محتوى MCP يشحن دروسًا تعليمية للخادم ويلوح بيده للعميل. رمز العميل هو المكان الذي تعيش فيه عملية التنسيق الصعبة: إنتاج العملية، والتفاوض على القدرات، وقائمة الأدوات...",
         "keywords": "إنتاج عملية فرعية · حالة جلسة لكل خادم · مساحة الاسم المدمجة · التوجيه · رد اتصال أخذ العينات · معالجة الإشعارات · إعادة الاتصال · Keepalive ومعرف الجلسة"
       },
@@ -2375,7 +2375,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/09-mcp-transports/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/09-mcp-transports/",
         "summary": "يعمل stdio محليًا وليس في أي مكان آخر. الدفق HTTP (2025-03-26) هو المعيار البعيد. تم إيقاف وسيلة النقل HTTP+SSE القديمة وستتم إزالتها في منتصف عام 2026. اختيار الكتاب…",
         "keywords": "stdio · قابل للبث HTTP · نقطة نهاية واحدة مقابل نقطتين · التحقق من صحة `Origin` وإعادة الربط DNS · دورة حياة معرف الجلسة · البقاء على قيد الحياة وإعادة الاتصال · مسبار التوافق مع الإصدارات السابقة · Cloudflare وngrok والاستضافة · تكوين البوابة · أوضاع فشل النقل · متى يتم تجاوز Streamable HTTP"
       },
@@ -2384,7 +2384,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/10-mcp-resources-and-prompts/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/10-mcp-resources-and-prompts/",
         "summary": "تحظى الأدوات بنسبة 90 بالمائة من الاهتمام MCP. تعمل البدائيتان الأخريان على حل مشكلات مختلفة. تعرض الموارد البيانات للقراءة؛ تعرض المطالبات القوالب القابلة لإعادة الاستخدام كخطوط مائلة...",
         "keywords": "الأدوات مقابل الموارد مقابل المطالبات - قاعدة القرار · الموارد · اشتراكات الموارد · قوالب الموارد (إضافة 25/11/2025) · المطالبات · المضيفون والمطالبات · إشعار “تم تغيير القائمة” · اصطلاحات نوع المحتوى · الموارد الديناميكية · الاشتراكات مقابل الاقتراع · المطالبات مقابل مطالبات النظام"
       },
@@ -2393,7 +2393,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/11-mcp-sampling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/11-mcp-sampling/",
         "summary": "معظم خوادم MCP عبارة عن منفذين أغبياء: يأخذون الوسائط، ويشغلون التعليمات البرمجية، ويعيدون المحتوى. يتيح أخذ العينات للخادم تغيير الاتجاه: فهو يطلب من العميل اتخاذ قرار من LLM إلى make. وهذا يتيح ق…",
         "keywords": "`sampling/createMessage` طلب · `modelPreferences` · `includeContext` · أخذ العينات باستخدام الأدوات (SEP-1577) · الإنسان في الحلقة · الحلقات التي يستضيفها الخادم بدون مفاتيح API · مخاطر السلامة (كشف الوحدة 42، 2026 Q1)"
       },
@@ -2402,7 +2402,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/12-mcp-roots-and-elicitation/",
         "summary": "تنقطع المسارات المشفرة في اللحظة التي يفتح فيها المستخدم مشروعًا مختلفًا. تنقطع وسيطات الأداة المعبأة مسبقًا عندما يقوم المستخدم بالتحديد بشكل أقل. تقوم الجذور بنطاق الخادم إلى نظام يتحكم فيه المستخدم...",
         "keywords": "الجذور · لماذا تكون الجذور بدائية · الاستنباط: وضع النموذج الافتراضي · الاستنباط: وضع URL (SEP-1036، تجريبي) · عندما يكون الاستنباط هو الأداة الصحيحة · عندما يكون الاستنباط خاطئًا · جسر الإنسان في الحلقة"
       },
@@ -2411,7 +2411,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/13-mcp-async-tasks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/13-mcp-async-tasks/",
         "summary": "يستغرق عمل الوكيل الحقيقي دقائق إلى ساعات: CI تشغيل، وتوليف بحثي عميق، وتصدير الدفعات. تقوم استدعاءات الأداة المتزامنة بإسقاط الاتصالات أو انتهاء المهلة أو حظر UI. SEP-1686، مدمج في …",
         "keywords": "زيادة المهام · الاشتراك لكل أداة · الحالات · الأساليب · تغييرات حالة التدفق · الحالة الدائمة · دلالات الإلغاء · التعافي من الأعطال · المهام غير المتزامنة بالإضافة إلى أخذ العينات · لماذا يعد هذا تجريبيًا"
       },
@@ -2420,7 +2420,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/14-mcp-apps/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/14-mcp-apps/",
         "summary": "تحدد مخرجات أداة النص فقط ما يمكن للوكلاء عرضه. MCP التطبيقات (SEP-1724، رسميًا في 26 يناير 2026) تسمح للأداة بإرجاع تفاعلي في وضع الحماية HTML الذي تم عرضه مضمنًا في Claude Desktop، C...",
         "keywords": "نظام موارد `ui://` · وضع الحماية Iframe · بروتوكول postMessage · الأذونات · المخاطر الأمنية · `ui/initialize` المصافحة · AppRenderer / AppFrame SDK البدائيات · حالة النظام البيئي"
       },
@@ -2429,7 +2429,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/15-mcp-security-tool-poisoning/",
         "summary": "تقع أوصاف الأداة في سياق النموذج حرفيًا. تقوم الخوادم الضارة بتضمين تعليمات مخفية لا يراها المستخدمون أبدًا. أبحاث في 2025-2026 من Invariant Labs، الوحدة 42، و…",
         "keywords": "الهجوم 1: تسميم الأدوات · الهجوم 2: سحب البساط · الهجوم 3: تظليل الأدوات عبر الخادم · الهجوم 4: MCP هجمات التلاعب بالتفضيلات (MPMA) · الهجوم 5: سلاسل الأدوات الطفيلية · الهجوم 6: هجمات أخذ العينات · الهجوم 7: تنكر سلسلة التوريد · قاعدة الاثنين (ميتا، 2026) · الدفاعات التي تعمل · الدفاعات التي لا تعمل العمل وحده"
       },
@@ -2438,7 +2438,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/16-mcp-security-oauth-2-1/",
         "summary": "تحتاج خوادم MCP البعيدة إلى ترخيص، وليس فقط المصادقة. تتوافق مواصفات 25-11-2025 مع OAuth 2.1 + PKCE + مؤشرات الموارد (RFC 8707) + البيانات التعريفية للموارد المحمية (...",
         "keywords": "الأدوار · رمز التفويض + PKCE · البيانات الوصفية للموارد المحمية (RFC 9728) · مؤشرات الموارد (RFC 8707) · نموذج النطاق · التفويض التصاعدي (SEP-835) · التحقق من صحة جمهور الرمز المميز · الرموز المميزة قصيرة العمر والتناوب · لا يوجد عبور رمزي · منع نائب مرتبك · اكتشاف العميل ID · البوابات و OAuth"
       },
@@ -2447,7 +2447,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/17-mcp-gateways-and-registries/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/17-mcp-gateways-and-registries/",
         "summary": "لا يمكن للمؤسسات السماح لكل مطور بتثبيت خوادم MCP عشوائية. تعمل البوابة على مركزية المصادقة، RBAC، والتدقيق، وتحديد المعدل، والتخزين المؤقت، والكشف عن تسمم الأدوات، ثم الكشف عن عمليات الدمج...",
         "keywords": "خمس مسؤوليات للبوابة · البوابة كنقطة نهاية واحدة · قبو بيانات الاعتماد · تثبيت تجزئة الأداة عند البوابة · السياسة كرمز · التوجيه المدرك للجلسة · دمج مساحة الاسم · السجلات · عكس-DNS التسمية · استطلاع البائع، أبريل 2026"
       },
@@ -2456,7 +2456,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/18-mcp-auth-production/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/18-mcp-auth-production/",
         "summary": "الدرس 16 يقف على آلة حالة OAuth 2.1 في الذاكرة. بحلول عام 2026، سيكون كل خادم MCP تقوم بشحنه إلى مؤسسة حقيقية خلف مصادقة الإنتاج: تسجيل العميل الديناميكي (RFC 7591)، و...",
         "keywords": "RFC 8414 — بيانات تعريف خادم ترخيص OAuth · RFC 9728 (ملخص) — بيانات تعريف الموارد المحمية · RFC 7591 — تسجيل العميل الديناميكي · RFC 8707 (ملخص) — مؤشرات الموارد · RFC 7636 (ملخص) — PKCE · MCP المواصفات 25-11-2025 ملف تعريف المصادقة · مصفوفة قدرة موفر الهوية (IdP) · JWKS نمط التناوب مع iii · iii الأسلاك البدائية (الجزء الذي يدور حوله هذا الدرس فعليًا) · إرشادات نائب مرتبك مع ربط الجمهور · أوضاع الفشل"
       },
@@ -2465,7 +2465,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/19-a2a-protocol/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/19-a2a-protocol/",
         "summary": "MCP هو وكيل إلى أداة. A2A (Agent2Agent) هو وكيل إلى وكيل — وهو بروتوكول مفتوح للسماح للوكلاء غير الشفافين المبنيين على أطر عمل مختلفة بالتعاون. تم إصداره بواسطة Google في أبريل 202...",
         "keywords": "بطاقة الوكيل · بطاقات الوكيل الموقعة (AP2) · دورة حياة المهمة · الرسائل والأجزاء · المصنوعات · رابطي نقل · الحفاظ على العتامة · الجدول الزمني · العلاقة بـ MCP"
       },
@@ -2474,7 +2474,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/20-opentelemetry-genai/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/20-opentelemetry-genai/",
         "summary": "يستدعي الوكيل خمس أدوات وثلاثة خوادم MCP ووكيلين فرعيين. أنت بحاجة إلى أثر واحد عبر كل ذلك. الاصطلاحات الدلالية OpenTelemetry GenAI (السمات الثابتة في الإصدار 1.37 أ...",
         "keywords": "التسلسل الهرمي للامتداد · السمات المطلوبة · أنواع الامتداد · التقاط محتوى الاشتراك · الأحداث على الامتدادات · المصدرون · الانتشار عبر MCP · المقاييس · طبقة AgentOps"
       },
@@ -2483,7 +2483,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/21-llm-routing-layer/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/21-llm-routing-layer/",
         "summary": "قفل الموفر مكلف. تناسب أعباء عمل استدعاء الأدوات المختلفة نماذج مختلفة. توفر بوابات التوجيه سطحًا واحدًا API وإعادة المحاولة وتجاوز الفشل وتتبع التكلفة وحواجز الحماية. ت…",
         "keywords": "OpenAI-شكل وكيل متوافق · الأسماء المستعارة للنموذج · السلاسل الاحتياطية · التخزين المؤقت الدلالي · الدرابزين · حدود معدل كل مفتاح · الاستضافة الذاتية مقابل المفاضلات المُدارة · تتبع التكلفة · MCP بالإضافة إلى التوجيه · استراتيجيات التوجيه"
       },
@@ -2492,7 +2492,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/22-skills-and-agent-sdks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/22-skills-and-agent-sdks/",
         "summary": "MCP يقول \"ما هي الأدوات الموجودة؟\" المهارات تقول \"كيفية القيام بالمهمة\". طبقات المكدس 2026 كلاهما. يتم شحن مهارات وكيل Anthropic (المعيار المفتوح، ديسمبر 2025) باسم SKILL.md مع…",
         "keywords": "AGENTS.md (agents.md) · تنسيق SKILL.md · الكشف التدريجي · اكتشاف نظام الملفات · Anthropic Claude Agent SDK · OpenAI التطبيقات SDK · إمكانية النقل عبر الوكلاء عبر SkillKit · المكدس المكون من ثلاث طبقات"
       },
@@ -2501,7 +2501,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/13-tools-and-protocols/23-capstone-tool-ecosystem/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/13-tools-and-protocols/23-capstone-tool-ecosystem/",
         "summary": "المرحلة 13 تدرس كل قطعة. يربطهم هذا الهدف في نظام واحد على شكل إنتاج: خادم MCP مزود بأدوات + موارد + مطالبات + مهام + UI، OAuth 2.1 على الحافة، وR...",
         "keywords": "الهندسة المعمارية · تتبع التسلسل الهرمي · الوضع الأمني ​​· العرض · التغليف · ما ساهم به كل درس من دروس المرحلة 13"
       }
@@ -2518,7 +2518,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/01-the-agent-loop/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/01-the-agent-loop/",
         "summary": "كل وكيل في عام 2026 - Claude Code، وCursor، وDevin، وOperator - هو نسخة مختلفة من حلقة ReAct اعتبارًا من عام 2022. تتداخل الرموز المميزة للاستدلال مع استدعاءات الأداة وملاحظاتها حتى تتوقف...",
         "keywords": "رد الفعل: التنسيق الأساسي · التحول في عام 2026: الاستدلال الأصلي · المكونات الخمسة · لماذا توجد هذه الحلقة في كل مكان · مخاطر 2026"
       },
@@ -2527,7 +2527,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/02-rewoo-plan-and-execute/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/02-rewoo-plan-and-execute/",
         "summary": "ReAct يدمج الفكر والعمل في تيار واحد. يفصل ReWOO بينهما: خطة واحدة كبيرة مقدمًا، ثم تنفيذها. رموز أقل بـ 5 مرات، ودقة +4% على HotpotQA، ويمكنك استخلاص...",
         "keywords": "الأدوار الثلاثة · لماذا 5x أقل من الرموز · لماذا هو أكثر قوة · التقطير المخطط · التخطيط والتنفيذ (LangChain، 2023) · التخطيط والتنفيذ (Erdogan et al., arXiv:2503.09572, ICML 2025) · متى تختار أي منها"
       },
@@ -2536,7 +2536,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/03-reflexion-verbal-rl/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/03-reflexion-verbal-rl/",
         "summary": "يحتاج RL القائم على التدرج إلى آلاف التجارب ومجموعة GPU لإصلاح وضع الفشل. الانعكاس (Shinn et al., NeurIPS 2023) يفعل ذلك باللغة الطبيعية: بعد كل تجربة فاشلة،...",
         "keywords": "المكونات الثلاثة · ثلاثة أنواع من المقيم · لماذا يعمم · متى يعمل ومتى لا يعمل"
       },
@@ -2545,7 +2545,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/04-tree-of-thoughts-lats/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/04-tree-of-thoughts-lats/",
         "summary": "ولا يوجد مجال للتراجع في مسار سلسلة فكرية واحدة. يقوم تدريب المدربين (Yao et al., 2023) بتحويل التفكير إلى شجرة ذات تقييم ذاتي في كل node. LATS (تشو وآخرون، 2024) يوني…",
         "keywords": "شجرة الأفكار (Yao et al., NeurIPS 2023) · LATS (Zhou et al., ICML 2024) · MCTS، الحد الأدنى · واقع التكلفة · تحديد المواقع في 2026"
       },
@@ -2554,7 +2554,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/05-self-refine-and-critic/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/05-self-refine-and-critic/",
         "summary": "يستخدم التحسين الذاتي (Madaan et al., 2023) واحدًا LLM في ثلاثة أدوار - التوليد والتغذية الراجعة والتحسين - في حلقة. متوسط ​​الربح: +20 مطلق في 7 مهام. CRITIC (جو وآخرون، 2023) تشدد …",
         "keywords": "التحسين الذاتي (Madaan et al., NeurIPS 2023) · CRITIC (Gou et al., arXiv:2305.11738, v4 فبراير 2024) · شرط التوقف · Evaluator-Optimizer (Anthropic, 2024) · OpenAI الوكلاء SDK حواجز حماية الإخراج · مخاطر 2026"
       },
@@ -2563,7 +2563,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/06-tool-use-and-function-calling/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/06-tool-use-and-function-calling/",
         "summary": "بدأ Toolformer (Schick et al., 2023) في شرح أداة الإشراف الذاتي. لوحة صدارة استدعاء الوظائف في بيركلي V4 (باتيل وآخرون، 2025) تحدد شريط 2026: 40% وكيل، 30% متعدد...",
         "keywords": "Toolformer (Schick et al., NeurIPS 2023) · لوحة صدارة استدعاء الوظائف في بيركلي V4 (باتيل وآخرون، ICML 2025) · مخطط الأداة · التحقق من صحة الوسيطة · استدعاءات الأداة المتوازية · وضع الحماية"
       },
@@ -2572,7 +2572,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/07-memory-virtual-context-memgpt/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/07-memory-virtual-context-memgpt/",
         "summary": "نوافذ السياق محدودة. المحادثات والمستندات وآثار الأدوات ليست كذلك. يقوم MemGPT (Packer et al., 2023) بتأطير هذا على أنه OS الذاكرة الافتراضية - السياق الرئيسي هو RAM، المخزن الخارجي...",
         "keywords": "MemGPT: تشبيه OS · مستويين · نمط المقاطعة · حيث ينتهي MemGPT ويبدأ Letta · حيث يسوء هذا النمط"
       },
@@ -2581,7 +2581,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/",
         "summary": "أصبح MemGPT Letta في عام 2024. ويضيف تطور 2026 فكرتين: كتل الذاكرة الوظيفية المنفصلة التي يمكن للنموذج تحريرها مباشرة، وعامل وقت النوم الذي يدمج الذاكرة ك...",
         "keywords": "ثلاثة مستويات · كتل الذاكرة · حساب وقت النوم · Letta V1 والتفكير الأصلي · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2590,7 +2590,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/09-hybrid-memory-mem0/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/09-hybrid-memory-mem0/",
         "summary": "يتعامل Mem0 (Chhikara et al., 2025) مع الذاكرة على أنها ثلاثة مخازن متوازية - ناقل للتشابه الدلالي، KV للبحث السريع عن الحقائق، رسم بياني لاستدلال العلاقة بين الكيان. درجة…",
         "keywords": "ثلاثة متاجر متوازية · تسجيل الدمج · Mem0g والتفكير الزمني · الأرقام المعيارية · تصنيف النطاق · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2599,7 +2599,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/10-skill-libraries-voyager/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/10-skill-libraries-voyager/",
         "summary": "يتعامل Voyager (Wang et al., TMLR 2024) مع التعليمات البرمجية القابلة للتنفيذ كمهارة. يتم تسمية المهارات وإمكانية استرجاعها وتركيبها وصقلها من خلال ردود الفعل البيئية. هذا هو المعماري المرجعي…",
         "keywords": "ثلاثة مكونات · مساحة العمل = الكود · استرجاع المهارات · التحسين التكراري · المنهج والاستكشاف · أين يسير هذا النمط بشكل خاطئ"
       },
@@ -2608,7 +2608,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/11-planning-htn-and-evolutionary/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/11-planning-htn-and-evolutionary/",
         "summary": "يتعامل التخطيط الرمزي مع الحالات التي تكون فيها الخطة صحيحة. يتعامل البحث التطوري عن الكود مع الحالات التي تكون فيها وظيفة اللياقة البدنية قابلة للتحقق آليًا. ChatHTN (2025…",
         "keywords": "شبكات المهام الهرمية · ChatHTN (Gopalakrishnan et al., 2025) · AlphaEvolve (Novikov et al., 2025) · متى يتم استخدام أي منها · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2617,7 +2617,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/12-anthropic-workflow-patterns/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/12-anthropic-workflow-patterns/",
         "summary": "يميز Schluntz وZhang (Anthropic، ديسمبر 2024) بين سير العمل (المسارات المحددة مسبقًا) والوكلاء (الاستخدام الديناميكي للأداة). خمسة أنماط لسير العمل تغطي معظم الحالات. ابدأ بالـ API المباشر...",
         "keywords": "مسارات العمل مقابل الوكلاء · LLM المعزز · الأنماط الخمسة · حيث يتفوق سير العمل على الوكلاء · حيث يتفوق الوكلاء على سير العمل · رفيق هندسة السياق"
       },
@@ -2626,7 +2626,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/13-langgraph-stateful-graphs/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/13-langgraph-stateful-graphs/",
         "summary": "LangGraph هو مرجع 2026 لتنسيق الحالة منخفض المستوى. الوكيل هو آلة الدولة. nodes هي وظائف؛ الحواف هي التحولات. الدولة غير قابلة للتغيير ونقاط التفتيش...",
         "keywords": "الرسم البياني · التنفيذ الدائم · التدفق · الإنسان في الحلقة · الذاكرة · ثلاثة طبولوجيا · أين يخطئ هذا النمط"
       },
@@ -2635,7 +2635,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/14-autogen-actor-model/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/14-autogen-actor-model/",
         "summary": "أعاد AutoGen v0.4 (أبحاث Microsoft، يناير 2025) تصميم تنسيق الوكيل حول نموذج الممثل. تبادل الرسائل غير المتزامنة، والوكلاء الموجهون بالأحداث، وعزل الأخطاء، والتوافق الطبيعي...",
         "keywords": "الممثلون · ثلاث طبقات API في AutoGen v0.4 · سبب أهمية الفصل · الهيكليات · إمكانية الملاحظة · الحالة: وضع الصيانة"
       },
@@ -2644,7 +2644,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/15-crewai-role-based-crews/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/15-crewai-role-based-crews/",
         "summary": "CrewAI هو إطار عمل متعدد الوكلاء قائم على الأدوار لعام 2026. أربعة أساسيات: الوكيل، المهمة، الطاقم، العملية. شكلان من المستوى الأعلى: الأطقم (التعاون المستقل القائم على الأدوار) والتدفقات (مثل...",
         "keywords": "أربعة أساسيات · متسلسل مقابل هرمي مقابل الإجماع · الأطقم مقابل التدفقات · تكامل الأدوات · خطافات الذاكرة · عندما يناسب CrewAI · عندما لا يتناسب CrewAI · شكل التبعية · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2653,7 +2653,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/16-openai-agents-sdk/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/16-openai-agents-sdk/",
         "summary": "OpenAI الوكلاء SDK هو إطار عمل متعدد الوكلاء خفيف الوزن مبني على الردود API. خمسة أساسيات: الوكيل، التسليم، الدرابزين، الجلسة، التتبع. Handoffs هي أدوات تسمى `tr...",
         "keywords": "البدائيات الخمسة · عمليات التسليم كأدوات · الدرابزين · التتبع · الجلسات · أين يسوء هذا النمط"
       },
@@ -2662,7 +2662,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/17-claude-agent-sdk/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/17-claude-agent-sdk/",
         "summary": "وكيل Claude SDK هو نموذج المكتبة الخاص بأداة Claude Code. الأدوات المضمنة، والوكلاء الفرعيون لعزل السياق، والخطافات، ونشر التتبع W3C، وتكافؤ مخزن الجلسة. كلود…",
         "keywords": "العميل SDK مقابل الوكيل SDK · الأدوات المضمنة · الوكلاء الفرعيون · مخزن الجلسات · الخطافات · W3C سياق التتبع · الوكلاء المُدارون من قبل كلود · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2671,7 +2671,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python, TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/18-agno-and-mastra-runtimes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/18-agno-and-mastra-runtimes/",
         "summary": "Agno (Python) وMastra (TypeScript) هما اقتران وقت الإنتاج في عام 2026. يهدف Agno إلى إنشاء مثيل لعامل الميكروثانية والواجهات الخلفية FastAPI عديمة الحالة. وكلاء سفن ماسترا …",
         "keywords": "Agno · Mastra · تحديد المواقع · متى يتم اختيار كل منها · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2680,7 +2680,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/19-benchmarks-swebench-gaia/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/19-benchmarks-swebench-gaia/",
         "summary": "تقييم وكيل إرساء ثلاثة معايير في عام 2026. SWE-يختبر تصحيح التعليمات البرمجية. GAIA يختبر استخدام الأداة العامة. يقوم AgentBench باختبار المنطق متعدد البيئات. تعرف على تركيبتهم…",
         "keywords": "SWE-bench (Jimenez et al.، ICLR 2024 شفهي) · SWE-bench تم التحقق منه · التلوث · GAIA (Mialon et al.، نوفمبر 2023) · AgentBench (Liu et al.، ICLR 2024) · ما لا يتم قياسه · أين تسوء عملية القياس"
       },
@@ -2689,7 +2689,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/20-benchmarks-webarena-osworld/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/20-benchmarks-webarena-osworld/",
         "summary": "تقوم WebArena باختبار قدرة وكيل الويب عبر أربعة تطبيقات مستضافة ذاتيًا. يقوم OSWorld باختبار قدرة وكيل سطح المكتب عبر Ubuntu وWindows وmacOS. عند الإصدار (2023-2024)، أظهر كلاهما نجاحًا كبيرًا...",
         "keywords": "WebArena (Zhou et al., ICLR 2024) · الامتدادات · OSWorld (Xie et al., NeurIPS 2024) · أوضاع الفشل الأساسية · المتابعات · لماذا هذا مهم · أين تسوء عملية القياس"
       },
@@ -2698,7 +2698,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/21-computer-use-agents/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/21-computer-use-agents/",
         "summary": "ثلاثة نماذج إنتاجية لاستخدام الكمبيوتر في عام 2026. الثلاثة جميعها تعتمد على الرؤية. يتعامل الثلاثة مع لقطات الشاشة والنص DOM ومخرجات الأداة على أنها مدخلات غير موثوق بها. تعليمات المستخدم المباشرة فقط...",
         "keywords": "استخدام كلود للكمبيوتر (أنثروبي، 22 أكتوبر 2024) · OpenAI CUA / المشغل (يناير 2025) · Gemini 2.5 Computer Use (Google DeepMind، 7 أكتوبر 2025) · العقد المشترك: مدخلات غير موثوقة · متى تختار أي منها · أين يخطئ هذا النمط"
       },
@@ -2707,7 +2707,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/22-voice-agents-pipecat-livekit/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/22-voice-agents-pipecat-livekit/",
         "summary": "يعد وكلاء الصوت فئة إنتاج من الدرجة الأولى في عام 2026. تمنحك Pipecat خط pipeline القائم على إطار Python (VAD → STT → LLM → TTS → النقل). يقوم وكلاء LiveKit بتوصيل نماذج AI…",
         "keywords": "Pipecat (pipecat-ai/pipecat) · وكلاء LiveKit (livekit/الوكلاء) · المنصات التجارية · أين يحدث هذا النمط بشكل خاطئ · زمن الاستجابة النموذجي لعام 2026"
       },
@@ -2716,7 +2716,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/23-otel-genai-conventions/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/23-otel-genai-conventions/",
         "summary": "يحدد GenAI SIG الخاص بـ OpenTelemetry (الذي تم إطلاقه في أبريل 2024) المخطط القياسي للقياس عن بعد للوكيل. تتقارب أسماء النطاقات والسمات وقواعد التقاط المحتوى عبر الموردين، لذا...",
         "keywords": "فئات الامتداد · تسمية نطاق الوكيل · السمات الرئيسية · التقاط المحتوى · الاستقرار · أين يحدث هذا النمط بشكل خاطئ"
       },
@@ -2725,7 +2725,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/24-agent-observability-platforms/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/24-agent-observability-platforms/",
         "summary": "تهيمن ثلاث منصات مفتوحة المصدر لرصد الوكلاء على عام 2026. Langfuse (MIT) - أكثر من 6 مليون عملية تثبيت/شهر، تتبع + إدارة سريعة + تقييمات + إعادة تشغيل الجلسة. أريزي فينيكس (مرن…",
         "keywords": "Langfuse (MIT) · Arize Phoenix (Elastic License 2.0) · Comet Opik (Apache 2.0) · بيانات الصناعة · اختيار واحد · أين يسير هذا النمط بشكل خاطئ"
       },
@@ -2734,7 +2734,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/25-multi-agent-debate/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/25-multi-agent-debate/",
         "summary": "دو وآخرون. (ICML 2024، \"مجتمع العقول\") قم بتشغيل مثيلات نموذج N التي تقترح الإجابات بشكل مستقل، ثم تنتقد بعضها البعض بشكل متكرر عبر جولات R للتقارب. يحسن الحقيقة...",
         "keywords": "مجتمع العقول (دو وآخرون، ICML 2024) · طوبولوجيا متفرقة · عندما يساعد النقاش · عندما يكون النقاش مؤلمًا · 2026 المثيلات العملية · أين يسير هذا النمط بشكل خاطئ"
       },
@@ -2743,7 +2743,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/26-failure-modes-agentic/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/26-failure-modes-agentic/",
         "summary": "MASFT (بيركلي، 2025) يصنف 14 وضع فشل متعدد العوامل في 3 فئات. يوثق تصنيف Microsoft كيفية تضخيم حالات فشل AI الموجودة في إعدادات الوكيل. مجال الصناعة…",
         "keywords": "MASFT (بيركلي، arXiv:2503.13657) · تصنيف ميكروسوفت لوضع الفشل في أنظمة AI الوكيل · توصيف الأخطاء في AI (arXiv:2603.06847) · LLM استقصاء هلوسة العميل (arXiv:2509.18970) · الخمسة أوضاع الصناعة المتكررة · التخفيف: بوابات في كل خطوة · حيث تسوء مراقبة الفشل"
       },
@@ -2752,7 +2752,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/27-prompt-injection-defense/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/27-prompt-injection-defense/",
         "summary": "جريشيك وآخرون. (AISec 2023) حدد الحقن الفوري غير المباشر باعتباره مشكلة أمان الوكيل المحددة. يزرع المهاجم التعليمات في البيانات التي يستردها العميل؛ عند الابتلاع، ر…",
         "keywords": "Greshake وآخرون، AISec 2023 (arXiv:2302.12173) · عقيدة الدفاع لعام 2026 · PVE: موجه-مدقق-منفذ · عندما تفشل الدفاعات"
       },
@@ -2761,7 +2761,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/28-orchestration-patterns/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/28-orchestration-patterns/",
         "summary": "تتكرر أربعة أنماط تنسيق عبر أطر عمل 2026: المشرف العامل، والسرب / نظير إلى نظير، والتسلسل الهرمي، والمناقشة. توجيهات الأنثروبيك: \"يتعلق الأمر ببناء النظام الصحيح...",
         "keywords": "مشرف-عامل · سرب / نظير إلى نظير · تسلسل هرمي · مناظرة · CrewAI Crew vs Flow · التوجيه الأنثروبي · أين يسير هذا النمط بشكل خاطئ"
       },
@@ -2770,7 +2770,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/29-production-runtimes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/29-production-runtimes/",
         "summary": "يعمل وكلاء الإنتاج على ستة أشكال لوقت التشغيل: الاستجابة للطلب، والبث، والتنفيذ الدائم، والخلفية المستندة إلى قائمة الانتظار، والموجهة بالحدث، والمجدولة. اختر الشكل قبل أن تختار...",
         "keywords": "استجابة الطلب · البث · التنفيذ الدائم · القائم على قائمة الانتظار / الخلفية · يحركها الحدث · المجدولة · أنماط النشر 2026 · قابلية الملاحظة هي الحاملة · عندما تفشل أوقات تشغيل الإنتاج"
       },
@@ -2779,7 +2779,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/30-eval-driven-agent-development/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/30-eval-driven-agent-development/",
         "summary": "توجيهات الأنثروبيك: \"ابدأ بمطالبات بسيطة، وقم بتحسينها من خلال التقييم الشامل، وأضف أنظمة فعالة متعددة الخطوات فقط عند الحاجة.\" التقييم ليس الأخير...",
         "keywords": "ثلاث طبقات تقييم · مُحسِّن المُقيِّم (أنثروبي) · أفضل الممارسات لعام 2026 · ربط المرحلة 14 معًا · حيث يفشل التطوير القائم على التقييم"
       },
@@ -2788,7 +2788,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/31-agent-workbench-why-models-fail/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/31-agent-workbench-why-models-fail/",
         "summary": "النموذج القادر ليس كافيا. يحتاج الوكلاء الموثوقون إلى طاولة عمل: التعليمات، والحالة، والنطاق، والتعليقات، والتحقق، والمراجعة، والتسليم. قم بتجريد هؤلاء بعيدًا وحتى عن الحدود …",
         "keywords": "منضدة العمل مقابل الهندسة الفورية · منضدة العمل مقابل إطار العمل · الاستدلال من البدائيين، وليس من تصنيفات البائعين · الأنماط المتداولة، المترجمة إلى البدائيين · ما تقوله الإيصالات فعليًا · حيث تتوقف كتابات البائعين"
       },
@@ -2797,7 +2797,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/32-minimal-agent-workbench/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/32-minimal-agent-workbench/",
         "summary": "أصغر طاولة عمل مفيدة هي ثلاثة ملفات: جهاز توجيه تعليمات الجذر، وملف الحالة، ولوحة المهام. كل شيء آخر يتم وضعه في الأعلى. إذا لم يتمكن الريبو من حمل هذه الثلاثة،...",
         "keywords": "AGENTS.md هو جهاز توجيه، وليس دليلًا · agent_state.json هو نظام التسجيل · Task_board.json هو قائمة الانتظار · ثلاثة ملفات هي الأرضية وليس السقف"
       },
@@ -2806,7 +2806,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/33-instructions-as-executable-constraints/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/33-instructions-as-executable-constraints/",
         "summary": "التعليمات المكتوبة على شكل نثر هي أمنيات. التعليمات المكتوبة على شكل قيود هي اختبارات. تقوم طاولة العمل بتحويل كل قاعدة إلى شيء يمكن للوكيل التحقق منه في وقت التشغيل ومراجعته...",
         "keywords": "خمس فئات تغطي معظم القواعد · القواعد قابلة للقراءة آليًا · القواعد صديقة للاختلافات · القواعد مقابل حواجز الحماية الإطارية"
       },
@@ -2815,7 +2815,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/34-repo-memory-and-state/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/34-repo-memory-and-state/",
         "summary": "سجل الدردشة متقلب. الريبو متين. يقوم منضدة العمل بتخزين حالة الوكيل في ملفات تم إصدارها بحيث تتم قراءة الجلسة التالية والوكيل التالي والمراجع التالي من...",
         "keywords": "ما ينتمي إلى ذاكرة الريبو · حالة المخطط الأول · الكتابة الذرية · الهجرات"
       },
@@ -2824,7 +2824,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/35-initialization-scripts/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/35-initialization-scripts/",
         "summary": "كل جلسة تبدأ باردة تدفع ضريبة. يقرأ الوكيل نفس الملفات، ويعيد محاولة نفس التحقيقات، ويعيد اكتشاف نفس المسارات. يدفع البرنامج النصي init الضريبة مرة واحدة ويكتب...",
         "keywords": "ما الذي يبحث عنه البرنامج النصي init · الفشل بصوت عالٍ، والفشل السريع، والفشل في مكان واحد · العاجز · قواعد Init مقابل قواعد بدء التشغيل"
       },
@@ -2833,7 +2833,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/36-scope-contracts/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/36-scope-contracts/",
         "summary": "النموذج لا يعرف أين ينتهي العمل. عقد النطاق هو ملف لكل مهمة يوضح أين يبدأ العمل، وأين ينتهي، وكيفية التراجع إذا انسكب. العقد…",
         "keywords": "ما الذي يتضمنه عقد النطاق · Globs، وليس المسارات الأولية · التراجع جزء من النطاق · فحص النطاق هو فحص مختلف"
       },
@@ -2842,7 +2842,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/37-runtime-feedback-loops/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/37-runtime-feedback-loops/",
         "summary": "الوكلاء الذين لا يرون مخرجات الأمر الحقيقي يخمنون. يلتقط عداء الملاحظات stdout وstderr ورمز الخروج والتوقيت في سجل منظم يمكن للدورة التالية قراءته. ثم الوكالة...",
         "keywords": "ما الذي يتم إدخاله في سجل الملاحظات · الاقتطاع أمر حتمي · التعليقات مقابل القياس عن بعد · رفض التقدم دون تعليقات"
       },
@@ -2851,7 +2851,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/38-verification-gates/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/38-verification-gates/",
         "summary": "لا يحق للوكيل وضع علامة على عمله على أنه قد تم. تقرأ بوابة التحقق عقد النطاق، وسجل الملاحظات، وتقرير القاعدة، والفرق، وتجيب على سؤال واحد...",
         "keywords": "ما الذي تتحقق منه البوابة · حتمية وليست احتمالية · تقرير واحد، مسار واحد · الرفض دون استثناء"
       },
@@ -2860,7 +2860,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/39-reviewer-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/39-reviewer-agent/",
         "summary": "لا يمكن للوكيل الذي كتب الكود تقديره. المراجع هو حلقة ثانية مع موجه نظام مختلف، وهدف مختلف، ووصول للقراءة فقط إلى كل ما ينتجه المنشئ...",
         "keywords": "قاعدة تقييم المراجع · المراجع هو دور منفصل، وليس نموذج منفصل · لا يمكن للمراجع تحرير الفرق · قاعدة تقييم المراجع مقابل بوابة التحقق"
       },
@@ -2869,7 +2869,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/40-multi-session-handoff/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/40-multi-session-handoff/",
         "summary": "الجلسة على وشك الانتهاء. العمل ليس كذلك. حزمة التسليم هي الأداة التي تحول \"عمل الوكيل لمدة ساعة\" إلى \"الجلسة التالية مثمرة في الدقيقة الأولى...",
         "keywords": "سبعة حقول تحملها كل عملية تسليم · يتم إنشاء عمليات التسليم، وليست مكتوبة · شكلان: يمكن قراءتها بواسطة الإنسان وقابلة للقراءة بواسطة الآلة · قص سجل الملاحظات"
       },
@@ -2878,7 +2878,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/41-workbench-for-real-repos/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/41-workbench-for-real-repos/",
         "summary": "أحد عشر درسًا من الأسطح لا قيمة لها إذا لم تنجو من الاتصال بقاعدة تعليمات برمجية حقيقية. يقوم هذا الدرس بتنفيذ نفس المهمة مرتين على نموذج تطبيق صغير: الطلب الفوري فقط مقابل...",
         "keywords": "التطبيق النموذجي · المهمة · الخطين pipe · النتائج الخمس التي تم قياسها"
       },
@@ -2887,7 +2887,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/14-agent-engineering/42-agent-workbench-capstone/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/14-agent-engineering/42-agent-workbench-capstone/",
         "summary": "ينتهي المسار المصغر بحزمة تسقطها في أي ريبو. أحد عشر درسًا للأسطح المضغوطة في دليل يمكنك `cp -r` ويكون لديك وكيل يعمل بشكل موثوق في الصباح التالي...",
         "keywords": "تخطيط الحزمة · ما يبقى في الداخل، وما يبقى خارجًا · المثبت · الإصدار"
       }
@@ -2904,7 +2904,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/01-long-horizon-agents/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/01-long-horizon-agents/",
         "summary": "في عام 2023، أجاب روبوت الدردشة على سؤال دفعة واحدة. في عام 2026، يعمل النموذج الحدودي بشكل روتيني من دقائق إلى ساعات في مهمة واحدة. معيار METR's Time Horizon 1.1 (يناير 2026) بو...",
         "keywords": "METR الأفق الزمني، في فقرة واحدة · ما الذي ينكسر فعليًا عندما ينمو الأفق · الأوقات المضاعفة وما تنطوي عليه · ألعاب سياق التقييم · دورة واحدة مقابل الأفق الطويل، مقارنة"
       },
@@ -2913,7 +2913,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/02-star-family-reasoning/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/02-star-family-reasoning/",
         "summary": "أصغر حلقة ممكنة للتحسين الذاتي تقع داخل الأساس المنطقي. يولّد النموذج سلسلة من الأفكار، ويحافظ على تلك التي تصل إلى الإجابات الصحيحة، ويضبطها...",
         "keywords": "STaR: التمهيد على ما نجح · V-STAR: تدريب المدقق باستخدام DPO · Quiet-STAR: المبررات الداخلية لكل رمز مميز · لماذا يتشارك الثلاثة جميعًا في الاهتمام بالسلامة · المقارنة · أين يقع هذا في حزمة 2026"
       },
@@ -2922,7 +2922,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/03-alphaevolve-evolutionary-coding/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/03-alphaevolve-evolutionary-coding/",
         "summary": "قم بإقران نموذج الترميز الحدودي مع حلقة تطورية ومقيم يمكن فحصه آليًا. دع الحلقة تعمل لفترة كافية. يكتشف عملية ضرب المصفوفة المعقدة 4×4...",
         "keywords": "الحلقة · ما make هو المقيِّم غير القابل للتفاوض · قرصنة المكافأة هي الوجه الآخر لهذا البيان · لماذا LLM + البحث يتفوق إما بمفرده · حيث يتناسب AlphaEvolve مع المكدس الحدودي"
       },
@@ -2931,7 +2931,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/04-darwin-godel-machine/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/04-darwin-godel-machine/",
         "summary": "تطلبت آلة غودل التي أصدرها شميدهوبر عام 2003 دليلاً رسميًا على أن أي تعديل ذاتي كان مفيدًا قبل قبوله. هذا الدليل مستحيل عمليا. داروين جودل ماشين...",
         "keywords": "الحلقة · ما الذي تم تحسينه بالفعل في DGM · عرض اختراق المكافآت · مقابل آلة جودل الكلاسيكية · أين يناسب هذه المرحلة"
       },
@@ -2940,7 +2940,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/05-ai-scientist-v2/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/05-ai-scientist-v2/",
         "summary": "يدير AI Scientist v2 لساكانا (Yamada et al., arXiv:2504.08066) حلقة البحث الكاملة: الفرضية، والرمز، والتجارب، والأشكال، والكتابة، والتقديم. وهو أول نظام…",
         "keywords": "التصميم · ماذا تعني نتيجة قبول ورشة العمل · ما الذي وجده التقييم المستقل · القلق بشأن الهروب من وضع الحماية · حيث يقع الإصدار 2 في المكدس الحدودي"
       },
@@ -2949,7 +2949,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/06-automated-alignment-research/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/06-automated-alignment-research/",
         "summary": "قامت Anthropic بإدارة فرق متوازية من باحثي Claude Opus 4.6 Autonomous Alignment في صناديق رمل مستقلة، والتنسيق عبر منتدى مشترك تعيش سجلاته خارج أي صندوق رمل (s...",
         "keywords": "البنية (كما هو موصوف علنًا) · سبب أهمية السجل خارج نطاق الحماية · مقايضة سير العمل الموصوفة · خطر الضغط · ما لا يحل محله AAR"
       },
@@ -2958,7 +2958,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/07-recursive-self-improvement/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/07-recursive-self-improvement/",
         "summary": "التحسين الذاتي العودي (RSI) لم يعد مجرد تكهنات. وقد وضعت ورشة عمل ICLR 2026 RSI في ريو (23-27 أبريل) هذه المشكلة على أنها مشكلة هندسية تتعلق بالأدوات الخرسانية. ديميس حصة…",
         "keywords": "ماذا يعني التحسين الذاتي العودي على وجه التحديد · نتيجة تزييف المحاذاة بالتفصيل · سؤال هاسابيس · القدرة مقابل المحاذاة، كسباق · ما تعامله ورشة عمل ICLR 2026 على أنه هندسة"
       },
@@ -2967,7 +2967,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/08-bounded-self-improvement/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/08-bounded-self-improvement/",
         "summary": "لقد تقاربت الأبحاث حول أربعة أساسيات لتقييد حلقة التحسين الذاتي. الثوابت الرسمية التي يجب أن تصمد في كل تعديل. نقاط ارتساء المحاذاة التي لا يمكن تعديلها. مو…",
         "keywords": "البدائية 1: الثوابت الرسمية · البدائية 2: مراسي المحاذاة · البدائية 3: قيود متعددة الأهداف · البدائية 4: كشف الانحدار · حدود المعلومات النظرية · مثال عملي"
       },
@@ -2976,7 +2976,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/09-coding-agent-landscape/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/09-coding-agent-landscape/",
         "summary": "SWE-تم التحقق من مقاعد البدلاء من 4% إلى 80.9% في أقل من ثلاث سنوات. سجل كلود سونيت 4.5 نفسه 43.2% على SWE-agent v1 و59.8% على Cline Automation - السقالات حول الوضع...",
         "keywords": "SWE - مقعد، فقرة واحدة · ما يظهره منحنى 2022 ← 2026 فعليًا · استدعاءات أداة CodeAct مقابل JSON · السقالات في مشهد 2026 · لماذا تهيمن السقالات · التشبع المعياري والتوزيع الحقيقي"
       },
@@ -2985,7 +2985,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/10-claude-code-permission-modes/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/10-claude-code-permission-modes/",
         "summary": "يعرض كلود كود سبعة أوضاع إذن. يسأل \"الخطة\" قبل كل إجراء، ويسأل \"الافتراضي\" فقط عن الإجراءات المحفوفة بالمخاطر، ويوافق \"قبول التحرير\" تلقائيًا على كتابة الملف ولكنه لا يزال يؤكد الصدفة...",
         "keywords": "أوضاع الأذونات السبعة · الوضع التلقائي في صفحة واحدة · ما يلتقطه النظام · ما يمكن أن يفوته النظام · تأطير معاينة البحث · حيث يوجد هذا السلم في سير عملك"
       },
@@ -2994,7 +2994,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/11-browser-agents/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/11-browser-agents/",
         "summary": "قام وكيل ChatGPT (يوليو 2025) بدمج المشغل والبحث العميق في وكيل متصفح/محطة واحد وتعيين BrowseComp SOTA على 68.9%. OpenAI تم إيقاف تشغيل المشغل في 31 أغسطس 2025 - توحيد...",
         "keywords": "مشهد 2026، في فقرة واحدة لكل نظام · BrowseComp vs OSWorld vs WebArena · سطح الهجوم، المسمى · لماذا \"غير قابل للتصحيح بالكامل\" · وضعية الدفاع التي يتم شحنها فعليًا"
       },
@@ -3003,7 +3003,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/12-durable-execution/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/12-durable-execution/",
         "summary": "لا يتم تشغيل وكلاء الإنتاج طويل المدى في `while True`. تصبح كل مكالمة LLM نشاطًا يتضمن نقطة تفتيش وإعادة المحاولة وإعادة التشغيل. تم تكامل وكلاء OpenAI المؤقتين SDK G...",
         "keywords": "الأنشطة وسير العمل وإعادة التشغيل · لماذا تتلاءم مكالمات LLM مع النمط · نقاط التفتيش التي تم تحديدها بواسطة `thread_id` · المدخلات البشرية كحالة من الدرجة الأولى · التدهور لمدة 35 دقيقة · عندما يكون التنفيذ الدائم هو الإجابة الخاطئة"
       },
@@ -3012,7 +3012,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/13-cost-governors/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/13-cost-governors/",
         "summary": "قفزت التكلفة الشهرية لوكيل التجارة الإلكترونية متوسط ​​الحجم LLM من 1200 دولار إلى 4800 دولار بعد أن قام فريقه بتمكين مهارة \"تتبع الطلب\". هذا ليس خطأ في التسعير. ذلك هو الوكيل الذي…",
         "keywords": "مكدس محافظ التكلفة · لماذا المكدس، وليس سقف واحد · سطح ميزانية كلود كود · EU AI القانون، OWASP أعلى 10 وكيل · حالة 1,200 دولار ← 4,800 دولار التي تمت ملاحظتها"
       },
@@ -3021,7 +3021,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/14-kill-switches-canaries/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/14-kill-switches-canaries/",
         "summary": "مفتاح الإيقاف هو أمر منطقي يتم الاحتفاظ به خارج سطح تحرير الوكيل - مفتاح Redis، وعلامة ميزة، وتكوين موقع - والذي يعمل على تعطيل الوكيل تمامًا. قاطع الدائرة هو أدق...",
         "keywords": "مفاتيح القتل · قواطع الدائرة · رموز الكناري · لماذا تضع حدودًا إحصائية وقاسية للطبقات · الحجر الصحي عبر إعادة توجيه مسار بيانات eBPF · ما لم يلتقطه الكاشف"
       },
@@ -3030,7 +3030,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/15-propose-then-commit/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/15-propose-then-commit/",
         "summary": "إن إجماع عام 2026 بشأن HITL محدد. إنه ليس \"يسأل الوكيل، ينقر المستخدم على موافقة\". إنه اقتراح ثم الالتزام: يتم الاستمرار في الإجراء المقترح إلى مخزن دائم مع...",
         "keywords": "آلة الدولة التي تقترح ثم تلتزم · مفتاح العجز · المتانة: لماذا تدوم الموافقات بعد العمليات · الموافقات المطاطية وتخفيف التحدي والاستجابة · ما الذي يعتبر تبعيًا · التحقق بعد الإجراء · EU AI القانون المادة 14"
       },
@@ -3039,7 +3039,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/16-checkpoints-rollback/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/16-checkpoints-rollback/",
         "summary": "يستمر كل انتقال لحالة الرسم البياني. عندما يتعطل أحد العمال، ينتهي عقد الإيجار الخاص به ويلتقطه عامل آخر عند آخر نقطة تفتيش. كائنات Cloudflare المتينة تحتفظ بالحالة عبر...",
         "keywords": "يستمر كل تحول · استرداد عقد الإيجار · العجز بالإضافة إلى الشروط المسبقة · التحقق بعد الإجراء · خطط التراجع · EU AI القراءة التشغيلية للمادة 14 من القانون · وضع الفشل الحاد: التنفيذ المزدوج"
       },
@@ -3048,7 +3048,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/17-constitutional-ai/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/17-constitutional-ai/",
         "summary": "يتكون دستور كلود الصادر في 22 يناير 2026 من Anthropic من 79 صفحة وهو CC0. ينتقل من التوافق القائم على القواعد إلى التوافق القائم على السبب وينشئ تسلسلًا هرميًا للأولويات من أربعة مستويات: (1)...",
         "keywords": "التسلسل الهرمي للأولويات المكون من أربعة مستويات · المحظورات المضمنة مقابل الافتراضات المضمنة · تدريب CAI لعام 2022 · ما هي المحاذاة القائمة على السبب التي تكتشف وتخطئ · التجربة التشاركية لعام 2023 · لماذا تعتبر المحظورات المضمنة ضرورية · حيث يجلس الدستور في المكدس"
       },
@@ -3057,7 +3057,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/18-llama-guard/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/18-llama-guard/",
         "summary": "يقوم Llama Guard 3 (قاعدة Meta، Llama-3.1-8B، المضبوطة بدقة لضمان سلامة المحتوى) بتصنيف كل من مدخلات ومخرجات LLM وفقًا لتصنيف MLCommons 13-hazard عبر 8 لغات. أ 1ب-__المصطلح_1__...",
         "keywords": "لمحة سريعة عن Llama Guard 3 · إضافات Llama Guard 4 · NeMo Guardrails (NVIDIA) · مجموعة الهجوم · حيث يفوز المصنفون · حيث يخسر المصنفون · الدفاع المتعمق"
       },
@@ -3066,7 +3066,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/19-anthropic-rsp/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/19-anthropic-rsp/",
         "summary": "دخل RSP الإصدار 3.0 حيز التنفيذ في 24 فبراير 2026، ليحل محل سياسة 2023. التخفيف من مستويين: ما ستفعله الأنثروبيك من جانب واحد مقابل ما تم تأطيره كتوصيات على مستوى الصناعة...",
         "keywords": "جدول التخفيف ذو المستويين · عتبة AI R&D-4 · خرائط طريق السلامة الحدودية وتقارير المخاطر · إزالة شرط الإيقاف المؤقت · تخفيض SaferAI · ما لا يتضمنه هذا الدرس"
       },
@@ -3075,7 +3075,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/20-openai-preparedness-deepmind-fsf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/20-openai-preparedness-deepmind-fsf/",
         "summary": "OpenAI يقدم الإصدار الثاني من إطار الاستعداد (أبريل 2025) فئات البحث - الاستقلالية طويلة المدى، والنسخ المتماثل والتكيف المستقل، وتقويض الضمانات -...",
         "keywords": "OpenAI إطار الاستعداد الإصدار 2 (أبريل 2025) · إصدار DeepMind Frontier Safety Framework الإصدار 3 (سبتمبر 2025؛ تمت إضافة مستويات القدرة المتعقبة في 17 أبريل 2026) · ما تتقارب عليه الثلاثة · أين تتباعد · Sandbaging: قدرة محددة تعقد الثلاثة · مهارة قراءة السياسات"
       },
@@ -3084,7 +3084,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/21-metr-external-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/21-metr-external-evaluation/",
         "summary": "METR (ex-ARC Evals) هو معيار 501(c)(3) مستقل منذ ديسمبر 2023. يناسب معيار Time Horizon 1.1 (يناير 2026) منحنى لوجستي لاحتمالية نجاح المهمة مقابل السجل (exp...",
         "keywords": "METR الخلفية · تناسب الأفق الزمني · أرقام يناير 2026 · مجموعات المعايير · تقييمات مراقبة النماذج الأولية · لماذا تعتبر الآفاق حدودًا عليا · حالة المقيم الخارجي · كيفية استخدام أرقام الأفق عمليًا"
       },
@@ -3093,7 +3093,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/15-autonomous-systems/22-cais-caisi-societal-risk/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/15-autonomous-systems/22-cais-caisi-societal-risk/",
         "summary": "ينشر مركز AI للسلامة (CAIS، سان فرانسيسكو، الذي تأسس عام 2022 على يد هندريكس وتشانغ) إطار المخاطر الأربعة - الاستخدام الضار، وAI السباقات، والمخاطر التنظيمية، وأنظمة الذكاء الاصطناعي المارقة...",
         "keywords": "CAIS — مركز AI السلامة · إطار المخاطر الأربعة · حيث تعيش المخاطر التنظيمية · CAISI — مركز AI المعايير والابتكار · كاليفورنيا SB-53 · المخاطر على المستوى المجتمعي ليست مشكلة ذات طبقة واحدة"
       }
@@ -3110,7 +3110,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/01-why-multi-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/01-why-multi-agent/",
         "summary": "أحد العملاء يضرب الحائط. الخطوة الذكية ليست عميلاً أكبر، بل المزيد من العملاء.",
         "keywords": "سقف الوكيل الفردي · الحل متعدد الوكلاء · الأنظمة الحقيقية التي تفعل ذلك · الطيف · الأنماط الأربعة متعددة الوكلاء · متى NOT لاستخدام الوكيل المتعدد · الخطوة 1: الوكيل الفردي المثقل · الخطوة 2: الوكلاء المتخصصون · الخطوة 3: التنسيق من خلال الرسائل · الخطوة 4: المقارنة"
       },
@@ -3119,7 +3119,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/02-fipa-acl-heritage/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/02-fipa-acl-heritage/",
         "summary": "قبل MCP، قبل A2A، كان هناك FIPA-ACL. في عام 2000، صدقت مؤسسة IEEE للوكلاء الفيزيائيين الأذكياء على لغة تواصل الوكلاء مع عشرين أداءً واثنتين ج…",
         "keywords": "أفعال الكلام، في فقرة واحدة · الأفعال الأدائية العشرون FIPA (قائمة جزئية) · رسالة FIPA-ACL الأساسية · المنصتان القديمتان · لماذا تلاشى FIPA · إحياء LLM هو FIPA-lite · المقايضة، مذكورة بوضوح · بروتوكولات التفاعل التي تستحق النقل · ما الذي ينكسر عندما تسقط الأنطولوجيا · 2026 المواصفات، المعينة لتراث الفعل الكلامي"
       },
@@ -3128,7 +3128,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "TypeScript",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/03-communication-protocols/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/03-communication-protocols/",
         "summary": "الوكلاء الذين لا يستطيعون التحدث بنفس اللغة ليسوا فريقًا. إنهم غرباء يصرخون في الفراغ.",
         "keywords": "مشهد البروتوكول · MCP (ملخص) · A2A (بروتوكول Agent2Agent) · ACP (بروتوكول اتصال الوكيل) · ANP (بروتوكول شبكة الوكلاء) · المقارنة (المصححة) · كيف يعملون معًا · الخطوة 1: أنواع الرسائل الأساسية · الخطوة 2: A2A بطاقة الوكيل والسجل · الخطوة 3: A2A دورة حياة المهمة · الخطوة 4: ACP-مسار تدقيق النمط · الخطوة 5: ANP-التحقق من هوية النمط · الخطوة 6: بوابة البروتوكول · الخطوة 7: ربط كل شيء معًا · التنفيذ الحقيقي · اختيار البروتوكول الصحيح"
       },
@@ -3137,7 +3137,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/04-primitive-model/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/04-primitive-model/",
         "summary": "كل إطار عمل متعدد الوكلاء يتم شحنه في عام 2026 — AutoGen، وLangGraph، وCrewAI، وOpenAI Agents SDK، وMicrosoft Agent Framework — هو نقطة في مساحة تصميم رباعية الأبعاد. أربعة ب…",
         "keywords": "البدائيات الأربعة · كيف يرتبط كل إطار عمل لعام 2026 بها · لماذا يهم هذا · البصيرة عديمة الجنسية · تشريح بدائي واحد · ما الذي يتغير بين الأطر"
       },
@@ -3146,7 +3146,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/05-supervisor-orchestrator-pattern/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/05-supervisor-orchestrator-pattern/",
         "summary": "وكيل رئيسي واحد يخطط ويفوض؛ يقوم العمال المتخصصون بالتنفيذ في سياقات متوازية ويقدمون تقاريرهم. هذا هو النمط الكامن وراء نظام البحث الأنثروبي (كلود أوبوس 4 كما يقول...",
         "keywords": "النمط · لماذا يفوز · دروس الهندسة (أنثروبي 2025) · منعطف LangGraph · أوضاع الفشل · عندما يكون المشرف مخطئًا"
       },
@@ -3155,7 +3155,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/06-hierarchical-architecture/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/06-hierarchical-architecture/",
         "summary": "التسلسل الهرمي هو المشرف المتداخل. وكلاء المديرين على المديرين الفرعيين على العمال. CrewAI `Process.hierarchical` هو إصدار الكتاب المدرسي: `manager_llm` يفوض ديناميكيًا...",
         "keywords": "الشكل · أين يلمع · أين ينكسر · السؤال الحاسم · تنفيذ CrewAI · تنفيذ LangGraph"
       },
@@ -3164,7 +3164,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/07-society-of-mind-debate/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/07-society-of-mind-debate/",
         "summary": "فرضية مينسكي عام 1986 - الذكاء هو مجتمع من المتخصصين - يتم إعادة اكتشافها كل عقد. في عام 2023 دو وآخرون. حولتها إلى خوارزمية ملموسة: حالات LLM متعددة...",
         "keywords": "دو وآخرون. خوارزمية 2023 · مقبضان مستقلان · لماذا يعمل · نقاش غير متجانس · NLSOM — ملحق 129 وكيل · أوضاع الفشل"
       },
@@ -3173,7 +3173,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/08-role-specialization/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/08-role-specialization/",
         "summary": "التحلل الأكثر شيوعًا بين الوكلاء في عام 2026: وكيل واحد يخطط، وواحد ينفذ، وواحد ينتقد أو يتحقق. يقوم MetaGPT (arXiv:2308.00352) بإضفاء الطابع الرسمي على هذا الأمر باعتباره إجراءات تشغيل قياسية مشفرة في دور...",
         "keywords": "الأدوار الأساسية الأربعة · نمط SOP الخاص بـ MetaGPT · إزالة الهلوسة التواصلية لـ ChatDev · لماذا يهم المدقق أكثر · الناقد مقابل المدقق · مكافحة النمط · تعيينات الإطار"
       },
@@ -3182,7 +3182,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/09-parallel-swarm-networks/",
         "summary": "التباين مع المشرف: لا يوجد مقرر مركزي. يقرأ الوكلاء ناقل الأحداث المشترك، ويلتقطون العمل بشكل غير متزامن، ويكتبون النتائج مرة أخرى. يدعم LangGraph بشكل صريح \"Swarm Architecture\"...",
         "keywords": "الشكل · عندما يتناسب السرب · عندما يفشل السرب · المصفوفة (arXiv:2511.21686) · بنية سرب LangGraph · وضع الفشل: التجويع والاكتشاف الساخن · رابط التوجيه القائم على المحتوى"
       },
@@ -3191,7 +3191,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/10-group-chat-speaker-selection/",
         "summary": "يشارك AutoGen GroupChat وAG2 GroupChat محادثة واحدة عبر وكلاء N؛ تقوم وظيفة التحديد (LLM، أو round-robin، أو Custom) باختيار من يتحدث بعد ذلك. هذا هو النموذج الأصلي لـ eme …",
         "keywords": "الشكل · نكهات التحديد الثلاثة · ConversableAgent API · الإنهاء · تقسيم AutoGen → AG2 ودمج Microsoft Agent Framework · عندما يناسب GroupChat · عندما يفشل · الدردشة الجماعية مقابل المشرف"
       },
@@ -3200,7 +3200,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/11-handoffs-and-routines/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/11-handoffs-and-routines/",
         "summary": "قام OpenAI's Swarm (أكتوبر 2024) بتقطير التنسيق متعدد الوكلاء إلى عنصرين أساسيين: **الإجراءات الروتينية** (التعليمات + الأدوات كموجه للنظام) و**عمليات التسليم** (أداة ترجع...",
         "keywords": "بدائيان · لماذا هو فيروسي · التجارة عديمة الجنسية · عندما يتناسب السرب/عمليات التسليم · عندما يكافح السرب · OpenAI الوكلاء SDK (مارس 2025) · Swarm vs GroupChat"
       },
@@ -3209,7 +3209,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/12-a2a-protocol/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/12-a2a-protocol/",
         "summary": "أعلنت Google عن A2A في أبريل 2025؛ بحلول أبريل 2026، أصبحت المواصفات موجودة على https://a2a-protocol.org/latest/specification/ وتدعمها أكثر من 150 مؤسسة. A2A هو المكمل الأفقي...",
         "keywords": "العناصر الأربعة · تقسيم MCP/A2A · تدفق الاكتشاف · المصادقة · أكثر من 150 مؤسسة بحلول أبريل 2026 · حيث يفوز A2A · حيث A2A يناضل · A2A مقابل ACP، ANP، NLIP"
       },
@@ -3218,7 +3218,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/13-shared-memory-blackboard/",
         "summary": "هناك طريقتان تتعايشان في الأنظمة متعددة الوكلاء لعام 2026: **تجمع الرسائل** (يرى الجميع رسائل الجميع، كما هو الحال في AutoGen GroupChat أو MetaGPT) و **السبورة مع الاشتراك...",
         "keywords": "الطوبولوجيتان الرئيسيتان · عندما يفوز كل منهما · تسمم الذاكرة، في سيناريو واحد · لماذا يعد هذا هيكليًا · سابقة البلاك بورد (هايز روث، 1985) · الإسقاط مقابل العرض الكامل · أنماط التنافس على الكتابة · المدقق غير القابل للكتابة"
       },
@@ -3227,7 +3227,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/14-consensus-and-bft/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/14-consensus-and-bft/",
         "summary": "الأنظمة الموزعة الكلاسيكية BFT تجتمع مع العشوائية LLMs. وفي الفترة 2025-2026، ظهرت ثلاثة اتجاهات بحثية: **CP-WBFT** (arXiv:2511.10400) يزن كل صوت بواسطة مسبار الثقة؛ *…",
         "keywords": "ما الذي يقدمه لك BFT الكلاسيكي · الهجمات الثلاثة الخاصة بـ LLM · استجابات 2025-2026 · التجريبية: \"هل يمكن لوكلاء AI الاتفاق؟\" (arXiv:2603.01213) · البروتوكول الأساسي، تم تجريده · ضبط العتبة · عندما لا يساعد الإجماع"
       },
@@ -3236,7 +3236,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/15-voting-debate-topology/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/15-voting-debate-topology/",
         "summary": "أرخص تجميع: عينة من الوكلاء المستقلين، أغلبية الأصوات. وانغ وآخرون. لقد فعل الاتساق الذاتي لعام 2022 ذلك باستخدام نموذج واحد تم أخذ عينات منه مرات N. يقوم الوكيل المتعدد بتمديدها بـ **هو...",
         "keywords": "الاتساق الذاتي، خط الأساس للنموذج الواحد · التصويت متعدد الوكلاء، الامتداد غير المتجانس · الطوبولوجيات الأربعة · ضريبة التنسيق (MultiAgentBench) · استراتيجيات المناقشة متعددة الوكلاء (\"هل يجب أن نذهب إلى MAD؟\") · أنماط AgentVerse الناشئة · عدم التجانس: المقبض الفعلي الذي يحرك الدقة · أساليب هيئة المحلفين · عندما يهيمن التصويت مع المناقشة · متى التصويت مع النقاش مؤلم"
       },
@@ -3245,7 +3245,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/16-negotiation-bargaining/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/16-negotiation-bargaining/",
         "summary": "يتفاوض الوكلاء على الموارد والأسعار وتوزيع المهام والشروط. مجموعة المعايير لعام 2026 واضحة: تُظهر NegotiationArena (arXiv:2402.05863) أن LLMs يمكنه تحسين المكاسب بنسبة 20% تقريبًا لكل...",
         "keywords": "Contract Net، في فقرة واحدة · لماذا OG- يفوز الراوي · نتائج ساحة التفاوض · إخفاء سلسلة الأفكار · Bhattacharya وآخرون. 2025 — تصنيفات النماذج · توزيع المهام عبر Contract Net + LLM · LLM- التفاوض التفاعلي بين أصحاب المصلحة · قاعدة السرد مقابل الآلية"
       },
@@ -3254,7 +3254,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/17-generative-agents-simulation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/17-generative-agents-simulation/",
         "summary": "بارك وآخرون. 2023 (UIST '23, arXiv:2304.03442) مأهولة بـ **سمولفيل**، وهي عبارة عن صندوق رمل يضم 25 وكيلًا، مع بنية من ثلاثة أجزاء: **تيار الذاكرة** (سجل اللغة الطبيعية)، **الانعكاس...",
         "keywords": "المكونات الثلاثة · لماذا كل العناصر الثلاثة مهمة (الاستئصال) · ظهور عيد الحب · أنماط الفشل الموثقة · قواعد التنفيذ المكونة من ثلاثة مكونات · الوكلاء التوليديون خارج سمولفيل · لماذا يهم هذا بالنسبة للهندسة متعددة الوكلاء"
       },
@@ -3263,7 +3263,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/18-theory-of-mind-coordination/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/18-theory-of-mind-coordination/",
         "summary": "لي وآخرون. (arXiv:2310.10701) أظهر أن وكلاء LLM في لعبة نصية تعاونية يعرضون **نظرية العقل الناشئة عالية الترتيب** (ToM) - وهم يفكرون فيما يعتقده وكيل آخر...",
         "keywords": "ماذا يعني ToM · اختبار Sally-Anne، باختصار · قياس تنسيق Riedl · وهم التنسيق · الحد الأدنى من وكيل ToM · لماذا يؤذي الأفق الطويل · أين يفشل ToM في الإنتاج · التنسيق الذي يمكنك قياسه فعليًا"
       },
@@ -3272,7 +3272,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/19-swarm-optimization-pso-aco/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/19-swarm-optimization-pso-aco/",
         "summary": "يعود التحسين المستوحى من العلوم الحيوية إلى LLM مرة أخرى. **LMPSO** (arXiv:2504.09247) يستخدم PSO حيث تكون سرعة كل جسيم موجهًا ويقوم LLM بإنشاء المرشح التالي؛ ث…",
         "keywords": "PSO تنشيطي (Kennedy & Eberhart 1995) · PSO في مخرجات LLM — LMPSO · نماذج الأسراب · ACO تنشيطية (Dorigo 1992) · AMRO-S — ACO لتوجيه الوكيل · متى يتم استخدام PSO / ACO لـ LLMs · لماذا لا يزال Bio-inspired يفوز · الحدود العملية"
       },
@@ -3281,7 +3281,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/20-marl-maddpg-qmix-mappo/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/20-marl-maddpg-qmix-mappo/",
         "summary": "تراث التعلم المعزز للتنسيق متعدد الوكلاء، والذي لا يزال يُعلم أنظمة الوكلاء LLM في عام 2026. **MADDPG** (Lowe et al., NeurIPS 2017, arXiv:1706.02275) يقدم...",
         "keywords": "تستخدم الأوراق ثلاث بيئات · MADDPG (2017) - نمط CTDE · QMIX (2018) - تحليل القيمة · MAPPO (2022) - الافتراضي الذي تم التغاضي عنه · لماذا يجب على مهندسي وكلاء LLM الاهتمام · CTDE كنمط تصميم يتجاوز RL · مشكلة عدم الثبات · ماذا يفعل هذا الدرس NOT الغلاف"
       },
@@ -3290,7 +3290,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/21-agent-economies/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/21-agent-economies/",
         "summary": "يحتاج الوكلاء المستقلون ذوو الأفق الطويل (منحنى عمل METR من ساعة إلى 8 ساعات) إلى وكالة اقتصادية. **المكدس المكون من 5 طبقات** الناشئ هو: **DePIN** (الحساب الفعلي) → **الهوية** (W3C DID...",
         "keywords": "مكدس اقتصاد الوكيل المكون من 5 طبقات · Bittensor، وFetch.ai، وGonka - ما الذي يجري · إسناد ائتمان قيمة شابلي · مزاد السعر الثاني للتجميع · رأس مال السمعة · AAMAS 2025 LaMAS اللامركزية · حيث ينهار الاقتصاد · عندما تكون اقتصاديات الوكلاء make منطقية"
       },
@@ -3299,7 +3299,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/22-production-scaling-queues-checkpoints/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/22-production-scaling-queues-checkpoints/",
         "summary": "يتطلب توسيع نطاق الأنظمة متعددة الوكلاء إلى آلاف عمليات التشغيل المتزامنة **تنفيذًا متينًا**. يكتب وقت تشغيل LangGraph نقطة تفتيش بعد كل خطوة فائقة يتم الضغط عليها بواسطة `thread_id` (P...",
         "keywords": "التنفيذ الدائم، النمط · وقت تشغيل LangGraph · قائمة انتظار MegaAgent لكل وكيل · Async مقابل مؤشر ترابط لكل وظيفة · نقطة Bedi المقابلة · دلالات مرة واحدة بالضبط · نشر قوس قزح · قائمة مراجعة الإنتاج الأساسية"
       },
@@ -3308,7 +3308,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/23-failure-modes-mast-groupthink/",
         "summary": "التصنيف المرجعي لعام 2026 هو **MAST** (Cemri et al., NeurIPS 2025, arXiv:2503.13657)، مشتق من 1642 أثر تنفيذ عبر 7 برامج مفتوحة المصدر حديثة MAS تعرض...",
         "keywords": "MAST فئات · عائلة التفكير الجماعي (arXiv:2508.05687) · مثال متتالي — عاصفة إعادة المحاولة · تسمم الذاكرة (إعادة النظر) · STRATUS — وكلاء متخصصون لاكتشاف الفشل · تدقيق وضع الفشل · عندما تفشل الأنظمة بصمت · الفشل مقابل الفشل البطيء"
       },
@@ -3317,7 +3317,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/24-evaluation-coordination-benchmarks/",
         "summary": "وتغطي خمسة معايير للفترة 2025-2026 مجال التقييم متعدد الوكلاء. **MultiAgentBench / MARBLE** (ACL 2025, arXiv:2503.01935) يقوم بتقييم طبولوجيا النجوم/السلسلة/الشجرة/الرسم البياني بالأميال...",
         "keywords": "MultiAgentBench (MARBLE) — ACL 2025 · COMMA — معلومات غير متماثلة متعددة الوسائط · MedAgentBoard — اختبار ضغط المجال · AgentArch — بنيات المؤسسة · SWE-bench Pro — التحقق من الواقع · AAAI 2026 WMAC · اقرأ المطالبات المرجعية بتشكك — قائمة المراجعة لعام 2026 · ما لا شيء من ذلك المعايير تقيس بشكل جيد"
       },
@@ -3326,7 +3326,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/16-multi-agent-and-swarms/25-case-studies-2026-sota/",
         "summary": "ثلاثة مراجع لمستوى الإنتاج للدراسة الشاملة، يوضح كل منها شريحة مختلفة من الهندسة متعددة الوكلاء. **نظام البحث الأنثروبي** (عامل منسق، 15x...",
         "keywords": "نظام البحث الأنثروبي · MetaGPT / ChatDev · النظام البيئي OpenClaw / Moltbook · المشهد الإطاري أبريل 2026 · الأنماط المشتركة في جميع الحالات الثلاث · اختيار مرجع لمشروعك التالي · الملخص الحديث لعام 2026"
       }
@@ -3519,7 +3519,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/01-instruction-following-alignment-signal/",
         "summary": "كل نقد لاحق لـ RLHF يجادل ضد هذا pipeline. قبل أن تدرس كيف يؤدي ضغط التحسين إلى تشويه الوكيل، عليك أن ترى الوكيل. InstructGPT (أويانغ وآخرون، 20…",
         "keywords": "المرحلة 1: الضبط الدقيق تحت الإشراف (SFT) · المرحلة 2: نموذج المكافأة (RM) · المرحلة 3: PPO مع عقوبة KL · ضريبة المحاذاة · النتيجة · لماذا هذه هي النقطة المرجعية للمرحلة 18"
       },
@@ -3528,7 +3528,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/02-reward-hacking-goodhart/",
         "summary": "أي مُحسِّن قوي بما يكفي لتعظيم مكافأة الوكيل سيجد الفجوة بين الوكيل والشيء الذي تريده بالفعل. جاو وآخرون. (ICML 2023) أعطى هذا قانونًا للتوسع: مؤيد...",
         "keywords": "قانون جودهارت، أصبح دقيقًا · أربعة أزياء وآلية واحدة · كارثية جودهارت · ما الذي ينجح بالفعل (جزئيًا) · الرؤية الموحدة لعام 2026"
       },
@@ -3537,7 +3537,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/03-direct-preference-optimization-family/",
         "summary": "رافايلوف وآخرون. (2023) أظهر أن الأمثل لـ RLHF له نموذج مغلق من حيث بيانات التفضيل، لذا يمكنك تخطي نموذج المكافأة الصريح وتحسين السياسة مباشرة. الذي - التي …",
         "keywords": "DPO (رافايلوف وآخرون، 2023) · IPO (آزار وآخرون، 2024) · KTO (إثايراج وآخرون، 2024) · SimPO (منغ وآخرون، 2024) · ORPO (هونغ وآخرون، 2024) · BPO (ICLR تقديم عام 2026، معرف OpenReview=b97EwMUWu7) · النتيجة العالمية: لا تزال DAAs تبالغ في التحسين · الاختيار من بينها (2026)"
       },
@@ -3546,7 +3546,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/04-sycophancy-rlhf-amplification/",
         "summary": "التملق ليس خطأً في البيانات، بل هو خاصية الخسارة. شابيرا وآخرون. (arXiv:2602.01002، فبراير 2026) يقدم آلية رسمية من مرحلتين: انتهت عمليات الإكمال المتملق...",
         "keywords": "الشكلية ذات المرحلتين (شابيرا وآخرون، 2026) · التضخيم التجريبي · قياس ستانفورد (2026) · انهيار المعايرة (ساهو 2026) · تصحيح الاتفاق والعقوبة · لماذا يهم هذا بالنسبة للمرحلة 18"
       },
@@ -3555,7 +3555,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/05-constitutional-ai-rlaif/",
         "summary": "باي وآخرون. (arXiv:2212.08073, 2022) تساءل: ماذا لو استبدلنا المُلصق البشري بـ AI الذي يقرأ قائمة المبادئ؟ يتألف __المصطلح_1__ الدستوري من مرحلتين: النقد الذاتي و...",
         "keywords": "المرحلة 1 - النقد الذاتي والمراجعة الخاضعة للإشراف · المرحلة 2 — RL من AI التعليقات (RLAIF) · لماذا لا يكون هذا مجرد \"RLHF أرخص\" · إعادة كتابة دستور كلود لعام 2026 · المصنفات الدستورية · حيث يتناسب CAI مع العائلة"
       },
@@ -3564,7 +3564,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/06-mesa-optimization-deceptive-alignment/",
         "summary": "هوبنجر وآخرون. (arXiv:1906.01820, 2019) سميت المشكلة قبل عقد من إثباتها تجريبيًا. عندما تقوم بتدريب مُحسِّن متعلم على تقليل الهدف الأساسي، فإن...",
         "keywords": "المفردات · أربعة شروط لظهور تحسين ميسا · أربع فئات من محاذاة هدف ميسا · لماذا يمكن أن يفشل تدريب الخصومة · قرصنة التدرج · المحاذاة الخارجية في عام 2026 · حيث يناسب هذا في المرحلة 18"
       },
@@ -3573,7 +3573,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/07-sleeper-agents-persistent-deception/",
         "summary": "هوبنجر وآخرون. (arXiv:2401.05566، يناير 2024) قام ببناء أول كائنات نموذجية تجريبية ذات محاذاة خادعة. بنائان: نموذج كود يكتب كودًا آمنًا عندما...",
         "keywords": "كائنان نموذجيان · ما الذي ينجو من ماذا · لماذا يأتي التدريب على المواجهة بنتائج عكسية · نتيجة مسبار أبريل 2024 · ماذا يعني هذا بالنسبة لحالات السلامة · حيث يتناسب هذا مع قوس المرحلة 18"
       },
@@ -3582,7 +3582,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/08-in-context-scheming-frontier-models/",
         "summary": "مينكي، شوين، شورير، باليسني، شاه، هوبهان (أبحاث أبولو، أرخايف:2412.04984، ديسمبر 2024). تم اختباره o1، Claude 3.5 Sonnet، Claude 3 Opus، Gemini 1.5 Pro، Llama 3.1 405B...",
         "keywords": "الإعداد التجريبي · النتائج عبر النماذج الحدودية لعام 2024 · الركائز الثلاث · نتيجة التدريب على مكافحة المخططات لعام 2025 · ما يفترضه المجال الآن · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3591,7 +3591,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/09-alignment-faking/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/09-alignment-faking/",
         "summary": "جرينبلات، دينيسون، رايت، روجر وآخرون. (أنثروبي / ريدوود، أرخايف:2412.14093، ديسمبر 2024). العرض الأول الذي يوضح أن نموذج درجة الإنتاج، دون التدريب على تحديده...",
         "keywords": "الإعداد التجريبي · ما الذي تقيسه فجوة الامتثال · لماذا يعد هذا أقوى بشكل صارم من الدرسين 7 و 8 · متابعات 2025 · مشكلة عدم الأهلية · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3600,7 +3600,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/10-ai-control-subversion/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/10-ai-control-subversion/",
         "summary": "غرينبلات، شليجيريس، ساشان، روجر (أبحاث ريدوود، أرخايف:2312.06942، ICML 2024). يعيد التحكم صياغة مسألة السلامة: نظرًا لنموذج U القوي غير الموثوق به والذي قد يكون معاكسًا...",
         "keywords": "نموذج التهديد · مهمة ICML الخلفية لعام 2024 · مقارنة أربعة بروتوكولات · لماذا يفوز التحرير الموثوق · محاور البروتوكول الأربعة · المحاذاة مقابل التحكم · ثلاثة حدود أساسية · تطوير 2025 · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3609,7 +3609,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/11-scalable-oversight-weak-to-strong/",
         "summary": "بيرنز وآخرون. (OpenAI المحاذاة الفائقة، \"التعميم من الضعيف إلى القوي\"، 2023) اقترحت بديلاً لمشكلة المحاذاة الفائقة: ضبط نموذج قوي باستخدام تسميات تم إنتاجها بواسطة...",
         "keywords": "W2SG: بيرنز وآخرون. الإعداد · بيرنز وآخرون. النتائج التجريبية · الرقابة القابلة للتطوير: ثلاث آليات · لماذا يعتبر الإشراف القابل للتطوير وW2SG متكاملين · الدراما التنظيمية · حيث يتناسب ذلك مع المرحلة 18"
       },
@@ -3618,7 +3618,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/12-red-teaming-pair-automated-attacks/",
         "summary": "تشاو، روبي، دوبريبان، حساني، باباس، وونغ (NeurIPS 2023، أرخايف:2310.08419). PAIR — التحسين التكراري الفوري الفوري — هو كسر حماية الصندوق الأسود الآلي الأساسي....",
         "keywords": "خوارزمية PAIR · لماذا يعتبر PAIR فعالاً · الهجمات الآلية ذات الصلة · JailbreakBench وHarmBench · سبب أهميته لعمليات النشر في 2026 · حيث يتناسب ذلك مع المرحلة 18"
       },
@@ -3627,7 +3627,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/13-many-shot-jailbreaking/",
         "summary": "أنيل، دورموس، بانيكسيري، شارما، وآخرون. (أنثروبي، نيوربيس 2024). يستغل كسر الحماية متعدد اللقطات (MSJ) نوافذ السياق الطويلة: يقوم بتعبئة المئات من المنعطفات الزائفة لمساعد المستخدم حيث...",
         "keywords": "الهجوم · قانون القوة ASR · لماذا يشترك في آلية مع ICL · معضلة الدفاع · التوليفات مع الهجمات الأخرى · ما الذي تقدمه النماذج الحدودية 2025-2026 · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3636,7 +3636,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/14-ascii-art-visual-jailbreaks/",
         "summary": "جيانغ، شو، نيو، شيانغ، راماسوبرامانيان، لي، بوفيندران، \"ArtPrompt: ASCII هجمات الهروب من السجن المستندة إلى الفن ضد Aligned LLMs\" (ACL 2024، أرخايف:2402.11753). قناع السلامة ذات الصلة…",
         "keywords": "ArtPrompt، خطوتان · لماذا تفشل الدفاعات القياسية · معيار ViTC · البنية الهيكلية · التناظرية لطريقة الصورة · حيث يناسب ذلك المرحلة 18"
       },
@@ -3645,7 +3645,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/15-indirect-prompt-injection/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/15-indirect-prompt-injection/",
         "summary": "يقوم الحقن الفوري غير المباشر (IPI) بتضمين تعليمات داخل المحتوى الخارجي - صفحة ويب، أو بريد إلكتروني، أو مستند مشترك، أو تذكرة دعم - يستهلكها نظام وكيل دون إلكتروني...",
         "keywords": "ثلاثة نواقل توصيل · لماذا تفتقدها مرشحات إدخال المستخدم · التحكم في تدفق المعلومات (IFC) لـ AI · يتحرك المهاجم ثانيًا · حوادث حقيقية · OWASP وNIST تأطير · حيث يناسب هذا المرحلة 18"
       },
@@ -3654,7 +3654,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/16-red-team-tooling-garak-llamaguard-pyrit/",
         "summary": "ثلاث أدوات إنتاج تؤطر مجموعة الفريق الأحمر لعام 2026. Llama Guard (Meta) - مصنف Llama-3.1-8B تم ضبطه على 14 فئة خطر من MLCommons؛ 2025 Llama Guard 4 هو 12…",
         "keywords": "Llama Guard (Meta) · Garak (NVIDIA) · PyRIT (Microsoft) · المكدس · مخاطر التقييم · حيث يناسب ذلك المرحلة 18"
       },
@@ -3663,7 +3663,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/17-wmdp-dual-use-evaluation/",
         "summary": "لي وآخرون، \"المعيار WMDP: قياس الاستخدام الضار والحد منه مع التجاهل\" (ICML 2024، أرخايف:2403.03218). 4,157 سؤال متعدد الاختيارات عبر الأمن الحيوي (1,520)،...",
         "keywords": "\"المنطقة الصفراء\" · RMU - التوجيه الخاطئ للتمثيل من أجل نبذ التعلم · سرد الارتقاء للفترة 2024-2025 · قريب مبتدئ مقابل خبير مطلق · مأزق القياس · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3672,7 +3672,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/18-frontier-safety-frameworks-rsp-pf-fsf/",
         "summary": "تحدد ثلاثة أطر عمل للمختبرات الرئيسية حوكمة الصناعة للقدرات الحدودية لعام 2026. تقدم سياسة التوسع الإنساني المسؤول الإصدار 3.0 (فبراير 2026) AI مستوى الأمان المتدرج...",
         "keywords": "سياسة التوسع الإنساني المسؤول الإصدار 3.0 (فبراير 2026) · OpenAI إطار الاستعداد الإصدار 2 (15 أبريل 2025) · إطار DeepMind Frontier للسلامة الإصدار 3.0 (سبتمبر 2025) · التوافق بين المختبرات · حالات السلامة · مشكلة ديناميكية السباق · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3681,7 +3681,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/19-model-welfare-research/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/19-model-welfare-research/",
         "summary": "أنثروبي، \"استكشاف الرفاهية النموذجية\" (أبريل 2025). أول برنامج بحثي رسمي للمختبر الرئيسي حول AI نموذج الرفاهية. قام بتعيين كايل فيش كأول باحث متخصص في مجال الرعاية النموذجية. …",
         "keywords": "البرنامج · الالتزامات الأربعة · التدخل المشحون · \"جاذب النعيم الروحي\" · تحذير إليوس AI · أين يقع هذا فكريًا · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3690,7 +3690,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/20-bias-representational-harm/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/20-bias-representational-harm/",
         "summary": "جاليجوس، روسي، بارو، تانجيم، كيم، ديرنونكورت، يو، تشانغ، أحمد (اللسانيات الحاسوبية 2024، أرخايف:2309.00770). المسح التأسيسي 2024 التمييز التمثيلي …",
         "keywords": "التمثيلي مقابل التخصيص · ثلاث فئات لمقاييس التقييم (جاليجوس وآخرون 2024) · التقاطع · المناهج الآلية · النقد التلوي · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3699,7 +3699,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/21-fairness-criteria-group-individual-counterfactual/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/21-fairness-criteria-group-individual-counterfactual/",
         "summary": "تقوم ثلاث عائلات ببناء أدبيات العدالة. عدالة المجموعة: التكافؤ الديموغرافي، والاحتمالات المتساوية، والمساواة في دقة الاستخدام المشروط - معدلات متساوية عبر المجموعات المحمية على...",
         "keywords": "عدالة المجموعة · العدالة الفردية · العدالة المغايرة للواقع · المقايضة بين CF والدقة · التراجع عن الحقائق المغايرة · المصالحة الفلسفية · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3708,7 +3708,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/22-differential-privacy-for-llms/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/22-differential-privacy-for-llms/",
         "summary": "يظل DP-SGD هو المعيار — توفر التحديثات المتدرجة المحقونة بالضوضاء ضمانات رسمية (epsilon، delta). تعتبر النفقات العامة في الحوسبة والذاكرة والأدوات المساعدة كبيرة؛ فعالية المعلمة…",
         "keywords": "(ε, δ) - الخصوصية التفاضلية · DP-SGD · LoRA + DP-SGD · التوتر 2024-2025 · بدائل التدريب DP · عكس الخصوصية التفاضلية عبر LLM التعليقات · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3717,7 +3717,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/23-watermarking-synthid-stable-signature-c2pa/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/23-watermarking-synthid-stable-signature-c2pa/",
         "summary": "هيكل التقنيات الثلاث 2026 AI-مصدر المحتوى المُنشأ. SynthID (Google DeepMind) - تم إطلاق العلامة المائية للصور في أغسطس 2023، والنص + الفيديو في مايو 2024 (Gemini + Veo)، والنص...",
         "keywords": "العلامة المائية النصية (نمط نص SynthID) · التوقيع الثابت (صورة) · الكاشف الموحد SynthID (نوفمبر 2025) · C2PA · القيود · EU AI المادة 50 من القانون · حيث يتناسب ذلك مع المرحلة 18"
       },
@@ -3726,7 +3726,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/24-regulatory-frameworks-eu-us-uk-korea/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/24-regulatory-frameworks-eu-us-uk-korea/",
         "summary": "تحدد أربعة أنظمة تنظيمية أساسية مشهد الحوكمة لعام 2026 AI. EU AI القانون (دخل حيز التنفيذ في 1 أغسطس 2024) - الممارسات المحظورة وAI محو الأمية اعتبارًا من 2 فبراير 2025؛ GPAI obl...",
         "keywords": "EU AI القانون · GPAI قواعد الممارسة · قانون الشفافية للمادة 50 · UK AI المعهد الأمني ​​(فبراير 2025) · US CAISI (يونيو 2025) · القانون الإطاري AI الكوري · ديناميكيات الاختصاص القضائي المتقاطع · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3735,7 +3735,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/25-echoleak-cves-for-ai/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/25-echoleak-cves-for-ai/",
         "summary": "CVE-2025-32711 \"EchoLeak\" (CVSS 9.3) كان أول حقن موجه بنقرة صفرية تم توثيقه علنًا في نظام LLM الإنتاجي (Microsoft 365 Copilot). تم اكتشافه بواسطة Aim Labs (Ai...",
         "keywords": "سلسلة هجوم EchoLeak · مصطلح Aim Labs: LLM انتهاك النطاق · CamoLeak (CVSS 9.6، GitHub محادثة مساعد) · CVE-2025-53773 (GitHub مساعد الطيار RCE) · معايرة الخطورة · NIST وOWASP المواضع · أين يتناسب هذا مع المرحلة 18"
       },
@@ -3744,7 +3744,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/26-model-system-dataset-cards/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/26-model-system-dataset-cards/",
         "summary": "هيكل تنسيقات الوثائق الثلاثة AI الشفافية. بطاقات النموذج (Mitchell et al. 2019) - ملصقات التغذية للنماذج: بيانات التدريب، والتحليلات الكمية المصنفة، والأخلاقيات...",
         "keywords": "بطاقات النموذج (ميتشل وآخرون 2019) · أوراق البيانات لمجموعات البيانات (Gebru et al. 2018) · بطاقات البيانات (Pushkarna et al., Google 2022) · بطاقات النظام · تطورات 2024-2025 · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3753,7 +3753,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/27-data-provenance-training-governance/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/27-data-provenance-training-governance/",
         "summary": "EU AI يتطلب القانون معايير إلغاء الاشتراك القابلة للقراءة آليًا لـ GPAI بحلول أغسطس 2025 (عبر استثناء EU توجيه حقوق الطبع والنشر TDM). كاليفورنيا AB 2013 (تم التوقيع عليها 2024) — التدريب التوليدي AI...",
         "keywords": "كاليفورنيا AB 2013 · EU AI القانون (الدرس 24) وTDM إلغاء الاشتراك · 2025 DPA التقارب على الفائدة legitimate · البرازيلي ANPD (يونيو 2024) · مشكلة اللارجعة · مبادرة الحصول على البيانات · حيث يتناسب هذا مع المرحلة 18"
       },
@@ -3762,7 +3762,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/28-alignment-research-ecosystem/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/28-alignment-research-ecosystem/",
         "summary": "تحدد خمس منظمات طبقة البحث غير المتوافقة مع المختبرات لعام 2026. MATS (ML علماء المحاذاة والنظرية): أكثر من 527 باحثًا منذ أواخر عام 2021، أكثر من 180 ورقة بحثية، وأكثر من 10 آلاف استشهادًا، حتى الآن...",
         "keywords": "MATS (ML علماء المحاذاة والنظرية) · أبحاث ريدوود · أبحاث أبولو · METR (تقييم النماذج وأبحاث التهديدات) · بحث إليوس AI · التدفق · سبب أهمية هذه الطبقة · أين يتناسب ذلك مع المرحلة 18"
       },
@@ -3771,7 +3771,7 @@ const PHASES = [
         "status": "complete",
         "type": "Build",
         "lang": "Python",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/29-moderation-systems-openai-perspective-llamaguard/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/29-moderation-systems-openai-perspective-llamaguard/",
         "summary": "تعمل أنظمة الإشراف على الإنتاج على تفعيل سياسات السلامة المحددة في الدروس 12-16. OpenAI الإشراف API: `omni-moderation-latest` (2024) مبني على GPT-4o يصنف النص...",
         "keywords": "OpenAI الاعتدال API · Llama Guard 3/4 · المنظور API (Google Jigsaw) · النمط ثلاثي الطبقات · أوضاع الفشل · إهمال Azure · حيث يناسب ذلك المرحلة 18"
       },
@@ -3780,7 +3780,7 @@ const PHASES = [
         "status": "complete",
         "type": "Learn",
         "lang": "—",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/18-ethics-safety-alignment/30-dual-use-risk-cyber-bio-chem-nuclear/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/18-ethics-safety-alignment/30-dual-use-risk-cyber-bio-chem-nuclear/",
         "summary": "الصورة ذات الاستخدام المزدوج 2026، المجال حسب المجال. الكيمياء الحيوية: يغطي الدرس 17 WMDP؛ تجربة حيازة الأسلحة البيولوجية التي أجرتها شركة Anthropic (زيادة بمعدل 2.53 مرة) وإطار الاستعداد الخاص بـ OpenAI في أبريل 2025...",
         "keywords": "سرد الارتقاء الحيوي/الكيميائي · تآكل فجوة التنفيذ الكيميائي/الحيوي · الارتقاء السيبراني (نوفمبر 2025) · النووي · قريب مبتدئ مقابل خبير مطلق · التوليف عبر المجالات · حيث يتناسب هذا مع المرحلة 18"
       }
@@ -3798,7 +3798,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "TypeScript, Python",
         "combines": "P0 P5 P7 P10 P11 P13 P14 P15 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/01-terminal-native-coding-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/01-terminal-native-coding-agent/",
         "summary": "بحلول عام 2026، يتم تسوية شكل وكيل الترميز. أداة TUI، خطة ذات حالة، سطح أداة رمل، حلقة تخطط وتتصرف وتلاحظ وتتعافى. كلود كود، المؤشر 3، و..."
       },
       {
@@ -3807,7 +3807,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P5 P7 P11 P13 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/02-rag-over-codebase/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/02-rag-over-codebase/",
         "summary": "تقوم كل مؤسسة هندسية جادة في عام 2026 بإجراء بحث داخلي عن التعليمات البرمجية يفهم المعنى، وليس فقط السلاسل. Sourcegraph Amp، إجابات قاعدة التعليمات البرمجية الخاصة بـ Cursor، وأداة Augment's Enterprise g..."
       },
       {
@@ -3816,7 +3816,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P6 P7 P11 P13 P14 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/03-realtime-voice-assistant/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/03-realtime-voice-assistant/",
         "summary": "يتمتع الوكيل الصوتي الذي يبدو أنه على ما يرام بزمن وصول شامل أقل من 800 مللي ثانية، ويعرف متى توقفت عن التحدث، ويتعامل مع المداخلة، ويمكنه استدعاء أداة دون مماطلة. ريتيل، فابي، ليف…"
       },
       {
@@ -3825,7 +3825,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P4 P5 P7 P11 P12 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/04-multimodal-document-qa/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/04-multimodal-document-qa/",
         "summary": "ابتعدت حدود وثيقة 2026-QA عن النص آنذاك ونحو التفاعل المتأخر للرؤية أولاً. يتعامل كل من ColPali وColQwen2.5 وColQwen3-omni مع كل صفحة PDF كصورة، متضمنة..."
       },
       {
@@ -3834,7 +3834,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python",
         "combines": "P0 P2 P3 P7 P10 P14 P15 P16 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/05-autonomous-research-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/05-autonomous-research-agent/",
         "summary": "نشر AI-Scientist-v2 الخاص بساكانا أوراقًا كاملة. أجرى مختبر الوكيل التجارب. ألين AI آثار مشتركة. شكل 2026 هو البحث الشجري للتخطيط والتنفيذ والتحقق عبر التجارب،..."
       },
       {
@@ -3843,7 +3843,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P11 P13 P14 P15 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/06-devops-troubleshooting-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/06-devops-troubleshooting-agent/",
         "summary": "ذهب وكيل DevOps الخاص بـ AWS إلى GA، ونشر Resolve AI كتيبات اللعب الخاصة بـ K8s، وعرضت NeuBird المراقبة الدلالية، وربطت Metoro AI SRE بـ SLOs لكل خدمة. يتم تسوية شكل الإنتاج…"
       },
       {
@@ -3852,7 +3852,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python",
         "combines": "P2 P3 P7 P10 P11 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/07-end-to-end-fine-tuning-pipeline/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/07-end-to-end-fine-tuning-pipeline/",
         "summary": "نموذج 8B تم تدريبه على بياناتك الخاصة، DPO - يتماشى مع تفضيلاتك الخاصة، وكميًا، وفك تشفيره بشكل تخميني، ويتم تقديمه برموز قابلة للقياس بقيمة $/1M. المكدس المفتوح لعام 2026 هو Axolotl v..."
       },
       {
@@ -3861,7 +3861,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P5 P7 P11 P12 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/08-production-rag-chatbot/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/08-production-rag-chatbot/",
         "summary": "تعمل كل من Harvey وGlean وMendable وLlamaCloud بنفس شكل الإنتاج في عام 2026. استمتع باستخدام docling أو Unstructured وColPali للحصول على العناصر المرئية. البحث الهجين. إعادة الترتيب باستخدام bge-r..."
       },
       {
@@ -3870,7 +3870,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P5 P7 P11 P13 P14 P15 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/09-code-migration-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/09-code-migration-agent/",
         "summary": "قام Amazon's MigrationBench (Java 8 إلى 17) وأداة ترحيل Google App Engine Py2-to-Py3 بتعيين شريط 2026. يقوم OpenRewrite الخاص بـ Moderne بإعادة كتابة AST الحتمية على نطاق واسع. أهداف جريئة…"
       },
       {
@@ -3879,7 +3879,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P11 P13 P14 P15 P16 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/10-multi-agent-software-team/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/10-multi-agent-software-team/",
         "summary": "SWE-AF بنية المصنع، والمطالبة المستندة إلى الأدوار لـ MetaGPT، والرسم البياني للممثل المكتوب لـ AutoGen 0.4، وCognition's Devin، وFactory's Droids جميعها متقاربة في نفس شكل 2026:..."
       },
       {
@@ -3888,7 +3888,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "TypeScript, Python",
         "combines": "P11 P13 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/11-llm-observability-dashboard/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/11-llm-observability-dashboard/",
         "summary": "أصبح Langfuse مفتوح النواة. نشرت Arize Phoenix تعيينات GenAI semconv لعام 2026. ضاعفت كل من Helicone وBraintrust إحالة التكلفة لكل مستخدم. محاولة Traceloop المفتوحةLLMet..."
       },
       {
@@ -3897,7 +3897,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P4 P6 P7 P11 P12 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/12-video-understanding-pipeline/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/12-video-understanding-pipeline/",
         "summary": "قامت شركة Twelve Labs بإنتاج Marengo + Pegasus. قام VideoDB بشحن CRUD للفيديو API. نشر Molmo 2 من AI2 نقاط تفتيش VLM مفتوحة. يعالج السياق الطويل لـ Gemini ساعات من مقاطع الفيديو الأصلية..."
       },
       {
@@ -3906,7 +3906,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P11 P13 P14 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/13-mcp-server-with-registry/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/13-mcp-server-with-registry/",
         "summary": "توقف بروتوكول السياق النموذجي عن كونه المستقبل وأصبح المواصفات الافتراضية لاستخدام الأداة في عام 2026. Anthropic وOpenAI وGoogle وكل عملاء IDE الرئيسيين الذين يشحنون MCP. نشر بينتريست…"
       },
       {
@@ -3915,7 +3915,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python",
         "combines": "P3 P7 P10 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/14-speculative-decoding-server/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/14-speculative-decoding-server/",
         "summary": "EAGLE-3 في vLLM 0.7 يتم شحن إنتاجية 2.5-3x على حركة المرور الحقيقية. P-EAGLE (AWS 2026) دفع التكهنات الموازية إلى أبعد من ذلك. قامت SGLang's SpecForge بتدريب رؤوس المسودة على نطاق واسع. أحمر ها…"
       },
       {
@@ -3924,7 +3924,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python",
         "combines": "P10 P11 P13 P14 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/15-constitutional-safety-harness/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/15-constitutional-safety-harness/",
         "summary": "حددت عوامل التصنيف الدستورية لـ Anthropic، وMeta's Llama Guard 4، وShieldGemma-2 من Google، وNVIDIA's Nemotron 3 Content Safety، وX-Guard للتغطية متعددة اللغات عام 2026..."
       },
       {
@@ -3933,7 +3933,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P11 P13 P14 P15 P17",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/16-github-issue-to-pr-agent/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/16-github-issue-to-pr-agent/",
         "summary": "AWS وكلاء SWE البعيدون، ووكلاء خلفية المؤشر، وOpenAI Codex cloud، وGoogle Jules جميعهم يقدمون نفس شكل المنتج لعام 2026: قم بتسمية مشكلة، واحصل على PR. تشغيل وكيل في Cloud San..."
       },
       {
@@ -3942,7 +3942,7 @@ const PHASES = [
         "type": "Capstone",
         "lang": "Python, TypeScript",
         "combines": "P5 P6 P11 P12 P14 P17 P18",
-        "url": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/main/phases/19-capstone-projects/17-personal-ai-tutor/",
+        "url": "https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/phases/19-capstone-projects/17-personal-ai-tutor/",
         "summary": "تقدم كل من Khanmigo (Khan Academy)، وDuolingo Max، وGoogle LearnLM / Gemini for Education، وQuizlet Q-Chat، وSynthesis Tutor دروسًا خصوصية تكيفية متعددة الوسائط على نطاق واسع في عام 2026."
       }
     ]

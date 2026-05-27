@@ -43,7 +43,7 @@
 ## Keeping Your Fork Updated
 
 ```bash
-git remote add upstream https://github.com/rohitg00/ai-engineering-from-scratch.git
+git remote add upstream https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar.git
 
 git fetch upstream
 git merge upstream/main
@@ -55,5 +55,5 @@ git merge upstream/main
 
 ```
 Based on AI Engineering from Scratch
-https://github.com/rohitg00/ai-engineering-from-scratch
+https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar
 ```

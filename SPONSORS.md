@@ -1,7 +1,7 @@
 # Sponsorship
 
 `ai-engineering-from-scratch` هو منهج مجاني مرخص بـ MIT. 428 درسًا في 20
-مراحل. تم إنشاء العمل وصيانته بواسطة [روهيت غوماري](https://__TERM_0__hub.com/rohitg00).
+مراحل. تم إنشاء العمل وصيانته بواسطة [روهيت غوماري](https://github.com/rohitg00).
 
 تمول الرعاية الوقت المستغرق لإرسال الدروس والحفاظ على تشغيل الموقع والرد على الأسئلة
 قائمة انتظار القضية. نقد فقط. ترتيبات الاعتمادات العينية أو الأسهم أو "سنكتب المحتوى الخاص بك".
@@ -11,10 +11,10 @@
 
 ## How to sponsor
 
-- **GitHub الجهات الراعية:** [github.com/sponsors/rohitg00](https://__TERM_2__hub.com/sponsors/rohitg00)
+- **GitHub Sponsors:** [github.com/sponsors/rohitg00](https://github.com/sponsors/rohitg00)
 
-GitHub يتعامل الجهات الراعية مع نماذج الفواتير والإيصالات والضرائب. 0٪ رسوم المنصة على الشخصية
-عروض الرعاية، ما يصل إلى 6% على رعاية المؤسسات، وفقًا لسياسة [GitHub](https://docs.__TERM_2__hub.com/en/sponsors/receiving-sponsorships-through-__TERM_3__hub-sponsors/about-__TERM_4__hub-sponsors-for-open-source-contributors).
+GitHub Sponsors handles billing, receipts, and tax forms. 0٪ رسوم المنصة على الشخصية
+عروض الرعاية، ما يصل إلى 6% على رعاية المؤسسات، وفقًا لسياسة [GitHub](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors).
 
 للتوضيح: لا يحتوي المنهج على رمز مميز ولا عملة معدنية ولا NFT ولا محفظة ولا سلسلة
 الشراكة. لا يؤيد المشرف أو يروج أو يشارك أو يقبل
@@ -43,7 +43,7 @@ GitHub يتعامل الجهات الراعية مع نماذج الفواتير
 
 | الطبقة | $/شهر | الحد الأدنى | ما تحصل عليه |
 |------|------|----------|---|
-| **الداعم** | 25 دولارًا | من شهر إلى شهر | الاسم في [__TERM_2__.md](__TERM_3__.md)، شارة الجهات الراعية في ملفك الشخصي في GitHub |
+| **الداعم** | 25 دولارًا | من شهر إلى شهر | الاسم في [BACKERS.md](BACKERS.md)، شارة الجهات الراعية في ملفك الشخصي في GitHub |
 | **البرونزية** | 250 دولارًا | 3 أشهر | صف نصي فقط في كتلة الراعي README، الاسم في BACKERS.md، تغريدة واحدة في يوم الإطلاق تشكر الطبقة |
 | **فضية** | 750 دولارًا | 6 أشهر | شعار صغير (بحد أقصى 120 × 40) في صف الراعي README، مُدرج كمقدم دعم واحد في دروس API حيثما ينطبق ذلك، رسالة شكر ربع سنوية في ملاحظات الإصدار |
 | **الذهب** | 2000 دولار | 6 أشهر | شعار متوسط ​​(بحد أقصى 200 × 60) في README + صف مخصص على صفحة الراعي لموقع المنهج + ميزة X / LinkedIn المشتركة لكل ربع سنة |
@@ -103,7 +103,7 @@ GitHub يتعامل الجهات الراعية مع نماذج الفواتير
 ## Becoming a sponsor
 
 1. اختر الطبقة أعلاه.
-2. اشترك عبر [__TERM_0__ Sponsors](__URL_0__
+2. اشترك عبر [GitHub Sponsors](https://github.com/sponsors/rohitg00).
 3. For Silver and above, email the maintainer with: your logo (__TERM_2__ preferred)، URL تريد ربطه به، وطول المدة التي التزمت بها.
 4. يتم نشر الشعار في الموقع التالي الذي يتم نشره، عادةً خلال 48 ساعة.
 5. يتم إصدار الإيصالات والفواتير من قبل الجهات الراعية GitHub تلقائيًا.

@@ -1,7 +1,7 @@
 /** * سلوكيات الرأس المشتركة: عداد النجوم المباشر GitHub. * يتم تحميله بواسطة كل صفحة تتضمن مكون.header-github.
  */
 (function () {
-  var REPO = 'rohitg00/ai-engineering-from-scratch';
+  var REPO = 'youssefupone-cpu/ai-engineering-from-scratch-ar';
   var CACHE_KEY = 'gh:stars:' + REPO;
   var CACHE_TTL_MS = 10 * 60 * 1000; // 10 دقائق
 

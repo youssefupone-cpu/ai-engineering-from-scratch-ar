@@ -72,7 +72,7 @@ git merge experiment/new-optimizer
 ### الخطوة 4: العمل مع هذه الدورة التدريبية
 
 ```bash
-git clone https://github.com/rohitg00/ai-engineering-from-scratch.git
+git clone https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar.git
 cd ai-engineering-from-scratch
 
 git checkout -b my-progress

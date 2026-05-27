@@ -6,7 +6,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1a1a1a?style=flat-square&labelColor=fafaf5" alt="MIT License"></a>
   <a href="ROADMAP.md"><img src="https://img.shields.io/badge/lessons-435-3553ff?style=flat-square&labelColor=fafaf5" alt="435 lessons"></a>
   <a href="#contents"><img src="https://img.shields.io/badge/phases-20-3553ff?style=flat-square&labelColor=fafaf5" alt="20 phases"></a>
-  <a href="https://github.com/rohitg00/ai-engineering-from-scratch/stargazers"><img src="https://img.shields.io/github/stars/rohitg00/ai-engineering-from-scratch?style=flat-square&labelColor=fafaf5&color=3553ff" alt="GitHub stars"></a>
+  <a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/stargazers"><img src="https://img.shields.io/github/stars/youssefupone-cpu/ai-engineering-from-scratch-ar?style=flat-square&labelColor=fafaf5&color=3553ff" alt="GitHub stars"></a>
   <a href="https://aiengineeringfromscratch.com"><img src="https://img.shields.io/badge/web-aiengineeringfromscratch.com-3553ff?style=flat-square&labelColor=fafaf5" alt="Website"></a>
 </p>
 
@@ -109,14 +109,14 @@ flowchart LR
 ثلاث طرق للداخل. اختر واحدة.
 
 **الخيار أ — القراءة.** افتح أي درس مكتمل في
-[aiengineeringfromscratch.com](__URL_0__ or expand a phase under
-[Contents](#contents). لا الإعداد، لا الاستنساخ.
+[aiengineeringfromscratch.com](https://aiengineeringfromscratch.com) أو افتح مرحلة من
+[المحتويات](#contents). لا إعداد، لا استنساخ.
 
 **الخيار ب — الاستنساخ والتشغيل.**
 
 ```bash
-git clone https://github.com/rohitg00/ai-engineering-from-scratch.git
-cd ai-engineering-from-scratch
+git clone https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar.git
+cd ai-engineering-from-scratch-ar
 python phases/01-math-foundations/01-linear-algebra-intuition/code/vectors.py
 ```
 
@@ -145,8 +145,8 @@ ls phases/03-deep-learning-core/05-loss-functions/outputs/
 
 | مهارة | ماذا يفعل |
 |---|---|
-| [`/find-your-level`](.claude/skills/find-your-level/__TERM_0__.md) | اختبار تحديد المستوى من عشرة أسئلة. قم بتعيين معرفتك إلى مرحلة البداية وإنتاج مسار مخصص مع تقديرات الساعات. |
-| [`/check-understanding <phase>`](.claude/skills/check-understanding/__TERM_1__.md) | اختبار لكل مرحلة، ثمانية أسئلة، مع تعليقات ودروس محددة للمراجعة. |
+| [`/find-your-level`](.claude/skills/find-your-level/SKILL.md) | اختبار تحديد المستوى من عشرة أسئلة. قم بتعيين معرفتك إلى مرحلة البداية وإنتاج مسار مخصص مع تقديرات الساعات. |
+| [`/check-understanding <phase>`](.claude/skills/check-understanding/SKILL.md) | اختبار لكل مرحلة، ثمانية أسئلة، مع تعليقات ودروس محددة للمراجعة. |
 
 ```
 ░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒
@@ -874,9 +874,9 @@ OpenClaw أو Hermes أو أي وكيل يقرأ الدليل SKILL.md / AGENTS.
 يكتشف دليل مهارات وكيلك تلقائيًا:
 
 ```bash
-npx skills add rohitg00/ai-engineering-from-scratch                       # every skill
-npx skills add rohitg00/ai-engineering-from-scratch --skill agent-loop    # one skill
-npx skills add rohitg00/ai-engineering-from-scratch --phase 14            # one phase
+npx skills add youssefupone-cpu/ai-engineering-from-scratch-ar                       # every skill
+npx skills add youssefupone-cpu/ai-engineering-from-scratch-ar --skill agent-loop    # one skill
+npx skills add youssefupone-cpu/ai-engineering-from-scratch-ar --phase 14            # one phase
 ```
 
 `skills` يكتب إلى أي دليل يختاره وكيلك: `.claude/skills/`،
@@ -910,9 +910,9 @@ __الكود_1__, __الكود_2__, __الكود_3__,
 
 | `--layout` | المسار مكتوب |
 |---|---|
-| __الكود_1__ | `<target>/<name>/__TERM_0__.md` (اتفاقية متداخلة، مدعومة بواسطة Claude / Cursor / Codex / OpenClaw / Hermes) |
-| __الكود_3__ | __الكود_4__ |
-| __الكود_5__ | __الكود_6__ |
+| `skills` | `<target>/<name>/SKILL.md` (nested convention, supported by Claude / Cursor / Codex / OpenClaw / Hermes) |
+| `by-phase` | `<target>/phase-NN/<name>.md` |
+| `flat` | `<target>/<name>.md` |
 
 ### Drop the agent workbench into your own repo
 
@@ -928,9 +928,9 @@ python3 scripts/scaffold_workbench.py path/to/your-repo --force    # overwrite
 
 يمكنك توصيل أسطح طاولة العمل السبعة، بداية `task_board.json`،
 و`agent_state.json` جديد في `schema_version: 1`. ومن هناك: قم بتحرير
-المهمة، تحرير `__TERM_0__.md`، تشغيل `scripts/init_agent.py`، تسليم العقد إلى
+المهمة، تحرير `AGENTS.md`، تشغيل `scripts/init_agent.py`، تسليم العقد إلى
 وكيلك. مصدر الحزمة يعيش في
-__الكود_5__.
+`phases/14-agent-engineering/42-agent-workbench-capstone/outputs/agent-workbench-pack/`.
 
 ### Browse the entire course as JSON
 
@@ -1037,9 +1037,9 @@ HEAD/GET).
 | الهدف | إقرأ |
 |---|---|
 | ساهم بدرس أو أصلح | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| شوكة لفريقك أو مدرستك | [__TERM_0__.md](__TERM_1__.md) |
+| شوكة لفريقك أو مدرستك | [FORKING.md](FORKING.md) |
 | قالب الدرس | [LESSON_TEMPLATE.md](LESSON_TEMPLATE.md) |
-| تتبع التقدم | [__TERM_2__.md](__TERM_3__.md) |
+| تتبع التقدم | [ROADMAP.md](ROADMAP.md) |
 | معجم | [glossary/terms.md](glossary/terms.md) |
 | قواعد السلوك | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
 
@@ -1078,7 +1078,7 @@ Twitter/X هي قناة الاكتساب رقم 1.
 | البلاتين | 5000 دولار | شعار البطل في الجزء المرئي من الصفحة + درس تكامل مخصص، شريك واحد كحد أقصى |
 
 بطاقة الأسعار الكاملة والقواعد الصارمة ونقاط التسعير وبيانات الوصول: [SPONSORS.md](SPONSORS.md).
-قم بالتسجيل عبر [GitHub الجهات الراعية](https://__TERM_1__hub.com/sponsors/rohitg00).
+قم بالتسجيل عبر [GitHub الجهات الراعية](https://github.com/sponsors/rohitg00).
 
 ```
 ░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒
@@ -1086,10 +1086,10 @@ Twitter/X هي قناة الاكتساب رقم 1.
 
 ## Star history
 
-<a href="https://star-history.com/#rohitg00/ai-engineering-from-scratch&Date">
+<a href="https://star-history.com/#youssefupone-cpu/ai-engineering-from-scratch-ar&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rohitg00/ai-engineering-from-scratch&type=Date&theme=dark">
-    <img alt="Star history" src="https://api.star-history.com/svg?repos=rohitg00/ai-engineering-from-scratch&type=Date" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=youssefupone-cpu/ai-engineering-from-scratch-ar&type=Date&theme=dark">
+    <img alt="Star history" src="https://api.star-history.com/svg?repos=youssefupone-cpu/ai-engineering-from-scratch-ar&type=Date" width="100%">
   </picture>
 </a>
 
@@ -1100,10 +1100,10 @@ Twitter/X هي قناة الاكتساب رقم 1.
 MIT. استخدمه كما تريد - اقسمه، علمه، بيعه، اشحنه. تقدير الإسناد،
 غير مطلوب.
 
-تتم إدارته بواسطة [روهيت غوماري](https://__TERM_0__hub.com/rohitg00) والمجتمع.
+تتم إدارته بواسطة [روهيت غوماري](https://github.com/rohitg00) والمجتمع.
 
 <sub>
   <a href="https://x.com/ghumare64">@ghumare64</a> &nbsp;·&nbsp;
   <a href="https://aiengineeringfromscratch.com">aiengineeringfromscratch.com</a> &nbsp;·&nbsp;
-  <a href="https://github.com/rohitg00/ai-engineering-from-scratch/issues/new/choose">Report / Suggest</a>
+  <a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/issues/new/choose">Report / Suggest</a>
 </sub>
