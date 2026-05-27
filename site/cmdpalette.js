@@ -329,7 +329,7 @@
     if (!query) {
       list.innerHTML =
         '<li class="cp-empty" role="option" aria-disabled="true">' +
-        'اكتب للبحث في 435 درسًا و489 مخرجًا ومصطلحات المصطلحات' +
+        'اكتب للبحث في 453 درسًا و511 مخرجًا ومصطلحات المصطلحات' +
         '</li>';
       _activeIdx = -1;
       return;
