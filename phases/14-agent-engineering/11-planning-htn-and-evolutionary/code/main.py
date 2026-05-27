@@ -1,6 +1,8 @@
-"""مخطط HTN (مع LLM احتياطي مكتوب) بالإضافة إلى بحث تطوري للعبة. عرضين تجريبيين، ملف واحد. HTN يُظهر نمط ChatHTN: يتراجع المخطط الرمزي
-إلى LLM للتحليل عندما لا تتطابق أي طريقة. يظهر البحث التطوري
-نمط AlphaEvolve: مجموعة الطفرات التي تمت تصفيتها بواسطة مقيم حتمي.
+"""HTN planner (with scripted LLM fallback) plus a toy evolutionary search.
+
+Two demos, one file. HTN shows the ChatHTN pattern: symbolic planner falls back
+to an LLM for decomposition when no method matches. Evolutionary search shows
+the AlphaEvolve pattern: ensemble mutations filtered by a deterministic evaluator.
 """
 
 from __future__ import annotations
@@ -41,7 +43,7 @@ class Method:
 
 
 class ScriptedLLM:
-    """يحل محل ChatHTN's LLM الاحتياطي. إرجاع التحليلات المكتوبة."""
+    """Stands in for ChatHTN's LLM fallback. Returns scripted decompositions."""
 
     def __init__(self, scripts: dict[str, tuple[str, ...]]) -> None:
         self._scripts = scripts

@@ -15,10 +15,10 @@
       .caption { font-size: 11px; fill: #555; font-style: italic; }
     </style>
   </defs>
-  <text x="480" y="28" text-anchor="middle" class="title">BFT لعملاء LLM - ثلاث هجمات وثلاث عمليات تجميع</text>
+  <text x="480" y="28" text-anchor="middle" class="title">BFT للعملاء LLM — ثلاث هجمات وثلاثة مجمعات</text>
 
   <rect x="40" y="60" width="880" height="200" class="box"/>
-  <text x="480" y="84" text-anchor="middle" class="head">الهجمات الثلاث الخاصة بالعامل LLM</text>
+  <text x="480" y="84" text-anchor="middle" class="head">الهجمات الثلاثة LLM الخاصة بالعميل</text>
 
   <rect x="60" y="100" width="270" height="140" class="hot"/>
   <text x="195" y="122" text-anchor="middle" class="head">كذبة بيزنطية</text>
@@ -31,14 +31,14 @@
   <text x="475" y="122" text-anchor="middle" class="head">التوافق المتملق</text>
   <text x="475" y="146" text-anchor="middle" class="step">وكيل نسخ من</text>
   <text x="475" y="164" text-anchor="middle" class="step">تكلم أولا، ثقة منخفضة</text>
-  <text x="475" y="188" text-anchor="middle" class="small">لم يتم اكتشاف BFT الكلاسيكي</text>
-  <text x="475" y="212" text-anchor="middle" class="caption">التخفيف: مرجح بالثقة (CP-WBFT)</text>
+  <text x="475" y="188" text-anchor="middle" class="small">الكلاسيكية BFT لا تكتشف</text>
+  <text x="475" y="212" text-anchor="middle" class="caption">التخفيف: الثقة المرجحة (CP-WBFT)</text>
 
   <rect x="620" y="100" width="280" height="140" class="hot"/>
   <text x="760" y="122" text-anchor="middle" class="head">الزراعة الأحادية (الأخطاء المرتبطة)</text>
   <text x="760" y="146" text-anchor="middle" class="step">ثلاثة عملاء يتشاركون في القاعدة</text>
   <text x="760" y="164" text-anchor="middle" class="step">نموذج؛ نفس الهلوسة</text>
-  <text x="760" y="188" text-anchor="middle" class="small">فشل BFT الكلاسيكي: يبدو كل شيء صادقًا</text>
+  <text x="760" y="188" text-anchor="middle" class="small">فشل BFT الكلاسيكي: كل شيء يبدو صادقًا</text>
   <text x="760" y="212" text-anchor="middle" class="caption">التخفيف: تنوع النماذج + التحقق</text>
 
   <rect x="40" y="290" width="880" height="210" class="cool"/>

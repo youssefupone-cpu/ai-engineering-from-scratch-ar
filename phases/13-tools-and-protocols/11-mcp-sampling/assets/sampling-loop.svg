@@ -21,8 +21,8 @@
 
   <rect x="40" y="60" width="260" height="440" class="cool"/>
   <text x="170" y="82" text-anchor="middle" class="head">العميل (مضيف المستخدم)</text>
-  <text x="56" y="108" class="small">يحمل LLM بيانات الاعتماد</text>
-  <text x="56" y="128" class="step">LLM مقدم الخدمة</text>
+  <text x="56" y="108" class="small">يحمل LLM أوراق الاعتماد</text>
+  <text x="56" y="128" class="step">LLM مزود</text>
   <text x="56" y="146" class="small">(كلود، GPT، الجوزاء،</text>
   <text x="56" y="162" class="small">محلي Ollama،...)</text>
   <text x="56" y="194" class="step">معالج أخذ العينات</text>
@@ -56,7 +56,7 @@
 
   <rect x="660" y="60" width="260" height="440" class="cold"/>
   <text x="790" y="82" text-anchor="middle" class="head">الخادم (summarize_repo)</text>
-  <text x="676" y="108" class="small">NO LLM بيانات الاعتماد</text>
+  <text x="676" y="108" class="small">NO LLM أوراق الاعتماد</text>
   <text x="676" y="128" class="step">algorithm</text>
   <text x="676" y="146" class="small">1. قائمة ملف السير</text>
   <text x="676" y="162" class="small">2. اطلب من العميل الاختيار</text>
@@ -73,5 +73,5 @@
   <text x="676" y="388" class="step">SEP-1577 (خطر الانجراف)</text>
   <text x="676" y="406" class="small">الأدوات[] داخل أخذ العينات</text>
   <text x="676" y="422" class="small">لـ ReAct المستضاف على الخادم</text>
-  <text x="676" y="438" class="small">SDK الأشكال لا تزال مستقرة</text>
+  <text x="676" y="438" class="small">SDK الأشكال ما زالت تستقر</text>
 </svg>

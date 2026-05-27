@@ -33,7 +33,7 @@
 
   <!-- tokens -->
   <rect x="410" y="60" width="220" height="80" class="hot"/>
-  <text x="520" y="85" text-anchor="middle" class="label">RVQ الرموز المميزة</text>
+  <text x="520" y="85" text-anchor="middle" class="label">RVQ الرموز</text>
   <text x="520" y="105" text-anchor="middle" class="mono">مؤشرات K × 75 هرتز</text>
   <text x="520" y="125" text-anchor="middle" class="caption">8 كتب الشفرات نموذجية</text>
 
@@ -48,7 +48,7 @@
   <rect x="40" y="200" width="380" height="130" class="cold"/>
   <text x="230" y="225" text-anchor="middle" class="content">محول فك التشفير فقط</text>
   <text x="230" y="243" text-anchor="middle" class="mono">ص (t_n | t_&lt;n، text_prompt، voice_prompt)</text>
-  <text x="230" y="265" text-anchor="middle" class="caption">التدفقات بشكل طبيعي (~200 مللي ثانية TTFB)</text>
+  <text x="230" y="265" text-anchor="middle" class="caption">يتدفق بشكل طبيعي (~200 مللي ثانية TTFB)</text>
   <text x="230" y="285" text-anchor="middle" class="caption">تأخير الموازي: تيارات الإزاحة K</text>
   <text x="230" y="305" text-anchor="middle" class="caption">يهيمن على الخطاب في عام 2026</text>
 
@@ -63,7 +63,7 @@
   <!-- 2026 stack -->
   <rect x="30" y="360" width="830" height="140" class="box"/>
   <text x="445" y="385" text-anchor="middle" class="label">مكدس الإنتاج 2026</text>
-  <text x="445" y="410" text-anchor="middle" class="caption">TTS: أحد عشر مختبرًا V3، OpenAI TTS، GPT-4o الوقت الفعلي، NaturalSpeech 3</text>
+  <text x="445" y="410" text-anchor="middle" class="caption">TTS: أحد عشر مختبرًا V3، OpenAI TTS، GPT-4o في الوقت الفعلي، NaturalSpeech 3</text>
   <text x="445" y="430" text-anchor="middle" class="caption">الموسيقى: Suno v4، Udio، Stable Audio 2.5، MusicGen 3.3B</text>
   <text x="445" y="450" text-anchor="middle" class="caption">SFX: AudioCraft 2، ElevenLabs SFX، فتح الصوت الثابت</text>
   <text x="445" y="475" text-anchor="middle" class="caption">استنساخ الصوت: XTTS v2 (مفتوح)، ElevenLabs Pro (التحقق من الموافقة)</text>

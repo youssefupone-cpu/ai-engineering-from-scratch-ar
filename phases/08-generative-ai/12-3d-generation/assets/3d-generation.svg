@@ -27,7 +27,7 @@
   <!-- multi-view diffusion -->
   <rect x="210" y="70" width="220" height="60" class="cold"/>
   <text x="320" y="95" text-anchor="middle" class="content">انتشار متعدد وجهات النظر</text>
-  <text x="320" y="115" text-anchor="middle" class="caption">SV3D، CAT3D، MVDream، Zero123</text>
+  <text x="320" y="115" text-anchor="middle" class="caption">SV3D، CAT3D، إم في دريم، Zero123</text>
 
   <line x1="430" y1="100" x2="470" y2="100" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
 
@@ -74,6 +74,6 @@
   <!-- time progression -->
   <rect x="40" y="410" width="820" height="90" class="hot"/>
   <text x="450" y="435" text-anchor="middle" class="label">2022 → 2026 مرة لكل أصل</text>
-  <text x="450" y="458" text-anchor="middle" class="caption">DreamFusion 2022: ساعة واحدة؛ LRM 2023: 5 ثوانٍ؛ TripoSR 2024: 1 ثانية؛ Meshy 4 2025: 30 ثانية مع PBR</text>
-  <text x="450" y="480" text-anchor="middle" class="caption">NeRF → 3D-GS → الشبكة التوليدية المباشرة: تحسين الجودة، تقليل الوقت بمقدار 100x</text>
+  <text x="450" y="458" text-anchor="middle" class="caption">DreamFusion 2022: ساعة واحدة؛ LRM 2023: 5ث؛ TripoSR 2024: 1 ثانية؛ Meshy 4 2025: 30 ثانية مع PBR</text>
+  <text x="450" y="480" text-anchor="middle" class="caption">NeRF → 3D-GS → شبكة توليدية مباشرة: تحسين الجودة، تقليل الوقت بمقدار 100 مرة</text>
 </svg>

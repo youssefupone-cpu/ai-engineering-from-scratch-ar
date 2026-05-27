@@ -46,12 +46,12 @@
 
   <rect x="600" y="60" width="260" height="360" class="cool"/>
   <text x="730" y="88" text-anchor="middle" class="label">GRPO (2024-2025)</text>
-  <text x="620" y="115" class="content">env: LLM المنطق</text>
+  <text x="620" y="115" class="content">env: LLM الاستدلال</text>
   <text x="620" y="135" class="content">الإجراء: الرمز التالي</text>
   <text x="620" y="160" class="content">المدقق: الاختبارات / فحص الرياضيات</text>
   <text x="620" y="180" class="content">أخذ العينات الجماعية (طرح G)</text>
   <text x="620" y="205" class="content">A_i = (r_i - mean_r) / std_r</text>
-  <text x="620" y="225" class="content">L = -A * سجل pi + بيتا KL</text>
+  <text x="620" y="225" class="content">L = -A * سجل باي + بيتا KL</text>
   <text x="730" y="265" text-anchor="middle" class="caption">لا يوجد ناقد ولا نموذج للمكافأة</text>
   <text x="730" y="285" text-anchor="middle" class="caption">الرياضيات، الكود، المنطق</text>
   <text x="730" y="320" text-anchor="middle" class="caption">DeepSeek-R1 وصفة</text>

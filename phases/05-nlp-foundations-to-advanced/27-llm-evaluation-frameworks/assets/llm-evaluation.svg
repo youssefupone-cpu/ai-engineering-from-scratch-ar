@@ -15,7 +15,7 @@
     </style>
   </defs>
 
-  <text x="450" y="28" text-anchor="middle" class="title">تقييم RAG — أربعة أبعاد، LLM كقاضي خلفي</text>
+  <text x="450" y="28" text-anchor="middle" class="title">RAG التقييم - أربعة أبعاد، LLM-الخلفية كقاضي</text>
 
   <!-- Inputs: question, context, answer -->
   <rect x="40" y="55" width="250" height="30" class="box"/>
@@ -43,7 +43,7 @@
 
   <!-- Metrics panel -->
   <rect x="590" y="55" width="270" height="250" class="box"/>
-  <text x="725" y="80" text-anchor="middle" class="label">أربعة مقاييس RAG</text>
+  <text x="725" y="80" text-anchor="middle" class="label">أربعة RAG المقاييس</text>
 
   <rect x="605" y="95" width="240" height="45" class="metric"/>
   <text x="615" y="115" class="label">faithfulness</text>
@@ -64,7 +64,7 @@
   <!-- Bottom -->
   <rect x="40" y="335" width="820" height="95" class="box"/>
   <text x="55" y="358" class="label">التكلفة / المعايرة / CI</text>
-  <text x="55" y="378" class="content">0.001 USD – 0.003 USD لكل حالة تم الحكم عليها مع GPT-4o-mini — &lt;$5 لكل 1000 عينة تشغيل انحدار</text>
+  <text x="55" y="378" class="content">0.001 USD – 0.003 USD لكل حالة تم الحكم عليها مع GPT-4o-mini — &lt;5 USD لكل 1000 عينة تشغيل انحدار</text>
   <text x="55" y="396" class="content">المطلوب: Spearman ρ &gt; 0.7 مقابل 50 حالة تحمل علامة يدوية قبل الوثوق بالرقم</text>
   <text x="55" y="414" class="content">البوابة: pytest + عتبات DeepEval؛ نموذج قاضي التجميد + الإصدار؛ السطح السفلي-10%</text>
 </svg>

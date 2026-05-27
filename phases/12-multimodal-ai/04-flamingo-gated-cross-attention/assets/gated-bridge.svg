@@ -21,7 +21,7 @@
   <text x="480" y="24" text-anchor="middle" class="title">فلامنغو - تقاطع الانتباه داخل 70B شينشيلا المجمدة LLM</text>
 
   <rect x="40" y="50" width="220" height="480" class="box"/>
-  <text x="150" y="72" text-anchor="middle" class="head">صورة / فيديو pipeline</text>
+  <text x="150" y="72" text-anchor="middle" class="head">صورة/فيديو pipeline</text>
 
   <rect x="60" y="92" width="180" height="50" class="frozen"/>
   <text x="150" y="114" text-anchor="middle" class="step">المجمدة فيت</text>
@@ -52,10 +52,10 @@
   <path d="M 265 350 L 340 350" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="345" y="50" width="570" height="480" class="box"/>
-  <text x="630" y="72" text-anchor="middle" class="head">مجمد LLM مع وجود بوابات متقاطعة</text>
+  <text x="630" y="72" text-anchor="middle" class="head">مجمدة LLM مع بوابات متقاطعة</text>
 
   <rect x="365" y="92" width="530" height="52" class="frozen"/>
-  <text x="630" y="114" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (المجموعة 1-4)</text>
+  <text x="630" y="114" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (كتلة 1-4)</text>
   <text x="630" y="132" text-anchor="middle" class="small">طبقات شينشيلا 70B المجمدة</text>
 
   <rect x="365" y="154" width="530" height="80" class="gate"/>
@@ -65,20 +65,20 @@
   <text x="390" y="234" class="small">-&gt; LLM القدرة النصية المحفوظة في الخطوة 0</text>
 
   <rect x="365" y="244" width="530" height="52" class="frozen"/>
-  <text x="630" y="266" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (المجموعة 5-8)</text>
+  <text x="630" y="266" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (كتلة 5-8)</text>
   <text x="630" y="284" text-anchor="middle" class="small">تستمر الرموز النصية في الاهتمام الذاتي السببي</text>
 
   <rect x="365" y="306" width="530" height="80" class="gate"/>
   <text x="630" y="328" text-anchor="middle" class="step">GATED CROSS-تنبيه (مدرب)</text>
   <text x="390" y="352" class="small">مع زيادة ألفا، تمتزج المساهمة البصرية</text>
   <text x="390" y="370" class="small">ينتهي التدريب مع ألفا O(1-2)، تانه ~0.8</text>
-  <text x="390" y="386" class="caption">تم إدراج كل طبقات M=4 LLM</text>
+  <text x="390" y="386" class="caption">يتم إدخال كل M=4 LLM طبقات</text>
 
   <rect x="365" y="396" width="530" height="52" class="frozen"/>
-  <text x="630" y="418" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (المجموعة 9-12،...، ن)</text>
+  <text x="630" y="418" text-anchor="middle" class="step">LLM العناية الذاتية + FFN (كتلة 9-12،...، ن)</text>
 
   <rect x="365" y="458" width="530" height="60" class="cool"/>
   <text x="630" y="478" text-anchor="middle" class="step">إجمالي الطبقات المتقاطعة: N/4</text>
-  <text x="630" y="496" text-anchor="middle" class="small">لـ 70B LLM مع 80 طبقة -&gt; 20 جسرًا مسورًا</text>
+  <text x="630" y="496" text-anchor="middle" class="small">بـ 70 ب LLM مع 80 طبقة -&gt; 20 جسرًا مسورًا</text>
   <text x="630" y="510" text-anchor="middle" class="small">المعلمات المدربات: ~10B / 80B إجمالاً</text>
 </svg>

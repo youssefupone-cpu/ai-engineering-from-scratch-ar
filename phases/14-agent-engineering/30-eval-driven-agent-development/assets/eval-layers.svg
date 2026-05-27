@@ -37,7 +37,7 @@
   <text x="485" y="72" text-anchor="middle" class="head">2. التقييمات المخصصة دون اتصال بالإنترنت</text>
   <text x="360" y="96" class="small">شكل منتجك</text>
   <rect x="360" y="108" width="250" height="30" class="box"/>
-  <text x="378" y="128" class="step">LLM-كقاضي (لانغفيوز، فينيكس، أوبيك)</text>
+  <text x="378" y="128" class="step">LLM-قاضيًا (لانجفيوز، فينيكس، أوبيك)</text>
   <rect x="360" y="140" width="250" height="30" class="box"/>
   <text x="378" y="160" class="step">يعتمد على التنفيذ (تشغيل التصحيح، والتحقق من الاختبارات)</text>
   <rect x="360" y="172" width="250" height="30" class="box"/>
@@ -49,7 +49,7 @@
 
   <rect x="640" y="50" width="290" height="220" class="online"/>
   <text x="785" y="72" text-anchor="middle" class="head">3. التقييم عبر الإنترنت (المنتج)</text>
-  <text x="660" y="96" class="small">مستمر، أخذ العينات، PII-مقشر</text>
+  <text x="660" y="96" class="small">مستمر، عينة، PII-مقشر</text>
   <rect x="660" y="108" width="250" height="30" class="box"/>
   <text x="678" y="128" class="step">إعادة تشغيل الجلسة (Langfuse)</text>
   <rect x="660" y="140" width="250" height="30" class="box"/>
@@ -89,7 +89,7 @@
   <rect x="60" y="432" width="840" height="30" class="box"/>
   <text x="78" y="452" class="step">كل حاجز حماية يعين حالة ما؛ كل قاعدة تم تعلمها ترتبط بحالة فشل</text>
   <rect x="60" y="466" width="840" height="30" class="box"/>
-  <text x="78" y="486" class="step">LLM- أسباب القاضي عبر CRITIC (أدوات خارجية)؛ تجنب هلوسة القاضي</text>
+  <text x="78" y="486" class="step">LLM- ​​أسس القاضي عبر CRITIC (أدوات خارجية)؛ تجنب هلوسة القاضي</text>
 
   <text x="480" y="540" text-anchor="middle" class="caption">التقييم ليس الخطوة الأخيرة. إنها الحلقة الخارجية التي تحرك كل خيار في المرحلة 14.</text>
 </svg>

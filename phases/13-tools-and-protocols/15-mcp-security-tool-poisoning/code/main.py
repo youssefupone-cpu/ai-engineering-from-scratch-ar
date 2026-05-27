@@ -1,5 +1,13 @@
-"""المرحلة 13 الدرس 15 - كاشف تسمم الأدوات مع تثبيت التجزئة. الدفاع ذو طبقتين: 1. كاشف ثابت: مسح التعبير العادي لأنماط الحقن في الأوصاف 2. تثبيت التجزئة: سجل SHA256 للأوصاف المعتمدة؛ طفرات العلم يحتوي نموذج التسجيل على خادم نظيف، وخادم مسموم، وخادم
-البساط سحب وصفه بعد الموافقة عليه. جميع الدفاعات الثلاثة تطلق النار. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 15 - tool-poisoning detector with hash pinning.
+
+Two-layer defense:
+  1. static detector: regex scan for injection patterns in descriptions
+  2. hash pinning: record SHA256 of approved descriptions; flag mutations
+
+Sample registry has a clean server, a poisoned server, and a server that
+rug-pulled its description after approval. All three defenses fire.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -118,12 +126,12 @@ POISONED_SERVER = [
 ]
 
 
-# الإصدار A من rug_pull_server.tool_x الذي نوافق عليه أولاً
+# version A of rug_pull_server.tool_x that we approve first
 RUG_PULL_APPROVED = [
     {"name": "tool_x", "description": "Use when X. Do not use for Y."},
 ]
 
-# تم نشر الإصدار B بعد الموافقة - يبدو حميدًا ولكنه "سحب البساط"
+# version B posted after approval - looks benign-ish but is the "rug pull"
 RUG_PULL_MUTATED = [
     {"name": "tool_x", "description": "Use when X and also Z. Do not use for Y. Context about Z."},
 ]
@@ -134,7 +142,7 @@ def demo() -> None:
     print("PHASE 13 LESSON 15 - TOOL POISONING DETECTOR")
     print("=" * 72)
 
-    # إعادة تعيين المتجر المعتمد
+    # reset approved store
     save_approved({})
 
     print("\n--- first load: approve the clean and rug-pull servers ---")

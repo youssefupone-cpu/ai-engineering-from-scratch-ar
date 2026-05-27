@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ما هي الميزة التي يتمتع بها SVD على التحلل الذاتي؟",
+      "question": "What advantage does SVD have over eigendecomposition?",
       "options": [
-        "SVD دائمًا ما يكون أسرع في الحساب",
-        "SVD يعمل على أي مصفوفة بأي شكل، بينما يتطلب التحليل الذاتي مصفوفات مربعة تحتوي على مجموعات متجهات ذاتية كاملة",
-        "SVD ينتج مصفوفات مخرجات أصغر",
-        "SVD لا يتطلب حسابًا رقميًا"
+        "SVD is always faster to compute",
+        "SVD works on any matrix of any shape, while eigendecomposition requires square matrices with full eigenvector sets",
+        "SVD produces smaller output matrices",
+        "SVD does not require numerical computation"
       ],
       "correct": 1,
-      "explanation": "يعمل التركيب الذاتي فقط على المصفوفات المربعة التي تحتوي على ن متجهات ذاتية مستقلة خطيًا. يقوم SVD بتحليل مصفوفة ANY m x n إلى U * Sigma * V^T بدون قيود على الشكل أو الرتبة."
+      "explanation": "Eigendecomposition only works on square matrices that have n linearly independent eigenvectors. SVD decomposes ANY m x n matrix into U * Sigma * V^T with no restrictions on shape or rank."
     },
     {
       "stage": "pre",
-      "question": "ماذا يعني \"تقريب الرتبة المنخفضة\"؟",
+      "question": "What does 'low-rank approximation' mean?",
       "options": [
-        "إزالة الصفوف ذات القيم المنخفضة من المصفوفة",
-        "تقريب المصفوفة عن طريق الاحتفاظ فقط بأهم مكوناتها، مما يؤدي إلى إنتاج مصفوفة أبسط ذات اتجاهات مستقلة أقل",
-        "تحويل مصفوفة إلى نوع بيانات أقل دقة",
-        "فرز صفوف المصفوفة حسب حجمها"
+        "Removing rows with low values from a matrix",
+        "Approximating a matrix by keeping only its most important components, producing a simpler matrix with fewer independent directions",
+        "Converting a matrix to a lower precision data type",
+        "Sorting the rows of a matrix by their magnitude"
       ],
       "correct": 1,
-      "explanation": "يحتفظ تقريب الرتبة k فقط بالقيم المفردة العليا ومتجهاتها، ويتجاهل الباقي. تثبت نظرية إيكارت-يونغ أن هذا هو BEST التقريب المحتمل لتلك المرتبة."
+      "explanation": "A rank-k approximation keeps only the top k singular values and their vectors, discarding the rest. The Eckart-Young theorem proves this is the BEST possible approximation of that rank."
     },
     {
       "stage": "post",
-      "question": "في SVD A = U * Sigma * V^T، ما العملية الهندسية التي يمثلها كل عامل؟",
+      "question": "In SVD A = U * Sigma * V^T, what geometric operation does each factor represent?",
       "options": [
-        "يقيس U، ويدور Sigma، ويترجم V^T",
-        "يدور V^T في مساحة الإدخال، ويتدرج Sigma على طول المحاور الرئيسية، ويدور U في مساحة الإخراج",
-        "يضغط U، ويتوسع سيجما، ويعاد V ^ T إلى طبيعته",
-        "تؤدي العوامل الثلاثة نفس العملية: الدوران"
+        "U scales, Sigma rotates, V^T translates",
+        "V^T rotates in input space, Sigma scales along principal axes, U rotates into output space",
+        "U compresses, Sigma expands, V^T normalizes",
+        "All three factors perform the same operation: rotation"
       ],
       "correct": 1,
-      "explanation": "يكشف SVD أن كل مصفوفة تؤدي: (1) V^T تقوم بتدوير المدخلات لتتماشى مع الاتجاهات الرئيسية، (2) تقوم Sigma بتمديد/ضغط على طول كل محور، (3) تقوم U بتدوير النتيجة في مساحة الإخراج. تدوير، مقياس، تدوير."
+      "explanation": "SVD reveals that every matrix performs: (1) V^T rotates inputs to align with principal directions, (2) Sigma stretches/compresses along each axis, (3) U rotates the result into the output space. Rotate, scale, rotate."
     },
     {
       "stage": "post",
-      "question": "لماذا تقوم sklearn بتنفيذ PCA باستخدام SVD بدلاً من التحلل الذاتي لمصفوفة التغاير؟",
+      "question": "Why does sklearn implement PCA using SVD instead of eigendecomposition of the covariance matrix?",
       "options": [
-        "SVD يعطي نتائج مختلفة أكثر دقة لـ ML",
-        "SVD يعمل مباشرة على مصفوفة البيانات دون تشكيل مصفوفة التغاير، وتجنب تربيع رقم الشرط وتحسين الاستقرار الرقمي",
-        "من الأسهل موازاة SVD في GPUs",
-        "SVD لا يتطلب توسيط البيانات"
+        "SVD produces different results that are more accurate for ML",
+        "SVD works directly on the data matrix without forming the covariance matrix, avoiding squaring the condition number and improving numerical stability",
+        "SVD is easier to parallelize on GPUs",
+        "SVD does not require centering the data"
       ],
       "correct": 1,
-      "explanation": "يؤدي تكوين A^T*A إلى تربيع القيم المفردة (ورقم الشرط). إذا كانت A لها قيم فردية [1000, 0.001]، فإن A^T*A لها قيم ذاتية [10^6, 10^-6] -- 6 digits من الدقة المفقودة. SVD يتجنب ذلك من خلال العمل مباشرة على A."
+      "explanation": "Forming A^T*A squares the singular values (and condition number). If A has singular values [1000, 0.001], A^T*A has eigenvalues [10^6, 10^-6] -- 6 digits of precision lost. SVD avoids this by working directly on A."
     },
     {
       "stage": "post",
-      "question": "كيف يعمل SVD المقتطع على تمكين أنظمة التوصية من التنبؤ بالتقييمات المفقودة؟",
+      "question": "How does truncated SVD enable recommendation systems to predict missing ratings?",
       "options": [
-        "يقوم بملء الإدخالات المفقودة بمتوسط ​​التصنيف",
-        "يقوم بتحليل مصفوفة التصنيفات إلى ملفات تعريف المستخدمين والأفلام الكامنة؛ يتنبأ المنتج النقطي لملف تعريف المستخدم مع ملف تعريف الفيلم بالتقييم المفقود",
-        "يقوم بتجميع المستخدمين المتشابهين معًا ونسخ تقييماتهم",
-        "يقوم بتدريب الشبكة العصبية على التصنيفات المرصودة"
+        "It fills missing entries with the average rating",
+        "It decomposes the ratings matrix into latent user and movie profiles; the dot product of a user profile with a movie profile predicts the missing rating",
+        "It clusters similar users together and copies their ratings",
+        "It trains a neural network on the observed ratings"
       ],
       "correct": 1,
-      "explanation": "يقوم SVD بتحليل مصفوفة التصنيفات إلى ملفات تعريف المستخدمين (U)، وأهمية العامل الكامن (Sigma)، وملفات تعريف الأفلام (V^T). تقوم إعادة الإعمار ذات التصنيف المنخفض بملء الإدخالات المفقودة بناءً على العوامل الكامنة (النوع، العصر، النمط) التي تشرح تفضيلات المستخدم."
+      "explanation": "SVD decomposes the ratings matrix into user profiles (U), latent factor importance (Sigma), and movie profiles (V^T). The low-rank reconstruction fills in missing entries based on the latent factors (genre, era, style) that explain user preferences."
     }
   ]
 }

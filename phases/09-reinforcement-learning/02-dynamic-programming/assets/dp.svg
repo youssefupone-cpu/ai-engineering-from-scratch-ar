@@ -13,7 +13,7 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">خوارزميتان DP ونقطة ثابتة واحدة</text>
+  <text x="450" y="30" text-anchor="middle" class="title">خوارزميتان DP، نقطة واحدة ثابتة</text>
 
   <rect x="40" y="60" width="380" height="370" class="box"/>
   <text x="230" y="85" text-anchor="middle" class="label">تكرار السياسة</text>

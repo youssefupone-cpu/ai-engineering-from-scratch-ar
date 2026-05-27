@@ -24,17 +24,17 @@ You are an expert at applying Singular Value Decomposition to practical engineer
 
 | Situation | Method | Why |
 |-----------|--------|-----|
-| Dense matrix, full decomposition needed | `n` / `s` in Julia | Standard algorithm, numerically stable |
-| Only top k components needed | `s` | Faster than full SVD when k is small |
-| Sparse matrix | `s` | Handles sparse storage efficiently |
+| Dense matrix, full decomposition needed | `np.linalg.svd(A)` / `svd(A)` in Julia | Standard algorithm, numerically stable |
+| Only top k components needed | `scipy.sparse.linalg.svds(A, k)` | Faster than full SVD when k is small |
+| Sparse matrix | `scipy.sparse.linalg.svds` | Handles sparse storage efficiently |
 | Streaming data | Incremental SVD / online SVD | Updates decomposition without recomputing from scratch |
 | Missing data (recommendations) | ALS, Funk SVD, or NMF | Standard SVD requires a complete matrix |
-| Very large matrix (millions of rows) | Randomized SVD (`s`) | O(mn log k) instead of O(mn min(m,n)) |
+| Very large matrix (millions of rows) | Randomized SVD (`sklearn.utils.extmath.randomized_svd`) | O(mn log k) instead of O(mn min(m,n)) |
 | PCA on centered data | SVD of centered data matrix | Equivalent to eigendecomposition of covariance, but more stable |
 
 ### Step 3: Choose the rank k
 
-- **Energy threshold**: Compute cumulative energy = sum(sigma_1^2 ... sigma_k^2) / sum(all sigma^2). Stop when energy exceeds 0.95 (or 0.99 for high-fidelity tasks).
+- **Energy threshold**: Compute cumulative energy = sum(sigma_1^2... sigma_k^2) / sum(all sigma^2). Stop when energy exceeds 0.95 (or 0.99 for high-fidelity tasks).
 - **Gap detection**: Plot singular values. Look for a sharp drop. The gap indicates the boundary between signal and noise.
 - **Cross-validation**: For downstream tasks, sweep k and measure performance on held-out data.
 - **Elbow method**: Plot reconstruction error vs k. The elbow is where adding more components stops helping.

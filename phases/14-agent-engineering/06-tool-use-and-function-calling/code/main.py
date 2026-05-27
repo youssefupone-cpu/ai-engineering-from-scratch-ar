@@ -1,5 +1,7 @@
-"""سجل أداة Stdlib مع JSON التحقق من صحة مجموعة المخطط الفرعية والإرسال المتوازي. المجموعة الفرعية: الحقول المطلوبة، السلسلة/int/الرقم/bool/array/object، التعداد، الحد الأدنى/الحد الأقصى.
-إرجاع ملاحظات منظمة لكل فشل في التحقق من الصحة حتى يتمكن الوكيل من إعادة المحاولة.
+"""Stdlib tool registry with JSON Schema subset validation and parallel dispatch.
+
+Subset: required fields, string/int/number/bool/array/object, enum, minimum/maximum.
+Returns structured observations for every validation failure so an agent can retry.
 """
 
 from __future__ import annotations

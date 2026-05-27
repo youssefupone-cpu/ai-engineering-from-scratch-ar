@@ -28,7 +28,7 @@
   <rect x="230" y="90" width="240" height="40" class="cold"/>
   <text x="350" y="115" text-anchor="middle" class="content">max_tokens</text>
   <rect x="480" y="90" width="340" height="40" class="box"/>
-  <text x="650" y="115" text-anchor="middle" class="small">إكمال غير محدود (استدعاء LLM واحد)</text>
+  <text x="650" y="115" text-anchor="middle" class="small">إكمال غير محدود (مكالمة LLM واحدة)</text>
 
   <!-- Per session -->
   <rect x="60" y="135" width="160" height="40" class="cool"/>

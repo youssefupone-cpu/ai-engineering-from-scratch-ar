@@ -1,5 +1,7 @@
-"""لعبة حلقة الانعكاس - الممثل، المقيم، العاكس الذاتي، الذاكرة العرضية. المهمة: اختر ثلاثة أعداد صحيحة من 1..9 والتي يصل مجموعها إلى الهدف. الممثل هو
-تم كتابتها للبدء بإستراتيجية سيئة والتكيف عند وجود أفكار.
+"""Toy Reflexion loop — Actor, Evaluator, Self-Reflector, Episodic memory.
+
+Task: pick three integers from 1..9 that sum to a target. The Actor is
+scripted to start with a bad strategy and adapt when reflections are present.
 """
 
 from __future__ import annotations
@@ -34,7 +36,8 @@ class EpisodicMemory:
 
 
 class Actor:
-    """سياسة مكتوبة. بدون تأملات يبقى على الاختيارات السيئة؛ مع انعكاس واحد على الأقل يتحرك نحو المبلغ المستهدف."""
+    """Scripted policy. Without reflections it stays on bad choices; with
+    at least one reflection it moves toward the target sum."""
 
     def act(self, memory: EpisodicMemory) -> list[int]:
         n = len(memory.items)

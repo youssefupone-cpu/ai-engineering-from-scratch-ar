@@ -1,6 +1,8 @@
-"""لعبة SWE - حزام على شكل مقعد بالإضافة إلى مصنف صعوبة على طراز GAIA. SWE-bench: مهام إصلاح الأخطاء باستخدام بوابات FAIL_TO_PASS وPASS_TO_PASS.
-GAIA: أسئلة بسيطة بالنسبة للبشر، وصعبة بالنسبة إلى AI أسئلة تم تسجيلها من خلال عمق التحليل.
-كلاهما اصطناعي. النقطة المهمة هي make قواعد المقيم ملموسة.
+"""Toy SWE-bench-style harness plus a GAIA-style difficulty classifier.
+
+SWE-bench: bug-fix tasks with FAIL_TO_PASS and PASS_TO_PASS gates.
+GAIA: simple-for-humans, hard-for-AI questions scored by decomposition depth.
+Both are synthetic; the point is to make the evaluator rules concrete.
 """
 
 from __future__ import annotations

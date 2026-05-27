@@ -1,5 +1,7 @@
-"""MIO تخصيص رمز مميز بأربعة أنماط + حساب وقت الاستجابة لفك ترميز البث. ستدليب. يطبع تخطيط المفردات وتتبع زمن الاستجابة خطوة بخطوة لـ a
-طلب الحوار المنطوق حيث يستهلك MIO الكلام وينشئ الكلام.
+"""MIO-style four-modality tokenizer allocation + streaming decode latency calc.
+
+Stdlib. Prints the vocab layout and a step-by-step latency trace for a
+spoken-dialogue request where MIO consumes speech, generates speech.
 """
 
 from __future__ import annotations
@@ -51,7 +53,7 @@ def print_vocab(slots: list[VocabSlot]) -> None:
 
 
 def route_inputs(inputs: list[dict]) -> list[dict]:
-    """قم بتصنيف كل إدخال وتعيين مسار الرمز المميز."""
+    """Classify each input and assign a tokenizer path."""
     routed = []
     for inp in inputs:
         kind = inp["kind"]

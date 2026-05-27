@@ -28,7 +28,7 @@
   <text x="190" y="146" text-anchor="middle" class="small">كل بلاطة 384، 2x حمام سباحة</text>
   <text x="190" y="162" text-anchor="middle" class="small">182 رمزًا لكل بلاطة</text>
   <text x="190" y="182" text-anchor="middle" class="step">المجموع 1820 رمزا</text>
-  <text x="190" y="202" text-anchor="middle" class="small">الإدراك + OCR + التفاصيل</text>
+  <text x="190" y="202" text-anchor="middle" class="small">إدراك + OCR + تفصيل</text>
 
   <rect x="340" y="90" width="260" height="140" class="cool"/>
   <text x="470" y="110" text-anchor="middle" class="step">multi-image</text>
@@ -54,7 +54,7 @@
   <text x="160" y="354" text-anchor="middle" class="small">صورة واحدة فقط</text>
   <text x="160" y="370" text-anchor="middle" class="small">AnyRes عالية الدقة</text>
   <text x="160" y="390" text-anchor="middle" class="small">قاعدة الإدراك</text>
-  <text x="160" y="410" text-anchor="middle" class="small">MMMU + OCR + التفاصيل</text>
+  <text x="160" y="410" text-anchor="middle" class="small">MMMU + OCR + تفصيل</text>
   <text x="160" y="444" text-anchor="middle" class="caption">ترتيب عكسي (الفيديو أولاً)</text>
   <text x="160" y="460" text-anchor="middle" class="caption">يخسر 2-4 MMMU</text>
   <text x="160" y="476" text-anchor="middle" class="caption">لكل عملية استئصال OneVision</text>

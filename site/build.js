@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-/** * إنشاء سكريبت لموقع AI للهندسة من سكراتش. * يوزع README.md، ROADMAP.md، ومسرد/terms.md من جذر الريبو * ويقوم بإنشاء data.js مع جميع بيانات المرحلة/الدرس/المسرد. * * تشغيل: node site/build.js * يتم الاتصال بها تلقائيًا بواسطة GitHub الإجراءات في كل دفعة.
+/**
+ * Build script for AI Engineering from Scratch website.
+ * Parses README.md, ROADMAP.md, and glossary/terms.md from the repo root
+ * and generates data.js with all phase/lesson/glossary data.
+ *
+ * Run: node site/build.js
+ * Called automatically by GitHub Actions on every push.
  */
 
 const fs = require('fs');
@@ -13,14 +19,14 @@ const OUTPUT_PATH = path.join(__dirname, 'data.js');
 
 const GITHUB_BASE = 'https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/';
 
-// ─── تحليل ROADMAP.md لحالات الدرس ───────────────────────
+// ─── Parse ROADMAP.md for lesson statuses ────────────────────────────
 function parseRoadmap(content) {
-  const statuses = {}; // { "المرحلة 0": { حالة المرحلة، الدروس: { "بيئة التطوير": "مكتملة" } } }
+  const statuses = {}; // { "Phase 0": { phaseStatus, lessons: { "Dev Environment": "complete" } } }
   let currentPhase = null;
   let currentPhaseStatus = null;
 
   for (const line of content.split(/\r?\n/)) {
-    // قم بمطابقة رؤوس المرحلة مثل: ## المرحلة 0: الإعداد والأدوات - ✅
+    // Match phase headers like: ## Phase 0: Setup & Tooling — ✅
     const phaseMatch = line.match(/^##\s+Phase\s+(\d+).*?—\s*(✅|🚧|⬚)/);
     if (phaseMatch) {
       const phaseId = parseInt(phaseMatch[1]);
@@ -31,7 +37,7 @@ function parseRoadmap(content) {
       continue;
     }
 
-    // قم بمطابقة صفوف الدرس مثل: | 01 | بيئة التطوير | ✅ |
+    // Match lesson rows like: | 01 | Dev Environment | ✅ |
     if (currentPhase) {
       const lessonMatch = line.match(/^\|\s*\d+\s*\|\s*(.+?)\s*\|\s*(✅|🚧|⬚)\s*\|/);
       if (lessonMatch) {
@@ -46,13 +52,13 @@ function parseRoadmap(content) {
   return statuses;
 }
 
-// ─── إعراب README.md للمراحل والدروس ───────────────────────
+// ─── Parse README.md for phases and lessons ──────────────────────────
 function parseReadme(content, roadmapStatuses) {
   const phases = [];
 
-  // انقسم إلى كتل المرحلة
-  // المرحلة 0 موجودة في كتلة <جدول>، والمراحل من 1 إلى 19 موجودة في كتل <تفاصيل>
-  // سنقوم بتحليل سطرًا تلو الآخر لاستخراج رؤوس المراحل وجداول الدروس
+  // Split into phase blocks
+  // Phase 0 is in a <table> block, phases 1-19 are in <details> blocks
+  // We'll parse line by line to extract phase headers and lesson tables
 
   const lines = content.split(/\r?\n/);
   let currentPhase = null;
@@ -62,11 +68,11 @@ function parseReadme(content, roadmapStatuses) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
 
-    // مطابقة رأس المرحلة - تنسيقات متعددة مدعومة:
-    // القديم: ### المرحلة 0: الإعداد والأدوات `12 lessons`
-    // القديم: <summary><strong>المرحلة الأولى: أسس الرياضيات</strong> <code>22 درسًا</code>... <em>الوصف</em></summary>
-    // جديد: ###![](https://img.shields.io/badge/Phase_0-Setup_&_Tooling-95A5A6?style=for-the-badge) `12 lessons`
-    // جديد: <summary><b>🟣 المرحلة الأولى — أسس الرياضيات</b> <code>22 درسًا</code> <em>الوصف</em></summary>
+    // Match Phase header - multiple formats supported:
+    // Old: ### Phase 0: Setup & Tooling `12 lessons`
+    // Old: <summary><strong>Phase 1: Math Foundations</strong> <code>22 lessons</code> ... <em>Description</em></summary>
+    // New: ### ![](https://img.shields.io/badge/Phase_0-Setup_&_Tooling-95A5A6?style=for-the-badge) `12 lessons`
+    // New: <summary><b>🟣 Phase 1 — Math Foundations</b> &nbsp;<code>22 lessons</code>&nbsp; <em>Description</em></summary>
     const phaseHeaderMatch =
       line.match(/###\s+Phase\s+(\d+):\s+(.+?)\s*`(\d+)\s+lessons?`/) ||
       line.match(/###\s+!\[\]\([^)]*?Phase[_\s]+(\d+)[-_]([^?)]+?)-[A-F0-9]{6}[^)]*\)\s*`(\d+)\s+lessons?`/i);
@@ -78,7 +84,7 @@ function parseReadme(content, roadmapStatuses) {
       const [, idStr, rawName] = phaseHeaderMatch;
       const id = parseInt(idStr);
       const name = rawName.replace(/_/g, ' ').trim();
-      // ابحث عن الوصف في السطر التالي (اقتباس)
+      // Look for the description on the next line (blockquote)
       let desc = '';
       for (let j = i + 1; j < Math.min(i + 5, lines.length); j++) {
         if (lines[j].startsWith('>')) {
@@ -105,33 +111,33 @@ function parseReadme(content, roadmapStatuses) {
       continue;
     }
 
-    // كشف بداية جدول الدرس
-    if (currentPhase && line.match(/^\|\s*#\s*\|\s*Lesson/)) {
+    // Detect start of lesson table
+    if (currentPhase && line.match(/^\|\s*#\s*\|\s*(Lesson|الدرس)/i)) {
       inLessonTable = true;
       isCapstoneTable = false;
       continue;
     }
 
-    // تخطي فاصل الجدول
+    // Skip table separator
     if (inLessonTable && line.match(/^\|[\s:|-]+\|$/)) {
       continue;
     }
 
-    // تحليل صفوف الدرس
+    // Parse lesson rows
     if (inLessonTable && currentPhase && line.startsWith('|')) {
-      // | 01 | [Dev Environment](phases/00-setup-and-tooling/01-dev-environment/) | بناء | بايثون، العقدة، Rust |
-      // | 02 | شبكات متعددة الطبقات وتمرير أمامي | بناء | بايثون |
+      // | 01 | [Dev Environment](phases/00-setup-and-tooling/01-dev-environment/) | Build | Python, Node, Rust |
+      // | 02 | Multi-Layer Networks & Forward Pass | Build | Python |
       const cols = line.split('|').map(c => c.trim()).filter(c => c.length > 0);
       if (cols.length >= 4) {
         const lessonCol = cols[1];
         const typeRaw = cols[2];
         const langRaw = cols[3];
 
-        // قد يكون النوع عاديًا ("إنشاء") أو صورة درع:![Build](https://...))
+        // Type may be plain ("Build") or a shield image: ![Build](https://...)
         const typeBadgeMatch = typeRaw.match(/!\[([^\]]+)\]/);
         const type = typeBadgeMatch ? typeBadgeMatch[1] : typeRaw;
 
-        // يمكن أن تكون اللغة الإنجليزية عادية ("Python، Rust") أو أعلام الرموز التعبيرية (🐍 🟦 🦀 🟣 ⚛️)
+        // Lang may be plain ("Python, Rust") or emoji flags (🐍 🟦 🦀 🟣 ⚛️)
         const EMOJI_LANG = {
           '🐍': 'Python',
           '🟦': 'TypeScript',
@@ -150,7 +156,7 @@ function parseReadme(content, roadmapStatuses) {
         }
         if (lang === '—' || lang === '-') lang = '';
 
-        // تحقق مما إذا كان الدرس يحتوي على رابط (بمعنى أنه يحتوي على محتوى)
+        // Check if lesson has a link (meaning it has content)
         const linkMatch = lessonCol.match(/\[(.+?)\]\((.+?)\)/);
         let lessonName, url;
         if (linkMatch) {
@@ -162,12 +168,12 @@ function parseReadme(content, roadmapStatuses) {
           url = null;
         }
 
-        // الحصول على الحالة من خريطة الطريق
+        // Get status from roadmap
         const roadmapKey = `Phase ${currentPhase.id}`;
         const roadmapPhase = roadmapStatuses[roadmapKey];
         let status = 'planned';
         if (roadmapPhase) {
-          // حاول العثور على الدرس المطابق عن طريق المطابقة الغامضة
+          // Try to find matching lesson by fuzzy match
           const lessonNameClean = lessonName.replace(/[-–—:]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
           for (const [rName, rStatus] of Object.entries(roadmapPhase.lessons)) {
             const rNameClean = rName.replace(/[-–—:]/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
@@ -179,15 +185,15 @@ function parseReadme(content, roadmapStatuses) {
           }
         }
 
-        // إذا كان يحتوي على رابط، فهو على الأقل مكتمل (تجاوز خريطة الطريق إذا لزم الأمر)
+        // If it has a link, it's at least complete (override roadmap if needed)
         if (url && status === 'planned') {
           status = 'complete';
         }
 
-        // تستخدم جداول Capstone العمود الأوسط لرموز مرحلة المتطلبات الأساسية
-        // (على سبيل المثال، "P11 P13 P14")، وليس تعداد البناء/التعلم. احتفظ بـ `type` على
-        // إنشاء/تعلم المحور بحيث تظل محددات CSS (نوع البيانات = "إنشاء"/"تعلم")
-        // صالح، وأصدر سلسلة المتطلبات المسبقة في حقل `combines` مخصص.
+        // Capstone tables use the middle column for prerequisite phase tokens
+        // (e.g., "P11 P13 P14"), not a Build/Learn enum. Keep `type` on the
+        // Build/Learn axis so CSS selectors (data-type="Build"/"Learn") stay
+        // valid, and emit the prereq string in a dedicated `combines` field.
         const lessonEntry = {
           name: lessonName.trim(),
           status,
@@ -200,13 +206,13 @@ function parseReadme(content, roadmapStatuses) {
       }
     }
 
-    // نهاية الجدول
+    // End of table
     if (inLessonTable && (line.match(/<\/td>/) || line.match(/<\/details>/) || (line.trim() === '' && i + 1 < lines.length && !lines[i + 1].startsWith('|')))) {
       inLessonTable = false;
     }
 
-    // اكتشف أيضًا تنسيق الجدول النهائي (# | Project | Combines | Lang)
-    if (currentPhase && line.match(/^\|\s*#\s*\|\s*Project/)) {
+    // Also detect capstone table format (# | Project | Combines | Lang)
+    if (currentPhase && line.match(/^\|\s*#\s*\|\s*(Project|المشروع)/i)) {
       inLessonTable = true;
       isCapstoneTable = true;
       continue;
@@ -216,8 +222,19 @@ function parseReadme(content, roadmapStatuses) {
   return phases;
 }
 
-// ─── استخرج ملخص الدرس + الكلمات الرئيسية من docs/en.md ───────────────
-/** * قراءة لمرة واحدة لمستندات الدرس/en.md. * * العوائد: * الملخص - السطر الأول `> blockquote` (شعار الدرس ذو السطر الواحد). * الكلمات الرئيسية — جميع نصوص العناوين `### __TERM_0__` المرتبطة بـ ' · '. * H3 العناوين هي المفردات الأكثر كثافة في مستند الدرس * (على سبيل المثال، "منتج نقطي محدد الحجم · إخفاء سببي · KV ذاكرة تخزين مؤقت")، * لذا يقومون بتوسيع تغطية البحث دون تضخم data.js. * * كلا الحقلين عبارة عن سلاسل فارغة عندما يكون الملف غائباً أو لا يحتوي على أي شيء * المحتوى المطابق - متوقع للدروس المخططة بدون مستندات حتى الآن.
+// ─── Extract lesson summary + keywords from docs/en.md ───────────────
+/**
+ * Single-pass read of a lesson's docs/en.md.
+ *
+ * Returns:
+ *   summary  — first `> blockquote` line (the lesson's one-liner motto).
+ *   keywords — all `### H3` heading texts joined by ' · '.
+ *              H3 headings are the densest vocabulary in a lesson doc
+ *              (e.g. "Scaled dot-product · Causal masking · KV cache"),
+ *              so they extend search coverage without bloating data.js.
+ *
+ * Both fields are empty strings when the file is absent or has no
+ * matching content — expected for planned lessons with no docs yet.
  */
 function extractLessonMeta(relPath) {
   const docPath = path.join(REPO_ROOT, relPath, 'docs', 'en.md');
@@ -238,18 +255,18 @@ function extractLessonMeta(relPath) {
     }
     if (h3s.length) result.keywords = h3s.join(' · ');
   } catch (_) {
-    // الملف غائب أو غير قابل للقراءة - متوقع للدروس المخططة.
+    // File absent or unreadable — expected for planned lessons.
   }
   return result;
 }
 
-// ─── تحليل المسرد/terms.md ─────────────────── ───────────────────
+// ─── Parse glossary/terms.md ──────────────────────────────────────────
 function parseGlossary(content) {
   const terms = [];
   let currentTerm = null;
 
   for (const line of content.split(/\r?\n/)) {
-    // مطابقة رؤوس المصطلحات: ### الوكيل أو ### Adam (المُحسِّن)
+    // Match term headers: ### Agent or ### Adam (Optimizer)
     const termMatch = line.match(/^###\s+(.+)/);
     if (termMatch) {
       if (currentTerm && currentTerm.says && currentTerm.means) {
@@ -261,14 +278,14 @@ function parseGlossary(content) {
 
     if (!currentTerm) continue;
 
-    // طابق سطر "ما يقوله الناس".
+    // Match "What people say" line
     const saysMatch = line.match(/\*\*What people say:\*\*\s*"?(.+?)"?\s*$/);
     if (saysMatch) {
       currentTerm.says = saysMatch[1].replace(/^"/, '').replace(/"$/, '').trim();
       continue;
     }
 
-    // طابق سطر "ما يعنيه هذا فعليًا".
+    // Match "What it actually means" line
     const meansMatch = line.match(/\*\*What it actually means:\*\*\s*(.+)/);
     if (meansMatch) {
       currentTerm.means = meansMatch[1].trim();
@@ -276,7 +293,7 @@ function parseGlossary(content) {
     }
   }
 
-  // دفع المصطلح الأخير
+  // Push the last term
   if (currentTerm && currentTerm.says && currentTerm.means) {
     terms.push(currentTerm);
   }
@@ -284,7 +301,7 @@ function parseGlossary(content) {
   return terms;
 }
 
-// ─── اكتشف المخرجات / المصنوعات اليدوية (المهارات / المطالبات / الوكلاء) ──────────
+// ─── Discover outputs/ artifacts (skills / prompts / agents) ──────────
 function parseFrontmatter(text) {
   if (!text.startsWith('---')) return null;
   const end = text.indexOf('\n---', 4);
@@ -300,10 +317,140 @@ function parseFrontmatter(text) {
     if (value.startsWith('[') && value.endsWith(']')) {
       const inner = value.slice(1, -1).trim();
       result[key] = inner
-        ? inner.split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean): []; } وإلا إذا ((value.startsWith('"') && value.endsWith('"')) || (القيمة. تبدأ مع ("'") && value.endsWith("'"))) { النتيجة[مفتاح] = value.slice(1, -1); } آخر { النتيجة [مفتاح] = القيمة؛ } } نتيجة الإرجاع؛
-} وظيفة اكتشاف التحف () { القطع الأثرية الثابتة = []؛ constphaseDir = path.join(REPO_ROOT, 'phases'); إذا قام (!fs.existsSync(phasesDir)) بإرجاع القطع الأثرية؛ const VALID_TYPES = ['skill', 'prompt', 'agent']; لـ (constphaseDirName of fs.readdirSync(phasesDir).sort()) { constphaseMatch =phaseDirName.match(/^([0-9]{2})-([a-z0-9-]+)$/); إذا استمر (!phaseMatch)؛ constphaseId = parseInt(phaseMatch[1], 10); constphaseDir = path.join(phasesDir,phaseDirName); لـ (const LessonDirName of fs.readdirSync(phaseDir).sort()) { const LessonMatch = LessonDirName.match(/^([0-9]{2})-([a-z0-9-]+)$/); إذا استمر (!lessonMatch)؛ const LessonId = parseInt(lessonMatch[1], 10); const LessonRel = `phases/${phaseDirName}/${lessonDirName}`; constputsDir = path.join(phaseDir, LessonDirName, 'outputs'); إذا (fs.existsSync(outputsDir)) { لـ (ملف const الخاص بـ fs.readdirSync(outputsDir).sort()) { إذا استمر (! file.endsWith('.md')))؛ const الجذعية = file.replace(/\.md$/, ''); نوع ثابت = VALID_TYPES.find(t => الجذعية.startsWith(`${t}-`)); إذا (!اكتب) تابع؛ دع التعريف = {}; حاول { meta = parseFrontmatter(fs.readFileSync(path.join(outputsDir, file), 'utf8')) || {}; } أمسك (_) {} التحف.push({ نوع: نوع، الاسم: (meta.name || الجذعية).trim()، الوصف: (meta.description || '').trim(), العلامات: Array.isArray(meta.tags)؟ العلامات الوصفية: []، المرحلة: معرف المرحلة، الدرس: معرف الدرس، مسار الدرس: الدرس، الملف: `${lessonRel}/outputs/${file}`، }); } } const MissionPath = path.join(phaseDir, LessonDirName, 'mission.md'); إذا (fs.existsSync(missionPath)) { دع الخط الأول = ''; حاول { firstLine = fs.readFileSync(missionPath, 'utf8').split(/\r?\n/)[0].replace(/^#\s+/, '').trim(); } أمسك (_) {} التحف.push({ النوع: "مهمة"، الاسم: الخط الأول || `مهمة ${lessonDirName}`، الوصف: ''، العلامات: []، المرحلة: معرف المرحلة، الدرس: معرف الدرس، مسار الدرس: الدرس، الملف: `${lessonRel}/mission.md`، }); } } } عودة القطع الأثرية.
-} // ─── البناء الرئيسي ───────────────────────── ─────────────────────────
-بناء الوظيفة () { console.log('📖 قراءة الملفات المصدر...'); const readme = fs.readFileSync(README_PATH, 'utf8'); خريطة طريق const = fs.readFileSync(ROADMAP_PATH, 'utf8'); مسرد const = fs.readFileSync(GLOSSARY_PATH, 'utf8'); console.log('🔍 تحليل ROADMAP.md...'); const roadmapStatuses = parseRoadmap(roadmap); console.log('🔍 تحليل README.md...'); constphase = parseReadme(readme, roadmapStatuses); console.log('🔍 إعراب المسرد/terms.md...'); constlossaryTerms = parseGlossary(glossary); console.log('🔍 اكتشاف المخرجات + مهام المرحلة 14...'); قطع أثرية ثابتة = DiscoverArtifacts(); console.log('📚 استخراج ملخصات الدروس + الكلمات الرئيسية من docs/en.md...'); دع تلخيصها = 0، مع الكلمات الرئيسية = 0؛ لـ (المرحلة الثابتة من المراحل) { for (درس ثابت من المرحلة. الدروس) { إذا (الدرس.url) { const relPath = Lesson.url.replace(GITHUB_BASE, '').replace(/\/+$/, '');const meta = extractLessonMeta(relPath); إذا (meta.summary) { Lesson.summary = meta.summary؛ تلخيص++; } إذا (meta.keywords) { Lesson.keywords = meta.keywords؛ withKeywords++; } } } } // احصائيات دع مجموع الدروس = 0؛ دع CompleteLessons = 0؛ مراحل.forEach(ع => { TotalLessons += p.lessons.length; CompleteLessons += p.lessons.filter(l => l.status === 'Complete').length; }); console.log(`\n📊 الإحصائيات:`); console.log(`المراحل: ${phases.length}`); console.log(` الدروس: ${totalLessons}`); console.log(` مكتمل: ${CompleteLessons}`); console.log(` الملخصات: ${summarized}, الكلمات الرئيسية: ${withKeywords}`); console.log(` مصطلحات المسرد: ${glossaryTerms.length}`); console.log(` القطع الأثرية: ${artifacts.length}`); // إنشاء data.js إخراج const = `// تم إنشاؤه تلقائيًا بواسطة build.js - لا تقم بالتحرير يدويًا.
-// آخر بناء: ${new Date().toISOString()} const PHASES = ${JSON.stringify(phases, null, 2)}; const GLOSSARY = ${JSON.stringify(glossaryTerms, null, 2)}; const ARTIFACTS = ${JSON.stringify(artifacts, null, 2)};
-`; fs.writeFileSync(OUTPUT_PATH, الإخراج, 'utf8'); console.log(`\n✅ تم إنشاؤه ${OUTPUT_PATH}`);
-} يبني()؛"
+        ? inner.split(',').map(s => s.trim().replace(/^['"]|['"]$/g, '')).filter(Boolean)
+        : [];
+    } else if ((value.startsWith('"') && value.endsWith('"')) ||
+               (value.startsWith("'") && value.endsWith("'"))) {
+      result[key] = value.slice(1, -1);
+    } else {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+
+function discoverArtifacts() {
+  const artifacts = [];
+  const phasesDir = path.join(REPO_ROOT, 'phases');
+  if (!fs.existsSync(phasesDir)) return artifacts;
+  const VALID_TYPES = ['skill', 'prompt', 'agent'];
+  for (const phaseDirName of fs.readdirSync(phasesDir).sort()) {
+    const phaseMatch = phaseDirName.match(/^([0-9]{2})-([a-z0-9-]+)$/);
+    if (!phaseMatch) continue;
+    const phaseId = parseInt(phaseMatch[1], 10);
+    const phaseDir = path.join(phasesDir, phaseDirName);
+    for (const lessonDirName of fs.readdirSync(phaseDir).sort()) {
+      const lessonMatch = lessonDirName.match(/^([0-9]{2})-([a-z0-9-]+)$/);
+      if (!lessonMatch) continue;
+      const lessonId = parseInt(lessonMatch[1], 10);
+      const lessonRel = `phases/${phaseDirName}/${lessonDirName}`;
+      const outputsDir = path.join(phaseDir, lessonDirName, 'outputs');
+      if (fs.existsSync(outputsDir)) {
+        for (const file of fs.readdirSync(outputsDir).sort()) {
+          if (!file.endsWith('.md')) continue;
+          const stem = file.replace(/\.md$/, '');
+          const type = VALID_TYPES.find(t => stem.startsWith(`${t}-`));
+          if (!type) continue;
+          let meta = {};
+          try {
+            meta = parseFrontmatter(fs.readFileSync(path.join(outputsDir, file), 'utf8')) || {};
+          } catch (_) {}
+          artifacts.push({
+            kind: type,
+            name: (meta.name || stem).trim(),
+            description: (meta.description || '').trim(),
+            tags: Array.isArray(meta.tags) ? meta.tags : [],
+            phase: phaseId,
+            lesson: lessonId,
+            lessonPath: lessonRel,
+            file: `${lessonRel}/outputs/${file}`,
+          });
+        }
+      }
+      const missionPath = path.join(phaseDir, lessonDirName, 'mission.md');
+      if (fs.existsSync(missionPath)) {
+        let firstLine = '';
+        try {
+          firstLine = fs.readFileSync(missionPath, 'utf8').split(/\r?\n/)[0].replace(/^#\s+/, '').trim();
+        } catch (_) {}
+        artifacts.push({
+          kind: 'mission',
+          name: firstLine || `${lessonDirName} mission`,
+          description: '',
+          tags: [],
+          phase: phaseId,
+          lesson: lessonId,
+          lessonPath: lessonRel,
+          file: `${lessonRel}/mission.md`,
+        });
+      }
+    }
+  }
+  return artifacts;
+}
+
+// ─── Main build ──────────────────────────────────────────────────────
+function build() {
+  console.log('📖 Reading source files...');
+
+  const readme = fs.readFileSync(README_PATH, 'utf8');
+  const roadmap = fs.readFileSync(ROADMAP_PATH, 'utf8');
+  const glossary = fs.readFileSync(GLOSSARY_PATH, 'utf8');
+
+  console.log('🔍 Parsing ROADMAP.md...');
+  const roadmapStatuses = parseRoadmap(roadmap);
+
+  console.log('🔍 Parsing README.md...');
+  const phases = parseReadme(readme, roadmapStatuses);
+
+  console.log('🔍 Parsing glossary/terms.md...');
+  const glossaryTerms = parseGlossary(glossary);
+
+  console.log('🔍 Discovering outputs + Phase 14 missions...');
+  const artifacts = discoverArtifacts();
+
+  console.log('📚 Extracting lesson summaries + keywords from docs/en.md...');
+  let summarized = 0, withKeywords = 0;
+  for (const phase of phases) {
+    for (const lesson of phase.lessons) {
+      if (lesson.url) {
+        const relPath = lesson.url.replace(GITHUB_BASE, '').replace(/\/+$/, '');
+        const meta = extractLessonMeta(relPath);
+        if (meta.summary)  { lesson.summary  = meta.summary;  summarized++;   }
+        if (meta.keywords) { lesson.keywords = meta.keywords; withKeywords++; }
+      }
+    }
+  }
+
+  // Stats
+  let totalLessons = 0;
+  let completeLessons = 0;
+  phases.forEach(p => {
+    totalLessons += p.lessons.length;
+    completeLessons += p.lessons.filter(l => l.status === 'complete').length;
+  });
+
+  console.log(`\n📊 Stats:`);
+  console.log(`   Phases: ${phases.length}`);
+  console.log(`   Lessons: ${totalLessons}`);
+  console.log(`   Complete: ${completeLessons}`);
+  console.log(`   Summaries: ${summarized}, Keywords: ${withKeywords}`);
+  console.log(`   Glossary terms: ${glossaryTerms.length}`);
+  console.log(`   Artifacts: ${artifacts.length}`);
+
+  // Generate data.js
+  const output = `// Auto-generated by build.js — do not edit manually.
+// Last built: ${new Date().toISOString()}
+
+const PHASES = ${JSON.stringify(phases, null, 2)};
+
+const GLOSSARY = ${JSON.stringify(glossaryTerms, null, 2)};
+
+const ARTIFACTS = ${JSON.stringify(artifacts, null, 2)};
+`;
+
+  fs.writeFileSync(OUTPUT_PATH, output, 'utf8');
+  console.log(`\n✅ Generated ${OUTPUT_PATH}`);
+}
+
+build();

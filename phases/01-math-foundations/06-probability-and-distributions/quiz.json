@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ما الفرق بين دالة الكتلة الاحتمالية (PMF) ووظيفة كثافة الاحتمالية (PDF)؟",
+      "question": "What is the difference between a probability mass function (PMF) and a probability density function (PDF)?",
       "options": [
-        "تُستخدم ملفات PMF للمتغيرات المستمرة وملفات PDF للمتغيرات المنفصلة",
-        "تعطي ملفات PMF احتمالات دقيقة للنتائج المنفصلة، ​​بينما تعطي ملفات PDF كثافات للمتغيرات المستمرة التي يجب دمجها على مدى فترة زمنية للحصول على الاحتمالية",
-        "لا يوجد فرق. هم نفس المفهوم بأسماء مختلفة",
-        "مجموع PMFs دائمًا يساوي 0.5، وتتكامل ملفات PDF إلى 1"
+        "PMFs are used for continuous variables, PDFs for discrete variables",
+        "PMFs give exact probabilities for discrete outcomes, while PDFs give densities for continuous variables that must be integrated over an interval to get probability",
+        "There is no difference; they are the same concept with different names",
+        "PMFs always sum to 0.5, PDFs integrate to 1"
       ],
       "correct": 1,
-      "explanation": "بالنسبة للمتغيرات المنفصلة، ​​فإن PMF يعطي P(X=k) مباشرة. بالنسبة للمتغيرات المستمرة، PDF f(x) عبارة عن كثافة -- P(a<=X<=b) تتطلب تكامل f(x) من a إلى b. الكثافة عند نقطة واحدة ليست احتمالا."
+      "explanation": "For discrete variables, the PMF gives P(X=k) directly. For continuous variables, the PDF f(x) is a density -- P(a<=X<=b) requires integrating f(x) from a to b. The density at a single point is not a probability."
     },
     {
       "stage": "pre",
-      "question": "ماذا تنص نظرية الحد المركزي؟",
+      "question": "What does the Central Limit Theorem state?",
       "options": [
-        "جميع البيانات تتبع التوزيع الطبيعي",
-        "يتقارب متوسط ​​العديد من العينات العشوائية المستقلة مع التوزيع الطبيعي بغض النظر عن توزيع المصدر",
-        "تحتوي مجموعات البيانات الكبيرة دائمًا على تباين منخفض",
-        "يتناقص احتمال الأحداث النادرة مع زيادة حجم العينة"
+        "All data follows a normal distribution",
+        "The mean of many independent random samples converges to a normal distribution regardless of the source distribution",
+        "Large datasets always have low variance",
+        "The probability of rare events decreases as sample size increases"
       ],
       "correct": 1,
-      "explanation": "يقول CLT أن متوسط ​​العديد من المتغيرات العشوائية المستقلة يقترب من غاوسي، بغض النظر عن شكل التوزيع الأصلي. وهذا ما يفسر سبب ظهور التوزيع الطبيعي في كل مكان."
+      "explanation": "The CLT says that the average of many independent random variables approaches a Gaussian, no matter what the original distribution looks like. This explains why the normal distribution appears everywhere."
     },
     {
       "stage": "post",
-      "question": "لماذا تقوم softmax بطرح الحد الأقصى logit قبل الأس (\"خدعة softmax\")؟",
+      "question": "Why does softmax subtract the maximum logit before exponentiating (the 'softmax trick')?",
       "options": [
-        "إلى make جميع الاحتمالات متساوية",
-        "لمنع الفائض العددي من مضاعفة الأعداد الكبيرة أثناء إنتاج نتائج متطابقة رياضيًا",
-        "لتطبيع logits ليكون متوسطها صفر",
-        "لتسريع الحساب عن طريق تقليل عدد الأس"
+        "To make all probabilities equal",
+        "To prevent numerical overflow from exponentiating large numbers while producing mathematically identical results",
+        "To normalize the logits to have mean zero",
+        "To speed up the computation by reducing the number of exponentiations"
       ],
       "correct": 1,
-      "explanation": "exp(100) يفيض إلى ما لا نهاية. يؤدي طرح max(logits) إلى إزاحة جميع القيم بحيث تكون القيمة الأكبر هي 0. يعتبر exp(0)=1 آمنًا. يتم إلغاء الطرح في التطبيع، مما يعطي احتمالات متطابقة."
+      "explanation": "exp(100) overflows to infinity. Subtracting max(logits) shifts all values so the largest is 0. exp(0)=1 is safe. The subtraction cancels out in the normalization, giving identical probabilities."
     },
     {
       "stage": "post",
-      "question": "يتم تبسيط خسارة الإنتروبيا المتقاطعة للتصنيف إلى -log(q(true_class)). ماذا يعني هذا بشكل حدسي؟",
+      "question": "Cross-entropy loss for classification simplifies to -log(q(true_class)). What does this mean intuitively?",
       "options": [
-        "اضرب الاحتمالات المتوقعة بالتسميات الحقيقية",
-        "معاقبة النموذج بناءً على مدى انخفاض احتماله المتوقع للفئة الصحيحة - التنبؤ الأقل يعني خسارة أعلى",
-        "متوسط ​​احتمالات السجل في جميع الفئات",
-        "حساب الانتروبيا للتوزيع الحقيقي"
+        "Multiply the predicted probabilities by the true labels",
+        "Penalize the model based on how low its predicted probability is for the correct class -- lower prediction means higher loss",
+        "Average the log probabilities across all classes",
+        "Compute the entropy of the true distribution"
       ],
       "correct": 1,
-      "explanation": "إذا توقع النموذج 0.9 للفئة الصحيحة، فإن الخسارة = -log(0.9) = 0.105 (منخفض). إذا توقعت 0.01، فإن الخسارة = -log(0.01) = 4.6 (عالية). الخسارة تعاقب انخفاض الثقة في الإجابة الصحيحة."
+      "explanation": "If the model predicts 0.9 for the correct class, loss = -log(0.9) = 0.105 (low). If it predicts 0.01, loss = -log(0.01) = 4.6 (high). The loss punishes low confidence in the correct answer."
     },
     {
       "stage": "post",
-      "question": "لماذا تعمل نماذج اللغة مع احتمالات السجل بدلاً من الاحتمالات الأولية؟",
+      "question": "Why do language models work with log probabilities instead of raw probabilities?",
       "options": [
-        "من الأسهل تفسير احتمالات السجل بصريًا",
-        "يؤدي مضاعفة العديد من الاحتمالات الصغيرة إلى وصول التدفق العددي إلى الصفر؛ تقوم احتمالات السجل بتحويل المنتجات إلى مبالغ، وتجنب ذلك",
-        "احتمالات السجل مطلوبة من قبل بنية المحولات",
-        "لا يمكن أن تمثل الاحتمالات الأولية قيمًا أقل من 0.01"
+        "Log probabilities are easier to interpret visually",
+        "Multiplying many small probabilities causes numerical underflow to zero; log probabilities convert products to sums, avoiding this",
+        "Log probabilities are required by the transformer architecture",
+        "Raw probabilities cannot represent values less than 0.01"
       ],
       "correct": 1,
-      "explanation": "P(sentence) = P(word1) * P(word2) *... يتدفق بسرعة إلى 0.0 باستخدام float64. سجل P(جملة) = سجل P(word1) + سجل P(word2) +... يبقى في نطاق محدود. تصبح المنتجات مبالغ."
+      "explanation": "P(sentence) = P(word1) * P(word2) *... quickly underflows to 0.0 with float64. Log P(sentence) = log P(word1) + log P(word2) +... stays in a finite range. Products become sums."
     }
   ]
 }

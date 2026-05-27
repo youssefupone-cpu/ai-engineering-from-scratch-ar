@@ -51,9 +51,9 @@
   <rect x="40" y="330" width="880" height="180" class="box"/>
   <text x="480" y="352" text-anchor="middle" class="head">عندما يساعد النقاش عندما يكون مؤلما</text>
   <rect x="60" y="370" width="840" height="30" class="agent"/>
-  <text x="78" y="390" class="step">HELPS: الواقعية (التحقق المتقاطع)، اتباع القواعد (الشطرنج)، الاستدلال المفتوح</text>
+  <text x="78" y="390" class="step">HELPS: الواقعية (التحقق المتبادل)، اتباع القواعد (الشطرنج)، الاستدلال المفتوح</text>
   <rect x="60" y="404" width="840" height="30" class="hub"/>
-  <text x="78" y="424" class="step">HURTS: حساس لزمن الاستجابة UX، التدفقات المرتبطة بالتكلفة، بحث بسيط عن الحقائق</text>
+  <text x="78" y="424" class="step">HURTS: حساس لزمن الوصول UX، التدفقات المرتبطة بالتكلفة، بحث واقعي بسيط</text>
   <rect x="60" y="438" width="840" height="30" class="box"/>
   <text x="78" y="458" class="step">مجتمع العقول: النموذج المتقاطع (ChatGPT + Bard) يتفوق على أي منهما بمفرده</text>
   <rect x="60" y="472" width="840" height="30" class="box"/>

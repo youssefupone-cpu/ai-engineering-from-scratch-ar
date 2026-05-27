@@ -30,7 +30,7 @@
 
   <path d="M 95,210 Q 160,160 200,200 T 280,150 T 365,130" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
   <text x="225" y="190" text-anchor="middle" class="caption">1000 خطوة SDE</text>
-  <text x="225" y="253" text-anchor="middle" class="caption">DDIM يتقلص إلى 50 خطوة تقريبًا</text>
+  <text x="225" y="253" text-anchor="middle" class="caption">DDIM ينهار إلى 50 خطوة تقريبًا</text>
 
   <text x="665" y="70" text-anchor="middle" class="label">مطابقة التدفق: خط مستقيم</text>
   <rect x="490" y="90" width="380" height="170" class="box"/>
@@ -53,7 +53,7 @@
   <rect x="50" y="380" width="820" height="110" class="cold"/>
   <text x="460" y="402" text-anchor="middle" class="label">التدفق المصحح: التصويب التكراري</text>
   <text x="460" y="425" text-anchor="middle" class="caption">1. تدريب v_1 مع أزواج عشوائية (x_0، x_1).</text>
-  <text x="460" y="445" text-anchor="middle" class="caption">2. العينة المقترنة (x_0، x_1) عن طريق دمج v_1 -&gt; الأزواج متطابقة مع ODE</text>
+  <text x="460" y="445" text-anchor="middle" class="caption">2. العينة المقترنة (x_0، x_1) من خلال دمج v_1 -&gt; الأزواج متطابقة ODE</text>
   <text x="460" y="465" text-anchor="middle" class="caption">3. أعد تدريب v_2 على تلك الأزواج -&gt; تدفق أكثر استقامة حقًا</text>
   <text x="460" y="482" text-anchor="middle" class="caption">تكراران لإعادة التدفق يتيحان الاستدلال بخطوة واحدة (SDXL-Turbo، SD3-Turbo، Flux-schnell)</text>
 </svg>

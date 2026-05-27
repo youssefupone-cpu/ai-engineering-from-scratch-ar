@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ماذا يعني \"التحسين\" في سياق تدريب الشبكة العصبية؟",
+      "question": "What does 'optimization' mean in the context of training a neural network?",
       "options": [
-        "جعل الكود يعمل بشكل أسرع",
-        "إيجاد الأوزان النموذجية التي تقلل من دالة الخسارة",
-        "تقليل عدد المعلمات في النموذج",
-        "اختيار أفضل الأجهزة للتدريب"
+        "Making the code run faster",
+        "Finding the model weights that minimize the loss function",
+        "Reducing the number of parameters in the model",
+        "Choosing the best hardware for training"
       ],
       "correct": 1,
-      "explanation": "تدريب الشبكة العصبية IS الأمثل. تقيس دالة الخسارة مدى خطأ النموذج، ويجد التحسين قيم الوزن التي make صغيرة قدر الإمكان."
+      "explanation": "Training a neural network IS optimization. The loss function measures how wrong the model is, and optimization finds the weight values that make it as small as possible."
     },
     {
       "stage": "pre",
-      "question": "ماذا يحدث إذا كان معدل التعلم كبيرًا جدًا أثناء الهبوط التدرجي؟",
+      "question": "What happens if the learning rate is too large during gradient descent?",
       "options": [
-        "يتقارب التدريب بشكل أسرع مع الحد الأدنى العالمي",
-        "يتجاوز المحسن الحد الأدنى وتتباعد الخسارة (ترتد أو تزيد)",
-        "التدرجات تصبح صفر",
-        "يقوم النموذج تلقائيًا بخفض معدل التعلم"
+        "Training converges faster to the global minimum",
+        "The optimizer overshoots the minimum and the loss diverges (bounces or increases)",
+        "The gradients become zero",
+        "The model automatically reduces the learning rate"
       ],
       "correct": 1,
-      "explanation": "يؤدي معدل التعلم الكبير جدًا إلى تجاوز كل خطوة للوادي، مما قد يؤدي إلى الارتداد بين الجدران أو التباعد تمامًا. الخسارة تتزايد بدلا من أن تتناقص."
+      "explanation": "A learning rate that is too large causes each step to overshoot the valley, potentially bouncing between walls or diverging entirely. The loss increases instead of decreasing."
     },
     {
       "stage": "post",
-      "question": "كيف يختلف آدم عن نسب الفانيليا المتدرج؟",
+      "question": "How does Adam differ from vanilla gradient descent?",
       "options": [
-        "يستخدم Adam معدل تعلم ثابتًا بينما يستخدم GD معدلات تكيفية",
-        "يتتبع آدم المتوسطات الجارية للتدرجات والتدرجات المربعة لإعطاء كل وزن معدل التعلم التكيفي الخاص به",
-        "يحسب آدم المشتقات الثانية بالضبط بينما يستخدم GD المشتقات الأولى",
-        "يقوم Adam بمعالجة مجموعة البيانات الكاملة في كل خطوة بينما يستخدم GD دفعات صغيرة"
+        "Adam uses a fixed learning rate while GD uses adaptive rates",
+        "Adam tracks running averages of gradients and squared gradients to give each weight its own adaptive learning rate",
+        "Adam computes exact second derivatives while GD uses first derivatives",
+        "Adam processes the full dataset per step while GD uses mini-batches"
       ],
       "correct": 1,
-      "explanation": "يحتفظ آدم بتقديرات اللحظة الأولى لكل وزن (اتجاه التدرج) واللحظة الثانية (حجم التدرج). القسمة على sqrt (اللحظة الثانية) تعطي خطوات صغيرة للأوزان ذات التدرجات الكبيرة وخطوات كبيرة للأوزان ذات التدرجات الصغيرة."
+      "explanation": "Adam maintains per-weight first moment (gradient direction) and second moment (gradient magnitude) estimates. Dividing by sqrt(second moment) gives small steps for weights with large gradients and large steps for weights with small gradients."
     },
     {
       "stage": "post",
-      "question": "لماذا تعتبر الضوضاء في الدفعة الصغيرة SGD مفيدة وليست مجرد مصدر إزعاج؟",
+      "question": "Why is the noise in mini-batch SGD considered beneficial rather than just a nuisance?",
       "options": [
-        "الضوضاء تقلل من استخدام الذاكرة أثناء التدريب",
-        "تساعد الضوضاء المُحسِّن على الهروب من الحدود الدنيا المحلية الضحلة ونقاط السرج التي قد يتعثر فيها المُحسِّن الصامت",
-        "الضوضاء ليست مفيدة. فهو دائمًا يبطئ التقارب",
-        "الضوضاء makes وظيفة الخسارة محدبة"
+        "Noise reduces memory usage during training",
+        "Noise helps the optimizer escape shallow local minima and saddle points that a noiseless optimizer would get stuck in",
+        "Noise is not beneficial; it always slows convergence",
+        "Noise makes the loss function convex"
       ],
       "correct": 1,
-      "explanation": "توفر الضوضاء العشوائية الصادرة عن الدُفعات الصغيرة العشوائية اضطرابات عشوائية يمكن أن تدفع المُحسِّن إلى الخروج من الحدود الدنيا المحلية الضحلة ونقاط السرج، مما يؤدي إلى تعميم أفضل."
+      "explanation": "The stochastic noise from random mini-batches provides random perturbations that can push the optimizer out of shallow local minima and saddle points, leading to better generalization."
     },
     {
       "stage": "post",
-      "question": "ماذا يفعل جدول معدل التعلم الصلب جيب التمام؟",
+      "question": "What does a cosine annealing learning rate schedule do?",
       "options": [
-        "يزيد من معدل التعلم طوال التدريب باتباع منحنى جيب التمام",
-        "يبدأ بمعدل تعلم مرتفع ويقلله بسلاسة باتباع منحنى جيب التمام، مع إحماء اختياري",
-        "يتناوب معدل التعلم بين قيمتين ثابتتين",
-        "يضبط معدل التعلم على جيب التمام لرقم العصر الحالي"
+        "Increases the learning rate throughout training following a cosine curve",
+        "Starts with a high learning rate and smoothly decreases it following a cosine curve, with optional warmup",
+        "Alternates the learning rate between two fixed values",
+        "Sets the learning rate to the cosine of the current epoch number"
       ],
       "correct": 1,
-      "explanation": "يؤدي التلدين لجيب التمام بسلاسة إلى تقليل معدل التعلم من lr_max إلى lr_min بعد منحنى نصف جيب التمام. وهذا يوفر خطوات كبيرة مبكرة لتحقيق تقدم سريع وخطوات صغيرة متأخرة لتحقيق تقارب جيد."
+      "explanation": "Cosine annealing smoothly reduces the learning rate from lr_max to lr_min following a half-cosine curve. This provides large steps early for fast progress and small steps late for fine convergence."
     }
   ]
 }

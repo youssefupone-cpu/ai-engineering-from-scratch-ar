@@ -1,37 +1,37 @@
 ---
-الاسم: نظرية-المعلومات-المهارة
-الوصف: تطبيق مفاهيم نظرية المعلومات على وظائف فقدان تعلم الآلة وتقييم النموذج واختيار الميزات
-الإصدار: 1.0.0
-المرحلة: 1
-الدرس: 9
-العلامات: [نظرية المعلومات، الإنتروبيا، وظائف الخسارة]
+name: skill-information-theory
+description: Apply information theory concepts to ML loss functions, model evaluation, and feature selection
+version: 1.0.0
+phase: 1
+lesson: 9
+tags: [information-theory, entropy, loss-functions]
 ---
 
-# نظرية المعلومات لتعلم الآلة
+# Information Theory for ML
 
-متى يتم استخدام الإنتروبيا والإنتروبيا المتقاطعة وتباعد KL والمعلومات المتبادلة في أنظمة التعلم الآلي.
+When to use entropy, cross-entropy, KL divergence, and mutual information in machine learning systems.
 
-## قائمة مراجعة القرار
+## Decision Checklist
 
-1. قياس عدم اليقين في توزيع واحد؟ استخدم **الانتروبيا**.
-2. قياس مدى تقريب النموذج للملصقات الحقيقية؟ استخدم **الإنتروبيا المتقاطعة** (هذه هي خسارة التصنيف الخاصة بك).
-3. قياس المسافة بين توزيعين؟ استخدم ** تباعد KL **.
-4. التحقق مما إذا كان هناك متغيرين مرتبطين؟ استخدم **المعلومات المتبادلة**.
-5. الإبلاغ عن جودة نموذج اللغة؟ استخدم **الحيرة** (أسي الإنتروبيا المتقاطعة).
-6. تحويل نموذج إلى نموذج آخر؟ تقليل **اختلاف KL** من المعلم إلى الطالب.
+1. Measuring uncertainty in a single distribution? Use **entropy**.
+2. Measuring how well a model approximates true labels? Use **cross-entropy** (this is your classification loss).
+3. Measuring distance between two distributions? Use **KL divergence**.
+4. Checking if two variables are related? Use **mutual information**.
+5. Reporting language model quality? Use **perplexity** (exponential of cross-entropy).
+6. Distilling one model into another? Minimize **KL divergence** from teacher to student.
 
-## متى يجب استخدام كل مقياس
+## When to use each measure
 
-| قياس | صيغة | حالة الاستخدام | تطبيق تعلم الآلة |
+| Measure | Formula | Use case | ML application |
 |---|---|---|---|
-| الانتروبيا H(P) | -sum(ع سجل ع) | ما مدى عدم اليقين في هذا التوزيع؟ | تعقيد البيانات، نماذج الإنتروبيا القصوى |
-| عبر الانتروبيا H(P,Q) | -sum(ع سجل ف) | ما مدى جودة النموذج Q في التنبؤ بـ P الحقيقي؟ | فقدان التصنيف، فقدان نموذج اللغة |
-| تباعد KL D(P\|\|Q) | مجموع (سجل ع (ع / ف)) | ما مدى اختلاف P و Q؟ | خسارة VAE (ELBO)، تقطير المعرفة، RLHF |
-| المعلومات المتبادلة I(X;Y) | ح(X) - ح(X\|Y) | كم يخبرنا Y عن X؟ | اختيار الميزة، تعلم التمثيل |
-| الحيرة | exp(H(P,Q)) أو 2^H | ما مدى الخلط بين النموذج؟ | تقييم نموذج اللغة |
-| الإنتروبيا المشروطة H(X\|Y) | -sum(p(x,y) log p(x\|y)) | عدم اليقين المتبقي في X بعد معرفة Y | ميزة المعلوماتية |
+| Entropy H(P) | -sum(p log p) | How uncertain is this distribution? | Data complexity, maximum entropy models |
+| Cross-entropy H(P,Q) | -sum(p log q) | How good is model Q at predicting true P? | Classification loss, language model loss |
+| KL divergence D(P\|\|Q) | sum(p log(p/q)) | How different are P and Q? | VAE loss (ELBO), knowledge distillation, RLHF |
+| Mutual information I(X;Y) | H(X) - H(X\|Y) | How much does Y tell us about X? | Feature selection, representation learning |
+| Perplexity | exp(H(P,Q)) or 2^H | How confused is the model? | Language model evaluation |
+| Conditional entropy H(X\|Y) | -sum(p(x,y) log p(x\|y)) | Remaining uncertainty in X after knowing Y | Feature informativeness |
 
-## العلاقات الرئيسية
+## Key relationships
 
 ```
 Cross-entropy  = Entropy + KL divergence
@@ -47,48 +47,48 @@ Perplexity = exp(cross-entropy in nats)
            = 2^(cross-entropy in bits)
 ```
 
-## مرجع سريع: الصيغ والوحدات
+## Quick reference: formulas and units
 
-| صيغة | البتات (قاعدة السجل 2) | ناتس (قاعدة السجل ه) |
+| Formula | Bits (log base 2) | Nats (log base e) |
 |---|---|---|
-| المعلومات: -سجل(ع) | -log2(ع) | -ln(ع) |
-| الانتروبيا: -sum(p log p) | بت | ناتس |
-| 1 نات = | 1.4427 بت | 1 نات |
-| بايتورش الافتراضي | -- | ناتس |
-| أوراق نظرية المعلومات | بت | -- |
+| Information: -log(p) | -log2(p) | -ln(p) |
+| Entropy: -sum(p log p) | bits | nats |
+| 1 nat = | 1.4427 bits | 1 nat |
+| PyTorch default | -- | nats |
+| Information theory papers | bits | -- |
 
-## تفسير القيم
+## Interpreting values
 
-| قيمة الانتروبيا | ماذا يعني |
+| Entropy value | What it means |
 |---|---|
-| 0 | حتمية. نتيجة واحدة لها احتمال 1. |
-| سجل (ن) | الحد الأقصى من عدم اليقين. التوزيع الموحد على النتائج ن. |
-| منخفض | التوزيع بلغ ذروته. النموذج واثق. |
-| عالية | التوزيع مسطح. النموذج غير مؤكد. |
+| 0 | Deterministic. One outcome has probability 1. |
+| log(n) | Maximum uncertainty. Uniform distribution over n outcomes. |
+| Low | Distribution is peaked. Model is confident. |
+| High | Distribution is flat. Model is uncertain. |
 
-| قيمة الحيرة | جودة نموذج اللغة |
+| Perplexity value | Language model quality |
 |---|---|
-| 1 | التنبؤ المثالي (لا يحدث أبدًا في الممارسة العملية) |
-| 10 | الاختيار من بين ~ 10 رموز ذات احتمالية متساوية في المتوسط ​​|
-| 50 | مستوى GPT-2 وفقًا للمعايير القياسية |
-| < 10 | أحدث المجالات ذات التمثيل الجيد |
+| 1 | Perfect prediction (never happens in practice) |
+| 10 | Choosing among ~10 equally likely tokens on average |
+| 50 | GPT-2 level on standard benchmarks |
+| < 10 | State-of-the-art for well-represented domains |
 
-##أخطاء شائعة
+## Common mistakes
 
-- حساب تباعد KL ومعاملته على أنه متماثل. D_KL(P||Q) != D_KL(Q||P). للحصول على قياس متماثل، استخدم تباعد جنسن-شانون: JS = 0.5 * KL(P||M) + 0.5 * KL(Q||M) حيث M = 0.5*(P+Q).
-- إن نسيان أن الإنتروبيا المتقاطعة ذات التصنيفات الساخنة الواحدة يبسط إلى -log(p_true_class). لا تحتاج إلى جمع جميع الفئات عندما يكون التوزيع الحقيقي ساخنًا واحدًا.
-- استخدام قاعدة السجل 2 في الكود مع الإبلاغ عن nats (أو العكس). يستخدم PyTorch السجل الطبيعي بشكل افتراضي. اضرب في log2(e) = 1.4427 لتحويل nats إلى بتات.
-- حساب الإنتروبيا لحدث فارغ أو ذو احتمالية صفرية. الاصطلاح: 0 * log(0) = 0، لأن lim(p->0) p*log(p) = 0.
-- مقارنة الحيرة عبر المفردات المختلفة. النموذج ذو حجم المفردات 50 ألف والحيرة 30 لا يمكن مقارنته بشكل مباشر بنموذج بحجم المفردات 10 ألف والحيرة 30.
+- Computing KL divergence and treating it as symmetric. D_KL(P||Q)!= D_KL(Q||P). For a symmetric measure, use Jensen-Shannon divergence: JS = 0.5 * KL(P||M) + 0.5 * KL(Q||M) where M = 0.5*(P+Q).
+- Forgetting that cross-entropy with one-hot labels simplifies to -log(p_true_class). You do not need to sum over all classes when the true distribution is one-hot.
+- Using log base 2 in code but reporting nats (or vice versa). PyTorch uses natural log by default. Multiply by log2(e) = 1.4427 to convert nats to bits.
+- Computing entropy of an empty or zero-probability event. Convention: 0 * log(0) = 0, because lim(p->0) p*log(p) = 0.
+- Comparing perplexity across different vocabularies. A model with vocab size 50k and perplexity 30 is not directly comparable to one with vocab size 10k and perplexity 30.
 
-## حيث يظهر كل مفهوم في الإنتاج ML
+## Where each concept appears in production ML
 
-| المفهوم | أين تراه |
+| Concept | Where you see it |
 |---|---|
-| خسارة الانتروبيا المتقاطعة | كل نموذج تصنيف (nn.CrossEntropyLoss) |
-| تباعد كوالالمبور | VAE ELBO، قص PPO، تقطير المعرفة |
-| تنظيم الانتروبيا | مكافأة الاستكشاف في RL (إنتروبيا أعلى = المزيد من الاستكشاف) |
-| معلومات متبادلة | اختيار الميزة، فقدان InfoNCE (التعلم المقارن) |
-| الحيرة | مقاييس نموذج اللغة (أقل = أفضل) |
-| تجانس التسمية | يستبدل الأهداف الساخنة بأهداف سهلة، ويقلل من الثقة المفرطة عبر الإنتروبيا |
-| قياس درجة الحرارة | يقسم السجلات على T قبل softmax، ويتحكم في إنتروبيا الإخراج |
+| Cross-entropy loss | Every classification model (nn.CrossEntropyLoss) |
+| KL divergence | VAE ELBO, PPO clipping, knowledge distillation |
+| Entropy regularization | Exploration bonus in RL (higher entropy = more exploration) |
+| Mutual information | Feature selection, InfoNCE loss (contrastive learning) |
+| Perplexity | Language model benchmarks (lower = better) |
+| Label smoothing | Replaces one-hot with soft targets, reduces cross-entropy overconfidence |
+| Temperature scaling | Divides logits by T before softmax, controls entropy of output |

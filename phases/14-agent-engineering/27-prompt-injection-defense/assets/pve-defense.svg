@@ -21,7 +21,7 @@
   <rect x="40" y="50" width="880" height="160" class="attack"/>
   <text x="480" y="72" text-anchor="middle" class="head">جريشيك وآخرون. 2023 — الحقن الفوري غير المباشر</text>
   <rect x="60" y="88" width="840" height="24" class="box"/>
-  <text x="78" y="104" class="step">1. يتحكم المهاجم في المحتوى القابل للاسترداد (صفحة الويب، PDF، البريد الإلكتروني، مذكرة الذاكرة)</text>
+  <text x="78" y="104" class="step">1. يتحكم المهاجم في المحتوى القابل للاسترجاع (صفحة الويب، PDF، البريد الإلكتروني، مذكرة الذاكرة)</text>
   <rect x="60" y="116" width="840" height="24" class="box"/>
   <text x="78" y="132" class="step">2. يستوعب الوكيل تعليمات المهاجم لتجاوز مطالبة المطور</text>
   <rect x="60" y="144" width="840" height="24" class="box"/>
@@ -59,5 +59,5 @@
   <rect x="520" y="468" width="380" height="36" class="box"/>
   <text x="538" y="490" class="step">6. التقاط المحتوى الخارجي + المراجع الممتدة</text>
 
-  <text x="480" y="540" text-anchor="middle" class="caption">"التعليمات المباشرة فقط من المستخدم تعتبر إذنًا" - OpenAI CUA مستندات</text>
+  <text x="480" y="540" text-anchor="middle" class="caption">"فقط التعليمات المباشرة من المستخدم تعتبر إذنًا" — OpenAI CUA مستندات</text>
 </svg>

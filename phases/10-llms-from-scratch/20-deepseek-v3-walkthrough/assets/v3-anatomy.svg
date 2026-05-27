@@ -19,7 +19,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">DeepSeek-V3 التشريح — إجمالي 671 مليار، 37 مليار نشط</text>
+  <text x="480" y="24" text-anchor="middle" class="title">DeepSeek-V3 التشريح - إجمالي 671 مليار، 37 مليار نشط</text>
 
   <!-- stack -->
   <rect x="60" y="50" width="300" height="500" class="box"/>
@@ -30,22 +30,22 @@
 
   <rect x="80" y="130" width="260" height="42" class="old"/>
   <text x="210" y="148" text-anchor="middle" class="step">3 كتل كثيفة</text>
-  <text x="210" y="164" text-anchor="middle" class="small">MLA الاهتمام + SwiGLU الكثيف MLP (18432)</text>
+  <text x="210" y="164" text-anchor="middle" class="small">MLA اهتمام + SwiGLU كثيفة MLP (18432)</text>
 
   <rect x="80" y="180" width="260" height="232" class="dsk"/>
   <text x="210" y="200" text-anchor="middle" class="step">58 مجمعاً لوزارة التربية والتعليم</text>
-  <text x="210" y="220" text-anchor="middle" class="small">MLA اهتمام + وزارة التربية والتعليم MLP</text>
+  <text x="210" y="220" text-anchor="middle" class="small">MLA اهتمام + وزارة التربية MLP</text>
   <text x="210" y="242" text-anchor="middle" class="small">256 خبيرًا (2048 مخفيًا لكل منهم)</text>
   <text x="210" y="262" text-anchor="middle" class="small">+ خبير مشترك واحد (مشغل دائمًا)</text>
   <text x="210" y="282" text-anchor="middle" class="small">جهاز التوجيه: تحيز خالي من الخسارة</text>
   <text x="210" y="302" text-anchor="middle" class="small">أعلى 8 توجيه لكل رمز</text>
   <text x="210" y="324" text-anchor="middle" class="small">نشط لكل رمز:</text>
   <text x="210" y="340" text-anchor="middle" class="small">8 موجه + 1 مشترك = 9 خبراء</text>
-  <text x="210" y="362" text-anchor="middle" class="small">KV ذاكرة التخزين المؤقت: 512-خافت MLA كامنة</text>
+  <text x="210" y="362" text-anchor="middle" class="small">KV ذاكرة التخزين المؤقت: 512-خافتة MLA كامنة</text>
   <text x="210" y="382" text-anchor="middle" class="small">لكل رمز لكل طبقة</text>
 
   <rect x="80" y="420" width="260" height="36" class="hot"/>
-  <text x="210" y="442" text-anchor="middle" class="step">1 MTP الوحدة</text>
+  <text x="210" y="442" text-anchor="middle" class="step">1 MTP وحدة</text>
 
   <rect x="80" y="462" width="260" height="36" class="cool"/>
   <text x="210" y="484" text-anchor="middle" class="step">RMSNorm النهائي + LM الرأس (مقيد)</text>
@@ -59,8 +59,8 @@
   <rect x="420" y="92" width="480" height="80" class="cool"/>
   <text x="440" y="114" class="step">1 / MLA — الانتباه الكامن متعدد الرؤوس</text>
   <text x="440" y="134" class="small">ضغط K وV إلى 512 كامنة مشتركة c^{KV};</text>
-  <text x="440" y="150" class="small">KV تخزن ذاكرة التخزين المؤقت 512 عائمًا/رمزًا مميزًا/طبقة بدلاً من 2 * heads * head_dim.</text>
-  <text x="440" y="166" class="small">عند 128 كيلو: 7.6 GB مقابل 30.5 GB لـ GQA(8/128). توفير 4x.</text>
+  <text x="440" y="150" class="small">KV تخزن ذاكرة التخزين المؤقت 512 عائمًا/رمزًا مميزًا/طبقة بدلاً من 2 * رأس * head_dim.</text>
+  <text x="440" y="166" class="small">عند 128 ألفًا: 7.6 GB مقابل 30.5 GB لـ GQA(8/128). توفير 4x.</text>
 
   <rect x="420" y="180" width="480" height="80" class="hot"/>
   <text x="440" y="202" class="step">2 / MTP — التنبؤ بالرموز المتعددة</text>
@@ -76,14 +76,14 @@
 
   <rect x="420" y="356" width="480" height="80" class="dsk"/>
   <text x="440" y="378" class="step">4/ تدريب DualPip</text>
-  <text x="440" y="398" class="small">ثنائي الاتجاه pipeline يتداخل على 2k H800 GPUs.</text>
+  <text x="440" y="398" class="small">تداخل خطي pip ثنائي الاتجاه على 2k H800 GPUs.</text>
   <text x="440" y="414" class="small">يخفي node الكل إلى الكل داخل نوافذ الحساب.</text>
-  <text x="440" y="430" class="small">يستعيد ~245 ألف GPU-ساعة مقابل 1F1B بمقياس V3.</text>
+  <text x="440" y="430" class="small">يتعافى ~245 ألف GPU-ساعة مقابل 1F1B بمقياس V3.</text>
 
   <rect x="420" y="444" width="480" height="100" class="box"/>
   <text x="440" y="466" class="step">ما يفتح هذا</text>
   <text x="440" y="484" class="small">· سياق 128 كيلو بايت مع ذاكرة تخزين مؤقت KV يمكن التحكم فيها (MLA)</text>
-  <text x="440" y="500" class="small">· سعة أكبر لنفس ميزانية FLOP النشطة (256 خبيرًا، أعلى 8)</text>
+  <text x="440" y="500" class="small">· سعة أكبر لنفس الميزانية النشطة FLOP (256 خبيرًا، أعلى 8)</text>
   <text x="440" y="516" class="small">· 1.8x إنتاجية فك التشفير مجانًا (MTP كمسودة فك تشفير المواصفات)</text>
-  <text x="440" y="532" class="small">· 95%+ استخدام GPU في التدريب برتبة 2k (DualPipe)</text>
+  <text x="440" y="532" class="small">· 95%+ GPU الاستفادة من التدريب برتبة 2K (DualPipe)</text>
 </svg>

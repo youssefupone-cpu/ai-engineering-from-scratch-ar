@@ -7,35 +7,49 @@ lesson: 15
 tags: [edge, deployment, profiling, benchmarking]
 ---
 
-# ملف التعريف الكمون
-قم بإنشاء معيار زمن استجابة منضبط لأي نموذج PyTorch. التقارير التي يمكن لأي شخص أن يثق بها في الواقع.
-##متى يستخدم
+# Latency Profiler
+
+قم بإنتاج معيار زمن انتقال منضبط لأي طراز PyTorch. التقارير التي يمكن لأي شخص أن يثق بها في الواقع.
+
+## When to use
+
 - مقارنة الأعمدة الأساسية المتعددة للمرشحين قبل اختيار واحدة للنشر.
 - قبل وبعد التكميم أو التقليم.
 - بعد تغيير وقت التشغيل (حريص مقابل ONNX مقابل TensorRT).
 - إنشاء تقرير جاهزية النشر.
-## المدخلات
+
+## Inputs
+
 - `model`: PyTorch `nn.Module`.
 - `input_shape`: صف مثل `(1, 3, 224, 224)`.
-- `device`: `cpu` | __الكود_6__ | __الكود_7__.
+- `device`: `cpu` | `cuda` | `mps`.
 - `warmup`: الافتراضي 10.
 - `iters`: الافتراضي 100.
-## الشيكات
-### 1. الاحماء
-قم بتشغيل النموذج `warmup` مرات بدون توقيت. يلتقط تجميع JIT للأمام أولاً وتأثيرات ذاكرة التخزين المؤقت الباردة.
-### 2. التزامن
-بالنسبة إلى `cuda`، اتصل بـ `torch.cuda.synchronize()` قبل وبعد كل تمريرة للأمام المحددة بوقت.
-بالنسبة لـ `mps`، اتصل بـ `torch.mps.synchronize()`.
-### 3. الموقت
-استخدم `time.perf_counter()` لقياس ساعة الحائط. تحويل إلى ميلي ثانية.
-### 4. النسب المئوية
-فرز القائمة الكاملة للتوقيتات. تقرير `p50, p90, p95, p99, mean, std`.
-### 5. الذاكرة
-بالنسبة لـ `cuda`، اتصل بـ `torch.cuda.max_memory_allocated()` بعد التشغيل واطرح أي خط أساس.
-بالنسبة إلى `cpu`، استخدم `tracemalloc` أو `psutil.Process().memory_info().rss` قبل وبعد.
-### 6. اكتساح حجم الدفعة
-كرر بشكل اختياري المعيار الخاص بـ `batch_size in [1, 4, 16, 32]` للكشف عن المفاضلات بين الإنتاجية وزمن الاستجابة.
-## قالب الإخراج
+
+## Checks
+
+### 1. Warmup
+Run the model `warmup` times without timing. Catches first-forward JIT compilation and cold cache effects.
+
+### 2. Synchronisation
+For `cuda`, call `torch.cuda.synchronize()` before and after each timed forward pass.
+For `mps`, call `torch.mps.synchronize()`.
+
+### 3. Timer
+Use `time.perf_counter()` for wall-clock measurement. Convert to milliseconds.
+
+### 4. Percentiles
+Sort the full list of timings. Report `p50, p90, p95, p99, mean, std`.
+
+### 5. Memory
+For `cuda`, call `torch.cuda.max_memory_allocated()` after the run and subtract any baseline.
+For `cpu`, use `tracemalloc` or `psutil.Process().memory_info().rss` before and after.
+
+### 6. Batch-size sweep
+Optionally repeat the benchmark for `batch_size in [1, 4, 16, 32]` to reveal throughput vs latency tradeoffs.
+
+## Output template
+
 ```python
 import time
 import torch
@@ -92,7 +106,8 @@ def profile(model, input_shape, device="cpu", warmup=10, iters=100):
     return report
 ```
 
-## قواعد
+## Rules
+
 - قم دائمًا بإجراء عملية الإحماء؛ لا تثق أبدًا في التوقيت الأول.
 - النسب المئوية، ليست متوسطة - يمكن للقيمة المتطرفة الواحدة مضاعفة المتوسط ​​ولكنها بالكاد تتحرك p50.
 - استخدم نفس input_shape للإنتاج؛ الكمون على 224x224 ليس الكمون على 384x384.

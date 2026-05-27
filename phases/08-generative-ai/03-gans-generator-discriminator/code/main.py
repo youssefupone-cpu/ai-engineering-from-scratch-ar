@@ -68,7 +68,7 @@ def sample_noise(n, z_dim, rng):
 
 
 def update_d(reals, fakes, D, lr):
-    """خطوة متدرجة على D لتعظيم السجل D(x) + log(1 - D(G(z)))."""
+    """Gradient step on D to maximize log D(x) + log(1 - D(G(z)))."""
     grads = {k: None for k in D}
     for part in D:
         if isinstance(D[part][0], list):
@@ -106,7 +106,7 @@ def update_d(reals, fakes, D, lr):
 
 
 def update_g(noise_batch, G, D, lr):
-    """خسارة G غير المشبعة: قم بتعظيم السجل D (G (z)). يتدفق التدرج من خلال كليهما."""
+    """Non-saturating G loss: maximize log D(G(z)). Gradient flows through both."""
     grads = {k: None for k in G}
     for part in G:
         if isinstance(G[part][0], list):
@@ -117,16 +117,16 @@ def update_g(noise_batch, G, D, lr):
     for z in noise_batch:
         x_hat, g_h, g_pre1 = forward_g(z, G)
         p, d_h, d_pre1, d_pre2 = forward_d(x_hat, D)
-        # dL/dpre2_D حيث L = -log(p) هو -(1/p) * p*(1-p) = p - 1
+        # dL/dpre2_D where L = -log(p) is -(1/p) * p*(1-p) = p - 1
         dL_dpre2 = p - 1.0
-        # العودة من خلال D للحصول على dL / d x_hat
+        # back through D to get dL / d x_hat
         dh_D = [D["W2"][0][j] * dL_dpre2 for j in range(len(d_h))]
         dpre1_D = [dh_D[j] * leaky_grad(d_pre1[j]) for j in range(len(d_h))]
         dL_dxhat = [0.0] * len(x_hat)
         for j in range(len(d_h)):
             for k in range(len(x_hat)):
                 dL_dxhat[k] += D["W1"][j][k] * dpre1_D[j]
-        # عاد الآن من خلال G
+        # now back through G
         grads["b2"] = [grads["b2"][i] + dL_dxhat[i] for i in range(len(x_hat))]
         for i in range(len(x_hat)):
             for j in range(len(g_h)):

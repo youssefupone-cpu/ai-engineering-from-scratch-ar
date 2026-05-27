@@ -7,19 +7,27 @@ lesson: 27
 tags: [mot, evaluation, tracking, metrics]
 ---
 
-# MOT مقيم
-قم بلف مخرجات جهاز التتبع الخاص بك في الخط القياسي MOTA/IDF1/HOTA pipeline حتى تتمكن من المقارنة بشكل عادل مع الأدبيات.
-##متى يستخدم
+# MOT Evaluator
+
+قم بلف مخرجات جهاز التعقب الخاص بك في الخط القياسي MOTA/IDF1/HOTA pipeline حتى تتمكن من المقارنة بشكل عادل مع الأدبيات.
+
+## When to use
+
 - قياس أداء المتتبع الجديد على MOT17 / MOT20 / DanceTrack / SportsMOT.
-- مقارنة ByteTrack بـ BoT-SORT بـ SAM 2 في اللقطات الخاصة بك.
+- مقارنة ByteTrack بـ BoT-SORT إلى SAM 2 على اللقطات الخاصة بك.
 - إنتاج رقم قابل للتكرار للورقة أو وصف PR.
-## المدخلات
-- `predictions`: قائمة لكل إطار من `(track_id, x, y, w, h, confidence)` صفوف.
+
+## Inputs
+
+- `predictions`: قائمة لكل إطار من الصفوف `(track_id, x, y, w, h, confidence)`.
 - `ground_truth`: قائمة لكل إطار من `(gt_id, x, y, w, h)` صفوف.
 - `iou_threshold`: 0.5 نموذجي لـ MOTA؛ HOTA يستخدم عملية المسح.
 - `evaluator`: `py-motmetrics` (MOTA، IDF1) أو `TrackEval` (HOTA).
-## عقد تنسيق الإخراج
-يتوقع كل من `py-motmetrics` و`TrackEval` تنسيقًا محددًا على القرص:
+
+## Output format contract
+
+يتوقع كل من `py-motmetrics` و `TrackEval` تنسيقًا محددًا على القرص:
+
 ```
 # predictions.txt
 <frame>,<track_id>,<x>,<y>,<w>,<h>,<confidence>,-1,-1,-1
@@ -29,13 +37,17 @@ tags: [mot, evaluation, tracking, metrics]
 ```
 
 الإطارات مفهرسة بـ 1، والمربعات هي (x، y، w، h)، وليس (x1، y1، x2، y2). التحويل هو المكان الذي تعيش فيه معظم أخطاء التكامل.
-## الخطوات
+
+## Steps
+
 1. قم بتحويل مخرجات جهاز التعقب الخاص بك إلى تنسيق نص التحدي MOT.
 2. قم بتشغيل `py-motmetrics.io.loadtxt` على كلا الملفين.
 3. احسب MOTA + IDF1 باستخدام `mm.metrics.create().compute()`.
 4. بالنسبة إلى HOTA، قم باستدعاء `TrackEval` بنفس الملفات و`Metrics: HOTA`.
-5. احفظ النتائج باسم JSON للوحات المعلومات.
-## رسم التنفيذ
+5. حفظ النتائج باسم JSON للوحات المعلومات.
+
+## Implementation sketch
+
 ```python
 import motmetrics as mm
 
@@ -56,7 +68,8 @@ def write_mot_txt(predictions, path):
                 f.write(f"{frame_idx},{tid},{x:.2f},{y:.2f},{w:.2f},{h:.2f},{conf:.3f},-1,-1,-1\n")
 ```
 
-## تقرير
+## Report
+
 ```
 [mot evaluation]
   frames:     <int>
@@ -72,9 +85,10 @@ def write_mot_txt(predictions, path):
   HOTA:       <float>  (from TrackEval)
 ```
 
-## قواعد
-- استخدم دائمًا الإطارات المفهرسة 1 في الملف النصي الناتج؛ أدوات MOT تتوقع ذلك.
+## Rules
+
+- استخدم دائمًا الإطارات المفهرسة 1 في الملف النصي الناتج؛ MOT الأدوات تتوقع ذلك.
 - تحويل (x1، y1، x2، y2) إلى (x، y، w، h) قبل الكتابة.
-- لا تبلغ عن MOTA وحده للمقارنات الحديثة؛ قم بتضمين IDF1 وHOTA.
-- راقب الاكتشافات الخاصة مقابل الاكتشافات العامة في MOT17 — حيث يتم تقييمها بشكل منفصل ويؤدي خلطها إلى تضخيم النتائج.
+- لا تبلغ MOTA وحدك للمقارنات الحديثة؛ تشمل IDF1 و HOTA.
+- راقب الاكتشافات الخاصة والعامة على MOT17 - يتم تقييمها بشكل منفصل ويؤدي خلطها إلى تضخيم النتائج.
 - سجل العشرات في التسلسل. يخفي التجميع حالات الفشل في تسلسلات فردية صعبة.

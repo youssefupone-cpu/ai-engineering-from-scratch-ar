@@ -1,115 +1,115 @@
 # Sponsorship
 
-`ai-engineering-from-scratch` هو منهج مجاني مرخص بـ MIT. 428 درسًا في 20
-مراحل. تم إنشاء العمل وصيانته بواسطة [روهيت غوماري](https://github.com/rohitg00).
+`ai-engineering-from-scratch` is a free, MIT-licensed curriculum. 428 lessons across 20
+phases. The work is built and maintained by [Rohit Ghumare](https://github.com/rohitg00).
 
-تمول الرعاية الوقت المستغرق لإرسال الدروس والحفاظ على تشغيل الموقع والرد على الأسئلة
-قائمة انتظار القضية. نقد فقط. ترتيبات الاعتمادات العينية أو الأسهم أو "سنكتب المحتوى الخاص بك".
-لم يتم قبولها، راجع [Hard rules](#hard-rules) أدناه.
+Sponsorships fund the time it takes to ship lessons, keep the site running, and reply to the
+issue queue. Cash only. Credits-in-kind, equity, or "we'll write your content" arrangements
+are not accepted, see [Hard rules](#hard-rules) below.
 
-إذا كنت تريد أنت أو شركتك دعم المنهج الدراسي، فهذه الصفحة هي بطاقة الأسعار.
+If you or your company want to support the curriculum, this page is the rate card.
 
 ## How to sponsor
 
 - **GitHub Sponsors:** [github.com/sponsors/rohitg00](https://github.com/sponsors/rohitg00)
 
-GitHub Sponsors handles billing, receipts, and tax forms. 0٪ رسوم المنصة على الشخصية
-عروض الرعاية، ما يصل إلى 6% على رعاية المؤسسات، وفقًا لسياسة [GitHub](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors).
+GitHub Sponsors handles billing, receipts, and tax forms. 0% platform fee on personal
+sponsorships, up to 6% on organization sponsorships, per [GitHub's policy](https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors).
 
-للتوضيح: لا يحتوي المنهج على رمز مميز ولا عملة معدنية ولا NFT ولا محفظة ولا سلسلة
-الشراكة. لا يؤيد المشرف أو يروج أو يشارك أو يقبل
-الدفع من أي مشروع تشفير. رابط التمويل أعلاه هو القناة الوحيدة؛
-أي شيء آخر يستخدم اسم هذا المشروع غير تابع.
+For clarity: the curriculum has no token, no coin, no NFT, no wallet, and no chain
+partnership. The maintainer does not endorse, promote, partner with, or accept
+payment from any crypto project. The funding link above is the only channel;
+anything else using this project's name is unaffiliated.
 
 ## Reach
 
-هذه أرقام حقيقية وليست عروض تقديمية. تم التحقق منه بتاريخ 14-05-2026 من التحليلات الرسمية
-لوحة القيادة، لقطات الشاشة متاحة عند الطلب.
+These are real numbers, not pitch decks. Verified 2026-05-14 from the official analytics
+dashboard, screenshots available on request.
 
-| نافذة | الزوار | مشاهدات الصفحة | النمو |
+| Window | Visitors | Page views | Growth |
 |---|---|---|---|
-| آخر 7 أيام | 33,569 | 53,917 | +450% / +399% |
-| آخر 30 يومًا | 55,593 | 90,709 | +335% / +403% |
+| Last 7 days | 33,569 | 53,917 | +450% / +399% |
+| Last 30 days | 55,593 | 90,709 | +335% / +403% |
 
-- **GitHub النجوم:** 7500+ وما زال في تزايد
-- **أهم المُحيلين (30 يومًا):** X / Twitter (18 ألفًا)، Google (7.1 ألفًا)، GitHub (5.3 ألفًا)، Instagram (1.2 ألفًا)، شجاع (505)، لينكد إن (470)
-- **أهم الصفحات:** `/` (63 ألف مشاهدة)، `/index.html` (15 ألف)، `/prereqs.html` (5.5 ألف)، `/catalog.html` (4.9 كيلو)، `/glossary.html` (2 كيلو)
-- **التضخيم عبر الأنظمة الأساسية:** Twitter/X هي قناة الاكتساب رقم 1؛ الذهب و يتم تضخيم الرعاة البلاتينيين على نفس القناة عبر سلاسل رسائل الإصدار.
+- **GitHub stars:** 7,500+ and growing
+- **Top referrers (30d):** X / Twitter (18K), Google (7.1K), GitHub (5.3K), Instagram (1.2K), Brave (505), LinkedIn (470)
+- **Top pages:** `/` (63K views), `/index.html` (15K), `/prereqs.html` (5.5K), `/catalog.html` (4.9K), `/glossary.html` (2K)
+- **Cross-platform amplification:** Twitter/X is the #1 acquisition channel; Gold and Platinum sponsors get co-amplified on the same channel via release-note threads.
 
-يكون موضع الراعي بهذا المقياس في نفس النطاق مثل الفتحة المدفوعة في 50-100 ألف شهريًا
-نشرة إخبارية خاصة بالمطورين أو مدونة مطورين مستقلة متوسطة المستوى.
+A sponsor placement at this scale is in the same range as a paid slot in a 50-100K monthly
+dev newsletter or a mid-tier independent dev blog.
 
 ## Tier ladder
 
-| الطبقة | $/شهر | الحد الأدنى | ما تحصل عليه |
+| Tier | $/mo | Min term | What you get |
 |------|------|----------|---|
-| **الداعم** | 25 دولارًا | من شهر إلى شهر | الاسم في [BACKERS.md](BACKERS.md)، شارة الجهات الراعية في ملفك الشخصي في GitHub |
-| **البرونزية** | 250 دولارًا | 3 أشهر | صف نصي فقط في كتلة الراعي README، الاسم في BACKERS.md، تغريدة واحدة في يوم الإطلاق تشكر الطبقة |
-| **فضية** | 750 دولارًا | 6 أشهر | شعار صغير (بحد أقصى 120 × 40) في صف الراعي README، مُدرج كمقدم دعم واحد في دروس API حيثما ينطبق ذلك، رسالة شكر ربع سنوية في ملاحظات الإصدار |
-| **الذهب** | 2000 دولار | 6 أشهر | شعار متوسط ​​(بحد أقصى 200 × 60) في README + صف مخصص على صفحة الراعي لموقع المنهج + ميزة X / LinkedIn المشتركة لكل ربع سنة |
-| **بلاتيني** | 5000 دولار | 12 شهرًا، شريك واحد كحد أقصى | شعار البطل في الجزء المرئي من الصفحة + اسمه في كل منشور لملاحظات الإصدار لهذا الفصل الدراسي + درس تكامل مخصص ضمن المرحلة 11 أو المرحلة 14، يكتبه المشرف وفقًا لنفس المعيار التحريري مثل بقية المنهج |
+| **Backer** | $25 | month-to-month | Name in [BACKERS.md](BACKERS.md), Sponsors badge on your GitHub profile |
+| **Bronze** | $250 | 3 months | Text-only row in the README sponsor block, name in BACKERS.md, one launch-day tweet thanking the tier |
+| **Silver** | $750 | 6 months | Small logo (max 120×40) in the README sponsor row, listed as one supported provider in API lessons where applicable, quarterly thank-you in release notes |
+| **Gold** | $2,000 | 6 months | Medium logo (max 200×60) in README + dedicated row on the sponsor page of the curriculum site + one X / LinkedIn co-feature per quarter |
+| **Platinum** | $5,000 | 12 months, max 1 partner | Hero logo above the fold + named in every release-notes post for the term + one dedicated integration lesson under Phase 11 or Phase 14, written by the maintainer to the same editorial standard as the rest of the curriculum |
 
-لا يتم تقديم المستويات الماسية/اللقبية (+10,000 دولار شهريًا) اليوم. معقول لإعادة النظر مرة واحدة
-يمسح الزائرون شهريًا 250 ألفًا أو يتم التحقق من تبعية مؤسسة Fortune-500.
+Diamond / Title tiers ($10,000+/mo) are not offered today. Reasonable to revisit once
+monthly visitors clear 250K or there is verified Fortune-500 enterprise dependency.
 
-تتم معايرة التسعير مقابل صفحات الراعي العامة ذات المصادر المفتوحة المماثلة
-المشاريع والتحليلات المذكورة أعلاه وأسعار رعاية مدونة التطوير القياسية التي تتراوح بين 50 إلى 100 ألف شهريًا
-مقياس الزائر (انظر [Pricing anchors](#pricing-anchors) أدناه).
+Pricing is calibrated against the public sponsor pages of comparable open-source
+projects, the analytics above, and standard dev-blog sponsor rates at the 50-100K monthly
+visitor scale (see [Pricing anchors](#pricing-anchors) below).
 
 ## Hard rules
 
-هذه القواعد غير قابلة للتفاوض. يتم رفض الرعاة الذين لا يستطيعون قبولهم بأدب.
+These rules are non-negotiable. Sponsors who cannot accept them are politely declined.
 
-1. **لا توجد مواضع لنص الدرس.** تظهر الشعارات في كتلة الراعي README، في الصفحة الراعية لموقع المنهج الدراسي، وفي BACKERS.md فقط. لا تدخل أبدًا إلى `phases/**/docs/en.md`، `outputs/`، أو نماذج التعليمات البرمجية، أو في أي مكان يقرأ فيه المتعلم محتوى المنهج نفسه.
-2. **"المزود المدعوم" لا يعني "موصى به."** يعرض كل درس API ثلاثة أو المزيد من مقدمي الخدمة وراء نفس الواجهة. يتم إدراج الجهات الراعية جنبًا إلى جنب مع الآخرين؛ هم لم يتم وضع علامة عليها مطلقًا على أنها الخيار الافتراضي أو الخيار المفضل أو الإجابة على "ما الذي يجب علي فعله؟" استخدام."
-3. **لا يوجد محتوى من تأليف الراعي.** يقوم المشرف بكتابة كل درس. مراجعة الجهات الراعية PRs التكامل من أجل الدقة الفنية فقط؛ إنهم لا يقترحون الروايات والإطارات المقايضات، أو مقارنات النقض.
-4. **لا يوجد حق النقض لخارطة الطريق.** يمكن للرعاة البلاتينيين تقديم اقتراحات خارطة الطريق مثل أي شخص آخر. يقرر المشرف ما هي السفن.
-5. **الخروج من الصراع التحريري لمدة 30 يومًا.** إذا ضغط الراعي على المشرف لتحيز المحتوى، تنتهي الرعاية في غضون 30 يومًا مع استرداد المبلغ التناسبي. الشعار يسقط على نشر الموقع التالي.
-6. **رفض الصراع.** يرفض المنهج الرعاة الذين يتعارض منتجهم بشكل مباشر مبادئ المناهج الدراسية (أدوات الترميز الديناميكي ذات الحلقة المغلقة، التبشير بقفل البائع، الوكيل المنتجات التي تتجاهل إمكانية الملاحظة أو ترفض الشحن بتنسيقات مفتوحة). الرفض عند تقدير المشرف وحده.
-7. **نقدًا فقط.** الأرصدة العينية، والأسهم، والأجهزة المجانية، "سنقوم بتنفيذ برنامج DevRel نيابةً عنك،" ولا يتم قبول صفقات الحزمة. من السهل جدًا التقليل من قيمتها ومن الصعب جدًا التقليل من قيمتها حساب نظيفة.
+1. **No lesson-body placements.** Logos appear in the README sponsor block, on the curriculum site's sponsor page, and in BACKERS.md only. Never inside `phases/**/docs/en.md`, `outputs/`, code samples, or anywhere a learner is reading the curriculum content itself.
+2. **"Supported provider" does not mean "recommended."** Every API lesson shows three or more providers behind the same interface. Sponsors get listed alongside the others; they are never marked as the default, the preferred choice, or the answer to "which should I use."
+3. **No sponsor-authored content.** The maintainer writes every lesson. Sponsors review integration PRs for technical accuracy only; they do not propose narratives, frame trade-offs, or veto comparisons.
+4. **No roadmap veto.** Platinum sponsors may submit roadmap suggestions like anyone else. The maintainer decides what ships.
+5. **30-day editorial-conflict exit.** If a sponsor pressures the maintainer to bias content, the sponsorship terminates within 30 days with a pro-rata refund. The logo drops on the next site deploy.
+6. **Conflict refusal.** The curriculum declines sponsors whose product directly contradicts curriculum principles (closed-loop vibe-coding tools, vendor lock-in evangelism, agent products that ignore observability or refuse to ship with open formats). Refusal is at the maintainer's sole discretion.
+7. **Cash only.** Credits-in-kind, equity, free hardware, "we'll do your DevRel for you," and bundle deals are not accepted. They are too easy to undervalue and too hard to account for cleanly.
 
 ## Counter-proposals from prospective sponsors
 
-إذا كان لشركتك سؤال مختلف، فإن الخطوة الصحيحة هي قراءة سلم المستويات و
-القواعد الصارمة، ثم اقترح مستوى ومصطلحًا محددًا في بريدك الإلكتروني الأول. لا تفتح مع
-"ما رأيك أن نستبدلك بأرصدة مجانية مقابل تعيين البطل" أو "نود أن نكتب
-التكامل بأنفسنا" - تم رفض هذه الأمور مسبقًا بموجب القواعد الصارمة المذكورة أعلاه والبريد الإلكتروني
-سينتهي برابط العودة إلى هذه الصفحة.
+If your company has a different ask, the right move is to read the tier ladder and the
+hard rules, then propose a specific tier and term in your first email. Do not open with
+"how about we trade you free credits for a hero placement" or "we'd like to write the
+integration ourselves" — those are pre-declined under the hard rules above and the email
+will end with a link back to this page.
 
 ## Pricing anchors
 
-يتم تثبيت مبالغ الطبقة أعلاه على (أ) صفحات الراعي العامة المماثلة
-المشاريع مفتوحة المصدر، و(ب) الأسعار القياسية لشرائح الرعاة لما بين 50 إلى 100 ألف زائر شهريًا
-المنشورات. تم التحقق منه في 2026-05.
+The tier amounts above are anchored against (a) public sponsor pages of comparable
+open-source projects, and (b) standard sponsor-slot rates for 50-100K monthly visitor dev
+publications. Verified 2026-05.
 
-بطاقات أسعار مفتوحة المصدر قابلة للمقارنة:
+Comparable open-source rate cards:
 
-- **خط الأساس مفتوح المصدر** — [Drupal __TERM_0__ Developer Assistant](__URL_0__ [Babel](__URL_1__ [Parcel](__URL_2__ [Vue.js](__URL_3__ all open Bronze at $100/mo with text-only recognition. Bronze here sits at $250 because the curriculum carries the audience traffic none of those repos individually carry.
-- **$750 Silver** sits above Babel Silver ($500) ودروبال AI Gold (500 دولار)؛ أسفل فيو البلاتينية (2000 دولار). يمكن الدفاع عنه في حركة المرور الشهرية للمناهج الدراسية.
-- ** 2000 دولار أمريكي من الذهب ** يطابق دعم Babel Base (يتم إصدار فاتورة سنوية بقيمة 24 ألف دولار = 2 ألف دولار شهريًا) وVue البلاتين.
-- **5000 دولار بلاتيني** يطابق Vue Diamond. بـ 7.5 ألف نجمة + 55 ألف زائر شهريًا + منحدر النمو الحالي، الدرس المخصص + وضع البطل هو ما يبرر السعر.
-- **تم تخطي **الألماس/اللقب (+10 آلاف دولار)**. من المعقول إعادة الزيارة مرة واحدة شهريًا صافي 250 الف
+- **Open-source baseline** — [Drupal AI Developer Assistant](https://opencollective.com/drupal-ai-initiative/projects/aidev), [Babel](https://opencollective.com/babel), [Parcel](https://opencollective.com/parcel), [Vue.js](https://opencollective.com/vuejs) all open Bronze at $100/mo with text-only recognition. Bronze here sits at $250 because the curriculum carries the audience traffic none of those repos individually carry.
+- **$750 Silver** sits above Babel Silver ($500) and Drupal AI Gold ($500); below Vue Platinum ($2,000). Defensible at the curriculum's monthly traffic.
+- **$2,000 Gold** matches Babel Base Support (billed yearly at $24K = $2K/mo) and Vue Platinum.
+- **$5,000 Platinum** matches Vue Diamond. At 7.5K stars + 55K monthly visitors + the current growth slope, the dedicated lesson + hero placement is what justifies the price.
+- **Diamond / Title ($10K+)** is skipped. Reasonable to revisit once monthly visitors clear 250K.
 
 ## What sponsorship pays for
 
-مُدرج بالترتيب لكيفية إنفاق الدولار التالي:
+Listed in order of how the next dollar gets spent:
 
-1. وقت المشرف على الدروس الجديدة وفي قائمة انتظار القضايا.
-2. استضافة الموقع والمجال وCDN (فيرسيل + النطاقات المخصصة).
-3. أدوات تأليف المخططات، ترخيص الخطوط، أصول التصميم.
-4. رسوم البحث أو المحتوى لمرة واحدة لمراجعي الدروس الضيوف عند تغطية المرحلة منطقة خارج عمق المشرف.
-5. مكافآت المساهمين على الإصدارات المحددة التي مضى على فتحها أكثر من 30 يومًا.
+1. Maintainer time on new lessons and on the issue queue.
+2. Site hosting, domain, and CDN (Vercel + custom domains).
+3. Diagram authoring tools, font licensing, design assets.
+4. One-time research or content fees for guest lesson reviewers when a phase covers territory outside the maintainer's depth.
+5. Contributor bounties on specific issues that have been open longer than 30 days.
 
 ## Becoming a sponsor
 
-1. اختر الطبقة أعلاه.
-2. اشترك عبر [GitHub Sponsors](https://github.com/sponsors/rohitg00).
-3. For Silver and above, email the maintainer with: your logo (__TERM_2__ preferred)، URL تريد ربطه به، وطول المدة التي التزمت بها.
-4. يتم نشر الشعار في الموقع التالي الذي يتم نشره، عادةً خلال 48 ساعة.
-5. يتم إصدار الإيصالات والفواتير من قبل الجهات الراعية GitHub تلقائيًا.
+1. Pick a tier above.
+2. Subscribe via [GitHub Sponsors](https://github.com/sponsors/rohitg00).
+3. For Silver and above, email the maintainer with: your logo (SVG preferred), the URL you want it linked to, and the term length you've committed to.
+4. The logo lands in the next site deploy, usually within 48 hours.
+5. Receipts and invoices are issued by GitHub Sponsors automatically.
 
 ## Becoming an ex-sponsor
 
-يتم الإلغاء بنقرة واحدة في لوحة معلومات الجهات الراعية GitHub. يسقط الشعار في اليوم التالي
-نشر الموقع بعد انتهاء فترة الفوترة الحالية. لا استرداد، ولا مقابلة خروج، ولا صعوبة
-مشاعر. الرعاية تمول المناهج الدراسية. إنهم لا يشترون العلاقة.
+Cancellation is one click in your GitHub Sponsors dashboard. The logo drops on the next
+site deploy after the current billing period ends. No clawback, no exit interview, no hard
+feelings. Sponsorships fund the curriculum; they do not buy a relationship.

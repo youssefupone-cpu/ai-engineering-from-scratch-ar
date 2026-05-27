@@ -27,7 +27,7 @@
   <text x="125" y="124" text-anchor="middle" class="small">سؤال المستخدم</text>
 
   <rect x="260" y="60" width="460" height="320" class="box"/>
-  <text x="490" y="84" text-anchor="middle" class="head">خطة DAG والعاملين</text>
+  <text x="490" y="84" text-anchor="middle" class="head">خطة DAG والعمال</text>
 
   <rect x="290" y="110" width="160" height="60" class="cold"/>
   <text x="370" y="134" text-anchor="middle" class="step">E1 = بحث</text>
@@ -35,10 +35,10 @@
 
   <rect x="530" y="110" width="160" height="60" class="cold"/>
   <text x="610" y="134" text-anchor="middle" class="step">E2 = بحث</text>
-  <text x="610" y="152" text-anchor="middle" class="small">عدد سكان #E1</text>
+  <text x="610" y="152" text-anchor="middle" class="small">عدد السكان #E1</text>
 
   <rect x="410" y="220" width="160" height="60" class="hot"/>
-  <text x="490" y="244" text-anchor="middle" class="step">E3 = round_million</text>
+  <text x="490" y="244" text-anchor="middle" class="step">E3 = جولة_مليون</text>
   <text x="490" y="262" text-anchor="middle" class="small">النص = #E2</text>
 
   <line x1="210" y1="100" x2="290" y2="140" class="edge" marker-end="url(#arrow)"/>
@@ -82,6 +82,6 @@
   <rect x="40" y="400" width="880" height="100" class="box"/>
   <text x="480" y="424" text-anchor="middle" class="head">زاوية التقطير (قسم ReWOO 4)</text>
   <text x="60" y="446" class="small">لا يرى المخطط أي ملاحظات، لذا فإن إشارة التدريب الخاصة به نظيفة؛ يمكن ضبط LLaMA 7B من</text>
-  <text x="60" y="462" class="small">GPT-3.5 آثار المخطط ومطابقة جودة المخطط. إنتاج 2026: مخطط صغير + منفذ كبير</text>
+  <text x="60" y="462" class="small">GPT-3.5 آثار مخطط وتطابق جودة المخطط. إنتاج 2026: مخطط صغير + منفذ كبير</text>
   <text x="60" y="478" class="small">(أو العكس) عبر جهاز التوجيه النموذجي (Mastra) أو التسليم الديناميكي (OpenAI الوكلاء SDK).</text>
 </svg>

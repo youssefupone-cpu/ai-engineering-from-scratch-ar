@@ -1,6 +1,10 @@
-"""المرحلة 13 الدرس 06 - MCP الأساسيات، JSON-RPC 2.0 دورة الحياة. قم بتشغيل التهيئة -> الأدوات/القائمة -> الأدوات/تسلسل المكالمات يدويًا
-stdlib JSON-RPC المغلفات. لا يوجد نقل ولا خادم حقيقي - فقط الرسالة
-الأشكال حتى تتمكن من مقارنتها بمواصفات 2025-11-25 سطرًا تلو الآخر. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 06 - MCP fundamentals, JSON-RPC 2.0 lifecycle walk.
+
+Plays out the initialize -> tools/list -> tools/call sequence by hand with
+stdlib JSON-RPC envelopes. No transport, no real server - just the message
+shapes so you can compare to the 2025-11-25 spec line by line.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

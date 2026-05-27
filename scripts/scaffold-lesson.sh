@@ -3,14 +3,14 @@ set -euo pipefail
 
 if [[ $# -lt 2 ]]; then
   cat <<'USAGE' >&2
-الاستخدام: scripts/scaffold-lesson.sh <phase-dir> <lesson-slug> [العنوان]
+Usage: scripts/scaffold-lesson.sh <phase-dir> <lesson-slug> [title]
 
 Examples:
   scripts/scaffold-lesson.sh 05-nlp-foundations-to-advanced 03-tokenizers
   scripts/scaffold-lesson.sh 05-nlp-foundations-to-advanced 03-tokenizers "Tokenizers from Scratch"
 
-إنشاء مراحل/<phase-dir>/<lesson-slug>/ باستخدام الكود/، دفتر الملاحظات/، المستندات/، المخرجات/
-وهيكل docs/en.md تمت تعبئته مسبقًا من LESSON_TEMPLATE.md.
+Creates phases/<phase-dir>/<lesson-slug>/ with code/, notebook/, docs/, outputs/
+and a docs/en.md skeleton prefilled from LESSON_TEMPLATE.md.
 USAGE
   exit 2
 fi
@@ -57,20 +57,20 @@ LESSON_NUM="${LESSON%%-*}"
 cat >"$LESSON_DIR/docs/en.md" <<EOF
 # $PRETTY_TITLE
 
-> [شعار سطر واحد. الفكرة الأساسية التي تلتصق.]
+> [One-line motto. The core idea that sticks.]
 
-**النوع:** بناء
-** اللغات: ** بايثون
-** المتطلبات الأساسية: ** [الدروس السابقة]
-**الوقت:** ~75 دقيقة
+**Type:** Build
+**Languages:** Python
+**Prerequisites:** [prior lessons]
+**Time:** ~75 minutes
 
 ## The Problem
 
-[2-3 فقرات. ما الذي لا يستطيع المتعلم فعله بدون هذا؟ اجعلها ملموسة.]
+[2-3 paragraphs. What can't a learner do without this? Make it concrete.]
 
 ## The Concept
 
-[الحدس أولا. الرسوم البيانية والجداول والنماذج العقلية. لا يوجد رمز بعد.]
+[Intuition first. Diagrams, tables, mental models. No code yet.]
 
 ## Build It
 
@@ -92,21 +92,21 @@ cat >"$LESSON_DIR/docs/en.md" <<EOF
 
 ## Use It
 
-[كيف يحل الإطار الحقيقي نفس الشيء. قارن نسختك.]
+[How a real framework solves the same thing. Compare your version.]
 
 ## Ship It
 
-[القطعة الأثرية القابلة لإعادة الاستخدام التي ينتجها هذا الدرس. حفظ في المخرجات/.]
+[The reusable artifact this lesson produces. Save in outputs/.]
 
 ## Exercises
 
-1. [سهل - تعزيز المفهوم الأساسي]
-2. [متوسط ​​- ينطبق على مشكلة مختلفة]
-3. [صعب - يمتد أو يدمج مع الدروس السابقة]
+1. [Easy — reinforce core concept]
+2. [Medium — apply to a different problem]
+3. [Hard — extend or combine with prior lessons]
 
 ## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
 |      |                |                      |
 
@@ -116,17 +116,22 @@ cat >"$LESSON_DIR/docs/en.md" <<EOF
 EOF
 
 cat >"$LESSON_DIR/code/main.py" <<'EOF'
-التعريف الرئيسي ():
-    رفع NotImplementedError("تنفيذ الدرس")
+def main():
+    raise NotImplementedError("implement the lesson")
 
 
-إذا كان __name__ == "__main__":
+if __name__ == "__main__":
     main()
 EOF
 
 touch "$LESSON_DIR/notebook/.gitkeep"
 touch "$LESSON_DIR/outputs/.gitkeep"
 
-echo "المراحل التي تم إنشاؤها/$PHASE/$LESSON/"echo ""
+echo "created phases/$PHASE/$LESSON/"
+echo ""
 echo "next:"
-echo "  1. مراحل التحرير/$PHASE/$LESSON/docs/en.md"echo "  2. اكتب المراحل/$PHASE/$LESSON/code/main.py"echo "  3. أضف صف رابط تخفيض السعر إلى ROADMAP.md ضمن المرحلة $PHASE_NUM:"echo "     | $LESSON_NUM | [$PRETTY_TITLE](phases/$__TERM_0__/$__TERM_1__) | ✅ | ~75 دقيقة |"echo "  4. الالتزام الذري: git إضافة مراحل/$PHASE/$LESSON ROADMAP.md && git الالتزام \"feat(phase-$PHASE_NUM/$LESSON_NUM): $PRETTY_TITLE\""
+echo "  1. edit phases/$PHASE/$LESSON/docs/en.md"
+echo "  2. write phases/$PHASE/$LESSON/code/main.py"
+echo "  3. add a markdown-link row to ROADMAP.md under Phase $PHASE_NUM:"
+echo "     | $LESSON_NUM | [$PRETTY_TITLE](phases/$PHASE/$LESSON) | ✅ | ~75 min |"
+echo "  4. atomic commit: git add phases/$PHASE/$LESSON ROADMAP.md && git commit -m \"feat(phase-$PHASE_NUM/$LESSON_NUM): $PRETTY_TITLE\""

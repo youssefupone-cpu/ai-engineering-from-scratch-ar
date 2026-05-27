@@ -13,7 +13,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">سبع فئات MCP للهجوم والدفاع في العمق</text>
+  <text x="480" y="26" text-anchor="middle" class="title">سبعة MCP فئات الهجوم والدفاع في العمق</text>
 
   <rect x="40" y="50" width="880" height="210" class="hot"/>
   <text x="480" y="72" text-anchor="middle" class="head">attacks</text>
@@ -57,14 +57,14 @@
 
   <rect x="60" y="320" width="270" height="80" class="box"/>
   <text x="76" y="340" class="step">تثبيت التجزئة</text>
-  <text x="76" y="358" class="small">SHA256 لكل وصف؛</text>
+  <text x="76" y="358" class="small">SHA256 من كل وصف؛</text>
   <text x="76" y="374" class="small">طفرة -&gt; إعادة الموافقة.</text>
   <text x="76" y="390" class="small">يمسك البساط يسحب.</text>
 
   <rect x="345" y="320" width="270" height="80" class="box"/>
   <text x="361" y="340" class="step">كاشف ثابت</text>
   <text x="361" y="358" class="small">التعبير العادي: علامة SYSTEM، تجاهل-</text>
-  <text x="361" y="374" class="small">السابق، قراءة سرية، URL-</text>
+  <text x="361" y="374" class="small">السابق, قراءة سرية, URL-</text>
   <text x="361" y="390" class="small">المختصر. CI جاهز.</text>
 
   <rect x="630" y="320" width="270" height="80" class="box"/>

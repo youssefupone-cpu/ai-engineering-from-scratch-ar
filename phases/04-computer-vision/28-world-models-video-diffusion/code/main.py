@@ -72,8 +72,8 @@ def main():
     S_tok = (480 // 8) * (360 // 8)
     print(f"  tokens per clip: {tokens:,}")
     print(f"  attention pairs (joint): {tokens ** 2:,}")
-    # الزماني المقسم: انتباه T^2 في كل موضع مكاني.
-    # المكاني المقسم: (H*W)^2 انتباه في كل خطوة زمنية.
+    # Divided temporal: T^2 attention at every spatial position.
+    # Divided spatial:  (H*W)^2 attention at every timestep.
     divided_time = S_tok * T_tok ** 2
     divided_space = T_tok * S_tok ** 2
     print(f"  divided time total: {divided_time:,}")

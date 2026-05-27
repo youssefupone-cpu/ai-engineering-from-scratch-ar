@@ -1,5 +1,9 @@
-"""مقاييس تقييم الصوت، من الصفر. تنفذ WER، CER، EER، بسيطة SECS، FAD مسافة التضمين على شكل،
-ودقة الاختيار من متعدد بنمط MMAU. Stdlib فقط. تشغيل: كود python3/main.py
+"""Audio evaluation metrics, from scratch.
+
+Implements WER, CER, EER, simple SECS, FAD-shaped embedding distance,
+and a MMAU-style multiple-choice accuracy. Stdlib-only.
+
+Run: python3 code/main.py
 """
 
 import math

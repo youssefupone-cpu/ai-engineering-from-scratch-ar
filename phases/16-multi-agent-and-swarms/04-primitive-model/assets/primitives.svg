@@ -39,11 +39,11 @@
 
   <rect x="520" y="60" width="220" height="180" class="cold"/>
   <text x="630" y="82" text-anchor="middle" class="head">الدولة المشتركة</text>
-  <text x="630" y="108" text-anchor="middle" class="step">الشيء ONLY ذو الحالة</text>
+  <text x="630" y="108" text-anchor="middle" class="step">الشيء ONLY الحالة</text>
   <text x="630" y="128" text-anchor="middle" class="small">تجمع الرسائل</text>
   <text x="630" y="146" text-anchor="middle" class="small">blackboard</text>
   <text x="630" y="164" text-anchor="middle" class="small">مخفض StateGraph</text>
-  <text x="630" y="182" text-anchor="middle" class="small">MCP سياق مشترك</text>
+  <text x="630" y="182" text-anchor="middle" class="small">MCP السياق المشترك</text>
   <text x="630" y="210" text-anchor="middle" class="caption">تسمم الذاكرة يعيش هنا</text>
 
   <rect x="760" y="60" width="180" height="180" class="dsk"/>
@@ -58,19 +58,19 @@
   <rect x="40" y="280" width="900" height="210" class="box"/>
   <text x="490" y="304" text-anchor="middle" class="head">- رسم خريطة أطر 2026 على المحاور الأربعة</text>
 
-  <text x="60" y="336" class="step">OpenAI السرب / الوكلاء SDK</text>
+  <text x="60" y="336" class="step">OpenAI سرب / وكلاء SDK</text>
   <text x="340" y="336" class="small">الوكيل = الوكيل (التعليمات والأدوات)</text>
-  <text x="340" y="352" class="small">عملية التسليم = أداة إرجاع الوكيل · الحالة المشتركة التي تم دفعها إلى المتصل · المُنسق = مكالمة تسليم LLM</text>
+  <text x="340" y="352" class="small">handoff = إرجاع الأداة الوكيل · الحالة المشتركة التي تم دفعها إلى المتصل · المُنسق = مكالمة تسليم LLM</text>
 
   <text x="60" y="376" class="step">التوليد التلقائي v0.4 / AG2</text>
   <text x="340" y="376" class="small">وكيل = ConversableAgent</text>
-  <text x="340" y="392" class="small">Handoff = اختيار المتحدث · الحالة المشتركة = تجمع الرسائل · المنسق = محدد fn (LLM أو round-robin)</text>
+  <text x="340" y="392" class="small">handoff = اختيار المتحدث · الحالة المشتركة = تجمع الرسائل · المُنسق = محدد fn (LLM أو round-robin)</text>
 
   <text x="60" y="416" class="step">CrewAI</text>
   <text x="340" y="416" class="small">الوكيل = الدور + الهدف + الخلفية الدرامية</text>
   <text x="340" y="432" class="small">عملية التسليم = عملية تسلسلية / هرمية · الحالة المشتركة = مخرجات المهمة · المُنسق = المدير LLM</text>
 
   <text x="60" y="456" class="step">LangGraph</text>
-  <text x="340" y="456" class="small">الوكيل = node وظيفة</text>
+  <text x="340" y="456" class="small">الوكيل = node الدالة</text>
   <text x="340" y="472" class="small">عملية التسليم = حافة الرسم البياني · الحالة المشتركة = مخفض StateGraph · المنسق = الرسم البياني (حتمي)</text>
 </svg>

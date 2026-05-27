@@ -1,6 +1,12 @@
-"""محاكاة جدول خطوط الأنابيب – 1F1B مقابل Zero Bubble مقابل DualPipe مقابل DualPipeV. أداة تعليمية. حساب pipeline فقاعات لكل جدول زمني معين (P، micro_batches).
-النواتج: - جزء الفقاعة لكل جدول زمني ثابت (P، micro_batches) - تحجيم الفقاعات مع نمو الدفعات الصغيرة ليس محاكاة الإنتاج. يتم تطبيع تكاليف القطع الأمامية/الخلفية للوحدة.
-يتم تصميم تكاليف الاتصالات على أنها نوافذ متداخلة، وليس نماذج نواة كاملة.
+"""Pipeline schedule simulator — 1F1B vs Zero Bubble vs DualPipe vs DualPipeV.
+
+Teaching tool. Counts pipeline bubbles per schedule for given (P, micro_batches).
+Outputs:
+  - bubble fraction per schedule at fixed (P, micro_batches)
+  - scaling of bubbles as micro_batches grows
+
+Not a production simulator. Forward/backward chunk costs are unit-normalized.
+Comm costs are modeled as overlap windows, not full kernel models.
 """
 
 from __future__ import annotations
@@ -19,7 +25,10 @@ class ScheduleStats:
 
 
 def bubble_1f1b(P: int, M: int) -> float:
-    """1F1B: تحتوي مرحلة الإحماء على فتحات أمامية (P-1) دون تداخل خلفي. مرايا التبريد. المرحلة المستقرة لديها صفر فقاعة لكل رتبة لكل دفعة صغيرة، لكن فقاعة الإحماء/التهدئة هي (P-1) قطع أمامية + (P-1) قطع خلفية لكل الرتبة، من إجمالي 2 * M + 2 * (P - 1).
+    """1F1B: warmup phase has (P-1) forward slots without backward overlap.
+    Cooldown mirrors. Stable phase has zero bubble per rank per micro-batch,
+    but warmup/cooldown bubble is (P-1) forward + (P-1) backward chunks per
+    rank, out of 2 * M + 2 * (P - 1) chunks total.
     """
     total = 2 * M + 2 * (P - 1)
     bubble = 2 * (P - 1)
@@ -27,7 +36,9 @@ def bubble_1f1b(P: int, M: int) -> float:
 
 
 def bubble_zero_bubble(P: int, M: int) -> float:
-    """تنقسم الفقاعة الصفرية (Qi 2023) إلى الخلف إلى B + W. ويمكن ملء الجزء W فقاعة 1F1B. الفقاعة المتبقية التقريبية هي (P - 1) / قطعتين من الإحماء بالإضافة إلى نفس فترة التهدئة، من 3 * M + 2 * (P - 1) قطع فرعية.
+    """Zero Bubble (Qi 2023) splits backward into B + W. The W part can fill
+    the 1F1B bubble. Approximate residual bubble is (P - 1) / 2 chunks of
+    warmup plus the same cooldown, out of 3 * M + 2 * (P - 1) sub-chunks.
     """
     total = 3 * M + 2 * (P - 1)
     bubble = (P - 1)
@@ -35,7 +46,8 @@ def bubble_zero_bubble(P: int, M: int) -> float:
 
 
 def bubble_dualpipe(P: int, M: int) -> float:
-    """يقوم DualPipe بحقن دفعات صغيرة من طرفي الخط pipe. مستقر فقاعة المرحلة صفر. يحتوي الإحماء/التهدئة على فقاعة ثابتة مستقلة عن M.
+    """DualPipe injects micro-batches from both ends of the pipeline. Stable
+    phase bubble is zero. Warmup/cooldown has fixed bubble independent of M.
     """
     total = 3 * M + (P - 1)
     bubble = (P - 1) // 2
@@ -43,7 +55,9 @@ def bubble_dualpipe(P: int, M: int) -> float:
 
 
 def bubble_dualpipev(P: int, M: int) -> float:
-    """يستخدم DualPipeV جدولًا على شكل حرف V لنسخة معلمة واحدة. لها الفقاعة أكبر قليلاً من فقاعة DualPipe مع الاستفادة من النصف الذاكرة. تقريبي مثل فقاعة DualPipe بمقدار 1.2x."""
+    """DualPipeV uses a V-shape schedule on a single parameter copy. Its
+    bubble is slightly larger than DualPipe's at the benefit of halving
+    memory. Approximate as 1.2x DualPipe bubble."""
     return bubble_dualpipe(P, M) * 1.2
 
 

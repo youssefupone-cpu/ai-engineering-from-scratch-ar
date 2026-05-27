@@ -1,8 +1,18 @@
-"""هوجويلد! محاكاة لعبة الاستدلال - stdlib بايثون. يعمل عاملان بشكل متزامن على ذاكرة التخزين المؤقت للرمز المميز المشترك. يقرأ كل عامل
-ذاكرة التخزين المؤقت ويقرر ما إذا كان سيتم إضافة رمز عمل إلى الفئة A أو B، باستخدام
-إرشاد تنسيقي بسيط: إذا كان العامل الآخر قد أنتج بالفعل ما يكفي
-الرموز المميزة في فئة، والتبديل. النواتج: - إجمالي رموز العمل المنتجة في ميزانية الخطوة الثابتة - تسريع وقت الجدار مقابل خط الأساس للعامل الواحد - أثر للعامل الذي كتب أي رمز وأي فئة - مسح وزن التنسيق يوضح تأثير ضعف التنسيق ليست محاكاة LLM مخلصة. النقطة المهمة هي إظهار العمل الناشئ
-تقسيم مدفوع بقراءات ذاكرة التخزين المؤقت المشتركة.
+"""Hogwild! Inference toy simulator — stdlib Python.
+
+Two workers run concurrently against a shared token cache. Each worker reads
+the cache and decides whether to add a work-token to category A or B, using
+a simple coordination heuristic: if the other worker already produced enough
+tokens in a category, switch.
+
+Outputs:
+  - total work-tokens produced in fixed step budget
+  - wall-time speedup vs a single-worker baseline
+  - a trace of which worker wrote which token and what category
+  - a coordination-weight sweep showing the effect of poor coordination
+
+Not a faithful LLM simulation. The point is to demonstrate emergent work
+division driven by shared-cache reads.
 """
 
 from __future__ import annotations
@@ -36,7 +46,11 @@ class Worker:
 
 def decide_next_category(worker: Worker, cache: SharedCache,
                          target_per_category: int) -> Category:
-    """قراءة ذاكرة التخزين المؤقت المشتركة. مع احتمال التنسيق_الوزن، التبديل إلى فئة العمل الأقل شغلًا (ملاحظة التكرار). وإلا البقاء على الفئة المقصودة للعامل. تنسيق_الوزن = 0 نماذج العمال الذين لا يستطيعون التنسيق (التكرار الكامل). الوزن = 1 نماذج التنسيق المثالي لنموذج الاستدلال.
+    """Read the shared cache. With probability coordination_weight, switch
+    to the least-filled work category (noticing redundancy). Otherwise stay
+    on the worker's intended category. coordination_weight = 0 models
+    workers that cannot coordinate (full redundancy). weight = 1 models
+    ideal reasoning-model coordination.
     """
     if worker.rng.random() < 0.05:
         return "noise"
@@ -56,7 +70,10 @@ def decide_next_category(worker: Worker, cache: SharedCache,
 
 def run_hogwild(n_workers: int, step_budget: int, target_per_category: int,
                 coordination_weight: float, seed: int = 42) -> dict:
-    """جميع العمال افتراضيون في الفئة أ. ويتباعد التنسيق بينهم. بدون التنسيق، الرموز الزائدة عن الحاجة (نفس الفئة من عدة العمال) يتم حسابها مرة واحدة. بالتنسيق، يختار العمال أشياء مختلفة الفئات بحيث يكون كل رمز مميزًا فريدًا ويساهم في التقدم الإجمالي."""
+    """All workers default to category A. Coordination makes them diverge.
+    Without coordination, redundant tokens (same category from multiple
+    workers) are counted once. With coordination, workers pick different
+    categories so each token is unique and contributes to total progress."""
     cache = SharedCache()
     workers = []
     for i in range(n_workers):

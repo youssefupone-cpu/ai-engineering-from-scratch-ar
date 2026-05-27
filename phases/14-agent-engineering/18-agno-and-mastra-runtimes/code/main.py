@@ -1,5 +1,5 @@
-"""الألعاب جنبًا إلى جنب: على شكل Agno (بدون حالة FastAPI) مقابل على شكل Mastra
-(بدائية غنية). ستدليب فقط؛ يهدف إلى إظهار الفرق الهيكلي.
+"""Side-by-side toys: Agno-shaped (stateless FastAPI) vs Mastra-shaped
+(primitive-rich). Stdlib only; meant to show the structural difference.
 """
 
 from __future__ import annotations

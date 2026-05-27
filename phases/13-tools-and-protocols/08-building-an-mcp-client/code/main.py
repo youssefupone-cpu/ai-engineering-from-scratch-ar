@@ -1,7 +1,11 @@
-"""المرحلة 13 الدرس 08 - لعبة العميل MCP، دمج مساحة الاسم متعددة الخوادم. لا توجد عملية فرعية حقيقية - تحاكي ثلاثة خوادم MCP قيد التشغيل كعناصر قابلة للاستدعاء
-يمكننا التركيز على الاكتشاف والدمج والتوجيه. الجلسة والإرسال
-الشكل يتطابق مع عميل stdio الحقيقي؛ استبدل كعب الروتين قيد التشغيل بآخر حقيقي
-عملية فرعية للحصول على عميل العمل. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 08 - toy MCP client, multi-server namespace merge.
+
+No real subprocess - simulates three MCP servers in-process as callables so
+we can focus on discovery, merging, and routing. The Session and dispatch
+shape match the real stdio client; swap the in-process stub for a real
+subprocess to get a working client.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -12,7 +16,7 @@ from typing import Callable
 
 
 # ------------------------------------------------------------------
-# خوادم مزيفة (عادةً ما تكون هذه عمليات فرعية عبر stdio)
+# fake servers (normally these are subprocesses over stdio)
 # ------------------------------------------------------------------
 
 def server_notes(method: str, params: dict) -> dict:

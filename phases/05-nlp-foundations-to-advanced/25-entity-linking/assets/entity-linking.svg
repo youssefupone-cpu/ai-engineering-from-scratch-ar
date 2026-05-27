@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="450" y="28" text-anchor="middle" class="title">ربط الكيان - أذكر → المرشحين → معرف KB واضح</text>
+  <text x="450" y="28" text-anchor="middle" class="title">ربط الكيان - أذكر → المرشحين → واضح KB معرف</text>
 
   <!-- Step 1: input -->
   <rect x="40" y="55" width="820" height="55" class="box"/>
@@ -70,5 +70,5 @@
   <text x="735" y="330" text-anchor="middle" class="mono">Q3308285</text>
   <text x="735" y="348" text-anchor="middle" class="caption">لا توجد كلمات رئيسية ML في السياق</text>
 
-  <text x="450" y="410" text-anchor="middle" class="caption">أعلى الدرجات يفوز → Q41421 (مايكل جوردان، كرة السلة) - الناتج مرتبط بويكي بيانات</text>
+  <text x="450" y="410" text-anchor="middle" class="caption">أعلى نتيجة يفوز → Q41421 (مايكل جوردان، كرة السلة) — الناتج مرتبط بويكي بيانات</text>
 </svg>

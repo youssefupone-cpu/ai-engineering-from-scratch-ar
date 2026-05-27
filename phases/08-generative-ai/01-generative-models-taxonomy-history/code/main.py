@@ -3,7 +3,7 @@ import random
 
 
 def sample_mixture(n, rng):
-    """خليط غاوسي ثنائي الوضع. الوضع A عند -2 (سيجما 0.6)، الوضع B عند +2 (سيجما 0.9)."""
+    """Two-mode Gaussian mixture. Mode A at -2 (sigma 0.6), mode B at +2 (sigma 0.9)."""
     samples = []
     for _ in range(n):
         if rng.random() < 0.4:
@@ -14,7 +14,7 @@ def sample_mixture(n, rng):
 
 
 def histogram_density(samples, x, bin_width=0.25):
-    """الكثافة الصريحة عبر الرسم البياني. يُرجع p(x) كـ (count in bin) / (n * bin_width)."""
+    """Explicit density via histogram. Returns p(x) as (count in bin) / (n * bin_width)."""
     n = len(samples)
     lo, hi = x - bin_width / 2, x + bin_width / 2
     count = sum(1 for s in samples if lo <= s < hi)
@@ -22,7 +22,7 @@ def histogram_density(samples, x, bin_width=0.25):
 
 
 def kde_density(samples, x, bandwidth=0.3):
-    """الكثافة التقريبية عبر تقدير كثافة النواة الغوسية."""
+    """Approximate density via Gaussian kernel density estimate."""
     n = len(samples)
     total = 0.0
     for s in samples:
@@ -32,7 +32,7 @@ def kde_density(samples, x, bandwidth=0.3):
 
 
 def implicit_generator(samples, k, rng):
-    """المولد الضمني: قم بتجربة نقطة تدريب وأضف ضوضاء صغيرة. لا ع (خ)."""
+    """Implicit generator: sample a training point and add tiny noise. No p(x)."""
     out = []
     for _ in range(k):
         base = rng.choice(samples)
@@ -41,7 +41,7 @@ def implicit_generator(samples, k, rng):
 
 
 def integrate_density(density_fn, samples, lo, hi, steps=200):
-    """تكامل القاعدة شبه المنحرفة للكثافة على [lo، hi]."""
+    """Trapezoid-rule integration of a density over [lo, hi]."""
     xs = [lo + (hi - lo) * i / steps for i in range(steps + 1)]
     total = 0.0
     for i in range(steps):
@@ -51,7 +51,7 @@ def integrate_density(density_fn, samples, lo, hi, steps=200):
 
 
 def ascii_histogram(samples, lo=-5.0, hi=5.0, bins=40, height=12):
-    """رسم بياني نصي صغير حتى تتمكن من رؤية الوضعين دون تخطيط lib."""
+    """Tiny text histogram so you can see the two modes without a plotting lib."""
     width = (hi - lo) / bins
     counts = [0] * bins
     for s in samples:

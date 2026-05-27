@@ -1,5 +1,7 @@
-"""GPT-أسلوب نمذجة اللغة السببية - القناع السببي، تحول الخسارة، أخذ العينات. ستدلب خالص. يوضح "GPT" الصغير بأوزان عشوائية القناع،
-التنبؤ بالرمز التالي، وأربع استراتيجيات لأخذ العينات على مفردات مكونة من 20 رمزًا.
+"""GPT-style causal language modeling — causal mask, loss shift, sampling.
+
+Pure stdlib. Tiny "GPT" with random weights demonstrates the mask,
+next-token prediction, and four sampling strategies on a 20-token vocab.
 """
 
 import math
@@ -34,7 +36,7 @@ def apply_softmax_row(row):
 
 
 def cross_entropy_shifted(logits_per_pos, target_ids):
-    """الرمز المميز التالي CE: logit_i مقابل target_{i+1}."""
+    """Next-token CE: logit_i vs target_{i+1}."""
     total = 0.0
     count = 0
     for i in range(len(target_ids) - 1):
@@ -152,11 +154,11 @@ def demo_ce_loss():
     seq = [3, 1, 7, 0, 4, 9]
     rng = random.Random(7)
     logits = [[rng.gauss(0, 1) for _ in range(vocab_size)] for _ in seq]
-    # قم بتعزيز الرمز التالي الصحيح قليلاً لمحاكاة نموذج "قليل التدريب".
+    # Boost correct next-token slightly to simulate a "slightly-trained" model
     for i in range(len(seq) - 1):
         logits[i][seq[i + 1]] += 2.0
     loss_trained = cross_entropy_shifted(logits, seq)
-    # عشوائية غير متحيزة
+    # Unbiased random
     logits_rand = [[rng.gauss(0, 1) for _ in range(vocab_size)] for _ in seq]
     loss_rand = cross_entropy_shifted(logits_rand, seq)
     print(f"loss with biased logits (trained-ish):  {loss_trained:.3f}")

@@ -9,7 +9,7 @@
 
 ## Learning Objectives
 
-- Store API keys securely using environment variables and `.` files
+- Store API keys securely using environment variables and `.env` files
 - Make an LLM API call using both the Anthropic Python SDK and raw HTTP
 - Compare SDK-based and raw HTTP request/response formats for debugging
 - Identify and handle common API errors including authentication and rate limits
@@ -45,7 +45,7 @@ export ANTHROPIC_API_KEY="sk-ant-..."
 export OPENAI_API_KEY="sk-..."
 ```
 
-Or use a `.` file (add it to `.`):
+Or use a `.env` file (add it to `.gitignore`):
 
 ```
 ANTHROPIC_API_KEY=sk-ant-...
@@ -126,7 +126,7 @@ You don't need all of them right now. Set them up when the lesson requires it.
 ## Ship It
 
 This lesson produces:
-- `o` - diagnose common API errors
+- `outputs/prompt-api-troubleshooter.md` - diagnose common API errors
 
 ## Exercises
 

@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "في نظرية بايز، ما هو \"المسبق\"؟",
+      "question": "In Bayes' theorem, what is the 'prior'?",
       "options": [
-        "احتمال الأدلة",
-        "اعتقادك حول الفرضية قبل ملاحظة أي دليل",
-        "احتمالية الأدلة في ضوء الفرضية",
-        "الاحتمال النهائي المحدث بعد رؤية الأدلة"
+        "The probability of the evidence",
+        "Your belief about a hypothesis before observing any evidence",
+        "The probability of the evidence given the hypothesis",
+        "The final updated probability after seeing evidence"
       ],
       "correct": 1,
-      "explanation": "تمثل P(A) السابقة اعتقادك الأولي حول الفرضية A قبل رؤية أي بيانات. يتم تحديثه إلى الجزء الخلفي P(A|B) بعد ملاحظة الدليل B."
+      "explanation": "The prior P(A) represents your initial belief about hypothesis A before seeing any data. It gets updated to the posterior P(A|B) after observing evidence B."
     },
     {
       "stage": "pre",
-      "question": "مرض نادر يصيب 1 من كل 10000 شخص. نتيجة الاختبار الدقيق بنسبة 99% إيجابية. ما هو الاحتمال التقريبي لإصابتك بالمرض؟",
+      "question": "A rare disease affects 1 in 10,000 people. A 99% accurate test returns positive. What is the approximate probability you have the disease?",
       "options": [
         "99%",
-        "حوالي 1%",
+        "About 1%",
         "50%",
         "10%"
       ],
       "correct": 1,
-      "explanation": "على الرغم من دقة الاختبار بنسبة 99%، إلا أن المرض نادر جدًا (0.01%) لدرجة أن معظم النتائج الإيجابية تأتي من أشخاص أصحاء (إيجابيات كاذبة). تعطي نظرية بايز P(sick|positive) = ~0.98%، وليس 99%."
+      "explanation": "Despite 99% test accuracy, the disease is so rare (0.01%) that most positive results come from healthy people (false positives). Bayes' theorem gives P(sick|positive) = ~0.98%, not 99%."
     },
     {
       "stage": "post",
-      "question": "ما هو تجانس لابلاس في مصنف Naive Bayes ولماذا هو ضروري؟",
+      "question": "What is Laplace smoothing in a Naive Bayes classifier and why is it necessary?",
       "options": [
-        "يقوم بتطبيع قيم الميزات بحيث يكون متوسطها وتباين الوحدة صفرًا",
-        "فهو يضيف عددًا صغيرًا إلى كل ميزة لمنع احتمالات صفر من الكلمات غير المرئية، الأمر الذي قد يؤدي إلى صفر المنتج بأكمله",
-        "إنه يسهل حدود القرار بين الطبقات",
-        "إنه يقلل من أبعاد مساحة الميزة"
+        "It normalizes feature values to have zero mean and unit variance",
+        "It adds a small count to every feature to prevent zero probabilities from unseen words, which would zero out the entire product",
+        "It smooths the decision boundary between classes",
+        "It reduces the dimensionality of the feature space"
       ],
       "correct": 1,
-      "explanation": "بدون التجانس، تحصل الكلمة التي لم يتم رؤيتها مطلقًا في بيانات التدريب على البريد العشوائي على P(word|spam)=0، مما يجعل المنتج بأكمله صفرًا بغض النظر عن مؤشرات البريد العشوائي القوية الأخرى. إضافة 1 إلى كل عدد يمنع ذلك."
+      "explanation": "Without smoothing, a word never seen in spam training data gets P(word|spam)=0, making the entire product zero regardless of other strong spam indicators. Adding 1 to each count prevents this."
     },
     {
       "stage": "post",
-      "question": "كيف يختلف تقدير MAP (الحد الأقصى A بعدي) عن MLE (تقدير الاحتمال الأقصى)؟",
+      "question": "How does MAP (Maximum A Posteriori) estimation differ from MLE (Maximum Likelihood Estimation)?",
       "options": [
-        "يستخدم MAP مجموعة بيانات أكبر من MLE",
-        "يتضمن MAP توزيعًا مسبقًا على المعلمات، أي ما يعادل إضافة التنظيم، بينما يستخدم MLE الاحتمالية فقط",
-        "MAP أسرع في الحساب من MLE",
-        "MLE يؤدي دائمًا إلى نتائج أفضل من MAP"
+        "MAP uses a larger dataset than MLE",
+        "MAP incorporates a prior distribution over parameters, equivalent to adding regularization, while MLE only uses the likelihood",
+        "MAP is faster to compute than MLE",
+        "MLE always produces better results than MAP"
       ],
       "correct": 1,
-      "explanation": "MAP يزيد P(data|params) * P(params) إلى الحد الأقصى بينما MLE يزيد P(data|params) وحده. تعمل P(params) السابقة بمثابة تنظيم - فالسابقة الغوسية تساوي L2 التنظيم، والسابقة لابلاس تساوي L1."
+      "explanation": "MAP maximizes P(data|params) * P(params) while MLE maximizes P(data|params) alone. The prior P(params) acts as regularization -- a Gaussian prior equals L2 regularization, a Laplace prior equals L1."
     },
     {
       "stage": "post",
-      "question": "في التحديث البايزي المتسلسل، تبدأ بـ Beta(1,1) وتلاحظ 7 رؤوس و3 ذيول. ما هو الخلفي؟",
+      "question": "In sequential Bayesian updating, you start with Beta(1,1) and observe 7 heads and 3 tails. What is the posterior?",
       "options": [
-        "بيتا(7، 3)",
-        "بيتا (8، 4)",
-        "بيتا (1.7، 1.3)",
-        "عادي (0.7، 0.1)"
+        "Beta(7, 3)",
+        "Beta(8, 4)",
+        "Beta(1.7, 1.3)",
+        "Normal(0.7, 0.1)"
       ],
       "correct": 1,
-      "explanation": "يضيف التحديث المترافق Beta-Binomial نجاحات للمعلمة الأولى وفشلًا للمعلمة الثانية: Beta(1+7, 1+3) = Beta(8, 4). المتوسط ​​الخلفي هو 8/12 = 0.667."
+      "explanation": "The Beta-Binomial conjugate update adds successes to the first parameter and failures to the second: Beta(1+7, 1+3) = Beta(8, 4). The posterior mean is 8/12 = 0.667."
     }
   ]
 }

@@ -25,7 +25,7 @@
   <rect x="50" y="90" width="280" height="160" class="hot"/>
   <text x="190" y="110" text-anchor="middle" class="step">فيديو لاما (2023)</text>
   <text x="190" y="128" text-anchor="middle" class="small">س-السابق + فرع الصوت</text>
-  <text x="190" y="144" text-anchor="middle" class="small">تم إصلاح 16 إطارًا عند 2 FPS</text>
+  <text x="190" y="144" text-anchor="middle" class="small">16 إطارًا @ 2 FPS ثابت</text>
   <text x="190" y="160" text-anchor="middle" class="small">32 استعلام فيديو، 32 استعلام صوتي</text>
   <text x="190" y="184" text-anchor="middle" class="step">القوة: التأريض الصوتي</text>
   <text x="190" y="204" text-anchor="middle" class="small">الضعف: مقطع ثابت 8s</text>
@@ -33,12 +33,12 @@
 
   <rect x="340" y="90" width="280" height="160" class="cool"/>
   <text x="480" y="110" text-anchor="middle" class="step">فيديو-LLaVA (2023)</text>
-  <text x="480" y="128" text-anchor="middle" class="small">MLP + برنامج التشفير المشترك</text>
+  <text x="480" y="128" text-anchor="middle" class="small">MLP + التشفير المشترك</text>
   <text x="480" y="144" text-anchor="middle" class="small">8 إطارات @ 1-2 FPS</text>
   <text x="480" y="160" text-anchor="middle" class="small">المحاذاة قبل الإسقاط</text>
   <text x="480" y="184" text-anchor="middle" class="step">القوة: بسيطة + فعالة</text>
   <text x="480" y="204" text-anchor="middle" class="small">الضعف: مقاطع قصيرة فقط</text>
-  <text x="480" y="220" text-anchor="middle" class="small">لا يوجد ديناميكية FPS</text>
+  <text x="480" y="220" text-anchor="middle" class="small">لا ديناميكية FPS</text>
 
   <rect x="630" y="90" width="280" height="160" class="cold"/>
   <text x="770" y="110" text-anchor="middle" class="step">Qwen2.5-VL (2025)</text>
@@ -70,7 +70,7 @@
   <text x="480" y="428" text-anchor="middle" class="small">{"event":"jump","start":4.1,"end":4.3}</text>
   <text x="480" y="452" text-anchor="middle" class="small">token:</text>
   <text x="480" y="468" text-anchor="middle" class="small">"قفزة &lt;time&gt;4.1&lt;/time&gt;"</text>
-  <text x="480" y="488" text-anchor="middle" class="caption">JSON هو الأسهل في التحليل</text>
+  <text x="480" y="488" text-anchor="middle" class="caption">JSON هو الأسهل للتحليل في اتجاه مجرى النهر</text>
 
   <rect x="640" y="330" width="280" height="170" class="cool"/>
   <text x="780" y="352" text-anchor="middle" class="step">benchmarks</text>

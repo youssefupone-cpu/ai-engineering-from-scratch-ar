@@ -56,5 +56,5 @@
   <!-- tools -->
   <rect x="40" y="425" width="820" height="60" class="box"/>
   <text x="450" y="448" text-anchor="middle" class="label">مكدس التحرير 2026</text>
-  <text x="450" y="470" text-anchor="middle" class="caption">SAM 2 قناع → SD-Inpaint / Flux-Fill / GPT-Image Edit → Flux-Kontext لتحرير التعليمات</text>
+  <text x="450" y="470" text-anchor="middle" class="caption">SAM 2 قناع → SD-Inpaint / Flux-Fill / GPT-تحرير الصورة → Flux-Kontext لتحرير التعليمات</text>
 </svg>

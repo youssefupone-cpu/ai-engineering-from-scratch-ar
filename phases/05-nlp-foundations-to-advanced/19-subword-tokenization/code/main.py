@@ -71,7 +71,14 @@ def encode_bpe(word, merges):
 
 def main():
     corpus = """
-    يقفز الثعلب البني السريع فوق الكلب الكسول غرزة في الوقت المناسب توفر تسعة تتعلم نماذج اللغة من الأنماط الإحصائية في النص يقوم الرمز المميز بتقسيم النص إلى وحدات أصغر تسمى الرموز المميزة يتيح ترميز الكلمات الفرعية للكلمات النادرة أن تتحلل إلى أجزاء معروفة يعد ترميز زوج البايت هو خوارزمية الترميز السائدة اليوم كان الكلب الكسول ينام بينما يقفز الثعلب مرارًا وتكرارًا أنماط الحروف في الكلمات قابلة للتعلم وقابلة لإعادة الاستخدام
+    the quick brown fox jumps over the lazy dog
+    a stitch in time saves nine
+    language models learn from statistical patterns in text
+    tokenization splits text into smaller units called tokens
+    subword tokenization lets rare words decompose into known pieces
+    byte pair encoding is the dominant tokenization algorithm today
+    the lazy dog slept while the fox jumped again and again
+    patterns of letters in words are learnable and reusable
     """
 
     merges_small, tokens_small = train_bpe(corpus, num_merges=30)

@@ -1,5 +1,14 @@
-"""DeepSeek-V3 وحدة التنبؤ بالرموز المتعددة (MTP) - stdlib Python. تنفذ: - جدول التضمين المشترك (يستخدمه النموذج الرئيسي وكل وحدة MTP) - وحدة MTP لكل عمق: إسقاط + محول كتلة واحدة + رأس مشترك - الخسارة المشتركة MTP عبر الأعماق - محاسبة عدد المعلمات (لكل وحدة، مشتركة، إجمالية) - تقييم تسلسلي للعبة يتوافق مع معادلات القسم 2.2 من DeepSeek-V3 التربوية: الاهتمام بالإسقاط الخطي أحادي الرأس، SwiGLU من حيث العناصر.
-الهدف هو إظهار بنية الوحدة MTP، ​​وليس تدريب LLM حقيقي.
+"""DeepSeek-V3 Multi-Token Prediction (MTP) module — stdlib Python.
+
+Implements:
+  - shared embedding table (used by main model and every MTP module)
+  - per-depth MTP module: projection + 1-block transformer + shared head
+  - joint MTP loss across depths
+  - parameter-count accounting (per module, shared, total)
+  - a toy sequential evaluation that matches DeepSeek-V3's Section 2.2 equations
+
+Pedagogical: single-head linear-projection attention, element-wise SwiGLU.
+The goal is to show the structure of the MTP module, not to train a real LLM.
 """
 
 from __future__ import annotations
@@ -53,14 +62,14 @@ def softmax(row: List[float]) -> List[float]:
 
 @dataclass
 class MTPModule:
-    """وحدة عمق واحدة MTP."""
+    """A single depth-k MTP module."""
     hidden: int
     ff: int
-    # الإسقاط M_k: الإدخال متزامن مع متجهين RMSNorm'd بالحجم h. نحن
-    # قم بتقريب المتطابقة كإضافة لإبقاء اللعبة قابلة للتحكم أثناء ذلك
-    # الحفاظ على هيكل الإسقاط.
+    # Projection M_k: input is concat of 2 RMSNorm'd vectors of size h. We
+    # approximate the concat as addition to keep the toy manageable while
+    # preserving the projection structure.
     M_k: List[List[float]]
-    # كتلة المحولات: الانتباه q/k/v/out + SwiGLU MLP
+    # Transformer block: attention q/k/v/out + SwiGLU MLP
     Wq: List[List[float]]
     Wk: List[List[float]]
     Wv: List[List[float]]
@@ -86,7 +95,9 @@ def make_mtp_module(hidden: int, ff: int, rng: random.Random) -> MTPModule:
 
 def attention_single(v_in: List[float], Wq: List[List[float]], Wk: List[List[float]],
                      Wv: List[List[float]], Wo: List[List[float]]) -> List[float]:
-    """موقف واحد رمزي للاهتمام الذاتي. للحصول على تسلسل كامل سوف تفعل ذلك حضور على K_cache؛ هنا تستخدم اللعبة q=k=self المنحل للاحتفاظ بها الهيكل مرئي. التنفيذ الكامل هو بديل مباشر."""
+    """One-token self-attention stand-in. For a full sequence you would
+    attend over K_cache; here the toy uses a degenerate q=k=self to keep
+    the structure visible. A full implementation is a drop-in replacement."""
     q = matvec(Wq, v_in)
     k = matvec(Wk, v_in)
     v = matvec(Wv, v_in)
@@ -98,7 +109,9 @@ def attention_single(v_in: List[float], Wq: List[List[float]], Wk: List[List[flo
 
 def mtp_forward(prev_hidden: List[float], next_embed: List[float],
                 module: MTPModule) -> List[float]:
-    """المعادلة من DeepSeek-V3 القسم 2.2: h^(k) = T_k(M_k * [RMSNorm(h^(k-1)); RMSNorm(E(t_{i+k}))]) نحن نستخدم الجمع كبديل للعبة concat + الخطية."""
+    """Equation from DeepSeek-V3 Section 2.2:
+        h^(k) = T_k( M_k * [RMSNorm(h^(k-1)); RMSNorm(E(t_{i+k}))] )
+    We use addition as a toy stand-in for concat + linear."""
     a = rms_norm(prev_hidden)
     b = rms_norm(next_embed)
     folded = add(a, b)
@@ -111,7 +124,7 @@ def mtp_forward(prev_hidden: List[float], next_embed: List[float],
 
 
 def shared_head_logits(hidden: List[float], E: List[List[float]]) -> List[float]:
-    """رأس LM المقيد: أعد استخدام جدول التضمين المنقول. logits[v] = E_v. مختفي."""
+    """Tied LM head: reuse the embedding table transposed. logits[v] = E_v . hidden."""
     return [sum(E[v][i] * hidden[i] for i in range(len(hidden)))
             for v in range(len(E))]
 
@@ -124,7 +137,12 @@ def cross_entropy(logits: List[float], target: int) -> float:
 def mtp_loss(backbone_hidden: List[List[float]], tokens: List[int],
              modules: List[MTPModule], E: List[List[float]],
              lam: float) -> tuple[float, List[float]]:
-    """حساب الخسارة المشتركة MTP على أعماق D. backbone_hidden[i] هو h_i^(0)، مخرج النموذج الرئيسي في الموضع i. الوحدات [k-1] هي وحدة العمق k MTP. الرموز [i] هي t_i. نريد التنبؤ بـ t_{i+1}، t_{i+2}،...، t_{i+D} لـ كل i بحيث يكون i + D في النطاق.
+    """Compute joint MTP loss over D depths.
+
+    backbone_hidden[i] is h_i^(0), the main-model output at position i.
+    modules[k-1] is the depth-k MTP module.
+    tokens[i] is t_i. We want to predict t_{i+1}, t_{i+2}, ..., t_{i+D} for
+    each i such that i + D is in range.
     """
     D = len(modules)
     per_depth = [0.0] * D

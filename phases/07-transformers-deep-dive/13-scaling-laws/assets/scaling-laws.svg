@@ -82,12 +82,12 @@
   <!-- Right: 2026 picture -->
   <rect x="485" y="280" width="375" height="200" class="box"/>
   <text x="672" y="304" text-anchor="middle" class="label">تطور 2026</text>
-  <text x="504" y="332" class="caption">— شينشيلا الأمثل: تقليل خسارة التدريب لكل FLOP</text>
+  <text x="504" y="332" class="caption">- شينشيلا الأمثل: تقليل خسارة التدريب لكل FLOP</text>
   <text x="504" y="352" class="caption">- الاستدلال الأمثل: أكبر D، أصغر N (الإفراط في القطار)</text>
   <text x="504" y="372" class="caption">— اللاما 3 8B: D/N ≈ 1875 (15T من الرموز، 8B معلمات)</text>
   <text x="504" y="392" class="caption">- جودة البيانات (تصفية نمط Phi)&gt; 2 × FLOPs الفعالة</text>
   <text x="504" y="412" class="caption">- تقوم وزارة البيئة بفصل المعلمات الإجمالية عن FLOPs النشطة</text>
-  <text x="504" y="432" class="caption">— مُحسِّن Muon: 2× التدريب - FLOP الكفاءة مقابل AdamW</text>
+  <text x="504" y="432" class="caption">- مُحسِّن Muon: 2 × تدريب - FLOP كفاءة مقابل AdamW</text>
   <text x="504" y="452" class="caption">- غالبًا ما يكون "الظهور" بمثابة قطعة أثرية مسجلة؛ الخسارة سلسة</text>
 
   <text x="450" y="504" text-anchor="middle" class="caption">نفس شكل قانون القوى، وثوابت مطلقة مختلفة. لا تزال مختبرات الخريطة الحدودية تخطط ضدها.</text>

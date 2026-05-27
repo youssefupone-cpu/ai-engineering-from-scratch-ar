@@ -1,5 +1,7 @@
-"""متغيرات الانتباه: كامل، نافذة منزلقة، محلي + متفرق، تفاضلي. ستدلب خالص. قمنا بمقارنة بنية قناع النتيجة وذاكرة التخزين المؤقت KV
-الحجم لكل متغير بميزانية واقعية طويلة السياق.
+"""Attention variants: full, sliding-window, local+strided sparse, differential.
+
+Pure stdlib. We compare the structure of the score mask and the KV cache
+size per variant at a realistic long-context budget.
 """
 
 import math

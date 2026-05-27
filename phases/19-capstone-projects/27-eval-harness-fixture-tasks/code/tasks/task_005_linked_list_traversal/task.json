@@ -1,0 +1,10 @@
+{
+  "id": "task_005_linked_list_traversal",
+  "goal": "Linked_list_length(head) يجب أن يحسب كل node في القائمة المرتبطة بدءًا من الرأس، بما في ذلك الرأس نفسه. يبدأ إصدار العربات بالعد من head.next، ويسقط واحدًا node. قم بإصلاحه عن طريق تهيئة العداد إلى 0 وزيادة كل node مشيًا.",
+  "verifier": {
+    "name": "file_equals",
+    "args": {
+      "path": "linked_list.py"
+    }
+  }
+}

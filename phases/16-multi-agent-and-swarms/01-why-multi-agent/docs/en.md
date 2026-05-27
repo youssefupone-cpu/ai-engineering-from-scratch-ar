@@ -1,24 +1,37 @@
-# لماذا متعدد الوكيل؟
-> أحد العملاء يضرب الحائط. الخطوة الذكية ليست عميلاً أكبر، بل المزيد من العملاء.
-**النوع:** تعلم
-** اللغات: ** TypeScript
-** المتطلبات الأساسية: ** المرحلة 14 (هندسة الوكيل)
-**الوقت:** ~60 دقيقة
-## أهداف التعلم
-- تحديد سقف الوكيل الفردي (تجاوز السياق، الخبرة المختلطة، عنق الزجاجة المتسلسل) وشرح متى يكون التقسيم إلى وكلاء متعددين هو الخطوة الصحيحة
-- قارن بين أنماط التنسيق (pipeline، والتوزيع المتوازي، والمشرف، والتسلسل الهرمي) وحدد النمط المناسب لهيكل مهمة معين
-- تصميم نظام متعدد الوكلاء بحدود دور واضحة وحالة مشتركة وعقد اتصال
-- تحليل المفاضلات بين تعقيد الوكيل المتعدد (زمن الوصول، والتكلفة، وصعوبة تصحيح الأخطاء) مقابل بساطة الوكيل الفردي
-## المشكلة
-لقد قمت ببناء وكيل واحد في المرحلة 14. وهو يعمل. يمكنه قراءة الملفات وتشغيل الأوامر واستدعاء واجهات برمجة التطبيقات والتفكير في النتائج. ثم تقوم بتوجيهه إلى قاعدة تعليمات برمجية حقيقية: 200 ملف، وثلاث لغات، واختبارات تعتمد على البنية التحتية، ومتطلبات البحث عن واجهات برمجة التطبيقات الخارجية قبل كتابة التعليمات البرمجية.
-الوكيل يختنق. ليس لأن LLM غبي، ولكن لأن المهمة تتجاوز ما يمكن لحلقة وكيل واحدة التعامل معه. تمتلئ نافذة السياق بمحتويات الملف. ينسى الوكيل ما قرأه قبل 40 استدعاء للأداة. فهو يحاول أن يكون باحثًا، ومبرمجًا، ومراجعًا في الوقت نفسه، لكنه يفعل الثلاثة بشكل سيئ.
-هذا هو سقف الوكيل الواحد. تضغط عليه في كل مرة تتطلب المهمة:
-- **سياق أكثر مما يناسبه في نافذة واحدة** - قراءة 50 ملفًا تتجاوز 200 ألف رمز مميز
-- **خبرات مختلفة في مراحل مختلفة** - يتطلب البحث تحفيزًا مختلفًا عن إنشاء التعليمات البرمجية
-- **العمل الذي يمكن أن يتم بالتوازي** - لماذا تقرأ ثلاثة ملفات بالتتابع بينما يمكنك قراءتها في وقت واحد؟
-##المفهوم
-### سقف الوكيل الفردي
-الوكيل الواحد عبارة عن حلقة واحدة ونافذة سياق واحدة وموجه نظام واحد. صورها:
+# Why Multi-Agent?
+
+> One agent hits a wall. The smart move is not a bigger agent - it is more agents.
+
+**Type:** Learn
+**Languages:** TypeScript
+**Prerequisites:** Phase 14 (Agent Engineering)
+**Time:** ~60 minutes
+
+## Learning Objectives
+
+- Identify the single-agent ceiling (context overflow, mixed expertise, sequential bottleneck) and explain when splitting into multiple agents is the right move
+- Compare orchestration patterns (pipeline, parallel fan-out, supervisor, hierarchical) and select the right one for a given task structure
+- Design a multi-agent system with clear role boundaries, shared state, and a communication contract
+- Analyze the tradeoffs of multi-agent complexity (latency, cost, debugging difficulty) versus single-agent simplicity
+
+## The Problem
+
+You built a single agent in Phase 14. It works. It can read files, run commands, call APIs, and reason about results. Then you point it at a real codebase: 200 files, three languages, tests that depend on infrastructure, and a requirement to research external APIs before writing code.
+
+The agent chokes. Not because the LLM is dumb, but because the task exceeds what one agent loop can handle. The context window fills up with file contents. The agent forgets what it read 40 tool calls ago. It tries to be a researcher, a coder, and a reviewer all at once, and does all three poorly.
+
+This is the single-agent ceiling. You hit it every time a task requires:
+
+- **More context than fits in one window** - reading 50 files blows past 200k tokens
+- **Different expertise at different stages** - research requires different prompting than code generation
+- **Work that can happen in parallel** - why read three files sequentially when you can read them simultaneously?
+
+## The Concept
+
+### The Single-Agent Ceiling
+
+A single agent is one loop, one context window, one system prompt. Picture it:
+
 ```
 ┌─────────────────────────────────────────┐
 │            SINGLE AGENT                 │
@@ -43,12 +56,18 @@
 └─────────────────────────────────────────┘
 ```
 
-ثلاثة أشياء تنكسر:
-1. **تشبع السياق** - تتراكم نتائج الأداة. بحلول الساعة 30، يكون الوكيل قد استهلك 150 ألف رمز مميز لمحتويات الملف ومخرجات الأوامر والاستدلال المسبق. تضيع تفاصيل مهمة من المنعطف الخامس.
-2. **التباس الأدوار** - تؤدي مطالبة النظام التي تقول "أنت باحث ومبرمج ومراجع ومختبر" إلى إنتاج وكيل يقوم بنصف البحث ونصف التعليمات البرمجية ولا ينتهي من المراجعة أبدًا.
-3. **عنق الزجاجة المتسلسل** - يقرأ الوكيل الملف A، ثم الملف B، ثم الملف C. ثلاث مكالمات تسلسلية LLM. ثلاث عمليات إعدام للأداة التسلسلية. لا التوازي.
-### الحل متعدد الوكلاء
-تقسيم العمل. امنح كل وكيل وظيفة واحدة، ونافذة سياق واحدة، وموجه نظام واحد تم ضبطه لهذه المهمة:
+Three things break:
+
+1. **Context saturation** - tool results pile up. By turn 30, the agent has consumed 150k tokens of file contents, command outputs, and prior reasoning. Critical details from turn 5 get lost.
+
+2. **Role confusion** - a system prompt that says "you are a researcher, coder, reviewer, and tester" produces an agent that half-researches, half-codes, and never finishes reviewing.
+
+3. **Sequential bottleneck** - the agent reads file A, then file B, then file C. Three serial LLM calls. Three serial tool executions. No parallelism.
+
+### The Multi-Agent Solution
+
+Split the work. Give each agent one job, one context window, and one system prompt tuned for that job:
+
 ```
 ┌──────────────────────────────────────────────────────────┐
 │                    ORCHESTRATOR                          │
@@ -74,17 +93,25 @@
 └──────────────────────────────────────────────────────────┘
 ```
 
-كل وكيل لديه:
-- موجه نظام مركّز ("أنت مراجع التعليمات البرمجية. ومهمتك الوحيدة هي العثور على الأخطاء.")
-- نافذة السياق الخاصة بها (غير ملوثة بعمل الوكلاء الآخرين)
-- عقد واضح للإدخال / الإخراج (يتلقى الملاحظات البحثية، رمز المخرجات)
-### الأنظمة الحقيقية التي تفعل ذلك
-**وكلاء Claude Code الفرعيون** - عندما يقوم Claude Code بإنشاء وكيل فرعي بـ `Task`، فإنه يقوم بإنشاء وكيل فرعي بمهمة محددة النطاق. يحافظ الوالد على سياقه نظيفًا. يقوم الطفل بعمل مركّز ويعيد ملخصًا.
-**ديفين** - يدير وكيل مخطط، ووكيل مبرمج، ووكيل متصفح. يقسم المخطط العمل إلى خطوات. المبرمج يكتب التعليمات البرمجية. يبحث المتصفح في الوثائق. ولكل منها سياق منفصل.
-**فرق الترميز متعددة الوكلاء (SWE-bench)** - تستخدم الأنظمة ذات الأداء الأفضل في SWE-bench باحثًا يقرأ قاعدة التعليمات البرمجية، ومخططًا يصمم الإصلاح، ومبرمجًا ينفذه. أنظمة الوكيل الفردي تسجل درجات أقل.
-**ChatGPT Deep Research** - يولد العديد من وكلاء البحث بالتوازي، يستكشف كل منهم زاوية مختلفة، ثم يقوم بتجميع النتائج.
-### الطيف
-الوكيل المتعدد ليس ثنائيًا. وهو الطيف:
+Each agent has:
+- A focused system prompt ("You are a code reviewer. Your only job is finding bugs.")
+- Its own context window (not polluted by other agents' work)
+- A clear input/output contract (receives research notes, outputs code)
+
+### Real Systems That Do This
+
+**Claude Code subagents** - when Claude Code spawns a subagent with `Task`, it creates a child agent with a scoped task. The parent keeps its context clean. The child does focused work and returns a summary.
+
+**Devin** - runs a planner agent, a coder agent, and a browser agent. The planner breaks work into steps. The coder writes code. The browser researches documentation. Each has separate context.
+
+**Multi-agent coding teams (SWE-bench)** - top-performing systems on SWE-bench use a researcher that reads the codebase, a planner that designs the fix, and a coder that implements it. Single-agent systems score lower.
+
+**ChatGPT Deep Research** - spawns multiple search agents in parallel, each exploring a different angle, then synthesizes results.
+
+### The Spectrum
+
+Multi-agent is not binary. It is a spectrum:
+
 ```
 SIMPLE ──────────────────────────────────────────── COMPLEX
 
@@ -105,20 +132,29 @@ SIMPLE ────────────────────────�
                                        roles
 ```
 
-**وكيل واحد** - حلقة واحدة وموجه واحد. جيد للمهام البسيطة.
-**الوكلاء الفرعيون** - يقوم أحد الوالدين بتوليد الأطفال للقيام بمهام فرعية مركزة. يحافظ الوالد على الخطة. تقرير الأطفال يعود. وهذا ما يفعله كلود كود.
-**خط الأنابيب** - يعمل الوكلاء بالتسلسل. يصبح مخرجات الوكيل A مدخلات الوكيل B. جيد لسير العمل المرحلي: البحث -> الكود -> المراجعة -> الاختبار.
-**الفريق** - يعمل الوكلاء بالتوازي مع ناقل الرسائل المشترك. ولكل منها دور. ينسق المنسق. جيد عندما تكون هناك حاجة إلى مهارات مختلفة في وقت واحد.
-**السرب** - العديد من الوكلاء المتطابقين أو شبه المتطابقين ذوي الحالة المشتركة. لا يوجد منسق ثابت. يلتقط الوكلاء العمل من قائمة الانتظار. جيد للمهام الموازية عالية الإنتاجية.
-### الأنماط الأربعة متعددة الوكلاء
-#### النمط 1: خط الأنابيب
+**Single agent** - one loop, one prompt. Good for simple tasks.
+
+**Subagents** - a parent spawns children for focused subtasks. The parent maintains the plan. Children report back. This is what Claude Code does.
+
+**Pipeline** - agents run in sequence. Agent A's output becomes Agent B's input. Good for staged workflows: research -> code -> review -> test.
+
+**Team** - agents run in parallel with a shared message bus. Each has a role. An orchestrator coordinates. Good when different skills are needed simultaneously.
+
+**Swarm** - many identical or near-identical agents with shared state. No fixed orchestrator. Agents pick up work from a queue. Good for high-throughput parallel tasks.
+
+### The Four Multi-Agent Patterns
+
+#### Pattern 1: Pipeline
+
 ```
 Input ──▶ Agent A ──▶ Agent B ──▶ Agent C ──▶ Output
           (research)  (code)      (review)
 ```
 
-يقوم كل وكيل بتحويل البيانات وتمريرها للأمام. بسيط للتفكير. الفشل في مرحلة واحدة يمنع الباقي.
-#### النمط 2: مروحة للخارج/مروحة للداخل
+Each agent transforms the data and passes it forward. Simple to reason about. Failure in one stage blocks the rest.
+
+#### Pattern 2: Fan-out / Fan-in
+
 ```
                 ┌──▶ Agent A ──┐
                 │              │
@@ -127,8 +163,10 @@ Input ──▶ Split ├──▶ Agent B ──├──▶ Merge ──▶ Ou
                 └──▶ Agent C ──┘
 ```
 
-قم بتقسيم العمل عبر الوكلاء المتوازيين، ثم قم بدمج النتائج. جيد للمهام التي تتحلل إلى مهام فرعية مستقلة.
-#### النمط 3: عامل منسق
+Split work across parallel agents, then merge results. Good for tasks that decompose into independent subtasks.
+
+#### Pattern 3: Orchestrator-Worker
+
 ```
                     ┌──────────┐
                     │  Orch.   │
@@ -141,8 +179,10 @@ Input ──▶ Split ├──▶ Agent B ──├──▶ Merge ──▶ Ou
            └──────────┘   └──────────┘
 ```
 
-يقرر المنسق الذكي ما يجب فعله، ويفوض العمال، ويجمع النتائج. المنسق هو في حد ذاته وكيل لديه أدوات لتفريخ العمال.
-#### النمط 4: سرب الأقران
+A smart orchestrator decides what to do, delegates to workers, and synthesizes results. The orchestrator is itself an agent with tools for spawning workers.
+
+#### Pattern 4: Peer Swarm
+
 ```
          ┌───┐ ◄──── msg ────▶ ┌───┐
          │ A │                  │ B │
@@ -159,23 +199,32 @@ Input ──▶ Split ├──▶ Agent B ──├──▶ Merge ──▶ Ou
          └───┘                  └───┘
 ```
 
-لا يوجد منسق مركزي. يتواصل الوكلاء من نظير إلى نظير. القرارات تنبثق من التفاعل. من الصعب تصحيح الأخطاء، ولكن يمكن تطبيقها على العديد من الوكلاء.
-### متى NOT لاستخدام الوكيل المتعدد
-يضيف الوكيل المتعدد التعقيد. كل رسالة بين الوكلاء هي نقطة فشل محتملة. ينتقل تصحيح الأخطاء من "قراءة محادثة واحدة" إلى "تتبع الرسائل عبر خمسة وكلاء".
-**البقاء كوكيل واحد عندما:**
-- يتم وضع المهمة في نافذة سياق واحدة (أقل من 100 ألف رمز مميز لبيانات العمل)
-- لا تحتاج إلى مطالبات نظام مختلفة لمراحل مختلفة
-- التنفيذ المتسلسل سريع بما فيه الكفاية
-- المهمة بسيطة بما يكفي بحيث يؤدي تقسيمها إلى زيادة الحمل أكثر من القيمة
-** تكلفة التعقيد: **
-- كل حد للوكيل عبارة عن خطوة ضغط مع فقدان البيانات: يتم تلخيص السياق الكامل للوكيل A في رسالة للوكيل B
-- منطق التنسيق (من يفعل ماذا ومتى وبأي ترتيب) هو مصدر الأخطاء الخاص به
-- زيادة زمن الاستجابة: عدد N من الوكلاء يعني الحد الأدنى لعدد مكالمات LLM التسلسلية، وأكثر إذا كانوا بحاجة إلى التحدث ذهابًا وإيابًا
-- تضاعف التكلفة: يقوم كل وكيل بحرق الرموز المميزة بشكل مستقل
-القاعدة الأساسية: إذا كانت المهمة تتطلب أقل من 20 استدعاءًا للأداة وتناسب 100 ألف رمز مميز، فاحتفظ بها بوكيل واحد.
-## بنائها
-### الخطوة 1: الوكيل الفردي المثقل
-هنا وكيل واحد يحاول أن يفعل كل شيء. يحتوي على موجه نظام ضخم ونافذة سياق واحدة تحتوي على الأبحاث والتعليمات البرمجية والمراجعات:
+No central orchestrator. Agents communicate peer-to-peer. Decisions emerge from interaction. Harder to debug, but scales to many agents.
+
+### When NOT to Use Multi-Agent
+
+Multi-agent adds complexity. Every message between agents is a potential failure point. Debugging goes from "read one conversation" to "trace messages across five agents."
+
+**Stay single-agent when:**
+- The task fits in one context window (under ~100k tokens of working data)
+- You do not need different system prompts for different stages
+- Sequential execution is fast enough
+- The task is simple enough that splitting it adds more overhead than value
+
+**The complexity cost:**
+- Every agent boundary is a lossy compression step: agent A's full context gets summarized into a message for agent B
+- Coordination logic (who does what, when, in what order) is its own source of bugs
+- Latency increases: N agents means N serial LLM calls minimum, more if they need to talk back and forth
+- Cost multiplies: each agent burns tokens independently
+
+Rule of thumb: if a task takes fewer than 20 tool calls and fits in 100k tokens, keep it single-agent.
+
+## Build It
+
+### Step 1: The Overloaded Single Agent
+
+Here is a single agent trying to do everything. It has one massive system prompt and one context window holding research, code, and reviews:
+
 ```typescript
 type AgentResult = {
   content: string;
@@ -224,12 +273,15 @@ Do ALL of these in a single conversation.`;
 }
 ```
 
-مشاكل هذا النهج:
-- نافذة السياق تنمو مع كل مرحلة. من خلال خطوة المراجعة، فإنه يحتوي على ملاحظات بحثية AND كود AND الاستدلال المسبق.
-- موجه النظام عام. لا يمكن ضبطها لكل مرحلة.
-- لا شيء يسير بالتوازي.
-### الخطوة الثانية: الوكلاء المتخصصون
-الآن تقسيمها. يحصل كل وكيل على وظيفة واحدة:
+Problems with this approach:
+- The context window grows with every stage. By the review step, it contains research notes AND code AND prior reasoning.
+- The system prompt is generic. It cannot be tuned for each stage.
+- Nothing runs in parallel.
+
+### Step 2: Specialist Agents
+
+Now split it. Each agent gets one job:
+
 ```typescript
 type SpecialistAgent = {
   name: string;
@@ -268,9 +320,12 @@ const reviewer = createSpecialist(
 );
 ```
 
-كل متخصص لديه موجه مركزة. يحصل كل منها على نافذة سياق نظيفة تحتوي فقط على المدخلات التي يحتاجها.
-### الخطوة 3: التنسيق عبر الرسائل
-قم بتوصيل المتخصصين بتمرير رسالة صريحة:
+Each specialist has a focused prompt. Each gets a clean context window with only the input it needs.
+
+### Step 3: Coordinate Through Messages
+
+Wire the specialists together with explicit message passing:
+
 ```typescript
 type AgentMessage = {
   from: string;
@@ -332,8 +387,10 @@ async function multiAgentApproach(task: string): Promise<AgentResult> {
 }
 ```
 
-يتلقى كل وكيل فقط الرسائل الموجهة إليه. لا تلوث السياق. لا تدخل رموز قراءة التوثيق التي يبلغ عددها 50 ألفًا للباحث أبدًا في سياق المراجع.
-### الخطوة الرابعة: المقارنة
+Each agent receives only the messages addressed to it. No context pollution. The researcher's 50k tokens of documentation reading never enter the reviewer's context.
+
+### Step 4: Compare
+
 ```typescript
 async function compare() {
   const task = "Build a rate limiter middleware for an Express.js API";
@@ -350,25 +407,33 @@ async function compare() {
 }
 ```
 
-يستخدم الإصدار متعدد الوكلاء المزيد من الرموز المميزة (ثلاثة وكلاء، وثلاثة استدعاءات LLM منفصلة) ولكن يظل سياق كل وكيل نظيفًا. تتحسن جودة كل مرحلة لأن موجه النظام متخصص.
-## استخدمه
-يُنتج هذا الدرس مطالبة قابلة لإعادة الاستخدام لتحديد متى يجب الانتقال إلى عملاء متعددين. انظر `outputs/prompt-multi-agent-decision.md`.
-## تمارين
-1. أضف متخصصًا رابعًا: وكيل "مختبر" يتلقى التعليمات البرمجية من المبرمج ويراجع الملاحظات من المراجع، ثم يكتب الاختبارات
-2. قم بتعديل سطر pipe حتى يتمكن المراجع من إرسال الملاحظات مرة أخرى إلى المبرمج للحصول على حلقة مراجعة (جولتان كحد أقصى)
-3. قم بتحويل خط pipe المتسلسل إلى مخرج موسع: قم بتشغيل الباحث ووكيل "محلل المتطلبات" بالتوازي، ثم قم بدمج مخرجاتهما قبل التمرير إلى المبرمج
-## المصطلحات الرئيسية
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+The multi-agent version uses more total tokens (three agents, three separate LLM calls) but each agent's context stays clean. The quality of each stage improves because the system prompt is specialized.
+
+## Use It
+
+This lesson produces a reusable prompt for deciding when to go multi-agent. See `outputs/prompt-multi-agent-decision.md`.
+
+## Exercises
+
+1. Add a fourth specialist: a "tester" agent that receives code from the coder and review feedback from the reviewer, then writes tests
+2. Modify the pipeline so the reviewer can send feedback back to the coder for a revision loop (max 2 rounds)
+3. Convert the sequential pipeline into a fan-out: run the researcher and a "requirements analyzer" agent in parallel, then merge their outputs before passing to the coder
+
+## Key Terms
+
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| سرب | "عقل خلية وكلاء AI" | مجموعة من الوكلاء الأقران ذوي الحالة المشتركة وليس لديهم قائد ثابت. السلوك ينشأ من التفاعلات المحلية. |
-| منسق | "العميل الرئيس" | وكيل تتضمن أدواته إنشاء وإدارة وكلاء آخرين. إنها تخطط وتفوض ولكنها قد لا تقوم بالعمل الفعلي. |
-| منسق | "شرطي المرور" | مكون غير وكيل (غالبًا ما يكون مجرد رمز، وليس LLM) يقوم بتوجيه الرسائل بين الوكلاء بناءً على القواعد. |
-| الإجماع | "الوكلاء متفقون" | بروتوكول حيث يجب أن يتوصل العديد من الوكلاء إلى اتفاق قبل المتابعة. يُستخدم عندما تحتاج المخرجات المتعارضة إلى حل. |
-| السلوك الناشئ | "لقد اكتشف العملاء الأمر بأنفسهم" | الأنماط على مستوى النظام التي تنشأ من تفاعلات الوكيل ولكن لم تتم برمجتها بشكل صريح. يمكن أن تكون مفيدة أو ضارة. |
-| مروحة للخارج/مروحة للداخل | "تصغير الخريطة للوكلاء" | تقسيم المهمة عبر وكلاء متوازيين (منتشر للخارج)، ثم دمج نتائجهم (مروحة للداخل). |
-| تمرير الرسالة | "الوكلاء يتحدثون مع بعضهم البعض" | آلية الاتصال بين الوكلاء: البيانات المنظمة المرسلة من وكيل إلى آخر، لتحل محل نوافذ السياق المشتركة. |
-## مزيد من القراءة
-- [The Landscape of Emerging AI Agent Architectures](https://arxiv.org/abs/2409.02977) - مسح لأنماط الوكلاء المتعددين
-- [AutoGen: Enabling Next-Gen LLM Applications](https://arxiv.org/abs/2308.08155) - إطار عمل المحادثة متعدد الوكلاء من Microsoft
-- [Claude Code subagents documentation](https://docs.anthropic.com/en/docs/claude-code) - كيفية تفويض كلود كود للمهمة
-- [CrewAI documentation](https://docs.crewai.com/) - إطار عمل متعدد الوكلاء قائم على الأدوار
+| Swarm | "A hive mind of AI agents" | A set of peer agents with shared state and no fixed leader. Behavior emerges from local interactions. |
+| Orchestrator | "The boss agent" | An agent whose tools include spawning and managing other agents. It plans and delegates but may not do the actual work. |
+| Coordinator | "The traffic cop" | A non-agent component (often just code, not an LLM) that routes messages between agents based on rules. |
+| Consensus | "The agents agree" | A protocol where multiple agents must reach agreement before proceeding. Used when conflicting outputs need resolution. |
+| Emergent behavior | "The agents figured it out themselves" | System-level patterns that arise from agent interactions but were not explicitly programmed. Can be useful or harmful. |
+| Fan-out / fan-in | "Map-reduce for agents" | Splitting a task across parallel agents (fan-out), then combining their results (fan-in). |
+| Message passing | "Agents talk to each other" | The communication mechanism between agents: structured data sent from one agent to another, replacing shared context windows. |
+
+## Further Reading
+
+- [The Landscape of Emerging AI Agent Architectures](https://arxiv.org/abs/2409.02977) - survey of multi-agent patterns
+- [AutoGen: Enabling Next-Gen LLM Applications](https://arxiv.org/abs/2308.08155) - Microsoft's multi-agent conversation framework
+- [Claude Code subagents documentation](https://docs.anthropic.com/en/docs/claude-code) - how Claude Code delegates with Task
+- [CrewAI documentation](https://docs.crewai.com/) - role-based multi-agent framework

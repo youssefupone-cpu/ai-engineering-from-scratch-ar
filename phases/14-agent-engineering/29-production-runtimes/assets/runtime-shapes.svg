@@ -25,11 +25,11 @@
   <text x="60" y="114" class="small">ينتظر المستخدم الانتهاء</text>
   <text x="60" y="132" class="small">المهام القصيرة فقط (&lt;30 ثانية)</text>
   <rect x="60" y="148" width="180" height="30" class="box"/>
-  <text x="78" y="168" class="step">أجنو، ماسترا، خام SDK</text>
+  <text x="78" y="168" class="step">أجنو ماسترا خام SDK</text>
   <rect x="60" y="186" width="180" height="30" class="box"/>
   <text x="78" y="206" class="step">يمتد Otel لكل طلب</text>
   <rect x="60" y="224" width="180" height="30" class="box"/>
-  <text x="78" y="244" class="step">يناسب: الدردشة UX، استدعاءات الأداة</text>
+  <text x="78" y="244" class="step">يناسب: الدردشة UX، مكالمات الأداة</text>
 
   <rect x="280" y="50" width="220" height="220" class="stream"/>
   <text x="390" y="72" text-anchor="middle" class="head">streaming</text>
@@ -51,7 +51,7 @@
   <rect x="540" y="148" width="180" height="30" class="box"/>
   <text x="558" y="168" class="step">الكرفس، BullMQ، SQS</text>
   <rect x="540" y="186" width="180" height="30" class="box"/>
-  <text x="558" y="206" class="step">عمق قائمة الانتظار + مقاييس DLQ</text>
+  <text x="558" y="206" class="step">عمق قائمة الانتظار + DLQ المقاييس</text>
   <rect x="540" y="224" width="180" height="30" class="box"/>
   <text x="558" y="244" class="step">يناسب: استخدام الكمبيوتر والبحث</text>
 

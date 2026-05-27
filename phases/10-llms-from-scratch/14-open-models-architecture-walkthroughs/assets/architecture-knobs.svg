@@ -79,7 +79,7 @@
   <text x="200" y="432" class="small">RMSNorm · SwiGLU · حبل · GQA 32/8 · كثيف · 128 كيلو</text>
 
   <text x="50" y="454" class="step">ميكسترال 8x7B</text>
-  <text x="200" y="454" class="small">RMSNorm · SwiGLU · RoPE · GQA · MoE 8/top-2 · 32 ألفًا</text>
+  <text x="200" y="454" class="small">RMSNorm · SwiGLU · RoPE · GQA · MoE 8/top-2 · 32k</text>
 
   <text x="50" y="476" class="step">ديب سيك V3</text>
   <text x="200" y="476" class="small">RMSNorm · SwiGLU · RoPE · MLA · MoE 256/top-8 · 128k · 671B/37B نشط</text>

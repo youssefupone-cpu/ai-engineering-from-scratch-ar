@@ -69,7 +69,7 @@
   <!-- Right panel: interpretation -->
   <rect x="560" y="70" width="280" height="320" class="box"/>
   <text x="700" y="92" text-anchor="middle" class="label">ما هو الأفق</text>
-  <text x="575" y="115" class="small">METR يناسب P (النجاح) للتسجيل (وقت الخبراء)</text>
+  <text x="575" y="115" class="small">METR يناسب P (النجاح) لتسجيل الدخول (وقت الخبراء)</text>
   <text x="575" y="130" class="small">ويقرأ معبر 50٪.</text>
 
   <rect x="575" y="145" width="250" height="44" class="cool"/>
@@ -87,8 +87,8 @@
   <text x="575" y="310" class="small">وقت المضاعفة ~ 7 أشهر (HCAST)</text>
   <text x="575" y="325" class="small">14 ساعة اليوم → 48 ساعة في ~ 12 شهرًا</text>
   <text x="575" y="340" class="small">METR الأفق الزمني 1.1 (يناير 2026)</text>
-  <text x="575" y="360" class="small">SWAA + HCAST + RE-المقعد</text>
-  <text x="575" y="376" class="small">يستشهد في RSP v3.0 وFSF v3</text>
+  <text x="575" y="360" class="small">SWAA + HCAST + RE-مقعد</text>
+  <text x="575" y="376" class="small">يستشهد في RSP v3.0 و FSF v3</text>
 
   <!-- Takeaway strip -->
   <rect x="60" y="410" width="780" height="80" class="hot"/>

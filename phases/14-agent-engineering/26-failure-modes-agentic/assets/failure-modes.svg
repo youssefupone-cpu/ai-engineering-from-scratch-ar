@@ -21,7 +21,7 @@
   <text x="78" y="108" class="step">MASFT (بيركلي 2025) 14 وضعًا، 3 فئات</text>
   <text x="78" y="124" class="small">كوهين كابا 0.88 على الشرح المتميز بشكل موثوق</text>
   <rect x="60" y="140" width="400" height="46" class="box"/>
-  <text x="78" y="160" class="step">تعمل استقلالية التصنيف في Microsoft على تضخيم حالات الفشل AI</text>
+  <text x="78" y="160" class="step">تعمل استقلالية تصنيف Microsoft على تضخيم AI حالات الفشل</text>
   <text x="78" y="176" class="small">التحيز والهلوسة والتسرب أسوأ عندما يكون لدى العميل الأدوات</text>
   <rect x="60" y="192" width="400" height="46" class="box"/>
   <text x="78" y="212" class="step">توصيف الأخطاء في الوكيل AI</text>
@@ -50,11 +50,11 @@
   <rect x="60" y="392" width="840" height="30" class="box"/>
   <text x="78" y="412" class="step">التحقق من صحة وسيطة استدعاء الأداة (الدرس 06)</text>
   <rect x="60" y="426" width="840" height="30" class="box"/>
-  <text x="78" y="446" class="step">CRITIC-نمط التأريض الخارجي للمطالبات (الدرس 05)</text>
+  <text x="78" y="446" class="step">CRITIC-أسلوب التأريض الخارجي للمطالبات (الدرس 05)</text>
   <rect x="60" y="460" width="840" height="30" class="box"/>
   <text x="78" y="480" class="step">قم بإعادة التحقيق للقبض على هلوسة النجاح ("هل تم إنشاء الملف بالفعل؟")</text>
   <rect x="60" y="494" width="840" height="14" class="box"/>
   <text x="78" y="506" class="step">مجموعات تتبع العنقاء للكشف عن الانجراف في الإنتاج</text>
 
-  <text x="480" y="540" text-anchor="middle" class="caption">التتالي هو القاتل - يستدعي شبح واحد SKU 4 API حادثة متعددة الأنظمة.</text>
+  <text x="480" y="540" text-anchor="middle" class="caption">التتالي هو القاتل - شبح واحد SKU 4 API يستدعي حادثة أنظمة متعددة.</text>
 </svg>

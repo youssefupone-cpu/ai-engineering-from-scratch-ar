@@ -1,6 +1,10 @@
-"""لعبة ضد التزوير + لعبة العلامة المائية لتوضيح الشكل. يستخدم الإنتاج الحقيقي AASIST / RawNet2 للكشف وAudioSeal لـ
-العلامات المائية – كلاهما شبكات عصبية. هنا نقوم بمحاكاة الواجهة
-باستخدام حيل رقمية بسيطة حتى يصبح الخط pipeline مرئيًا. تشغيل: كود python3/main.py
+"""Toy anti-spoofing + toy watermark, to illustrate the shape.
+
+Real production uses AASIST / RawNet2 for detection and AudioSeal for
+watermarking — both are neural nets. Here we simulate the interface
+with simple numeric tricks so the pipeline is visible.
+
+Run: python3 code/main.py
 """
 
 import math

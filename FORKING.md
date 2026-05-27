@@ -24,7 +24,7 @@
 
 ## For Bootcamps
 
-تشغيل معسكر تدريبي مدفوع الأجر؟ هذا جيد بموجب MIT.
+تشغيل معسكر تدريبي مدفوع الأجر؟ هذا جيد تحت MIT.
 
 1. الشوكة والهيكل للجدول الزمني لمجموعتك
 2. إضافة محتوى الفيديو والجلسات المباشرة والإرشاد
@@ -43,7 +43,7 @@
 ## Keeping Your Fork Updated
 
 ```bash
-git remote add upstream https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar.git
+git remote add upstream https://github.com/rohitg00/ai-engineering-from-scratch.git
 
 git fetch upstream
 git merge upstream/main
@@ -51,9 +51,9 @@ git merge upstream/main
 
 ## Attribution
 
-غير مطلوب بحلول MIT، ولكن موضع تقدير:
+غير مطلوب بواسطة MIT، ولكن موضع تقدير:
 
 ```
 Based on AI Engineering from Scratch
-https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar
+https://github.com/rohitg00/ai-engineering-from-scratch
 ```

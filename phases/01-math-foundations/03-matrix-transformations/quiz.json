@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ما هو المتجه الذاتي للمصفوفة؟",
+      "question": "What is an eigenvector of a matrix?",
       "options": [
-        "أكبر صف في المصفوفة",
-        "متجه تقيسه المصفوفة فقط (لا تدور أبدًا) عند ضربها",
-        "متجه عمودي على جميع أعمدة المصفوفة",
-        "يتم التعبير عن الإدخالات القطرية للمصفوفة كمتجه"
+        "The largest row in the matrix",
+        "A vector that the matrix only scales (never rotates) when multiplied",
+        "A vector perpendicular to all columns of the matrix",
+        "The diagonal entries of the matrix expressed as a vector"
       ],
       "correct": 1,
-      "explanation": "يرضي المتجه الذاتي v Av = lambda*v، مما يعني أن المصفوفة A تمتد فقط v بواسطة العامل العددي lambda (القيمة الذاتية) دون تغيير اتجاهها."
+      "explanation": "An eigenvector v satisfies Av = lambda*v, meaning the matrix A only stretches v by the scalar factor lambda (the eigenvalue) without changing its direction."
     },
     {
       "stage": "pre",
-      "question": "ماذا يمثل محدد مصفوفة التحويل ثنائية الأبعاد هندسيًا؟",
+      "question": "What does the determinant of a 2D transformation matrix represent geometrically?",
       "options": [
-        "زاوية الدوران التي تطبقها المصفوفة",
-        "العامل الذي يتم من خلاله قياس مساحة المصفوفة",
-        "عدد المتجهات الذاتية التي تحتوي عليها المصفوفة",
-        "أثر المصفوفة"
+        "The angle of rotation applied by the matrix",
+        "The factor by which the matrix scales area",
+        "The number of eigenvectors the matrix has",
+        "The trace of the matrix"
       ],
       "correct": 1,
-      "explanation": "يقيس المحدد مقدار مساحة مقياس التحول. det=1 يحافظ على المساحة (الدوران)، det=2 يضاعف المساحة، det=0 يسحق إلى بُعد أقل، وdet=-1 يحافظ على المساحة لكنه يقلب الاتجاه."
+      "explanation": "The determinant measures how much the transformation scales area. det=1 preserves area (rotation), det=2 doubles area, det=0 crushes to a lower dimension, and det=-1 preserves area but flips orientation."
     },
     {
       "stage": "post",
-      "question": "ما أهمية ترتيب تحويلات المصفوفة؟ (أي لماذا يختلف R@S عن S@R؟)",
+      "question": "Why does the order of matrix transformations matter? (i.e., why is R @ S different from S @ R?)",
       "options": [
-        "إضافة المصفوفة ليست تبادلية",
-        "ضرب المصفوفة ليس تبادليًا: فالتدوير ثم القياس يعطي نتيجة مختلفة عن القياس ثم التدوير",
-        "المحددات مختلفة لكل أمر",
-        "ينتج أحد الترتيبين مصفوفة أكبر من الآخر"
+        "Matrix addition is not commutative",
+        "Matrix multiplication is not commutative: rotating then scaling gives a different result than scaling then rotating",
+        "The determinants are different for each order",
+        "One order produces a larger matrix than the other"
       ],
       "correct": 1,
-      "explanation": "ضرب المصفوفة ليس تبادلياً. التدوير (1,0) بمقدار 90 درجة ثم القياس بمقدار (2,0.5) يعطي (0,0.5)، لكن القياس أولاً ثم التدوير يعطي (0,2). العمليات الهندسية تؤلف بشكل مختلف."
+      "explanation": "Matrix multiplication is not commutative. Rotating (1,0) by 90 degrees then scaling by (2,0.5) gives (0,0.5), but scaling first then rotating gives (0,2). The geometric operations compose differently."
     },
     {
       "stage": "post",
-      "question": "في الشبكة العصبية المتكررة، ماذا يحدث عندما تحتوي مصفوفة الوزن على قيم ذاتية أكبر من 1؟",
+      "question": "In a recurrent neural network, what happens when the weight matrix has eigenvalues with magnitude greater than 1?",
       "options": [
-        "تتعلم الشبكة بشكل أسرع",
-        "تنفجر المخرجات بشكل كبير مع مرور الوقت (مشكلة التدرج المتفجر)",
-        "تصبح الشبكة أكثر استقرارًا",
-        "تتقارب القيم الذاتية إلى 1 خلال التدريب"
+        "The network learns faster",
+        "Outputs explode exponentially over time steps (exploding gradient problem)",
+        "The network becomes more stable",
+        "The eigenvalues converge to 1 over training"
       ],
       "correct": 1,
-      "explanation": "الضرب المتكرر بواسطة مصفوفة يضخم اتجاهات القيمة الذاتية. تسبب القيم الذاتية > 1 نموًا أسيًا (تدرجات متفجرة)، بينما تسبب القيم الذاتية < 1 اضمحلالًا أسيًا (تلاشي التدرجات)."
+      "explanation": "Repeated multiplication by a matrix amplifies the eigenvalue directions. Eigenvalues > 1 cause exponential growth (exploding gradients), while eigenvalues < 1 cause exponential decay (vanishing gradients)."
     },
     {
       "stage": "post",
-      "question": "المصفوفة A = [[2، 1]، [1، 2]] لها قيم ذاتية 3 و 1. ما الذي يكشفه التحلل الذاتي A = V @ D @ V^(-1)؟",
+      "question": "The matrix A = [[2, 1], [1, 2]] has eigenvalues 3 and 1. What does eigendecomposition A = V @ D @ V^(-1) reveal?",
       "options": [
-        "A يعادل دورتين",
-        "A يمتد الفضاء بمقدار 3x على طول الاتجاه [1,1] ويترك الاتجاه [1,-1] دون تغيير",
-        "A يضغط جميع المتجهات بعامل 2",
-        "A لديه المرتبة 1 ويقوم بتعيين جميع المتجهات إلى خط"
+        "A is equivalent to two rotations",
+        "A stretches space by 3x along the [1,1] direction and leaves the [1,-1] direction unchanged",
+        "A compresses all vectors by a factor of 2",
+        "A has rank 1 and maps all vectors to a line"
       ],
       "correct": 1,
-      "explanation": "القيمة الذاتية 3 مع المتجه الذاتي [1,1] تعني أن A يمتد بمقدار 3x على طول القطر. القيمة الذاتية 1 مع المتجه الذاتي [1,-1] تعني أن A يترك القطر المضاد دون تغيير. D يحمل {3,1}، V يحمل المتجهات الذاتية."
+      "explanation": "The eigenvalue 3 with eigenvector [1,1] means A stretches 3x along the diagonal. The eigenvalue 1 with eigenvector [1,-1] means A leaves the anti-diagonal unchanged. D holds {3,1}, V holds the eigenvectors."
     }
   ]
 }

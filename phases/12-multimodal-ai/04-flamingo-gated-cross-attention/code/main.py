@@ -1,4 +1,12 @@
-"""لعبة فلامنغو عبر بوابة الانتباه + لعبة إعادة تشكيل الإدراك - stdlib Python. يوضح: - جهاز إعادة تشكيل المُستقبل: رموز تصحيح متغيرة الطول -> كامنة ذات طول ثابت - الانتباه المتقاطع: tanh(alpha) * cross + x المتبقي - alpha=0 -> المساهمة المرئية صفر تمامًا (مجمدة LLM محفوظة) - قناع انتباه التسلسل المشذر لـ (img1، txt1، img2، txt2) بيثون النقي. لا نومي، لا الشعلة.
+"""Flamingo gated cross-attention + Perceiver resampler toy — stdlib Python.
+
+Demonstrates:
+  - Perceiver resampler: variable-length patch tokens -> fixed-length latents
+  - gated cross-attention: tanh(alpha) * cross + x residual
+  - alpha=0 -> visual contribution is exactly zero (frozen LLM preserved)
+  - interleaved-sequence attention mask for (img1, txt1, img2, txt2)
+
+Pure Python. No numpy, no torch.
 """
 
 from __future__ import annotations
@@ -59,7 +67,7 @@ def cross_attention(queries: list[list[float]],
 
 def perceiver_resampler(patches: list[list[float]], num_latents: int,
                         num_blocks: int = 2) -> list[list[float]]:
-    """تصحيحات متغيرة -> كامنة K ثابتة عبر الانتباه المتبادل."""
+    """Variable patches -> fixed K latents via cross-attention."""
     dim = len(patches[0])
     latents = [vec(dim) for _ in range(num_latents)]
     for _ in range(num_blocks):
@@ -71,7 +79,7 @@ def perceiver_resampler(patches: list[list[float]], num_latents: int,
 def gated_cross_attention_step(text_hidden: list[list[float]],
                                visual_tokens: list[list[float]],
                                alpha: float) -> list[list[float]]:
-    """y = tanh(alpha) * cross_attn(نص، مرئي) + text_hidden."""
+    """y = tanh(alpha) * cross_attn(text, visual) + text_hidden."""
     cross = cross_attention(text_hidden, visual_tokens, visual_tokens)
     gate = math.tanh(alpha)
     out = [add(t, scale(c, gate)) for t, c in zip(text_hidden, cross)]
@@ -79,7 +87,10 @@ def gated_cross_attention_step(text_hidden: list[list[float]],
 
 
 def interleaved_mask(sequence: list[str]) -> list[list[bool]]:
-    """أنشئ قناعًا متقاطعًا حيث يحضر كل رمز نصي إلى الحد الأقصى فقط الصورة السابقة الأخيرة. التسلسل: تسميات مثل ['IMG0'، 'txt0a'، 'txt0b'، 'IMG1'، 'txt1a'، 'txt1b']. يُرجع قناعًا فوق (الرموز المميزة للنص) x (الرموز المميزة للصورة) مع True = مسموح به.
+    """Build a cross-attn mask where each text token attends only to the most
+    recent preceding image.
+    sequence: labels like ['IMG0', 'txt0a', 'txt0b', 'IMG1', 'txt1a', 'txt1b'].
+    returns a mask over (text tokens) x (image tokens) with True = allowed.
     """
     text_positions = [i for i, s in enumerate(sequence) if not s.startswith("IMG")]
     image_positions = [i for i, s in enumerate(sequence) if s.startswith("IMG")]

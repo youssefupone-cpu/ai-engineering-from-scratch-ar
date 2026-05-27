@@ -1,11 +1,15 @@
-"""تنسيق Whisper السريع + التقطيع + حسابات الميزانية، مبنية على stdlib. يُظهر مطالبة وحدة فك التشفير التي ستمررها، والجدول الزمني للقطعة لفترة طويلة
-مقطع، ودلتا عدد المعلمات LoRA لنموذج على شكل توربو كبير v3. تشغيل: كود python3/main.py
+"""Whisper prompt format + chunking + budget math, built from stdlib.
+
+Shows the decoder prompt you would pass, the chunk schedule for a long
+clip, and the LoRA parameter count delta for a Large-v3-turbo-shaped model.
+
+Run: python3 code/main.py
 """
 
 import math
 
 
-# رموز الهمس الخاصة (مجموعة فرعية؛ المفردات الحقيقية تحتوي على 50 رمزًا خاصًا تقريبًا)
+# Whisper special tokens (subset; real vocab has ~50-ish special tokens)
 SPECIAL = {
     "SOT":            "<|startoftranscript|>",
     "EOT":            "<|endoftext|>",
@@ -15,7 +19,7 @@ SPECIAL = {
     "NO_SPEECH":      "<|nospeech|>",
 }
 
-# يدعم Whisper حوالي 99 لغة؛ هنا ثلاثة للعرض
+# Whisper supports ~99 languages; here are three for the demo
 LANG = {"en": "<|en|>", "fr": "<|fr|>", "ja": "<|ja|>"}
 
 
@@ -48,7 +52,7 @@ def encoder_frames(seconds, sr=16000, hop=160):
 
 
 def transformer_params(n_layers, d_model, d_ff, n_heads, vocab):
-    # لكل طبقة: 4 * d_model^2 (q,k,v,o) + 2 * d_model * d_ff + معايير الطبقة
+    # per-layer: 4 * d_model^2 (q,k,v,o) + 2 * d_model * d_ff + layer norms
     per_block = 4 * d_model * d_model + 2 * d_model * d_ff + 4 * d_model
     enc = n_layers * per_block
     dec = n_layers * (per_block + 4 * d_model * d_model + 4 * d_model)  # +cross-attn

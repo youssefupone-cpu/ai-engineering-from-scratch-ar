@@ -1,40 +1,40 @@
-#نظرية المعلومات
+# Information Theory
 
-> نظرية المعلومات تقيس المفاجأة. وظائف الخسارة مبنية عليها.
+> Information theory measures surprise. Loss functions are built on it.
 
-**النوع:** تعلم
-** اللغة: ** بايثون
-**المتطلبات الأساسية:** المرحلة الأولى، الدرس 06 (الاحتمالات)
-**الوقت:** ~60 دقيقة
+**Type:** Learn
+**Language:** Python
+**Prerequisites:** Phase 1, Lesson 06 (Probability)
+**Time:** ~60 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- حساب الإنتروبيا والإنتروبيا المتقاطعة وتباعد KL من الصفر وشرح العلاقة بينهما
-- استنتج لماذا يكون تقليل فقدان الإنتروبيا المتقاطعة مكافئًا لتعظيم احتمالية السجل
-- حساب المعلومات المتبادلة بين الميزات والهدف لتصنيف أهمية الميزة
-- اشرح الحيرة باعتبارها حجم المفردات الفعال الذي يختاره نموذج اللغة من بينها
+- Compute entropy, cross-entropy, and KL divergence from scratch and explain their relationship
+- Derive why minimizing cross-entropy loss is equivalent to maximizing log-likelihood
+- Calculate mutual information between features and a target to rank feature importance
+- Explain perplexity as the effective vocabulary size a language model chooses from
 
-## المشكلة
+## The Problem
 
-يمكنك استدعاء `CrossEntropyLoss()` في كل نموذج تصنيف تقوم بتدريبه. ترى "الحيرة" في كل ورقة نموذجية للغة. قرأت عن اختلاف KL في VAEs، والتقطير، وRLHF. هذه ليست مفاهيم منفصلة. إنهم جميعًا نفس الفكرة ويرتدون قبعات مختلفة.
+You call `CrossEntropyLoss()` in every classification model you train. You see "perplexity" in every language model paper. You read about KL divergence in VAEs, distillation, and RLHF. These are not disconnected concepts. They are all the same idea wearing different hats.
 
-تمنحك نظرية المعلومات اللغة اللازمة للتفكير في عدم اليقين والضغط والتنبؤ. اخترعها كلود شانون عام 1948 لحل مشاكل الاتصال. اتضح أن تدريب الشبكة العصبية يمثل مشكلة اتصال: يحاول النموذج إرسال التسمية الصحيحة من خلال قناة صاخبة من الأوزان المستفادة.
+Information theory gives you the language to reason about uncertainty, compression, and prediction. Claude Shannon invented it in 1948 to solve communication problems. Turns out, training a neural network is a communication problem: the model is trying to transmit the correct label through a noisy channel of learned weights.
 
-يبني هذا الدرس كل صيغة من الصفر حتى تتمكن من معرفة مصدرها وسبب نجاحها.
+This lesson builds every formula from scratch so you see where they come from and why they work.
 
-##المفهوم
+## The Concept
 
-### محتوى المعلومات (مفاجأة)
+### Information Content (Surprise)
 
-عندما يحدث شيء غير محتمل، فإنه يحمل المزيد من المعلومات. رؤوس هبوط العملة؟ ليس من المستغرب. فوز اليانصيب؟ من المستغرب جدا.
+When something unlikely happens, it carries more information. A coin landing heads? Not surprising. A lottery win? Very surprising.
 
-محتوى المعلومات لحدث ذو احتمالية p هو:
+The information content of an event with probability p is:
 
 ```
 I(x) = -log(p(x))
 ```
 
-يمنحك استخدام قاعدة السجل 2 بتات. استخدام السجل الطبيعي يمنحك ناتس. نفس الفكرة، وحدات مختلفة.
+Using log base 2 gives you bits. Using natural log gives you nats. Same idea, different units.
 
 ```
 Event              Probability    Surprise (bits)
@@ -44,104 +44,104 @@ Rolling a 6        0.167          2.58
 Certain event      1.0            0.0
 ```
 
-أحداث معينة تحمل صفرًا من المعلومات. كنت تعلم بالفعل أنها ستحدث.
+Certain events carry zero information. You already knew they would happen.
 
-### الانتروبيا (متوسطة المفاجأة)
+### Entropy (Average Surprise)
 
-الإنتروبيا هي المفاجأة المتوقعة عبر جميع النتائج المحتملة للتوزيع.
+Entropy is the expected surprise across all possible outcomes of a distribution.
 
 ```
 H(P) = -sum( p(x) * log(p(x)) )  for all x
 ```
 
-تحتوي العملة العادلة على أقصى قدر من الإنتروبيا لمتغير ثنائي: 1 بت. العملة المتحيزة (99٪ صورة) لها إنتروبيا منخفضة: 0.08 بت. أنت تعرف بالفعل ما سيحدث، لذا فإن كل قلب لا يخبرك بأي شيء تقريبًا.
+A fair coin has maximum entropy for a binary variable: 1 bit. A biased coin (99% heads) has low entropy: 0.08 bits. You already know what will happen, so each flip tells you almost nothing.
 
 ```
 Fair coin:    H = -(0.5 * log2(0.5) + 0.5 * log2(0.5)) = 1.0 bit
 Biased coin:  H = -(0.99 * log2(0.99) + 0.01 * log2(0.01)) = 0.08 bits
 ```
 
-يقيس الإنتروبيا عدم اليقين غير القابل للاختزال في التوزيع. لا يمكنك الضغط تحته.
+Entropy measures the irreducible uncertainty in a distribution. You cannot compress below it.
 
-### الانتروبيا المتقاطعة (دالة الخسارة التي تستخدمها كل يوم)
+### Cross-Entropy (The Loss Function You Use Every Day)
 
-يقيس الإنتروبيا المتقاطعة متوسط ​​المفاجأة عند استخدام التوزيع Q لتشفير الأحداث التي تأتي بالفعل من التوزيع P.
+Cross-entropy measures the average surprise when you use distribution Q to encode events that actually come from distribution P.
 
 ```
 H(P, Q) = -sum( p(x) * log(q(x)) )  for all x
 ```
 
-P هو التوزيع الحقيقي (التسميات). س هي تنبؤات النموذج الخاص بك. إذا كانت Q تطابق P تمامًا، فإن الإنتروبيا المتقاطعة تساوي الإنتروبيا. أي عدم تطابق يجعلها أكبر.
+P is the true distribution (the labels). Q is your model's predictions. If Q matches P perfectly, cross-entropy equals entropy. Any mismatch makes it larger.
 
-في التصنيف، P هو متجه واحد ساخن (الفئة الحقيقية لديها احتمال 1، كل شيء آخر 0). هذا يبسط الإنتروبيا المتقاطعة إلى:
+In classification, P is a one-hot vector (the true class has probability 1, everything else 0). This simplifies cross-entropy to:
 
 ```
 H(P, Q) = -log(q(true_class))
 ```
 
-هذه هي صيغة الخسارة الشاملة للإنتروبيا للتصنيف. تعظيم الاحتمالية المتوقعة للفئة الصحيحة.
+That is the entire cross-entropy loss formula for classification. Maximize the predicted probability of the correct class.
 
-### تباعد KL (المسافة بين التوزيعات)
+### KL Divergence (Distance Between Distributions)
 
-يقيس تباعد KL مقدار المفاجأة الإضافية التي تحصل عليها من استخدام Q بدلاً من P.
+KL divergence measures how much extra surprise you get from using Q instead of P.
 
 ```
 D_KL(P || Q) = sum( p(x) * log(p(x) / q(x)) )  for all x
              = H(P, Q) - H(P)
 ```
 
-الإنتروبيا المتقاطعة هي الإنتروبيا بالإضافة إلى تباعد KL. نظرًا لأن إنتروبيا التوزيع الحقيقي ثابتة أثناء التدريب، فإن تقليل الإنتروبيا المتقاطعة هو نفس تقليل انحراف KL. أنت تدفع توزيع النموذج الخاص بك نحو التوزيع الحقيقي.
+Cross-entropy is entropy plus KL divergence. Since entropy of the true distribution is constant during training, minimizing cross-entropy is the same as minimizing KL divergence. You are pushing your model's distribution toward the true distribution.
 
-تباعد KL غير متماثل: D_KL(P || Q) != D_KL(Q || P). إنه ليس مقياسًا حقيقيًا للمسافة.
+KL divergence is not symmetric: D_KL(P || Q)!= D_KL(Q || P). It is not a true distance metric.
 
-### معلومات متبادلة
+### Mutual Information
 
-تقيس المعلومات المتبادلة مدى معرفة متغير واحد عن متغير آخر.
+Mutual information measures how much knowing one variable tells you about another.
 
 ```
 I(X; Y) = H(X) - H(X|Y)
         = H(X) + H(Y) - H(X, Y)
 ```
 
-إذا كان X وY مستقلين، تكون المعلومات المتبادلة صفرًا. معرفة أحدهما لا تخبرك شيئًا عن الآخر. إذا كانت مرتبطة بشكل كامل، فإن المعلومات المتبادلة تساوي إنتروبيا أي من المتغيرين.
+If X and Y are independent, mutual information is zero. Knowing one tells you nothing about the other. If they are perfectly correlated, mutual information equals the entropy of either variable.
 
-في اختيار الميزة، تعني المعلومات المتبادلة العالية بين الميزة والهدف أن الميزة مفيدة. المعلومات المتبادلة المنخفضة تعني أنها ضوضاء.
+In feature selection, high mutual information between a feature and the target means the feature is useful. Low mutual information means it is noise.
 
-### الإنتروبيا المشروطة
+### Conditional Entropy
 
-يقيس H(Y|X) مقدار عدم اليقين المتبقي بشأن Y بعد ملاحظة X.
+H(Y|X) measures how much uncertainty remains about Y after you observe X.
 
 ```
 H(Y|X) = H(X,Y) - H(X)
 ```
 
-اثنين من التطرف:
-- إذا كانت X تحدد Y تمامًا، فإن H(Y|X) = 0. معرفة X تزيل كل عدم اليقين بشأن Y. مثال: X = درجة الحرارة بالدرجة المئوية، Y = درجة الحرارة بالفهرنهايت.
-- إذا لم يخبرك X بأي شيء عن Y، فإن H(Y|X) = H(Y). معرفة X لا تقلل من عدم يقينك على الإطلاق. مثال: X = قلب العملة، Y = طقس الغد.
+Two extremes:
+- If X completely determines Y, then H(Y|X) = 0. Knowing X eliminates all uncertainty about Y. Example: X = temperature in Celsius, Y = temperature in Fahrenheit.
+- If X tells you nothing about Y, then H(Y|X) = H(Y). Knowing X does not reduce your uncertainty at all. Example: X = coin flip, Y = tomorrow's weather.
 
-الإنتروبيا المشروطة دائمًا غير سلبية ولا تتجاوز أبدًا H(Y):
+Conditional entropy is always non-negative and never exceeds H(Y):
 
 ```
 0 <= H(Y|X) <= H(Y)
 ```
 
-في التعلم الآلي، تظهر الإنتروبيا المشروطة في أشجار القرار. عند كل تقسيم، تختار الخوارزمية الميزة X التي تقلل من H(Y|X) - الميزة التي تزيل معظم حالات عدم اليقين بشأن التسمية Y.
+In machine learning, conditional entropy appears in decision trees. At each split, the algorithm picks the feature X that minimizes H(Y|X) -- the feature that removes the most uncertainty about the label Y.
 
-### الإنتروبيا المشتركة
+### Joint Entropy
 
-H(X,Y) هي إنتروبيا التوزيع المشترك لـ X وY معًا.
+H(X,Y) is the entropy of the joint distribution of X and Y together.
 
 ```
 H(X,Y) = -sum sum p(x,y) * log(p(x,y))   for all x, y
 ```
 
-الخاصية الرئيسية:
+Key property:
 
 ```
 H(X,Y) <= H(X) + H(Y)
 ```
 
-تتحقق المساواة عندما يكون X و Y مستقلين. إذا تبادلوا المعلومات، فإن الإنتروبيا المشتركة أقل من مجموع الإنتروبيا الفردية. الإنتروبيا "المفقودة" هي بالضبط المعلومات المتبادلة.
+Equality holds when X and Y are independent. If they share information, the joint entropy is less than the sum of individual entropies. The "missing" entropy is exactly the mutual information.
 
 ```mermaid
 graph TD
@@ -166,14 +166,14 @@ graph TD
     HXY -.- HYgX
 ```
 
-العلاقات:
+The relationships:
 - H(X,Y) = H(X) + H(Y|X) = H(Y) + H(X|Y)
 - I(X;Y) = H(X) - H(X|Y) = H(Y) - H(Y|X)
-- ح(X,Y) = ح(X) + ح(Y) - أنا(X;Y)
+- H(X,Y) = H(X) + H(Y) - I(X;Y)
 
-### المعلومات المتبادلة (الغوص العميق)
+### Mutual Information (Deep Dive)
 
-تحدد المعلومات المتبادلة I(X;Y) مدى معرفة أحد المتغيرات مما يقلل من عدم اليقين بشأن الآخر.
+Mutual information I(X;Y) quantifies how much knowing one variable reduces uncertainty about the other.
 
 ```
 I(X;Y) = H(X) - H(X|Y)
@@ -182,61 +182,61 @@ I(X;Y) = H(X) - H(X|Y)
        = sum sum p(x,y) * log(p(x,y) / (p(x) * p(y)))
 ```
 
-الخصائص:
-- I(X;Y) >= 0 دائمًا. لن تفقد المعلومات أبدًا من خلال ملاحظة شيء ما.
-- I(X;Y) = 0 إذا وفقط إذا كان X وY مستقلين.
-- أنا(X;Y) = أنا(Y;X). إنه متماثل، على عكس تباعد KL.
-- أنا(X;X) = ح(X). يقوم المتغير بمشاركة جميع معلوماته مع نفسه.
+Properties:
+- I(X;Y) >= 0 always. You never lose information by observing something.
+- I(X;Y) = 0 if and only if X and Y are independent.
+- I(X;Y) = I(Y;X). It is symmetric, unlike KL divergence.
+- I(X;X) = H(X). A variable shares all its information with itself.
 
-**معلومات متبادلة لاختيار الميزة.** في تعلم الآلة، تريد ميزات تحتوي على معلومات حول الهدف. تمنحك المعلومات المتبادلة طريقة مبدئية لتصنيف الميزات:
+**Mutual information for feature selection.** In ML, you want features that are informative about the target. Mutual information gives you a principled way to rank features:
 
-1. لكل ميزة X_i، قم بحساب I(X_i; Y) حيث Y هو المتغير المستهدف.
-2. تصنيف الميزات حسب درجة MI.
-3. حافظ على أهم ميزات k.
+1. For each feature X_i, compute I(X_i; Y) where Y is the target variable.
+2. Rank features by MI score.
+3. Keep the top k features.
 
-يعمل هذا مع أي علاقة بين الميزة والهدف - خطية أو غير خطية أو رتيبة أو لا. الارتباط يمسك فقط العلاقات الخطية. MI يمسك بكل شيء.
+This works for any relationship between feature and target -- linear, nonlinear, monotonic, or not. Correlation only catches linear relationships. MI catches everything.
 
-| الطريقة | يكتشف | التكلفة الحسابية | يعالج القاطع؟ |
-|--------|---------|----------------------------------|-----|
-| ارتباط بيرسون | العلاقات الخطية | يا(ن) | لا |
-| ارتباط سبيرمان | علاقات رتيبة | يا(ن سجل ن) | لا |
-| معلومات متبادلة | أي تبعية إحصائية | O(n log n) مع binning | نعم |
+| Method | Detects | Computational cost | Handles categorical? |
+|--------|---------|-------------------|---------------------|
+| Pearson correlation | Linear relationships | O(n) | No |
+| Spearman correlation | Monotonic relationships | O(n log n) | No |
+| Mutual information | Any statistical dependency | O(n log n) with binning | Yes |
 
-### تجانس الملصقات والانتروبيا المتقاطعة
+### Label Smoothing and Cross-Entropy
 
-يستخدم التصنيف القياسي الأهداف الصعبة: [0، 0، 1، 0]. تحصل الفئة الحقيقية على الاحتمال 1، وكل شيء آخر يحصل على 0. ويستبدل تجانس الملصقات هذه الأهداف السهلة:
+Standard classification uses hard targets: [0, 0, 1, 0]. The true class gets probability 1, everything else gets 0. Label smoothing replaces these with soft targets:
 
 ```
 soft_target = (1 - epsilon) * hard_target + epsilon / num_classes
 ```
 
-مع إبسيلون = 0.1 و 4 فئات:
-- الهدف الصعب: [0، 0، 1، 0]
-- الهدف السهل: [0.025، 0.025، 0.925، 0.025]
+With epsilon = 0.1 and 4 classes:
+- Hard target: [0, 0, 1, 0]
+- Soft target: [0.025, 0.025, 0.925, 0.025]
 
-من منظور نظرية المعلومات، يؤدي تجانس الملصقات إلى زيادة إنتروبيا التوزيع المستهدف. الأهداف الصعبة والساخنة لها إنتروبيا 0 - ليس هناك شك. الأهداف الناعمة لها إنتروبيا إيجابية.
+From an information theory perspective, label smoothing increases the entropy of the target distribution. Hard one-hot targets have entropy 0 -- there is no uncertainty. Soft targets have positive entropy.
 
-لماذا يساعد هذا:
-- يمنع النموذج من توجيه اللوغاريتمات إلى القيم المتطرفة (ستكون هناك حاجة إلى اللوغاريتمات اللانهائية لتتوافق تمامًا مع هدف واحد ساخن في ظل الإنتروبيا المتقاطعة)
-- يعمل بمثابة تنظيم: لا يمكن أن يكون النموذج واثقًا بنسبة 100%
-- تحسين المعايرة: تعكس الاحتمالات المتوقعة عدم اليقين الحقيقي بشكل أفضل
-- تقليص الفجوة بين التدريب وسلوك الاستدلال
+Why this helps:
+- Prevents the model from driving logits to extreme values (infinite logits would be needed to perfectly match a one-hot target under cross-entropy)
+- Acts as regularization: the model cannot be 100% confident
+- Improves calibration: predicted probabilities better reflect true uncertainty
+- Reduces the gap between training and inference behavior
 
-تصبح خسارة الإنتروبيا المتقاطعة مع تجانس التسمية:
+The cross-entropy loss with label smoothing becomes:
 
 ```
 L = (1 - epsilon) * CE(hard_target, prediction) + epsilon * H_uniform(prediction)
 ```
 
-أما المصطلح الثاني فيعاقب التوقعات البعيدة عن التجانس ـ التنظيم المباشر للثقة.
+The second term penalizes predictions that are far from uniform -- a direct regularization on confidence.
 
-### لماذا يعد الانتروبيا المتقاطعة خسارة التصنيف
+### Why Cross-Entropy Is THE Classification Loss
 
-ثلاث وجهات نظر، نفس النتيجة.
+Three perspectives, same conclusion.
 
-**عرض نظرية المعلومات.** يقيس الإنتروبيا المتقاطعة عدد البتات التي تهدرها باستخدام توزيع النموذج الخاص بك بدلاً من التوزيع الحقيقي. إن تصغيره يجعل النموذج الخاص بك هو التشفير الأكثر كفاءة للواقع.
+**Information theory view.** Cross-entropy measures how many bits you waste by using your model's distribution instead of the true distribution. Minimizing it makes your model the most efficient encoder of reality.
 
-**عرض الحد الأقصى للاحتمالات.** بالنسبة لعينات التدريب N ذات الفصول الحقيقية y_i:
+**Maximum likelihood view.** For N training samples with true classes y_i:
 
 ```
 Likelihood     = product( q(y_i) )
@@ -244,13 +244,13 @@ Log-likelihood = sum( log(q(y_i)) )
 Negative log-likelihood = -sum( log(q(y_i)) )
 ```
 
-السطر الأخير هو خسارة الإنتروبيا المتقاطعة. تقليل الانتروبيا المتقاطعة = زيادة احتمالية بيانات التدريب ضمن النموذج الخاص بك.
+That last line is cross-entropy loss. Minimizing cross-entropy = maximizing the likelihood of the training data under your model.
 
-**عرض التدرج.** إن تدرج الإنتروبيا المتقاطعة فيما يتعلق بالسجلات هو ببساطة (متوقع - صحيح). نظيفة ومستقرة وسريعة للحساب. وهذا هو السبب في أنه يتماشى بشكل مثالي مع سوفت ماكس.
+**Gradient view.** The gradient of cross-entropy with respect to the logits is simply (predicted - true). Clean, stable, and fast to compute. This is why it pairs perfectly with softmax.
 
-### البتات مقابل ناتس
+### Bits vs Nats
 
-والفرق الوحيد هو قاعدة السجل.
+The only difference is the log base.
 
 ```
 log base 2   -> bits      (information theory tradition)
@@ -258,24 +258,24 @@ log base e   -> nats      (machine learning convention)
 log base 10  -> hartleys  (rarely used)
 ```
 
-1 نات = 1/ln(2) بت = 1.4427 بت. يستخدم PyTorch وTensorFlow السجل الطبيعي (nats) بشكل افتراضي.
+1 nat = 1/ln(2) bits = 1.4427 bits. PyTorch and TensorFlow use natural log (nats) by default.
 
-### الحيرة
+### Perplexity
 
-الحيرة هي الأسية للإنتروبيا المتقاطعة. فهو يخبرك بالعدد الفعال للخيارات ذات الاحتمال المتساوي التي يكون النموذج غير مؤكد بينها.
+Perplexity is the exponential of cross-entropy. It tells you the effective number of equally likely choices the model is uncertain between.
 
 ```
 Perplexity = 2^H(P,Q)   (if using bits)
 Perplexity = e^H(P,Q)   (if using nats)
 ```
 
-نموذج اللغة ذو درجة الحيرة 50 يكون، في المتوسط، مرتبكًا كما لو كان عليه الاختيار بشكل موحد من بين 50 علامة تالية محتملة. أقل هو أفضل.
+A language model with perplexity 50 is, on average, as confused as if it had to pick uniformly from 50 possible next tokens. Lower is better.
 
-حقق GPT-2 درجة حيرة تصل إلى 30 وفقًا للمعايير المشتركة. النماذج الحديثة مكونة من أرقام فردية للمجالات الممثلة جيدًا.
+GPT-2 achieved perplexity ~30 on common benchmarks. Modern models are in the single digits for well-represented domains.
 
-## بنائها
+## Build It
 
-### الخطوة 1: محتوى المعلومات والانتروبيا
+### Step 1: Information content and entropy
 
 ```python
 import math
@@ -300,7 +300,7 @@ print(f"Biased coin entropy: {entropy(biased_coin):.4f} bits")
 print(f"Fair die entropy:    {entropy(fair_die):.4f} bits")
 ```
 
-### الخطوة الثانية: الانتروبيا المتقاطعة وتباعد KL
+### Step 2: Cross-entropy and KL divergence
 
 ```python
 def cross_entropy(p, q, base=2):
@@ -326,7 +326,7 @@ print(f"KL divergence (good):     {kl_divergence(true_dist, good_model):.4f} bit
 print(f"KL divergence (bad):      {kl_divergence(true_dist, bad_model):.4f} bits")
 ```
 
-### الخطوة 3: الإنتروبيا المتقاطعة كخسارة تصنيف
+### Step 3: Cross-entropy as classification loss
 
 ```python
 def softmax(logits):
@@ -352,7 +352,7 @@ print(f"Loss:        {loss:.4f} nats")
 print(f"Perplexity:  {math.exp(loss):.2f}")
 ```
 
-### الخطوة 4: الإنتروبيا المتقاطعة تساوي احتمال السجل السلبي
+### Step 4: Cross-entropy equals negative log-likelihood
 
 ```python
 import random
@@ -379,7 +379,7 @@ print(f"Negative log-likelihood: {nll:.6f}")
 print(f"Difference:              {abs(ce_loss - nll):.2e}")
 ```
 
-### الخطوة 5: المعلومات المتبادلة
+### Step 5: Mutual information
 
 ```python
 def mutual_information(joint_probs, base=2):
@@ -404,9 +404,9 @@ print(f"MI (independent): {mutual_information(independent):.4f} bits")
 print(f"MI (dependent):   {mutual_information(dependent):.4f} bits")
 ```
 
-## استخدمه
+## Use It
 
-نفس المفاهيم باستخدام NumPy، بالطريقة التي ستستخدمها بها عمليًا:
+The same concepts using NumPy, the way you will use them in practice:
 
 ```python
 import numpy as np
@@ -433,35 +433,35 @@ print(f"Cross-ent:  {np_cross_entropy(true, pred):.4f} nats")
 print(f"KL div:     {np_kl_divergence(true, pred):.4f} nats")
 ```
 
-لقد أنشأت من الصفر ما يفعله `torch.nn.CrossEntropyLoss()` داخليًا. الآن أنت تعرف سبب انخفاض الخسارة أثناء التدريب: التوزيع المتوقع لنموذجك يقترب من التوزيع الحقيقي، والذي يتم قياسه بعدد المعلومات الضائعة.
+You built from scratch what `torch.nn.CrossEntropyLoss()` does internally. Now you know why the loss goes down during training: your model's predicted distribution is getting closer to the true distribution, measured in nats of wasted information.
 
-## تمارين
+## Exercises
 
-1. حساب إنتروبيا الأبجدية الإنجليزية بافتراض التوزيع الموحد (26 حرفًا). ثم قم بتقديرها باستخدام ترددات الحروف الفعلية. أيهما أعلى ولماذا؟
+1. Compute the entropy of the English alphabet assuming uniform distribution (26 letters). Then estimate it using actual letter frequencies. Which is higher and why?
 
-2. يقوم النموذج بإخراج السجلات [5.0، 2.0، 0.5] لعينة ذات فئة حقيقية 1. احسب خسارة الإنتروبيا المتقاطعة يدويًا، ثم تحقق باستخدام الدالة `cross_entropy_loss`. ما هي السجلات التي من شأنها أن تعطي خسارة صفر؟
+2. A model outputs logits [5.0, 2.0, 0.5] for a sample with true class 1. Compute the cross-entropy loss by hand, then verify with your `cross_entropy_loss` function. What logits would give zero loss?
 
-3. أظهر أن تباعد KL غير متماثل. اختر توزيعين P وQ واحسب D_KL(P || Q) وD_KL(Q || P). اشرح لماذا يختلفون.
+3. Show that KL divergence is not symmetric. Pick two distributions P and Q and compute D_KL(P || Q) and D_KL(Q || P). Explain why they differ.
 
-4. قم ببناء دالة تحسب الحيرة لسلسلة من التنبؤات الرمزية. بالنظر إلى قائمة أزواج (true_token_index، المتوقعة_logits)، قم بإرجاع ارتباك التسلسل.
+4. Build a function that computes perplexity for a sequence of token predictions. Given a list of (true_token_index, predicted_logits) pairs, return the perplexity of the sequence.
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| محتوى المعلومات | "مفاجأة" | عدد البتات (أو nats) اللازمة لترميز حدث ما: -log(p) |
-| الانتروبيا | "العشوائية" | متوسط ​​المفاجأة في جميع نتائج التوزيع. يقيس عدم اليقين غير القابل للاختزال. |
-| عبر الانتروبيا | "وظيفة الخسارة" | متوسط ​​المفاجأة عند استخدام توزيع النموذج Q لتشفير الأحداث من التوزيع الحقيقي P. |
-| تباعد كوالالمبور | "المسافة بين التوزيعات" | يتم إهدار البتات الإضافية باستخدام Q بدلاً من P. وتساوي الإنتروبيا المتقاطعة ناقص الإنتروبيا. غير متماثل. |
-| معلومات متبادلة | "ما مدى ارتباط X و Y" | تقليل عدم اليقين بشأن X من معرفة Y. الصفر يعني الاستقلال. |
-| سوفت ماكس | "تحويل السجلات إلى احتمالات" | الأس والتطبيع. يعين أي متجه ذو قيمة حقيقية لتوزيع احتمالي صالح. |
-| الحيرة | "كم هو مرتبك النموذج" | الأسي عبر الانتروبيا. حجم المفردات الفعال الذي يختار النموذج منه في كل خطوة. |
-| بت | "وحدة شانون" | المعلومات المقاسة باستخدام قاعدة السجل 2. البت الواحد يحل الوجه العادل لعملة واحدة. |
-| ناتس | "وحدة تعلم الآلة" | المعلومات المقاسة بالسجل الطبيعي. يتم استخدامه بواسطة PyTorch وTensorFlow بشكل افتراضي. |
-| احتمالية السجل السلبي | "خسارة NLL" | مطابق لخسارة الإنتروبيا المتقاطعة للملصقات الساخنة الواحدة. يؤدي تقليلها إلى زيادة احتمالية التنبؤات الصحيحة. |
+| Information content | "Surprise" | The number of bits (or nats) needed to encode an event: -log(p) |
+| Entropy | "Randomness" | The average surprise across all outcomes of a distribution. Measures irreducible uncertainty. |
+| Cross-entropy | "The loss function" | Average surprise when using model distribution Q to encode events from true distribution P. |
+| KL divergence | "Distance between distributions" | Extra bits wasted by using Q instead of P. Equals cross-entropy minus entropy. Not symmetric. |
+| Mutual information | "How related are X and Y" | Reduction in uncertainty about X from knowing Y. Zero means independent. |
+| Softmax | "Turn logits into probabilities" | Exponentiate and normalize. Maps any real-valued vector to a valid probability distribution. |
+| Perplexity | "How confused the model is" | Exponential of cross-entropy. The effective vocabulary size the model is choosing from at each step. |
+| Bits | "Shannon's unit" | Information measured with log base 2. One bit resolves one fair coin flip. |
+| Nats | "ML's unit" | Information measured with natural log. Used by PyTorch and TensorFlow by default. |
+| Negative log-likelihood | "NLL loss" | Identical to cross-entropy loss for one-hot labels. Minimizing it maximizes the probability of correct predictions. |
 
-## مزيد من القراءة
+## Further Reading
 
-- [Shannon 1948: A Mathematical Theory of Communication](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) - الورقة الأصلية، لا تزال قابلة للقراءة
-- [Visual Information Theory (Chris Olah)](https://colah.github.io/posts/2015-09-Visual-Information/) - أفضل شرح مرئي للإنتروبيا وتباعد KL
-- [PyTorch CrossEntropyLoss docs](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html) - كيف ينفذ إطار العمل ما قمت بإنشائه للتو
+- [Shannon 1948: A Mathematical Theory of Communication](https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) - the original paper, still readable
+- [Visual Information Theory (Chris Olah)](https://colah.github.io/posts/2015-09-Visual-Information/) - best visual explanation of entropy and KL divergence
+- [PyTorch CrossEntropyLoss docs](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html) - how the framework implements what you just built

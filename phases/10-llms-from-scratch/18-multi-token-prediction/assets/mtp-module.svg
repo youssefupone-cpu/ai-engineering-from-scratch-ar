@@ -18,7 +18,7 @@
     </style>
   </defs>
 
-  <text x="480" y="28" text-anchor="middle" class="title">التنبؤ المتسلسل متعدد الرموز — نمط DeepSeek-V3</text>
+  <text x="480" y="28" text-anchor="middle" class="title">التنبؤ المتسلسل متعدد الرموز — أسلوب DeepSeek-V3</text>
 
   <!-- Main backbone -->
   <rect x="30" y="60" width="200" height="60" class="box"/>
@@ -28,24 +28,24 @@
   <!-- Shared embedding -->
   <rect x="30" y="150" width="200" height="50" class="shared"/>
   <text x="130" y="170" text-anchor="middle" class="head">التضمين المشترك E</text>
-  <text x="130" y="188" text-anchor="middle" class="small">يستخدم بواسطة main + كل عمق MTP</text>
+  <text x="130" y="188" text-anchor="middle" class="small">يستخدم بواسطة الرئيسي + كل MTP عمق</text>
 
   <!-- Depth 1 module -->
   <rect x="280" y="60" width="260" height="140" class="cool"/>
-  <text x="410" y="82" text-anchor="middle" class="head">MTP الوحدة النمطية k=1</text>
+  <text x="410" y="82" text-anchor="middle" class="head">MTP الوحدة ك=1</text>
   <text x="410" y="100" text-anchor="middle" class="small">دمج: M_1 * [RMSNorm(h^0); RMSNorm(E(t_{i+1}))]</text>
-  <text x="410" y="118" text-anchor="middle" class="small">كتلة المحولات T_1 (عناية + MLP)</text>
+  <text x="410" y="118" text-anchor="middle" class="small">كتلة المحولات T_1 (attn + MLP)</text>
   <text x="410" y="138" text-anchor="middle" class="step">h_i^(1)</text>
-  <text x="410" y="160" text-anchor="middle" class="small">رأس LM مشترك -&gt; توقع t_{i+1}</text>
+  <text x="410" y="160" text-anchor="middle" class="small">مشاركة LM الرأس -&gt; توقع t_{i+1}</text>
   <text x="410" y="180" text-anchor="middle" class="step">L_1 = CE(logits، t_{i+1})</text>
 
   <!-- Depth 2 module -->
   <rect x="580" y="60" width="260" height="140" class="cool"/>
-  <text x="710" y="82" text-anchor="middle" class="head">MTP الوحدة النمطية k=2</text>
+  <text x="710" y="82" text-anchor="middle" class="head">MTP الوحدة ك=2</text>
   <text x="710" y="100" text-anchor="middle" class="small">دمج: M_2 * [RMSNorm(h^1); RMSNorm(E(t_{i+2}))]</text>
-  <text x="710" y="118" text-anchor="middle" class="small">كتلة المحولات T_2 (عناية + MLP)</text>
+  <text x="710" y="118" text-anchor="middle" class="small">كتلة المحولات T_2 (attn + MLP)</text>
   <text x="710" y="138" text-anchor="middle" class="step">h_i^(2)</text>
-  <text x="710" y="160" text-anchor="middle" class="small">رأس LM مشترك -&gt; توقع t_{i+2}</text>
+  <text x="710" y="160" text-anchor="middle" class="small">مشاركة LM الرأس -&gt; توقع t_{i+2}</text>
   <text x="710" y="180" text-anchor="middle" class="step">L_2 = CE(logits، t_{i+2})</text>
 
   <!-- Arrows between modules -->
@@ -56,7 +56,7 @@
   <!-- Shared head -->
   <rect x="340" y="230" width="280" height="50" class="shared"/>
   <text x="480" y="250" text-anchor="middle" class="head">رأس الإخراج المشترك للخارج</text>
-  <text x="480" y="268" text-anchor="middle" class="small">يعيد استخدام رأس LM للنموذج الرئيسي - بدون معلمات إضافية</text>
+  <text x="480" y="268" text-anchor="middle" class="small">يعيد استخدام رأس النموذج الرئيسي LM - بدون معلمات إضافية</text>
 
   <!-- E feeds into modules -->
   <line x1="230" y1="175" x2="285" y2="175" stroke="#5a4fcf" stroke-width="1.2"/>
@@ -71,9 +71,9 @@
 
   <!-- Inference repurpose -->
   <rect x="30" y="400" width="900" height="120" class="hot"/>
-  <text x="480" y="423" text-anchor="middle" class="label">عند الاستدلال: تصبح وحدات MTP مسودة لفك التشفير</text>
+  <text x="480" y="423" text-anchor="middle" class="label">عند الاستدلال: تصبح الوحدات MTP مسودة لفك التشفير</text>
   <text x="50" y="450" class="step">الوحدة ك=1</text>
-  <text x="220" y="450" class="small">المسودة t_{i+1} بالنظر إلى h^(0) · تقرير DeepSeek-V3 بنسبة قبول 80%+</text>
+  <text x="220" y="450" class="small">المسودة t_{i+1} بالنظر إلى h^(0) · تقرير DeepSeek-V3 بنسبة 80%+ قبول</text>
   <text x="50" y="470" class="step">الوحدة ك=2</text>
   <text x="220" y="470" class="small">مسودة t_{i+2} معطاة h^(1) + E(t_{i+1}) · سلاسل عبر الأعماق</text>
   <text x="50" y="490" class="step">verifier</text>

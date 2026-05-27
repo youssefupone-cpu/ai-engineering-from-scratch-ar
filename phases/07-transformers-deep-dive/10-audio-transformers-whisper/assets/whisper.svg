@@ -69,9 +69,9 @@
   <!-- Decoder -->
   <rect x="420" y="295" width="400" height="120" class="dec"/>
   <text x="620" y="317" text-anchor="middle" class="label">محول فك التشفير</text>
-  <text x="620" y="340" text-anchor="middle" class="caption">عناية ذاتية مقنعة + عناية متبادلة بجهاز التشفير + FFN</text>
+  <text x="620" y="340" text-anchor="middle" class="caption">العناية الذاتية المقنعة + الاهتمام المتبادل للتشفير + FFN</text>
   <text x="620" y="360" text-anchor="middle" class="caption">32 طبقة (كبيرة) أو 4 طبقات (توربو)</text>
-  <text x="620" y="385" text-anchor="middle" class="caption">BPE المفردات: GPT-2 + العروض الصوتية الخاصة</text>
+  <text x="620" y="385" text-anchor="middle" class="caption">BPE المفردات: GPT-2 + خاصيات صوتية</text>
   <text x="620" y="405" text-anchor="middle" class="caption">عرض بحث الشعاع 5 عند الاستدلال</text>
 
   <!-- Cross-attention arrow from encoder -->

@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">BLIP-2 جسر Q-Former — 32 استعلامًا يضغط ViT من أجل LLM مجمد</text>
+  <text x="480" y="24" text-anchor="middle" class="title">BLIP-2 جسر Q-Former — 32 استعلامًا يضغط ViT للحصول على LLM مجمد</text>
 
   <rect x="40" y="60" width="180" height="200" class="frozen"/>
   <text x="130" y="82" text-anchor="middle" class="head">المجمدة فيت</text>
@@ -63,13 +63,13 @@
   <text x="695" y="100" text-anchor="middle" class="small">768 -&gt; 4096 (LLM خافت)</text>
   <text x="695" y="118" text-anchor="middle" class="small">تدربت في المرحلة 2</text>
   <text x="695" y="138" text-anchor="middle" class="small">~3M المعلمات</text>
-  <text x="695" y="158" text-anchor="middle" class="small">32 × LLM_إخراج خافت</text>
+  <text x="695" y="158" text-anchor="middle" class="small">32 × LLM_dim الإخراج</text>
 
   <path d="M 770 120 L 830 120" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="835" y="60" width="100" height="240" class="frozen"/>
   <text x="885" y="82" text-anchor="middle" class="head">مجمدة LLM</text>
-  <text x="885" y="102" text-anchor="middle" class="small">OPT-6.7ب أو</text>
+  <text x="885" y="102" text-anchor="middle" class="small">OPT-6.7B أو</text>
   <text x="885" y="120" text-anchor="middle" class="small">Flan-T5-XXL</text>
   <text x="885" y="148" text-anchor="middle" class="small">32 رمزًا مرئيًا</text>
   <text x="885" y="164" text-anchor="middle" class="small">+ موجه النص</text>
@@ -84,18 +84,18 @@
   <rect x="60" y="420" width="415" height="75" class="cool"/>
   <text x="80" y="440" class="step">المرحلة 1: التمثيل (رقم LLM)</text>
   <text x="80" y="458" class="small">تدريب Q- السابق وحده مع</text>
-  <text x="80" y="474" class="small">ITC (صورة ونص متباين)</text>
+  <text x="80" y="474" class="small">ITC (صورة نص متباين)</text>
   <text x="80" y="488" class="small">+ ITM (مطابقة الصورة والنص)</text>
   <text x="250" y="458" class="small">+ ITG (إنشاء نص مستند إلى الصورة)</text>
   <text x="250" y="474" class="small">الاستعلامات تعلم الترميز</text>
   <text x="250" y="488" class="small">كل من المعلومات الدلالية وفك تشفير النص</text>
 
   <rect x="490" y="420" width="415" height="75" class="train"/>
-  <text x="510" y="440" class="step">المرحلة 2: التوليدية (مع LLM المجمدة)</text>
-  <text x="510" y="458" class="small">استعلامات المشروع 32 -&gt; LLM قاتمة</text>
+  <text x="510" y="440" class="step">المرحلة الثانية: التوليدية (مع المجمدة LLM)</text>
+  <text x="510" y="458" class="small">مشروع 32 استعلامًا -&gt; LLM خافت</text>
   <text x="510" y="474" class="small">تسبق النص</text>
-  <text x="510" y="488" class="small">قطار LM الخسارة من البداية إلى النهاية</text>
+  <text x="510" y="488" class="small">قطار LM خسارة شاملة</text>
   <text x="680" y="458" class="small">جسر + جهاز عرض للتعلم</text>
-  <text x="680" y="474" class="small">لتغذية LLM بشكل نظيف</text>
+  <text x="680" y="474" class="small">لإطعام LLM بشكل نظيف</text>
   <text x="680" y="488" class="small">إجمالي 188 مليون معلمة</text>
 </svg>

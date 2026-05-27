@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ماذا تحكم السلسلة في حالة حساب التفاضل والتكامل؟",
+      "question": "What does the chain rule in calculus state?",
       "options": [
-        "مشتق المجموع هو مجموع المشتقات",
-        "مشتق الدوال المركبة هو نتاج مشتقاتها الفردية",
-        "تكامل المنتج هو نتاج التكاملات",
-        "لا يمكن تمييز الوظائف إلا إذا كانت خطية"
+        "The derivative of a sum is the sum of derivatives",
+        "The derivative of composed functions is the product of their individual derivatives",
+        "The integral of a product is the product of integrals",
+        "Functions can only be differentiated if they are linear"
       ],
       "correct": 1,
-      "explanation": "بالنسبة لـ y = f(g(x))، تقول قاعدة السلسلة dy/dx = f'(g(x)) * g'(x). تقوم بضرب المشتقات في كل رابط في السلسلة. هذا هو الأساس الرياضي للانتشار العكسي."
+      "explanation": "For y = f(g(x)), the chain rule says dy/dx = f'(g(x)) * g'(x). You multiply the derivatives at each link in the chain. This is the mathematical basis of backpropagation."
     },
     {
       "stage": "pre",
-      "question": "ما هو الرسم البياني الحسابي؟",
+      "question": "What is a computational graph?",
       "options": [
-        "مؤامرة الخسارة مقابل خطوات التدريب",
-        "رسم بياني موجه حيث nodes عبارة عن عمليات وتحمل الحواف القيم للأمام أو التدرجات للخلف",
-        "رسم تخطيطي يوضح بنية الشبكة العصبية",
-        "قاعدة بيانات بيانية تستخدم لتخزين بيانات التدريب"
+        "A plot of loss vs training steps",
+        "A directed graph where nodes are operations and edges carry values forward or gradients backward",
+        "A diagram showing the architecture of a neural network",
+        "A graph database used for storing training data"
       ],
       "correct": 1,
-      "explanation": "يمثل الرسم البياني الحسابي تسلسل العمليات في الحساب. تتدفق البيانات للأمام من خلال الرسم البياني، وتتدفق التدرجات للخلف أثناء الانتشار العكسي."
+      "explanation": "A computational graph represents the sequence of operations in a computation. Data flows forward through the graph, and gradients flow backward during backpropagation."
     },
     {
       "stage": "post",
-      "question": "لماذا يستخدم PyTorch الوضع التلقائي العكسي (الانتشار العكسي) بدلاً من الوضع الأمامي؟",
+      "question": "Why does PyTorch use reverse-mode autodiff (backpropagation) instead of forward-mode?",
       "options": [
-        "الوضع العكسي أكثر دقة من الناحية العددية",
-        "يحسب الوضع العكسي جميع التدرجات في مسار واحد للخلف، بينما يحتاج الوضع الأمامي إلى تمرير واحد لكل متغير إدخال - تحتوي الشبكات العصبية على ملايين المدخلات ولكن خسارة مخرجات واحدة",
-        "يستخدم الوضع العكسي ذاكرة أقل",
-        "لا يمكن للوضع الأمامي التعامل مع الوظائف غير الخطية"
+        "Reverse mode is more numerically accurate",
+        "Reverse mode computes all gradients in one backward pass, while forward mode needs one pass per input variable -- neural networks have millions of inputs but one loss output",
+        "Reverse mode uses less memory",
+        "Forward mode cannot handle non-linear functions"
       ],
       "correct": 1,
-      "explanation": "تحتوي الشبكات العصبية على ملايين من مدخلات الوزن ولكنها تنتج خسارة عددية واحدة. يحتاج الوضع العكسي إلى تمريرة خلفية واحدة. سيحتاج الوضع الأمامي إلى تمريرة واحدة لكل وزن - ملايين التمريرات - مما يجعله غير عملي."
+      "explanation": "Neural networks have millions of weight inputs but produce a single scalar loss. Reverse mode needs one backward pass total. Forward mode would need one pass per weight -- millions of passes -- making it impractical."
     },
     {
       "stage": "post",
-      "question": "في محرك autograd ذو فئة القيمة، لماذا تستخدم الدالة الخلفية \"+=\" بدلاً من \"=\" لتجميع التدرجات؟",
+      "question": "In the Value class autograd engine, why does the backward function use '+=' instead of '=' for accumulating gradients?",
       "options": [
-        "لحساب متوسط ​​التدرجات عبر عينات متعددة",
-        "لأن القيمة المستخدمة في عمليات متعددة تتلقى مساهمات متدرجة من كل واحدة منها، والتي يجب جمعها",
-        "لمنع التجاوز العددي في التدرجات",
-        "لأن Python لا تدعم عامل التشغيل '=' في عمليات الإغلاق"
+        "To average the gradients across multiple samples",
+        "Because a value used in multiple operations receives gradient contributions from each one, which must be summed",
+        "To prevent numerical overflow in the gradients",
+        "Because Python does not support the '=' operator in closures"
       ],
       "correct": 1,
-      "explanation": "عندما يتم تغذية قيمة ما في عمليات متعددة (على سبيل المثال، x المستخدمة في كل من x*y وx+z)، فإن تدرجها الإجمالي هو مجموع جميع مساهمات التدرج الواردة. سيؤدي استخدام '=' إلى استبدال المساهمات السابقة."
+      "explanation": "When a value feeds into multiple operations (e.g., x used in both x*y and x+z), its total gradient is the sum of all incoming gradient contributions. Using '=' would overwrite earlier contributions."
     },
     {
       "stage": "post",
-      "question": "ما هو فحص التدرج ومتى يجب استخدامه؟",
+      "question": "What is gradient checking and when should you use it?",
       "options": [
-        "التحقق من أن التدرجات أقل من العتبة لمنع انفجار التدرجات",
-        "مقارنة تدرجات التمييز التلقائي مع تدرجات الفروق العددية المحدودة للتحقق من صحة التمرير للخلف",
-        "التحقق من أن جميع المعلمات تلقت تدرجات غير صفرية أثناء التدريب",
-        "مراقبة مقادير التدرج أثناء التدريب للكشف عن التدرجات المتلاشية"
+        "Checking that gradients are below a threshold to prevent exploding gradients",
+        "Comparing autodiff gradients against numerical finite-difference gradients to verify correctness of the backward pass",
+        "Checking that all parameters received non-zero gradients during training",
+        "Monitoring gradient magnitudes during training to detect vanishing gradients"
       ],
       "correct": 1,
-      "explanation": "يقوم فحص التدرج بحساب المشتقات الرقمية عبر (f(x+h) - f(x-h)) / 2h ومقارنتها بالتدرجات التلقائية. استخدمه عند إضافة عمليات جديدة إلى محرك autograd الخاص بك أو تصحيح أخطاء التدريب."
+      "explanation": "Gradient checking computes numerical derivatives via (f(x+h) - f(x-h)) / 2h and compares them to autodiff gradients. Use it when adding new operations to your autograd engine or debugging training failures."
     }
   ]
 }

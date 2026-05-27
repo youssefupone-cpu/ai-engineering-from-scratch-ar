@@ -1,4 +1,11 @@
-"""عائلة Qwen-VL: مواضع M-RoPE + أداة أخذ العينات الديناميكية FPS + محلل استدعاء الأدوات JSON. ثلاثة تطبيقات للعبة: 1. جدول تدوير M-RoPE عبر الرموز النصية والصور والفيديو. 2. جهاز أخذ العينات الديناميكي FPS الذي يختار الإطارات في الثانية من ميزانية الرمز المميز المستهدف. 3. JSON- محلل الإخراج لاستدعاءات أداة الوكيل على نمط Qwen2.5-VL. ستدليب فقط. القصد هو نموذج عقلي فعال، وليس رمز الإنتاج.
+"""Qwen-VL family: M-RoPE positions + dynamic-FPS sampler + JSON tool-call parser.
+
+Three toy implementations:
+  1. M-RoPE rotation table across text, image, and video tokens.
+  2. Dynamic-FPS sampler that picks frames-per-second from a target token budget.
+  3. JSON-output parser for Qwen2.5-VL-style agent tool calls.
+
+Stdlib only. The intent is a working mental model, not production code.
 """
 
 from __future__ import annotations
@@ -18,7 +25,7 @@ class MRoPEConfig:
 
 
 def mrope_angles(cfg: MRoPEConfig, t: int, h: int, w: int) -> list[float]:
-    """قم بإرجاع زوايا الدوران لكل زوج لكل نطاق بالنظر إلى موضع (t، h، w)."""
+    """Return per-pair rotation angles for each band given a (t, h, w) position."""
     angles = []
     for dim, pos in [(cfg.temporal_dim, t), (cfg.height_dim, h), (cfg.width_dim, w)]:
         band = []
@@ -31,7 +38,7 @@ def mrope_angles(cfg: MRoPEConfig, t: int, h: int, w: int) -> list[float]:
 
 
 def mrope_rotate(cfg: MRoPEConfig, vec: list[float], t: int, h: int, w: int) -> list[float]:
-    """قم بتطبيق M-RoPE على متجه بطول cfg.hidden."""
+    """Apply M-RoPE to a vector of length cfg.hidden."""
     out = list(vec)
     axes = [
         (cfg.temporal_dim, t, 0),
@@ -83,7 +90,7 @@ class VideoPlan:
 
 
 def parse_tool_call(raw: str) -> dict:
-    """Qwen2.5-VL يصدر استدعاءات الأداة JSON؛ تحليل مع التراجع."""
+    """Qwen2.5-VL emits JSON tool calls; parse with fallback."""
     try:
         return json.loads(raw)
     except json.JSONDecodeError:

@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">LLM بوابة التوجيه: API واحد، عدد N من الموفرين</text>
+  <text x="480" y="26" text-anchor="middle" class="title">LLM بوابة التوجيه: مزودو خدمة API N واحد</text>
 
   <rect x="40" y="60" width="220" height="440" class="cool"/>
   <text x="150" y="82" text-anchor="middle" class="head">التطبيق الخاص بك</text>
@@ -30,8 +30,8 @@
 
   <rect x="280" y="60" width="380" height="440" class="cold"/>
   <text x="470" y="82" text-anchor="middle" class="head">بوابة التوجيه</text>
-  <text x="296" y="108" class="step">1 / تنقيح PII</text>
-  <text x="296" y="126" class="small">regex أو ML قبل الإرسال</text>
+  <text x="296" y="108" class="step">١/ تنقيح PII</text>
+  <text x="296" y="126" class="small">regex أو ML الإرسال المسبق</text>
   <text x="296" y="148" class="step">2/ المخبأ الدلالي</text>
   <text x="296" y="166" class="small">البحث عن التضمين الفوري</text>
   <text x="296" y="188" class="step">3/حل الاسم المستعار</text>
@@ -68,7 +68,7 @@
   <text x="776" y="276" class="step">ديب سيك / Ollama</text>
 
   <text x="776" y="328" class="step">الاختيارات (2026)</text>
-  <text x="776" y="346" class="small">LiteLLM (المضيف الذاتي)</text>
+  <text x="776" y="346" class="small">LiteLLM (مضيف ذاتي)</text>
   <text x="776" y="362" class="small">أوبن راوتر (SaaS)</text>
   <text x="776" y="378" class="small">بورتكي (همز)</text>
 

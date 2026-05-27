@@ -1,26 +1,26 @@
-# المحطة والصدفة
+# Terminal & Shell
 
-> المحطة هي المكان الذي يعيش فيه مهندسو الذكاء الاصطناعي. احصل على الراحة هنا.
+> The terminal is where AI engineers live. Get comfortable here.
 
-**النوع:** تعلم
-**اللغات:** --
-**المتطلبات الأساسية:** المرحلة 0، الدرس 01
-**الوقت:** ~35 دقيقة
+**Type:** Learn
+**Languages:** --
+**Prerequisites:** Phase 0, Lesson 01
+**Time:** ~35 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- استخدم الأنابيب وعمليات إعادة التوجيه و`grep` لتصفية سجلات التدريب ومعالجتها من سطر الأوامر
-- إنشاء جلسات tmux مستمرة مع أجزاء متعددة للتدريب المتزامن ومراقبة وحدة معالجة الرسومات
-- مراقبة موارد النظام ووحدة معالجة الرسومات باستخدام `htop` و`nvtop` و`nvidia-smi`
-- نقل الملفات بين الأجهزة المحلية والبعيدة باستخدام SSH، `scp`، و`rsync`
+- Use piping, redirects, and `grep` to filter and process training logs from the command line
+- Create persistent tmux sessions with multiple panes for concurrent training and GPU monitoring
+- Monitor system and GPU resources with `htop`, `nvtop`, and `nvidia-smi`
+- Transfer files between local and remote machines using SSH, `scp`, and `rsync`
 
-## المشكلة
+## The Problem
 
-سوف تقضي وقتًا أطول في المحطة أكثر من أي محرر. عمليات التدريب، ومراقبة وحدة معالجة الرسومات، وتتبع السجل، وجلسات SSH عن بعد، وإدارة البيئة. كل سير عمل للذكاء الاصطناعي يلامس الغلاف. إذا كنت بطيئا هنا، فأنت بطيء في كل مكان.
+You will spend more time in the terminal than in any editor. Training runs, GPU monitoring, log tailing, remote SSH sessions, environment management. Every AI workflow touches the shell. If you're slow here, you're slow everywhere.
 
-يغطي هذا الدرس المهارات النهائية التي تهم عمل الذكاء الاصطناعي. لا يوجد تاريخ يونكس. لا داعي للتعمق في البرمجة النصية لـ Bash. فقط ما تحتاجه.
+This lesson covers the terminal skills that matter for AI work. No history of Unix. No deep-dive into Bash scripting. Just what you need.
 
-##المفهوم
+## The Concept
 
 ```mermaid
 graph TD
@@ -33,21 +33,21 @@ graph TD
     end
 ```
 
-ثلاثة أشياء تعمل في وقت واحد. محطة واحدة. يمكنك الانفصال والعودة إلى المنزل وإعادة الدخول إلى SSH وإعادة التوصيل. التدريب مستمر.
+Three things running at once. One terminal. You can detach, go home, SSH back in, and reattach. The training keeps running.
 
-## بنائها
+## Build It
 
-### الخطوة 1: تعرف على صدفتك
+### Step 1: Know your shell
 
-تحقق من الصدفة التي تقوم بتشغيلها:
+Check which shell you're running:
 
 ```bash
 echo $SHELL
 ```
 
-تستخدم معظم الأنظمة `bash` أو `zsh`. كلاهما يعمل بشكل جيد. الأوامر الموجودة في هذه الدورة تعمل في أي منهما.
+Most systems use `bash` or `zsh`. Both work fine. The commands in this course work in either.
 
-الأشياء الرئيسية التي يجب معرفتها:
+Key things to know:
 
 ```bash
 # Move around
@@ -69,9 +69,9 @@ clear   # or Ctrl+L
 # Ctrl+Z
 ```
 
-### الخطوة الثانية: التوصيل وإعادة التوجيه
+### Step 2: Piping and redirects
 
-تربط الأنابيب الأوامر معًا. هذه هي الطريقة التي تعالج بها السجلات وتصفية المخرجات وأدوات السلسلة. سوف تستخدم هذا باستمرار.
+Piping connects commands together. This is how you process logs, filter output, and chain tools. You will use this constantly.
 
 ```bash
 # Count how many times "loss" appears in a log
@@ -93,19 +93,19 @@ python train.py > output.log 2> errors.log
 python train.py > train_full.log 2>&1
 ```
 
-عمليات إعادة التوجيه الثلاثة التي تحتاجها:
+The three redirects you need:
 
-| الرمز | ماذا يفعل |
-|--------|------------|
-| `>` | اكتب stdout إلى الملف (الكتابة فوق) |
-| __الكود_1__ | إلحاق stdout بالملف |
-| __الكود_2__ | اكتب stderr إلى الملف |
-| __الكود_3__ | أرسل stderr إلى نفس مكان stdout |
-| __الكود_4__ | أرسل stdout لأمر واحد كـ stdin إلى التالي |
+| Symbol | What it does |
+|--------|-------------|
+| `>` | Write stdout to file (overwrite) |
+| `>>` | Append stdout to file |
+| `2>` | Write stderr to file |
+| `2>&1` | Send stderr to same place as stdout |
+| `\|` | Send stdout of one command as stdin to the next |
 
-### الخطوة 3: العمليات الخلفية
+### Step 3: Background processes
 
-تستغرق فترات التدريب ساعات. لا ترغب في إبقاء جهازك مفتوحًا طوال الوقت.
+Training runs take hours. You don't want to keep your terminal open the whole time.
 
 ```bash
 # Run in background (output still goes to terminal)
@@ -127,19 +127,19 @@ kill %1
 kill $(pgrep -f "train.py")
 ```
 
-الفرق بين `&` و`nohup` و`screen`/`tmux`:
+The difference between `&`, `nohup`, and `screen`/`tmux`:
 
-| الطريقة | هل ينجو من إغلاق المحطة؟ | يمكن إعادة ربط؟ |
-|--------|------------------------|--------------|
-| `command &` | لا | لا |
-| __الكود_1__ | نعم | لا (راجع ملف السجل) |
-| `screen` / `tmux` | نعم | نعم |
+| Method | Survives terminal close? | Can reattach? |
+|--------|-------------------------|---------------|
+| `command &` | No | No |
+| `nohup command &` | Yes | No (check log file) |
+| `screen` / `tmux` | Yes | Yes |
 
-لأي شيء أطول من بضع دقائق، استخدم tmux.
+For anything longer than a few minutes, use tmux.
 
-### الخطوة 4: تموكس
+### Step 4: tmux
 
-يتيح لك tmux إنشاء جلسات طرفية مستمرة بأجزاء متعددة. هذه هي الأداة الوحيدة الأكثر فائدة لإدارة عمليات التدريب.
+tmux lets you create persistent terminal sessions with multiple panes. This is the single most useful tool for managing training runs.
 
 ```bash
 # Install
@@ -173,7 +173,7 @@ tmux ls
 tmux kill-session -t training
 ```
 
-جلسة سير عمل نموذجية للذكاء الاصطناعي:
+A typical AI workflow session:
 
 ```bash
 tmux new -s train
@@ -192,7 +192,7 @@ tail -f logs/experiment.log
 # tmux attach -t train
 ```
 
-### الخطوة 5: المراقبة باستخدام htop وnvtop
+### Step 5: Monitoring with htop and nvtop
 
 ```bash
 # System processes (better than top)
@@ -212,15 +212,15 @@ watch -n1 nvidia-smi
 nvidia-smi --query-compute-apps=pid,name,used_memory --format=csv
 ```
 
-`htop` روابط المفاتيح التي ستستخدمها:
-- `F6` أو `>` للفرز حسب العمود (الفرز حسب الذاكرة للعثور على تسرب الذاكرة)
-- `F5` لتبديل العرض الشجري (راجع العمليات الفرعية)
-- `F9` لقتل العملية
-- `/` للبحث عن اسم العملية
+`htop` keybindings you'll use:
+- `F6` or `>` to sort by column (sort by memory to find memory leaks)
+- `F5` to toggle tree view (see child processes)
+- `F9` to kill a process
+- `/` to search for a process name
 
-### الخطوة 6: SSH لصناديق GPU البعيدة
+### Step 6: SSH for remote GPU boxes
 
-عند استئجار وحدة معالجة رسومات سحابية (Lambda، وRunPod، وVast.ai)، فإنك تتصل عبر SSH.
+When you rent a cloud GPU (Lambda, RunPod, Vast.ai), you connect via SSH.
 
 ```bash
 # Basic connection
@@ -253,15 +253,15 @@ ssh -L 8888:localhost:8888 user@gpu-box-ip
 # ssh gpu
 ```
 
-### الخطوة 7: أسماء مستعارة مفيدة لعمل الذكاء الاصطناعي
+### Step 7: Useful aliases for AI work
 
-أضف هذه إلى `~/.bashrc` أو `~/.zshrc`:
+Add these to your `~/.bashrc` or `~/.zshrc`:
 
 ```bash
 source phases/00-setup-and-tooling/10-terminal-and-shell/code/shell_aliases.sh
 ```
 
-أو انسخ ما تريد. الأسماء المستعارة الرئيسية:
+Or copy the ones you want. The key aliases:
 
 ```bash
 # GPU status at a glance
@@ -277,11 +277,11 @@ alias ae='source .venv/bin/activate'
 alias watchloss='tail -f logs/*.log | grep --line-buffered "loss"'
 ```
 
-راجع `code/shell_aliases.sh` للاطلاع على المجموعة الكاملة.
+See `code/shell_aliases.sh` for the full set.
 
-### الخطوة 8: الأنماط الطرفية الشائعة للذكاء الاصطناعي
+### Step 8: Common AI terminal patterns
 
-هذه تأتي مرارا وتكرارا في الممارسة العملية:
+These come up repeatedly in practice:
 
 ```bash
 # Run training, log everything, notify when done
@@ -311,34 +311,34 @@ env | grep -i cuda
 env | grep -i torch
 ```
 
-## استخدمه
+## Use It
 
-إليك وقت تشغيل كل أداة خلال هذه الدورة:
+Here's when each tool comes into play during this course:
 
-| أداة | عند استخدامه |
+| Tool | When you use it |
 |------|----------------|
-| تموكس | كل جولة تدريبية (المراحل 3+) |
-| `tail -f` + `grep` | مراقبة سجلات التدريب |
-| `nohup` / `&` | مهام خلفية سريعة |
-| `htop` / `nvtop` | تصحيح أخطاء التدريب البطيء وأخطاء OOM |
-| سش + `rsync` | العمل على وحدات معالجة الرسومات السحابية |
-| الأنابيب + عمليات إعادة التوجيه | معالجة نتائج التجربة |
-| الأسماء المستعارة | توفير الوقت في الأوامر المتكررة |
+| tmux | Every training run (Phases 3+) |
+| `tail -f` + `grep` | Monitoring training logs |
+| `nohup` / `&` | Quick background tasks |
+| `htop` / `nvtop` | Debugging slow training, OOM errors |
+| SSH + `rsync` | Working on cloud GPUs |
+| Piping + redirects | Processing experiment results |
+| Aliases | Saving time on repetitive commands |
 
-## تمارين
+## Exercises
 
-1. قم بتثبيت tmux، وأنشئ جلسة من ثلاثة أجزاء، وقم بتشغيل `htop` في جزء واحد، و`watch -n1 date` في جزء آخر، وبرنامج نصي Python في الجزء الثالث. افصل وأعد التوصيل.
-2. أضف الأسماء المستعارة من `code/shell_aliases.sh` إلى تكوين Shell الخاص بك وأعد التحميل باستخدام `source ~/.zshrc` (أو `~/.bashrc`).
-3. قم بإنشاء سجل تدريب مزيف باستخدام `for i in $(seq 1 100); do echo "epoch $i loss: $(echo "scale=4; 1/$i" | bc)"; sleep 0.1; done > fake_train.log` ثم استخدم `grep` و`tail` و`awk` لاستخراج قيم الخسارة فقط.
-4. قم بإعداد إدخال تكوين SSH للخادم الذي يمكنك الوصول إليه (أو استخدم `localhost` للتدرب على بناء الجملة).
+1. Install tmux, create a session with three panes, and run `htop` in one, `watch -n1 date` in another, and a Python script in the third. Detach and reattach.
+2. Add the aliases from `code/shell_aliases.sh` to your shell config and reload with `source ~/.zshrc` (or `~/.bashrc`).
+3. Create a fake training log with `for i in $(seq 1 100); do echo "epoch $i loss: $(echo "scale=4; 1/$i" | bc)"; sleep 0.1; done > fake_train.log` and then use `grep`, `tail`, and `awk` to extract just the loss values.
+4. Set up an SSH config entry for a server you have access to (or use `localhost` to practice the syntax).
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| شل | "المحطة" | البرنامج الذي يفسر أوامرك (bash,zsh,fish) |
-| تموكس | "متعدد الإرسال الطرفي" | برنامج يتيح لك تشغيل جلسات طرفية متعددة داخل نافذة واحدة، وفصل/إعادة توصيل |
-| الأنابيب | "الشيء البار" | عامل التشغيل `\|` الذي يرسل مخرجات أحد الأوامر كمدخل إلى | آخر
-| معرف المنتج | "معرف العملية" | رقم فريد مخصص لكل عملية قيد التشغيل، يستخدم لمراقبتها أو إيقافها |
-| نوحوب | "لا يوجد تعليق" | يقوم بتشغيل أمر محصن ضد إشارة قطع الاتصال، لذا فإن إغلاق الجهاز لن يقتله |
-| سش | "الاتصال بالخادم" | Secure Shell، بروتوكول مشفر لتشغيل الأوامر على جهاز بعيد |
+| Shell | "The terminal" | The program that interprets your commands (bash, zsh, fish) |
+| tmux | "Terminal multiplexer" | A program that lets you run multiple terminal sessions inside one window, and detach/reattach |
+| Pipe | "The bar thing" | The `\|` operator that sends one command's output as input to another |
+| PID | "Process ID" | A unique number assigned to every running process, used to monitor or kill it |
+| nohup | "No hangup" | Runs a command immune to the hangup signal, so closing the terminal won't kill it |
+| SSH | "Connecting to the server" | Secure Shell, an encrypted protocol for running commands on a remote machine |

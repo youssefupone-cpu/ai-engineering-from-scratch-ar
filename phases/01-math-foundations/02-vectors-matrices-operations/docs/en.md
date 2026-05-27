@@ -1,60 +1,60 @@
 # Vectors, Matrices & Operations
 
-> Every neural network is just matrix multiplication with extra steps.
+> كل شبكة عصبية هي مجرد عملية ضرب للمصفوفات بخطوات إضافية.
 
-**Type:** Build
-**Languages:** Python, Julia
-**Prerequisites:** Phase 1, Lesson 01 (Linear Algebra Intuition)
-**Time:** ~60 minutes
+**النوع:** بناء
+** اللغات: ** بايثون، جوليا
+**المتطلبات الأساسية:** المرحلة الأولى، الدرس 01 (حدس الجبر الخطي)
+**الوقت:** ~60 دقيقة
 
 ## Learning Objectives
 
-- Build a Matrix class with element-wise operations, matrix multiplication, transpose, determinant, and inverse
-- Distinguish element-wise multiplication from matrix multiplication and explain when each applies
-- Implement a single dense neural network layer (`relu(W @ x + b)`) using only the from-scratch Matrix class
-- Explain broadcasting rules and how bias addition works in neural network frameworks
+- بناء فئة مصفوفة مع العمليات الحكيمة للعنصر، وضرب المصفوفة، والتحويل، والمحدد، والعكس
+- التمييز بين الضرب حسب العناصر وضرب المصفوفات وشرح متى ينطبق كل منهما
+- تنفيذ طبقة شبكة عصبية كثيفة واحدة (`relu(W @ x + b)`) باستخدام فئة Matrix من الصفر فقط
+- شرح قواعد البث وكيفية عمل إضافة التحيز في أطر الشبكات العصبية
 
 ## The Problem
 
-You want to build a neural network. You read the code and see this:
+تريد بناء شبكة عصبية. قرأت الكود ورأيت هذا:
 
 ```
 output = activation(weights @ input + bias)
 ```
 
-That `@` is matrix multiplication. The `weights` are a matrix. The `input` is a vector. If you do not know what those operations do, this line is magic. If you do know, it is the entire forward pass of a layer in three operations.
+أن `@` هو ضرب المصفوفة. `weights` عبارة عن مصفوفة. `input` هو ناقل. إذا كنت لا تعرف ما تفعله تلك العمليات، فهذا الخط سحري. إذا كنت تعرف، فهذا هو التمرير الأمامي الكامل للطبقة في ثلاث عمليات.
 
-Every image your model processes is a matrix of pixel values. Every word embedding is a vector. Every layer of every neural network is a matrix transformation. You cannot build AI systems without being fluent in matrix operations the same way you cannot write code without understanding variables.
+كل صورة يعالجها نموذجك هي مصفوفة لقيم البكسل. كل تضمين كلمة هو ناقل. كل طبقة من كل شبكة عصبية هي عبارة عن تحويل مصفوفة. لا يمكنك بناء أنظمة AI دون أن تتقن عمليات المصفوفة بنفس الطريقة التي لا يمكنك بها كتابة التعليمات البرمجية دون فهم المتغيرات.
 
-This lesson builds that fluency from scratch.
+هذا الدرس يبني تلك الطلاقة من الصفر.
 
 ## The Concept
 
 ### Vectors: ordered lists of numbers
 
-A vector is a list of numbers with a direction and magnitude. In AI, vectors represent data points, features, or parameters.
+المتجه عبارة عن قائمة من الأرقام ذات الاتجاه والحجم. في AI، تمثل المتجهات نقاط البيانات أو الميزات أو المعلمات.
 
 ```
 v = [3, 4]        -- a 2D vector
 w = [1, 0, -2]    -- a 3D vector
 ```
 
-A 2D vector `[3, 4]` points to coordinates (3, 4) on a plane. Its length (magnitude) is 5 (the 3-4-5 triangle).
+يشير المتجه ثنائي الأبعاد `[3, 4]` إلى الإحداثيات (3، 4) على المستوى. طوله (حجمه) هو 5 (المثلث 3-4-5).
 
 ### Matrices: grids of numbers
 
-A matrix is a 2D grid. Rows and columns. An m x n matrix has m rows and n columns.
+المصفوفة هي شبكة ثنائية الأبعاد. الصفوف والأعمدة. تحتوي المصفوفة m x n على صفوف m وأعمدة n.
 
 ```
 A = | 1  2  3 |     -- 2x3 matrix (2 rows, 3 columns)
     | 4  5  6 |
 ```
 
-In neural networks, weight matrices transform input vectors into output vectors. A layer with 784 inputs and 128 outputs uses a 128x784 weight matrix.
+في الشبكات العصبية، تقوم مصفوفات الوزن بتحويل متجهات الإدخال إلى متجهات الإخراج. تستخدم الطبقة التي تحتوي على 784 مدخلاً و128 مخرجًا مصفوفة وزن 128 × 784.
 
 ### Why shapes matter
 
-Matrix multiplication has a strict rule: `(m x n) @ (n x p) = (m x p)`. The inner dimensions must match.
+ضرب المصفوفة له قاعدة صارمة: `(m x n) @ (n x p) = (m x p)`. يجب أن تتطابق الأبعاد الداخلية.
 
 ```
 (128 x 784) @ (784 x 1) = (128 x 1)
@@ -63,43 +63,43 @@ Matrix multiplication has a strict rule: `(m x n) @ (n x p) = (m x p)`. The inne
 Inner dimensions: 784 = 784  -- valid
 ```
 
-If you get a shape mismatch error in PyTorch, this is why.
+إذا حصلت على خطأ عدم تطابق الشكل في PyTorch، فهذا هو السبب.
 
 ### The operations map
 
-| Operation | What it does | Neural network use |
-|-----------|-------------|-------------------|
-| Addition | Element-wise combine | Adding bias to output |
-| Scalar multiply | Scale every element | Learning rate * gradients |
-| Matrix multiply | Transform vectors | Layer forward pass |
-| Transpose | Flip rows and columns | Backpropagation |
-| Determinant | Single number summary | Checking invertibility |
-| Inverse | Undo a transformation | Solving linear systems |
-| Identity | Do-nothing matrix | Initialization, residual connections |
+| عملية | ماذا يفعل | استخدام الشبكة العصبية |
+|-----------|------------|------------------|
+| اضافة | الجمع بين العناصر | إضافة التحيز إلى الإخراج |
+| الضرب العددي | مقياس كل عنصر | معدل التعلم * التدرجات |
+| ضرب المصفوفة | تحويل المتجهات | تمرير طبقة إلى الأمام |
+| تبديل | قلب الصفوف والأعمدة | الانتشار العكسي |
+| المحدد | ملخص الرقم المفرد | التحقق من الانعكاس |
+| معكوس | التراجع عن التحويل | حل الأنظمة الخطية |
+| الهوية | مصفوفة عدم القيام بأي شيء | التهيئة، الاتصالات المتبقية |
 
 ### Element-wise vs matrix multiplication
 
-This distinction trips up beginners constantly.
+هذا التمييز يزعج المبتدئين باستمرار.
 
-Element-wise: multiply matching positions. Both matrices must be the same shape.
+من حيث العنصر: مضاعفة المواضع المطابقة. يجب أن تكون كلا المصفوفتين بنفس الشكل.
 
 ```
 | 1  2 |   | 5  6 |   | 5  12 |
 | 3  4 | * | 7  8 | = | 21 32 |
 ```
 
-Matrix multiplication: dot products of rows and columns. Inner dimensions must match.
+ضرب المصفوفة: المنتجات النقطية للصفوف والأعمدة. يجب أن تتطابق الأبعاد الداخلية.
 
 ```
 | 1  2 |   | 5  6 |   | 1*5+2*7  1*6+2*8 |   | 19  22 |
 | 3  4 | @ | 7  8 | = | 3*5+4*7  3*6+4*8 | = | 43  50 |
 ```
 
-Different operations, different results, different rules.
+عمليات مختلفة، نتائج مختلفة، قواعد مختلفة.
 
 ### Broadcasting
 
-When you add a bias vector to a matrix of outputs, the shapes do not match. Broadcasting stretches the smaller array to fit.
+عند إضافة متجه انحياز إلى مصفوفة من المخرجات، لا تتطابق الأشكال. يقوم البث بتمديد المصفوفة الأصغر لتناسبها.
 
 ```
 | 1  2  3 |   +   [10, 20, 30]
@@ -111,7 +111,7 @@ Broadcasting stretches the vector across rows:
 | 4  5  6 | + | 10  20  30 | = | 14  25  36 |
 ```
 
-Every modern framework does this automatically. Understanding it prevents confusion when shapes seem wrong but the code runs.
+كل إطار عمل حديث يقوم بذلك تلقائيًا. إن فهم ذلك يمنع الارتباك عندما تبدو الأشكال خاطئة ولكن الكود يعمل.
 
 ## Build It
 
@@ -266,11 +266,11 @@ print(f"Output shape: {output.shape}")
 print(f"Output: {output.data}")
 ```
 
-This is a single dense layer: `output = relu(W @ x + b)`. Every dense layer in every neural network does exactly this.
+هذه طبقة كثيفة واحدة: `output = relu(W @ x + b)`. كل طبقة كثيفة في كل شبكة عصبية تفعل هذا بالضبط.
 
 ## Use It
 
-NumPy does everything above in fewer lines and orders of magnitude faster.
+NumPy يفعل كل شيء أعلاه في عدد أقل من الخطوط وأوامر الحجم بشكل أسرع.
 
 ```python
 import numpy as np
@@ -295,9 +295,9 @@ print(f"\nNeural network layer: {weights.shape} @ {inputs.shape} = {output.shape
 print(f"Output:\n{output}")
 ```
 
-The `@` operator in Python calls `__matmul__`. NumPy implements it with optimized BLAS routines written in C and Fortran. Same math, 100x faster.
+المشغل `@` في بايثون يستدعي `__matmul__`. NumPy ينفذها من خلال إجراءات BLAS محسنة مكتوبة بلغة C وFortran. نفس الرياضيات، أسرع 100 مرة.
 
-Broadcasting in NumPy:
+البث في NumPy:
 
 ```python
 matrix = np.array([[1, 2, 3], [4, 5, 6]])
@@ -305,38 +305,38 @@ bias = np.array([10, 20, 30])
 print(matrix + bias)
 ```
 
-NumPy automatically broadcasts the 1D bias across both rows. This is how bias addition works in every neural network framework.
+NumPy يبث التحيز 1D تلقائيًا عبر كلا الصفين. هذه هي الطريقة التي تعمل بها إضافة التحيز في كل إطار عمل للشبكة العصبية.
 
 ## Ship It
 
-This lesson produces a prompt for teaching matrix operations through geometric intuition. See `outputs/prompt-matrix-operations.md`.
+يقدم هذا الدرس دافعًا لتدريس عمليات المصفوفة من خلال الحدس الهندسي. انظر `outputs/prompt-matrix-operations.md`.
 
-The Matrix class built here is the foundation for the mini neural network framework we build in Phase 3, Lesson 10.
+تعتبر فئة Matrix المبنية هنا الأساس لإطار عمل الشبكة العصبية المصغرة الذي قمنا ببنائه في المرحلة 3، الدرس 10.
 
 ## Exercises
 
-1. **Verify the inverse.** Multiply `A @ A.inverse_2x2()` and confirm you get the identity matrix. Try it with three different 2x2 matrices. What happens when the determinant is zero?
+1. **تحقق من العكس.** اضرب `A @ A.inverse_2x2()` وتأكد من حصولك على مصفوفة الهوية. جرب ذلك باستخدام ثلاث مصفوفات مختلفة 2x2. ماذا يحدث عندما يكون المحدد صفر؟
 
-2. **Implement 3x3 inverse.** Extend the Matrix class to compute inverses for 3x3 matrices using the adjugate method. Test it against NumPy's `np.linalg.inv`.
+2. **تنفيذ معكوس 3x3.** قم بتوسيع فئة المصفوفة لحساب المعكوسات لمصفوفات 3x3 باستخدام الطريقة المرافقة. اختبرها مقابل NumPy `np.linalg.inv`.
 
-3. **Build a two-layer network.** Using only your Matrix class (no NumPy), create a two-layer neural network: input (3) -> hidden (4) -> output (2). Initialize random weights, run a forward pass, and verify all shapes are correct.
+3. **قم ببناء شبكة من طبقتين.** باستخدام فئة Matrix الخاصة بك فقط (رقم NumPy)، قم بإنشاء شبكة عصبية من طبقتين: الإدخال (3) -> مخفي (4) -> الإخراج (2). قم بتهيئة الأوزان العشوائية، وقم بتشغيل التمريرة الأمامية، وتحقق من صحة جميع الأشكال.
 
 ## Key Terms
 
-| Term | What people say | What it actually means |
+| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
 |------|----------------|----------------------|
-| Vector | "An arrow" | An ordered list of numbers. In AI: a point in high-dimensional space. |
-| Matrix | "A table of numbers" | A linear transformation. It maps vectors from one space to another. |
-| Matrix multiply | "Just multiply the numbers" | Dot products between every row of the first matrix and every column of the second. Order matters. |
-| Transpose | "Flip it" | Swap rows and columns. Turns an m x n matrix into n x m. Critical in backpropagation. |
-| Determinant | "Some number from the matrix" | Measures how much the matrix scales area (2D) or volume (3D). Zero means the transformation crushes a dimension. |
-| Inverse | "Undo the matrix" | The matrix that reverses the transformation. Only exists when the determinant is not zero. |
-| Identity matrix | "The boring matrix" | The matrix equivalent of multiplying by 1. Used in residual connections (ResNets). |
-| Broadcasting | "Magic shape fixing" | Stretching a smaller array to match a larger one by repeating along missing dimensions. |
-| Element-wise | "Regular multiplication" | Multiply matching positions. Both arrays must have the same shape (or be broadcastable). |
+| ناقل | "السهم" | قائمة مرتبة من الأرقام. في AI: نقطة في الفضاء عالي الأبعاد. |
+| مصفوفة | "جدول الأرقام" | التحول الخطي. يقوم بتعيين المتجهات من مساحة إلى أخرى. |
+| ضرب المصفوفة | "فقط اضرب الأرقام" | منتجات النقاط بين كل صف من المصفوفة الأولى وكل عمود من الثانية. النظام مهم. |
+| تبديل | "اقلبها" | مبادلة الصفوف والأعمدة. يحول مصفوفة m x n إلى n x m. حاسمة في الانتشار العكسي. |
+| المحدد | "بعض الأرقام من المصفوفة" | يقيس مدى قياس مساحة المصفوفة (ثنائي الأبعاد) أو الحجم (ثلاثي الأبعاد). الصفر يعني أن التحول يسحق البعد. |
+| معكوس | "التراجع عن المصفوفة" | المصفوفة التي تعكس التحول. يوجد فقط عندما لا يكون المحدد صفرًا. |
+| مصفوفة الهوية | "المصفوفة المملة" | المصفوفة المكافئة للضرب بـ 1. تستخدم في الاتصالات المتبقية (ResNets). |
+| البث | "تثبيت الشكل السحري" | تمديد مصفوفة أصغر لتتناسب مع مصفوفة أكبر من خلال التكرار على طول الأبعاد المفقودة. |
+| العنصر الحكيم | "الضرب العادي" | مضاعفة المواقف المطابقة. يجب أن يكون لكلا المصفوفتين نفس الشكل (أو أن يكونا قابلين للبث). |
 
 ## Further Reading
 
-- [3Blue1Brown: Essence of Linear Algebra](https://www.3blue1brown.com/topics/linear-algebra) - visual intuition for every operation covered here
-- [NumPy documentation on broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) - the exact rules NumPy follows
-- [Stanford CS229 Linear Algebra Review](http://cs229.stanford.edu/section/cs229-linalg.pdf) - concise reference for ML-specific linear algebra
+- [3Blue1Brown: جوهر الجبر الخطي](https://www.3blue1brown.com/topics/linear-algebra) - الحدس البصري لكل عملية يتم تناولها هنا
+- [NumPy توثيق البث](https://numpy.org/doc/stable/user/basics.broadcasting.html) - القواعد الدقيقة NumPy فيما يلي
+- [مراجعة الجبر الخطي في جامعة ستانفورد CS229](http://cs229.stanford.edu/section/cs229-linalg.pdf) - مرجع موجز للجبر الخطي الخاص بـ ML

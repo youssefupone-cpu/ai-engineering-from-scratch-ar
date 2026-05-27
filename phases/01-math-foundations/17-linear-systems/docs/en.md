@@ -1,32 +1,32 @@
 # Linear Systems
 
-> Solving Ax = b is the oldest problem in mathematics that still runs your neural network.
+> حل Ax = b هي أقدم مشكلة في الرياضيات والتي لا تزال تدير شبكتك العصبية.
 
-**Type:** Build
-**Language:** Python
-**Prerequisites:** Phase 1, Lessons 01 (Linear Algebra Intuition), 02 (Vectors & Matrices), 03 (Matrix Transformations)
-**Time:** ~120 minutes
+**النوع:** بناء
+** اللغة: ** بايثون
+**المتطلبات:** المرحلة الأولى، الدروس 01 (حدس الجبر الخطي)، 02 (المتجهات والمصفوفات)، 03 (تحويلات المصفوفات)
+**الوقت:** ~120 دقيقة
 
 ## Learning Objectives
 
-- Solve Ax = b using Gaussian elimination with partial pivoting and back substitution
-- Factor matrices with LU, QR, and Cholesky decompositions and explain when each is appropriate
-- Derive the normal equations for least squares and connect them to linear and ridge regression
-- Diagnose ill-conditioned systems using the condition number and apply regularization to stabilize them
+- حل الفأس = ب باستخدام الحذف الغاوسي مع التمحور الجزئي والاستبدال الخلفي
+- مصفوفات العوامل مع LU، QR، وتحلل تشوليسكي وشرح متى يكون كل منها مناسبًا
+- اشتقاق المعادلات العادية للمربعات الصغرى وربطها بالانحدار الخطي والانحداري
+- تشخيص الأنظمة السيئة التكييف باستخدام رقم الحالة وتطبيق الضبط لتثبيتها
 
 ## The Problem
 
-Every time you train a linear regression, you solve a linear system. Every time you compute a least-squares fit, you solve a linear system. Every time a neural network layer computes `y = Wx + b`, it is evaluating one side of a linear system. When you add regularization, you modify the system. When you use Gaussian processes, you factor a matrix. When you invert a covariance matrix for Mahalanobis distance, you solve a linear system.
+في كل مرة تقوم فيها بتدريب الانحدار الخطي، فإنك تحل نظامًا خطيًا. في كل مرة تقوم فيها بحساب تناسب المربعات الصغرى، فإنك تحل نظامًا خطيًا. في كل مرة تقوم فيها طبقة الشبكة العصبية بحساب `y = Wx + b`، فإنها تقوم بتقييم جانب واحد من النظام الخطي. عند إضافة التنظيم، يمكنك تعديل النظام. عند استخدام العمليات الغوسية، فإنك تقوم بتحليل المصفوفة. عندما تقوم بعكس مصفوفة التغاير لمسافة ماهالانوبي، فإنك تحل نظامًا خطيًا.
 
-The equation Ax = b appears everywhere. A is a matrix of known coefficients. b is a vector of known outputs. x is the vector of unknowns you want to find. In linear regression, A is your data matrix, b is your target vector, and x is the weight vector. The entire model reduces to: find x such that Ax is as close to b as possible.
+تظهر المعادلة Ax = b في كل مكان. A عبارة عن مصفوفة للمعاملات المعروفة. ب هو ناقل النواتج المعروفة. x هو متجه المجهول الذي تريد العثور عليه. في الانحدار الخطي، A هي مصفوفة البيانات، وb هو المتجه المستهدف، وx هو متجه الوزن. يتم تقليل النموذج بأكمله إلى: العثور على x بحيث يكون Ax أقرب إلى b قدر الإمكان.
 
-This lesson builds every major method for solving that equation from scratch. You will understand why some methods are fast and others are stable, why some work only for square systems and others handle overdetermined ones, and why the condition number of your matrix determines whether your answer means anything at all.
+يبني هذا الدرس كل الطرق الرئيسية لحل هذه المعادلة من الصفر. سوف تفهم لماذا تكون بعض الطرق سريعة والبعض الآخر مستقرًا، ولماذا يعمل بعضها فقط مع الأنظمة المربعة والبعض الآخر يتعامل مع الأنظمة المفرطة في التحديد، ولماذا يحدد الرقم الشرطي للمصفوفة ما إذا كانت إجابتك تعني أي شيء على الإطلاق.
 
 ## The Concept
 
 ### What Ax = b means geometrically
 
-A system of linear equations has a geometric interpretation. Each equation defines a hyperplane. The solution is the point (or set of points) where all hyperplanes intersect.
+نظام المعادلات الخطية له تفسير هندسي. تحدد كل معادلة مستوى مفرطًا. الحل هو النقطة (أو مجموعة النقاط) التي تتقاطع فيها جميع المستويات الفائقة.
 
 ```
 2x + y = 5          Two lines in 2D.
@@ -39,7 +39,7 @@ graph LR
     B["x - y = 1"] --- S
 ```
 
-Three things can happen:
+ثلاثة أشياء يمكن أن تحدث:
 
 ```mermaid
 graph TD
@@ -54,15 +54,15 @@ graph TD
     end
 ```
 
-In matrix form, "one solution" means A is invertible. "No solution" means the system is inconsistent. "Infinite solutions" means A has a null space. Most ML problems fall in the "no exact solution" category because you have more equations (data points) than unknowns (parameters). That is where least squares comes in.
+في شكل المصفوفة، "حل واحد" يعني أن A قابل للعكس. "لا يوجد حل" يعني أن النظام غير متناسق. "الحلول اللانهائية" تعني أن A بها مساحة فارغة. تقع معظم مشكلات ML ضمن فئة "لا يوجد حل دقيق" لأن لديك معادلات (نقاط بيانات) أكثر من المجهول (المعلمات). هذا هو المكان الذي تأتي فيه المربعات الصغرى.
 
 ### Column picture vs row picture
 
-There are two ways to read Ax = b.
+هناك طريقتان لقراءة Ax = b.
 
-**Row picture.** Each row of A defines one equation. Each equation is a hyperplane. The solution is where they all intersect.
+**صورة الصف.** يحدد كل صف من A معادلة واحدة. كل معادلة هي طائرة مفرطة. الحل هو حيث تتقاطع جميعها.
 
-**Column picture.** Each column of A is a vector. The question becomes: what linear combination of the columns of A produces b?
+**صورة العمود.** كل عمود من A عبارة عن متجه. يصبح السؤال: ما هي المجموعة الخطية من أعمدة A التي تنتج b؟
 
 ```
 A = | 2  1 |    b = | 5 |
@@ -75,13 +75,13 @@ Column picture: find x1, x2 such that:
   2 * [2, 1] + 1 * [1, -1] = [4+1, 2-1] = [5, 1]   check.
 ```
 
-The column picture is more fundamental. If b lies in the column space of A, the system has a solution. If b does not, you find the closest point in the column space. That closest point is the least-squares solution.
+صورة العمود أكثر جوهرية. إذا كان b يقع في مساحة العمود A، فإن النظام لديه الحل. إذا لم يكن b كذلك، فابحث عن أقرب نقطة في مساحة العمود. أقرب نقطة هي حل المربعات الصغرى.
 
 ### Gaussian elimination
 
-Gaussian elimination transforms Ax = b into an upper triangular system Ux = c that you solve by back substitution. It is the most direct method.
+يحول الحذف الغوسي Ax = b إلى نظام مثلثي علوي Ux = c والذي يمكنك حله عن طريق الاستبدال الخلفي. إنها الطريقة الأكثر مباشرة.
 
-The algorithm:
+الخوارزمية:
 
 ```
 1. For each column k (the pivot column):
@@ -111,11 +111,11 @@ Back substitute:
   2*x1 + 2 + 2 = 8 --> x1 = 2
 ```
 
-Gaussian elimination costs O(n^3) operations. For a 1000x1000 system, that is about a billion floating-point operations. Fast, but you can do better if you need to solve multiple systems with the same A.
+تكاليف الإزالة الغوسية عمليات O(n^3). بالنسبة لنظام 1000 × 1000، فهذا يعني حوالي مليار عملية فاصلة عائمة. سريع، ولكن يمكنك القيام بعمل أفضل إذا كنت بحاجة إلى حل أنظمة متعددة بنفس A.
 
 ### Partial pivoting: why it matters
 
-Without pivoting, Gaussian elimination can fail or produce garbage. If a pivot element is zero, you divide by zero. If it is small, you amplify rounding errors.
+بدون التمحور، يمكن أن يفشل الحذف الغاوسي أو ينتج عنه بيانات غير صحيحة. إذا كان العنصر المحوري صفرًا، يتم القسمة على صفر. إذا كانت صغيرة، فإنك تقوم بتضخيم أخطاء التقريب.
 
 ```
 Bad pivot:                       With partial pivoting:
@@ -132,11 +132,11 @@ x1 = (1.001 - 1)/0.001          x1 = (2 - 1)/1 = 1.000 (correct)
    = 0.001/0.001 = 1.000        Stable because the multiplier is small.
 ```
 
-In floating-point arithmetic with limited precision, the unpivoted version can lose significant digits. Partial pivoting always selects the largest available pivot to minimize error amplification.
+في حساب الفاصلة العائمة بدقة محدودة، يمكن أن تفقد النسخة غير المحورية أرقامًا كبيرة. يؤدي التدوير الجزئي دائمًا إلى تحديد أكبر محور متاح لتقليل تضخيم الأخطاء.
 
 ### LU decomposition
 
-LU decomposition factors A into a lower triangular matrix L and an upper triangular matrix U: A = LU. The L matrix stores the multipliers from Gaussian elimination. The U matrix is the result of elimination.
+LU عوامل التحلل A إلى مصفوفة مثلثية سفلية L ومصفوفة مثلثية عليا U: A = LU. تقوم المصفوفة L بتخزين المضاعفات من الحذف الغوسي. مصفوفة U هي نتيجة الإزالة.
 
 ```
 A = L @ U
@@ -146,7 +146,7 @@ A = L @ U
 | 2  3  1 |   | 1  2  1 |   | 0  0  -2 |
 ```
 
-Why factor instead of just eliminating? Because once you have L and U, solving Ax = b for any new b costs only O(n^2):
+لماذا عامل بدلا من مجرد القضاء؟ لأنه بمجرد حصولك على L وU، فإن حل Ax = b لأي تكلفة b جديدة فقط O(n^2):
 
 ```
 Ax = b
@@ -156,15 +156,15 @@ Let y = Ux:
   Ux = y    (back substitution, O(n^2))
 ```
 
-The O(n^3) cost is paid once during factorization. Every subsequent solve is O(n^2). If you need to solve 1000 systems with the same A but different b vectors, LU saves a factor of 1000/3 in total work.
+يتم دفع تكلفة O(n^3) مرة واحدة أثناء التخصيم. كل حل لاحق هو O(n^2). إذا كنت بحاجة إلى حل 1000 نظام باستخدام نفس المتجهات A لكن بمتجهات b مختلفة، فإن LU يوفر عامل 1000/3 في إجمالي العمل.
 
-With partial pivoting, you get PA = LU where P is a permutation matrix recording the row swaps.
+مع التمحور الجزئي، تحصل على PA = LU حيث P هي مصفوفة التقليب التي تسجل مبادلات الصف.
 
 ### QR decomposition
 
-QR decomposition factors A into an orthogonal matrix Q and an upper triangular matrix R: A = QR.
+QR عوامل التحلل A إلى مصفوفة متعامدة Q ومصفوفة مثلثية علوية R: A = QR.
 
-An orthogonal matrix has the property Q^T Q = I. Its columns are orthonormal vectors. Multiplying by Q preserves lengths and angles.
+المصفوفة المتعامدة لها الخاصية Q^T Q = I. أعمدتها هي متجهات متعامدة. الضرب في Q يحافظ على الأطوال والزوايا.
 
 ```
 A = Q @ R
@@ -178,7 +178,7 @@ To solve Ax = b:
   Back substitute to get x.
 ```
 
-QR is numerically more stable than LU for solving least-squares problems. The Gram-Schmidt process builds Q column by column:
+QR أكثر استقرارًا عدديًا من LU لحل مسائل المربعات الصغرى. تقوم عملية جرام-شميت ببناء Q عمودًا بعمود:
 
 ```
 Given columns a1, a2, ... of A:
@@ -194,11 +194,11 @@ q3 = q3 / ||q3||
 R[i][j] = qi . aj    for i <= j
 ```
 
-Each step removes the component along all previous q vectors, leaving only the new orthogonal direction.
+تقوم كل خطوة بإزالة المكون على طول جميع متجهات q السابقة، مما يترك فقط الاتجاه المتعامد الجديد.
 
 ### Cholesky decomposition
 
-When A is symmetric (A = A^T) and positive definite (all eigenvalues positive), you can factor it as A = L L^T where L is lower triangular. This is the Cholesky decomposition.
+عندما يكون A متماثلًا (A = A^T) ومحددًا موجبًا (جميع القيم الذاتية موجبة)، يمكنك تحليله على أنه A = L L^T حيث يكون L مثلثيًا سفليًا. هذا هو تحلل تشوليسكي.
 
 ```
 A = L @ L^T
@@ -210,18 +210,18 @@ L[i][i] = sqrt(A[i][i] - sum(L[i][k]^2 for k < i))
 L[i][j] = (A[i][j] - sum(L[i][k]*L[j][k] for k < j)) / L[j][j]    for i > j
 ```
 
-Cholesky is twice as fast as LU and requires half the storage. It only works for symmetric positive definite matrices, but those show up constantly:
+Cholesky أسرع بمرتين من LU ويتطلب نصف مساحة التخزين. إنه يعمل فقط مع المصفوفات الإيجابية المتماثلة والمحددة، ولكن تلك تظهر باستمرار:
 
-- Covariance matrices are symmetric positive semi-definite (positive definite with regularization).
-- The kernel matrix in Gaussian processes is symmetric positive definite.
-- The Hessian of a convex function at a minimum is symmetric positive definite.
-- A^T A is always symmetric positive semi-definite.
+- مصفوفات التغاير تكون متماثلة موجبة شبه محددة (موجبة محددة مع انتظام).
+- مصفوفة النواة في العمليات الغوسية تكون متماثلة إيجابية محددة.
+- إن هسي الدالة المحدبة عند الحد الأدنى تكون متماثلة إيجابية محددة.
+- A^T A دائمًا موجب متماثل وشبه محدد.
 
-In Gaussian processes, you factor the kernel matrix K with Cholesky, then solve K alpha = y to get the predictive mean. The Cholesky factor also gives you the log-determinant for the marginal likelihood: log det(K) = 2 * sum(log(diag(L))).
+في العمليات الغوسية، تقوم بتحليل مصفوفة النواة K مع Cholesky، ثم تقوم بحل K alpha = y للحصول على المتوسط ​​التنبؤي. يمنحك عامل Cholesky أيضًا محدد السجل للاحتمال الهامشي: log det(K) = 2 * sum(log(diag(L))).
 
 ### Least squares: when Ax = b has no exact solution
 
-If A is m x n with m > n (more equations than unknowns), the system is overdetermined. There is no exact solution. Instead, you minimize the squared error:
+إذا كانت A هي m x n مع m > n (معادلات أكثر من المجهول)، فسيتم تحديد النظام بشكل زائد. لا يوجد حل دقيق. بدلاً من ذلك، يمكنك تقليل الخطأ التربيعي:
 
 ```
 minimize ||Ax - b||^2
@@ -230,13 +230,13 @@ This is the sum of squared residuals:
   sum((A[i,:] @ x - b[i])^2 for i in range(m))
 ```
 
-The minimizer satisfies the normal equations:
+يفي المصغر بالمعادلات العادية:
 
 ```
 A^T A x = A^T b
 ```
 
-Derivation: expand ||Ax - b||^2 = (Ax - b)^T (Ax - b) = x^T A^T A x - 2 x^T A^T b + b^T b. Take the gradient with respect to x, set it to zero: 2 A^T A x - 2 A^T b = 0.
+الاشتقاق:توسيع ||Ax - b||^2 = (Ax - b)^T (Ax - b) = x^T A^T A x - 2 x^T A^T b + b^T b. خذ التدرج بالنسبة لـ x، واضبطه على الصفر: 2 A^T A x - 2 A^T b = 0.
 
 ```
 Original system (overdetermined, 4 equations, 2 unknowns):
@@ -256,27 +256,27 @@ This is linear regression. x[0] is the intercept, x[1] is the slope.
 
 ### Normal equations = linear regression
 
-The connection is exact. In linear regression, your data matrix X has one row per sample and one column per feature. Your target vector y has one entry per sample. The weight vector w satisfies:
+الاتصال دقيق. في الانحدار الخطي، تحتوي مصفوفة البيانات X على صف واحد لكل عينة وعمود واحد لكل ميزة. يحتوي المتجه المستهدف y على إدخال واحد لكل عينة. ناقل الوزن ث يرضي:
 
 ```
 X^T X w = X^T y
 w = (X^T X)^(-1) X^T y
 ```
 
-This is the closed-form solution to linear regression. Every call to `sklearn.linear_model.LinearRegression.fit()` computes this (or an equivalent via QR or SVD).
+هذا هو الحل المغلق للانحدار الخطي. كل استدعاء لـ `sklearn.linear_model.LinearRegression.fit()` يحسب هذا (أو ما يعادله عبر QR أو SVD).
 
-Add a regularization term lambda * I to the matrix and you get ridge regression:
+أضف مصطلح التنظيم lambda * I إلى المصفوفة وستحصل على انحدار التلال:
 
 ```
 (X^T X + lambda * I) w = X^T y
 w = (X^T X + lambda * I)^(-1) X^T y
 ```
 
-The regularization makes the matrix better conditioned (easier to invert accurately) and prevents overfitting by shrinking the weights toward zero. The matrix X^T X + lambda * I is always symmetric positive definite when lambda > 0, so you can use Cholesky to solve it.
+التنظيم make يجعل المصفوفة مكيفة بشكل أفضل (أسهل في عكسها بدقة) ويمنع التجهيز الزائد عن طريق تقليص الأوزان نحو الصفر. المصفوفة X^T X + lambda * I تكون دائمًا موجبة متماثلة ومحددة عندما تكون lambda > 0، لذلك يمكنك استخدام Cholesky لحلها.
 
 ### Pseudoinverse (Moore-Penrose)
 
-The pseudoinverse A+ generalizes matrix inversion to non-square and singular matrices. For any matrix A:
+يعمم المعكوس الزائف A+ انعكاس المصفوفة على المصفوفات غير المربعة والمفردة. لأي مصفوفة A:
 
 ```
 x = A+ b
@@ -284,7 +284,7 @@ x = A+ b
 where A+ = V Sigma+ U^T    (computed via SVD)
 ```
 
-Sigma+ is formed by taking the reciprocal of each nonzero singular value and transposing the result. If A = U Sigma V^T, then A+ = V Sigma+ U^T.
+يتم تشكيل سيجما + عن طريق أخذ مقلوب كل قيمة مفردة غير صفرية ونقل النتيجة. إذا كان A = U سيجما V^T، فإن A+ = V سيجما+ U^T.
 
 ```
 A = U Sigma V^T        (SVD)
@@ -296,22 +296,22 @@ Sigma = | 5  0 |       Sigma+ = | 1/5  0  0 |
 A+ = V Sigma+ U^T
 ```
 
-The pseudoinverse gives the minimum-norm least-squares solution. If the system has:
-- One solution: A+ b gives it.
-- No solution: A+ b gives the least-squares solution.
-- Infinite solutions: A+ b gives the one with the smallest ||x||.
+المعكوس الكاذب يعطي حل المربعات الصغرى ذو القاعدة الدنيا. إذا كان النظام لديه:
+- حل واحد: A+b يعطيه.
+- لا يوجد حل: A+ b يعطي حل المربعات الصغرى.
+- الحلول اللانهائية: A+ b يعطي الحل الأصغر ||x||.
 
-NumPy's `np.linalg.lstsq` and `np.linalg.pinv` both use the SVD internally.
+يستخدم كل من NumPy `np.linalg.lstsq` و `np.linalg.pinv` SVD داخليًا.
 
 ### Condition number
 
-The condition number measures how sensitive the solution is to small changes in the input. For a matrix A, the condition number is:
+يقيس رقم الشرط مدى حساسية الحل للتغييرات الصغيرة في الإدخال. بالنسبة للمصفوفة A، رقم الشرط هو:
 
 ```
 kappa(A) = ||A|| * ||A^(-1)|| = sigma_max / sigma_min
 ```
 
-where sigma_max and sigma_min are the largest and smallest singular values.
+حيث sigma_max وsigma_min هما أكبر وأصغر القيم المفردة.
 
 ```
 Well-conditioned (kappa ~ 1):        Ill-conditioned (kappa ~ 10^15):
@@ -322,18 +322,18 @@ small change in x                    huge change in x
 | 0  1 |   safe to solve            | 1   1+10^(-15) |   solution is garbage
 ```
 
-Rules of thumb:
-- kappa < 100: safe, solution is accurate.
-- kappa ~ 10^k: you lose about k digits of precision from your floating-point arithmetic.
-- kappa ~ 10^16 (for float64): the solution is meaningless. The matrix is effectively singular.
+القواعد الأساسية:
+- كابا < 100: حل آمن ودقيق.
+- kappa ~ 10^k: تخسر حوالي k digits من الدقة من حساب الفاصلة العائمة.
+- kappa ~ 10^16 (لـ float64): الحل لا معنى له. المصفوفة مفردة بشكل فعال.
 
-In ML, ill-conditioning happens when features are nearly collinear. Regularization (adding lambda * I) improves the condition number from sigma_max / sigma_min to (sigma_max + lambda) / (sigma_min + lambda).
+في ML، يحدث التكييف السيئ عندما تكون الميزات على خط واحد تقريبًا. يؤدي التسوية (إضافة lambda * I) إلى تحسين رقم الحالة من sigma_max / sigma_min إلى (sigma_max + lambda) / (sigma_min + lambda).
 
 ### Iterative methods: conjugate gradient
 
-For very large sparse systems (millions of unknowns), direct methods like LU or Cholesky are too expensive. Iterative methods approximate the solution by improving a guess over many iterations.
+بالنسبة للأنظمة المتفرقة الكبيرة جدًا (ملايين العناصر المجهولة)، تكون الطرق المباشرة مثل LU أو Cholesky باهظة الثمن. الأساليب التكرارية تقريبية للحل من خلال تحسين التخمين على العديد من التكرارات.
 
-Conjugate gradient (CG) solves Ax = b when A is symmetric positive definite. It finds the exact solution in at most n iterations (in exact arithmetic), but typically converges much faster if the eigenvalues of A are clustered.
+التدرج المترافق (CG) يحل Ax = b عندما يكون A إيجابيًا متماثلًا محددًا. يجد الحل الدقيق في التكرارات n على الأكثر (في الحساب الدقيق)، ولكنه عادةً ما يتقارب بشكل أسرع بكثير إذا تم تجميع القيم الذاتية لـ A.
 
 ```
 Algorithm sketch:
@@ -350,41 +350,41 @@ Algorithm sketch:
     if ||r_{k+1}|| < tolerance: stop
 ```
 
-CG is used in:
-- Large-scale optimization (Newton-CG method)
-- Solving PDE discretizations
-- Kernel methods where the kernel matrix is too large to factor
-- Preconditioning for other iterative solvers
+CG يستخدم في:
+- التحسين على نطاق واسع (طريقة نيوتن-CG)
+- حل PDE التقديرات
+- طرق النواة حيث تكون مصفوفة النواة كبيرة جدًا بحيث لا يمكن تحليلها
+- الشروط المسبقة للحلول التكرارية الأخرى
 
-The convergence rate depends on the condition number. Better conditioned systems converge faster, which is another reason regularization helps.
+ويعتمد معدل التقارب على رقم الحالة. تتقارب الأنظمة المشروطة الأفضل بشكل أسرع، وهذا سبب آخر يساعد التنظيم.
 
 ### The full picture: which method when
 
-| Method | Requirements | Cost | Use case |
-|--------|-------------|------|----------|
-| Gaussian elimination | Square, nonsingular A | O(n^3) | One-off solve of a square system |
-| LU decomposition | Square, nonsingular A | O(n^3) factor + O(n^2) solve | Multiple solves with the same A |
-| QR decomposition | Any A (m >= n) | O(mn^2) | Least squares, numerically stable |
-| Cholesky | Symmetric positive definite A | O(n^3/3) | Covariance matrices, Gaussian processes, ridge regression |
-| Normal equations | Overdetermined (m > n) | O(mn^2 + n^3) | Linear regression (small n) |
-| SVD / pseudoinverse | Any A | O(mn^2) | Rank-deficient systems, minimum-norm solutions |
-| Conjugate gradient | Symmetric positive definite, sparse A | O(n * k * nnz) | Large sparse systems, k = iterations |
+| الطريقة | المتطلبات | التكلفة | حالة الاستخدام |
+|--------|------------|------|----------|
+| القضاء الغوسي | مربع، غير مفرد A | يا (ن ^ 3) | حل النظام المربع لمرة واحدة |
+| LU التحلل | مربع، غير مفرد A | عامل O(n^3) + O(n^2) حل | حلول متعددة بنفس A |
+| QR التحلل | أي أ (م >= ن) | يا (مليون ^ 2) | المربعات الصغرى، مستقرة عدديا |
+| تشوليسكي | متماثل إيجابي محدد A | يا(ن^3/3) | مصفوفات التغاير، العمليات الغوسية، انحدار التلال |
+| المعادلات العادية | مفرط التحديد (م > ن) | يا(من^2 + ن^3) | الانحدار الخطي (صغير ن) |
+| SVD / معكوس زائف | أي أ | يا (مليون ^ 2) | أنظمة ذات قصور في الرتبة، حلول ذات معايير دنيا |
+| التدرج المترافق | متماثل إيجابي واضح، متفرق A | يا (ن * ك * ننز) | الأنظمة المتفرقة الكبيرة، k = التكرارات |
 
 ### Connection to ML
 
-Every method in this lesson appears in production ML:
+تظهر كل طريقة في هذا الدرس في الإنتاج ML:
 
-**Linear regression.** The closed-form solution solves the normal equations X^T X w = X^T y. This is done via Cholesky (if n is small) or QR (if numerical stability matters) or SVD (if the matrix might be rank-deficient).
+**الانحدار الخطي.** الحل المغلق يحل المعادلات العادية X^T X w = X^T y. يتم ذلك عبر Cholesky (إذا كان n صغيرًا) أو QR (إذا كان الاستقرار العددي مهمًا) أو SVD (إذا كانت المصفوفة ناقصة الترتيب).
 
-**Ridge regression.** Adds lambda * I to X^T X. The regularized system (X^T X + lambda * I) w = X^T y is always solvable via Cholesky because X^T X + lambda * I is symmetric positive definite for lambda > 0.
+**انحدار ريدج.** يضيف lambda * I إلى X^T X. النظام المنتظم (X^T X + lambda * I) w = X^T y قابل للحل دائمًا عبر Cholesky لأن X^T X + lambda * I هو إيجابي متماثل محدد لـ lambda > 0.
 
-**Gaussian processes.** The predictive mean requires solving K alpha = y where K is the kernel matrix. Cholesky factorization of K is the standard approach. The log marginal likelihood uses log det(K) = 2 sum(log(diag(L))).
+**العمليات الغوسية.** يتطلب الوسط التنبؤي حل K alpha = y حيث K هي مصفوفة النواة. إن تحليل Cholesky لـ K هو النهج القياسي. يستخدم الاحتمال الهامشي للسجل log det(K) = 2 sum(log(diag(L))).
 
-**Neural network initialization.** Orthogonal initialization uses QR decomposition to create weight matrices whose columns are orthonormal. This prevents signal collapse in deep networks.
+**تهيئة الشبكة العصبية.** تستخدم التهيئة المتعامدة التحلل QR لإنشاء مصفوفات الوزن التي تكون أعمدتها متعامدة. وهذا يمنع انهيار الإشارة في الشبكات العميقة.
 
-**Preconditioning.** Large-scale optimizers use incomplete Cholesky or incomplete LU as preconditioners for conjugate gradient solvers.
+**الشروط المسبقة.** تستخدم أدوات التحسين واسعة النطاق Cholesky غير المكتمل أو LU غير المكتمل كشروط مسبقة لحلول التدرج المترافق.
 
-**Feature engineering.** The condition number of X^T X tells you if your features are collinear. If kappa is large, drop features or add regularization.
+**هندسة المعالم.** يخبرك رقم الشرط X^T X إذا كانت المعالم الخاصة بك على خط واحد. إذا كان kappa كبيرًا، قم بإسقاط الميزات أو إضافة التنظيم.
 
 ## Build It
 
@@ -505,7 +505,7 @@ def condition_number(A):
 
 ## Use It
 
-Putting the pieces together for linear regression and ridge regression on real data:
+تجميع القطع معًا للانحدار الخطي وانحدار التلال على البيانات الحقيقية:
 
 ```python
 np.random.seed(42)
@@ -533,45 +533,45 @@ print(f"Ridge weights (sklearn): {ridge_sk.coef_}")
 
 ## Ship It
 
-This lesson produces:
-- `code/linear_systems.py` containing from-scratch implementations of Gaussian elimination, LU decomposition, Cholesky decomposition, least squares, and ridge regression
-- A working demonstration that normal equations and sklearn's LinearRegression produce the same weights
+ينتج هذا الدرس:
+- `code/linear_systems.py` يحتوي على تطبيقات من الصفر للتخلص من Gaussian، وتحلل LU، وتحلل Cholesky، والمربعات الصغرى، وانحدار التلال
+- عرض عملي أن المعادلات العادية والانحدار الخطي لـ sklearn تنتج نفس الأوزان
 
 ## Exercises
 
-1. Solve the system `[[1,2,3],[4,5,6],[7,8,10]] x = [6, 15, 27]` using your Gaussian elimination, your LU solver, and `np.linalg.solve`. Verify all three give the same answer within floating-point tolerance.
+1. قم بحل النظام `[[1,2,3],[4,5,6],[7,8,10]] x = [6, 15, 27]` باستخدام الحذف الغاوسي، وحلال LU، و`np.linalg.solve`. تحقق من أن الثلاثة جميعًا يقدمون نفس الإجابة ضمن نطاق التسامح مع الفاصلة العائمة.
 
-2. Generate a 50x5 random matrix X and target y = X @ w_true + noise. Solve for w using normal equations, QR (via `np.linalg.qr`), SVD (via `np.linalg.svd`), and `np.linalg.lstsq`. Compare all four solutions. Measure the condition number of X^T X and explain how it affects which method you trust.
+2. قم بإنشاء مصفوفة عشوائية 50x5 X والهدف y = X @ w_true + الضوضاء. قم بحل المعادلة w باستخدام المعادلات العادية، QR (عبر `np.linalg.qr`)، SVD (عبر `np.linalg.svd`)، و `np.linalg.lstsq`. قارن بين الحلول الأربعة. قم بقياس رقم الشرط X^T X واشرح كيفية تأثيره على الطريقة التي تثق بها.
 
-3. Create a nearly singular matrix by making two columns almost identical (e.g., column 2 = column 1 + 1e-10 * noise). Compute its condition number. Solve Ax = b with and without regularization (add 0.01 * I). Compare the solutions and residuals. Explain why regularization helps.
+3. قم بإنشاء مصفوفة مفردة تقريبًا عن طريق جعل عمودين متطابقين تقريبًا (على سبيل المثال، العمود 2 = العمود 1 + 1e-10 * الضوضاء). احسب رقم حالتها حل Ax = b مع وبدون تنظيم (أضف 0.01 * I). قارن بين الحلول والبقايا. اشرح لماذا يساعد التنظيم.
 
-4. Implement the conjugate gradient algorithm for a 100x100 random symmetric positive definite matrix. Count how many iterations it takes to converge to tolerance 1e-8. Compare with the theoretical maximum of n iterations.
+4. تنفيذ خوارزمية التدرج المترافق لمصفوفة محددة إيجابية متماثلة عشوائية 100x100. احسب عدد التكرارات اللازمة للتقارب مع التسامح 1e-8. قارن مع الحد الأقصى النظري للتكرارات n.
 
-5. Time your Cholesky solver vs your LU solver vs `np.linalg.solve` on symmetric positive definite matrices of size 10, 50, 200, 500. Plot the results. Verify Cholesky is roughly 2x faster than LU.
+5. قم بقياس حل Cholesky الخاص بك مقابل حل LU الخاص بك مقابل `np.linalg.solve` على مصفوفات محددة إيجابية متماثلة ذات حجم 10، 50، 200، 500. ارسم النتائج. تحقق من أن Cholesky أسرع مرتين تقريبًا من LU.
 
 ## Key Terms
 
-| Term | What people say | What it actually means |
+| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
 |------|----------------|----------------------|
-| Linear system | "Solve for x" | A set of linear equations Ax = b. Finding x means finding the input that produces output b under transformation A. |
-| Gaussian elimination | "Row reduce" | Systematically zero out entries below the diagonal using row operations, producing an upper triangular system solvable by back substitution. O(n^3). |
-| Partial pivoting | "Swap rows for stability" | Before eliminating in column k, swap the row with the largest absolute value in that column to the pivot position. Prevents division by small numbers. |
-| LU decomposition | "Factor into triangles" | Write A = LU where L is lower triangular (stores multipliers) and U is upper triangular (the eliminated matrix). Amortizes the O(n^3) cost over multiple solves. |
-| QR decomposition | "Orthogonal factorization" | Write A = QR where Q has orthonormal columns and R is upper triangular. More stable than LU for least squares. |
-| Cholesky decomposition | "Square root of a matrix" | For symmetric positive definite A, write A = LL^T. Half the cost of LU. Used for covariance matrices, kernel matrices, and ridge regression. |
-| Least squares | "Best fit when exact is impossible" | Minimize the sum of squared residuals ||Ax - b||^2 when the system is overdetermined (more equations than unknowns). |
-| Normal equations | "The calculus shortcut" | A^T A x = A^T b. Setting the gradient of ||Ax - b||^2 to zero. This IS the closed-form solution to linear regression. |
-| Pseudoinverse | "Inversion for non-square matrices" | A+ = V Sigma+ U^T via SVD. Gives the minimum-norm least-squares solution for any matrix, square or rectangular, singular or not. |
-| Condition number | "How trustworthy is this answer" | kappa = sigma_max / sigma_min. Measures sensitivity to input perturbations. Lose about log10(kappa) digits of precision. |
-| Ridge regression | "Regularized least squares" | Solve (X^T X + lambda I) w = X^T y. Adding lambda I improves conditioning and shrinks weights toward zero. Prevents overfitting. |
-| Conjugate gradient | "Iterative Ax=b for big matrices" | An iterative solver for symmetric positive definite systems. Converges in at most n steps. Practical for large sparse systems where factorization is too expensive. |
-| Overdetermined system | "More data than parameters" | m > n in an m-by-n system. No exact solution exists. Least squares finds the best approximation. This is every regression problem. |
-| Back substitution | "Solve from the bottom up" | Given an upper triangular system, solve the last equation first, then substitute backward. O(n^2). |
-| Forward substitution | "Solve from the top down" | Given a lower triangular system, solve the first equation first, then substitute forward. O(n^2). Used in the L step of LU solves. |
+| النظام الخطي | "حل من أجل x" | مجموعة من المعادلات الخطية الفأس = ب. العثور على x يعني العثور على المدخلات التي تنتج الإخراج b ضمن التحويل A. |
+| القضاء الغوسي | "تقليل الصف" | قم بشكل منهجي بتصفية الإدخالات الموجودة أسفل القطر باستخدام عمليات الصف، مما ينتج عنه نظام مثلثي علوي قابل للحل عن طريق الاستبدال الخلفي. يا (ن ^ 3). |
+| التمحور الجزئي | "تبديل الصفوف لتحقيق الاستقرار" | قبل الحذف في العمود k، قم بتبديل الصف الذي يحتوي على أكبر قيمة مطلقة في هذا العمود إلى الموضع المحوري. يمنع القسمة على أعداد صغيرة. |
+| LU التحلل | "تحليل إلى مثلثات" | اكتب A = LU حيث L هو المثلث السفلي (يخزن المضاعفات) وU هو المثلث العلوي (المصفوفة المحذوفة). يستهلك تكلفة O(n^3) على حلول متعددة. |
+| QR التحلل | "التحليل المتعامد" | اكتب A = QR حيث Q بها أعمدة متعامدة وR مثلث علوي. أكثر استقرارًا من LU للمربعات الصغرى. |
+| التحلل الكوليسكي | "الجذر التربيعي للمصفوفة" | للحصول على موجب متماثل محدد A، اكتب A = LL^T. نصف تكلفة LU. يستخدم لمصفوفات التغاير ومصفوفات النواة وانحدار التلال. |
+| المربعات الصغرى | "الأفضل عندما يكون الدقة مستحيلة" | قلل مجموع المربعات المتبقية ||Ax - b||^2 عندما يكون النظام محددًا بشكل زائد (معادلات أكثر من المجهول). |
+| المعادلات العادية | "اختصار حساب التفاضل والتكامل" | أ^تي أ س = أ^تي ب. تعيين تدرج ||Ax - b||^2 إلى الصفر. هذا IS الحل المغلق للانحدار الخطي. |
+| معكوس زائف | "العكس للمصفوفات غير المربعة" | A+ = V Sigma+ U^T عبر SVD. يعطي حل المربعات الصغرى الأدنى لأي مصفوفة، مربعة أو مستطيلة، مفردة أم لا. |
+| رقم الحالة | "ما أوثق هذا الجواب" | كابا = sigma_max / sigma_min. يقيس الحساسية لاضطرابات الإدخال. تفقد حوالي log10(kappa) digits من الدقة. |
+| ريدج الانحدار | "المربعات الصغرى المنتظمة" | حل (X^T X + لامدا I) ث = X^T y. تؤدي إضافة lambda I إلى تحسين التكييف وتقليص الأوزان نحو الصفر. يمنع الإفراط في التجهيز. |
+| التدرج المترافق | "الفأس التكراري = ب للمصفوفات الكبيرة" | حلا تكراريا لأنظمة محددة إيجابية متماثلة. يتقارب في خطوات n على الأكثر. عملي للأنظمة الكبيرة المتفرقة حيث يكون التخصيم مكلفًا للغاية. |
+| نظام مفرط التحديد | "بيانات أكثر من المعلمات" | m > n في نظام m-by-n. لا يوجد حل دقيق. المربعات الصغرى تجد أفضل تقريب. هذه هي كل مشكلة الانحدار. |
+| تبديل خلفي | "الحل من الأسفل إلى الأعلى" | في حالة وجود نظام مثلث علوي، قم بحل المعادلة الأخيرة أولًا، ثم عوض للخلف. يا (ن ^ 2). |
+| استبدال للأمام | "الحل من الأعلى إلى الأسفل" | في حالة وجود نظام مثلثي أدنى، حل المعادلة الأولى أولًا، ثم عوض للأمام. يا (ن ^ 2). يستخدم في الخطوة L من LU يحل. |
 
 ## Further Reading
 
-- [MIT 18.06: Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) (Gilbert Strang) -- the definitive course on linear systems and matrix factorizations
-- [Numerical Linear Algebra](https://people.maths.ox.ac.uk/trefethen/text.html) (Trefethen & Bau) -- the standard reference for understanding numerical stability, conditioning, and why algorithms fail
-- [Matrix Computations](https://www.cs.cornell.edu/cv/GolubVanLoan4/golubandvanloan.htm) (Golub & Van Loan) -- the encyclopedic reference for every matrix algorithm
-- [3Blue1Brown: Inverse Matrices](https://www.3blue1brown.com/lessons/inverse-matrices) -- visual intuition for what solving Ax = b means geometrically
+- [MIT 18.06: Linear Algebra](https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/) (Gilbert Strang) -- الدورة النهائية حول الأنظمة الخطية وعوامل المصفوفات
+- [Numerical Linear Algebra](https://people.maths.ox.ac.uk/trefethen/text.html) (Trefethen & Bau)-- المرجع القياسي لفهم الاستقرار العددي والتكييف وسبب فشل الخوارزميات
+- [Matrix Computations](https://www.cs.cornell.edu/cv/GolubVanLoan4/golubandvanloan.htm) (Golub & Van Loan)-- المرجع الموسوعي لكل خوارزمية مصفوفية
+- [3Blue1Brown: المصفوفات العكسية](https://www.3blue1brown.com/lessons/inverse-matrices) -- الحدس البصري لما يعنيه حل Ax = b هندسيًا

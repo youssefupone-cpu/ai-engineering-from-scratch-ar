@@ -1,6 +1,13 @@
-"""منتقي الوصفات ذو الوزن المفتوح VLM - جداول الاستئصال المكثفة من أوراق 2024-2025. تشفير النتائج الرئيسية من MM1، Idefics2، Cambrian-1، Molmo، Prismatic VLMs
-كجداول بيانات بسيطة. يتيح لك أن تسأل: - بالنظر إلى مزيج الميزانية والمهام، أي وصفة تفوز - إذا قمت بتبديل المحور X، ما هي الدلتا المتوقعة - أي محور يجب استئصاله أولاً لا يوجد شخص غبي ولا حيوان الباندا - فقط إملاء وطباعة الجداول. النقطة هي الهيكل
-من الأدلة، وليس الدقة الرقمية.
+"""Open-weight VLM recipe picker — condensed ablation tables from 2024-2025 papers.
+
+Encodes the key findings from MM1, Idefics2, Cambrian-1, Molmo, Prismatic VLMs
+as simple data tables. Lets you ask:
+  - given a budget and task mix, which recipe wins
+  - if I swap axis X, what is the expected delta
+  - which axis to ablate first
+
+No numpy, no pandas — just dicts and print tables. The point is the structure
+of the evidence, not the numeric precision.
 """
 
 from __future__ import annotations

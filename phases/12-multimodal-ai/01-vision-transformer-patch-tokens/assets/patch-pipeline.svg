@@ -18,7 +18,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">رمز التصحيح ViT pipeline - صورة لإدخال المحول</text>
+  <text x="480" y="24" text-anchor="middle" class="title">رمز تصحيح ViT pipeline — صورة لإدخال المحول</text>
 
   <rect x="40" y="50" width="180" height="180" class="box"/>
   <text x="130" y="70" text-anchor="middle" class="head">1. صورة</text>
@@ -66,9 +66,9 @@
 
   <rect x="805" y="60" width="120" height="170" class="reg"/>
   <text x="865" y="80" text-anchor="middle" class="head">4. + نقاط البيع/CLS</text>
-  <text x="865" y="104" text-anchor="middle" class="small">[CLS] + تصحيحات</text>
+  <text x="865" y="104" text-anchor="middle" class="small">[CLS] + بقع</text>
   <text x="865" y="120" text-anchor="middle" class="small">+ 4 سجلات (DINOv2)</text>
-  <text x="865" y="146" text-anchor="middle" class="small">2D-RoPE في Qwen2-VL</text>
+  <text x="865" y="146" text-anchor="middle" class="small">2D-RoPE في Qwen2- VL</text>
   <text x="865" y="162" text-anchor="middle" class="small">تعلمت نقاط البيع في ViT-B</text>
   <text x="865" y="190" text-anchor="middle" class="step">تسلسل لين</text>
   <text x="865" y="206" text-anchor="middle" class="small">197 (ب)، 257 (ل)</text>
@@ -79,22 +79,22 @@
 
   <rect x="60" y="300" width="260" height="180" class="box"/>
   <text x="190" y="322" text-anchor="middle" class="step">كتل المحولات</text>
-  <text x="190" y="344" text-anchor="middle" class="small">L كتل من الانتباه + MLP</text>
+  <text x="190" y="344" text-anchor="middle" class="small">L كتل الانتباه + MLP</text>
   <text x="190" y="362" text-anchor="middle" class="small">ب: الطول = 12، العمق = 768 -&gt; 86 مليونًا</text>
   <text x="190" y="380" text-anchor="middle" class="small">ل: ل = 24، د = 1024 -&gt; 303 م</text>
   <text x="190" y="398" text-anchor="middle" class="small">ز: L=40، D=1536 -&gt; 1.1B</text>
   <text x="190" y="424" text-anchor="middle" class="step">pretraining</text>
-  <text x="190" y="442" text-anchor="middle" class="small">تحت إشراف | MAE | __المصطلح_1__</text>
+  <text x="190" y="442" text-anchor="middle" class="small">تحت إشراف | MAE | DINO</text>
   <text x="190" y="460" text-anchor="middle" class="small">CLIP | سيجليب (اختيار 2026)</text>
 
   <rect x="340" y="300" width="260" height="180" class="cool"/>
   <text x="470" y="322" text-anchor="middle" class="step">pooling</text>
-  <text x="470" y="344" text-anchor="middle" class="small">الرمز المميز CLS (ViT-B، CLIP)</text>
+  <text x="470" y="344" text-anchor="middle" class="small">CLS رمز مميز (ViT-B، CLIP)</text>
   <text x="470" y="362" text-anchor="middle" class="small">يعني بقع (DINOv2، SigLIP)</text>
   <text x="470" y="380" text-anchor="middle" class="small">تسجيل الرموز (بالوعة)</text>
-  <text x="470" y="406" text-anchor="middle" class="step">بالنسبة لـ VLM:</text>
+  <text x="470" y="406" text-anchor="middle" class="step">ل VLM:</text>
   <text x="470" y="424" text-anchor="middle" class="small">تخطي التجميع بالكامل</text>
-  <text x="470" y="442" text-anchor="middle" class="small">تغذية جميع التصحيحات إلى LLM</text>
+  <text x="470" y="442" text-anchor="middle" class="small">قم بتغذية جميع التصحيحات إلى LLM</text>
   <text x="470" y="460" text-anchor="middle" class="small">تجاهل السجلات</text>
 
   <rect x="620" y="300" width="285" height="180" class="reg"/>

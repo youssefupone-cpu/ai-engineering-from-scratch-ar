@@ -16,11 +16,11 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">مضيف واحد، جلسة JSON-RPC واحدة، ثلاثة عناصر أولية</text>
+  <text x="450" y="30" text-anchor="middle" class="title">مضيف واحد، جلسة JSON-RPC واحدة، ثلاثة بدايات</text>
 
   <!-- Host -->
   <rect x="40" y="70" width="240" height="300" class="host"/>
-  <text x="160" y="95" text-anchor="middle" class="label">المضيف (تطبيق LLM)</text>
+  <text x="160" y="95" text-anchor="middle" class="label">المضيف (LLM التطبيق)</text>
   <text x="160" y="113" text-anchor="middle" class="tag">كلود ديسكتوب / كلود كود / ChatGPT</text>
 
   <rect x="70" y="135" width="180" height="55" class="box"/>
@@ -28,22 +28,22 @@
   <text x="160" y="175" text-anchor="middle" class="tag">نموذج + موجه + سياق</text>
 
   <rect x="70" y="205" width="180" height="55" class="box"/>
-  <text x="160" y="225" text-anchor="middle" class="sub">MCP العميل</text>
+  <text x="160" y="225" text-anchor="middle" class="sub">MCP عميل</text>
   <text x="160" y="245" text-anchor="middle" class="tag">واحد لكل خادم مثبت</text>
 
   <rect x="70" y="275" width="180" height="55" class="box"/>
-  <text x="160" y="295" text-anchor="middle" class="sub">المستخدم UI / الموافقة</text>
+  <text x="160" y="295" text-anchor="middle" class="sub">المستخدم UI/ الموافقة</text>
   <text x="160" y="315" text-anchor="middle" class="tag">أوامر القطع، تؤكد</text>
 
   <!-- Wire -->
   <path d="M280 235 L500 235" class="line" marker-end="url(#arrow)"/>
-  <text x="390" y="220" text-anchor="middle" class="tag">JSON-RPC 2.0 (استوديو / HTTP)</text>
+  <text x="390" y="220" text-anchor="middle" class="tag">JSON-RPC 2.0 (ستوديو / HTTP)</text>
   <text x="390" y="252" text-anchor="middle" class="tag">تهيئة → قائمة → اتصال</text>
 
   <!-- Server -->
   <rect x="500" y="70" width="360" height="300" class="server"/>
   <text x="680" y="95" text-anchor="middle" class="label">Server</text>
-  <text x="680" y="113" text-anchor="middle" class="tag">الكود الخاص بك: FastMCP / SDK / مخصص</text>
+  <text x="680" y="113" text-anchor="middle" class="tag">الكود الخاص بك: FastMCP / SDK / custom</text>
 
   <rect x="525" y="140" width="310" height="60" class="primitive"/>
   <text x="680" y="161" text-anchor="middle" class="sub">Tools</text>
@@ -51,7 +51,7 @@
 
   <rect x="525" y="215" width="310" height="60" class="primitive"/>
   <text x="680" y="236" text-anchor="middle" class="sub">Resources</text>
-  <text x="680" y="256" text-anchor="middle" class="tag">URI-محتوى مخصص للقراءة فقط</text>
+  <text x="680" y="256" text-anchor="middle" class="tag">URI-محتوى موجه للقراءة فقط</text>
 
   <rect x="525" y="290" width="310" height="60" class="primitive"/>
   <text x="680" y="311" text-anchor="middle" class="sub">Prompts</text>

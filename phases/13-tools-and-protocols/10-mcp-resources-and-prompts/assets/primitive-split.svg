@@ -53,7 +53,7 @@
   <text x="361" y="314" class="small">  مربع حوار تضمين الملف</text>
   <text x="361" y="334" class="step">يختار عندما:</text>
   <text x="361" y="352" class="small">  بيانات للقراءة فقط</text>
-  <text x="361" y="368" class="small">  قابل للتوجيه بحلول URI</text>
+  <text x="361" y="368" class="small">  يمكن معالجته بواسطة URI</text>
   <text x="361" y="384" class="small">  قد تحتاج الاشتراك</text>
   <text x="361" y="410" class="step">إشارة القرار:</text>
   <text x="361" y="428" class="small">  يريد المستخدم أن يشمل</text>

@@ -1,14 +1,18 @@
-"""TTS العرض التوضيحي الداخلي: البحث عن الصوت + تقدير المدة + جدول إطار ميل. ستدليب فقط. يبني لعبة جدول الحروف الإنجليزية إلى الصوت والتقديرات
-الفترات، وطباعة جدول الإطار الذي سيفعله نموذج نمط FastSpeech
-استخدام. للتوليف الحقيقي، قم بتثبيت kokoro أو f5-tts (انظر المستندات). تشغيل: كود python3/main.py
+"""TTS internals demo: phoneme lookup + duration estimation + mel frame schedule.
+
+Stdlib only. Builds a toy English grapheme-to-phoneme table, estimates
+durations, and prints the frame schedule a FastSpeech-style model would
+use. For real synthesis, install kokoro or f5-tts (see docs).
+
+Run: python3 code/main.py
 """
 
 import math
 import random
 
 
-# الحد الأدنى من جدول الحروف إلى الصوت: تعيين واحد لكل مجموعة حروف مشتركة.
-# تستخدم الأنظمة الحقيقية espeak-ng أو g2p-en (قاموس CMU) - وهذا هو نطاق اللعبة.
+# Minimal grapheme-to-phoneme table: one mapping per common grapheme cluster.
+# Real systems use espeak-ng or g2p-en (CMU dictionary) — this is toy scope.
 G2P = {
     " ":    ["_"],
     "a":    ["AH"],  "b":    ["B"],  "c":    ["K"],  "d":    ["D"],  "e":    ["EH"],
@@ -33,7 +37,7 @@ G2P = {
     "!":    ["_PAUSE_"],
 }
 
-# المدد النموذجية (الإطارات بمعدل 12.5 مللي ثانية)؛ يطابق تقريبًا إحصائيات FastSpeech
+# Typical durations (frames @ 12.5 ms hop); roughly matches FastSpeech stats
 DURATION_FRAMES = {
     "AA": 9, "AE": 7, "AH": 6, "AO": 8, "AW": 9, "AY": 8, "B": 4, "CH": 6,
     "D": 4, "DH": 5, "EH": 6, "ER": 7, "EY": 8, "F": 6, "G": 5, "HH": 4,

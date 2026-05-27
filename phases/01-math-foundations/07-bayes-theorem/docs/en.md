@@ -1,32 +1,47 @@
-# نظرية بايز
-> الاحتمال يتعلق بما تتوقعه. نظرية بايز تدور حول ما تتعلمه.
-**النوع:** بناء
-** اللغة: ** بايثون
-**المتطلبات الأساسية:** المرحلة الأولى، الدرس 06 (أساسيات الاحتمالية)
-**الوقت:** ~75 دقيقة
-## أهداف التعلم
-- تطبيق نظرية بايز لحساب الاحتمالات الخلفية من السوابق والاحتمالات والأدلة
-- أنشئ مصنف نص Naive Bayes من البداية باستخدام تجانس لابلاس وحساب مساحة السجل
-- قارن بين تقدير MLE وMAP واشرح كيف يتوافق MAP مع تسوية L2
-- تنفيذ التحديث Bayesian المتسلسل باستخدام الأقدمية المترافقة Beta-Binomial لاختبار A/B
-## المشكلة
-الفحص الطبي دقيق بنسبة 99%. اختبارك إيجابي. ما هي احتمالات إصابتك بالمرض بالفعل؟
-معظم الناس يقولون 99٪. الجواب الحقيقي يعتمد على مدى ندرة المرض. إذا أصيب به شخص واحد من كل 10000 شخص، فإن النتيجة الإيجابية تمنحك فرصة بنسبة 1٪ فقط للإصابة بالمرض. أما الـ 99% الأخرى من النتائج الإيجابية فهي إنذارات كاذبة من أشخاص أصحاء.
-هذا ليس سؤال خدعة. إنها نظرية بايز. كل مرشح للبريد العشوائي، وكل تشخيص طبي، وكل نموذج للتعلم الآلي يقيس عدم اليقين يستخدم هذا المنطق الدقيق. عليك أن تبدأ مع الاعتقاد. ترى الأدلة. قمت بالتحديث.
-إذا قمت بإنشاء أنظمة ML دون فهم ذلك، فسوف تسيء تفسير مخرجات النموذج، وتضع حدودًا سيئة، وترسل توقعات مفرطة الثقة.
-##المفهوم
-### من الاحتمال المشترك إلى بايز
-لقد تعلمت بالفعل من الدرس 06 أن الاحتمال الشرطي هو:
+# Bayes' Theorem
+
+> Probability is about what you expect. Bayes' theorem is about what you learn.
+
+**Type:** Build
+**Language:** Python
+**Prerequisites:** Phase 1, Lesson 06 (Probability Fundamentals)
+**Time:** ~75 minutes
+
+## Learning Objectives
+
+- Apply Bayes' theorem to compute posterior probabilities from priors, likelihoods, and evidence
+- Build a Naive Bayes text classifier from scratch with Laplace smoothing and log-space computation
+- Compare MLE and MAP estimation and explain how MAP corresponds to L2 regularization
+- Implement sequential Bayesian updating using Beta-Binomial conjugate priors for A/B testing
+
+## The Problem
+
+A medical test is 99% accurate. You test positive. What are the chances you actually have the disease?
+
+Most people say 99%. The real answer depends on how rare the disease is. If 1 in 10,000 people have it, a positive result only gives you about a 1% chance of being sick. The other 99% of positive results are false alarms from healthy people.
+
+This is not a trick question. It is Bayes' theorem. Every spam filter, every medical diagnostic, every machine learning model that quantifies uncertainty uses this exact reasoning. You start with a belief. You see evidence. You update.
+
+If you build ML systems without understanding this, you will misinterpret model outputs, set bad thresholds, and ship overconfident predictions.
+
+## The Concept
+
+### From joint probability to Bayes
+
+You already know from Lesson 06 that conditional probability is:
+
 ```
 P(A|B) = P(A and B) / P(B)
 ```
 
-وبشكل متناظر:
+And symmetrically:
+
 ```
 P(B|A) = P(A and B) / P(A)
 ```
 
-كلا التعبيرين يشتركان في نفس البسط: P(A وB). اجعلها متساوية وأعد ترتيبها:
+Both expressions share the same numerator: P(A and B). Set them equal and rearrange:
+
 ```
 P(A and B) = P(A|B) * P(B) = P(B|A) * P(A)
 
@@ -35,21 +50,27 @@ Therefore:
 P(A|B) = P(B|A) * P(A) / P(B)
 ```
 
-هذه هي نظرية بايز. أربع كميات، معادلة واحدة.
-### الأجزاء الأربعة
-| الجزء | الاسم | ماذا يعني |
+That is Bayes' theorem. Four quantities, one equation.
+
+### The four parts
+
+| Part | Name | What it means |
 |------|------|---------------|
-| ف(أ\|ب) | خلفي | اعتقادك المحدث حول (أ) بعد رؤية الدليل (ب)|
-| ف(ب\|أ) | احتمال | ما مدى احتمالية وجود الدليل B إذا كان A صحيحًا |
-| ف(أ) | قبل | اعتقادك حول أ قبل رؤية أي دليل |
-| ف(ب) | الأدلة | الاحتمال الإجمالي لرؤية B تحت كل الاحتمالات |
-يعمل مصطلح الدليل P (B) بمثابة مُطبيع. يمكنك توسيعه باستخدام قانون الاحتمال الكلي:
+| P(A\|B) | Posterior | Your updated belief about A after seeing evidence B |
+| P(B\|A) | Likelihood | How probable the evidence B is if A is true |
+| P(A) | Prior | Your belief about A before seeing any evidence |
+| P(B) | Evidence | Total probability of seeing B under all possibilities |
+
+The evidence term P(B) acts as a normalizer. You can expand it using the law of total probability:
+
 ```
 P(B) = P(B|A) * P(A) + P(B|not A) * P(not A)
 ```
 
-### مثال على الاختبار الطبي
-يصيب المرض 1 من كل 10000 شخص. الاختبار دقيق بنسبة 99% (يكتشف 99% من المرضى، ويعطي نتائج إيجابية كاذبة في 1% من الحالات).
+### Medical test example
+
+A disease affects 1 in 10,000 people. The test is 99% accurate (catches 99% of sick people, gives false positives 1% of the time).
+
 ```
 P(sick)          = 0.0001     (prior: disease is rare)
 P(positive|sick) = 0.99       (likelihood: test catches it)
@@ -66,9 +87,12 @@ P(sick|positive) = P(positive|sick) * P(sick) / P(positive)
                  = 0.98%
 ```
 
-أقل من 1%. السابق يهيمن. عندما تكون الحالة نادرة، فحتى الاختبارات الدقيقة تنتج في الغالب نتائج إيجابية كاذبة. ولهذا السبب يطلب الأطباء اختبارات التأكيد.
-### مثال لتصفية البريد العشوائي
-تصلك رسالة بريد إلكتروني تحتوي على كلمة "اليانصيب". هل هو البريد العشوائي؟
+Less than 1%. The prior dominates. When a condition is rare, even accurate tests produce mostly false positives. This is why doctors order confirmation tests.
+
+### Spam filter example
+
+You receive an email containing the word "lottery". Is it spam?
+
 ```
 P(spam)                = 0.3      (30% of email is spam)
 P("lottery"|spam)      = 0.05     (5% of spam emails contain "lottery")
@@ -83,67 +107,98 @@ P(spam|"lottery") = 0.05 * 0.3 / 0.0157
                   = 95.5%
 ```
 
-كلمة واحدة تغير الاحتمال من 30% إلى 95.5%. يقوم مرشح البريد العشوائي الحقيقي بتطبيق Bayes على مئات الكلمات في وقت واحد.
-### ساذج بايز: افتراض الاستقلال
-يقوم Naive Bayes بتوسيع هذا ليشمل ميزات متعددة من خلال افتراض أن جميع الميزات مستقلة بشروط نظرًا للفئة:
+One word shifts the probability from 30% to 95.5%. A real spam filter applies Bayes across hundreds of words simultaneously.
+
+### Naive Bayes: independence assumption
+
+Naive Bayes extends this to multiple features by assuming all features are conditionally independent given the class:
+
 ```
 P(class | feature_1, feature_2, ..., feature_n)
   = P(class) * P(feature_1|class) * P(feature_2|class) * ... * P(feature_n|class)
     / P(feature_1, feature_2, ..., feature_n)
 ```
 
-الجزء "الساذج" هو افتراض الاستقلال. في النص، تكرارات الكلمات ليست مستقلة ("New" و"York" مرتبطان). لكن الافتراض يعمل بشكل جيد بشكل مدهش في الممارسة العملية لأن المصنف يحتاج فقط إلى ترتيب الفئات، وليس إنتاج احتمالات معايرة.
-نظرًا لأن المقام هو نفسه لجميع الفئات، يمكنك تخطيه ومقارنة البسط فقط:
+The "naive" part is the independence assumption. In text, word occurrences are not independent ("New" and "York" are correlated). But the assumption works surprisingly well in practice because the classifier only needs to rank classes, not produce calibrated probabilities.
+
+Since the denominator is the same for all classes, you can skip it and just compare numerators:
+
 ```
 score(class) = P(class) * product of P(feature_i | class)
 ```
 
-اختر الفصل الحاصل على أعلى الدرجات.
-### تقدير الاحتمالية القصوى (MLE)
-كيف تحصل على P(feature|class) من بيانات التدريب؟ عدد.
+Pick the class with the highest score.
+
+### Maximum likelihood estimation (MLE)
+
+How do you get P(feature|class) from training data? Count.
+
 ```
 P("free"|spam) = (number of spam emails containing "free") / (total spam emails)
 ```
 
-هذا هو MLE: اختر قيم المعلمات التي make هي البيانات التي تمت ملاحظتها على الأرجح. أنت تقوم بتعظيم دالة الاحتمالية، والتي تقلل إلى التكرار النسبي بالنسبة للأعداد المنفصلة.
-المشكلة: إذا لم تظهر الكلمة مطلقًا في البريد العشوائي أثناء التدريب، فإن MLE يعطيها احتمالًا صفرًا. كلمة واحدة غير مرئية تقتل المنتج بأكمله. أصلح هذا باستخدام تجانس لابلاس:
+This is MLE: choose the parameter values that make the observed data most likely. You are maximizing the likelihood function, which for discrete counts reduces to relative frequency.
+
+Problem: if a word never appears in spam during training, MLE gives it probability zero. One unseen word kills the entire product. Fix this with Laplace smoothing:
+
 ```
 P(word|class) = (count(word, class) + 1) / (total_words_in_class + vocabulary_size)
 ```
 
-إن إضافة 1 إلى كل عدد يضمن ألا يكون الاحتمال صفرًا على الإطلاق.
-### الحد الأقصى اللاحق (MAP)
-MLE يسأل: ما هي المعلمات التي تزيد من P(data|parameters)؟
-MAP يسأل: ما هي المعلمات التي تزيد من P(parameters|data) إلى الحد الأقصى؟
-بواسطة نظرية بايز:
+Adding 1 to every count ensures no probability is ever zero.
+
+### Maximum a posteriori (MAP)
+
+MLE asks: what parameters maximize P(data|parameters)?
+
+MAP asks: what parameters maximize P(parameters|data)?
+
+By Bayes' theorem:
+
 ```
 P(parameters|data) proportional to P(data|parameters) * P(parameters)
 ```
 
-يضيف MAP سابقة على المعلمات نفسها. إذا كنت تعتقد أن المعلمات يجب أن تكون صغيرة، فيمكنك تشفير ذلك كسابقة تعاقب القيم الكبيرة. وهذا مطابق للتسوية L2 في ML. عقوبة "التلال" في انحدار التلال هي حرفيًا سابقة غاوسية على الأوزان.
-| تقدير | يحسن | ML يعادل |
+MAP adds a prior over the parameters themselves. If you believe parameters should be small, you encode that as a prior that penalizes large values. This is identical to L2 regularization in ML. The "ridge" penalty in ridge regression is literally a Gaussian prior on the weights.
+
+| Estimation | Optimizes | ML equivalent |
 |------------|-----------|---------------|
-| __المصطلح_1__ | P(بيانات\|معلمات) | تدريب غير منتظم |
-| __المصطلح_2__ | P(data\|params) * P(params) | L2 / L1 التسوية |
-### بايزي مقابل المتكرر: الفرق العملي
-يعامل التكراريون المعلمات على أنها مجهولة ثابتة. ويسألون: "لو كررت هذه التجربة عدة مرات ماذا سيحدث؟"
-يعامل البايزيون المعلمات كتوزيعات. ويتساءلون: "في ضوء ما لاحظته، ما هو اعتقادي بشأن المعلمات؟"
-بالنسبة لبناء أنظمة ML، الفرق العملي:
-| الجانب | متكرر | بايزي |
-|--------|------------|----------|
-| الإخراج | تقدير النقطة | التوزيع على القيم |
-| عدم اليقين | فترات الثقة (حول الإجراء) | فترات زمنية موثوقة (حول المعلمة) |
-| بيانات صغيرة | يمكن أن يفرط | الأعمال السابقة بمثابة تنظيم |
-| الحساب | عادة أسرع | غالبا ما يتطلب أخذ العينات (MCMC) |
-معظم الإنتاج ML متكرر (SGD، تقديرات النقاط). تتألق الأساليب الافتراضية عندما تحتاج إلى عدم يقين معايرة (القرارات الطبية، وأنظمة السلامة الحرجة) أو عندما تكون البيانات نادرة (التعلم ببضع جرعات، والبداية الباردة).
-### سبب أهمية التفكير البايزي في ML
-العلاقة أعمق من التشبيه:
-**الأسبقية هي التنظيم.** السابقة الغوسية على الأوزان هي L2 التنظيم. لابلاس قبل هو L1. في كل مرة تقوم فيها بإضافة مصطلح تنظيم، فإنك تقوم بإصدار بيان بايزي حول قيم المعلمات التي تتوقعها.
-**النتائج الخلفية هي حالة من عدم اليقين.** لا يخبرك احتمال واحد متوقع بأي شيء عن مدى ثقة النموذج في هذا التقدير. تمنحك الطرق الافتراضية توزيعًا: "أعتقد أن P (البريد العشوائي) يتراوح بين 0.8 و0.95."
-** تحديثات بايز هي التعلم عبر الإنترنت. ** يصبح الجزء الخلفي من اليوم هو السابق للغد. عندما يرى نموذجك بيانات جديدة، فإنه يقوم بتحديث معتقداته بشكل تدريجي بدلاً من إعادة التدريب من الصفر.
-**مقارنة النماذج بايزي.** يستخدم معيار المعلومات بايزي (BIC) والاحتمالية الهامشية وعوامل بايز كلها المنطق بايزي للاختيار بين النماذج دون الإفراط في التجهيز.
-## بنائها
-### الخطوة 1: دالة نظرية بايز
+| MLE | P(data\|params) | Unregularized training |
+| MAP | P(data\|params) * P(params) | L2 / L1 regularization |
+
+### Bayesian vs frequentist: the practical difference
+
+Frequentists treat parameters as fixed unknowns. They ask: "If I repeated this experiment many times, what would happen?"
+
+Bayesians treat parameters as distributions. They ask: "Given what I have observed, what do I believe about the parameters?"
+
+For building ML systems, the practical difference:
+
+| Aspect | Frequentist | Bayesian |
+|--------|-------------|----------|
+| Output | Point estimate | Distribution over values |
+| Uncertainty | Confidence intervals (about procedure) | Credible intervals (about parameter) |
+| Small data | Can overfit | Prior acts as regularization |
+| Computation | Usually faster | Often requires sampling (MCMC) |
+
+Most production ML is frequentist (SGD, point estimates). Bayesian methods shine when you need calibrated uncertainty (medical decisions, safety-critical systems) or when data is scarce (few-shot learning, cold start).
+
+### Why Bayesian thinking matters for ML
+
+The connection is deeper than analogy:
+
+**Priors are regularization.** A Gaussian prior on weights is L2 regularization. A Laplace prior is L1. Every time you add a regularization term, you are making a Bayesian statement about what parameter values you expect.
+
+**Posteriors are uncertainty.** A single predicted probability tells you nothing about how confident the model is in that estimate. Bayesian methods give you a distribution: "I think P(spam) is between 0.8 and 0.95."
+
+**Bayes updates are online learning.** Today's posterior becomes tomorrow's prior. When your model sees new data, it updates its beliefs incrementally instead of retraining from scratch.
+
+**Model comparison is Bayesian.** Bayesian information criterion (BIC), marginal likelihood, and Bayes factors all use Bayesian reasoning to choose between models without overfitting.
+
+## Build It
+
+### Step 1: Bayes theorem function
+
 ```python
 def bayes(prior, likelihood, false_positive_rate):
     evidence = likelihood * prior + false_positive_rate * (1 - prior)
@@ -154,7 +209,8 @@ result = bayes(prior=0.0001, likelihood=0.99, false_positive_rate=0.01)
 print(f"P(sick|positive) = {result:.4f}")
 ```
 
-### الخطوة 2: مصنف Naive Bayes
+### Step 2: Naive Bayes classifier
+
 ```python
 import math
 from collections import defaultdict
@@ -194,8 +250,10 @@ class NaiveBayes:
         return best_class
 ```
 
-احتمالات السجل تمنع التدفق السفلي. يؤدي ضرب العديد من الاحتمالات الصغيرة إلى إنتاج أرقام صغيرة جدًا بالنسبة للنقطة العائمة. إن جمع احتمالات السجل مستقر عدديًا ومكافئ رياضيًا.
-### الخطوة 3: التدريب على البيانات غير المرغوب فيها
+Log probabilities prevent underflow. Multiplying many small probabilities produces numbers too tiny for floating point. Summing log-probabilities is numerically stable and mathematically equivalent.
+
+### Step 3: Train on spam data
+
 ```python
 train_docs = [
     "win free money now",
@@ -231,7 +289,8 @@ for msg in test_messages:
     print(f"  '{msg}' -> {classifier.predict(msg)}")
 ```
 
-### الخطوة 4: فحص الاحتمالات المستفادة
+### Step 4: Inspect the learned probabilities
+
 ```python
 def show_top_words(classifier, cls, n=5):
     vocab_size = len(classifier.vocab)
@@ -250,8 +309,10 @@ print("\nTop ham words:")
 show_top_words(classifier, "ham")
 ```
 
-## استخدمه
-تطبيقات Bayes الساذجة الجاهزة للإنتاج لسفن Scikit-Learn:
+## Use It
+
+Scikit-learn ships production-ready naive Bayes implementations:
+
 ```python
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
@@ -268,47 +329,64 @@ for msg, pred in zip(test_messages, predictions):
     print(f"  '{msg}' -> {pred}")
 ```
 
-نفس الخوارزمية. يتعامل CountVectorizer مع الترميز وبناء المفردات. يعالج MultinomialNB التجانس واحتمالات التسجيل داخليًا. نسختك من الصفر تفعل نفس الشيء في 40 سطرًا.
-## اشحنها
-توضح فئة NaiveBayes المبنية هنا خط pipeline الكامل: الرمز المميز، وتقدير الاحتمالية باستخدام تجانس لابلاس، والتنبؤ بمساحة السجل. يتم تشغيل الكود الموجود في `code/bayes.py` من طرف إلى طرف دون أي تبعيات تتجاوز مكتبة Python القياسية.
-### الأسبقية المترافقة
-عندما ينتمي التوزيعان السابق والخلفي إلى نفس عائلة التوزيعات، يُطلق على التوزيع السابق اسم "المترافق". هذا التحديث البايزي makes نظيف جبريًا - تحصل على شكل خلفي مغلق بدون تكامل رقمي.
-| احتمال | المترافق السابق | خلفي | مثال |
+Same algorithm. CountVectorizer handles tokenization and vocabulary building. MultinomialNB handles smoothing and log-probabilities internally. Your from-scratch version does the same thing in 40 lines.
+
+## Ship It
+
+The NaiveBayes class built here demonstrates the full pipeline: tokenization, probability estimation with Laplace smoothing, log-space prediction. The code in `code/bayes.py` runs end-to-end with no dependencies beyond Python's standard library.
+
+### Conjugate Priors
+
+When the prior and posterior belong to the same family of distributions, the prior is called "conjugate." This makes Bayesian updating algebraically clean -- you get a closed-form posterior without numerical integration.
+
+| Likelihood | Conjugate Prior | Posterior | Example |
 |-----------|----------------|-----------|---------|
-| برنولي | بيتا (أ، ب) | بيتا (أ + النجاحات، ب + الفشل) | تقدير انحياز الوجه للعملة |
-| عادي (التباين المعروف) | عادي (mu_0، sigma_0) | عادي (المتوسط ​​​​المرجح، التباين الأصغر) | معايرة المستشعر |
-| بواسون | جاما(أ، ب) | جاما(أ + مجموع الأعداد، ب + ن) | نمذجة معدلات الوصول |
-| متعدد الحدود | ديريشليت(ألفا) | ديريشليت (ألفا + الأعداد) | نمذجة الموضوع، النماذج اللغوية |
-سبب أهمية ذلك: بدون وجود سوابق مترافقة، تحتاج إلى أخذ عينات مونت كارلو أو الاستدلال المتغير لتقريب الجزء الخلفي. مع الأسبقية المترافقة، يمكنك فقط تحديث رقمين.
-توزيع بيتا هو المترافق الأكثر شيوعًا في الممارسة العملية. تمثل Beta(a, b) اعتقادك حول معلمة الاحتمال. المتوسط ​​هو أ/(أ+ب). كلما كان a+b أكبر، كان التوزيع أكثر تركيزًا (ثقة).
-حالات خاصة من النسخة التجريبية السابقة:
-- بيتا (1، 1) = منتظم. ليس لديك رأي حول المعلمة.
-- بيتا(10، 10) = بلغ ذروته عند 0.5. أنت تعتقد بشدة أن المعلمة قريبة من 0.5.
-- Beta(1, 10) = منحرف نحو 0. أنت تعتقد أن المعلمة صغيرة.
-قاعدة التحديث بسيطة جدًا:
+| Bernoulli | Beta(a, b) | Beta(a + successes, b + failures) | Coin flip bias estimation |
+| Normal (known variance) | Normal(mu_0, sigma_0) | Normal(weighted mean, smaller variance) | Sensor calibration |
+| Poisson | Gamma(a, b) | Gamma(a + sum of counts, b + n) | Modeling arrival rates |
+| Multinomial | Dirichlet(alpha) | Dirichlet(alpha + counts) | Topic modeling, language models |
+
+Why this matters: without conjugate priors, you need Monte Carlo sampling or variational inference to approximate the posterior. With conjugate priors, you just update two numbers.
+
+The Beta distribution is the most common conjugate prior in practice. Beta(a, b) represents your belief about a probability parameter. The mean is a/(a+b). The larger a+b, the more concentrated (confident) the distribution.
+
+Special cases of the Beta prior:
+- Beta(1, 1) = uniform. You have no opinion about the parameter.
+- Beta(10, 10) = peaked at 0.5. You strongly believe the parameter is near 0.5.
+- Beta(1, 10) = skewed toward 0. You believe the parameter is small.
+
+The update rule is dead simple:
+
 ```
 Prior:     Beta(a, b)
 Data:      s successes, f failures
 Posterior: Beta(a + s, b + f)
 ```
 
-لا تكاملات. لا أخذ العينات. مجرد إضافة.
-### تحديث بايزي متسلسل
-الاستدلال البايزي متسلسل بشكل طبيعي. مؤخرة اليوم تصبح سابقة للغد. هذه هي الطريقة التي تتعلم بها الأنظمة الحقيقية بشكل تدريجي دون إعادة معالجة جميع البيانات التاريخية.
-مثال ملموس: تقدير ما إذا كانت العملة عادلة.
-**اليوم الأول: لا توجد بيانات حتى الآن.**
-ابدأ بـ Beta(1, 1) - وهو موحد سابق. ليس لديك رأي.
-- المتوسط السابق: 0.5
-- السابقة مسطحة عبر [0، 1]
-**اليوم الثاني: مراقبة 7 رؤوس و3 ذيول.**
-الخلفي = بيتا(1 + 7، 1 + 3) = بيتا (8، 4)
-- الوسط الخلفي: 8/12 = 0.667
-- تشير الأدلة إلى أن العملة منحازة نحو الصورة
-**اليوم الثالث: شاهد 5 رؤوس أخرى و5 ذيول أخرى.**
-استخدم الجزء الخلفي من الأمس كسابق اليوم.
-الخلفي = بيتا (8 + 5، 4 + 5) = بيتا (13، 9)
-- الوسط الخلفي: 13/22 = 0.591
-- البيانات الجديدة المتوازنة أعادت التقدير نحو 0.5
+No integrals. No sampling. Just addition.
+
+### Sequential Bayesian Updating
+
+Bayesian inference is naturally sequential. Today's posterior becomes tomorrow's prior. This is how real systems learn incrementally without reprocessing all historical data.
+
+Concrete example: estimating whether a coin is fair.
+
+**Day 1: No data yet.**
+Start with Beta(1, 1) -- a uniform prior. You have no opinion.
+- Prior mean: 0.5
+- Prior is flat across [0, 1]
+
+**Day 2: Observe 7 heads, 3 tails.**
+Posterior = Beta(1 + 7, 1 + 3) = Beta(8, 4)
+- Posterior mean: 8/12 = 0.667
+- Evidence suggests the coin is biased toward heads
+
+**Day 3: Observe 5 more heads, 5 more tails.**
+Use yesterday's posterior as today's prior.
+Posterior = Beta(8 + 5, 4 + 5) = Beta(13, 9)
+- Posterior mean: 13/22 = 0.591
+- The balanced new data pulled the estimate back toward 0.5
+
 ```mermaid
 graph LR
     A["Prior<br/>Beta(1,1)<br/>mean = 0.50"] -->|"7H, 3T"| B["Posterior 1<br/>Beta(8,4)<br/>mean = 0.67"]
@@ -316,58 +394,75 @@ graph LR
     C -->|"5H, 5T"| D["Posterior 2<br/>Beta(13,9)<br/>mean = 0.59"]
 ```
 
-ترتيب الملاحظات لا يهم. تم تحديث Beta(1,1) بجميع الرؤوس الـ 12 والـ 8 في وقت واحد مما يعطي Beta(13, 9) - نفس النتيجة. التحديث المتسلسل والتحديث الدفعي متكافئان رياضيا. لكن التحديث التسلسلي يتيح لك اتخاذ قرارات make في كل خطوة دون تخزين البيانات الأولية.
-هذا هو أساس التعلم عبر الإنترنت في أنظمة الإنتاج ML. تستخدم عينات طومسون لقطاع الطرق وأنظمة التوصية التزايدية وأجهزة الكشف عن الشذوذ المتدفق جميعها هذا النمط.
-### الاتصال باختبار A/B
-اختبار A/B هو استدلال بايزي مقنع.
-الإعداد: أنت تختبر لونين للزر. البديل أ (الأزرق) والبديل ب (الأخضر). تريد أن تعرف أي واحد يحصل على المزيد من النقرات.
-اختبار بايزي أ/ب:
-1. **مسبق.** ابدأ بالإصدار التجريبي (1، 1) لكلا الخيارين. لا يوجد تفضيل مسبق.
-2. **البيانات.** البديل أ: 50 نقرة من أصل 1000 مشاهدة. البديل ب: 65 نقرة من أصل 1000 مشاهدة.
-3. **الخلفيات.**
-   - أ: بيتا(1 + 50، 1 + 950) = بيتا (51، 951). يعني = 0.051
-   - ب: بيتا(1 + 65، 1 + 935) = بيتا (66، 936). يعني = 0.066
-4. **القرار.** حساب P(B > A) - احتمال أن يكون معدل التحويل الحقيقي لـ B أعلى من A.
-إن حساب P(B > A) تحليليًا أمر صعب. لكن مونت كارلو make الأمر تافه:
+The order of observations does not matter. Beta(1,1) updated with all 12 heads and 8 tails at once gives Beta(13, 9) -- the same result. Sequential updating and batch updating are mathematically equivalent. But sequential updating lets you make decisions at each step without storing raw data.
+
+This is the foundation of online learning in production ML systems. Thompson sampling for bandits, incremental recommendation systems, and streaming anomaly detectors all use this pattern.
+
+### Connection to A/B Testing
+
+A/B testing is Bayesian inference in disguise.
+
+Setup: you are testing two button colors. Variant A (blue) and variant B (green). You want to know which one gets more clicks.
+
+The Bayesian A/B test:
+
+1. **Prior.** Start with Beta(1, 1) for both variants. No prior preference.
+2. **Data.** Variant A: 50 clicks out of 1000 views. Variant B: 65 clicks out of 1000 views.
+3. **Posteriors.** - A: Beta(1 + 50, 1 + 950) = Beta(51, 951). Mean = 0.051 - B: Beta(1 + 65, 1 + 935) = Beta(66, 936). Mean = 0.066
+4. **Decision.** Compute P(B > A) -- the probability that B's true conversion rate is higher than A's.
+
+Computing P(B > A) analytically is hard. But Monte Carlo makes it trivial:
+
 ```
 1. Draw 100,000 samples from Beta(51, 951)  -> samples_A
 2. Draw 100,000 samples from Beta(66, 936)  -> samples_B
 3. P(B > A) = fraction of samples where B > A
 ```
 
-إذا كان P(B > A) > 0.95، فستشحن المتغير B. وإذا كان يتراوح بين 0.05 و0.95، فستستمر في جمع البيانات. إذا كانت قيمة P(B > A) < 0.05، فستقوم بشحن المتغير A.
-المزايا مقارنة باختبار A/B المتكرر:
-- تحصل على عبارة احتمالية مباشرة: "هناك احتمال بنسبة 97% أن يكون B أفضل"
-- لا يوجد ارتباك في القيمة p. لا يوجد تحوط "فشل في رفض فرضية العدم".
-- يمكنك التحقق من النتائج في أي وقت دون تضخيم المعدلات الإيجابية الكاذبة (لا توجد "مشكلة في النظر")
-- يمكنك دمج المعرفة السابقة (على سبيل المثال، تشير الاختبارات السابقة إلى أن معدلات التحويل عادة ما تكون 3-8%)
-| الجانب | المتكرر أ/ب | بايزي أ/ب |
-|--------|----------------|-------------|
-| الإخراج | القيمة p | ف(ب > أ) |
-| التفسير | "ما مدى مفاجأة هذه البيانات إذا كانت A=B؟" | "ما مدى احتمالية أن يكون B أفضل من A؟" |
-| التوقف المبكر | يضخم الإيجابيات الكاذبة | آمن في أي وقت (نظرًا لنموذج مسبق تم اختياره جيدًا ومحدد بشكل صحيح) |
-| المعرفة السابقة | غير مستخدم | تم ترميزه كنسخة تجريبية سابقة |
-| قاعدة القرار | ف <0.05 | P(B > A) > العتبة |
-## تمارين
-1. **اختبارات متعددة.** جاءت نتيجة اختبار المريض إيجابية مرتين في اختبارات مستقلة (كلاهما دقيق بنسبة 99%، ومعدل انتشار المرض 1 من كل 10000). ما هو P(sick) بعد كلا الاختبارين؟ استخدم الجزء الخلفي من الاختبار الأول كالسابق للاختبار الثاني.
-2. **تأثير التجانس.** قم بتشغيل مصنف البريد العشوائي بقيم التجانس 0.01 و0.1 و1.0 و10.0. كيف تتغير احتمالات الكلمة العليا؟ ماذا يحدث مع التنعيم = 0 والكلمة التي تظهر فقط في لحم الخنزير؟
-3. **إضافة ميزات.** قم بتوسيع فئة NaiveBayes لاستخدام طول الرسالة (قصيرة/طويلة) أيضًا كميزة إلى جانب عدد الكلمات. قم بتقدير P(short|spam) وP(short|ham) من بيانات التدريب وقم بإضافتها إلى درجة التنبؤ.
-4. **MAP يدويًا.** بالنظر إلى البيانات التي تمت ملاحظتها (7 صور في 10 نقرات للعملات المعدنية)، قم بحساب تقدير MAP للتحيز باستخدام Beta(2,2) السابقة. قارنه بتقدير MLE (7/10).
-## المصطلحات الرئيسية
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+If P(B > A) > 0.95, you ship variant B. If it is between 0.05 and 0.95, you keep collecting data. If P(B > A) < 0.05, you ship variant A.
+
+Advantages over frequentist A/B testing:
+- You get a direct probability statement: "there is a 97% chance B is better"
+- No p-value confusion. No "fail to reject the null hypothesis" hedging.
+- You can check results at any time without inflating false positive rates (no "peeking problem")
+- You can incorporate prior knowledge (e.g., previous tests suggest conversion rates are usually 3-8%)
+
+| Aspect | Frequentist A/B | Bayesian A/B |
+|--------|----------------|--------------|
+| Output | p-value | P(B > A) |
+| Interpretation | "How surprising is this data if A=B?" | "How likely is B better than A?" |
+| Early stopping | Inflates false positives | Safe at any point (given a well-chosen prior and correctly specified model) |
+| Prior knowledge | Not used | Encoded as Beta prior |
+| Decision rule | p < 0.05 | P(B > A) > threshold |
+
+## Exercises
+
+1. **Multiple tests.** A patient tests positive twice on independent tests (both 99% accurate, disease prevalence 1 in 10,000). What is P(sick) after both tests? Use the posterior from the first test as the prior for the second.
+
+2. **Smoothing impact.** Run the spam classifier with smoothing values of 0.01, 0.1, 1.0, and 10.0. How do the top word probabilities change? What happens with smoothing=0 and a word that appears only in ham?
+
+3. **Add features.** Extend the NaiveBayes class to also use message length (short/long) as a feature alongside word counts. Estimate P(short|spam) and P(short|ham) from the training data and fold it into the prediction score.
+
+4. **MAP by hand.** Given observed data (7 heads in 10 coin flips), compute the MAP estimate of the bias using a Beta(2,2) prior. Compare it to the MLE estimate (7/10).
+
+## Key Terms
+
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| قبل | "تخميني الأولي" | P(الفرضية) قبل ملاحظة الأدلة. في ML: مصطلح التنظيم. |
-| احتمال | "مدى ملاءمة البيانات" | P(دليل\|فرضية). ما مدى احتمالية أن تكون البيانات المرصودة تحت فرضية محددة. |
-| خلفي | "اعتقادي المحدث" | P(الفرضية\|الدليل). السابق مضروبًا في الاحتمال، ثم يتم تطبيعه. |
-| الأدلة | "ثابت التطبيع" | P(البيانات) في جميع الفرضيات. يضمن المبالغ الخلفية إلى 1. |
-| ساذج بايز | "مصنف النص البسيط" | مصنف يفترض أن الميزات مستقلة عن الفئة. يعمل بشكل جيد على الرغم من الافتراض الخاطئ. |
-| تجانس لابلاس | "التجانس الإضافي" | إضافة عدد صغير إلى كل ميزة لمنع احتمالات الصفر من البيانات غير المرئية. |
-| __المصطلح_1__ | "مجرد استخدام الترددات" | اختر المعلمات التي تعمل على تكبير P(data\|parameters). لا سابقة. يمكن الإفراط في البيانات الصغيرة. |
-| __المصطلح_2__ | "MLE مع سابقة" | اختر المعلمات التي تعمل على تكبير P(data\|parameters) * P(parameters). أي ما يعادل MLE المنتظم. |
-| احتمالية السجل | "العمل في مساحة السجل" | استخدام السجل (P) بدلاً من P لتجنب التدفق السفلي للفاصلة العائمة عند ضرب العديد من الأرقام الصغيرة. |
-| إيجابية كاذبة | "إنذار خاطئ" | الاختبار يقول إيجابي، ولكن الحالة الحقيقية سلبية. يقود مغالطة المعدل الأساسي. |
-## مزيد من القراءة
-- [3Blue1Brown: Bayes' theorem](https://www.youtube.com/watch?v=HZGCoVF3YvM) - شرح مرئي مع مثال الفحص الطبي
-- [Stanford CS229: Generative Learning Algorithms](https://cs229.stanford.edu/notes2022fall/cs229-notes2.pdf) - ساذجة بايز وارتباطها بالنماذج التمييزية
-- [Think Bayes](https://greenteapress.com/wp/think-bayes/) - كتاب مجاني إحصائيات بايزي مع كود بايثون
-- [scikit-learn Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html) - تطبيقات الإنتاج ومتى يتم استخدام كل متغير
+| Prior | "My initial guess" | P(hypothesis) before observing evidence. In ML: the regularization term. |
+| Likelihood | "How well the data fits" | P(evidence\|hypothesis). How probable the observed data is under a specific hypothesis. |
+| Posterior | "My updated belief" | P(hypothesis\|evidence). The prior multiplied by the likelihood, then normalized. |
+| Evidence | "The normalizing constant" | P(data) across all hypotheses. Ensures the posterior sums to 1. |
+| Naive Bayes | "That simple text classifier" | A classifier that assumes features are independent given the class. Works well despite the false assumption. |
+| Laplace smoothing | "Add-one smoothing" | Adding a small count to every feature to prevent zero probabilities from unseen data. |
+| MLE | "Just use the frequencies" | Choose parameters that maximize P(data\|parameters). No prior. Can overfit with small data. |
+| MAP | "MLE with a prior" | Choose parameters that maximize P(data\|parameters) * P(parameters). Equivalent to regularized MLE. |
+| Log-probability | "Work in log space" | Using log(P) instead of P to avoid floating-point underflow when multiplying many small numbers. |
+| False positive | "A wrong alarm" | The test says positive, but the true state is negative. Drives the base rate fallacy. |
+
+## Further Reading
+
+- [3Blue1Brown: Bayes' theorem](https://www.youtube.com/watch?v=HZGCoVF3YvM) - visual explanation with the medical test example
+- [Stanford CS229: Generative Learning Algorithms](https://cs229.stanford.edu/notes2022fall/cs229-notes2.pdf) - naive Bayes and its connection to discriminative models
+- [Think Bayes](https://greenteapress.com/wp/think-bayes/) - free book, Bayesian statistics with Python code
+- [scikit-learn Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html) - production implementations and when to use each variant

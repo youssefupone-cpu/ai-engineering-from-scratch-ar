@@ -1,4 +1,11 @@
-"""خلاط مجموعة التدريب المسبق الأصلي على طراز InternVL3 + جهاز محاكاة جهاز التوجيه ViR. ثلاث ألعاب: 1. مخطط مزيج النصوص — مع تحديد النسب المئوية المستهدفة، وخطوات الحساب لكل طريقة. 2. شريحة جهاز التوجيه ViR - نظرًا لتوزيع الاستعلام، قم بتقدير متوسط ​​الرموز المميزة لكل طلب. 3. تقدير إنتاجية DVD - في ضوء FLOPs لجهاز التشفير وLLM FLOPs، اختر العرض. ستدليب فقط. ليس مدربا حقيقيا. يوضح تشغيل InternVL3 المحاسبة.
+"""InternVL3-style native pretraining corpus mixer + ViR router simulator.
+
+Three toys:
+  1. Corpus mix planner — given target percentages, compute steps per modality.
+  2. ViR router sim — given a query distribution, estimate avg tokens per request.
+  3. DvD throughput estimate — given encoder FLOPs and LLM FLOPs, pick serving.
+
+Stdlib only. Not a real trainer; illustrates the accounting InternVL3 runs.
 """
 
 from __future__ import annotations

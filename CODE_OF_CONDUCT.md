@@ -27,4 +27,4 @@
 
 ## Attribution
 
-تم تعديل قواعد السلوك هذه من [ميثاق المساهمين] (https://www.contributor-covenant.org), الإصدار 2.1.
+تم تعديل قواعد السلوك هذه من [ميثاق المساهم](https://www.contributor-covenant.org), الإصدار 2.1.

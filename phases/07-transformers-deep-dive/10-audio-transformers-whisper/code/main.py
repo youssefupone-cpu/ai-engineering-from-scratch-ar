@@ -1,6 +1,8 @@
-"""همس pipeline في stdlib خالص - التأطير، طاقة كل إطار، موجه المهمة. يتطلب المخطط الطيفي الكامل لسجل الميل FFT. بالنسبة لعلم أصول التدريس، نعرض الإطار
-الشكل (وهو كل ما يراه المحول على الإطلاق) بالإضافة إلى بادئة رمز المهمة
-الذي يتحكم في سلوك Whisper.
+"""Whisper pipeline in pure stdlib — framing, per-frame energy, task prompt.
+
+Full log-mel spectrogram requires FFT. For pedagogy we show the framing
+shape (which is all the transformer ever sees) plus the task-token prefix
+that controls Whisper's behavior.
 """
 
 import math
@@ -26,7 +28,7 @@ def frame_signal(x, frame_size=FRAME_SIZE, hop=HOP):
 
 
 def frame_energy(frame):
-    """طاقة مجموع المربعات، بمقياس لوغاريتمي. الوقوف في ميل السلطة."""
+    """Sum-of-squares energy, log-scaled. Stand-in for mel power."""
     e = sum(v * v for v in frame)
     return math.log(e + 1e-9)
 
@@ -52,21 +54,21 @@ def main():
     print(f"hop:    {HOP} samples ({HOP / SAMPLE_RATE * 1000:.0f} ms)")
     print()
 
-    # 1 ثانية من موجة جيبية 440 هرتز
+    # 1 second of a 440 Hz sine wave
     x = sine_wave(440, duration_s=1.0)
     frames = frame_signal(x)
     print(f"1s signal → {len(x)} samples → {len(frames)} frames")
 
-    # 5 ثواني
+    # 5 seconds
     x5 = sine_wave(440, duration_s=5.0)
     frames5 = frame_signal(x5)
     print(f"5s signal → {len(x5)} samples → {len(frames5)} frames")
 
-    # لوحة إلى نافذة الهمس لمدة 30 ثانية
+    # pad to 30-second Whisper window
     padded = pad_or_clip(frames5, TARGET_FRAMES)
     print(f"after pad to {MAX_SECONDS}s: {len(padded)} frames  (target {TARGET_FRAMES})")
 
-    # "الطاقة" لكل إطار (موقف ميل). يستخدم Whisper 80 مل من الصناديق لكل إطار.
+    # per-frame "energy" (mel stand-in). Whisper uses 80 mel bins per frame.
     energies = [frame_energy(f) for f in frames5]
     print(f"first 5 frame log-energies: " + ", ".join(f"{e:+.3f}" for e in energies[:5]))
     print()

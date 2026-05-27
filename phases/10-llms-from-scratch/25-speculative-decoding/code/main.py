@@ -1,7 +1,25 @@
-"""أداة فك التشفير التأملية: قاعدة الرفض الدقيقة، اكتساح ألفا، قناع الشجرة. ثلاثة أشياء يثبتها هذا الملف، تتعلق بتوزيعات الألعاب الاصطناعية والرياضيات
-يبقى مرئيًا: 1. قاعدة الرفض ليفياثان-كالاي-ماتياس تحافظ على الهدف توزيع العينات. مسافة التباين الكلي التجريبية بين أخذ العينات المستهدفة البسيطة وأخذ العينات التخمينية مع المسودة هو <0.01 أكثر من 50_000 تعادل.
-2. الصيغة المتوقعة للرموز المميزة لكل تحقق صحيحة. بالنسبة لمعدل القبول ألفا وطول المسودة K، E[الرموز المميزة] = (1 - alpha^(K+1)) / (1 - alpha) يطابق الإنتاجية المقاسة ضمن ضوضاء أخذ العينات.
-3. تتحقق صياغة الشجرة من مسارات مرشحة متعددة في هدف واحد إلى الأمام عبر قناع سببي طوبولوجي. نحن نبني شجرة عمق K، تنبعث منها قناع التحقق، وتأكد من حضور كل node فقط له الأجداد. Stdlib + numpy فقط. تشغيل: بيثون main.py بايثون main.py --vocab 64 --alpha 0.75 --k 4 --samples 50000
+"""Speculative decoding harness: exact rejection rule, alpha sweep, tree mask.
+
+Three things this file proves, on synthetic toy distributions so the math
+stays visible:
+
+1. The Leviathan-Kalai-Matias rejection rule preserves the target's
+   sampling distribution. Empirical total-variation distance between
+   plain target sampling and speculative-with-draft sampling is < 0.01
+   over 50_000 draws.
+2. The expected-tokens-per-verify formula holds. For acceptance rate
+   alpha and draft length K, E[tokens] = (1 - alpha^(K+1)) / (1 - alpha)
+   matches the measured throughput within sampling noise.
+3. Tree drafting verifies multiple candidate paths in a single target
+   forward via a topological causal mask. We build a depth-K tree, emit
+   the verification mask, and confirm every node attends only to its
+   ancestors.
+
+Stdlib + numpy only.
+
+Run:
+    python main.py
+    python main.py --vocab 64 --alpha 0.75 --k 4 --samples 50000
 """
 
 from __future__ import annotations
@@ -18,7 +36,9 @@ def make_target(vocab: int, rng: np.random.Generator) -> np.ndarray:
 
 def make_draft(target: np.ndarray, alpha_hint: float,
                rng: np.random.Generator) -> np.ndarray:
-    """مسودة توزيع يقترب قبولها المتوقع على مستوى الرمز المميز alpha_hint. نحن نمزج الهدف خطيًا مع توزيع موحد؛ ال تتحكم نسبة المزج في مدى قرب المسودة من الهدف."""
+    """A draft distribution whose expected token-level acceptance is near
+    alpha_hint. We linearly blend target with a uniform distribution; the
+    blend ratio controls how close the draft is to the target."""
     vocab = target.size
     uniform = np.full(vocab, 1.0 / vocab)
     draft = alpha_hint * target + (1.0 - alpha_hint) * uniform
@@ -33,7 +53,7 @@ def sample(probs: np.ndarray, rng: np.random.Generator) -> int:
 
 def speculative_step(target: np.ndarray, draft: np.ndarray, K: int,
                      rng: np.random.Generator) -> list[int]:
-    """جولة واحدة. إرجاع 1..K+1 من الرموز المميزة التي يساوي توزيعها الهدف."""
+    """One round. Returns 1..K+1 tokens whose distribution equals target."""
     proposed: list[int] = []
     q_at: list[float] = []
     for _ in range(K):
@@ -70,7 +90,8 @@ def empirical_dist(samples: list[int], vocab: int) -> np.ndarray:
 def verify_distribution(target: np.ndarray, draft: np.ndarray, K: int,
                         n_samples: int, rng: np.random.Generator
                         ) -> tuple[float, float]:
-    """قارن توزيعات الرمز المميز التالي ضمن أخذ العينات المستهدفة البسيطة و أخذ العينات التخمينية. يجب أن يكون لا يمكن تمييزها إحصائيا."""
+    """Compare next-token distributions under plain target sampling and
+    speculative sampling. They must be statistically indistinguishable."""
     vocab = target.size
     plain = [sample(target, rng) for _ in range(n_samples)]
     spec_first: list[int] = []
@@ -108,7 +129,7 @@ def measure_throughput(target: np.ndarray, draft: np.ndarray, K: int,
 
 
 def build_tree(branch_factor: tuple[int, ...]) -> list[tuple[int, list[int]]]:
-    """قم بإرجاع nodes كـ (parent_index، Deep-path). الفهرس 0 هو الجذر."""
+    """Return nodes as (parent_index, depth-path). Index 0 is root."""
     tree: list[tuple[int, list[int]]] = [(-1, [])]
     frontier = [0]
     for depth, b in enumerate(branch_factor):
@@ -122,7 +143,7 @@ def build_tree(branch_factor: tuple[int, ...]) -> list[tuple[int, list[int]]]:
 
 
 def tree_attention_mask(tree: list[tuple[int, list[int]]]) -> np.ndarray:
-    """قناع سببي N x N حيث يعتني كل صف بأسلافه فقط."""
+    """N x N causal mask where each row attends to its ancestors only."""
     n = len(tree)
     mask = np.zeros((n, n), dtype=np.int8)
     for i in range(n):

@@ -1,5 +1,7 @@
-"""أساسيات الصوت من الصفر: التوليف، DFT، اكتشاف الذروة، إظهار التعرجات. Stdlib فقط: math، wave، struct، os، tempfile.
-تشغيل: كود python3/main.py
+"""Audio fundamentals from scratch: synthesize, DFT, detect peak, demonstrate aliasing.
+
+Stdlib only: math, wave, struct, os, tempfile.
+Run: python3 code/main.py
 """
 
 import math

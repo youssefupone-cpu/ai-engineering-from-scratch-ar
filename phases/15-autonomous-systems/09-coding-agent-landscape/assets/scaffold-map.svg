@@ -30,15 +30,15 @@
   <rect x="290" y="80" width="160" height="70" class="hot"/>
   <text x="370" y="104" text-anchor="middle" class="label">SWE-الوكيل v1</text>
   <text x="370" y="124" text-anchor="middle" class="small">ACI مجموعة الأوامر</text>
-  <text x="370" y="140" text-anchor="middle" class="small">JSON استدعاءات الأداة</text>
+  <text x="370" y="140" text-anchor="middle" class="small">JSON مكالمات الأداة</text>
 
   <rect x="500" y="80" width="160" height="70" class="cold"/>
   <text x="580" y="104" text-anchor="middle" class="label">كلاين مستقل</text>
-  <text x="580" y="124" text-anchor="middle" class="small">VS الرمز + السياسة</text>
+  <text x="580" y="124" text-anchor="middle" class="small">VS الكود + السياسة</text>
   <text x="580" y="140" text-anchor="middle" class="small">حلقة التحقق</text>
 
   <rect x="700" y="80" width="140" height="70" class="box"/>
-  <text x="770" y="104" text-anchor="middle" class="label">SWE-تم التحقق من المقعد</text>
+  <text x="770" y="104" text-anchor="middle" class="label">SWE-مقعد تم التحقق منه</text>
   <text x="770" y="124" text-anchor="middle" class="small">500 مهمة منسقة</text>
   <text x="770" y="140" text-anchor="middle" class="small">(نفس المهام)</text>
 
@@ -50,7 +50,7 @@
   <!-- Score delta -->
   <rect x="80" y="180" width="580" height="80" class="box"/>
   <text x="100" y="202" class="label">دلتا النتيجة</text>
-  <text x="100" y="226" class="content">نفس النموذج: SWE-agent v1 43.2% | كلاين مستقل 59.8%</text>
+  <text x="100" y="226" class="content">نفس الموديل: SWE-agent v1 43.2% | كلاين مستقل 59.8%</text>
   <text x="100" y="244" class="content">+16.6 نقطة مطلقة من السقالات وحدها. (الأيدي المفتوحة، العصر AI 2026)</text>
 
   <!-- CodeAct vs JSON -->
@@ -71,6 +71,6 @@
   <text x="480" y="366" class="content">- عمل واحد في كل دورة؛ المزيد من المنعطفات لنفس المهمة</text>
   <text x="480" y="382" class="content">- التركيبية تعيش في المنسق</text>
   <text x="480" y="402" class="content">استخدم عندما: يتحكم الموفر في المنفذ</text>
-  <text x="480" y="418" class="content">         (وكلاء كلود المُدارون، OpenAI المساعدون)</text>
+  <text x="480" y="418" class="content">         (وكلاء كلود المُدارون، OpenAI مساعدون)</text>
   <text x="480" y="434" class="small">هي المهيمنة في الخدمات المدارة، حيث السلامة عن طريق البناء</text>
 </svg>

@@ -1,5 +1,11 @@
-"""المرحلة 13 الدرس 21 - LLM بوابة التوجيه، stdlib. OpenAI-طلب متوافق في؛ السلسلة الاحتياطية ذات الأولوية تختار الواجهة الخلفية؛ التكلفة
-يقوم المتعقب بتجميع الإنفاق لكل طلب. PII يتم التنقيح قبل الإرسال. موفري الواجهة الخلفية هم بذرة. يُظهر تبديل واحد إلى "انقطاع التيار" خيارًا احتياطيًا. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 21 - LLM routing gateway, stdlib.
+
+OpenAI-compatible request in; priority fallback chain picks a backend; cost
+tracker accumulates spend per-request. PII redaction runs pre-dispatch.
+
+Backend providers are stubs. Switching one to "outage" shows fallback.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -11,7 +17,7 @@ from dataclasses import dataclass, field
 from typing import Callable
 
 
-# التكلفة لكل مليون رمز (المدخلات والمخرجات)؛ أسعار وهمية للعرض التجريبي
+# cost per 1M tokens (input, output); fake rates for demo
 PRICES = {
     "openai/gpt-4o":           (5.0, 15.0),
     "openai/gpt-4o-mini":      (0.15, 0.60),
@@ -38,7 +44,7 @@ def provider_call(model: str, messages: list[dict]) -> dict:
     }
 
 
-# الأسماء المستعارة -> السلسلة الاحتياطية
+# aliases -> fallback chain
 ROUTES = {
     "smart": ["openai/gpt-4o", "anthropic/claude-sonnet", "google/gemini-pro"],
     "fast":  ["openai/gpt-4o-mini", "anthropic/claude-haiku"],
@@ -75,7 +81,7 @@ class Invocation:
 
 def route(alias: str, messages: list[dict]) -> Invocation:
     inv = Invocation(alias=alias)
-    # تنقيح pii على المدخلات
+    # redact pii on inputs
     new_msgs = []
     for m in messages:
         txt, r = redact_pii(m["content"])

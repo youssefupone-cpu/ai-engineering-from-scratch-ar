@@ -80,10 +80,10 @@
   <text x="480" y="393" text-anchor="middle" class="label">V1 (ICLR 2025) -&gt; V2 (مايكروسوفت، يناير 2026)</text>
 
   <text x="50" y="420" class="step">الرأس خافت</text>
-  <text x="220" y="420" class="small">V1: تم تخفيضه إلى النصف (الحفاظ على عدد المعلمات) · V2: لم يتغير (مطابقة فك التشفير الأساسي)</text>
+  <text x="220" y="420" class="small">V1: النصف (الحفاظ على عدد المعلمات) · V2: بدون تغيير (مطابقة فك التشفير الأساسي)</text>
 
   <text x="50" y="440" class="step">رؤساء الاستعلام</text>
-  <text x="220" y="440" class="small">V1: نفس خط الأساس · V2: تضاعف، KV الرأس دون تغيير</text>
+  <text x="220" y="440" class="small">V1: نفس خط الأساس · V2: مضاعف، KV الرأس دون تغيير</text>
 
   <text x="50" y="460" class="step">kernel</text>
   <text x="220" y="460" class="small">V1: مخصص CUDA · V2: FlashAttention عادي - تغيير الرمز صفر</text>

@@ -1,10 +1,30 @@
-"""نموذج الانحدار الذاتي البصري للعبة (VAR): التنبؤ بالمقياس التالي على الهرم. الحد الأدنى من تنفيذ آلية VAR الموضحة في
-مستندات/en.md. ثلاث قطع: 1. رمز مميز متبقي متعدد المقاييس VQ على "صور" صغيرة مقاس 8 × 8 (حجم صغير مكتبة الأنماط: الصلبة، المتدرجة، الدائرية، المدقق، المتقاطع). الرموز في يرمز المقياس k إلى المتبقي من المقاييس 1..k-1. جهاز فك التشفير هو مجموع التضمينات على نطاق upsampled.
-2. متنبئ النطاق التالي المكيف (لوجستي / softmax mini-LM) على المفردات الصغيرة). يتم تقريب "المحول" حسب المقياس الرسوم البيانية الشرطية. الهندسة التي يعلمها الدرس هي التكييف المرتب على نطاق واسع والتنبؤ الموازي داخل النطاق، ليس اهتماما عميقا.
-3. تمر حلقة الجيل التي تقوم بتشغيل محول K (واحدة لكل مقياس) و عينات كل موقف بالمقياس الحالي بالتوازي من مشروط. تعمل المبالغ المفككة من تضمينات المقياس على إعادة بناء الصورة. النقطة المهمة هي ممارسة بيانات التدريب ذات المقياس المتوازي
-أخذ العينات ضمن النطاق، وإعادة الإعمار المتبقية-VQ. حقيقي VAR
-يقوم بتبديل الرسم البياني لمحول ومكتبة الأنماط لـ
-مجموعة بيانات الصورة؛ الحزام من حولهم يبقى كما هو. Stdlib + numpy فقط. تشغيل: بيثون main.py
+"""Toy Visual Autoregressive (VAR) model: next-scale prediction over a pyramid.
+
+A minimal numpy implementation of the VAR mechanism described in
+docs/en.md. Three pieces:
+
+1. A multi-scale residual VQ tokenizer over tiny 8x8 "images" (a small
+   library of patterns: solid, gradient, ring, checker, cross). Tokens at
+   scale k encode the residual left by scales 1..k-1. The decoder is the
+   sum of upsampled scale embeddings.
+2. A scale-conditioned next-scale predictor (a logistic / softmax mini-LM
+   over the small vocab). The "transformer" is approximated by per-scale
+   conditional histograms; the geometry the lesson teaches is the
+   scale-ordered conditioning and the parallel-within-scale prediction,
+   not deep attention.
+3. A generation loop that runs K transformer passes (one per scale) and
+   samples every position at the current scale in parallel from the
+   conditional. Decoded sums of scale embeddings reconstruct an image.
+
+The point is to exercise the scale-ordered training data, the parallel-
+within-scale sampling, and the residual-VQ reconstruction. A real VAR
+swaps the histogram for a transformer and the pattern library for an
+image dataset; the harness around them stays the same.
+
+Stdlib + numpy only.
+
+Run:
+    python main.py
 """
 
 from __future__ import annotations
@@ -18,7 +38,7 @@ CODEBOOK = 16
 
 
 def make_patterns(rng: np.random.Generator, n: int) -> np.ndarray:
-    """قم بإرجاع أنماط 8 × 8 ذات تدرج رمادي مأخوذة من مكتبة صغيرة."""
+    """Return n grayscale 8x8 patterns drawn from a tiny library."""
     out = np.zeros((n, IMG, IMG), dtype=np.float32)
     yy, xx = np.mgrid[0:IMG, 0:IMG].astype(np.float32)
     for i in range(n):
@@ -42,7 +62,7 @@ def make_patterns(rng: np.random.Generator, n: int) -> np.ndarray:
 
 def fit_codebook(samples: np.ndarray, k: int, iters: int = 30,
                  seed: int = 0) -> np.ndarray:
-    """k-يعني على العينات العددية؛ إرجاع كتاب الشفرات بطول k."""
+    """k-means on scalar samples; returns codebook of length k."""
     rng = np.random.default_rng(seed)
     flat = samples.reshape(-1)
     if flat.size < k:
@@ -60,13 +80,13 @@ def fit_codebook(samples: np.ndarray, k: int, iters: int = 30,
 
 
 def encode(values: np.ndarray, codebook: np.ndarray) -> np.ndarray:
-    """قم بإطباق كل قيمة على أقرب رمز؛ إرجاع الرموز الصحيحة."""
+    """Snap each value to the nearest code; return integer tokens."""
     dists = (values[..., None] - codebook[None, None, :]) ** 2
     return dists.argmin(axis=-1).astype(np.int32)
 
 
 def downsample(img: np.ndarray, target: int) -> np.ndarray:
-    """قم بتجميع صورة HxW في المتوسط ​​وصولاً إلى الهدف x."""
+    """Average-pool an HxW image down to target x target."""
     h, w = img.shape
     if target == h:
         return img.copy()
@@ -75,7 +95,7 @@ def downsample(img: np.ndarray, target: int) -> np.ndarray:
 
 
 def upsample(grid: np.ndarray, target: int) -> np.ndarray:
-    """يقوم أقرب جار بتكوين شبكة HxW حتى الهدف x المستهدف."""
+    """Nearest-neighbor upsample a HxW grid up to target x target."""
     h, w = grid.shape
     if target == h:
         return grid.copy()
@@ -85,7 +105,7 @@ def upsample(grid: np.ndarray, target: int) -> np.ndarray:
 
 def tokenize_multiscale(img: np.ndarray, codebooks: list[np.ndarray]
                         ) -> list[np.ndarray]:
-    """المتبقي VQ: كل مقياس يرمز إلى ما فاته المقاييس السابقة."""
+    """Residual VQ: each scale tokenizes what previous scales missed."""
     residual = img.copy()
     tokens: list[np.ndarray] = []
     for scale, book in zip(SCALES, codebooks):
@@ -99,7 +119,7 @@ def tokenize_multiscale(img: np.ndarray, codebooks: list[np.ndarray]
 
 def detokenize_multiscale(tokens: list[np.ndarray],
                           codebooks: list[np.ndarray]) -> np.ndarray:
-    """وحدة فك الترميز: مجموع التضمينات ذات الحجم المضخم."""
+    """Decoder: sum upsampled scale embeddings."""
     out = np.zeros((IMG, IMG), dtype=np.float32)
     for tok, book, scale in zip(tokens, codebooks, SCALES):
         out = out + upsample(book[tok], IMG)
@@ -107,7 +127,7 @@ def detokenize_multiscale(tokens: list[np.ndarray],
 
 
 def train_codebooks(images: np.ndarray) -> list[np.ndarray]:
-    """قم بملاءمة دفاتر الرموز لكل مقياس على بقايا مجموعة صور صغيرة."""
+    """Fit per-scale codebooks on residuals from a small image set."""
     residuals = images.copy()
     books: list[np.ndarray] = []
     for scale in SCALES:
@@ -121,13 +141,16 @@ def train_codebooks(images: np.ndarray) -> list[np.ndarray]:
 
 
 def context_key(prev_tokens: list[np.ndarray]) -> tuple:
-    """ملخص قابل للتجزئة لجميع الرموز المميزة للمقاييس السابقة."""
+    """Hashable summary of all previous scales' tokens."""
     return tuple(int(t.mean() * 1000) for t in prev_tokens) if prev_tokens else ()
 
 
 def fit_predictor(token_streams: list[list[np.ndarray]]
                   ) -> list[dict[tuple, np.ndarray]]:
-    """رسم بياني شرطي واحد لكل مقياس، مرتبط بملخص المقياس السابق. هذا يمثل المحول: في وقت التدريب، قم بإحصاء الرموز المميزة تظهر بمقياس k مشروطًا بالملخص الخشن للمقاييس 1..k-1.
+    """One conditional histogram per scale, keyed on previous-scale summary.
+
+    This stands in for a transformer: at training time, count which tokens
+    appear at scale k conditional on the coarsened summary of scales 1..k-1.
     """
     predictors: list[dict[tuple, np.ndarray]] = [
         {} for _ in SCALES
@@ -152,7 +175,7 @@ def sample_categorical(probs: np.ndarray, rng: np.random.Generator) -> int:
 def generate(predictors: list[dict[tuple, np.ndarray]],
              codebooks: list[np.ndarray],
              rng: np.random.Generator) -> tuple[np.ndarray, list[np.ndarray]]:
-    """عينة VAR واحدة: تمريرات K، متوازية داخل المقياس، سببية عبر المقاييس."""
+    """One VAR sample: K passes, parallel-within-scale, causal across scales."""
     drawn: list[np.ndarray] = []
     for k, scale in enumerate(SCALES):
         ctx = context_key(drawn[:k])

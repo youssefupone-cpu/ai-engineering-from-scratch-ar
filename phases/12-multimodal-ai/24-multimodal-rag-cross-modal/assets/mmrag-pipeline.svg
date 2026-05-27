@@ -17,10 +17,10 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">الوسائط المتعددة RAG - استرداد الوسائط المتعددة، والصمامات، والأرض، والتوليد</text>
+  <text x="480" y="24" text-anchor="middle" class="title">الوسائط المتعددة RAG — استرداد الوسائط المتعددة، والصمامات، والأرض، والتوليد</text>
 
   <rect x="30" y="50" width="900" height="220" class="box"/>
-  <text x="480" y="72" text-anchor="middle" class="head">الاستعلام -&gt; التحلل -&gt; 3 مستردات -&gt; المصهر -&gt; VLM المولد</text>
+  <text x="480" y="72" text-anchor="middle" class="head">الاستعلام -&gt; التحلل -&gt; 3 مستردات -&gt; المصهر -&gt; VLM مولد</text>
 
   <rect x="60" y="90" width="180" height="60" class="reg"/>
   <text x="150" y="112" text-anchor="middle" class="step">query</text>
@@ -41,7 +41,7 @@
 
   <rect x="290" y="220" width="170" height="50" class="cold"/>
   <text x="375" y="240" text-anchor="middle" class="step">مسترد الصوت</text>
-  <text x="375" y="260" text-anchor="middle" class="small">CLAP المقاطع المحيطة</text>
+  <text x="375" y="260" text-anchor="middle" class="small">CLAP مقاطع محيطة</text>
 
   <path d="M 465 105 L 505 150" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <path d="M 465 175 L 505 170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -88,6 +88,6 @@
   <text x="765" y="388" text-anchor="middle" class="small">تركز على الرؤية RAG</text>
   <text x="765" y="404" text-anchor="middle" class="small">قوي على عائلة ColPali</text>
   <text x="765" y="420" text-anchor="middle" class="small">التركيز البصري فقط</text>
-  <text x="765" y="446" text-anchor="middle" class="step">اقرأ من أجل الرؤية RAG</text>
+  <text x="765" y="446" text-anchor="middle" class="step">إقرأ من أجل الرؤية RAG</text>
   <text x="765" y="466" text-anchor="middle" class="caption">تكملة الدرس 23</text>
 </svg>

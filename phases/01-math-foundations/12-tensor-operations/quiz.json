@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ماذا يصف \"شكل\" الموتر؟",
+      "question": "What does the 'shape' of a tensor describe?",
       "options": [
-        "صف يسرد الحجم على طول كل محور",
-        "العدد الإجمالي للعناصر في الموتر",
-        "نوع بيانات عناصر الموتر",
-        "عنوان ذاكرة الموتر"
+        "A tuple listing the size along each axis",
+        "The total number of elements in the tensor",
+        "The data type of the tensor elements",
+        "The memory address of the tensor"
       ],
       "correct": 0,
-      "explanation": "الشكل عبارة عن صف يسرد الحجم على طول كل محور. على سبيل المثال، الموتر ذو الشكل (2، 3، 4) يحتوي على عنصرين على طول المحور 0، و3 على طول المحور 1، و4 على طول المحور 2."
+      "explanation": "The shape is a tuple listing the size along each axis. For example, a tensor with shape (2, 3, 4) has 2 elements along axis 0, 3 along axis 1, and 4 along axis 2."
     },
     {
       "stage": "pre",
-      "question": "في PyTorch، ما هو التخطيط الذي يستخدمه موتر دفعة الصورة بشكل افتراضي؟",
+      "question": "In PyTorch, what layout does an image batch tensor use by default?",
       "options": [
-        "NHWC (الدفعة، الارتفاع، العرض، القنوات)",
-        "NCHW (الدفعة، القنوات، الارتفاع، العرض)",
-        "CHWN (القنوات، الارتفاع، العرض، الدفعة)",
-        "WHCN (العرض، الارتفاع، القنوات، الدفعة)"
+        "NHWC (batch, height, width, channels)",
+        "NCHW (batch, channels, height, width)",
+        "CHWN (channels, height, width, batch)",
+        "WHCN (width, height, channels, batch)"
       ],
       "correct": 1,
-      "explanation": "الإعداد الافتراضي PyTorch هو تخطيط NCHW (القنوات أولاً). القيمة الافتراضية لـ TensorFlow هي NHWC (القنوات الأخيرة). تتسبب التخطيطات غير المتطابقة في حدوث أخطاء صامتة أو مشكلات في الأداء."
+      "explanation": "PyTorch defaults to NCHW (channels-first) layout. TensorFlow defaults to NHWC (channels-last). Mismatched layouts cause silent errors or performance issues."
     },
     {
       "stage": "post",
-      "question": "ما هو الشكل الناتج عند بث موترات الشكل (8، 1، 6، 1) و (7، 1، 5)؟",
+      "question": "What is the result shape when broadcasting tensors of shape (8, 1, 6, 1) and (7, 1, 5)?",
       "options": [
         "(8, 7, 6, 1)",
         "(8, 1, 6, 5)",
         "(8, 7, 6, 5)",
-        "فشل البث — الأشكال غير متوافقة"
+        "Broadcasting fails — shapes are incompatible"
       ],
       "correct": 2,
-      "explanation": "محاذاة الأشكال من اليمين: (8،1،6،1) و (1،7،1،5). تتوافق الأبعاد عندما تكون متساوية أو واحدة 1. والنتيجة تأخذ الحد الأقصى على طول كل محور: (8، 7، 6، 5)."
+      "explanation": "Align shapes from the right: (8,1,6,1) and (1,7,1,5). Dimensions are compatible when equal or one is 1. The result takes the maximum along each axis: (8, 7, 6, 5)."
     },
     {
       "stage": "post",
-      "question": "في تعبير einsum \"bhtd,bhsd->bhts\"، ماذا يحدث للمؤشر \"d\"؟",
+      "question": "In the einsum expression 'bhtd,bhsd->bhts', what happens to the index 'd'?",
       "options": [
-        "يتم الاحتفاظ به في الإخراج كمحور جديد",
-        "ويتم جمعه (التعاقد عليه) لأنه يظهر في كلا المدخلين وليس المخرجات",
-        "يتم بثه عبر كلا الموترين",
-        "يتم نقله بين موترتي الإدخال"
+        "It is kept in the output as a new axis",
+        "It is summed over (contracted) because it appears in both inputs but not the output",
+        "It is broadcast across both tensors",
+        "It is transposed between the two input tensors"
       ],
       "correct": 1,
-      "explanation": "في einsum، يتم جمع أي فهرس يظهر في المدخلات وليس المخرجات. يظهر الفهرس \"d\" في كل من \"bhtd\" و\"bhsd\" ولكن ليس في الإخراج \"bhts\"، لذلك يتم تقليصه (ضربه وجمعه)."
+      "explanation": "In einsum, any index that appears in the inputs but not the output is summed over. Index 'd' appears in both 'bhtd' and 'bhsd' but not in the output 'bhts', so it is contracted (multiplied and summed)."
     },
     {
       "stage": "post",
-      "question": "لماذا يفشل استدعاء.view() على موتر منقول في PyTorch؟",
+      "question": "Why does calling.view() fail on a transposed tensor in PyTorch?",
       "options": [
-        "الموترات المنقولة لها نوع بيانات مختلف",
-        "الموتر غير متجاور في الذاكرة بعد النقل، ويتطلب العرض بيانات متجاورة",
-        "العرض يعمل فقط على الموترات ثنائية الأبعاد",
-        "يقوم Transpose بتغيير العدد الإجمالي للعناصر"
+        "Transposed tensors have a different data type",
+        "The tensor is non-contiguous in memory after transpose, and view requires contiguous data",
+        "View only works on 2D tensors",
+        "Transpose changes the total number of elements"
       ],
       "correct": 1,
-      "explanation": "تبديل خطوات المبادلة دون نقل البيانات، مما يجعل الموتر غير متجاور. تتطلب عملية.view() تخطيطًا متجاورًا للذاكرة. استخدم.reshape() أو اتصل بـ.contigious() أولاً."
+      "explanation": "Transpose swaps strides without moving data, making the tensor non-contiguous. The.view() operation requires contiguous memory layout. Use.reshape() or call.contiguous() first."
     }
   ]
 }

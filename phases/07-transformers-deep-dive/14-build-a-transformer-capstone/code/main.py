@@ -1,6 +1,10 @@
-"""Capstone: محول فك التشفير فقط من الصفر. يستخدم PyTorch. إذا لم يتم تثبيت الشعلة، قم بطباعة رسالة ودية و
-يتحلل إلى مقدر عدد المعلمات بحيث يظل البرنامج النصي يعمل بشكل نظيف. الافتراضي: 4 طبقات، 4 رؤوس، d_model=128، seq_len=128، 500 خطوة على
-مقتطفات شكسبير صغيرة مدمجة. ينتهي خلال دقيقتين تقريبًا على جهاز كمبيوتر محمول.
+"""Capstone: decoder-only transformer from scratch.
+
+Uses PyTorch. If torch is not installed, prints a friendly message and
+degrades to a parameter-count estimator so the script still runs cleanly.
+
+Default: 4 layers, 4 heads, d_model=128, seq_len=128, 500 steps on a
+tiny built-in Shakespeare excerpt. Finishes in ~2 minutes on a laptop.
 """
 
 import math
@@ -9,36 +13,54 @@ import random
 import sys
 
 
-TINY_SHAKESPEARE = """المواطن الأول:
-قبل أن نمضي قدما، اسمعني أتحدث. الكل:
-تحدث، تحدث. المواطن الأول:
-هل أنتم جميعاً مصممون على الموت بدلاً من المجاعة؟ الكل:
-تم الحل. حلها. المواطن الأول:
-أولاً، تعلم أن كايوس مارسيوس هو العدو الرئيسي للشعب. الكل:
-نحن لا نعرف، ونحن لا نعرف. المواطن الأول:
-دعونا نقتله، وسنحصل على الذرة بسعرنا الخاص.
-أليس حكما؟ الكل:
-لا مزيد من الحديث لا؛ فليكن: بعيدا، بعيدا! المواطن الثاني:
-كلمة واحدة أيها المواطنون الصالحون. المواطن الأول:
-نحن نعتبر مواطنين فقراء، والأرستقراطيين جيدين.
-ما هي السلطة التي نفرط فيها من شأنها أن تريحنا: إذا كانوا
-لن يسفر عنا سوى الفائض، بينما كان كذلك
-قد نظن أنها خففت عنا إنسانيًا؛
-ولكنهم يظنون أننا عزيزون جدًا: الهزال الذي
-يصيبنا، موضوع بؤسنا، هو بمثابة
-المخزون لتخصيص وفرة منها؛ لدينا
-المعاناة مكسب لهم فلننتقم من هذا
-حرابنا، قبل أن نصبح مشعلين: لأن الآلهة تعرفني
-قل هذا في جوع للخبز، وليس في عطش للانتقام.
+TINY_SHAKESPEARE = """First Citizen:
+Before we proceed any further, hear me speak.
+
+All:
+Speak, speak.
+
+First Citizen:
+You are all resolved rather to die than to famish?
+
+All:
+Resolved. resolved.
+
+First Citizen:
+First, you know Caius Marcius is chief enemy to the people.
+
+All:
+We know't, we know't.
+
+First Citizen:
+Let us kill him, and we'll have corn at our own price.
+Is't a verdict?
+
+All:
+No more talking on't; let it be done: away, away!
+
+Second Citizen:
+One word, good citizens.
+
+First Citizen:
+We are accounted poor citizens, the patricians good.
+What authority surfeits on would relieve us: if they
+would yield us but the superfluity, while it were
+wholesome, we might guess they relieved us humanely;
+but they think we are too dear: the leanness that
+afflicts us, the object of our misery, is as an
+inventory to particularise their abundance; our
+sufferance is a gain to them Let us revenge this with
+our pikes, ere we become rakes: for the gods know I
+speak this in hunger for bread, not in thirst for revenge.
 """
 
 
 def param_count(vocab_size, d_model, n_layers, n_heads, ffn_expansion=2.67, block_size=128):
-    # رمز emb + pos emb
+    # token emb + pos emb
     emb = vocab_size * d_model + block_size * d_model
-    # لكل طبقة: 4*d*d (attn) + 3*d*(exp*d) (SwiGLU) + 2*d (RMSNorm)
+    # per-layer: 4*d*d (attn) + 3*d*(exp*d) (SwiGLU) + 2*d (RMSNorm)
     per_layer = 4 * d_model * d_model + 3 * d_model * int(d_model * ffn_expansion) + 2 * d_model
-    # المعيار النهائي + رأس lm مرتبط بالرمز المميز (لذلك 0 إضافي إذا كان مرتبطًا)
+    # final norm + lm head tied to token emb (so 0 extra if tied)
     final = 2 * d_model
     return emb + per_layer * n_layers + final
 
@@ -71,7 +93,7 @@ def try_train():
     torch.manual_seed(42)
     random.seed(42)
 
-    # --- بيانات ---
+    # --- data ---
     data_path = os.path.join(os.path.dirname(__file__), "tinyshakespeare.txt")
     if os.path.exists(data_path):
         with open(data_path) as f:
@@ -88,7 +110,7 @@ def try_train():
     train_data = data[:n]
     val_data = data[n:]
 
-    # --- التكوين ---
+    # --- config ---
     block_size = 64
     d_model = 64
     n_heads = 4
@@ -100,7 +122,7 @@ def try_train():
     lr = 3e-4
     device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
 
-    # --- نموذج ---
+    # --- model ---
     class RMSNorm(nn.Module):
         def __init__(self, d, eps=1e-6):
             super().__init__()

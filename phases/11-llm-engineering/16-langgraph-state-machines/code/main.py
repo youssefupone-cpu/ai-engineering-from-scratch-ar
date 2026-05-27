@@ -1,9 +1,23 @@
-"""الحد الأدنى من وكيل LangGraph ReAct مع نقطة تفتيش ومقاطعة وسفر عبر الزمن. يعمل باستخدام مفتاح إنساني API (`ANTHROPIC___TERM_1___KEY`). الوكيل لديه لعبتين
-الأدوات (آلة حاسبة، web_lookup). هو: 1. قم بإنشاء رسم بياني للحالة مكون من أربعة node (الوكيل -> الأدوات -> الوكيل) باستخدام `add_messages` كمخفض لقائمة الرسائل.
-2. يتم التجميع باستخدام نقطة التفتيش `MemorySaver` و `interrupt_before` على `tools` node لذلك نتوقف قبل أي آثار جانبية.
-3. تشغيل محادثة ذات دورين، وبث أحداث التحديث.
-4. يتوقف مؤقتًا قبل استدعاء الأداة الأول، ويفحص استدعاءات الأداة المعلقة، ثم يستأنف مع `Command(resume=True)`.
-5. يطبع تاريخ نقطة التفتيش ويوضح السفر عبر الزمن عن طريق التفرع من نقطة تفتيش سابقة. تثبيت: pip تثبيت "langgraph>=0.2.50" "langchain-anthropic>=0.3.0" تشغيل: بيثون main.py
+"""Minimal LangGraph ReAct agent with a checkpointer, an interrupt, and time-travel.
+
+Runs with an Anthropic API key (`ANTHROPIC_API_KEY`). The agent has two toy
+tools (calculator, web_lookup). It:
+
+1. Builds a four-node StateGraph (agent -> tools -> agent) with `add_messages`
+   as the reducer for the message list.
+2. Compiles with a `MemorySaver` checkpointer and an `interrupt_before` on the
+   `tools` node so we pause before any side effect.
+3. Runs a two-turn conversation, streaming update events.
+4. Pauses before the first tool call, inspects the pending tool_calls, then
+   resumes with `Command(resume=True)`.
+5. Prints the checkpoint history and demonstrates time-travel by forking from
+   an earlier checkpoint.
+
+Install:
+    pip install "langgraph>=0.2.50" "langchain-anthropic>=0.3.0"
+
+Run:
+    python main.py
 """
 
 from __future__ import annotations
@@ -20,19 +34,20 @@ from langgraph.prebuilt import ToolNode
 from langgraph.types import Command
 
 
-# ولاية ----------------------------------------------------------------------
+# State ----------------------------------------------------------------------
 
 
 class State(TypedDict):
     messages: Annotated[list[AnyMessage], add_messages]
 
 
-# أدوات ----------------------------------------------------------------------
+# Tools ----------------------------------------------------------------------
 
 
 @tool
 def calculator(expression: str) -> str:
-    """قم بتقييم تعبير حسابي بلغة بايثون مثل "2 + 2 * 3". إرجاع النتيجة كسلسلة."""
+    """Evaluate a Python arithmetic expression like '2 + 2 * 3'. Returns the
+    result as a string."""
     allowed = set("0123456789+-*/(). ")
     if not set(expression) <= allowed:
         return "ERROR: only digits and + - * / ( ) are allowed"
@@ -44,7 +59,8 @@ def calculator(expression: str) -> str:
 
 @tool
 def web_lookup(query: str) -> str:
-    """بحث وهمي على شبكة الإنترنت. إرجاع الحقائق المعلبة للاستعلامات المعروفة و"غير المعروفة" خلاف ذلك. الاستعداد لأداة استرجاع حقيقية."""
+    """Fake web search. Returns canned facts for known queries and 'unknown'
+    otherwise. Stand-in for a real retrieval tool."""
     facts = {
         "anthropic headquarters": "Anthropic is headquartered in San Francisco, California.",
         "python release year": "Python was first released in 1991.",
@@ -55,11 +71,11 @@ def web_lookup(query: str) -> str:
 TOOLS = [calculator, web_lookup]
 
 
-# الرسم البياني ----------------------------------------------------------------------
+# Graph ----------------------------------------------------------------------
 
 
 def build_app() -> tuple:
-    """قم بتوصيل الرسم البياني الأربعة-node ReAct والعودة (compiled_app، llm_with_tools)."""
+    """Wire the four-node ReAct graph and return (compiled_app, llm_with_tools)."""
     llm = ChatAnthropic(model="claude-sonnet-4-5", temperature=0).bind_tools(TOOLS)
 
     def agent_node(state: State) -> dict:
@@ -86,7 +102,7 @@ def build_app() -> tuple:
     return app, llm
 
 
-# سائق ---------------------------------------------------------------------
+# Driver ---------------------------------------------------------------------
 
 
 def pretty(msg: AnyMessage) -> str:
@@ -101,7 +117,7 @@ def run() -> None:
     app, _llm = build_app()
     config = {"configurable": {"thread_id": "demo-42"}}
 
-    # المنعطف 1: اطرح سؤالاً يجب أن يصل إلى web_lookup.
+    # Turn 1: ask a question that should hit web_lookup.
     user = HumanMessage("Where is Anthropic headquartered?")
     for event in app.stream({"messages": [user]}, config, stream_mode="updates"):
         for node, update in event.items():
@@ -109,21 +125,21 @@ def run() -> None:
             for m in update.get("messages", []):
                 print("   ", pretty(m))
 
-    # لقد توقفنا الآن مؤقتًا عند المقاطعة_قبل=['أدوات'].
+    # We are now paused at interrupt_before=['tools'].
     pending = app.get_state(config)
     print("\nPAUSED. Pending tool calls:")
     for m in pending.values["messages"][-1:]:
         for tc in getattr(m, "tool_calls", []) or []:
             print(f"  - {tc['name']}({tc['args']})")
 
-    # الموافقة والاستئناف.
+    # Approve and resume.
     for event in app.stream(Command(resume=True), config, stream_mode="updates"):
         for node, update in event.items():
             print(f"<<{node}>>")
             for m in update.get("messages", []):
                 print("   ", pretty(m))
 
-    # تاريخ نقطة التفتيش.
+    # Checkpoint history.
     history = list(app.get_state_history(config))
     print(f"\nCheckpoint history: {len(history)} snapshots")
     for i, snap in enumerate(history):
@@ -131,7 +147,7 @@ def run() -> None:
         tag = last.__class__.__name__ if last else "?"
         print(f"  {i:>2}  {tag:<15}  next={snap.next}")
 
-    # السفر عبر الزمن: انقسام من اللقطة الأولى وطرح سؤال مختلف.
+    # Time-travel: fork from the earliest snapshot and ask a different question.
     if len(history) >= 3:
         earliest = history[-1].config
         print("\nTime-travel: forking from earliest checkpoint and asking a math question.")
@@ -141,7 +157,7 @@ def run() -> None:
                 print(f"<<{node}>>")
                 for m in update.get("messages", []):
                     print("   ", pretty(m))
-        # استئناف بعد المقاطعة لأداة الرياضيات.
+        # Resume past the interrupt for the math tool.
         for event in app.stream(Command(resume=True), earliest, stream_mode="updates"):
             for node, update in event.items():
                 print(f"<<{node}>>")

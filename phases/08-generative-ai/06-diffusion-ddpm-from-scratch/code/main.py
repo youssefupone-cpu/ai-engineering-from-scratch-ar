@@ -3,7 +3,7 @@ import random
 
 
 def sin_embed(t, T, dim=8):
-    """التضمين الزمني الجيبية."""
+    """Sinusoidal timestep embedding."""
     out = []
     half = dim // 2
     for i in range(half):

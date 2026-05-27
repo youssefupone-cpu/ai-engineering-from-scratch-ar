@@ -7,27 +7,36 @@ lesson: 20
 tags: [retrieval, evaluation, recall, faiss]
 ---
 
-# استدعاء @ K عداء
+# Recall@K Runner
+
 قم بتحويل مجلد صور الاستعلام والمعرض بالإضافة إلى التسميات إلى رقم استدعاء @ K قابل للتكرار.
-##متى يستخدم
+
+## When to use
+
 - أول معيار استرجاع للعمود الفقري الجديد.
 - تتبع جودة التضمين عبر العصور الدقيقة.
 - مقارنة نظامين استرجاعيين في نفس مجموعة البيانات.
-## المدخلات
+
+## Inputs
+
 - `query_images`: قائمة المسارات.
 - `gallery_images`: قائمة المسارات (قد يتداخل الاستعلام أو لا يتداخل).
 - `query_labels`، `gallery_labels`: معرفات الفئة أو المثيل.
 - `encoder_fn`: قابل للاستدعاء `image -> embedding` (محسوب مسبقًا أو مباشر).
 - `ks`: قائمة مثل `[1, 5, 10]`.
-## الخطوات
+
+## Steps
+
 1. قم بتشفير كل صورة من صور المعرض مرة واحدة. حفظ كمصفوفة numpy.
 2. قم بتشفير كل صورة استعلام.
 3. L2-تطبيع مجموعتي التضمينات.
 4. بالنسبة لكل استعلام، قم بحساب التشابه مقابل كافة عناصر المعرض.
 5. قم بالفرز تنازليًا، واحصل على الحد الأقصى (المستوى الأعلى).
 6. بالنسبة لكل K، تحقق مما إذا كان أي من عناصر معرض Top-K يشترك في تسمية الاستعلام.
-7. أبلغ عن `recall@K = fraction of queries that had at least one correct neighbour in top K`.
-## قالب الإخراج
+7. تقرير `recall@K = fraction of queries that had at least one correct neighbour in top K`.
+
+## Output template
+
 ```python
 import numpy as np
 from sklearn.preprocessing import normalize
@@ -84,7 +93,8 @@ def evaluate(query_images, query_labels, gallery_images, gallery_labels, encoder
     return recall_at_k(q_emb, g_emb, np.array(query_labels), np.array(gallery_labels), ks)
 ```
 
-## تقرير
+## Report
+
 ```
 [evaluation]
   num queries:   <int>
@@ -97,8 +107,9 @@ def evaluate(query_images, query_labels, gallery_images, gallery_labels, encoder
   recall@10: <float>
 ```
 
-## قواعد
+## Rules
+
 - تطبيع التضمينات قبل حساب التشابه؛ FAISS IndexFlatIP على المتجهات المقيسة يساوي جيب التمام.
 - عند غياب تسمية الحقيقة الأساسية للاستعلام من المعرض، قم باستبعادها؛ وإلا فإن الاستدعاء محدد بشكل تافه أدناه 1.
 - إذا تداخل الاستعلام والمعرض، فاستبعد الاستعلام نفسه من أعلى K الخاص به أو قم بقياس التشابه الذاتي، وليس الاسترجاع.
-- بالنسبة لـ `num_queries > 10,000`، قم بتجميع ماتمول التشابه لتجنب OOM.
+- بالنسبة لـ `num_queries > 10,000`، قم بجمع ماتمول التشابه لتجنب OOM.

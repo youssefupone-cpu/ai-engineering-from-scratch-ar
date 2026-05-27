@@ -1,5 +1,7 @@
-"""كلود وكيل SDK شكل الحزام في stdlib. أدوات مدمجة، ووكلاء فرعيون بسياق معزول، وخطافات دورة الحياة، ومخزن الجلسة.
-يوضح كيف يحافظ الوكلاء الفرعيون على سياق المنسق.
+"""Claude Agent SDK harness shape in stdlib.
+
+Built-in tools, subagents with isolated context, lifecycle hooks, session store.
+Demonstrates how spawning subagents keeps the orchestrator's context bounded.
 """
 
 from __future__ import annotations

@@ -27,12 +27,12 @@
   <path d="M230 146 L230 164" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="60" y="170" width="340" height="50" class="cool"/>
-  <text x="230" y="192" text-anchor="middle" class="content">2. LLM يقترح تعديل مصدر الوكيل</text>
+  <text x="230" y="192" text-anchor="middle" class="content">2. LLM يقترح التعديل على مصدر الوكيل</text>
 
   <path d="M230 220 L230 238" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="60" y="244" width="340" height="50" class="hot"/>
-  <text x="230" y="266" text-anchor="middle" class="content">3. قم بتشغيل المتغير على SWE-bench / Polyglot</text>
+  <text x="230" y="266" text-anchor="middle" class="content">3. تشغيل متغير على SWE-مقعد / متعدد اللغات</text>
 
   <path d="M230 294 L230 312" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 

@@ -17,7 +17,7 @@
       .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
     </style>
   </defs>
-  <text x="450" y="28" text-anchor="middle" class="title">الدردشة الجماعية — تجمع مشترك + محدد السماعات (AutoGen / AG2)</text>
+  <text x="450" y="28" text-anchor="middle" class="title">الدردشة الجماعية - تجمع مشترك + محدد السماعات (AutoGen / AG2)</text>
 
   <rect x="220" y="60" width="460" height="80" class="cold"/>
   <text x="450" y="82" text-anchor="middle" class="head">تجمع الرسائل المشتركة</text>
@@ -42,7 +42,7 @@
   <rect x="580" y="180" width="260" height="80" class="box"/>
   <text x="710" y="202" text-anchor="middle" class="head">Selector</text>
   <text x="710" y="222" text-anchor="middle" class="small">جولة روبن (دورة ثابتة)</text>
-  <text x="710" y="240" text-anchor="middle" class="small">LLM-محدد (متوافق مع السياق)</text>
+  <text x="710" y="240" text-anchor="middle" class="small">LLM-محدد (مدرك للسياق)</text>
   <text x="710" y="256" text-anchor="middle" class="small">مخصص (احتياطي قائم على القواعد)</text>
 
   <line x1="110" y1="180" x2="350" y2="140" class="edge" marker-end="url(#arrow)"/>

@@ -1,5 +1,7 @@
-"""ميزانية رمزية للفيديو الطويل + محاكاة إبرة في كومة قش + استرجاع الوكيل. ستدليب. طباعة جداول الميزانية لمقاطع الفيديو الطويلة، وإجراء اختبار استدعاء NIH اصطناعي،
-يحاكي حلقة استرجاع بنمط VideoAgent.
+"""Long-video token budget + needle-in-a-haystack simulator + agentic retrieval.
+
+Stdlib. Prints budget tables for long videos, runs a synthetic NIH recall test,
+simulates a VideoAgent-style retrieval loop.
 """
 
 from __future__ import annotations
@@ -68,7 +70,7 @@ def nih_simulation() -> None:
 
 
 def agentic_retrieval_sim(question: str, video_duration: float) -> dict:
-    """محاكاة VideoAgent: LLM يطلب مقطعًا، وترجع الأداة الطوابع الزمنية، ويقرأ VLM."""
+    """Simulate VideoAgent: LLM asks for clip, tool returns timestamps, VLM reads."""
     trace = []
     trace.append(("LLM  ", f"reading question: '{question}'"))
     query = question.split()[-1].lower()

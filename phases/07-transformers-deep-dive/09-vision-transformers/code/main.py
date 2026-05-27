@@ -1,6 +1,8 @@
-"""Vision Transformer (ViT) — الواجهة الأمامية patchify + embed. ستدلب خالص. يأخذ صورة لعبة مقاس 24 × 24 × 3، ويقطعها إلى قطع مقاس 6 × 6،
-يعرض كل منها إلى متجه d_model، ويسبق [CLS]، ويضيف موضعًا ثنائي الأبعاد.
-التحقق من الأشكال وحساب المعلمات لتكوينات ViT الحقيقية.
+"""Vision Transformer (ViT) — the patchify + embed front end.
+
+Pure stdlib. Takes a toy 24x24x3 image, cuts it into 6x6 patches,
+projects each to a d_model vector, prepends [CLS], adds 2D position.
+Verifies shapes and counts parameters for real ViT configs.
 """
 
 import math
@@ -51,7 +53,7 @@ def linear_project(patches, d_model, rng=None):
 
 
 def cls_and_pos(tokens, grid_h, grid_w, rng=None):
-    """قم بإضافة [CLS] القابل للتعلم مسبقًا وأضف التشفير الموضعي الجيبي ثنائي الأبعاد."""
+    """Prepend learnable [CLS] and add 2D sinusoidal positional encoding."""
     if rng is None:
         rng = random.Random(1)
     d_model = len(tokens[0])
@@ -68,7 +70,7 @@ def cls_and_pos(tokens, grid_h, grid_w, rng=None):
 
 
 def pos_2d(H, W, d_model):
-    """الشكل الجيبي ثنائي الأبعاد: تقسيم d_model إلى نصفين، وترميز الصف والعمود بشكل مستقل."""
+    """2D sinusoidal: split d_model in half, encode row and col independently."""
     assert d_model % 4 == 0, "d_model must be divisible by 4 for 2D sinusoidal"
     half = d_model // 2
     pe = [[[0.0] * d_model for _ in range(W)] for _ in range(H)]
@@ -86,18 +88,18 @@ def pos_2d(H, W, d_model):
 
 
 def param_count_vit(d_model, n_layers, n_heads, ffn_expansion, num_patches, num_classes):
-    """العدد التقريبي لمعلمات ViT (تضمين التصحيح + المحول + الرأس)."""
-    # تضمين التصحيح: (patch_flat_size، d_model) - تجاهل حجم التصحيح هنا، ومقاييس المتصل.
-    # الاهتمام الذاتي لكل طبقة: 4 * d_model^2 (Q,K,V,O)
-    # FFN لكل طبقة: 2 * d_model * (ffn_expansion * d_model)
-    # المعايير: 2 * d_model لكل طبقة (LayerNorm gamma+beta)
+    """Approximate ViT parameter count (patch embed + transformer + head)."""
+    # Patch embedding: (patch_flat_size, d_model) — ignore patch_size here, caller scales.
+    # Self-attention per layer: 4 * d_model^2 (Q,K,V,O)
+    # FFN per layer: 2 * d_model * (ffn_expansion * d_model)
+    # Norms: 2 * d_model per layer (LayerNorm gamma+beta)
     per_layer = 4 * d_model ** 2 + 2 * d_model * int(ffn_expansion * d_model) + 4 * d_model
-    # تضمينات الموضع: (num_patches + 1) * d_model
+    # Position embeddings: (num_patches + 1) * d_model
     pos_emb = (num_patches + 1) * d_model
-    # CLS الرمز المميز: d_model
-    # رأس المصنف: d_model * num_classes
+    # CLS token: d_model
+    # Classifier head: d_model * num_classes
     head = d_model * num_classes
-    # معيار الطبقة النهائية: 2 * d_model
+    # Final layer norm: 2 * d_model
     return per_layer * n_layers + pos_emb + d_model + head + 2 * d_model
 
 
@@ -132,7 +134,7 @@ def main():
     ]:
         grid_n = (224 // patch) ** 2
         params = param_count_vit(d, L, H_heads, exp, grid_n, num_classes=1000)
-        # إضافة التصحيح المضمن: (P*P*3) * d_model
+        # Add patch embed: (P*P*3) * d_model
         params += patch * patch * 3 * d
         print(f"  {name:<14}  d={d:<5}  L={L:<3}  heads={H_heads:<3}  patches={grid_n:<4}  ~{params / 1e6:.1f}M params")
 

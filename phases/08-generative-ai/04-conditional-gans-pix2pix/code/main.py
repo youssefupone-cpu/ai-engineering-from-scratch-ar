@@ -98,7 +98,7 @@ def accumulate_d_grad(x, c, target, D, num_classes, grads):
 
 
 def update_g(noise, cs, G, D, num_classes, lr, l1_w=0.0, targets=None):
-    """خسارة G غير مشبعة + شرط اختياري L1 تجاه الهدف."""
+    """Non-saturating G loss + optional conditional L1 toward a target."""
     grads = init_grads(G)
     for i, z in enumerate(noise):
         c = cs[i]

@@ -1,89 +1,74 @@
 # تعليمات الاستخدام
 
-هذا الملف يشرح كيفية تشغيل المشروع ومراجعة النسخة العربية والمحافظة على تطابقها مع المصدر.
+هذه نسخة عربية مخصصة مبنية على المستودع الأصلي:
 
-## أين توجد النسختان
+- الأصل: [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
+- المرآة العربية: [youssefupone-cpu/ai-engineering-from-scratch-ar](https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar)
 
-- المشروع الأصلي: `/home/youssef-ayad/ai-engineering-from-scratch`
-- النسخة العربية: `/home/youssef-ayad/ai-engineering-from-scratch-ar`
-
-الترتيب الداخلي للملفات واحد في النسختين، لذلك أي تعديل مهم في المصدر يجب أن يُعكس في النسخة العربية.
+الهدف من هذه النسخة هو الحفاظ على نفس البنية التعليمية والمحتوى البرمجي مع تقديم الشرح والملاحظات بالعربية.
 
 ## تشغيل الموقع محليًا
 
-لتشغيل الموقع من النسخة العربية:
+من جذر المشروع:
 
 ```bash
-cd /home/youssef-ayad/ai-engineering-from-scratch-ar/site
-python3 -m http.server 8000
+python3 -m http.server 8000 --directory .
 ```
 
 ثم افتح:
 
-- `http://127.0.0.1:8000/index.html`
-- `http://127.0.0.1:8000/lesson.html`
-- `http://127.0.0.1:8000/catalog.html`
-
-إذا أردت تشغيله من جذر المشروع بدل `site/`:
-
-```bash
-python3 -m http.server 8000 --directory /home/youssef-ayad/ai-engineering-from-scratch-ar
-```
-
-وفي هذه الحالة تصبح الصفحات تحت المسار:
-
 - `http://127.0.0.1:8000/site/index.html`
 - `http://127.0.0.1:8000/site/lesson.html`
+- `http://127.0.0.1:8000/site/catalog.html`
 
-## فحوصات السلامة
+## فحص سلامة المحتوى
 
-قبل الاعتماد على أي نسخة جديدة، شغّل الفحوصات التالية من جذر المشروع الأصلي:
+قبل الاعتماد على أي تحديث، شغّل الفحوصات التالية من الجذر:
 
 ```bash
 python3 scripts/audit_lessons.py --strict
+python3 scripts/build_catalog.py
 python3 scripts/check_readme_counts.py
 python3 scripts/lesson_run.py --strict
 ```
 
 هذه الأوامر تتحقق من:
 
-- بنية الدروس
-- تطابق أعداد README مع `catalog.json`
-- سلامة ملفات Python نحويًا
+- بنية الدروس والملفات
+- تطابق أعداد العناوين مع المخرجات المولدة
+- سلامة ملفات Python والتجارب التعليمية
 
-## إعادة بناء النسخة العربية
+## إعادة توليد المرآة العربية
 
-إذا غيّرت ملفات المصدر وتريد إعادة توليد المرآة العربية، شغّل:
+إذا أردت إعادة توليد النسخة العربية من المصدر الأصلي، استخدم:
 
 ```bash
-python3 /home/youssef-ayad/ai-engineering-from-scratch/scripts/translate_arabic_mirror.py
+python3 scripts/translate_arabic_mirror.py
 ```
 
-أو إذا كنت تستخدم المشغّل المؤقت:
+أو شغّل المسرّع المؤقت إذا كان متاحًا:
 
 ```bash
 python3 /tmp/translate_phases_fast.py
 ```
 
-بعد الانتهاء، أعد فحص التطابق بين المصدر والنسخة العربية.
-
 ## متابعة التقدم
 
-لمراقبة عدد الملفات المترجمة في النسخة العربية:
+لمعرفة عدد ملفات Markdown في المرآة:
 
 ```bash
-find /home/youssef-ayad/ai-engineering-from-scratch-ar -type f -name "*.md" | wc -l
+find . -type f -name "*.md" | wc -l
 ```
 
-وللمتابعة المستمرة:
+وللمراقبة المستمرة:
 
 ```bash
-watch -n 10 'find /home/youssef-ayad/ai-engineering-from-scratch-ar -type f -name "*.md" | wc -l'
+watch -n 10 'find . -type f -name "*.md" | wc -l'
 ```
 
-## قواعد عمل مهمة
+## ملاحظات مهمة
 
-- لا تعدّل ملفات المرآة العربية يدويًا إذا كان الهدف هو الحفاظ على التطابق مع المصدر.
-- أي تغيير في ملفات المحتوى يجب أن يمر على الفحوصات الثلاثة السابقة.
-- ملفات `site/data.js` و`site/lesson.html` جزء من واجهة الموقع ويجب أن تبقيا موجودتين في النسختين.
+- هذه المرآة العربية مخصّصة للقارئ العربي، لكنها تبقي الروابط والبنية والمسارات متوافقة مع المشروع الأصلي.
+- إذا تغيّر المصدر الأصلي، أعد التوليد ثم أعد تشغيل الفحوصات السابقة قبل النشر.
+- في حالة تشغيل الموقع من مجلد آخر، غيّر المسار في أمر `python3 -m http.server` بما يناسب مكان المستودع لديك.
 

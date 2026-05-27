@@ -1,5 +1,9 @@
-"""وكيل الصوت في الوقت الحقيقي pipeline Simulator. يحاكي دفق مقطع صوتي من خلال VAD → STT → LLM → TTS باستخدام
-ميزانية الكمون. لا توجد نماذج حقيقية. يتتبع التوقيت لإظهار أين تذهب الميزانية. تشغيل: كود python3/main.py
+"""Real-time voice agent pipeline simulator.
+
+Simulates an audio chunk stream through VAD → STT → LLM → TTS with a
+latency budget. No real models; tracks timing to show where budget goes.
+
+Run: python3 code/main.py
 """
 
 import math

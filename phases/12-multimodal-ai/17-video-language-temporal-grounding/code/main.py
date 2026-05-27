@@ -1,4 +1,9 @@
-"""فيديو VLM عينة الإطار + مقيم التأريض الزمني - stdlib. ثلاث ألعاب: 1. أخذ عينات الإطار الموحد. 2. جهاز أخذ العينات الديناميكي FPS باستخدام وكيل الحركة (عددية الحركة الاصطناعية لكل إطار). 3. مقيم التأريض الزمني مع تسجيل أسلوب IoU.
+"""Video VLM frame sampler + temporal-grounding evaluator — stdlib.
+
+Three toys:
+  1. Uniform frame sampler.
+  2. Dynamic-FPS sampler using motion proxy (synthetic per-frame motion scalar).
+  3. Temporal-grounding evaluator with IoU-style scoring.
 """
 
 from __future__ import annotations
@@ -19,7 +24,7 @@ def uniform_sample(duration: float, n: int) -> list[float]:
 
 def dynamic_sample(motion: list[float], fps_cap: int = 4,
                    total_budget: int = 32) -> list[float]:
-    """تخصيص العينات عن طريق الحركة في الثانية الواحدة؛ الحد الأقصى في الثانية عند fps_cap."""
+    """Allocate samples by per-second motion; cap per second at fps_cap."""
     total_motion = sum(motion)
     if total_motion == 0:
         return uniform_sample(len(motion), total_budget)

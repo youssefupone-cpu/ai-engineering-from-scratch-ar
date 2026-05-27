@@ -30,7 +30,7 @@
   <text x="710" y="72" text-anchor="middle" class="head">ارتباط الهوية مهم</text>
   <text x="516" y="100" class="step">تنبعث كل مكالمة: {id، name، الوسيطات}</text>
   <text x="516" y="120" class="step">ردود كل نتيجة: {tool_call_id, content}</text>
-  <text x="516" y="142" class="step">OpenAI: call_abc123</text>
+  <text x="516" y="142" class="step">OpenAI: اتصل_abc123</text>
   <text x="516" y="160" class="step">الأنثروبي: toolu_xyz789</text>
   <text x="516" y="178" class="step">الجوزاء 3: UUID</text>
   <text x="516" y="208" class="step">خطأ الجوزاء 2: مكالمتان متوازيتان بنفس الاسم</text>
@@ -48,5 +48,5 @@
   <text x="60" y="454" class="small">  args_delta B: '":: "طوكيو"}' -&gt; call_stop B -&gt; تنفيذ (B)</text>
   <text x="60" y="472" class="small">  args_delta C: 'rich"}' -&gt; call_stop C -&gt; تنفيذ(C)</text>
   <text x="60" y="504" class="step">القاعدة: تحليل فقط عند call_stop؛ ركلة المنفذ بمجرد</text>
-  <text x="60" y="522" class="step">يتم إغلاق المعرف، NOT بعد إغلاق جميع المكالمات.</text>
+  <text x="60" y="522" class="step">يغلق المعرف، NOT بعد إغلاق جميع المكالمات.</text>
 </svg>

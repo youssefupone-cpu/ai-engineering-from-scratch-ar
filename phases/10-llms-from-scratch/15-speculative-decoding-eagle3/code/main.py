@@ -1,5 +1,15 @@
-"""فك التشفير التأملي (Leviathan 2023) مع مسودات N-token وتراجع KV. تنفيذ حلقة فك تشفير الإنتاج الكامل: - مشروع الرموز N من ص (رخيصة) - التحقق من مواقف N في موازية واحدة ف للأمام - قاعدة الرفض: القبول باستخدام الحد الأدنى (1، ف(د)/ص(د)) - أخذ العينات المتبقية عند الرفض: (q - p)_+ أعيد تطبيعها - رمز المكافأة عند القبول الكامل - KV مسك الدفاتر الخاصة باستعادة ذاكرة التخزين المؤقت ستدليب فقط. الأرقام تطابق ما أثبتته المرحلة 7 · 16 رياضيا وماذا
-المرحلة 10 · 12 موصوفة من الناحية التشغيلية. هنا نقوم بخياطة الاثنين معًا.
+"""Speculative decoding (Leviathan 2023) with N-token drafts and KV rollback.
+
+Implements the full production speculative-decoding loop:
+  - draft N tokens from p (cheap)
+  - verify N positions in one parallel q forward
+  - rejection rule: accept with min(1, q(d)/p(d))
+  - residual sampling on rejection: (q - p)_+ renormalized
+  - bonus token on full acceptance
+  - KV cache rollback bookkeeping
+
+Stdlib only. Numbers match what Phase 7 · 16 proved mathematically and what
+Phase 10 · 12 described operationally. Here we stitch both together.
 """
 
 from __future__ import annotations
@@ -38,7 +48,7 @@ def kl(q: List[float], p: List[float]) -> float:
 
 @dataclass
 class KVBuffer:
-    """يتتبع طول ذاكرة التخزين المؤقت المنطقية للتحقق. البايتات المادية افتراضية."""
+    """Tracks logical cache length for verifier. Physical bytes are notional."""
     length: int = 0
 
     def extend(self, n: int) -> None:
@@ -50,7 +60,14 @@ class KVBuffer:
 
 def spec_step(q: List[float], p: List[float], N: int, kv: KVBuffer,
               rng: random.Random) -> tuple[List[int], int]:
-    """خطوة تخمينية واحدة: قم بصياغة رموز N من p، والتحقق منها باستخدام q. إرجاع (الرموز المميزة، verifier_forwards_used). verifier_forwards_used دائمًا 1 هنا - هذه هي النقطة. تقع الرموز المميزة بين 1 وN+1. من أجل البساطة التربوية، فإن q وp عبارة عن توزيعات خالية من السياق مشتركة عبر المواقف. تمتد الرياضيات إلى q_i المعتمدة على الموضع، وp_i بدونها تغيير الحلقة.
+    """One speculative step: draft N tokens from p, verify with q.
+
+    Returns (tokens_emitted, verifier_forwards_used). verifier_forwards_used
+    is always 1 here — that is the point. tokens_emitted is between 1 and N+1.
+
+    For pedagogical simplicity q and p are context-free distributions shared
+    across positions. The math extends to position-dependent q_i, p_i without
+    changing the loop.
     """
     prefix_len = kv.length
     drafts: List[int] = []
@@ -87,7 +104,11 @@ def direct_sample(q: List[float], n: int, rng: random.Random) -> List[int]:
 
 def distribution_check(q: List[float], p: List[float], n_steps: int,
                        rng: random.Random) -> tuple[List[int], List[int]]:
-    """تأكد من أن الرمز المميز المنبعث FIRST (الرمز الذي تم أخذ عينة منه من Leviathan) موجود موزعة كـ ف. عند قبول هذه هي المسودة؛ على الرفض هو التصحيح المتبقي رمز المكافأة الذي يتبع القبول الكامل هو يتم توزيعها أيضًا كـ q ولكنها عبارة عن سحب ثانٍ ولا ينبغي خلطها هنا."""
+    """Check that the FIRST emitted token (the Leviathan-sampled one) is
+    distributed as q. On accept that is the draft; on reject it is the
+    residual correction. The bonus token that follows on full acceptance is
+    also distributed as q but is a second draw and should not be mixed in
+    here."""
     spec_counts = [0] * len(q)
     direct_counts = [0] * len(q)
     for _ in range(n_steps):
@@ -133,7 +154,10 @@ def expected_tokens_per_verify(alpha: float, N: int) -> float:
 
 
 def wall_time_per_token(alpha: float, N: int, c: float) -> float:
-    """تكلفة المسودة هي c لكل رمز بالنسبة للمدقق (التكلفة 1.0). تبلغ تكلفة كل مكالمة مدقق 1.0 بالإضافة إلى N * c للمسودة. الرموز المتوقعة المنبعث هو (1 - ألفا^(N+1)) / (1 - ألفا).
+    """Draft cost is c per token relative to the verifier (cost 1.0).
+
+    Each verifier call costs 1.0 plus N * c for the draft. Expected tokens
+    emitted is (1 - alpha^(N+1)) / (1 - alpha).
     """
     return (1.0 + N * c) / expected_tokens_per_verify(alpha, N)
 

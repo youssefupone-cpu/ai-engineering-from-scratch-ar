@@ -1,7 +1,9 @@
-"""KV ذاكرة التخزين المؤقت + الاهتمام المتجانب (نمط الفلاش) في stdlib النقي. يظهر:
-- وحدة فك ترميز تزايدية ساذجة O(N^2) مقابل وحدة فك ترميز O(N) KV-مخزنة مؤقتًا
-- تشغيل softmax الذي ينتج عنه إخراج متطابق تمامًا لكل قطعة على حدة
-- KV حسابات حجم ذاكرة التخزين المؤقت لنماذج 2026 الواقعية
+"""KV cache + tiled (Flash-style) attention in pure stdlib.
+
+Shows:
+- naive O(N^2) incremental decoder vs KV-cached O(N) decoder
+- running-max softmax that yields bit-identical output tile-by-tile
+- KV cache size math for realistic 2026 models
 """
 
 import math
@@ -20,7 +22,7 @@ def softmax(xs):
 
 
 def attention_full(q, Ks, Vs):
-    """الاهتمام بالاستعلام الفردي مقابل القوائم الكاملة للمفاتيح والقيم."""
+    """Single-query attention against full lists of keys and values."""
     scores = [dot(q, k) / math.sqrt(len(q)) for k in Ks]
     weights = softmax(scores)
     out = [0.0] * len(Vs[0])
@@ -31,7 +33,7 @@ def attention_full(q, Ks, Vs):
 
 
 def tiled_softmax_dot(q, Ks, Vs, tile=4):
-    """نمط انتباه الفلاش التزايدي softmax(qK^T)V مع حجم المربع `tile`."""
+    """Flash-attention-style incremental softmax(qK^T)V with tile size `tile`."""
     d_head = len(Vs[0])
     scale = 1.0 / math.sqrt(len(q))
     m = float("-inf")
@@ -68,7 +70,8 @@ class KVCache:
 
 
 def decode_naive(all_K, all_V, all_queries):
-    """أعد حساب الاهتمام بالبادئة الكاملة في كل خطوة. إرجاع قائمة المخرجات، واحد لكل رمز مميز تم إنشاؤه. عدد العمليات = 1+2+...+N = N(N+1)/2.
+    """Recompute attention over the full prefix at every step.
+    Returns list of outputs, one per generated token. Op count = 1+2+...+N = N(N+1)/2.
     """
     outputs = []
     ops = 0
@@ -82,7 +85,7 @@ def decode_naive(all_K, all_V, all_queries):
 
 
 def decode_cached(all_K, all_V, all_queries):
-    """KV ذاكرة التخزين المؤقت: تُلحق كل خطوة جديدة K وV واستعلامات مقابل ذاكرة التخزين المؤقت."""
+    """KV cache: each new step appends one K,V and queries against the cache."""
     cache = KVCache()
     outputs = []
     ops = 0
@@ -95,7 +98,7 @@ def decode_cached(all_K, all_V, all_queries):
 
 
 def kv_cache_bytes(N, n_layers, n_heads_kv, d_head, dtype=2):
-    """إجمالي KV بايت من ذاكرة التخزين المؤقت. dtype=2 لـ fp16/bf16، 1 لـ int8، 4 لـ fp32."""
+    """Total KV cache bytes. dtype=2 for fp16/bf16, 1 for int8, 4 for fp32."""
     return 2 * N * n_layers * n_heads_kv * d_head * dtype
 
 
@@ -104,7 +107,7 @@ def main():
     d_head = 8
     N = 10
 
-    # عشوائي Q، K، V لتسلسل مكون من 10 رموز، رأس واحد.
+    # Random Q, K, V for a 10-token sequence, one head.
     all_Q = [[rng.gauss(0, 1) for _ in range(d_head)] for _ in range(N)]
     all_K = [[rng.gauss(0, 1) for _ in range(d_head)] for _ in range(N)]
     all_V = [[rng.gauss(0, 1) for _ in range(d_head)] for _ in range(N)]

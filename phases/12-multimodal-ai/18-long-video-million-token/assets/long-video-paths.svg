@@ -32,7 +32,7 @@
 
   <rect x="490" y="50" width="440" height="210" class="cool"/>
   <text x="710" y="72" text-anchor="middle" class="head">المسار 2: حلقة الاهتمام</text>
-  <text x="710" y="96" text-anchor="middle" class="small">LWM: تدريب بقيمة مليون رمز</text>
+  <text x="710" y="96" text-anchor="middle" class="small">LWM: تدريب على 1 مليون رمز</text>
   <text x="710" y="114" text-anchor="middle" class="small">LongVILA: مقاطع فيديو ذات 1400 إطار</text>
   <text x="710" y="132" text-anchor="middle" class="small">نمط الحلقة الموزعة</text>
   <text x="710" y="160" text-anchor="middle" class="step">engineering</text>
@@ -43,12 +43,12 @@
 
   <rect x="30" y="280" width="440" height="230" class="cold"/>
   <text x="250" y="302" text-anchor="middle" class="head">المسار 3: ضغط الرمز المميز</text>
-  <text x="250" y="326" text-anchor="middle" class="small">الفيديو-XL: رمز ملخص واحد</text>
+  <text x="250" y="326" text-anchor="middle" class="small">فيديو-XL: رمز ملخص واحد</text>
   <text x="250" y="344" text-anchor="middle" class="small">لكل مقطع (100 إطار -&gt; 1)</text>
   <text x="250" y="362" text-anchor="middle" class="small">LongVA: نقل السياق الطويل</text>
   <text x="250" y="380" text-anchor="middle" class="small">VideoChat2: تجمع هرمي</text>
   <text x="250" y="410" text-anchor="middle" class="step">engineering</text>
-  <text x="250" y="430" text-anchor="middle" class="small">الضاغط الذي تم تعلمه قبل-LLM</text>
+  <text x="250" y="430" text-anchor="middle" class="small">تعلم الضاغط مسبقًا LLM</text>
   <text x="250" y="446" text-anchor="middle" class="small">استدعاء الصفقات على نطاق واسع</text>
   <text x="250" y="462" text-anchor="middle" class="small">~32 كيلو سياق كافٍ</text>
   <text x="250" y="490" text-anchor="middle" class="caption">أرخص الاستدلال، وأضعف التأريض</text>

@@ -30,13 +30,13 @@
 
   <!-- verify -->
   <rect x="570" y="60" width="360" height="40" class="hot"/>
-  <text x="750" y="85" text-anchor="middle" class="step">أداة التحقق q (بادئة + مسودات) — ONE تمريرة أمامية</text>
+  <text x="750" y="85" text-anchor="middle" class="step">أداة التحقق q(بادئة + مسودات) — ONE تمريرة أمامية</text>
   <line x1="542" y1="80" x2="568" y2="80" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <!-- Leviathan rule -->
   <rect x="30" y="140" width="900" height="60" class="box"/>
   <text x="50" y="165" class="head">قاعدة ليفياثان (لكل i = 1..N)</text>
-  <text x="50" y="185" class="step">اقبل d_i إذا u &lt; min(1, q(d_i) / p(d_i)) وإلا قم بإصدار التصحيح ~ (q - p)_+ / ||(q - p)_+||_1 وSTOP</text>
+  <text x="50" y="185" class="step">اقبل d_i إذا u &lt; min(1, q(d_i) / p(d_i)) وإلا قم بإصدار التصحيح ~ (q - p)_+ / ||(q - p)_+||_1 و STOP</text>
 
   <!-- outcome A -->
   <rect x="30" y="220" width="430" height="80" class="cool"/>

@@ -1,28 +1,28 @@
-# دفاتر جوبيتر
+# Jupyter Notebooks
 
-> تعد أجهزة الكمبيوتر المحمولة بمثابة منصة مختبرية لهندسة الذكاء الاصطناعي. أنت تصنع نموذجًا أوليًا هنا، ثم تنقل ما ينجح إلى الإنتاج.
+> Notebooks are the lab bench of AI engineering. You prototype here, then move what works into production.
 
-**النوع:** بناء
-** اللغات: ** بايثون
-**المتطلبات الأساسية:** المرحلة 0، الدرس 01
-**الوقت:** ~30 دقيقة
+**Type:** Build
+**Languages:** Python
+**Prerequisites:** Phase 0, Lesson 01
+**Time:** ~30 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- تثبيت وتشغيل JupyterLab أو Jupyter Notebook أو VS Code بامتداد Jupyter
-- استخدم الأوامر السحرية (`%timeit`، `%%time`، `%matplotlib inline`) لقياس الأداء والتصور المضمّن
-- التمييز بين وقت استخدام دفاتر الملاحظات والبرامج النصية وتطبيق سير العمل "الاستكشاف في دفاتر الملاحظات والشحن في البرامج النصية"
-- تحديد وتجنب مصائد أجهزة الكمبيوتر المحمولة الشائعة: التنفيذ خارج الترتيب، والحالة المخفية، وتسريبات الذاكرة
+- Install and launch JupyterLab, Jupyter Notebook, or VS Code with the Jupyter extension
+- Use magic commands (`%timeit`, `%%time`, `%matplotlib inline`) to benchmark and visualize inline
+- Distinguish when to use notebooks vs scripts and apply the "explore in notebooks, ship in scripts" workflow
+- Identify and avoid common notebook traps: out-of-order execution, hidden state, and memory leaks
 
-## المشكلة
+## The Problem
 
-تستخدم كل ورقة بحثية وتعليمية ومسابقة Kaggle الخاصة بالذكاء الاصطناعي دفاتر ملاحظات Jupyter. فهي تتيح لك تشغيل التعليمات البرمجية على أجزاء، ورؤية المخرجات المضمنة، ومزج التعليمات البرمجية مع التفسيرات، والتكرار بسرعة. إذا حاولت تعلم الذكاء الاصطناعي بدون دفاتر ملاحظات، فأنت تقوم بواجب الرياضيات المنزلي بدون ورقة مسودة.
+Every AI paper, tutorial, and Kaggle competition uses Jupyter notebooks. They let you run code in pieces, see outputs inline, mix code with explanations, and iterate fast. If you try to learn AI without notebooks, you're doing math homework without scratch paper.
 
-لكن دفاتر الملاحظات بها مصائد حقيقية. يستخدمها الناس في كل شيء، بما في ذلك الأشياء التي يكرهون القيام بها. إن معرفة متى تستخدم دفتر ملاحظات ومتى تستخدم برنامجًا نصيًا سيوفر عليك تصحيح أخطاء الكوابيس لاحقًا.
+But notebooks have real traps. People use them for everything, including things they're terrible at. Knowing when to use a notebook and when to use a script will save you from debugging nightmares later.
 
-##المفهوم
+## The Concept
 
-دفتر الملاحظات هو قائمة من الخلايا. كل خلية إما رمز أو نص.
+A notebook is a list of cells. Each cell is either code or text.
 
 ```mermaid
 graph TD
@@ -30,7 +30,7 @@ graph TD
     B --> C["**Code Cell** ► Run\nplt.plot(losses)\n---\nOutput: inline plot"]
 ```
 
-النواة هي عملية بايثون تعمل في الخلفية. عندما تقوم بتشغيل خلية، فإنها ترسل الكود إلى النواة، التي تقوم بتنفيذها وترسل النتيجة مرة أخرى. تشترك جميع الخلايا في نفس النواة، لذلك تستمر المتغيرات بين الخلايا.
+The kernel is a Python process running in the background. When you run a cell, it sends the code to the kernel, which executes it and sends back the result. All cells share the same kernel, so variables persist between cells.
 
 ```mermaid
 graph LR
@@ -40,57 +40,57 @@ graph LR
     B --> E[Dies when you restart it]
 ```
 
-هذا الجزء "أيًا كان الطلب الذي تنقر عليه" هو القوة العظمى وبندقية القدم.
+That "whatever order you click" part is both the superpower and the foot-gun.
 
-## بنائها
+## Build It
 
-### الخطوة 1: اختر الواجهة الخاصة بك
+### Step 1: Pick your interface
 
-ثلاثة خيارات، شكل واحد:
+Three options, one format:
 
-| الواجهة | تثبيت | الأفضل لـ |
-|-----------|--------|----------|
-| جوبيتر لاب | `pip install jupyterlab` ثم `jupyter lab` | تجربة IDE كاملة، علامات تبويب متعددة، متصفح الملفات، المحطة الطرفية |
-| دفتر جوبيتر | `pip install notebook` ثم `jupyter notebook` | بسيط، وخفيف الوزن، ودفتر ملاحظات واحد في كل مرة |
-| كود VS | قم بتثبيت ملحق "Jupyter" | بالفعل في المحرر الخاص بك، تكامل git، تصحيح الأخطاء |
+| Interface | Install | Best for |
+|-----------|---------|----------|
+| JupyterLab | `pip install jupyterlab` then `jupyter lab` | Full IDE experience, multiple tabs, file browser, terminal |
+| Jupyter Notebook | `pip install notebook` then `jupyter notebook` | Simple, lightweight, one notebook at a time |
+| VS Code | Install "Jupyter" extension | Already in your editor, git integration, debugging |
 
-يقوم الثلاثة بقراءة وكتابة نفس الملف `.ipynb`. اختر ما تريد. JupyterLab هو الأكثر شيوعًا في أعمال الذكاء الاصطناعي.
+All three read and write the same `.ipynb` file. Pick whatever you like. JupyterLab is the most common in AI work.
 
 ```bash
 pip install jupyterlab
 jupyter lab
 ```
 
-### الخطوة الثانية: اختصارات لوحة المفاتيح المهمة
+### Step 2: Keyboard shortcuts that matter
 
-أنت تعمل في وضعين. اضغط على `Escape` لوضع الأوامر (الشريط الأزرق على اليسار)، `Enter` لوضع التحرير (الشريط الأخضر).
+You operate in two modes. Press `Escape` for command mode (blue bar on the left), `Enter` for edit mode (green bar).
 
-**وضع الأوامر (الأكثر استخدامًا):**
+**Command mode (most used):**
 
-| مفتاح | العمل |
+| Key | Action |
 |-----|--------|
-| `Shift+Enter` | تشغيل الخلية، الانتقال إلى التالي |
-| __الكود_1__ | أدخل الخلية أعلاه |
-| __الكود_2__ | أدخل الخلية أدناه |
-| __الكود_3__ | حذف الخلية |
-| __الكود_4__ | تحويل إلى تخفيض السعر |
-| __الكود_5__ | تحويل إلى كود |
-| __الكود_6__ | التراجع عن عملية الخلية |
-| __الكود_7__ | إظهار كافة الاختصارات |
+| `Shift+Enter` | Run cell, move to next |
+| `A` | Insert cell above |
+| `B` | Insert cell below |
+| `DD` | Delete cell |
+| `M` | Convert to markdown |
+| `Y` | Convert to code |
+| `Z` | Undo cell operation |
+| `Ctrl+Shift+H` | Show all shortcuts |
 
-**وضع التحرير:**
+**Edit mode:**
 
-| مفتاح | العمل |
+| Key | Action |
 |-----|--------|
-| `Tab` | الإكمال التلقائي |
-| __الكود_1__ | إظهار توقيع الوظيفة |
-| __الكود_2__ | تبديل التعليق |
+| `Tab` | Autocomplete |
+| `Shift+Tab` | Show function signature |
+| `Ctrl+/` | Toggle comment |
 
-`Shift+Enter` هو الذي ستستخدمه ألف مرة في اليوم. تعلم ذلك أولا.
+`Shift+Enter` is the one you'll use a thousand times a day. Learn it first.
 
-### الخطوة 3: أنواع الخلايا
+### Step 3: Cell types
 
-**خلايا التعليمات البرمجية** تعمل على تشغيل لغة Python وإظهار المخرجات:
+**Code cells** run Python and show the output:
 
 ```python
 import numpy as np
@@ -98,56 +98,56 @@ data = np.random.randn(1000)
 data.mean(), data.std()
 ```
 
-الإخراج: `(0.0032, 0.9987)`
+Output: `(0.0032, 0.9987)`
 
-**خلايا تخفيض السعر** تعرض نصًا منسقًا. استخدمها لتوثيق ما تفعله ولماذا. يدعم الرؤوس والخط العريض والمائل ورياضيات LaTeX (`$E = mc^2$`) والجداول والصور.
+**Markdown cells** render formatted text. Use them to document what you're doing and why. Supports headers, bold, italic, LaTeX math (`$E = mc^2$`), tables, and images.
 
-### الخطوة 4: الأوامر السحرية
+### Step 4: Magic commands
 
-هذه ليست بايثون. إنها أوامر خاصة بـ Jupyter تبدأ بـ `%` (سحر السطر) أو `%%` (سحر الخلية).
+These aren't Python. They're Jupyter-specific commands that start with `%` (line magic) or `%%` (cell magic).
 
-**توقيت الرمز الخاص بك:**
+**Time your code:**
 
 ```python
 %timeit np.random.randn(10000)
 ```
 
-الإخراج: `45.2 us +/- 1.3 us per loop`
+Output: `45.2 us +/- 1.3 us per loop`
 
 ```python
 %%time
 model.fit(X_train, y_train, epochs=10)
 ```
 
-الإخراج: `Wall time: 2.34 s`
+Output: `Wall time: 2.34 s`
 
-يقوم `%timeit` بتشغيل الكود عدة مرات وبمتوسطات. `%%time` يقوم بتشغيله مرة واحدة. استخدم `%timeit` للمعايير الدقيقة، `%%time` لعمليات التدريب.
+`%timeit` runs the code many times and averages. `%%time` runs it once. Use `%timeit` for microbenchmarks, `%%time` for training runs.
 
-** تمكين المؤامرات المضمنة: **
+**Enable inline plots:**
 
 ```python
 %matplotlib inline
 ```
 
-يتم الآن عرض كل `plt.plot()` أو `plt.show()` مباشرة في دفتر الملاحظات.
+Every `plt.plot()` or `plt.show()` now renders directly in the notebook.
 
-**تثبيت الحزم دون مغادرة الكمبيوتر الدفتري:**
+**Install packages without leaving the notebook:**
 
 ```python
 !pip install scikit-learn
 ```
 
-تعمل البادئة `!` على تشغيل أي أمر Shell.
+The `!` prefix runs any shell command.
 
-**التحقق من متغيرات البيئة:**
+**Check environment variables:**
 
 ```python
 %env CUDA_VISIBLE_DEVICES
 ```
 
-### الخطوة 5: عرض المخرجات الغنية في السطر
+### Step 5: Display rich output inline
 
-تعرض دفاتر الملاحظات التعبير الأخير في الخلية تلقائيًا. ولكن يمكنك التحكم فيه:
+Notebooks auto-display the last expression in a cell. But you can control it:
 
 ```python
 import pandas as pd
@@ -160,7 +160,7 @@ df = pd.DataFrame({
 df
 ```
 
-يؤدي هذا إلى عرض جدول HTML منسق، وليس تفريغ نص. الشيء نفسه مع المؤامرات:
+This renders a formatted HTML table, not a text dump. Same with plots:
 
 ```python
 import matplotlib.pyplot as plt
@@ -171,81 +171,81 @@ plt.title("Inline Plot")
 plt.show()
 ```
 
-تظهر المؤامرة مباشرة أسفل الخلية. ولهذا السبب تهيمن أجهزة الكمبيوتر المحمولة على أعمال الذكاء الاصطناعي. ترى البيانات والمؤامرة والرمز معًا.
+The plot appears right below the cell. This is why notebooks dominate AI work. You see the data, the plot, and the code together.
 
-للصور:
+For images:
 
 ```python
 from IPython.display import Image, display
 display(Image(filename="architecture.png"))
 ```
 
-### الخطوة 6: جوجل كولاب
+### Step 6: Google Colab
 
-Colab عبارة عن دفتر ملاحظات Jupyter مجاني في السحابة. فهو يوفر لك وحدة معالجة الرسومات والمكتبات المثبتة مسبقًا وتكامل Google Drive. لا يلزم الإعداد.
+Colab is a free Jupyter notebook in the cloud. It gives you a GPU, pre-installed libraries, and Google Drive integration. No setup required.
 
-1. انتقل إلى [colab.research.google.com](https://colab.research.google.com)
-2. قم بتحميل أي ملف `.ipynb` من هذه الدورة
-3. وقت التشغيل > تغيير نوع وقت التشغيل > T4 GPU (مجاني)
+1. Go to [colab.research.google.com](https://colab.research.google.com)
+2. Upload any `.ipynb` file from this course
+3. Runtime > Change runtime type > T4 GPU (free)
 
-اختلافات كولاب عن Jupyter المحلي:
-- عدم استمرار الملفات بين الجلسات (حفظها في Drive أو تنزيلها)
-- مثبتة مسبقًا: numpy، pandas، matplotlib، torch، Tensorflow، sklearn
-- `from google.colab import files` لتحميل/تنزيل الملفات
-- `from google.colab import drive; drive.mount('/content/drive')` للتخزين المستمر
-- تنتهي مهلة الجلسات بعد 90 دقيقة من عدم النشاط (الطبقة المجانية)
+Colab differences from local Jupyter:
+- Files don't persist between sessions (save to Drive or download)
+- Pre-installed: numpy, pandas, matplotlib, torch, tensorflow, sklearn
+- `from google.colab import files` to upload/download files
+- `from google.colab import drive; drive.mount('/content/drive')` for persistent storage
+- Sessions time out after 90 minutes of inactivity (free tier)
 
-## استخدمه
+## Use It
 
-### دفاتر الملاحظات مقابل البرامج النصية: متى يتم استخدام أي منها
+### Notebooks vs Scripts: When to use which
 
-| استخدم دفاتر الملاحظات لـ | استخدم البرامج النصية لـ |
+| Use notebooks for | Use scripts for |
 |-------------------|-----------------|
-| استكشاف مجموعة بيانات | خطوط التدريب |
-| نموذج أولي | المرافق القابلة لإعادة الاستخدام |
-| تصور النتائج | أي شيء يحتوي على `if __name__` |
-| شرح عملك | الكود الذي يعمل وفق جدول زمني |
-| تجارب سريعة | كود الإنتاج |
-| تمارين الدورة | الحزم والمكتبات |
+| Exploring a dataset | Training pipelines |
+| Prototyping a model | Reusable utilities |
+| Visualizing results | Anything with `if __name__` |
+| Explaining your work | Code that runs on a schedule |
+| Quick experiments | Production code |
+| Course exercises | Packages and libraries |
 
-القاعدة: **استكشف في دفاتر الملاحظات، واشحن في البرامج النصية**.
+The rule: **explore in notebooks, ship in scripts**.
 
-سير العمل المشترك في الذكاء الاصطناعي:
-1. استكشف البيانات في دفتر الملاحظات
-2. قم بإنشاء نموذج أولي للنموذج الخاص بك في دفتر الملاحظات
-3. بمجرد أن يعمل، انقل الكود إلى ملفات `.py`
-4. قم باستيراد ملفات `.py` مرة أخرى إلى دفتر الملاحظات لإجراء المزيد من التجارب
+A common workflow in AI:
+1. Explore data in a notebook
+2. Prototype your model in the notebook
+3. Once it works, move the code to `.py` files
+4. Import those `.py` files back into the notebook for further experiments
 
-### الفخاخ الشائعة
+### Common traps
 
-**التنفيذ خارج الترتيب.** يمكنك تشغيل الخلية 5، ثم الخلية 2، ثم الخلية 7. يعمل دفتر الملاحظات على جهازك ولكنه يتعطل عندما يقوم شخص ما بتشغيله من الأعلى إلى الأسفل. إصلاح: Kernel> إعادة التشغيل وتشغيل الكل قبل المشاركة.
+**Out-of-order execution.** You run cell 5, then cell 2, then cell 7. The notebook works on your machine but breaks when someone runs it top to bottom. Fix: Kernel > Restart & Run All before sharing.
 
-**الحالة المخفية.** تقوم بحذف خلية ولكن المتغير الذي أنشأته لا يزال في الذاكرة. يبدو دفتر الملاحظات نظيفًا ولكنه يعتمد على خلية شبحية. إصلاح: إعادة تشغيل النواة بانتظام.
+**Hidden state.** You delete a cell but the variable it created is still in memory. The notebook looks clean but depends on a ghost cell. Fix: Restart the kernel regularly.
 
-**تسرب الذاكرة.** تحميل مجموعة بيانات بسعة 4 جيجابايت، وتدريب نموذج، وتحميل مجموعة بيانات أخرى. لا شيء يتحرر. أصلح: `del variable_name` و `gc.collect()`، أو أعد تشغيل النواة.
+**Memory leaks.** Loading a 4GB dataset, training a model, loading another dataset. Nothing gets freed. Fix: `del variable_name` and `gc.collect()`, or restart the kernel.
 
-## اشحنها
+## Ship It
 
-ينتج هذا الدرس:
-- `outputs/prompt-notebook-helper.md` لتصحيح مشكلات دفتر الملاحظات
+This lesson produces:
+- `outputs/prompt-notebook-helper.md` for debugging notebook issues
 
-## تمارين
+## Exercises
 
-1. افتح JupyterLab، وقم بإنشاء دفتر ملاحظات، واستخدم `%timeit` لمقارنة فهم القائمة مقابل numpy لإنشاء مصفوفة مكونة من 100000 رقم عشوائي
-2. قم بإنشاء دفتر ملاحظات يحتوي على كل من خلايا تخفيض السعر وخلايا التعليمات البرمجية التي تقوم بتحميل ملف CSV وعرض إطار بيانات ورسم مخطط. ثم قم بتشغيل Kernel > Restart & Run All للتحقق من أنه يعمل من الأعلى إلى الأسفل
-3. خذ الكود من `code/notebook_tips.py`، والصقه في دفتر ملاحظات Colab، وقم بتشغيله باستخدام وحدة معالجة الرسومات المجانية
+1. Open JupyterLab, create a notebook, and use `%timeit` to compare list comprehension vs numpy for creating an array of 100,000 random numbers
+2. Create a notebook with both markdown and code cells that loads a CSV, displays a dataframe, and plots a chart. Then run Kernel > Restart & Run All to verify it works top to bottom
+3. Take the code from `code/notebook_tips.py`, paste it into a Colab notebook, and run it with a free GPU
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| النواة | "الشيء الذي يقوم بتشغيل الكود الخاص بي" | عملية بايثون منفصلة تنفذ الخلايا وتحتفظ بالمتغيرات في الذاكرة |
-| الخلية | "كتلة التعليمات البرمجية" | وحدة قابلة للتشغيل بشكل مستقل في دفتر الملاحظات، إما رمز أو تخفيض السعر |
-| الأمر السحري | "حيل جوبيتر" | الأوامر الخاصة المسبوقة بـ `%` أو `%%` التي تتحكم في بيئة الكمبيوتر المحمول |
-| __الكود_2__ | "ملف دفتر الملاحظات" | ملف JSON يحتوي على الخلايا والمخرجات والبيانات الوصفية. لتقف على IPython Notebook |
+| Kernel | "The thing running my code" | A separate Python process that executes cells and keeps variables in memory |
+| Cell | "A code block" | An independently runnable unit in a notebook, either code or markdown |
+| Magic command | "Jupyter tricks" | Special commands prefixed with `%` or `%%` that control the notebook environment |
+| `.ipynb` | "Notebook file" | A JSON file containing cells, outputs, and metadata. Stands for IPython Notebook |
 
-## مزيد من القراءة
+## Further Reading
 
-- [JupyterLab Docs](https://jupyterlab.readthedocs.io/) لمجموعة الميزات الكاملة
-- [Google Colab FAQ](https://research.google.com/colaboratory/faq.html) للحدود والميزات الخاصة بـ Colab
-- [28 Jupyter Notebook Tips](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/) لاختصارات المستخدم المتميز
+- [JupyterLab Docs](https://jupyterlab.readthedocs.io/) for the full feature set
+- [Google Colab FAQ](https://research.google.com/colaboratory/faq.html) for Colab-specific limits and features
+- [28 Jupyter Notebook Tips](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/) for power-user shortcuts

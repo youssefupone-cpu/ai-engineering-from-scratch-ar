@@ -17,7 +17,7 @@
   </defs>
 
   <rect class="box" x="20" y="30" width="860" height="100" rx="4"/>
-  <text class="label" x="35" y="55">علامات POS (التبعيات العالمية)</text>
+  <text class="label" x="35" y="55">POS العلامات (التبعيات العالمية)</text>
 
   <rect class="tok" x="50" y="75" width="80" height="40" rx="3"/><text class="content" x="90" y="98" text-anchor="middle">The</text><text class="tag" x="90" y="115" text-anchor="middle">DET</text>
   <rect class="tok" x="140" y="75" width="80" height="40" rx="3"/><text class="content" x="180" y="98" text-anchor="middle">cats</text><text class="tag" x="180" y="115" text-anchor="middle">NOUN</text>
@@ -52,6 +52,6 @@
   <path class="dep" d="M 530 240 Q 490 225 450 240" marker-end="url(#dep-arrow)"/>
   <text class="rel" x="490" y="220" text-anchor="middle">pobj</text>
 
-  <text class="note" x="365" y="310" text-anchor="middle">ROOT = قيد التشغيل</text>
+  <text class="note" x="365" y="310" text-anchor="middle">ROOT = يجري</text>
   <text class="stage" x="450" y="370" text-anchor="middle">كل كلمة لها رأس واحد. السهام تذهب إلى الأمام → تعتمد.</text>
 </svg>

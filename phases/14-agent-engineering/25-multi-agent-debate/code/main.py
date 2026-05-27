@@ -1,5 +1,7 @@
-"""مناقشة متعددة الوكلاء: طوبولوجيا الشبكة الكاملة مقابل الشبكة المتفرقة (النجمية). مناظرون مكتوبون ذوو آراء مختلفة. تدابير الإجابة المتقاربة
-جولات إلى الإجماع وعمليات النقد الإجمالية (كبديل للتكلفة).
+"""Multi-agent debate: full mesh vs sparse (star) topology.
+
+Scripted debaters with different opinion drifts. Measures convergent answer,
+rounds to consensus, and total critique ops (as a cost proxy).
 """
 
 from __future__ import annotations

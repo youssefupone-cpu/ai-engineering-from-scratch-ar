@@ -27,8 +27,8 @@ from urllib.request import Request, urlopen
 from lxml import etree, html as lxml_html
 
 
-SOURCE_ROOT = Path("/home/youssef-ayad/ai-engineering-from-scratch")
-OUTPUT_ROOT = Path("/home/youssef-ayad/ai-engineering-from-scratch-ar")
+SOURCE_ROOT = Path(os.environ.get("SOURCE_ROOT", "/home/youssef-ayad/ai-engineering-from-scratch"))
+OUTPUT_ROOT = Path(os.environ.get("OUTPUT_ROOT", "/home/youssef-ayad/ai-engineering-from-scratch-ar"))
 
 EXCLUDE_DIRS = {
     ".git",
@@ -119,6 +119,15 @@ PROTECTED_TERMS = [
     "WordPiece",
     "TF-IDF",
 ]
+
+PLACEHOLDER_MARKS = {
+    "TERM": ("⟦", "⟧"),
+    "URL": ("⟪", "⟫"),
+    "LINK": ("⟨", "⟩"),
+    "CODE": ("‹", "›"),
+    "TAG": ("❬", "❭"),
+    "ESC": ("⌈", "⌉"),
+}
 
 SHORT_REPLACEMENTS = {
     "Skip to content": "تخطَّ إلى المحتوى",
@@ -256,7 +265,8 @@ def protect_terms(text: str) -> tuple[str, dict[str, str]]:
 
     def replace(match: re.Match[str]) -> str:
         nonlocal counter
-        placeholder = f"__TERM_{counter}__"
+        left, right = PLACEHOLDER_MARKS["TERM"]
+        placeholder = f"{left}{counter}{right}"
         placeholders[placeholder] = match.group(0)
         counter += 1
         return placeholder
@@ -362,7 +372,8 @@ def translate_fragment(text: str, preserve_html: bool = False) -> str:
     url_placeholders: dict[str, str] = {}
 
     def protect_regex(pattern: re.Pattern[str], prefix: str, value: str) -> str:
-        placeholder = f"__{prefix}_{len(url_placeholders)}__"
+        left, right = PLACEHOLDER_MARKS[prefix]
+        placeholder = f"{left}{len(url_placeholders)}{right}"
         url_placeholders[placeholder] = value
         return placeholder
 
@@ -594,7 +605,8 @@ def translate_js_string_content(raw: str) -> str:
     placeholders: dict[str, str] = {}
 
     def hold(value: str, prefix: str) -> str:
-        placeholder = f"__{prefix}_{len(placeholders)}__"
+        left, right = PLACEHOLDER_MARKS[prefix]
+        placeholder = f"{left}{len(placeholders)}{right}"
         placeholders[placeholder] = value
         return placeholder
 

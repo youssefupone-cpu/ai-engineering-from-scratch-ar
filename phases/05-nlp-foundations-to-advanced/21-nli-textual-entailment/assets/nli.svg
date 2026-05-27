@@ -15,7 +15,7 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">NLI — مهمة واحدة، وثلاثة استخدامات إنتاجية</text>
+  <text x="450" y="30" text-anchor="middle" class="title">NLI — مهمة واحدة وثلاثة استخدامات إنتاجية</text>
 
   <!-- Premise + Hypothesis input -->
   <rect x="60" y="70" width="280" height="60" class="box"/>
@@ -31,8 +31,8 @@
   <!-- Encoder -->
   <rect x="400" y="90" width="220" height="90" class="box"/>
   <text x="510" y="115" text-anchor="middle" class="label">التشفير المحولات</text>
-  <text x="510" y="138" text-anchor="middle" class="content">[CLS] ر [SEP] ح [SEP]</text>
-  <text x="510" y="160" text-anchor="middle" class="caption">ديبرتا-v3 / روبرتا / BART</text>
+  <text x="510" y="138" text-anchor="middle" class="content">[CLS] ت [SEP] ح [SEP]</text>
+  <text x="510" y="160" text-anchor="middle" class="caption">ديبيرتا-v3 / روبرتا / BART</text>
 
   <line x1="620" y1="135" x2="680" y2="135" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 

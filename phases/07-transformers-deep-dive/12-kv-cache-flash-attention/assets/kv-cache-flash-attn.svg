@@ -16,7 +16,7 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">KV ذاكرة التخزين المؤقت تتزايد. يحافظ Flash Attention على المسار السريع في SRAM.</text>
+  <text x="450" y="30" text-anchor="middle" class="title">KV ذاكرة التخزين المؤقت تنمو. يحافظ Flash Attention على المسار الساخن في SRAM.</text>
 
   <!-- Left: KV cache growth -->
   <rect x="40" y="60" width="400" height="230" class="box"/>
@@ -78,7 +78,7 @@
 
   <!-- Right: Flash attention tiling -->
   <rect x="460" y="60" width="400" height="230" class="box"/>
-  <text x="660" y="85" text-anchor="middle" class="label">تنبيه فلاش — التجانب إلى SRAM</text>
+  <text x="660" y="85" text-anchor="middle" class="label">تنبيه الفلاش - التبليط إلى SRAM</text>
 
   <!-- HBM frame -->
   <rect x="485" y="100" width="180" height="170" class="hbm"/>
@@ -115,25 +115,25 @@
 
   <text x="110" y="385" text-anchor="middle" class="content">FA1 (2022)</text>
   <text x="110" y="405" text-anchor="middle" class="caption">SRAM تبليط</text>
-  <text x="110" y="421" text-anchor="middle" class="caption">2× في A100</text>
+  <text x="110" y="421" text-anchor="middle" class="caption">2× على A100</text>
 
   <text x="290" y="385" text-anchor="middle" class="content">FA2 (2023)</text>
   <text x="290" y="405" text-anchor="middle" class="caption">التوازي أفضل</text>
-  <text x="290" y="421" text-anchor="middle" class="caption">3× في A100</text>
+  <text x="290" y="421" text-anchor="middle" class="caption">3× على A100</text>
 
   <text x="470" y="385" text-anchor="middle" class="content">FA3 (2024)</text>
   <text x="470" y="405" text-anchor="middle" class="caption">عدم تزامن القادوس، FP8</text>
   <text x="470" y="421" text-anchor="middle" class="caption">~740 تفلوب H100</text>
 
   <text x="650" y="385" text-anchor="middle" class="content">FA4 (2026)</text>
-  <text x="650" y="405" text-anchor="middle" class="caption">بلاكويل 5 مراحل pipe</text>
+  <text x="650" y="405" text-anchor="middle" class="caption">بلاكويل 5 مراحل pipه</text>
   <text x="650" y="421" text-anchor="middle" class="caption">inference-first</text>
 
   <text x="810" y="385" text-anchor="middle" class="content">next</text>
   <text x="810" y="405" text-anchor="middle" class="caption">للخلف + GQA</text>
   <text x="810" y="421" text-anchor="middle" class="caption">فارلين للتدريب</text>
 
-  <text x="460" y="456" text-anchor="middle" class="caption">أصبحت ذاكرة التخزين المؤقت KV وFlash Attention عالمية في عام 2026 — vLLM، وSGLang، وTensorRT-LLM، وllama.cpp جميعها تفترض كليهما.</text>
+  <text x="460" y="456" text-anchor="middle" class="caption">KV ذاكرة التخزين المؤقت وFlash Attention أصبحت عالمية في عام 2026 — vLLM، SGLang، TensorRT-LLM، llama.cpp كلها تفترض كليهما.</text>
 
-  <text x="460" y="504" text-anchor="middle" class="caption">الحدود التالية: PagedAttention (KV كذاكرة افتراضية)، والتخزين المؤقت للبادئة، وفك التشفير التخميني.</text>
+  <text x="460" y="504" text-anchor="middle" class="caption">الحدود التالية: PagedAttention (KV كذاكرة افتراضية)، والتخزين المؤقت للبادئة، وفك التشفير التأملي.</text>
 </svg>

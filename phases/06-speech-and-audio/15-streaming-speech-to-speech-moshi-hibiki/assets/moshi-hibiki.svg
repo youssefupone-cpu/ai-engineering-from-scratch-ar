@@ -57,12 +57,12 @@
 
   <rect x="20" y="275" width="835" height="80" class="box"/>
   <text x="437" y="297" text-anchor="middle" class="label">لماذا يتفوق الاتجاه المزدوج الكامل على pipeline</text>
-  <text x="50" y="322" class="content">pipeline (VAD + STT + LLM + TTS): زمن الاستجابة مرتبط بأطول مرحلة، وبنية دوران صلبة</text>
+  <text x="50" y="322" class="content">pipeline (VAD + STT + LLM + TTS): الكمون مرتبط بأطول مرحلة، وبنية دوران صلبة</text>
   <text x="50" y="342" class="content">مزدوج كامل (موشي): كلا التدفقين نشطان؛ المقاطعة، القناة الخلفية، 200 مللي ثانية أرضية نظرية</text>
 
   <rect x="20" y="365" width="835" height="90" class="hot"/>
-  <text x="437" y="386" text-anchor="middle" class="label">اختيارات البث المباشر لعام 2026 S2S</text>
+  <text x="437" y="386" text-anchor="middle" class="label">2026 البث S2S يختار</text>
   <text x="50" y="410" class="content">موشي — رفيق الصوت ذو زمن الاستجابة الأقل، EN + FR · CC-BY 4.0</text>
-  <text x="50" y="428" class="content">Hibiki / Hibiki-Zero — بث ترجمة الكلام إلى كلام · CC-BY 4.0</text>
+  <text x="50" y="428" class="content">Hibiki / Hibiki-Zero — تدفق ترجمة الكلام إلى كلام · CC-BY 4.0</text>
   <text x="50" y="446" class="content">GPT-4o Realtime / Gemini Live — أقران تجاريون مغلقون · تجاريون</text>
 </svg>

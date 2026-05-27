@@ -1,5 +1,15 @@
-"""لعبة Q-Former عبر الانتباه - stdlib Python. يبني جسرًا نمطيًا بسيطًا BLIP-2: - 256 "رمز تصحيح" من ViT مزيف - 32 متجه استعلام قابل للتعلم - كتلة واحدة من الانتباه المتبادل (Q من الاستعلامات، K/V من التصحيحات) - إسقاط خطي إلى LLM خافت مخفي - طباعة أوزان الانتباه حتى يتمكن القارئ من معرفة التصحيح لكل استعلام سحبت من ناقلات وقوائم بيثون النقية. لا نومي، لا الشعلة. الحساب بطيء
-لكن بالضبط؛ جيد لفحص السلوك.
+"""Q-Former cross-attention toy — stdlib Python.
+
+Builds a minimal BLIP-2-style modality bridge:
+  - 256 "patch tokens" from a fake ViT
+  - 32 learnable query vectors
+  - one cross-attention block (Q from queries, K/V from patches)
+  - linear projection to an LLM hidden dim
+  - prints attention weights so the reader can see which patch each query
+    pulled from
+
+Pure Python vectors and lists. No numpy, no torch. The arithmetic is slow
+but exact; good for inspecting behaviour.
 """
 
 from __future__ import annotations
@@ -40,12 +50,12 @@ def softmax(xs: list[float]) -> list[float]:
 
 
 def make_patches() -> list[list[float]]:
-    """64 "رمز تصحيح" مزيفًا من 16 خافتًا من ViT مجمد."""
+    """Fake 64 'patch tokens' of dim 16 from a frozen ViT."""
     return [vec(PATCH_DIM) for _ in range(NUM_PATCH)]
 
 
 def make_queries() -> list[list[float]]:
-    """32 متجه استعلام قابل للتعلم، خافت 16."""
+    """32 learnable query vectors, dim 16."""
     return [vec(QUERY_DIM) for _ in range(NUM_QUERY)]
 
 
@@ -54,7 +64,10 @@ def cross_attention(queries: list[list[float]],
                     W_q: list[list[float]],
                     W_k: list[list[float]],
                     W_v: list[list[float]]) -> tuple[list[list[float]], list[list[float]]]:
-    """الاهتمام المتبادل للمنتج النقطي. الاستعلامات: (Nq, Dq) -> Q = استعلامات @ شكل W_q^T (Nq, D) التصحيحات: (Np, Dp) -> K, V العوائد (حضر، attn_weights)
+    """Scaled dot-product cross-attention.
+    queries: (Nq, Dq) -> Q = queries @ W_q^T shape (Nq, D)
+    patches: (Np, Dp) -> K, V
+    returns (attended, attn_weights)
     """
     Q = [matmul_vec(W_q, q) for q in queries]
     K = [matmul_vec(W_k, p) for p in patches]
@@ -122,7 +135,9 @@ def demo_untrained() -> None:
 
 
 def demo_biased() -> None:
-    """أظهر أنه إذا تعلمت الاستعلامات التوافق مع تصحيحات معينة، فاحرص على الانتباه مركزات (انتروبيا أقل). نحن هنا نحاكي عن طريق إعادة استخدام عدد قليل من التصحيح المتجهات مثل الاستعلامات نفسها."""
+    """Show that if queries learn to align with specific patches, attention
+    concentrates (lower entropy). Here we simulate by re-using a few patch
+    vectors as the queries themselves."""
     print("\nDEMO: queries initialized from specific patches -> concentration")
     print("-" * 60)
     patches = make_patches()

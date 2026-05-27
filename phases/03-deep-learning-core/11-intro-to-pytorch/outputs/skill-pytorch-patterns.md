@@ -7,7 +7,8 @@ lesson: 11
 tags: [pytorch, training, deep-learning, gpu, patterns]
 ---
 
-## حلقة التدريب الأساسية
+## Canonical Training Loop
+
 ```python
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = Model().to(device)
@@ -32,7 +33,8 @@ for epoch in range(num_epochs):
             outputs = model(inputs)
 ```
 
-## التدريب الدقيق المختلط
+## Mixed Precision Training
+
 ```python
 from torch.amp import autocast, GradScaler
 
@@ -48,8 +50,10 @@ for inputs, targets in train_loader:
     scaler.update()
 ```
 
-يُستخدم عندما: التدريب على GPU باستخدام أجهزة قادرة على استخدام float16 (V100، A100، H100، RTX 3090+). توقع تسريع ~1.5-2x وتقليل الذاكرة بنسبة ~50%.
-## تراكم التدرج
+استخدم عندما: التدريب على GPU باستخدام الأجهزة القادرة على استخدام float16 (V100، A100، H100، RTX 3090+). توقع تسريع ~1.5-2x وتقليل الذاكرة بنسبة ~50%.
+
+## Gradient Accumulation
+
 ```python
 accumulation_steps = 4
 optimizer.zero_grad()
@@ -63,8 +67,10 @@ for i, (inputs, targets) in enumerate(train_loader):
         optimizer.zero_grad()
 ```
 
-يُستخدم عندما: يجب أن يكون حجم الدفعة الفعال أكبر مما تسمح به الذاكرة GPU. يؤدي قسمة الخسارة على خطوات التراكم إلى الحفاظ على اتساق مقياس التدرج.
-## حفظ وتحميل
+يُستخدم عندما: يجب أن يكون حجم الدفعة الفعال أكبر من GPU الذي تسمح به الذاكرة. يؤدي قسمة الخسارة على خطوات التراكم إلى الحفاظ على اتساق مقياس التدرج.
+
+## Save and Load
+
 ```python
 torch.save({
     "epoch": epoch,
@@ -79,7 +85,9 @@ optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
 ```
 
 قم دائمًا بحفظ حالة المحسن لاستئناف التدريب. للاستدلال فقط، احفظ فقط `model.state_dict()`.
-## مجموعة البيانات المخصصة
+
+## Custom Dataset
+
 ```python
 class CustomDataset(torch.utils.data.Dataset):
     def __init__(self, data_dir, transform=None):
@@ -99,7 +107,8 @@ class CustomDataset(torch.utils.data.Dataset):
         ...
 ```
 
-## تكوين أداة تحميل البيانات
+## DataLoader Configuration
+
 ```python
 train_loader = torch.utils.data.DataLoader(
     dataset,
@@ -115,10 +124,12 @@ train_loader = torch.utils.data.DataLoader(
 | المعلمة | ماذا يفعل | متى تستخدم |
 |-----------|-------------|-------------|
 | num_workers=4 | تحميل البيانات الموازية | دائمًا على الأجهزة متعددة النواة |
-| pin_memory=صحيح | ذاكرة CPU مقفلة بالصفحة | عند التدريب على GPU |
+| pin_memory=صحيح | صفحة مقفلة CPU الذاكرة | عند التدريب على GPU |
 | drop_last=صحيح | إسقاط الدفعة النهائية غير مكتملة | عند استخدام BatchNorm |
 | Constant_workers=صحيح | إبقاء العمال على قيد الحياة عبر العصور | عندما يكون num_workers > 0 |
-## جداول معدل التعلم
+
+## Learning Rate Schedules
+
 ```python
 scheduler = torch.optim.lr_scheduler.OneCycleLR(
     optimizer,
@@ -134,8 +145,10 @@ for epoch in range(num_epochs):
         scheduler.step()
 ```
 
-OneCycleLR: أفضل خيار افتراضي لمعظم المهام. يسخن حتى max_lr، ثم يضمحل جيب التمام. اتصل بـ `scheduler.step()` بعد كل دفعة، وليس كل فترة.
-## تهيئة الوزن
+OneCycleLR: أفضل خيار افتراضي لمعظم المهام. يسخن حتى max_lr، ثم يضمحل جيب التمام. اتصل بالرقم `scheduler.step()` بعد كل دفعة، وليس كل فترة.
+
+## Weight Initialization
+
 ```python
 def init_weights(module):
     if isinstance(module, nn.Linear):
@@ -148,7 +161,8 @@ def init_weights(module):
 model.apply(init_weights)
 ```
 
-## وضع الاستدلال
+## Inference Mode
+
 ```python
 model.eval()
 
@@ -157,7 +171,9 @@ with torch.inference_mode():
 ```
 
 `torch.inference_mode()` أسرع من `torch.no_grad()` لأنه يعطل الترقية التلقائية بالكامل بدلاً من مجرد منع حساب التدرج.
-## قائمة الأخطاء الشائعة
+
+## Common Mistakes Checklist
+
 1. تطبيق softmax قبل CrossEntropyLoss (يتضمن log_softmax داخليًا)
 2. نسيان استدعاء model.eval() أثناء التحقق من الصحة
 3. نسيان نقل الموترات إلى نفس جهاز النموذج

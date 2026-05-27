@@ -101,7 +101,15 @@ def retrieve_recall(chunks, query, gold_substrings, top_k=3):
 
 
 def main():
-    doc = """الفصل 1. مقدمة. تم إبرام هذا العقد بين شركة Acme Corp وشركة Beta Inc. ويوافق الطرفان على الشروط التالية. الفصل 2. الدفع. ستقوم شركة Acme بدفع مبلغ بيتا ثلاثين ألف دولار في اليوم الأول من كل شهر. تتحمل الدفعات المتأخرة رسمًا بنسبة خمسة بالمائة. الفصل 3. الإنهاء. يجوز لأي من الطرفين إنهاء هذه الاتفاقية بإشعار كتابي مدته تسعين يومًا. يتطلب الإنهاء لسبب إشعار ثلاثين يومًا فقط. الإخلال بالدفع يشكل سببا. الفصل الرابع. السرية. يتفق الطرفان على الحفاظ على سرية الأسرار التجارية. ويستمر هذا الالتزام بعد إنهاء الاتفاقية. الفصل 5. متنوعة. تخضع هذه الاتفاقية لقوانين ولاية كاليفورنيا. يجب حل النزاعات عن طريق التحكيم."""
+    doc = """Chapter 1. Introduction. This contract is between Acme Corp and Beta Inc. The parties agree to the following terms.
+
+Chapter 2. Payment. Acme will pay Beta thirty thousand dollars on the first of each month. Late payments incur a five percent fee.
+
+Chapter 3. Termination. Either party may terminate this agreement with ninety days written notice. Termination for cause requires only thirty days notice. Breach of payment constitutes cause.
+
+Chapter 4. Confidentiality. Both parties agree to keep trade secrets confidential. This obligation survives termination of the agreement.
+
+Chapter 5. Miscellaneous. This agreement is governed by the laws of the State of California. Disputes shall be resolved by arbitration."""
 
     print("=== strategy comparison ===")
     print()

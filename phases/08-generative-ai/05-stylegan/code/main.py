@@ -46,7 +46,7 @@ def init_mapping(z_dim, w_dim, depth, rng):
 
 
 def stylegan_forward(w, const, synth, noise_sigma, rng, adain_on=True):
-    """شبكة "توليفية" صغيرة جدًا: ثلاث كتل دقة على ثابت 4 قنوات."""
+    """Very small 'synthesis' network: three resolution blocks on a 4-channel constant."""
     h = list(const)
     for i in range(3):
         W = synth[f"W{i}"]

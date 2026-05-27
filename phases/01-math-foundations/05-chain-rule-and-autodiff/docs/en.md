@@ -1,42 +1,42 @@
-# قاعدة السلسلة والتمايز التلقائي
+# Chain Rule & Automatic Differentiation
 
-> قاعدة السلسلة هي المحرك وراء كل شبكة عصبية تتعلم.
+> The chain rule is the engine behind every neural network that learns.
 
-**النوع:** بناء
-** اللغة: ** بايثون
-**المتطلبات الأساسية:** المرحلة الأولى، الدرس 04 (المشتقات والتدرجات اللونية)
-**الوقت:** ~90 دقيقة
+**Type:** Build
+**Language:** Python
+**Prerequisites:** Phase 1, Lesson 04 (Derivatives & Gradients)
+**Time:** ~90 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- إنشاء محرك autograd بسيط (فئة القيمة) يسجل العمليات ويحسب التدرجات عبر الوضع التلقائي العكسي
-- تنفيذ التمريرات الأمامية والخلفية من خلال الرسم البياني الحسابي باستخدام الفرز الطوبولوجي
-- إنشاء وتدريب إدراك متعدد الطبقات على XOR باستخدام محرك autograd من الصفر فقط
-- التحقق من صحة التمييز التلقائي باستخدام فحص التدرج مقابل الاختلافات العددية المحدودة
+- Build a minimal autograd engine (Value class) that records operations and computes gradients via reverse-mode autodiff
+- Implement forward and backward passes through a computation graph using topological sort
+- Construct and train a multi-layer perceptron on XOR using only the from-scratch autograd engine
+- Verify autodiff correctness using gradient checking against numerical finite differences
 
-## المشكلة
+## The Problem
 
-يمكنك حساب مشتقات الوظائف البسيطة. لكن الشبكة العصبية ليست وظيفة بسيطة. وهي عبارة عن مئات من الوظائف التي يتم تجميعها معًا: ضرب المصفوفة، إضافة التحيز، تطبيق التنشيط، ضرب المصفوفة مرة أخرى، softmax، فقدان الإنتروبيا المتقاطعة. الإخراج هو وظيفة وظيفة وظيفة.
+You can compute derivatives of simple functions. But a neural network is not a simple function. It is hundreds of functions composed together: matrix multiply, add bias, apply activation, matrix multiply again, softmax, cross-entropy loss. The output is a function of a function of a function.
 
-لتدريب الشبكة، تحتاج إلى تدرج الخسارة فيما يتعلق بكل وزن. إن القيام بذلك يدويًا أمر مستحيل بالنسبة لملايين المعلمات. إن القيام بذلك رقميًا (اختلافات محدودة) بطيء جدًا.
+To train the network, you need the gradient of the loss with respect to every single weight. Doing this by hand is impossible for millions of parameters. Doing it numerically (finite differences) is too slow.
 
-قاعدة السلسلة تمنحك الرياضيات. يمنحك التمايز التلقائي الخوارزمية. تتيح لك معًا حساب التدرجات الدقيقة من خلال تركيبات عشوائية من الوظائف في الوقت المناسب بما يتناسب مع تمريرة أمامية واحدة.
+The chain rule gives you the math. Automatic differentiation gives you the algorithm. Together they let you compute exact gradients through arbitrary compositions of functions in time proportional to a single forward pass.
 
-هذه هي الطريقة التي تعمل بها PyTorch وTensorFlow وJAX. سوف تقوم ببناء نسخة مصغرة من الصفر.
+This is how PyTorch, TensorFlow, and JAX work. You will build a miniature version from scratch.
 
-##المفهوم
+## The Concept
 
-### قاعدة السلسلة
+### The Chain Rule
 
-إذا كان `y = f(g(x))`، فإن مشتقة `y` بالنسبة إلى `x` هي:
+If `y = f(g(x))`, the derivative of `y` with respect to `x` is:
 
 ```
 dy/dx = dy/dg * dg/dx = f'(g(x)) * g'(x)
 ```
 
-اضرب المشتقات على طول السلسلة. يساهم كل رابط بمشتقه المحلي.
+Multiply the derivatives along the chain. Each link contributes its local derivative.
 
-مثال: `y = sin(x^2)`
+Example: `y = sin(x^2)`
 
 ```
 g(x) = x^2       g'(x) = 2x
@@ -45,7 +45,7 @@ f(g) = sin(g)     f'(g) = cos(g)
 dy/dx = cos(x^2) * 2x
 ```
 
-للحصول على تركيبات أعمق، تمتد السلسلة:
+For deeper compositions, the chain extends:
 
 ```
 y = f(g(h(x)))
@@ -53,13 +53,13 @@ y = f(g(h(x)))
 dy/dx = f'(g(h(x))) * g'(h(x)) * h'(x)
 ```
 
-كل طبقة في الشبكة العصبية هي حلقة واحدة في هذه السلسلة.
+Every layer in a neural network is one link in this chain.
 
-### الرسوم البيانية الحسابية
+### Computational Graphs
 
-الرسم البياني الحسابي يجعل قاعدة السلسلة مرئية. كل عملية تصبح عقدة. تتدفق البيانات إلى الأمام من خلال الرسم البياني. التدرجات تتدفق إلى الوراء.
+A computational graph makes the chain rule visual. Every operation becomes a node. Data flows forward through the graph. Gradients flow backward.
 
-**التمرير الأمامي (القيم الحسابية):**
+**Forward pass (compute values):**
 
 ```mermaid
 graph TD
@@ -71,7 +71,7 @@ graph TD
     relu -->|"y = 7"| y["output y"]
 ```
 
-**تمرير للخلف (حساب التدرجات):**
+**Backward pass (compute gradients):**
 
 ```mermaid
 graph TD
@@ -82,13 +82,13 @@ graph TD
     da -->|"da/dx2 = x1 = 2"| dx2["dy/dx2 = 2"]
 ```
 
-يطبق التمرير للخلف قاعدة السلسلة في كل عقدة، مما يؤدي إلى نشر التدرجات من المخرجات إلى المدخلات.
+The backward pass applies the chain rule at every node, propagating gradients from output to inputs.
 
-### الوضع الأمامي مقابل الوضع العكسي
+### Forward Mode vs Reverse Mode
 
-هناك طريقتان لتطبيق قاعدة السلسلة من خلال الرسم البياني.
+There are two ways to apply the chain rule through a graph.
 
-**الوضع الأمامي** يبدأ عند المدخلات ويدفع المشتقات للأمام. فهو يحسب `dx/dx = 1` وينتشر خلال كل عملية. جيد عندما يكون لديك مدخلات قليلة ومخرجات كثيرة.
+**Forward mode** starts at the inputs and pushes derivatives forward. It computes `dx/dx = 1` and propagates through each operation. Good when you have few inputs and many outputs.
 
 ```
 Forward mode: seed dx/dx = 1, propagate forward
@@ -98,7 +98,7 @@ Forward mode: seed dx/dx = 1, propagate forward
   y = sin(a)  (dy/dx = cos(a) * da/dx = cos(4) * 4 = -2.615)
 ```
 
-**الوضع العكسي** يبدأ عند المخرجات ويسحب التدرجات للخلف. فهو يحسب `dy/dy = 1` وينتشر خلال كل عملية في الاتجاه المعاكس. جيد عندما يكون لديك مدخلات كثيرة ومخرجات قليلة.
+**Reverse mode** starts at the output and pulls gradients backward. It computes `dy/dy = 1` and propagates through each operation in reverse. Good when you have many inputs and few outputs.
 
 ```
 Reverse mode: seed dy/dy = 1, propagate backward
@@ -108,16 +108,16 @@ Reverse mode: seed dy/dy = 1, propagate backward
   x = 2       (dy/dx = dy/da * da/dx = -0.654 * 4 = -2.615)
 ```
 
-تحتوي الشبكات العصبية على ملايين المدخلات (الأوزان) ومخرج واحد (الخسارة). يحسب الوضع العكسي جميع التدرجات في مسار واحد للخلف. هذا هو السبب في أن الانتشار العكسي يستخدم الوضع العكسي.
+Neural networks have millions of inputs (weights) and one output (loss). Reverse mode computes all gradients in one backward pass. This is why backpropagation uses reverse mode.
 
-| الوضع | بذرة | الاتجاه | الأفضل عندما |
+| Mode | Seed | Direction | Best when |
 |------|------|-----------|-----------|
-| إلى الأمام | `dx_i/dx_i = 1` | الإدخال إلى الإخراج | مدخلات قليلة، مخرجات كثيرة |
-| عكس | __الكود_1__ | الإخراج إلى الإدخال | المدخلات كثيرة والمخرجات قليلة (الشبكات العصبية) |
+| Forward | `dx_i/dx_i = 1` | Input to output | Few inputs, many outputs |
+| Reverse | `dy/dy = 1` | Output to input | Many inputs, few outputs (neural nets) |
 
-### أرقام مزدوجة لوضع الأمام
+### Dual Numbers for Forward Mode
 
-يمكن تنفيذ الوضع الأمامي بأناقة باستخدام أرقام مزدوجة. الرقم المزدوج له النموذج `a + b*epsilon` حيث `epsilon^2 = 0`.
+Forward mode can be implemented elegantly with dual numbers. A dual number has the form `a + b*epsilon` where `epsilon^2 = 0`.
 
 ```
 Dual number: (value, derivative)
@@ -130,21 +130,21 @@ Arithmetic rules:
   sin(a, a')         = (sin(a), cos(a)*a')
 ```
 
-قم بزرع متغير الإدخال بالمشتق 1. وينتشر المشتق تلقائيًا خلال كل عملية.
+Seed the input variable with derivative 1. The derivative propagates automatically through every operation.
 
-### بناء محرك Autograd
+### Building an Autograd Engine
 
-يحتاج محرك autograd إلى ثلاثة أشياء:
+An autograd engine needs three things:
 
-1. **التفاف القيمة.** لف كل رقم في كائن يخزن قيمته وتدرجه.
-2. **تسجيل الرسم البياني.** تسجل كل عملية مدخلاتها ووظيفة التدرج المحلي.
-3. **تمرير إلى الخلف.** قم بفرز الرسم البياني طوبولوجيًا، ثم قم بتحريكه في الاتجاه المعاكس، مع تطبيق قاعدة السلسلة على كل عقدة.
+1. **Value wrapping.** Wrap every number in an object that stores its value and gradient.
+2. **Graph recording.** Every operation records its inputs and the local gradient function.
+3. **Backward pass.** Topological sort the graph, then walk it in reverse, applying the chain rule at each node.
 
-هذا هو بالضبط ما يفعله `autograd` الخاص بـ PyTorch. تقوم الفئة `torch.Tensor` بتغليف القيم، وتسجيل العمليات عند `requires_grad=True`، وحساب التدرجات عند استدعاء `.backward()`.
+This is exactly what PyTorch's `autograd` does. The `torch.Tensor` class wraps values, records operations when `requires_grad=True`, and computes gradients when you call `.backward()`.
 
-### كيف يعمل PyTorch Autograd تحت الغطاء
+### How PyTorch Autograd Works Under the Hood
 
-عندما تكتب كود PyTorch:
+When you write PyTorch code:
 
 ```python
 x = torch.tensor(2.0, requires_grad=True)
@@ -153,19 +153,19 @@ y.backward()
 print(x.grad)  # 7.0 = 2*x + 3 = 2*2 + 3
 ```
 
-PyTorch داخليًا:
+PyTorch internally:
 
-1. قم بإنشاء عقدة `Tensor` لـ `x` باستخدام `requires_grad=True`
-2. كل عملية (`**`، `*`، `+`) تنشئ عقدة جديدة وتسجل الوظيفة الخلفية
-3. يقوم `y.backward()` بتشغيل التمييز التلقائي في الوضع العكسي من خلال الرسم البياني المسجل
-4. يحسب `grad_fn` الخاص بكل عقدة التدرجات المحلية ويمررها إلى العقد الرئيسية
-5. تتراكم التدرجات في سمات `.grad` عبر الإضافة (وليس الاستبدال)
+1. Creates a `Tensor` node for `x` with `requires_grad=True`
+2. Every operation (`**`, `*`, `+`) creates a new node and records the backward function
+3. `y.backward()` triggers reverse-mode autodiff through the recorded graph
+4. Each node's `grad_fn` computes local gradients and passes them to parent nodes
+5. Gradients accumulate in `.grad` attributes via addition (not replacement)
 
-الرسم البياني ديناميكي (تحديد حسب التشغيل). يتم إنشاء رسم بياني جديد على كل تمريرة للأمام. ولهذا السبب يدعم PyTorch التحكم في التدفق (إذا كان/إلا، الحلقات) داخل النماذج.
+The graph is dynamic (define-by-run). A new graph is built on every forward pass. This is why PyTorch supports control flow (if/else, loops) inside models.
 
-## بنائها
+## Build It
 
-### الخطوة 1: فئة القيمة
+### Step 1: The Value class
 
 ```python
 class Value:
@@ -180,9 +180,9 @@ class Value:
         return f"Value(data={self.data:.4f}, grad={self.grad:.4f})"
 ```
 
-يقوم كل `Value` بتخزين بياناته الرقمية، وتدرجه (صفر في البداية)، ووظيفة عكسية، ومؤشرات إلى العقد الفرعية التي أنتجتها.
+Every `Value` stores its numeric data, its gradient (initially zero), a backward function, and pointers to child nodes that produced it.
 
-### الخطوة 2: العمليات الحسابية مع تتبع التدرج
+### Step 2: Arithmetic operations with gradient tracking
 
 ```python
     def __add__(self, other):
@@ -211,9 +211,9 @@ class Value:
         return out
 ```
 
-تنشئ كل عملية إغلاقًا يعرف كيفية حساب التدرجات المحلية والضرب في التدرج الأساسي (`out.grad`). يعالج `+=` الحالة التي يتم فيها استخدام القيمة في عمليات متعددة.
+Each operation creates a closure that knows how to compute local gradients and multiply by the upstream gradient (`out.grad`). The `+=` handles the case where a value is used in multiple operations.
 
-### الخطوة 3: التمريرة الخلفية
+### Step 3: The backward pass
 
 ```python
     def backward(self):
@@ -232,11 +232,11 @@ class Value:
             v._backward()
 ```
 
-يضمن الفرز الطوبولوجي حساب تدرج كل عقدة بشكل كامل قبل أن ينتشر إلى أبنائها. تدرج البذرة هو 1.0 (dy/dy = 1).
+Topological sort ensures every node's gradient is fully computed before it propagates to its children. The seed gradient is 1.0 (dy/dy = 1).
 
-### الخطوة 4: المزيد من العمليات لمحرك كامل
+### Step 4: More operations for a complete engine
 
-تتعامل فئة القيمة الأساسية مع الجمع والضرب والريلو. يحتاج محرك autograd الحقيقي إلى المزيد. فيما يلي العمليات التي تحتاجها لبناء الشبكات العصبية:
+The basic Value class handles addition, multiplication, and relu. A real autograd engine needs more. Here are the operations you need to build neural networks:
 
 ```python
     def __neg__(self):
@@ -291,22 +291,22 @@ class Value:
         return out
 ```
 
-** لماذا كل عملية مهمة: **
+**Why each operation matters:**
 
-| عملية | القاعدة المتخلفة | تستخدم في |
+| Operation | Backward rule | Used in |
 |-----------|--------------|---------|
-| `__sub__` | يعيد استخدام إضافة + سلبي | حساب الخسارة (ما قبل - الهدف) |
-| __الكود_1__ | ن * س^(ن-1) | تفعيلات كثيرة الحدود، MSE (خطأ ^ 2) |
-| __الكود_2__ | إعادة استخدام mul + pow(-1) | التطبيع، وقياس معدل التعلم |
-| __الكود_3__ | exp(x) * المنبع | Softmax، احتمالية السجل |
-| __الكود_4__ | (1/x) * المنبع | الخسارة عبر الإنتروبيا، احتمالات السجل |
-| __الكود_5__ | (1 - تنه^2) * المنبع | وظيفة التنشيط الكلاسيكية |
+| `__sub__` | Reuses add + neg | Loss computation (pred - target) |
+| `__pow__` | n * x^(n-1) | Polynomial activations, MSE (error^2) |
+| `__truediv__` | Reuses mul + pow(-1) | Normalization, learning rate scaling |
+| `exp` | exp(x) * upstream | Softmax, log-likelihood |
+| `log` | (1/x) * upstream | Cross-entropy loss, log probabilities |
+| `tanh` | (1 - tanh^2) * upstream | Classic activation function |
 
-الجزء الذكي: `__sub__` و`__truediv__` يتم تعريفهما من حيث العمليات الحالية. يحصلون على التدرجات الصحيحة مجانًا لأن قاعدة السلسلة تتكون من خلال عمليات الإضافة/مول/الأسرى الأساسية.
+The clever part: `__sub__` and `__truediv__` are defined in terms of existing operations. They get correct gradients for free because the chain rule composes through the underlying add/mul/pow operations.
 
-### الخطوة 5: Mini MLP من الصفر
+### Step 5: Mini MLP from scratch
 
-مع فئة القيمة الكاملة، يمكنك بناء شبكة عصبية. لا بايتورش. لا يوجد NumPy. القيم فقط وقاعدة السلسلة.
+With a complete Value class, you can build a neural network. No PyTorch. No NumPy. Just Values and the chain rule.
 
 ```python
 import random
@@ -346,9 +346,9 @@ class MLP:
         return [p for layer in self.layers for p in layer.parameters()]
 ```
 
-`Neuron` يحسب `tanh(w1*x1 + w2*x2 + ... + b)`. `Layer` هي قائمة الخلايا العصبية. يقوم `MLP` بتكديس الطبقات. كل وزن هو `Value`، لذا فإن استدعاء `loss.backward()` ينشر التدرجات اللونية لكل معلمة.
+A `Neuron` computes `tanh(w1*x1 + w2*x2 +... + b)`. A `Layer` is a list of neurons. An `MLP` stacks layers. Every weight is a `Value`, so calling `loss.backward()` propagates gradients to every parameter.
 
-**التدريب على XOR:**
+**Training on XOR:**
 
 ```python
 random.seed(42)
@@ -377,11 +377,11 @@ for x, y in zip(xs, ys):
     print(f"  input={x}  target={y:2d}  pred={model(x).data:6.3f}")
 ```
 
-هذا هو ميكروغراد. حلقة تدريب كاملة للشبكة العصبية بلغة بايثون الخالصة مع التمايز التلقائي. كل إطار عمل تجاري للتعلم العميق يفعل الشيء نفسه على نطاق واسع.
+This is micrograd. A complete neural network training loop in pure Python with automatic differentiation. Every commercial deep learning framework does the same thing at massive scale.
 
-### الخطوة 6: التحقق من التدرج
+### Step 6: Gradient checking
 
-كيف تعرف أن autodiff الخاص بك صحيح؟ قارنها بالمشتقات العددية. هذا هو التحقق من التدرج.
+How do you know your autodiff is correct? Compare it against numerical derivatives. This is gradient checking.
 
 ```python
 def gradient_check(build_expr, x_val, h=1e-7):
@@ -398,7 +398,7 @@ def gradient_check(build_expr, x_val, h=1e-7):
     return autodiff_grad, numerical_grad, diff
 ```
 
-اختبره على تعبير معقد:
+Test it on a complex expression:
 
 ```python
 def expr(x):
@@ -411,18 +411,18 @@ print(f"Difference: {diff:.2e}")
 # Difference should be < 1e-5
 ```
 
-يعد التحقق من التدرج أمرًا ضروريًا عند تنفيذ عمليات جديدة. إذا كان تمريرك الخلفي يحتوي على خطأ، فسيكتشفه الفحص الرقمي. يقوم كل تطبيق جاد للتعلم العميق بإجراء فحوصات متدرجة أثناء التطوير.
+Gradient checking is essential when implementing new operations. If your backward pass has a bug, the numerical check catches it. Every serious deep learning implementation runs gradient checks during development.
 
-**متى يتم استخدام التحقق من التدرج:**
+**When to use gradient checking:**
 
-| الوضع | هل تحقق التدرج؟ |
+| Situation | Do gradient check? |
 |-----------|-------------------|
-| إضافة عملية جديدة إلى autograd الخاص بك | نعم دائما |
-| تصحيح أخطاء حلقة التدريب التي لن تتقارب | نعم، تحقق من التدرجات أولاً |
-| التدريب على الإنتاج | لا، بطيء جدًا (تمرير أمامي مرتين لكل معلمة) |
-| اختبارات الوحدة لرمز autograd | نعم، أتمته |
+| Adding a new operation to your autograd | Yes, always |
+| Debugging a training loop that won't converge | Yes, check gradients first |
+| Production training | No, too slow (2x forward passes per parameter) |
+| Unit tests for autograd code | Yes, automate it |
 
-### الخطوة 7: التحقق من الحساب اليدوي
+### Step 7: Verify against manual calculation
 
 ```python
 x1 = Value(2.0)
@@ -438,12 +438,12 @@ print(f"dy/dx1 = {x1.grad}")   # 3.0 (= x2)
 print(f"dy/dx2 = {x2.grad}")   # 2.0 (= x1)
 ```
 
-الفحص اليدوي: `y = relu(x1*x2 + 1)`. منذ `x1*x2 + 1 = 7 > 0`، relu هي الهوية.
-__الكود_2__. __الكود_3__. المحرك متطابق.
+Manual check: `y = relu(x1*x2 + 1)`. Since `x1*x2 + 1 = 7 > 0`, relu is identity.
+`dy/dx1 = x2 = 3`. `dy/dx2 = x1 = 2`. The engine matches.
 
-## استخدمه
+## Use It
 
-### التحقق ضد PyTorch
+### Verify against PyTorch
 
 ```python
 import torch
@@ -459,9 +459,9 @@ print(f"PyTorch dy/dx1 = {x1.grad.item()}")  # 3.0
 print(f"PyTorch dy/dx2 = {x2.grad.item()}")  # 2.0
 ```
 
-نفس التدرجات. يحسب محركك نفس النتيجة مثل PyTorch لأن الرياضيات هي نفسها: الوضع العكسي التلقائي عبر قاعدة السلسلة.
+Same gradients. Your engine computes the same result as PyTorch because the math is the same: reverse-mode autodiff via the chain rule.
 
-### تعبير أكثر تعقيدًا
+### A more complex expression
 
 ```python
 a = Value(2.0)
@@ -475,43 +475,43 @@ print(f"df/db = {b.grad}")  #  2.0 (= a)
 print(f"df/dc = {c.grad}")  #  1.0
 ```
 
-## اشحنها
+## Ship It
 
-ينتج هذا الدرس:
-- `outputs/skill-autodiff.md` -- مهارة في بناء وتصحيح أنظمة autograd
-- `code/autodiff.py` -- الحد الأدنى من محرك autograd الذي يمكنك تمديده
+This lesson produces:
+- `outputs/skill-autodiff.md` -- a skill for building and debugging autograd systems
+- `code/autodiff.py` -- a minimal autograd engine you can extend
 
-تعتبر فئة القيمة المبنية هنا الأساس لحلقة تدريب الشبكة العصبية في المرحلة الثالثة.
+The Value class built here is the foundation for the neural network training loop in Phase 3.
 
-## تمارين
+## Exercises
 
-1. أضف `__pow__` إلى فئة القيمة حتى تتمكن من حساب `x ** n`. تحقق من أن `d/dx(x^3)` في `x=2` يساوي `12.0`.
+1. Add `__pow__` to the Value class so you can compute `x ** n`. Verify that `d/dx(x^3)` at `x=2` equals `12.0`.
 
-2. أضف `tanh` كوظيفة تفعيل. تحقق من أن `tanh'(0) = 1` و`tanh'(2) = 0.0707` (تقريبًا).
+2. Add `tanh` as an activation function. Verify that `tanh'(0) = 1` and `tanh'(2) = 0.0707` (approx).
 
-3. أنشئ رسمًا بيانيًا حسابيًا لخلية عصبية واحدة: `y = relu(w1*x1 + w2*x2 + b)`. احسب جميع التدرجات الخمسة وتحقق من PyTorch.
+3. Build a computation graph for a single neuron: `y = relu(w1*x1 + w2*x2 + b)`. Compute all five gradients and verify against PyTorch.
 
-4. تنفيذ التمييز التلقائي في الوضع الأمامي باستخدام الأرقام المزدوجة. قم بإنشاء فئة `Dual` وتأكد من أنها تعطي نفس المشتقات مثل محرك الوضع العكسي الخاص بك.
+4. Implement forward-mode autodiff using dual numbers. Create a `Dual` class and verify it gives the same derivatives as your reverse-mode engine.
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| قاعدة السلسلة | "ضرب المشتقات" | مشتق الدوال المركبة يساوي حاصل ضرب المشتقة المحلية لكل دالة، مقيمًا عند النقطة الصحيحة |
-| الرسم البياني الحسابي | "مخطط الشبكة" | رسم بياني حلقي موجه حيث تكون العقد عبارة عن عمليات وتحمل الحواف قيمًا (للأمام) أو تدرجات (للخلف) |
-| الوضع إلى الأمام | "دفع المشتقات إلى الأمام" | Autodiff الذي ينشر المشتقات من المدخلات إلى المخرجات. تمريرة واحدة لكل متغير الإدخال. |
-| الوضع العكسي | "الانتشار العكسي" | Autodiff الذي ينشر التدرجات من المخرجات إلى المدخلات. تمريرة واحدة لكل متغير الإخراج. |
-| أوتوغراد | "التدرجات التلقائية" | نظام يسجل العمليات على القيم ويبني رسمًا بيانيًا ويحسب التدرجات الدقيقة عبر قاعدة السلسلة |
-| أرقام مزدوجة | "القيمة زائد المشتقة" | أرقام على شكل a + b*epsilon (epsilon^2 = 0) تحمل معلومات مشتقة من خلال الحساب |
-| الفرز الطوبولوجي | "ترتيب التبعية" | ترتيب عقد الرسم البياني بحيث تأتي كل عقدة بعد كل تبعياتها. مطلوب لنشر التدرج الصحيح. |
-| تراكم التدرج | "أضف ولا تستبدل" | عندما يتم تغذية قيمة ما في عمليات متعددة، يكون تدرجها هو مجموع كل مساهمات التدرج الواردة |
-| رسم بياني ديناميكي | "التعريف حسب التشغيل" | رسم بياني حسابي يُعاد بناؤه عند كل تمريرة أمامية، مما يسمح بتحكم Python في التدفق داخل النماذج (أسلوب PyTorch) |
-| فحص التدرج | "التحقق العددي" | مقارنة التدرجات التلقائية مع التدرجات العددية ذات الفروق المحدودة للتحقق من صحتها. ضروري لتصحيح الأخطاء. |
-| ملب | "الإدراك متعدد الطبقات" | شبكة عصبية تحتوي على طبقة أو أكثر من الطبقات المخفية من الخلايا العصبية. تحسب كل خلية عصبية المجموع المرجح بالإضافة إلى التحيز، ثم تطبق وظيفة التنشيط. |
-| العصبية | "المجموع المرجح + التنشيط" | الوحدة الأساسية: الإخراج = التنشيط (w1*x1 + w2*x2 + ... + b). تعتبر الأوزان والتحيز معلمات قابلة للتعلم. |
+| Chain rule | "Multiply the derivatives" | The derivative of composed functions equals the product of each function's local derivative, evaluated at the right point |
+| Computational graph | "The network diagram" | A directed acyclic graph where nodes are operations and edges carry values (forward) or gradients (backward) |
+| Forward mode | "Push derivatives forward" | Autodiff that propagates derivatives from inputs to outputs. One pass per input variable. |
+| Reverse mode | "Backpropagation" | Autodiff that propagates gradients from outputs to inputs. One pass per output variable. |
+| Autograd | "Automatic gradients" | A system that records operations on values, builds a graph, and computes exact gradients via the chain rule |
+| Dual numbers | "Value plus derivative" | Numbers of the form a + b*epsilon (epsilon^2 = 0) that carry derivative information through arithmetic |
+| Topological sort | "Dependency order" | Ordering graph nodes so every node comes after all its dependencies. Required for correct gradient propagation. |
+| Gradient accumulation | "Add, don't replace" | When a value feeds into multiple operations, its gradient is the sum of all incoming gradient contributions |
+| Dynamic graph | "Define by run" | A computation graph rebuilt on every forward pass, allowing Python control flow inside models (PyTorch style) |
+| Gradient checking | "Numerical verification" | Comparing autodiff gradients against numerical finite-difference gradients to verify correctness. Essential for debugging. |
+| MLP | "Multi-layer perceptron" | A neural network with one or more hidden layers of neurons. Each neuron computes a weighted sum plus bias, then applies an activation function. |
+| Neuron | "Weighted sum + activation" | The basic unit: output = activation(w1*x1 + w2*x2 +... + b). The weights and bias are learnable parameters. |
 
-## مزيد من القراءة
+## Further Reading
 
-- [3Blue1Brown: Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) -- شرح مرئي لقاعدة السلسلة في الشبكات العصبية
-- [PyTorch Autograd mechanics](https://pytorch.org/docs/stable/notes/autograd.html) -- كيف يعمل النظام الحقيقي
-- [Baydin et al., Automatic Differentiation in Machine Learning: a Survey](https://arxiv.org/abs/1502.05767) -- مرجع شامل
+- [3Blue1Brown: Backpropagation calculus](https://www.youtube.com/watch?v=tIeHLnjs5U8) -- visual explanation of the chain rule in neural networks
+- [PyTorch Autograd mechanics](https://pytorch.org/docs/stable/notes/autograd.html) -- how the real system works
+- [Baydin et al., Automatic Differentiation in Machine Learning: a Survey](https://arxiv.org/abs/1502.05767) -- comprehensive reference

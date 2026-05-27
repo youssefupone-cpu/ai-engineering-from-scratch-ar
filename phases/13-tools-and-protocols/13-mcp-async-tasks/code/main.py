@@ -1,4 +1,16 @@
-"""المرحلة 13 الدرس 13 - MCP المهام غير المتزامنة (SEP-1686) ذات الحالة الدائمة. يحاكي أداة create_report طويلة الأمد: - الأدوات/الاتصال باستخدام _meta.task.required تُرجع فورًا باستخدام TaskId - يقوم مؤشر ترابط العامل بتحديث التقدم في مخزن المهام المدعوم بنظام الملفات - تقدم المهام/استطلاعات الحالة - المهام/النتيجة ترجع الحمولة النهائية - المهام/الإلغاء يشير إلى توقف العامل - يشير استرداد الأعطال إلى فشل المهام أثناء الرحلة عند إعادة التحميل ستدليب فقط. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 13 - MCP async Tasks (SEP-1686) with durable state.
+
+Simulates a long-running generate_report tool:
+  - tools/call with _meta.task.required returns immediately with taskId
+  - worker thread updates progress in a filesystem-backed task store
+  - tasks/status polls progress
+  - tasks/result returns the final payload
+  - tasks/cancel signals the worker to stop
+  - crash recovery marks in-flight tasks as failed on reload
+
+Stdlib only.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -73,7 +85,7 @@ STORE = TaskStore()
 
 
 def worker_generate_report(task: Task, size: str) -> None:
-    """محاكاة إنشاء تقرير مدته 3 ثواني."""
+    """Simulated 3-second report generation."""
     try:
         for step in range(30):
             if task.cancel_requested:
@@ -95,7 +107,7 @@ def tools_call(name: str, args: dict, meta: dict | None = None) -> dict:
                 "content": [{"type": "text", "text": f"unknown tool {name}"}]}
     task_required = meta and meta.get("task", {}).get("required", False)
     if not task_required:
-        # مسار احتياطي متزامن (يمكن أيضًا حظره بواسطة الخادم)
+        # synchronous fallback path (could also be forbidden by the server)
         time.sleep(3.0)
         return {"isError": False,
                 "content": [{"type": "text", "text": "Report generated synchronously"}]}
@@ -169,10 +181,10 @@ def demo() -> None:
     print(f"  final state: {status}")
 
     print("\n--- crash recovery simulation ---")
-    # اكتب مهمة وهمية تدعي أنها تعمل ولكن ليس لها عامل
+    # write a fake task that claims to be working but has no worker
     fake = STORE.create(total_ms=1000)
     del STORE.tasks[fake.id]  # pretend process died
-    # إعادة التحميل من القرص
+    # reload from disk
     store2 = TaskStore()
     recovered = store2.tasks.get(fake.id)
     print(f"  reloaded {fake.id} -> state={recovered.state}  error={recovered.error}")

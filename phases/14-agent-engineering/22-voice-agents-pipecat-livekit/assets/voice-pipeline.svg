@@ -57,7 +57,7 @@
   <rect x="60" y="278" width="840" height="30" class="box"/>
   <text x="78" y="298" class="step">يكتشف النقل أن إطار إلغاء المقاطعة ينتشر مرة أخرى: TTS LLM STT</text>
   <rect x="60" y="312" width="840" height="30" class="box"/>
-  <text x="78" y="332" class="step">TTS يسقط الصوت المعلق؛ LLM يلغي الاستدلال؛ STT تتم إعادة تعيينه لدورة جديدة</text>
+  <text x="78" y="332" class="step">TTS يسقط الصوت المعلق؛ LLM يلغي الاستدلال؛ STT إعادة ضبط لدورة جديدة</text>
   <rect x="60" y="342" width="840" height="14" class="box"/>
   <text x="78" y="354" class="step">بدون UPSTREAM: يستمر الوكيل في التحدث عبر المستخدم</text>
 

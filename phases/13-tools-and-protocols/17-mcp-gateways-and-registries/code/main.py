@@ -1,4 +1,15 @@
-"""المرحلة 13 الدرس 17 - الحد الأدنى لبوابة MCP. بوابة stdlib ذات الملف الواحد والتي: - المصادقة بواسطة الرمز المميز لحاملها - ينطبق على كل مستخدم RBAC على server.tool - يكتب سجل تدقيق للإلحاق فقط - فرض حد المعدل لكل مستخدم (دلو الرمز المميز) - دبابيس أوصاف أداة الواجهة الخلفية عن طريق التجزئة الواجهات الخلفية عبارة عن بذرة قيد التشغيل للحفاظ على تركيز الدرس على منطق البوابة. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 17 - minimal MCP gateway.
+
+Single-file stdlib gateway that:
+  - authenticates by Bearer token
+  - applies per-user RBAC on server.tool
+  - writes an append-only audit log
+  - enforces per-user rate limit (token bucket)
+  - pins backend tool descriptions by hash
+
+Backends are in-process stubs to keep the lesson focused on gateway logic.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -11,7 +22,7 @@ from typing import Callable
 
 
 # ------------------------------------------------------------------
-# خوادم خلفية وهمية
+# fake backend servers
 # ------------------------------------------------------------------
 
 NOTES_TOOLS = [
@@ -31,7 +42,7 @@ def backend_call(server: str, tool: str, args: dict) -> dict:
 
 
 # ------------------------------------------------------------------
-# حالة البوابة
+# gateway state
 # ------------------------------------------------------------------
 
 USERS = {
@@ -88,7 +99,7 @@ def get_bucket(user_id: str) -> TokenBucket:
 
 
 # ------------------------------------------------------------------
-# إرسال البوابة
+# gateway dispatch
 # ------------------------------------------------------------------
 
 def verify_pinned(server: str, tool_name: str, live_desc: str) -> bool:

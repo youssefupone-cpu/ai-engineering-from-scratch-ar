@@ -15,7 +15,7 @@
       .caption { font-size: 11px; fill: #555; font-style: italic; }
     </style>
   </defs>
-  <text x="480" y="28" text-anchor="middle" class="title">OG-تحليل الراوي وسوق مهام العقد الصافي</text>
+  <text x="480" y="28" text-anchor="middle" class="title">OG-تحليل الراوي وسوق مهام العقد نت</text>
 
   <rect x="40" y="60" width="420" height="200" class="cool"/>
   <text x="250" y="82" text-anchor="middle" class="head">OG-الراوي (arXiv:2402.15813)</text>
@@ -34,13 +34,13 @@
   <text x="250" y="140" text-anchor="middle" class="small">price</text>
 
   <text x="250" y="210" text-anchor="middle" class="step">معدل الصفقة: 26.67% -&gt; 88.88%</text>
-  <text x="250" y="230" text-anchor="middle" class="caption">تبقى الأسعار في ZOPA؛ المراسي استراتيجية</text>
+  <text x="250" y="230" text-anchor="middle" class="caption">الأسعار تبقى في ZOPA؛ المراسي استراتيجية</text>
 
   <rect x="500" y="60" width="420" height="200" class="hot"/>
-  <text x="710" y="82" text-anchor="middle" class="head">النمط المضاد: LLM يقرر السعر</text>
+  <text x="710" y="82" text-anchor="middle" class="head">النمط المضاد: LLM يحدد السعر</text>
 
   <rect x="540" y="110" width="340" height="70" class="box"/>
-  <text x="710" y="134" text-anchor="middle" class="step">مكالمة LLM واحدة</text>
+  <text x="710" y="134" text-anchor="middle" class="step">مكالمة واحدة LLM</text>
   <text x="710" y="152" text-anchor="middle" class="small">يولد كلا من العرض والتأطير</text>
   <text x="710" y="168" text-anchor="middle" class="small">يكشف المنطق في الإخراج</text>
 
@@ -68,5 +68,5 @@
 
   <text x="480" y="440" text-anchor="middle" class="caption">المقاييس: بث + جمع + جائزة؛ لا توجد دردشة متزامنة</text>
   <text x="480" y="460" text-anchor="middle" class="caption">المعتمدة في أسواق مهام الإنتاج (Microsoft Agent Framework، وبعض تطبيقات LangGraph)</text>
-  <text x="480" y="480" text-anchor="middle" class="caption">FIPA التخطيط الأدائي: cfp -&gt; اقتراح -&gt; قبول الاقتراح / رفض الاقتراح</text>
+  <text x="480" y="480" text-anchor="middle" class="caption">FIPA رسم الخرائط الأدائية: cfp -&gt; اقتراح -&gt; قبول الاقتراح / رفض الاقتراح</text>
 </svg>

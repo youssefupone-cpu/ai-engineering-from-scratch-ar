@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">MCP التطبيقات (SEP-1724): ui:// الموارد في إطار iframe في وضع الحماية</text>
+  <text x="480" y="26" text-anchor="middle" class="title">MCP التطبيقات (SEP-1724): واجهة المستخدم:// الموارد في إطار iframe في وضع الحماية</text>
 
   <rect x="40" y="60" width="240" height="440" class="cool"/>
   <text x="160" y="82" text-anchor="middle" class="head">server</text>
@@ -46,7 +46,7 @@
   <text x="376" y="108" class="step">رمل iframe</text>
   <text x="376" y="126" class="small">sandbox="allow-scripts</text>
   <text x="376" y="142" class="small">        allow-same-origin"</text>
-  <text x="376" y="174" class="step">قم بتطبيق رؤوس CSP</text>
+  <text x="376" y="174" class="step">تطبيق CSP الرؤوس</text>
   <text x="376" y="190" class="small">  الافتراضي src "الذات"</text>
   <text x="376" y="206" class="small">  البرنامج النصي src "الذاتي"</text>
   <text x="376" y="222" class="small">  ربط src "الذاتي"</text>
@@ -56,17 +56,17 @@
   <text x="376" y="302" class="small">  كل منها موجه للمستخدم</text>
   <text x="376" y="334" class="step">توسط رسالة ما بعد</text>
   <text x="376" y="350" class="small">  iframe -&gt; مكالمة المضيف</text>
-  <text x="376" y="366" class="small">  المضيف -&gt; خادم MCP</text>
+  <text x="376" y="366" class="small">  المضيف -&gt; MCP الخادم</text>
   <text x="376" y="382" class="small">  MCP النتيجة -&gt; iframe</text>
   <text x="376" y="414" class="step">التمييز بصريا</text>
   <text x="376" y="430" class="small">  الخادم UI من المضيف</text>
   <text x="376" y="446" class="small">  (هزيمة موجه-</text>
-  <text x="376" y="462" class="small">  الحقن عبر UI)</text>
+  <text x="376" y="462" class="small">  الحقن عن طريق UI)</text>
 
   <path d="M640,280 L720,280" class="edge" marker-end="url(#arrow)"/>
 
   <rect x="720" y="60" width="200" height="440" class="cold"/>
-  <text x="820" y="82" text-anchor="middle" class="head">رسالة ما بعد JSON-RPC</text>
+  <text x="820" y="82" text-anchor="middle" class="head">مشاركة الرسالة JSON-RPC</text>
   <text x="736" y="108" class="step">إطار iframe -&gt; المضيف</text>
   <text x="736" y="126" class="small">host.callTool</text>
   <text x="736" y="142" class="small">host.readResource</text>
@@ -85,5 +85,5 @@
   <text x="736" y="414" class="step">الدعم (2026-04)</text>
   <text x="736" y="430" class="small">كلود ديسك توب، غوس</text>
   <text x="736" y="446" class="small">ChatGPT، الإصدار التجريبي من المؤشر</text>
-  <text x="736" y="462" class="small">VS الكود الداخلي</text>
+  <text x="736" y="462" class="small">VS الكود من الداخل</text>
 </svg>

@@ -24,7 +24,7 @@
   <text x="480" y="72" text-anchor="middle" class="head">التمريرة الأمامية: الصورة -&gt; جهاز العرض -&gt; LLM</text>
 
   <rect x="60" y="90" width="160" height="180" class="frozen"/>
-  <text x="140" y="112" text-anchor="middle" class="step">CLIP ViT-L/14</text>
+  <text x="140" y="112" text-anchor="middle" class="step">CLIP فيت-L/14</text>
   <text x="140" y="130" text-anchor="middle" class="small">@ 336x336</text>
   <text x="140" y="148" text-anchor="middle" class="small">المرحلة المجمدة 1</text>
   <text x="140" y="166" text-anchor="middle" class="small">303 مليون معلمة</text>
@@ -35,9 +35,9 @@
   <path d="M 225 180 L 290 180" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="295" y="90" width="180" height="180" class="train"/>
-  <text x="385" y="112" text-anchor="middle" class="step">جهاز عرض MLP ذو طبقتين</text>
+  <text x="385" y="112" text-anchor="middle" class="step">2-طبقة MLP جهاز عرض</text>
   <text x="385" y="130" text-anchor="middle" class="small">1024 -&gt; 4096 -&gt; 4096</text>
-  <text x="385" y="148" text-anchor="middle" class="small">GELU التنشيط</text>
+  <text x="385" y="148" text-anchor="middle" class="small">GELU التفعيل</text>
   <text x="385" y="168" text-anchor="middle" class="small">~22 مليون معلمة</text>
   <text x="385" y="196" text-anchor="middle" class="small">مشتركة عبر جميع التصحيحات</text>
   <text x="385" y="214" text-anchor="middle" class="small">تدربت في المرحلة 1</text>
@@ -74,16 +74,16 @@
   <rect x="60" y="360" width="410" height="160" class="stage"/>
   <text x="80" y="382" class="step">المرحلة 1: محاذاة جهاز العرض</text>
   <text x="80" y="402" class="small">تجميد ViT، تجميد LLM</text>
-  <text x="80" y="418" class="small">تدريب ONLY الطبقة الثانية MLP</text>
+  <text x="80" y="418" class="small">قطار ONLY ال 2 طبقة MLP</text>
   <text x="80" y="434" class="small">data: 558k caption pairs (LAION-CC-SBU)</text>
-  <text x="80" y="450" class="small">الخسارة: LM في التسمية التوضيحية، مشروطة بالرموز المرئية</text>
+  <text x="80" y="450" class="small">الخسارة: LM على التسمية التوضيحية، مشروطة بالرموز المرئية</text>
   <text x="80" y="468" class="small">التكلفة: ~ 4 ساعات على 8xA100</text>
   <text x="80" y="490" class="small">الهدف: يتعلم جهاز العرض ViT-space -&gt; LLM-space</text>
   <text x="80" y="508" class="caption">لا توجد أهداف محددة للمهمة</text>
 
   <rect x="490" y="360" width="410" height="160" class="train"/>
   <text x="510" y="382" class="step">المرحلة الثانية: ضبط التعليمات البصرية</text>
-  <text x="510" y="402" class="small">إلغاء تجميد LLM (كامل أو LoRA)</text>
+  <text x="510" y="402" class="small">قم بإلغاء تجميد LLM (ممتلئ أو LoRA)</text>
   <text x="510" y="418" class="small">اجعل جهاز العرض قابلاً للتدريب</text>
   <text x="510" y="434" class="small">data: 158k GPT-4-generated turns</text>
   <text x="510" y="450" class="small">  (المحادثة / الوصف / الاستدلال)</text>

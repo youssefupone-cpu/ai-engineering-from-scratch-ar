@@ -1,28 +1,28 @@
-# بيئة التطوير
+# Dev Environment
 
-> أدواتك تشكل تفكيرك. قم بإعدادهم مرة واحدة، قم بإعدادهم بشكل صحيح.
+> Your tools shape your thinking. Set them up once, set them up right.
 
-**النوع:** بناء
-**اللغات:** بايثون، Node.js، روست
-**الشروط:** لا يوجد
-**الوقت:** ~45 دقيقة
+**Type:** Build
+**Languages:** Python, Node.js, Rust
+**Prerequisites:** None
+**Time:** ~45 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- إعداد سلاسل أدوات Python 3.11+ وNode.js 20+ وRust من البداية
-- تكوين البيئات الافتراضية ومديري الحزم للبنيات القابلة للتكرار
-- التحقق من وصول GPU باستخدام CUDA/MPS وتشغيل عملية اختبار الموتر
-- فهم المكدس المكون من أربع طبقات: النظام، والحزم، وأوقات التشغيل، ومكتبات الذكاء الاصطناعي
+- Set up Python 3.11+, Node.js 20+, and Rust toolchains from scratch
+- Configure virtual environments and package managers for reproducible builds
+- Verify GPU access with CUDA/MPS and run a test tensor operation
+- Understand the four-layer stack: system, packages, runtimes, AI libraries
 
-## المشكلة
+## The Problem
 
-أنت على وشك تعلم هندسة الذكاء الاصطناعي عبر أكثر من 200 درس باستخدام Python وTypeScript وRust وJulia. إذا كانت بيئتك معطلة، فإن كل درس يصبح معركة ضد الأدوات بدلاً من التعلم.
+You're about to learn AI engineering across 200+ lessons using Python, TypeScript, Rust, and Julia. If your environment is broken, every single lesson becomes a fight against tooling instead of learning.
 
-يتخطّى معظم الأشخاص إعداد البيئة. ثم يقضون ساعات في تصحيح أخطاء الاستيراد، وتعارضات الإصدارات، وبرامج تشغيل CUDA المفقودة. سنقوم بذلك مرة واحدة، بشكل صحيح.
+Most people skip environment setup. Then they spend hours debugging import errors, version conflicts, and missing CUDA drivers. We're going to do this once, properly.
 
-##المفهوم
+## The Concept
 
-تتكون البيئة الهندسية للذكاء الاصطناعي من أربع طبقات:
+An AI engineering environment has four layers:
 
 ```mermaid
 graph TD
@@ -31,13 +31,13 @@ graph TD
     C --> D["1. System Foundation\nOS, shell, git, editor, GPU drivers"]
 ```
 
-نقوم بالتثبيت من الأسفل إلى الأعلى. كل طبقة تعتمد على الطبقة التي تحتها.
+We install bottom-up. Each layer depends on the one below it.
 
-## بنائها
+## Build It
 
-### الخطوة 1: تأسيس النظام
+### Step 1: System Foundation
 
-تحقق من نظامك وقم بتثبيت الأساسيات.
+Check your system and install the basics.
 
 ```bash
 # macOS
@@ -51,9 +51,9 @@ sudo apt update && sudo apt install -y build-essential git curl wget
 wsl --install -d Ubuntu-24.04
 ```
 
-### الخطوة 2: بايثون مع الأشعة فوق البنفسجية
+### Step 2: Python with uv
 
-نحن نستخدم `uv` — وهو أسرع بمقدار 10 إلى 100 مرة من النقطة ويتعامل مع البيئات الافتراضية تلقائيًا.
+We use `uv` — it's 10-100x faster than pip and handles virtual environments automatically.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -66,7 +66,7 @@ source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 uv pip install numpy matplotlib jupyter
 ```
 
-يؤكد:
+Verify:
 
 ```python
 import sys
@@ -78,9 +78,9 @@ a = np.array([1, 2, 3])
 print(f"Vector: {a}, dot product with itself: {np.dot(a, a)}")
 ```
 
-### الخطوة 3: Node.js مع pnpm
+### Step 3: Node.js with pnpm
 
-لدروس TypeScript (الوكلاء، خوادم MCP، تطبيقات الويب).
+For TypeScript lessons (agents, MCP servers, web apps).
 
 ```bash
 curl -fsSL https://fnm.vercel.app/install | bash
@@ -92,9 +92,9 @@ npm install -g pnpm
 node -e "console.log('Node', process.version)"
 ```
 
-### الخطوة 4: الصدأ
+### Step 4: Rust
 
-للدروس الحرجة للأداء (الاستدلال والأنظمة).
+For performance-critical lessons (inference, systems).
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -103,9 +103,9 @@ rustc --version
 cargo --version
 ```
 
-### الخطوة 5: جوليا (اختياري)
+### Step 5: Julia (Optional)
 
-لدروس الرياضيات الثقيلة حيث تتألق جوليا.
+For math-heavy lessons where Julia shines.
 
 ```bash
 curl -fsSL https://install.julialang.org | sh
@@ -113,7 +113,7 @@ curl -fsSL https://install.julialang.org | sh
 julia -e 'println("Julia ", VERSION)'
 ```
 
-### الخطوة 6: إعداد وحدة معالجة الرسومات (إذا كان لديك واحدة)
+### Step 6: GPU Setup (If You Have One)
 
 ```bash
 # NVIDIA
@@ -130,35 +130,35 @@ if torch.cuda.is_available():
     print(f"GPU: {torch.cuda.get_device_name(0)}")
 ```
 
-لا GPU؟ لا مشكلة. تعمل معظم الدروس على وحدة المعالجة المركزية (CPU). بالنسبة للدروس التدريبية المكثفة، استخدم Google Colab أو وحدات معالجة الرسومات السحابية.
+No GPU? No problem. Most lessons work on CPU. For training-heavy lessons, use Google Colab or cloud GPUs.
 
-### الخطوة 7: التحقق من كل شيء
+### Step 7: Verify Everything
 
-قم بتشغيل البرنامج النصي للتحقق:
+Run the verification script:
 
 ```bash
 python phases/00-setup-and-tooling/01-dev-environment/code/verify.py
 ```
 
-## استخدمه
+## Use It
 
-بيئتك جاهزة الآن لكل درس في هذه الدورة. إليك ما ستستخدمه حيث:
+Your environment is now ready for every lesson in this course. Here's what you'll use where:
 
-| اللغة | تستخدم في | مدير الحزم |
-|----------|--------|-----------------|
-| بايثون | المراحل من 1 إلى 12 (تعلم اللغة، التعلم التعلم، البرمجة اللغوية العصبية، الرؤية، الصوت، ماجستير إدارة الأعمال) | الأشعة فوق البنفسجية |
-| تايب سكريبت | المراحل 13-17 (الأدوات، الوكلاء، الأسراب، الأشعة تحت الحمراء) | بنم |
-| الصدأ | المراحل 12، 15-17 (أنظمة الأداء الحرجة) | بضائع |
-| جوليا | المرحلة الأولى (أسس الرياضيات) | باكج |
+| Language | Used In | Package Manager |
+|----------|---------|-----------------|
+| Python | Phases 1-12 (ML, DL, NLP, Vision, Audio, LLMs) | uv |
+| TypeScript | Phases 13-17 (Tools, Agents, Swarms, Infra) | pnpm |
+| Rust | Phases 12, 15-17 (Performance-critical systems) | cargo |
+| Julia | Phase 1 (Math foundations) | Pkg |
 
-## اشحنها
+## Ship It
 
-يُنتج هذا الدرس برنامجًا نصيًا للتحقق يمكن لأي شخص تشغيله للتحقق من الإعداد الخاص به.
+This lesson produces a verification script that anyone can run to check their setup.
 
-راجع `outputs/prompt-env-check.md` للحصول على مطالبة تساعد مساعدي الذكاء الاصطناعي في تشخيص مشكلات البيئة.
+See `outputs/prompt-env-check.md` for a prompt that helps AI assistants diagnose environment issues.
 
-## تمارين
+## Exercises
 
-1. قم بتشغيل البرنامج النصي للتحقق وإصلاح أي فشل
-2. أنشئ بيئة بايثون افتراضية لهذه الدورة وقم بتثبيت PyTorch
-3. اكتب "hello World" بجميع اللغات الأربع وقم بتشغيل كل واحدة منها
+1. Run the verification script and fix any failures
+2. Create a Python virtual environment for this course and install PyTorch
+3. Write a "hello world" in all four languages and run each one

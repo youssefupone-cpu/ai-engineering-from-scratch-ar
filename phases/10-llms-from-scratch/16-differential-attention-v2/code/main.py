@@ -1,8 +1,12 @@
-"""الاهتمام التفاضلي (Ye et al., ICLR 2025) في stdlib Python. يبني خريطتين softmax من الانقسام Q، K، ويطرح الثانية من الأولى
-يتم تحجيمها بواسطة لامدا المستفادة، وضربها بـ V. وتقيس الإشارة إلى الضوضاء
-نسبة أوزان الاهتمام الناتجة في استعلام سياق طويل اصطناعي
-ويقارن باهتمام softmax القياسي. يطبع أيضًا عدد المعلمات
-فرق لـ DIFF V1 وDIFF V2 مقابل محول أساسي. ستدلب خالص. لا نومي، لا الشعلة.
+"""Differential attention (Ye et al., ICLR 2025) in stdlib Python.
+
+Builds two softmax maps from split Q, K, subtracts the second from the first
+scaled by a learned lambda, multiplies by V. Measures the signal-to-noise
+ratio of the resulting attention weights on a synthetic long-context query
+and compares to standard softmax attention. Also prints the parameter-count
+diff for DIFF V1 and DIFF V2 against a baseline Transformer.
+
+Pure stdlib. No numpy, no torch.
 """
 
 from __future__ import annotations
@@ -44,7 +48,10 @@ def diff_attention(Q1: List[List[float]], K1: List[List[float]],
                    Q2: List[List[float]], K2: List[List[float]],
                    V: List[List[float]],
                    lam: float) -> tuple[List[List[float]], List[List[float]]]:
-    """الاهتمام التفاضلي: A1 = softmax(Q1 K1^T / sqrt(d)) A2 = softmax(Q2 K2^T / sqrt(d)) خارج = (A1 - لام * A2) V
+    """Differential attention:
+        A1 = softmax(Q1 K1^T / sqrt(d))
+        A2 = softmax(Q2 K2^T / sqrt(d))
+        out = (A1 - lam * A2) V
     """
     d = len(Q1[0])
     scale = math.sqrt(d)
@@ -64,7 +71,7 @@ def diff_attention(Q1: List[List[float]], K1: List[List[float]],
 
 def random_projection(d_in: int, d_out: int,
                       rng: random.Random) -> List[List[float]]:
-    """مصفوفة إسقاط d_in x d_out مع أعمدة تباين الوحدة."""
+    """d_in x d_out projection matrix with unit-variance columns."""
     return [[rng.gauss(0, 1.0 / math.sqrt(d_in)) for _ in range(d_out)]
             for _ in range(d_in)]
 
@@ -82,7 +89,13 @@ def build_signal_plus_noise(
     n_tokens: int, signal_pos: int, d_embed: int, noise_scale: float,
     rng: random.Random,
 ) -> tuple[List[List[float]], List[float]]:
-    """قم بإرجاع تسلسل تضمين الإدخال X[n_tokens][d_embed] واستعلام ناقلات س. يحمل موضع signal_pos نمطًا محددًا؛ الاستعلام هو تتماشى مع هذا النمط. كل موضع آخر هو ضوضاء غاوسية. يتم تطبيق توقعات Q وK AFTER في خطوة البناء هذه بحيث يتم تطبيق كليهما ترى الفروع التفاضلية نفس التسلسل الأساسي ولكنها تعرضه من خلال مصفوفات مختلفة - المحاكاة الدقيقة لانتباه DIFF.
+    """Return an input embedding sequence X[n_tokens][d_embed] and a query
+    vector q. Position signal_pos carries a specific pattern; the query is
+    aligned to that pattern. Every other position is Gaussian noise.
+
+    The Q, K projections are applied AFTER this build step so that both
+    differential branches see the same underlying sequence but project it
+    through different matrices — the faithful simulation of DIFF attention.
     """
     pattern = [rng.gauss(0, 1) for _ in range(d_embed)]
     norm = math.sqrt(sum(x * x for x in pattern))

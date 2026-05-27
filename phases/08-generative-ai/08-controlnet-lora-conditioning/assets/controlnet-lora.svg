@@ -21,7 +21,7 @@
   <!-- ControlNet -->
   <text x="100" y="70" class="label">ControlNet</text>
   <rect x="40" y="80" width="120" height="200" class="frozen"/>
-  <text x="100" y="100" text-anchor="middle" class="caption">المجمدة SD يو نت</text>
+  <text x="100" y="100" text-anchor="middle" class="caption">مجمدة SD يو نت</text>
   <rect x="55" y="115" width="90" height="35" class="box"/>
   <text x="100" y="138" text-anchor="middle" class="content">encoder</text>
   <rect x="55" y="155" width="90" height="35" class="box"/>
@@ -92,7 +92,7 @@
   <rect x="460" y="380" width="180" height="120" class="cold"/>
   <text x="550" y="402" text-anchor="middle" class="content">IP-Adapter</text>
   <text x="550" y="422" text-anchor="middle" class="caption">الصورة المرجعية كشرط</text>
-  <text x="550" y="438" text-anchor="middle" class="caption">عبر CLIP الرموز المميزة للصور</text>
+  <text x="550" y="438" text-anchor="middle" class="caption">عبر CLIP رموز الصور</text>
   <text x="550" y="470" text-anchor="middle" class="caption">~20 MB</text>
 
   <rect x="660" y="380" width="180" height="120" class="cold"/>

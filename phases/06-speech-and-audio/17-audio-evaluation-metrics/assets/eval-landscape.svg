@@ -15,12 +15,12 @@
 
   <rect x="20" y="50" width="200" height="200" class="box"/>
   <text x="120" y="72" text-anchor="middle" class="label">ASR</text>
-  <text x="30" y="96" class="content">الأساسي: WER (تطبيع)</text>
-  <text x="30" y="114" class="content">          CER لمدى النغمات</text>
+  <text x="30" y="96" class="content">الابتدائي: WER (تطبيع)</text>
+  <text x="30" y="114" class="content">          CER للنغمة</text>
   <text x="30" y="132" class="content">السرعة: RTFx</text>
   <text x="30" y="150" class="content">الكمون: الرمز الأول مللي ثانية</text>
-  <text x="30" y="174" class="tag">افتح ASR لوحة المتصدرين</text>
-  <text x="30" y="192" class="caption">الببغاء 6.05% متوسط ​​WER</text>
+  <text x="30" y="174" class="tag">افتح ASR المتصدرين</text>
+  <text x="30" y="192" class="caption">ببغاء متوسط ​​6.05% WER</text>
   <text x="30" y="210" class="caption">همس-v3-توربو 1.58% LS</text>
   <text x="30" y="228" class="caption">كناري كوين 5.63% متوسط</text>
 
@@ -28,18 +28,18 @@
   <text x="335" y="72" text-anchor="middle" class="label">TTS</text>
   <text x="245" y="96" class="content">الأساسي: MOS / UTMOS</text>
   <text x="245" y="114" class="content">          SECS (استنساخ)</text>
-  <text x="245" y="132" class="content">الجولة: ASR-WER عند الإخراج</text>
+  <text x="245" y="132" class="content">الجولة: ASR-WER على الإخراج</text>
   <text x="245" y="150" class="content">الكمون: TTFA مللي ثانية</text>
   <text x="245" y="174" class="tag">TTS الساحة · التحليل الاصطناعي</text>
   <text x="245" y="192" class="caption">في العالم TTS-1.5 ELO 1236</text>
-  <text x="245" y="210" class="caption">كوكورو-82م ELO 1059</text>
-  <text x="245" y="228" class="caption">أحد عشر مختبرًا الإصدار 3 ELO 1179</text>
+  <text x="245" y="210" class="caption">كوكورو-82 م ELO 1059</text>
+  <text x="245" y="228" class="caption">أحد عشر مختبرا v3 ELO 1179</text>
 
   <rect x="450" y="50" width="200" height="200" class="box"/>
   <text x="550" y="72" text-anchor="middle" class="label">المتحدث + اليوميات</text>
   <text x="460" y="96" class="content">الابتدائي: EER</text>
   <text x="460" y="114" class="content">          minDCF</text>
-  <text x="460" y="132" class="content">الرسالة: DER / JER</text>
+  <text x="460" y="132" class="content">دياريز: DER / JER</text>
   <text x="460" y="150" class="content">التداخل: لكل مقطع F1</text>
   <text x="460" y="174" class="tag">VoxCeleb1-O / VoxSRC</text>
   <text x="460" y="192" class="caption">ECAPA 0.87% EER</text>
@@ -61,21 +61,21 @@
   <text x="225" y="287" text-anchor="middle" class="label">جيل الموسيقى</text>
   <text x="30" y="313" class="content">الأساسي: FAD (مسافة صوت فريشيه)</text>
   <text x="30" y="331" class="content">        CLAP (محاذاة النص والصوت)</text>
-  <text x="30" y="349" class="content">المستهلك: اللوحة العمياء MOS / ELO</text>
-  <text x="30" y="375" class="tag">Suno v5 ELO 1293 (قائد الجودة)</text>
+  <text x="30" y="349" class="content">المستهلك: لوحة عمياء MOS / ELO</text>
+  <text x="30" y="375" class="tag">Suno v5 ELO 1293 (زعيم الجودة)</text>
   <text x="30" y="395" class="caption">Udio v4 – أدوات الإنتاج + السيقان</text>
   <text x="30" y="413" class="caption">MusicGen-large على MusicCaps ~4.5 FAD</text>
-  <text x="30" y="441" class="content">قم دائمًا بإقران FAD بلوحة MOS البشرية</text>
-  <text x="30" y="459" class="content">مفتوح: ACE-الخطوة XL / YuE / صوت ثابت مفتوح</text>
+  <text x="30" y="441" class="content">قم دائمًا بإقران FAD بلوحة MOS بشرية</text>
+  <text x="30" y="459" class="content">فتح: ACE-الخطوة XL / YuE / صوت ثابت مفتوح</text>
 
   <rect x="450" y="265" width="410" height="220" class="hot"/>
   <text x="655" y="287" text-anchor="middle" class="label">لغة الصوت + البث</text>
-  <text x="460" y="313" class="content">LALM الاستدلال: MMAU-Pro (1800 س)</text>
+  <text x="460" y="313" class="content">LALM الاستدلال: MMAU-برو (1800 س)</text>
   <text x="460" y="331" class="content">الصوت الطويل: LongAudioBench</text>
   <text x="460" y="349" class="content">التسمية التوضيحية: FENSE / SPICE / CIDEr</text>
-  <text x="460" y="375" class="tag">Gemini 2.5 Pro ~60% MMAU-Pro بشكل عام</text>
-  <text x="460" y="395" class="caption">GPT-4o الصوت 52.5% — Qwen2.5-Omni 52.2%</text>
-  <text x="460" y="413" class="caption">مجموعة فرعية متعددة الصوت: ~22% نماذج ALL (عشوائية تقريبًا)</text>
+  <text x="460" y="375" class="tag">الجوزاء 2.5 برو ~60% MMAU-برو بشكل عام</text>
+  <text x="460" y="395" class="caption">GPT-4o الصوت 52.5% — Qwen2.5-أومني 52.2%</text>
+  <text x="460" y="413" class="caption">مجموعة فرعية متعددة الصوت: ~22% ALL نماذج (شبه عشوائية)</text>
   <text x="460" y="441" class="content">البث S2S: زمن الوصول P50/P95 + WER</text>
   <text x="460" y="459" class="content">Moshi 200 مللي ثانية L4 · GPT-4o الوقت الفعلي ~300 مللي ثانية</text>
 </svg>

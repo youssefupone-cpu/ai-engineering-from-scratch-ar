@@ -1,46 +1,46 @@
 # Stochastic Processes
 
-> Randomness with structure. The math behind random walks, Markov chains, and diffusion models.
+> العشوائية مع البنية. الرياضيات وراء المشي العشوائي، وسلاسل ماركوف، ونماذج الانتشار.
 
-**Type:** Learn
-**Language:** Python
-**Prerequisites:** Phase 1, Lessons 06-07 (probability, Bayes)
-**Time:** ~75 minutes
+**النوع:** تعلم
+** اللغة: ** بايثون
+**المتطلبات:** المرحلة الأولى، الدروس 06-07 (الاحتمالات، بايز)
+**الوقت:** ~75 دقيقة
 
 ## Learning Objectives
 
-- Simulate 1D and 2D random walks and verify the sqrt(n) scaling of displacement
-- Build a Markov chain simulator and compute its stationary distribution via eigendecomposition
-- Implement Metropolis-Hastings MCMC and Langevin dynamics for sampling from target distributions
-- Connect the forward diffusion process to Brownian motion and explain how the reverse process generates data
+- محاكاة مسارات عشوائية 1D و2D والتحقق من مقياس الإزاحة sqrt(n).
+- بناء محاكي سلسلة ماركوف وحساب توزيعها الثابت عبر التحلل الذاتي
+- تنفيذ ديناميكيات Metropolis-Hastings MCMC وLangevin لأخذ العينات من التوزيعات المستهدفة
+- ربط عملية الانتشار الأمامي بالحركة البراونية وشرح كيفية قيام العملية العكسية بتوليد البيانات
 
 ## The Problem
 
-Many AI systems involve randomness that evolves over time. Not static randomness -- structured, sequential randomness where each step depends on what came before.
+تتضمن العديد من أنظمة AI العشوائية التي تتطور بمرور الوقت. ليست عشوائية ثابتة - عشوائية منظمة ومتسلسلة حيث تعتمد كل خطوة على ما جاء قبلها.
 
-Language models generate tokens one at a time. Each token depends on the previous context. The model outputs a probability distribution, samples from it, and moves on. That is a stochastic process.
+تقوم نماذج اللغة بإنشاء الرموز المميزة واحدًا تلو الآخر. يعتمد كل رمز على السياق السابق. يقوم النموذج بإخراج توزيع احتمالي، وأخذ عينات منه، ثم المضي قدمًا. هذه عملية عشوائية.
 
-Diffusion models add noise to an image step by step until it becomes pure static. Then they reverse the process, denoising step by step until a new image emerges. The forward process is a Markov chain. The reverse process is a learned Markov chain running backward.
+تضيف نماذج الانتشار الضوضاء إلى الصورة خطوة بخطوة حتى تصبح ثابتة تمامًا. ثم يقومون بعكس العملية، مع تقليل الضوضاء خطوة بخطوة حتى تظهر صورة جديدة. العملية الأمامية هي سلسلة ماركوف. العملية العكسية عبارة عن سلسلة ماركوف مستفادة تعمل للخلف.
 
-Reinforcement learning agents take actions in an environment. Each action leads to a new state with some probability. The agent follows a random policy in a random world. The whole thing is a Markov decision process.
+يقوم وكلاء التعلم المعزز باتخاذ إجراءات في بيئة ما. يؤدي كل إجراء إلى حالة جديدة مع بعض الاحتمال. يتبع الوكيل سياسة عشوائية في عالم عشوائي. الأمر برمته هو عملية قرار ماركوف.
 
-MCMC sampling -- the backbone of Bayesian inference -- constructs a Markov chain whose stationary distribution is the posterior you want to sample from.
+MCMC أخذ العينات - العمود الفقري للاستدلال البايزي - يبني سلسلة ماركوف التي يكون توزيعها الثابت هو الجزء الخلفي الذي تريد أخذ عينة منه.
 
-All of these build on four foundational ideas:
-1. Random walks -- the simplest stochastic process
-2. Markov chains -- structured randomness with a transition matrix
-3. Langevin dynamics -- gradient descent with noise
-4. Metropolis-Hastings -- sampling from any distribution
+كل هذه الأفكار مبنية على أربع أفكار أساسية:
+1. مناحي عشوائية – أبسط عملية عشوائية
+2. سلاسل ماركوف – عشوائية منظمة مع مصفوفة انتقالية
+3. ديناميكيات لانجفين - نزول متدرج مع ضوضاء
+4. متروبوليس-هاستينغز - أخذ العينات من أي توزيع
 
 ## The Concept
 
 ### Random Walks
 
-Start at position 0. At each step, flip a fair coin. Heads: move right (+1). Tails: move left (-1).
+ابدأ من الموضع 0. في كل خطوة، اقلب عملة معدنية عادلة. الرؤوس: تحرك لليمين (+1). الذيول: تحرك لليسار (-1).
 
-After n steps, your position is the sum of n random +/-1 values. The expected position is 0 (the walk is unbiased). But the expected distance from the origin grows as sqrt(n).
+بعد عدد n من الخطوات، يصبح موضعك هو مجموع n من قيم +/-1 العشوائية. الموضع المتوقع هو 0 (المشي غير متحيز). لكن المسافة المتوقعة من الأصل تنمو كـ sqrt(n).
 
-This is counterintuitive. The walk is fair -- no drift in either direction. But over time, it wanders further and further from where it started. The standard deviation after n steps is sqrt(n).
+هذا غير بديهي. المشي عادل - لا يوجد انحراف في أي اتجاه. ولكن مع مرور الوقت، فإنه يتجول أبعد وأبعد من حيث بدأ. الانحراف المعياري بعد خطوات n هو sqrt(n).
 
 ```
 Step 0:  Position = 0
@@ -51,35 +51,35 @@ Step 100: Expected distance from origin ~ 10 (sqrt(100))
 Step 10000: Expected distance from origin ~ 100 (sqrt(10000))
 ```
 
-**In 2D**, the walk moves up, down, left, or right with equal probability. The same sqrt(n) scaling applies to the distance from the origin. The path traces a fractal-like pattern.
+**في الوضع ثنائي الأبعاد**، يتحرك السير لأعلى أو لأسفل أو لليسار أو لليمين باحتمالات متساوية. ينطبق نفس مقياس sqrt(n) على المسافة من الأصل. يتتبع المسار نمطًا يشبه النمط الكسيري.
 
-**Why sqrt(n)?** Each step is +1 or -1 with equal probability. After n steps, the position S_n = X_1 + X_2 + ... + X_n where each X_i is +/-1. The variance of each step is 1, and the steps are independent, so Var(S_n) = n. Standard deviation = sqrt(n). By the central limit theorem, S_n / sqrt(n) converges to a standard normal distribution.
+**لماذا sqrt(n)؟** كل خطوة هي +1 أو -1 باحتمال متساو. بعد n خطوات، الموضع S_n = X_1 + X_2 +... + X_n حيث يكون كل X_i هو +/-1. تباين كل خطوة هو 1، والخطوات مستقلة، لذلك Var(S_n) = n. الانحراف المعياري = sqrt(n). بواسطة نظرية الحد المركزي، S_n / sqrt(n) يتقارب مع التوزيع الطبيعي القياسي.
 
-This sqrt(n) scaling shows up everywhere in ML. SGD noise scales as 1/sqrt(batch_size). Embedding dimensions scale as sqrt(d). The square root is the signature of independent random additions.
+يظهر مقياس sqrt(n) هذا في كل مكان في ML. SGD مقاييس الضوضاء مثل 1/sqrt(batch_size). مقياس أبعاد التضمين هو sqrt (d). الجذر التربيعي هو توقيع الإضافات العشوائية المستقلة.
 
-**Connection to Brownian motion.** Take a random walk with step size 1/sqrt(n) and n steps per unit time. As n goes to infinity, the walk converges to Brownian motion B(t) -- a continuous-time process where B(t) is normally distributed with mean 0 and variance t.
+**الارتباط بالحركة البراونية.** قم بالمشي بشكل عشوائي بحجم خطوة 1/sqrt(n) وn من الخطوات لكل وحدة زمنية. عندما تصل n إلى ما لا نهاية، تتقارب الحركة مع الحركة البراونية B(t) - وهي عملية زمنية مستمرة حيث يتم توزيع B(t) بشكل طبيعي بمتوسط ​​0 وتباين t.
 
-Brownian motion is the mathematical foundation of diffusion. It models the random jiggling of particles in a fluid, the fluctuations of stock prices, and -- crucially -- the noise process in diffusion models.
+الحركة البراونية هي الأساس الرياضي للانتشار. فهو يجسد الاهتزاز العشوائي للجزيئات في السائل، وتقلبات أسعار الأسهم، والأهم من ذلك، عملية الضوضاء في نماذج الانتشار.
 
-**Gambler's ruin.** A random walker starting at position k, with absorbing barriers at 0 and N. What is the probability of reaching N before 0? For a fair walk: P(reach N) = k/N. This is surprisingly simple and elegant. It connects to the theory of martingales -- the fair random walk is a martingale (expected future value = current value).
+**خراب المقامر.** متحرك عشوائي يبدأ من الموضع k، مع وجود حواجز امتصاص عند 0 وN. ما هو احتمال الوصول إلى N قبل 0؟ للمشي العادل: P(الوصول إلى N) = k/N. هذا بسيط وأنيق بشكل مدهش. إنه يتصل بنظرية مارتينجال - المشي العشوائي العادل هو مارتينجال (القيمة المستقبلية المتوقعة = القيمة الحالية).
 
 ### Markov Chains
 
-A Markov chain is a system that transitions between states according to fixed probabilities. The key property: the next state depends only on the current state, not on the history.
+سلسلة ماركوف هي نظام ينتقل بين الحالات وفقًا لاحتمالات ثابتة. الخاصية الرئيسية: الحالة التالية تعتمد فقط على الحالة الحالية، وليس على التاريخ.
 
 ```
 P(X_{t+1} = j | X_t = i, X_{t-1} = ...) = P(X_{t+1} = j | X_t = i)
 ```
 
-This is the Markov property. It means you can describe the entire dynamics with a transition matrix P:
+هذه هي خاصية ماركوف. هذا يعني أنه يمكنك وصف الديناميكيات بأكملها باستخدام مصفوفة انتقالية P:
 
 ```
 P[i][j] = probability of going from state i to state j
 ```
 
-Each row of P sums to 1 (you must go somewhere).
+كل صف من مجموعات P يساوي 1 (يجب عليك الذهاب إلى مكان ما).
 
-**Example -- Weather:**
+**مثال -- الطقس:**
 
 ```
 States: Sunny (0), Rainy (1), Cloudy (2)
@@ -89,9 +89,9 @@ P = [[0.7, 0.1, 0.2],    (if sunny: 70% sunny, 10% rainy, 20% cloudy)
      [0.4, 0.2, 0.4]]    (if cloudy: 40% sunny, 20% rainy, 40% cloudy)
 ```
 
-Start in any state. After many transitions, the distribution of states converges to the stationary distribution pi, where pi * P = pi. This is the left eigenvector of P with eigenvalue 1.
+ابدأ في أي ولاية. بعد العديد من التحولات، يتقارب توزيع الحالات مع التوزيع الثابت pi، حيث pi * P = pi. هذا هو المتجه الذاتي الأيسر لـ P ذو القيمة الذاتية 1.
 
-For the weather chain, the stationary distribution might be [0.53, 0.18, 0.29] -- over the long run, it is sunny 53% of the time regardless of the starting state.
+بالنسبة لسلسلة الطقس، قد يكون التوزيع الثابت [0.53، 0.18، 0.29] - على المدى الطويل، يكون الجو مشمسًا بنسبة 53% من الوقت بغض النظر عن حالة البداية.
 
 ```mermaid
 graph LR
@@ -106,78 +106,78 @@ graph LR
     C -->|0.4| C
 ```
 
-**Computing the stationary distribution.** There are two approaches:
+**حساب التوزيع الثابت.** هناك طريقتان:
 
-1. **Power method**: multiply any initial distribution by P repeatedly. After enough iterations, it converges.
-2. **Eigenvalue method**: find the left eigenvector of P with eigenvalue 1. This is the eigenvector of P^T with eigenvalue 1.
+1. ** طريقة الطاقة **: اضرب أي توزيع أولي بـ P بشكل متكرر. وبعد تكرارات كافية، تتقارب.
+2. **طريقة القيمة الذاتية**: ابحث عن المتجهات الذاتية اليسرى لـ P ذات القيمة الذاتية 1. هذا هو المتجهات الذاتية لـ P^T ذات القيمة الذاتية 1.
 
-Both approaches require the chain to satisfy convergence conditions.
+يتطلب كلا النهجين أن تستوفي السلسلة شروط التقارب.
 
-**Convergence conditions.** A Markov chain converges to a unique stationary distribution if it is:
-- **Irreducible**: every state is reachable from every other state
-- **Aperiodic**: the chain does not cycle with a fixed period
+**شروط التقارب.** تتقارب سلسلة ماركوف إلى توزيع ثابت فريد إذا كانت:
+- **غير قابل للاختزال**: يمكن الوصول إلى كل ولاية من أي ولاية أخرى
+- **غير دورية**: السلسلة لا تدور بفترة محددة
 
-Most chains you encounter in ML satisfy both conditions.
+معظم السلاسل التي تواجهها في ML تستوفي كلا الشرطين.
 
-**Absorbing states.** A state is absorbing if once you enter it, you never leave (P[i][i] = 1). Absorbing Markov chains model processes with terminal states -- a game that ends, a customer who churns, a token sequence that hits the end-of-text token.
+**حالات الامتصاص.** الحالة تكون استيعابية إذا دخلتها ولم تغادرها أبدًا (P[i][i] = 1). يستوعب نموذج ماركوف العمليات النموذجية بحالات طرفية - لعبة تنتهي، عميل يتخبط، تسلسل رمزي يصل إلى رمز نهاية النص.
 
-**Mixing time.** How many steps until the chain is "close" to the stationary distribution? Formally, the number of steps until the total variation distance from stationarity drops below some threshold. Fast mixing = few steps needed. The spectral gap of P (1 minus the second-largest eigenvalue) controls the mixing time. Larger gap = faster mixing.
+**مدة الخلط.** كم عدد الخطوات حتى تصبح السلسلة "قريبة" من التوزيع الثابت؟ رسميًا، عدد الخطوات حتى تنخفض مسافة الاختلاف الإجمالية من الثبات إلى ما دون حد ما. خلط سريع = خطوات قليلة مطلوبة. تتحكم الفجوة الطيفية لـ P (1 ناقص ثاني أكبر قيمة ذاتية) في وقت الخلط. فجوة أكبر = خلط أسرع.
 
 ### Connection to Language Models
 
-Token generation in a language model is approximately a Markov process. Given the current context, the model outputs a distribution over the next token. Temperature controls the sharpness:
+إن إنشاء الرمز المميز في نموذج اللغة هو تقريبًا عملية ماركوف. في ضوء السياق الحالي، يقوم النموذج بإخراج التوزيع على الرمز المميز التالي. درجة الحرارة تتحكم في الحدة:
 
 ```
 P(token_i) = exp(logit_i / temperature) / sum(exp(logit_j / temperature))
 ```
 
-- Temperature = 1.0: standard distribution
-- Temperature < 1.0: sharper (more deterministic)
-- Temperature > 1.0: flatter (more random)
-- Temperature -> 0: argmax (greedy)
+- درجة الحرارة = 1.0: التوزيع القياسي
+- درجة الحرارة < 1.0: أكثر حدة (أكثر حتمية)
+- درجة الحرارة > 1.0: مسطحة (أكثر عشوائية)
+- درجة الحرارة -> 0: الأرجماكس (الجشع)
 
-Top-k sampling truncates to the k highest-probability tokens. Top-p (nucleus) sampling truncates to the smallest set of tokens whose cumulative probability exceeds p. Both modify the Markov transition probabilities.
+يتم اقتطاع عينات Top-k إلى الرموز المميزة ذات الاحتمالية الأعلى. يتم اقتطاع أخذ عينات Top-p (النواة) إلى أصغر مجموعة من الرموز المميزة التي يتجاوز احتمالها التراكمي p. كلاهما يعدل احتمالات انتقال ماركوف.
 
 ### Brownian Motion
 
-The continuous-time limit of the random walk. Position B(t) has three properties:
-1. B(0) = 0
-2. B(t) - B(s) is normally distributed with mean 0 and variance t - s (for t > s)
-3. Increments on non-overlapping intervals are independent
+الحد الزمني المستمر للمشي العشوائي. يحتوي الموضع B(t) على ثلاث خصائص:
+1. ب(0) = 0
+2. B(t) - B(s) يتم توزيعها عادة بمتوسط 0 والتباين t - s (ل t > s)
+3. الزيادات على فترات غير متداخلة مستقلة
 
-Brownian motion is continuous but nowhere differentiable -- it jiggles at every scale. The path has fractal dimension 2 in the plane.
+الحركة البراونية مستمرة ولكن لا يمكن تمييزها في أي مكان، فهي تهتز عند كل مقياس. المسار له البعد الكسري 2 في المستوى.
 
-In discrete simulation, you approximate Brownian motion by:
+في المحاكاة المنفصلة، ​​يمكنك تقريب الحركة البراونية عن طريق:
 
 ```
 B(t + dt) = B(t) + sqrt(dt) * z,    where z ~ N(0, 1)
 ```
 
-The sqrt(dt) scaling is important. It comes from the central limit theorem applied to random walks.
+يعد تحجيم sqrt(dt) مهمًا. إنها تأتي من نظرية الحد المركزي المطبقة على المسيرات العشوائية.
 
 ### Langevin Dynamics
 
-Gradient descent finds the minimum of a function. Langevin dynamics finds the probability distribution proportional to exp(-U(x)/T), where U is an energy function and T is temperature.
+يجد النسب المتدرج الحد الأدنى من الوظيفة. تجد ديناميكيات لانجفين التوزيع الاحتمالي متناسبًا مع exp(-U(x)/T)، حيث U هي دالة طاقة وT هي درجة الحرارة.
 
 ```
 x_{t+1} = x_t - dt * gradient(U(x_t)) + sqrt(2 * T * dt) * z_t
 ```
 
-Two forces act on the particle:
-1. **Gradient force** (-dt * gradient(U)): pushes toward low energy (like gradient descent)
-2. **Random force** (sqrt(2*T*dt) * z): pushes in random directions (exploration)
+تؤثر قوتان على الجسيم:
+1. **قوة التدرج** (-dt * التدرج(U)): تدفع نحو الطاقة المنخفضة (مثل نزول التدرج)
+2. **القوة العشوائية** (sqrt(2*T*dt) * z): تدفع في اتجاهات عشوائية (استكشاف)
 
-At temperature T = 0, this is pure gradient descent. At high temperature, it is nearly a random walk. At the right temperature, the particle explores the energy landscape and spends more time in low-energy regions.
+عند درجة الحرارة T = 0، يكون هذا نزولًا متدرجًا خالصًا. في درجات الحرارة المرتفعة، يكون المشي عشوائيًا تقريبًا. عند درجة الحرارة المناسبة، يستكشف الجسيم مشهد الطاقة ويقضي وقتًا أطول في المناطق منخفضة الطاقة.
 
-**Connection to diffusion models.** The forward process of a diffusion model is:
+**الاتصال بنماذج الانتشار.** العملية الأمامية لنموذج الانتشار هي:
 
 ```
 x_t = sqrt(alpha_t) * x_{t-1} + sqrt(1 - alpha_t) * noise
 ```
 
-This is a Markov chain that gradually mixes the data with noise. After enough steps, x_T is pure Gaussian noise.
+هذه سلسلة ماركوف تمزج البيانات بالضوضاء تدريجيًا. بعد خطوات كافية، يصبح x_T ضوضاء غاوسية خالصة.
 
-The reverse process -- going from noise back to data -- is also a Markov chain, but its transition probabilities are learned by a neural network. The network learns to predict the noise that was added at each step, then subtracts it.
+العملية العكسية - الانتقال من الضجيج إلى البيانات - هي أيضًا سلسلة ماركوف، لكن احتمالات انتقالها يتم تعلمها بواسطة شبكة عصبية. تتعلم الشبكة التنبؤ بالضوضاء التي تمت إضافتها في كل خطوة، ثم تقوم بطرحها.
 
 ```mermaid
 graph LR
@@ -195,38 +195,38 @@ graph LR
 
 ### MCMC: Markov Chain Monte Carlo
 
-Sometimes you need to sample from a distribution p(x) that you can evaluate (up to a constant) but cannot sample from directly. Bayesian posteriors are the classic example -- you know the likelihood times the prior, but the normalizing constant is intractable.
+في بعض الأحيان تحتاج إلى أخذ عينة من التوزيع p(x) الذي يمكنك تقييمه (حتى ثابت) ولكن لا يمكنك أخذ عينة منه مباشرة. تعتبر الخلفيات البايزية هي المثال الكلاسيكي - أنت تعرف الاحتمالية مضروبة في السابقة، ولكن ثابت التطبيع غير قابل للحل.
 
-**Metropolis-Hastings** constructs a Markov chain whose stationary distribution is p(x):
+تقوم **Metropolis-Hastings** ببناء سلسلة ماركوف التي يكون توزيعها الثابت هو p(x):
 
-1. Start at some position x
-2. Propose a new position x' from a proposal distribution Q(x'|x)
-3. Compute acceptance ratio: a = p(x') * Q(x|x') / (p(x) * Q(x'|x))
-4. Accept x' with probability min(1, a). Otherwise stay at x.
-5. Repeat.
+1. ابدأ من موضع ما x
+2. اقتراح موضع جديد x' من توزيع الاقتراح Q(x'|x)
+3. حساب نسبة القبول: a = p(x') * Q(x|x') / (p(x) * Q(x'|x))
+4. اقبل x' مع احتمال min(1, a). خلاف ذلك البقاء في x.
+5. كرر.
 
-If Q is symmetric (e.g., Q(x'|x) = Q(x|x') = N(x, sigma^2)), the ratio simplifies to a = p(x') / p(x). You only need the ratio of probabilities -- the normalizing constant cancels.
+إذا كانت Q متماثلة (على سبيل المثال، Q(x'|x) = Q(x|x') = N(x, sigma^2))، يتم تبسيط النسبة إلى a = p(x') / p(x). ما عليك سوى نسبة الاحتمالات - يلغي ثابت التطبيع.
 
-The chain is guaranteed to converge to p(x) under mild conditions. But convergence can be slow if the proposal is too small (random walk) or too large (high rejection). Tuning the proposal is the art of MCMC.
+ويضمن أن تتقارب السلسلة إلى p(x) في ظل ظروف معتدلة. لكن التقارب يمكن أن يكون بطيئا إذا كان الاقتراح صغيرا جدا (السير العشوائي) أو كبيرا جدا (الرفض العالي). ضبط الاقتراح هو فن MCMC.
 
-**Why it works.** The acceptance ratio ensures detailed balance: the probability of being at x and moving to x' equals the probability of being at x' and moving to x. Detailed balance implies that p(x) is the stationary distribution of the chain. So after enough steps, the samples come from p(x).
+**لماذا يعمل.** تضمن نسبة القبول توازنًا تفصيليًا: احتمالية الوجود عند x والانتقال إلى x' تساوي احتمالية الوجود عند x' والانتقال إلى x. يشير التوازن التفصيلي إلى أن p(x) هو التوزيع الثابت للسلسلة. لذا، بعد خطوات كافية، تأتي العينات من p(x).
 
-**Practical considerations:**
-- **Burn-in**: discard the first N samples. The chain needs time to reach the stationary distribution from its starting point.
-- **Thinning**: keep every k-th sample to reduce autocorrelation.
-- **Multiple chains**: run several chains from different starting points. If they converge to the same distribution, you have evidence of convergence.
-- **Acceptance rate**: for Gaussian proposals in d dimensions, the optimal acceptance rate is about 23% (Roberts & Rosenthal, 2001). Too high means the chain barely moves. Too low means it rejects everything.
+**اعتبارات عملية:**
+- **الاحتراق**: تجاهل العينات N الأولى. تحتاج السلسلة إلى وقت للوصول إلى التوزيع الثابت من نقطة البداية.
+- **الترقق**: احتفظ بكل عينة من النوع k لتقليل الارتباط الذاتي.
+- **سلاسل متعددة**: قم بتشغيل عدة سلاسل من نقاط بداية مختلفة. إذا تقاربا في نفس التوزيع، فلديك دليل على التقارب.
+- **معدل القبول**: بالنسبة للمقترحات الغوسية ذات الأبعاد d، يبلغ معدل القبول الأمثل حوالي 23% (Roberts & Rosenthal, 2001). عالية جدًا تعني أن السلسلة بالكاد تتحرك. منخفض جدًا يعني أنه يرفض كل شيء.
 
 ### Stochastic Processes in AI
 
-| Process | AI Application |
-|---------|---------------|
-| Random walk | Exploration in RL, Node2Vec embeddings |
-| Markov chain | Text generation, MCMC sampling |
-| Brownian motion | Diffusion models (forward process) |
-| Langevin dynamics | Score-based generative models, SGLD |
-| Markov decision process | Reinforcement learning |
-| Metropolis-Hastings | Bayesian inference, posterior sampling |
+| عملية | AI التطبيق |
+|---------|--------------|
+| المشي العشوائي | الاستكشاف في RL، تضمينات Node2Vec |
+| سلسلة ماركوف | توليد النص، MCMC أخذ العينات |
+| الحركة البراونية | نماذج الانتشار (عملية للأمام) |
+| ديناميات لانجفين | النماذج التوليدية المبنية على النتيجة، SGLD |
+| عملية اتخاذ القرار ماركوف | تعزيز التعلم |
+| متروبوليس هاستينغز | الاستدلال البايزي، أخذ العينات الخلفية |
 
 ## Build It
 
@@ -256,7 +256,7 @@ def random_walk_2d(n_steps, seed=None):
     return x, y
 ```
 
-The 1D walk stores cumulative sums. Each step is +1 or -1. After n steps, the position is the sum. The variance grows linearly with n, so the standard deviation grows as sqrt(n).
+يقوم المسار 1D بتخزين المبالغ التراكمية. كل خطوة هي +1 أو -1. بعد عدد الخطوات n، يكون الموضع هو المجموع. ينمو التباين خطيًا مع n، وبالتالي فإن الانحراف المعياري ينمو كـ sqrt(n).
 
 ### Step 2: Markov chain
 
@@ -290,7 +290,7 @@ class MarkovChain:
         return np.abs(stationary)
 ```
 
-The stationary distribution is the left eigenvector of P with eigenvalue 1. We find it by computing eigenvectors of P^T (transposing turns left eigenvectors into right eigenvectors).
+التوزيع الثابت هو المتجهات الذاتية اليسرى لـ P مع القيمة الذاتية 1. نجده عن طريق حساب المتجهات الذاتية لـ P ^ T (تحويل المتجهات الذاتية اليسرى إلى المتجهات الذاتية اليمنى).
 
 ### Step 3: Langevin dynamics
 
@@ -306,7 +306,7 @@ def langevin_dynamics(grad_U, x0, dt, temperature, n_steps, seed=None):
     return np.array(trajectory)
 ```
 
-The gradient pushes x toward low energy. The noise prevents it from getting stuck. At equilibrium, the distribution of samples is proportional to exp(-U(x)/temperature).
+يدفع التدرج x نحو الطاقة المنخفضة. الضجيج يمنعها من التعلق. في حالة التوازن، يتناسب توزيع العينات مع exp(-U(x)/درجة الحرارة).
 
 ### Step 4: Metropolis-Hastings
 
@@ -327,11 +327,11 @@ def metropolis_hastings(target_log_prob, proposal_std, x0, n_samples, seed=None)
     return np.array(samples), acceptance_rate
 ```
 
-The algorithm proposes a new point, checks if it has higher probability (or accepts with probability proportional to the ratio), and repeats. The acceptance rate should be around 23-50% for good mixing.
+تقترح الخوارزمية نقطة جديدة، وتتحقق مما إذا كانت لديها احتمالية أعلى (أو تقبل باحتمال متناسب مع النسبة)، ثم تكرر. يجب أن تكون نسبة القبول حوالي 23-50% للخلط الجيد.
 
 ## Use It
 
-In practice, you use established libraries for these algorithms. But understanding the mechanics matters for debugging and tuning.
+ومن الناحية العملية، يمكنك استخدام المكتبات القائمة لهذه الخوارزميات. لكن فهم الآليات مهم لتصحيح الأخطاء وضبطها.
 
 ```python
 import numpy as np
@@ -359,13 +359,13 @@ for _ in range(100):
 print(f"Stationary distribution: {np.round(distribution, 4)}")
 ```
 
-Multiply the initial distribution by P repeatedly. After enough iterations, it converges to the stationary distribution regardless of where you started. This is the power method for finding the dominant left eigenvector.
+اضرب التوزيع الأولي بـ P بشكل متكرر. وبعد تكرارات كافية، فإنها تتقارب مع التوزيع الثابت بغض النظر عن المكان الذي بدأت منه. هذه هي طريقة القوة للعثور على المتجه الذاتي الأيسر السائد.
 
 ### Connections to real frameworks
 
-- **PyTorch diffusion:** The `DDPMScheduler` in Hugging Face `diffusers` implements the forward and reverse Markov chains
-- **NumPyro / PyMC:** Use MCMC (NUTS sampler, which improves on Metropolis-Hastings) for Bayesian inference
-- **Gymnasium (RL):** The environment step function defines a Markov decision process
+- **PyTorch الانتشار:** ينفذ `DDPMScheduler` في Hugging Face `diffusers` سلاسل ماركوف الأمامية والخلفية
+- **NumPyro / PyMC:** استخدم MCMC (NUTS أخذ العينات، الذي يحسن متروبوليس-هاستينغز) للاستدلال البايزي
+- ** صالة للألعاب الرياضية (RL):** تحدد وظيفة خطوة البيئة عملية اتخاذ قرار ماركوف
 
 ### Verifying Markov chain convergence
 
@@ -381,77 +381,77 @@ print(f"Spectral gap: {spectral_gap:.4f}")
 print(f"Approximate mixing time: {1/spectral_gap:.1f} steps")
 ```
 
-The spectral gap tells you how fast the chain forgets its initial state. A gap of 0.2 means roughly 5 steps to mix. A gap of 0.01 means roughly 100 steps. Always check this before running long simulations -- a slowly mixing chain wastes compute.
+تخبرك الفجوة الطيفية بمدى سرعة نسيان السلسلة لحالتها الأولية. الفجوة البالغة 0.2 تعني ما يقرب من 5 خطوات للخلط. فجوة 0.01 تعني 100 خطوة تقريبًا. تحقق دائمًا من ذلك قبل إجراء عمليات محاكاة طويلة - وهي عملية حسابية لمخلفات السلسلة التي يتم خلطها ببطء.
 
 ## Ship It
 
-This lesson produces:
-- `outputs/prompt-stochastic-process-advisor.md` -- a prompt that helps identify which stochastic process framework applies to a given problem
+ينتج هذا الدرس:
+- `outputs/prompt-stochastic-process-advisor.md` -- مطالبة تساعد في تحديد إطار العملية العشوائية الذي ينطبق على مشكلة معينة
 
 ## Connections
 
-| Concept | Where it shows up |
+| المفهوم | حيث يظهر |
 |---------|------------------|
-| Random walk | Node2Vec graph embeddings, exploration in RL |
-| Markov chain | Token generation in LLMs, MCMC sampling |
-| Brownian motion | Forward diffusion process in DDPM, SDE-based models |
-| Langevin dynamics | Score-based generative models, stochastic gradient Langevin dynamics (SGLD) |
-| Stationary distribution | MCMC convergence target, PageRank |
-| Metropolis-Hastings | Bayesian posterior sampling, simulated annealing |
-| Temperature | LLM sampling, Boltzmann exploration in RL, simulated annealing |
-| Mixing time | Convergence speed of MCMC, spectral gap analysis |
-| Absorbing state | End-of-sequence token, terminal states in RL |
-| Detailed balance | Correctness guarantee for MCMC samplers |
+| المشي العشوائي | تضمينات الرسم البياني Node2Vec، والاستكشاف في RL |
+| سلسلة ماركوف | توليد الرمز المميز في LLMs، MCMC أخذ العينات |
+| الحركة البراونية | عملية الانتشار إلى الأمام في النماذج المستندة إلى DDPM وSDE |
+| ديناميات لانجفين | النماذج التوليدية القائمة على النقاط، ديناميكيات لانجفين التدرج العشوائي (SGLD) |
+| توزيع القرطاسية | MCMC هدف التقارب، تصنيف الصفحات |
+| متروبوليس هاستينغز | أخذ العينات الخلفية البايزية، محاكاة التلدين |
+| درجة الحرارة | LLM أخذ العينات، استكشاف بولتزمان في RL، محاكاة التلدين |
+| وقت الخلط | سرعة التقارب MCMC، تحليل الفجوة الطيفية |
+| حالة الاستيعاب | رمز نهاية التسلسل، الحالات الطرفية في RL |
+| الرصيد التفصيلي | ضمان صحة عينات MCMC |
 
-Diffusion models deserve special attention. DDPM (Ho et al., 2020) defines a forward Markov chain:
+نماذج الانتشار تستحق اهتماما خاصا. DDPM (Ho et al., 2020) يحدد سلسلة ماركوف الأمامية:
 
 ```
 q(x_t | x_{t-1}) = N(x_t; sqrt(1-beta_t) * x_{t-1}, beta_t * I)
 ```
 
-where beta_t is a noise schedule. After T steps, x_T is approximately N(0, I). The reverse process is parameterized by a neural network that predicts the noise:
+حيث beta_t هو جدول الضوضاء. بعد خطوات T، تكون x_T تقريبًا N(0, I). يتم تحديد العملية العكسية بواسطة شبكة عصبية تتنبأ بالضوضاء:
 
 ```
 p_theta(x_{t-1} | x_t) = N(x_{t-1}; mu_theta(x_t, t), sigma_t^2 * I)
 ```
 
-Every step of generation is a step in a learned Markov chain. Understanding Markov chains means understanding how and why diffusion models generate data.
+كل خطوة من خطوات التوليد هي خطوة في سلسلة ماركوف المستفادة. إن فهم سلاسل ماركوف يعني فهم كيف ولماذا تقوم نماذج الانتشار بتوليد البيانات.
 
-SGLD (Stochastic Gradient Langevin Dynamics) combines mini-batch gradient descent with Langevin noise. Instead of computing the full gradient, you use a stochastic estimate and add calibrated noise. As learning rate decays, SGLD transitions from optimization to sampling -- you get approximate Bayesian posterior samples for free. This is one of the simplest ways to get uncertainty estimates from a neural network.
+SGLD (ديناميكيات Langevin التدرج العشوائي) يجمع بين نزول التدرج الصغير مع ضوضاء Langevin. بدلاً من حساب التدرج الكامل، يمكنك استخدام تقدير عشوائي وإضافة ضوضاء معايرة. مع انخفاض معدل التعلم، تنتقل SGLD من التحسين إلى أخذ العينات - تحصل على عينات خلفية بايزي تقريبية مجانًا. هذه إحدى أبسط الطرق للحصول على تقديرات عدم اليقين من الشبكة العصبية.
 
-The key insight across all these connections: stochastic processes are not just theoretical tools. They are the computational mechanisms inside modern AI systems. When you tune the temperature of an LLM, you are adjusting a Markov chain. When you train a diffusion model, you are learning to reverse a Brownian-motion-like process. When you run Bayesian inference, you are constructing a chain that converges to the posterior.
+الفكرة الرئيسية عبر كل هذه الروابط: العمليات العشوائية ليست مجرد أدوات نظرية. وهي الآليات الحسابية داخل أنظمة AI الحديثة. عندما تقوم بضبط درجة حرارة LLM، فإنك تقوم بضبط سلسلة ماركوف. عندما تقوم بتدريب نموذج الانتشار، فإنك تتعلم عكس عملية تشبه الحركة البراونية. عند تشغيل الاستدلال البايزي، فإنك تقوم ببناء سلسلة تتقارب مع الجزء الخلفي.
 
 ## Exercises
 
-1. **Simulate 1000 random walks of 10000 steps.** Plot the distribution of final positions. Verify it is approximately Gaussian with mean 0 and standard deviation sqrt(10000) = 100.
+1. ** محاكاة 1000 مشية عشوائية لـ 10000 خطوة. ** رسم توزيع المواضع النهائية. تحقق من أنه غاوسي تقريبًا بمتوسط ​​0 والانحراف المعياري sqrt(10000) = 100.
 
-2. **Build a text generator using a Markov chain.** Train on a small corpus: for each word, count transitions to the next word. Build the transition matrix. Generate new sentences by sampling from the chain.
+2. ** أنشئ مولد نص باستخدام سلسلة ماركوف. ** تدرب على مجموعة صغيرة: لكل كلمة، قم بحساب التحولات إلى الكلمة التالية. بناء مصفوفة الانتقال. توليد جمل جديدة عن طريق أخذ العينات من السلسلة.
 
-3. **Implement simulated annealing** using Metropolis-Hastings. Start at high temperature (accept almost everything) and gradually cool down (accept only improvements). Use it to find the minimum of a function with many local minima.
+3. **تنفيذ محاكاة التلدين** باستخدام متروبوليس-هاستينغز. ابدأ بدرجة حرارة عالية (اقبل كل شيء تقريبًا) ثم برد تدريجيًا (اقبل التحسينات فقط). استخدمه للعثور على الحد الأدنى للدالة التي تحتوي على العديد من الحدود الدنيا المحلية.
 
-4. **Compare Langevin dynamics at different temperatures.** Sample from a double-well potential U(x) = (x^2 - 1)^2. At low temperature, samples cluster in one well. At high temperature, they spread across both. Find the critical temperature where the chain mixes between wells.
+4. ** قارن ديناميكيات لانجفين في درجات حرارة مختلفة. ** عينة من جهد البئر المزدوج U(x) = (x^2 - 1)^2. عند درجة حرارة منخفضة، تتجمع العينات في بئر واحدة. وفي درجات الحرارة المرتفعة، تنتشر في كليهما. أوجد درجة الحرارة الحرجة التي تختلط فيها السلسلة بين الآبار.
 
-5. **Implement the forward diffusion process.** Start with a 1D signal (e.g., a sine wave). Add noise progressively over 100 steps with a linear noise schedule. Show how the signal degrades to pure noise. Then implement a simple denoiser that reverses the process (even a naive one that just subtracts the estimated noise).
+5. **تنفيذ عملية الانتشار الأمامي.** ابدأ بإشارة أحادية الأبعاد (على سبيل المثال، موجة جيبية). أضف الضوضاء تدريجيًا على مدى 100 خطوة باستخدام جدول الضوضاء الخطي. أظهر كيف تتحلل الإشارة إلى ضوضاء نقية. ثم قم بتنفيذ مزيل الضوضاء البسيط الذي يعكس العملية (حتى لو كان ساذجًا يزيل الضوضاء المقدرة فقط).
 
 ## Key Terms
 
-| Term | What people say | What it actually means |
+| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
 |------|----------------|----------------------|
-| Random walk | "Coin-flip movement" | A process where position changes by random increments at each step |
-| Markov property | "Memoryless" | The future depends only on the present state, not on the history |
-| Transition matrix | "The probability table" | P[i][j] = probability of moving from state i to state j |
-| Stationary distribution | "The long-run average" | The distribution pi where pi*P = pi -- the chain's equilibrium |
-| Brownian motion | "Random jiggling" | The continuous-time limit of a random walk, B(t) ~ N(0, t) |
-| Langevin dynamics | "Gradient descent with noise" | Update rule that combines deterministic gradient and random perturbation |
-| MCMC | "Walking toward the target" | Constructing a Markov chain whose stationary distribution is the one you want |
-| Metropolis-Hastings | "Propose and accept/reject" | MCMC algorithm that uses acceptance ratios to ensure convergence |
-| Temperature | "The randomness knob" | Parameter controlling the tradeoff between exploration and exploitation |
-| Diffusion process | "Noise in, noise out" | Forward: gradually add noise. Reverse: gradually remove it. Generates data. |
+| المشي العشوائي | "حركة قلب العملة" | عملية يتغير فيها الموضع بزيادات عشوائية في كل خطوة |
+| عقار ماركوف | "بلا ذكرى" | المستقبل يعتمد فقط على الوضع الحاضر، وليس على التاريخ |
+| مصفوفة الانتقال | "جدول الاحتمالية" | P[i][j] = احتمال الانتقال من الحالة i إلى الحالة j |
+| توزيع القرطاسية | "المتوسط ​​على المدى الطويل" | التوزيع pi حيث pi*P = pi -- توازن السلسلة |
+| الحركة البراونية | "الهزهزة العشوائية" | الحد الزمني المستمر للمشي العشوائي، B(t) ~ N(0, t) |
+| ديناميات لانجفين | "النسب المتدرج مع الضوضاء" | تحديث القاعدة التي تجمع بين التدرج الحتمي والاضطراب العشوائي |
+| MCMC | "المشي نحو الهدف" | بناء سلسلة ماركوف توزيعها الثابت هو الذي تريده |
+| متروبوليس هاستينغز | "اقتراح وقبول/رفض" | MCMC خوارزمية تستخدم نسب القبول لضمان التقارب |
+| درجة الحرارة | "مقبض العشوائية" | المعلمة التي تتحكم في المفاضلة بين الاستكشاف والاستغلال |
+| عملية الانتشار | "الضوضاء في الداخل، الضوضاء في الخارج" | للأمام: أضف الضوضاء تدريجيًا. العكس: إزالته تدريجياً. يولد البيانات. |
 
 ## Further Reading
 
-- **Ho, Jain, Abbeel (2020)** -- "Denoising Diffusion Probabilistic Models." The DDPM paper that launched the diffusion model revolution. Clear derivation of the forward and reverse Markov chains.
-- **Song & Ermon (2019)** -- "Generative Modeling by Estimating Gradients of the Data Distribution." Score-based approach using Langevin dynamics for sampling.
-- **Roberts & Rosenthal (2004)** -- "General state space Markov chains and MCMC algorithms." The theory behind when and why MCMC works.
-- **Norris (1997)** -- "Markov Chains." The standard textbook. Covers convergence, stationary distributions, and hitting times.
-- **Welling & Teh (2011)** -- "Bayesian Learning via Stochastic Gradient Langevin Dynamics." Combines SGD with Langevin dynamics for scalable Bayesian inference.
+- **Ho, Jain, Abeel (2020)** -- "النماذج الاحتمالية للانتشار." الورقة DDPM التي أطلقت ثورة نموذج الانتشار. اشتقاق واضح لسلاسل ماركوف الأمامية والخلفية.
+- **Song & Ermon (2019)** -- "النمذجة التوليدية من خلال تقدير تدرجات توزيع البيانات." النهج القائم على النتيجة باستخدام ديناميات لانجفين لأخذ العينات.
+- **روبرتس وروزنثال (2004)** -- "سلاسل ماركوف لمساحة الحالة العامة وخوارزميات MCMC." النظرية وراء متى ولماذا يعمل MCMC.
+- **نوريس (1997)** -- "سلاسل ماركوف". الكتاب المدرسي القياسي. يغطي التقارب والتوزيعات الثابتة وأوقات الضرب.
+- **Welling & Teh (2011)** - "التعلم البايزي عبر ديناميكيات لانجفين للتدرج العشوائي." يجمع بين SGD وديناميكيات Langevin لاستدلال بايزي قابل للتطوير.

@@ -25,7 +25,7 @@
   <text x="76" y="128" class="small">• أي صفحة خارجية</text>
   <text x="76" y="144" class="small">• المشاركات التي أنشأها المستخدم</text>
   <text x="76" y="160" class="small">• مقتطفات من محرك البحث</text>
-  <text x="76" y="176" class="small">• URL جزء/استعلام</text>
+  <text x="76" y="176" class="small">• URL جزء / استعلام</text>
   <text x="76" y="192" class="small">• إدخالات الذاكرة السابقة</text>
 
   <!-- Agent -->
@@ -57,7 +57,7 @@
   <text x="76" y="284" class="small">تجريد الأنماط السيئة المعروفة</text>
   <text x="76" y="300" class="small">"تجاهل السابق"، "النشر إلى"</text>
   <text x="76" y="316" class="small">يمسك حقن النص المرئي</text>
-  <text x="76" y="332" class="small">MISSES URL-حمولات الأجزاء</text>
+  <text x="76" y="332" class="small">MISSES URL-حمولات مجزأة</text>
 
   <rect x="320" y="240" width="240" height="100" class="cold"/>
   <text x="440" y="262" text-anchor="middle" class="label">2. حدود R/W</text>
@@ -69,15 +69,15 @@
   <rect x="580" y="240" width="240" height="100" class="hot"/>
   <text x="700" y="262" text-anchor="middle" class="label">3. القائمة المسموح بها للأدوات + HITL</text>
   <text x="596" y="284" class="small">القائمة المسموح بها للأداة لكل مهمة</text>
-  <text x="596" y="300" class="small">HITL في عمليات الكتابة التي لا رجعة فيها</text>
-  <text x="596" y="316" class="small">اقتراح ثم الالتزام (L15)</text>
-  <text x="596" y="332" class="small">رموز الكناري الموجودة في الذاكرة (L14)</text>
+  <text x="596" y="300" class="small">HITL على عمليات الكتابة التي لا رجعة فيها</text>
+  <text x="596" y="316" class="small">اقترح ثم التزم (L15)</text>
+  <text x="596" y="332" class="small">رموز الكناري في الذاكرة (L14)</text>
 
   <!-- Attack corpus -->
   <rect x="60" y="360" width="760" height="130" class="hot"/>
   <text x="440" y="384" text-anchor="middle" class="label">هجمات 2025-2026 موثقة</text>
   <text x="80" y="406" class="content">الذكريات الملوثة (أطلس CSRF، 2025) — صفحة المهاجم تربط التعليمات بذاكرة العميل</text>
-  <text x="80" y="422" class="content">HashJack (Cato Networks, 2026) - الحمولة مخفية في جزء URL/سلسلة الاستعلام</text>
+  <text x="80" y="422" class="content">HashJack (Cato Networks, 2026) — الحمولة مخفية في URL جزء/سلسلة استعلام</text>
   <text x="80" y="438" class="content">Perplexity Comet Hijacks (2026) - زر بنقرة واحدة يركب الحمولة النافعة</text>
   <text x="80" y="458" class="content">OpenAI رأس الاستعداد (2025): الحقن الفوري غير المباشر "ليس خطأ يمكن تصحيحه بالكامل"</text>
   <text x="80" y="478" class="small">الدفاع المتعمق: المطهر + حدود R/W + القائمة المسموح بها + HITL + جزر الكناري؛ أي طبقة واحدة غير كافية</text>

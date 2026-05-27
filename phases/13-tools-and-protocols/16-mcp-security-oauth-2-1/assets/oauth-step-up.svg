@@ -27,16 +27,16 @@
   <text x="56" y="174" class="small">- رموز الوصول</text>
   <text x="56" y="190" class="small">  مرتبطا بالموارد</text>
   <text x="56" y="206" class="small">- تحديث الرموز</text>
-  <text x="56" y="222" class="small">- PKCE المدققون</text>
+  <text x="56" y="222" class="small">- PKCE المتحققون</text>
 
   <rect x="400" y="60" width="180" height="460" class="cold"/>
   <text x="490" y="82" text-anchor="middle" class="head">خادم الترخيص</text>
   <text x="416" y="108" class="small">مصادقة0 / عباءة المفاتيح /</text>
   <text x="416" y="124" class="small">المعرفة / العرف</text>
   <text x="416" y="156" class="step">responsibilities</text>
-  <text x="416" y="174" class="small">- الموافقة UI</text>
+  <text x="416" y="174" class="small">- موافقة UI</text>
   <text x="416" y="190" class="small">- إصدار الرموز</text>
-  <text x="416" y="206" class="small">- PKCE الاختيار</text>
+  <text x="416" y="206" class="small">- PKCE الشيك</text>
   <text x="416" y="222" class="small">- دبوس الجمهور عبر</text>
   <text x="416" y="238" class="small">  مؤشر الموارد</text>
   <text x="416" y="254" class="small">  (RFC 8707)</text>
@@ -49,11 +49,11 @@
   <text x="776" y="174" class="small">- التحقق من صحة الصوت</text>
   <text x="776" y="190" class="small">- التحقق من النطاق</text>
   <text x="776" y="206" class="small">- 403 على العجز</text>
-  <text x="776" y="222" class="small">- WWW-المصادقة</text>
+  <text x="776" y="222" class="small">- WWW-توثيق</text>
   <text x="776" y="238" class="small">  مع تلميح النطاق</text>
   <text x="776" y="254" class="small">- نشر.معروف/</text>
   <text x="776" y="270" class="small">  oauth-protected-</text>
-  <text x="776" y="286" class="small">  المصدر (RFC 9728)</text>
+  <text x="776" y="286" class="small">  الموارد (RFC 9728)</text>
 
   <path d="M220,280 L400,280" class="edge" marker-end="url(#arrow)"/>
   <text x="310" y="270" text-anchor="middle" class="small">تفويض code_challenge</text>
@@ -72,6 +72,6 @@
   <text x="490" y="432" text-anchor="middle" class="small">التفويض: حامل...</text>
 
   <path d="M760,480 L220,480" class="edge" marker-end="url(#arrow)"/>
-  <text x="490" y="472" text-anchor="middle" class="small">403 غير كافية_النطاق (SEP-835)</text>
+  <text x="490" y="472" text-anchor="middle" class="small">403 نطاق غير كاف (SEP-835)</text>
   <text x="490" y="498" text-anchor="middle" class="caption">يقوم العميل بإعادة توجيه المستخدم لنطاق أكبر، ويكرر التدفق، ويعيد محاولة الطلب</text>
 </svg>

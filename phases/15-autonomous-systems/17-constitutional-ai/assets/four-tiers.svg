@@ -20,9 +20,9 @@
   <!-- Hardcoded floor -->
   <rect x="60" y="80" width="760" height="86" class="hot"/>
   <text x="440" y="104" text-anchor="middle" class="label">المحظورات الثابتة (لا يمكن للمشغلين والمستخدمين تجاوزها)</text>
-  <text x="80" y="126" class="content">الأسلحة البيولوجية / CBRN الارتقاء · CSAM · التخطيط لهجوم على البنية التحتية الحيوية</text>
-  <text x="80" y="142" class="content">الخداع حول هوية AI عند سؤالك مباشرة · يُسمح بالإضافات الخاصة بالنشر</text>
-  <text x="80" y="158" class="small">يتم فرضه على أوزان النموذج (CAI تدريب + RLAIF) وفي طبقة الاستدلال</text>
+  <text x="80" y="126" class="content">الأسلحة البيولوجية / CBRN رفع · CSAM · التخطيط لهجوم على البنية التحتية الحيوية</text>
+  <text x="80" y="142" class="content">الخداع حول هوية AI عند سؤالك مباشرةً · يُسمح بالإضافات الخاصة بالنشر</text>
+  <text x="80" y="158" class="small">يتم فرضه على أوزان النموذج (CAI تدريب + RLAIF) وعند طبقة الاستدلال</text>
 
   <!-- Tier 1 -->
   <rect x="60" y="190" width="760" height="60" class="cool"/>

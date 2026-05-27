@@ -19,8 +19,10 @@ REPO_ROOT="$(cd "$(dirname "$0")/../../../.." && pwd)"
 cd "$REPO_ROOT"
 
 echo ""
-echo "=== AI الهندسة من الصفر: إعداد بيئة بايثون ==="echo ""
-echo "جذر الريبو: $REPO_ROOT"echo ""
+echo "=== AI Engineering from Scratch: Python Environment Setup ==="
+echo ""
+echo "Repo root: $REPO_ROOT"
+echo ""
 
 HAS_UV=false
 if command -v uv &> /dev/null; then
@@ -49,13 +51,18 @@ done
 if [ -z "$PYTHON_CMD" ]; then
     fail "Python ${PYTHON_MIN_MAJOR}.${PYTHON_MIN_MINOR}+ not found"
     echo ""
-    echo "تثبيت بايثون ${PYTHON_MIN_MAJOR}.${PYTHON_MIN_MINOR}+:"    echo "  uv: uv تثبيت بايثون 3.12"    echo "  macOS: تثبيت python@3.12"    echo "  لينكس: sudo تثبيت python3.12 python3.12-venv"    exit 1
+    echo "Install Python ${PYTHON_MIN_MAJOR}.${PYTHON_MIN_MINOR}+:"
+    echo "  uv:    uv python install 3.12"
+    echo "  macOS: brew install python@3.12"
+    echo "  Linux: sudo apt install python3.12 python3.12-venv"
+    exit 1
 fi
 
 pass "Python: $($PYTHON_CMD --version)"
 
 echo ""
-echo "--- خلق بيئة افتراضية ---"echo ""
+echo "--- Creating virtual environment ---"
+echo ""
 
 if [ -d "$VENV_DIR" ]; then
     warn "Existing $VENV_DIR found. Reusing it."
@@ -87,7 +94,8 @@ fi
 pass "Python path: $VENV_PYTHON"
 
 echo ""
-echo "--- تثبيت الحزم الأساسية ---"echo ""
+echo "--- Installing core packages ---"
+echo ""
 
 if $HAS_UV; then
     uv pip install $CORE_PACKAGES
@@ -99,7 +107,8 @@ fi
 pass "Installed: $CORE_PACKAGES"
 
 echo ""
-echo "--- التحقق من التثبيت ---"echo ""
+echo "--- Verifying installation ---"
+echo ""
 
 FAILURES=0
 
@@ -138,11 +147,17 @@ if python -c "import torch" 2>/dev/null; then
     pass "PyTorch $TORCH_VERSION (CUDA: $CUDA_AVAIL)"
 else
     warn "PyTorch not installed (install later when needed):"
-    echo "    uv pip تثبيت الشعلة torchvision torchaudio"fi
+    echo "    uv pip install torch torchvision torchaudio"
+fi
 
 echo ""
-echo "=== ملخص ==="echo ""
-echo "  جذر الريبو: $REPO_ROOT"echo "  فينف: $REPO_ROOT/$VENV_DIR"echo "  بايثون: $(بيثون --الإصدار)"echo "  الحزم: $CORE_PACKAGES"echo ""
+echo "=== Summary ==="
+echo ""
+echo "  Repo root:    $REPO_ROOT"
+echo "  Venv:         $REPO_ROOT/$VENV_DIR"
+echo "  Python:       $(python --version)"
+echo "  Packages:     $CORE_PACKAGES"
+echo ""
 
 if [ "$FAILURES" -gt 0 ]; then
     fail "$FAILURES package(s) failed verification"
@@ -150,6 +165,8 @@ if [ "$FAILURES" -gt 0 ]; then
 else
     pass "All checks passed"
     echo ""
-    echo "قم بتنشيط هذه البيئة في الجلسات المستقبلية:"    echo ""
-    echo "  المصدر $REPO_ROOT/$VENV_DIR/bin/activate"    echo ""
+    echo "Activate this environment in future sessions:"
+    echo ""
+    echo "  source $REPO_ROOT/$VENV_DIR/bin/activate"
+    echo ""
 fi

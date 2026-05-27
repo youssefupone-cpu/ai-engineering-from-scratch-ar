@@ -18,7 +18,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">مساحة تصميم مفتوحة الوزن VLM - خمسة محاور وسحبها القياسي</text>
+  <text x="480" y="24" text-anchor="middle" class="title">مساحة تصميم مفتوحة الوزن VLM — خمسة محاور وسحبها القياسي</text>
 
   <rect x="30" y="50" width="900" height="180" class="box"/>
   <text x="480" y="72" text-anchor="middle" class="head">المحاور الخمسة لكل وصفة VLM مفتوحة</text>
@@ -33,14 +33,14 @@
 
   <rect x="230" y="90" width="170" height="120" class="cool"/>
   <text x="315" y="108" text-anchor="middle" class="step">2. موصل</text>
-  <text x="315" y="128" text-anchor="middle" class="small">MLP / س-السابق</text>
+  <text x="315" y="128" text-anchor="middle" class="small">MLP / س- سابق</text>
   <text x="315" y="144" text-anchor="middle" class="small">المدرك / C-Abstr</text>
   <text x="315" y="164" text-anchor="middle" class="small">SVA (الكمبري)</text>
   <text x="315" y="184" text-anchor="middle" class="small">~1 نقطة بينهما</text>
   <text x="315" y="200" text-anchor="middle" class="caption">يختار عدد الرموز المميزة</text>
 
   <rect x="410" y="90" width="170" height="120" class="cold"/>
-  <text x="495" y="108" text-anchor="middle" class="step">3. __ مصطلح_0__</text>
+  <text x="495" y="108" text-anchor="middle" class="step">3. LLM</text>
   <text x="495" y="128" text-anchor="middle" class="small">لاما-3 / ميسترال</text>
   <text x="495" y="144" text-anchor="middle" class="small">Qwen2.5 / فاي</text>
   <text x="495" y="164" text-anchor="middle" class="small">7ب -&gt; هضبة 70ب</text>

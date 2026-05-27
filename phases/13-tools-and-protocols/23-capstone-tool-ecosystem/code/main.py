@@ -1,4 +1,16 @@
-"""المرحلة 13 كابستون - النظام البيئي الشامل للبحث والتقارير. جميع القطع من المرحلة 13 في عرض توضيحي واحد قابل للتشغيل: - بوابة ذات مصادقة على شكل OAuth وRBAC - MCP يعرض الخادم أداة arxiv_search، المورد الحديث، المهام المعززة create_report وتطبيق ui:// - A2A الاتصال بوكيل الكاتب لتلخيص الورقة - يمتد نطاق OTel GenAI المنبعث عبر كل قفزة بمعرف تتبع واحد - طفرات وصف الحراسة الواضحة للتجزئة المثبتة ستدليب فقط. تشغيل: كود بايثون/main.py
+"""Phase 13 Capstone - end-to-end research-and-report ecosystem.
+
+All the pieces from Phase 13 in one runnable demo:
+  - gateway with OAuth-shaped auth and RBAC
+  - MCP server exposing arxiv_search tool, recent resource, task-augmented
+    generate_report, and a ui:// app
+  - A2A call to a writer agent for paper summarization
+  - OTel GenAI spans emitted across every hop with one trace id
+  - pinned-hash manifest guarding description mutations
+
+Stdlib only.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -11,7 +23,7 @@ from dataclasses import dataclass, field
 
 
 # ------------------------------------------------------------------
-# OTel GenAI باعث الامتداد (مختصر من الدرس 20)
+# OTel GenAI span emitter (condensed from Lesson 20)
 # ------------------------------------------------------------------
 
 SPANS: list[dict] = []
@@ -35,7 +47,7 @@ def finish(sp: dict) -> None:
 
 
 # ------------------------------------------------------------------
-# بحث MCP الخادم
+# research MCP server
 # ------------------------------------------------------------------
 
 TOOLS = [
@@ -60,11 +72,11 @@ def research_arxiv_search(args: dict) -> dict:
 
 
 def research_generate_report(args: dict, trace_id: str, parent: str) -> dict:
-    # زيادة المهمة. يستدعي كاتب a2a داخليًا ويعيد مورد ui://
+    # task-augmented. Internally calls a2a writer and returns ui:// resource
     task_id = f"tsk_{uuid.uuid4().hex[:10]}"
     sp = span("mcp.task.working", "INTERNAL", trace_id, parent,
               {"gen_ai.operation.name": "execute_tool", "mcp.task.id": task_id})
-    # وفد a2a
+    # a2a delegation
     a2a = span("a2a.tasks.send", "CLIENT", trace_id, sp["spanId"],
                {"a2a.peer": "writer-agent", "a2a.skill": "summarize_papers"})
     time.sleep(0.02)
@@ -116,7 +128,7 @@ def gateway_call(token: str, tool_name: str, args: dict,
     if required and required not in u["scopes"]:
         AUDIT.append({"user": u["id"], "tool": tool_name, "decision": "403"})
         return {"error": "insufficient_scope", "scope": required}
-    # العثور على أداة الخلفية
+    # find backend tool
     tool = next((t for t in TOOLS if t["name"] == tool_name), None)
     if tool is None:
         return {"error": "unknown tool"}
@@ -135,7 +147,7 @@ def gateway_call(token: str, tool_name: str, args: dict,
 
 
 # ------------------------------------------------------------------
-# منسق (وكيل المستوى الأعلى)
+# orchestrator (the top-level agent)
 # ------------------------------------------------------------------
 
 def orchestrator(token: str, user_query: str) -> dict:

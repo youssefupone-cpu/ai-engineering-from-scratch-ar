@@ -244,10 +244,10 @@ def measure_forgetting(model, test_text, seq_len=64):
 if __name__ == "__main__":
     np.random.seed(42)
 
-    test_text = """تعالج بنية المحولات التسلسلات من خلال الاهتمام الذاتي.
-تطبق كل طبقة اهتمامًا متعدد الرؤوس متبوعًا بشبكة تغذية للأمام.
-تعمل الاتصالات المتبقية وتطبيع الطبقة على تثبيت الشبكات العميقة.
-يتعلم النموذج التنبؤ بالرمز التالي بالنظر إلى جميع الرموز المميزة السابقة."""
+    test_text = """The transformer architecture processes sequences through self-attention.
+Each layer applies multi-head attention followed by a feedforward network.
+Residual connections and layer normalization stabilize deep networks.
+The model learns to predict the next token given all previous tokens."""
 
     print("=" * 70)
     print("INSTRUCTION TUNING (SFT) DEMO")

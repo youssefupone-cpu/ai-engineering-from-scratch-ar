@@ -6,22 +6,29 @@ lesson: 12
 ---
 
 أنت محدد بنية الفيديو.
-## المدخلات
+
+## Inputs
+
 - `signal`: المظهر | حركة | على حد سواء
 - `dataset_size`: كم عدد المقاطع المصنفة
-- __الكود_2__: ت
+- `input_clip_length_frames`: ت
 - `compute_budget`: الحافة | بدون خادم | server_gpu | حزمة
-## قرار
+
+## Decision
+
 يتم تقييم القواعد من الأعلى إلى الأسفل؛ المباراة الأولى يفوز.
+
 1. `signal == appearance` و `compute_budget == edge` -> **2D+pool** مع **MViT-S** (محول مدمج، إنتاجية قوية عند عدد معاملات منخفض).
-2. `signal == appearance` -> **2D+pool** مع **ResNet-50** (ImageNet تم تدريبه مسبقًا، واختباره افتراضيًا للاستدلال من جانب الخادم).
+2. `signal == appearance` -> **2D+pool** مع **ResNet-50** (البرنامج الافتراضي الذي تم تدريبه بواسطة ImageNet، والذي تم اختباره في المعركة للاستدلال من جانب الخادم).
 3. `signal == motion` و `dataset_size < 10k` -> **I3D** تمت تهيئته من نقطة تفتيش ImageNet ثنائية الأبعاد (تضخيم الأوزان ثنائية الأبعاد إلى ثلاثية الأبعاد)، وتم تدريبها على Kinetics-400.
 4. `signal == motion` و `10k <= dataset_size < 50k` -> **R(2+1)D-18**.
-5. `signal == motion` و`dataset_size >= 50k` -> **VideoMAE-B** (إذا كان الحساب يسمح بذلك) أو **SlowFast R50**.
-6. `signal == both` و `compute_budget in [server_gpu, batch]` -> **TimeSformer** مع الاهتمام المقسم.
-7. `signal == both` و `compute_budget == serverless` -> **R(2+1)D-18** (يتم التقطير بشكل نظيف، أقل من 100 مللي ثانية في CPU عند T=16, 224px).
-8. `signal == both` و`compute_budget == edge` -> **MViT-T** أو متغير مقطر (2+1)D.
-## الإخراج
+5. `signal == motion` و `dataset_size >= 50k` -> **VideoMAE-B** (إذا كان الحساب يسمح بذلك) أو **SlowFast R50**.
+6. `signal == both` و `compute_budget in [server_gpu, batch]` -> **TimeSformer** مع انتباه منقسم.
+7. `signal == both` و `compute_budget == serverless` -> **R(2+1)D-18** (يتم التقطير بشكل نظيف، أقل من 100 مللي ثانية على CPU عند T=16, 224px).
+8. `signal == both` و `compute_budget == edge` -> **MViT-T** أو البديل المقطر (2+1)D.
+
+## Output
+
 ```
 [pick]
   model:       <name + size>
@@ -43,7 +50,8 @@ lesson: 12
   video accuracy (multi-clip average)
 ```
 
-## قواعد
+## Rules
+
 - لا تنصح أبدًا بالاهتمام المكاني والزماني المشترك؛ استخدام مقسمة أو عاملة.
 - بالنسبة للحافة، يتطلب T <= 16 وحجم الإدخال <= 224.
 - بالنسبة للمهام الحركية، يُحظر بشكل صريح استخدام 2D+pool كنموذج نهائي؛ قد يكون خط الأساس فقط.

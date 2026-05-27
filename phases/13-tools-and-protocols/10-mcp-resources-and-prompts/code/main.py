@@ -1,4 +1,14 @@
-"""المرحلة 13 الدرس 10 - MCP الموارد والمطالبات في خادم الملاحظات. توسيع خادم الدرس 07 مع: - الموارد/القائمة، الموارد/القراءة لعناوين URI لكل ملاحظة - الموارد / الاشتراك + الإخطارات / الموارد / المحدثة - المطالبات/القائمة، المطالبات/الحصول على عرض الوسيطة - ملاحظات ديناميكية: // الموارد الحديثة ستدليب؛ إرسال قيد التشغيل (بدون نقل)، يركز على الرسائل الجديدة. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 10 - MCP resources and prompts in the notes server.
+
+Extends the Lesson 07 server with:
+  - resources/list, resources/read for per-note URIs
+  - resources/subscribe + notifications/resources/updated
+  - prompts/list, prompts/get with argument rendering
+  - a dynamic notes://recent resource
+
+Stdlib; in-process dispatch (no transport), focuses on the new messages.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

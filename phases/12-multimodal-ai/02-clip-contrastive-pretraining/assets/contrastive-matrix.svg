@@ -76,7 +76,7 @@
 
   <rect x="60" y="380" width="400" height="130" class="cool"/>
   <text x="260" y="402" text-anchor="middle" class="head">مكونات التدريب</text>
-  <text x="80" y="424" class="small">· 400 مليون زوج من الصور والنص (CLIP)، 10B+ لـ SigLIP 2</text>
+  <text x="80" y="424" class="small">· 400 مليون زوج من الصور والنصوص (CLIP)، 10B+ لـ SigLIP 2</text>
   <text x="80" y="442" class="small">· الدفعة 32 ألف - 512 ألف</text>
   <text x="80" y="460" class="small">· درجة الحرارة القابلة للتعلم (init 0.07)</text>
   <text x="80" y="478" class="small">· التشفير المزدوج: ViT + محول النص الصغير</text>
@@ -86,7 +86,7 @@
   <text x="710" y="72" text-anchor="middle" class="head">softmax مقابل الخسارة السيني</text>
 
   <rect x="520" y="92" width="380" height="200" class="diag"/>
-  <text x="540" y="114" class="step">إنفونس (CLIP)</text>
+  <text x="540" y="114" class="step">إنفونسي (CLIP)</text>
   <text x="540" y="134" class="small">لكل صف: يتم تطبيع softmax عبر N</text>
   <text x="540" y="150" class="small">يحتاج إلى مصفوفة تشابه كاملة متزامنة</text>
   <text x="540" y="166" class="small">وزعت: كل جمع كل دفعة</text>

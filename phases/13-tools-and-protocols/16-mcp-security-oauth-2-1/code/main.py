@@ -1,4 +1,14 @@
-"""المرحلة 13 الدرس 16 - OAuth 2.1 + PKCE + آلة الحالة التصاعدية (SEP-835). آلة الحالة في الذاكرة التي تمر عبر: 1. تدفق كود التفويض مع PKCE 2. رمز مميز مع مؤشر الموارد (RFC 8707) 3. التحقق من صحة الجمهور على خادم الموارد 4. 403 نطاق غير كافٍ يؤدي إلى تدفق تصاعدي ستدليب فقط. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 16 - OAuth 2.1 + PKCE + step-up state machine (SEP-835).
+
+In-memory state machine that walks through:
+  1. Authorization code flow with PKCE
+  2. Token with resource indicator (RFC 8707)
+  3. Audience validation on the resource server
+  4. 403 insufficient_scope triggering step-up flow
+
+Stdlib only.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

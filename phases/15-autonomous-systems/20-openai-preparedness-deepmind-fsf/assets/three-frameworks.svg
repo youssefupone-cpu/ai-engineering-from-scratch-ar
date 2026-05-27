@@ -19,43 +19,43 @@
 
   <!-- Column headers -->
   <rect x="60" y="80" width="250" height="36" class="cool"/>
-  <text x="185" y="104" text-anchor="middle" class="label">OpenAI PF الإصدار الثاني (أبريل 2025)</text>
+  <text x="185" y="104" text-anchor="middle" class="label">OpenAI PF الإصدار 2 (أبريل 2025)</text>
 
   <rect x="320" y="80" width="240" height="36" class="cold"/>
-  <text x="440" y="104" text-anchor="middle" class="label">إنساني RSP الإصدار 3.0 (فبراير 2026)</text>
+  <text x="440" y="104" text-anchor="middle" class="label">أنثروبي RSP الإصدار 3.0 (فبراير 2026)</text>
 
   <rect x="570" y="80" width="250" height="36" class="warn"/>
-  <text x="695" y="104" text-anchor="middle" class="label">DeepMind FSF الإصدار الثالث (سبتمبر 2025 + أبريل 2026)</text>
+  <text x="695" y="104" text-anchor="middle" class="label">DeepMind FSF الإصدار 3 (سبتمبر 2025 + أبريل 2026)</text>
 
   <!-- Long-range Autonomy row -->
   <rect x="60" y="130" width="760" height="46" class="box"/>
   <text x="76" y="152" class="label">الحكم الذاتي طويل المدى</text>
-  <text x="76" y="170" class="content">OpenAI: البحث (وليس التحفيز) · أنثروبي: مسمى؛ حالة إيجابية عند العتبة · DeepMind: مطوية في ML البحث والتطوير / الإنترنت</text>
+  <text x="76" y="170" class="content">OpenAI: بحث (ليس إثارة) · أنثروبي: مسمى؛ حالة إيجابية عند العتبة · DeepMind: مطوية في ML R&amp;D / Cyber</text>
 
   <!-- Undermining safeguards -->
   <rect x="60" y="184" width="760" height="46" class="box"/>
   <text x="76" y="206" class="label">تقويض الضمانات</text>
-  <text x="76" y="224" class="content">OpenAI: البحث · الأنثروبي: الحظر المضمن (الرفض) · DeepMind: مراقبة الانحياز الخادع</text>
+  <text x="76" y="224" class="content">OpenAI: البحث · الأنثروبي: الحظر المضمن (الرفض) · DeepMind: مراقبة المحاذاة الخادعة</text>
 
   <!-- R&D automation -->
   <rect x="60" y="238" width="760" height="46" class="box"/>
   <text x="76" y="260" class="label">أتمتة البحث والتطوير</text>
-  <text x="76" y="278" class="content">OpenAI: متتبع · إنساني: AI عتبة البحث والتطوير-4 (حالة إيجابية) · DeepMind: ML مستوى استقلالية البحث والتطوير 1 (TCL، أبريل 2026)</text>
+  <text x="76" y="278" class="content">OpenAI: متتبع · أنثروبي: AI عتبة البحث والتطوير-4 (حالة إيجابية) · DeepMind: ML مستوى استقلالية البحث والتطوير 1 (TCL، أبريل 2026)</text>
 
   <!-- Sandbagging -->
   <rect x="60" y="292" width="760" height="46" class="box"/>
   <text x="76" y="314" class="label">sandbagging</text>
-  <text x="76" y="332" class="content">OpenAI: البحث · الأنثروبي: يتم تناوله عبر فجوة سياق التقييم · DeepMind: مراقبة المحاذاة الخادعة (الاستدلال الذرائعي)</text>
+  <text x="76" y="332" class="content">OpenAI: البحث · الأنثروبي: يتم تناوله عبر فجوة سياق التقييم · DeepMind: مراقبة المحاذاة الخادعة (الاستدلال الآلي)</text>
 
   <!-- Cyber uplift -->
   <rect x="60" y="346" width="760" height="46" class="box"/>
   <text x="76" y="368" class="label">رفع السيبرانية</text>
-  <text x="76" y="386" class="content">OpenAI: متعقب · إنساني: ASL-3 المشغل (الأمن + النشر) · DeepMind: Cyber ​​CCL</text>
+  <text x="76" y="386" class="content">OpenAI: متعقب · إنساني: مشغل ASL-3 (الأمن + النشر) · DeepMind: Cyber ​​CCL</text>
 
   <!-- Convergence note -->
   <rect x="60" y="400" width="760" height="90" class="hot"/>
   <text x="440" y="424" text-anchor="middle" class="label">التقارب + التباعد</text>
-  <text x="80" y="446" class="content">تتقارب: داخلي SAG، محاذاة خادعة كفئة خطر محددة، قطع أثرية ثابتة</text>
-  <text x="80" y="462" class="content">يتباعد: تقسيم المتتبع مقابل البحث فقط في PF الإصدار الثاني؛ تطوي DeepMind الاستقلالية؛ تمت إزالة جملة الإيقاف المؤقت</text>
+  <text x="80" y="446" class="content">تتقارب: داخلي SAG، محاذاة خادعة كفئة خطر محددة، قطع أثرية واقفة</text>
+  <text x="80" y="462" class="content">تتباعد: تقسيم المتتبع مقابل البحث فقط في PF الإصدار الثاني؛ تطوي DeepMind الاستقلالية؛ تمت إزالة جملة الإيقاف المؤقت</text>
   <text x="80" y="478" class="content">تبعية القياس: تعمل الأطر الثلاثة جميعها فقط إذا كان قياس القدرة غير قابل للتلاعب</text>
 </svg>

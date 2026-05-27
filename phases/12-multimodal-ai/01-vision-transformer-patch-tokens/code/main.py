@@ -1,5 +1,13 @@
-"""رمز تصحيح محول الرؤية والآلة الحاسبة الهندسية - stdlib Python. بالنظر إلى تكوين ViT (حجم التصحيح، والدقة، والتعتيم المخفي، والعمق، والرؤوس)، يحسب: - شكل الشبكة وطول التسلسل بعد ترميز التصحيح - عدد المعلمات لكل مكون (تضمين التصحيح، نقاط البيع، الكتل، LN) - FLOPs لكل مهاجم (يهيمن عليها الانتباه + MLP) - جدول المقارنة عبر برامج التشفير الكنسي 2026 يعرض أيضًا صورة لعبة مقاس 8 × 8 بتدرج رمادي من خلال مشروع التصحيح والتسطيح pipeline
-لذا فإن البدائي ملموس. لا يوجد numpy، لا يوجد شعلة - فقط ints والقوائم.
+"""Vision transformer patch tokenizer and geometry calculator — stdlib Python.
+
+Given a ViT config (patch size, resolution, hidden dim, depth, heads), computes:
+  - grid shape and sequence length after patch tokenization
+  - per-component parameter count (patch embed, pos, blocks, LN)
+  - FLOPs per forward (dominated by attention + MLP)
+  - comparison table across canonical 2026 encoders
+
+Also walks a toy 8x8 grayscale image through the patch-flatten-project pipeline
+so the primitive is concrete. No numpy, no torch — just ints and lists.
 """
 
 from __future__ import annotations
@@ -96,7 +104,8 @@ def fmt(n: int) -> str:
 
 
 def patch_toy_image() -> None:
-    """انتقل إلى صورة ذات تدرج رمادي مقاس 8 × 8 من خلال رمز التصحيح باستخدام P=4. الشبكة هي 2x2 → 4 رموز. كل تصحيح هو 4x4 = 16 بكسل مسطحة."""
+    """Walk an 8x8 grayscale image through patch-tokenize with P=4.
+    Grid is 2x2 → 4 tokens. Each patch is 4x4=16 pixels flat."""
     print("\nToy image patch tokenization (8x8 grayscale, patch_size=4)")
     print("-" * 60)
     img = [[(r * 8 + c) % 256 for c in range(8)] for r in range(8)]

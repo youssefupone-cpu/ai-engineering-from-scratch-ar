@@ -48,7 +48,7 @@
   <text x="296" y="280" class="step">سجل التدقيق</text>
   <text x="296" y="298" class="small">المستخدم، الأداة، القرار</text>
   <text x="296" y="330" class="step">هاتف الفندق: gen_ai.*</text>
-  <text x="296" y="348" class="small">mcp.call CLIENT</text>
+  <text x="296" y="348" class="small">اتصل على CLIENT</text>
 
   <path d="M480,230 L560,230" class="edge" marker-end="url(#arrow)"/>
   <path d="M480,310 L560,310" class="edge" marker-end="url(#arrow)"/>

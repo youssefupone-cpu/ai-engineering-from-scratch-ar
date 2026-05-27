@@ -28,7 +28,7 @@
 
   <rect x="60" y="190" width="400" height="60" class="hot"/>
   <text x="76" y="212" class="step">قاعدة الخادم:</text>
-  <text x="76" y="230" class="small">أي URI خارج مجموعة الجذر -&gt; رفض العملية</text>
+  <text x="76" y="230" class="small">أي URI خارج مجموعة الجذر -&gt; عملية الرفض</text>
 
   <rect x="60" y="260" width="400" height="60" class="box"/>
   <text x="76" y="282" class="step">نطاق تغييرات المستخدم -&gt;</text>
@@ -40,11 +40,11 @@
   <text x="76" y="352" class="step">التدفق النموذجي:</text>
   <text x="76" y="372" class="small">1. يقوم العميل بتعيين الجذور عند الحرف الأول</text>
   <text x="76" y="388" class="small">2. قائمة حدود مخازن الخادم</text>
-  <text x="76" y="404" class="small">3. يقوم كل استدعاء للأداة بفحص URI في الجذر</text>
+  <text x="76" y="404" class="small">3. كل أداة تستدعي الشيكات URI في الجذر</text>
   <text x="76" y="420" class="small">4. الإخطار -&gt; إعادة الاستعلام عن الجذور/القائمة</text>
   <text x="76" y="440" class="step">إذا كان خارج الجذر:</text>
   <text x="76" y="458" class="small">الرفض مع وجود خطأ "الجذور الخارجية"؛</text>
-  <text x="76" y="474" class="small">قم بإجراء NOT احتياطي للوصول المحيط</text>
+  <text x="76" y="474" class="small">افعل NOT احتياطي للوصول المحيط</text>
 
   <rect x="500" y="60" width="420" height="440" class="cold"/>
   <text x="710" y="82" text-anchor="middle" class="head">الاستنباط (إدخال منتصف الرحلة)</text>
@@ -72,5 +72,5 @@
   <text x="536" y="430" class="step">استخدم NOT عندما:</text>
   <text x="536" y="448" class="small">- نموذج يمكن فقط إعادة طرحه في النثر</text>
   <text x="536" y="464" class="small">- في حلقة ضيقة (مقاطعات UX)</text>
-  <text x="536" y="480" class="small">- لحشو الوسائط المفقودة التي يعرفها LLM</text>
+  <text x="536" y="480" class="small">- لحشو الوسائط المفقودة التي عرفها LLM</text>
 </svg>

@@ -39,7 +39,7 @@
   <text x="78" y="360" class="small">LoCoMo: 91.6 في ورقة Mem0</text>
 
   <rect x="340" y="120" width="280" height="260" class="kv"/>
-  <text x="480" y="142" text-anchor="middle" class="head">متجر KV</text>
+  <text x="480" y="142" text-anchor="middle" class="head">KV متجر</text>
   <text x="360" y="166" class="small">بحث O(1) عن (user_id، النوع، الكيان)</text>
   <text x="360" y="186" class="small">الأفضل لـ: "ما هو هاتف المستخدم"</text>
   <text x="360" y="206" class="small">الأسوأ بالنسبة لـ: المطابقة الدلالية/الغامضة</text>

@@ -33,9 +33,9 @@
   <text x="60" y="356" class="small">---</text>
 
   <rect x="40" y="380" width="880" height="120" class="hot"/>
-  <text x="480" y="404" text-anchor="middle" class="head">خادم MCP (الأدوات التي تستدعيها المهارة)</text>
+  <text x="480" y="404" text-anchor="middle" class="head">MCP الخادم (الأدوات التي تستدعيها المهارة)</text>
   <text x="60" y="430" class="small">المرحلة 13 / 06-14 تغطي البروتوكول</text>
-  <text x="60" y="450" class="step">خادم الملاحظات + github-server + البوابة</text>
-  <text x="60" y="468" class="small">MCP = "ما هي الأدوات الموجودة"؛ المهارة = "كيفية استخدامها"؛ AGENTS.md = "قواعد المشروع"</text>
-  <text x="60" y="486" class="small">التطبيقات SDK (OpenAI) هي MCP + البيانات الوصفية لعنصر واجهة المستخدم لـ ChatGPT UI.</text>
+  <text x="60" y="450" class="step">خادم الملاحظات + gitخادم المحور + البوابة</text>
+  <text x="60" y="468" class="small">MCP = "ما هي الأدوات الموجودة"; المهارة = "كيفية استخدامها"؛ AGENTS.md = "قواعد المشروع"</text>
+  <text x="60" y="486" class="small">التطبيقات SDK (OpenAI) هي MCP + بيانات تعريف القطعة لـ ChatGPT UI.</text>
 </svg>

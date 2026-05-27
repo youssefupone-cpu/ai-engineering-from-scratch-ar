@@ -1,5 +1,7 @@
-"""التشفير الموضعي - الجيبي، RoPE، ALiBi. ستدلب خالص. يتم شحن كل نظام ترميز كوظيفة صغيرة قابلة لإعادة الاستخدام.
-يعرض خاصية المسافة النسبية لـ RoPE عدديًا.
+"""Positional encoding — sinusoidal, RoPE, ALiBi.
+
+Pure stdlib. Each encoding scheme shipped as a small reusable function.
+Demos the relative-distance property of RoPE numerically.
 """
 
 import math
@@ -17,7 +19,7 @@ def sinusoidal_pe(n, d, base=10000.0):
 
 
 def apply_rope(x, pos, base=10000.0):
-    """قم بتدوير أزواج x الزوجية/الفردية بالزاوية pos * theta_i."""
+    """Rotate even/odd pairs of x by angle pos * theta_i."""
     d = len(x)
     out = list(x)
     for i in range(d // 2):

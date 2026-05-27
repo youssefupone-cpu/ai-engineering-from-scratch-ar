@@ -20,7 +20,7 @@
   <text x="480" y="24" text-anchor="middle" class="title">الصوت-LLM القوس: Whisper (2022) إلى Audio Flamingo 3 (2025)</text>
 
   <rect x="30" y="50" width="900" height="230" class="box"/>
-  <text x="480" y="72" text-anchor="middle" class="head">الخط pipe: المخطط الطيفي -&gt; التشفير -&gt; Q-former -&gt; LLM</text>
+  <text x="480" y="72" text-anchor="middle" class="head">pipeline: المخطط الطيفي -&gt; التشفير -&gt; Q-former -&gt; LLM</text>
 
   <rect x="50" y="90" width="180" height="170" class="hot"/>
   <text x="140" y="110" text-anchor="middle" class="step">1. الموجي</text>
@@ -37,7 +37,7 @@
   <text x="380" y="110" text-anchor="middle" class="step">3. التشفير الصوتي</text>
   <text x="380" y="132" text-anchor="middle" class="small">الهمس: الكلام القوي</text>
   <text x="380" y="148" text-anchor="middle" class="small">يدق: موسيقى قوية</text>
-  <text x="380" y="164" text-anchor="middle" class="small">AF-همس: متزامن</text>
+  <text x="380" y="164" text-anchor="middle" class="small">AF- ​​الهمس: كونكات</text>
   <text x="380" y="186" text-anchor="middle" class="small">إطار واحد لكل 10 مللي ثانية</text>
   <text x="380" y="210" text-anchor="middle" class="small">محول 12 طبقة</text>
   <text x="380" y="230" text-anchor="middle" class="caption">المجمدة في قطار الجسر</text>
@@ -78,7 +78,7 @@
   <text x="250" y="488" text-anchor="middle" class="caption">MMAU ~0.50</text>
 
   <rect x="470" y="340" width="440" height="160" class="cool"/>
-  <text x="690" y="362" text-anchor="middle" class="step">صوت شامل-LLM (AF3)</text>
+  <text x="690" y="362" text-anchor="middle" class="step">صوت من طرف إلى طرف-LLM (AF3)</text>
   <text x="690" y="384" text-anchor="middle" class="small">كل مهمة متتالية: نعم</text>
   <text x="690" y="400" text-anchor="middle" class="small">العاطفة / المزاج: نعم</text>
   <text x="690" y="416" text-anchor="middle" class="small">الموسيقى / الآلات: نعم</text>

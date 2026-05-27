@@ -53,7 +53,7 @@
 
   <rect x="40" y="360" width="880" height="140" class="box"/>
   <text x="480" y="382" text-anchor="middle" class="head">سياسات حل الاصطدام</text>
-  <text x="60" y="408" class="step">prefix-on-collision: تمت إعادة تسمية أداة الخادم الثانية `files/search`، `__TERM_0__hub/search`</text>
+  <text x="60" y="408" class="step">بادئة عند الاصطدام: تمت إعادة تسمية أداة الخادم الثانية `files/search`، `githubhub/search`</text>
   <text x="60" y="426" class="small">                         كلود سطح المكتب، VS الكود.</text>
   <text x="60" y="446" class="step">الرفض عند الاصطدام: تم رفض أداة الخادم الثاني، وتم إخطار المستخدم</text>
   <text x="60" y="464" class="small">                         المؤشر. أكثر أمانا أخطاء أكثر وضوحا.</text>

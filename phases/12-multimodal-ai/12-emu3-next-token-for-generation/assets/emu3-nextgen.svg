@@ -28,14 +28,14 @@
   <text x="185" y="146" text-anchor="middle" class="small">512 × 512 = 4096 رمزًا</text>
   <text x="185" y="164" text-anchor="middle" class="small">CFG جاما 3-7</text>
   <text x="185" y="182" text-anchor="middle" class="small">درجة الحرارة 0.8</text>
-  <text x="185" y="210" text-anchor="middle" class="step">يطابق SDXL في FID</text>
+  <text x="185" y="210" text-anchor="middle" class="step">التطابقات SDXL على FID</text>
   <text x="185" y="234" text-anchor="middle" class="caption">لا يوجد جدول زمني للانتشار</text>
-  <text x="185" y="252" text-anchor="middle" class="caption">لا يوجد خسارة CLIP</text>
+  <text x="185" y="252" text-anchor="middle" class="caption">لا CLIP خسارة</text>
 
   <rect x="345" y="90" width="270" height="190" class="cool"/>
   <text x="480" y="110" text-anchor="middle" class="step">Emu3-Chat</text>
   <text x="480" y="128" text-anchor="middle" class="small">الصورة -&gt; النص</text>
-  <text x="480" y="146" text-anchor="middle" class="small">VQA + تسمية توضيحية</text>
+  <text x="480" y="146" text-anchor="middle" class="small">VQA+تعليق</text>
   <text x="480" y="164" text-anchor="middle" class="small">يطابق LLaVA-1.6</text>
   <text x="480" y="182" text-anchor="middle" class="small">نفس العمود الفقري</text>
   <text x="480" y="210" text-anchor="middle" class="step">VQAv2 75.1</text>
@@ -45,7 +45,7 @@
   <rect x="640" y="90" width="270" height="190" class="cold"/>
   <text x="775" y="110" text-anchor="middle" class="step">Emu3-Stage2</text>
   <text x="775" y="128" text-anchor="middle" class="small">النص -&gt; رموز الفيديو</text>
-  <text x="775" y="146" text-anchor="middle" class="small">4ث بمعدل 8 إطارات في الثانية، ثلاثي الأبعاد VQ</text>
+  <text x="775" y="146" text-anchor="middle" class="small">4s @ 8fps، ثلاثي الأبعاد VQ</text>
   <text x="775" y="164" text-anchor="middle" class="small">4x4x4 الزمانية المكانية</text>
   <text x="775" y="182" text-anchor="middle" class="small">تكميم التصحيح</text>
   <text x="775" y="210" text-anchor="middle" class="step">تنافسية FVD</text>
@@ -65,7 +65,7 @@
   <text x="260" y="480" text-anchor="middle" class="caption">الأفضل للبحث، والنماذج الموحدة</text>
 
   <rect x="490" y="350" width="400" height="150" class="hot"/>
-  <text x="690" y="370" text-anchor="middle" class="step">الانتشار (SDXL، SD3، التدفق)</text>
+  <text x="690" y="370" text-anchor="middle" class="step">الانتشار (SDXL، SD3، الجريان)</text>
   <text x="690" y="390" text-anchor="middle" class="small">+ الاستدلال السريع (2-5 ثوانٍ / 512 × 512)</text>
   <text x="690" y="406" text-anchor="middle" class="small">+ الكامنة المستمرة = دقة أعلى</text>
   <text x="690" y="422" text-anchor="middle" class="small">+ الأدوات الناضجة + LoRAs</text>

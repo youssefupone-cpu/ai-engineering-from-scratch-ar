@@ -1,4 +1,6 @@
-"""قوانين القياس – معادلة خسارة شينشيلا، الحوسبة الأمثل (N، D)، تكلفة التدريب الزائد. ستدلب خالص. التحقق من صحة قاعدة D/N ≈ 20 رقميًا عن طريق البحث في الشبكة.
+"""Scaling laws — Chinchilla loss equation, compute-optimal (N, D), over-training cost.
+
+Pure stdlib. Validates the D/N ≈ 20 rule numerically by grid search.
 """
 
 import math
@@ -16,7 +18,7 @@ def chinchilla_loss(N, D, A=A, B=B_CONST, alpha=ALPHA, beta=BETA, E=E_CONST):
 
 
 def compute_optimal(C_flops, n_grid=200):
-    """ابحث عن (N، D) لتقليل الخسارة الخاضعة لـ 6ND = C عن طريق البحث في الشبكة عبر السجل N."""
+    """Find (N, D) minimizing loss subject to 6ND = C by grid search over log N."""
     # 6ND = C => D = C / (6N)
     log_N_min = math.log10(1e5)
     log_N_max = math.log10(1e13)
@@ -55,7 +57,7 @@ def main():
     print()
 
     print("=== over-training cost (Llama-style) ===")
-    # خذ ميزانية حسابية، واستخدم 1/10 من N الأمثل و10x من الأمثل D.
+    # Take a compute budget, use 1/10 of optimal N and 10x of optimal D.
     C = 1e24
     N_opt, D_opt, L_opt = compute_optimal(C)
     N_under = N_opt / 10

@@ -23,7 +23,8 @@ def random_mask_indices(num_patches, mask_ratio=0.75, seed=0):
 
 class DinoHead(torch.nn.Module):
     """
-    لعبة DINO رأس لتوضيح التوسيط والشحذ. يستخدم DINO الحقيقي MLP أعمق.
+    Toy DINO head to demonstrate centring + sharpening.
+    Real DINO uses a deeper MLP.
     """
 
     def __init__(self, in_dim=64, out_dim=128, momentum=0.9):

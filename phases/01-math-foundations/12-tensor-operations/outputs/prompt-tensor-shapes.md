@@ -26,10 +26,10 @@ Use this decision framework for common operations:
 | matmul(A, B) | A is (..., m, k), B is (..., k, n), result is (..., m, n) | Inner dimensions (k) must match |
 | A + B (broadcast) | Align from the right. Each dim must be equal or one must be 1 | Dimensions differ and neither is 1 |
 | cat([A, B], dim=d) | All dims match EXCEPT dim d | Non-cat dimensions differ |
-| Linear(in, out) | Input last dim must equal `in` | Last dim != in_features |
+| Linear(in, out) | Input last dim must equal `in` | Last dim!= in_features |
 | Conv2d(in_c, out_c, k) | Input must be (B, in_c, H, W) | Wrong number of dims or channel mismatch |
 | Embedding(vocab, dim) | Input must be integer tensor | Float input or index out of range |
-| BatchNorm(C) | Input (B, C, ...) must have C channels at dim 1 | C mismatch |
+| BatchNorm(C) | Input (B, C,...) must have C channels at dim 1 | C mismatch |
 | softmax(dim=d) | No shape requirement, but wrong dim gives wrong probabilities | Summing over batch instead of class dim |
 
 Broadcasting rules (check from right to left):

@@ -53,7 +53,7 @@
   <text x="420" y="172" class="step">حلقة عالقة إرشادية، وخطوات كثيرة جدًا، وتوقيعات العمل المتكررة</text>
 
   <rect x="400" y="196" width="500" height="40" class="hot"/>
-  <text x="420" y="220" class="step">التقييم الذاتي LLM-كحكم على الأثر الخاص (ضعيف؛ مقترنًا بتأريض الأداة)</text>
+  <text x="420" y="220" class="step">التقييم الذاتي LLM-كقاضي على الأثر الخاص (ضعيف؛ مقترن بتأريض الأداة)</text>
 
   <rect x="380" y="280" width="540" height="220" class="box"/>
   <text x="650" y="304" text-anchor="middle" class="head">2026 مثيلات</text>
@@ -62,7 +62,7 @@
   <text x="400" y="368" class="step">سير العمل المؤيد / قاعدة التعلم</text>
   <text x="400" y="386" class="small">التقاط الانعكاس يدويًا في ذاكرة المشروع - يتم تنسيقه بمرور الوقت</text>
   <text x="400" y="408" class="step">كلود كود / الذاكرة</text>
-  <text x="400" y="426" class="small">يعمل CLAUDE.md كمخزن مؤقت عرضي طويل الأمد عبر الجلسات</text>
+  <text x="400" y="426" class="small">CLAUDE.md يعمل كمخزن مؤقت عرضي طويل الأمد عبر الجلسات</text>
   <text x="400" y="448" class="step">انعكاس LangGraph nodes</text>
   <text x="400" y="466" class="small">الرسم البياني node الذي يسجل ويوجه إلى التحسين أو الإنهاء</text>
   <text x="400" y="488" class="small">تعفن الذاكرة: مضغوط، TTL، أو dedupe - الانعكاسات المتراكمة تصبح قديمة</text>

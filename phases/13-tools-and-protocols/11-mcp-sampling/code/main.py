@@ -1,4 +1,15 @@
-"""المرحلة 13 الدرس 11 - MCP أداة أخذ العينات (الخادم -> مكالمات العميل LLM). محاكاة أخذ العينات من الخادم إلى العميل: - تقوم أداة Summary_repo الخاصة بالخادم بتشغيل جولتين لأخذ العينات (اختر الملفات، ثم توليف) عن طريق استدعاء البديل "fake_client_sample" للعميل. - المعدل محدود عند max_samples_per_tool لمنع القنابل الحلقية. - تتم طباعة ModelPreferences حتى تتمكن من رؤية التكلفة/السرعة/الذكاء شكل المقايضة. ستدليب فقط. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 11 - MCP sampling harness (server -> client LLM calls).
+
+Simulated server-to-client sampling:
+  - Server's summarize_repo tool runs two sampling rounds (pick files, then
+    synthesize) by calling a 'fake_client_sample' stand-in for the client.
+  - Rate-limited at max_samples_per_tool to prevent loop bombs.
+  - ModelPreferences are printed so you can see the cost/speed/intelligence
+    trade-off shape.
+
+Stdlib only.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -45,7 +56,7 @@ class SampleResponse:
 
 
 def fake_client_sample(req: SampleRequest) -> SampleResponse:
-    """البديل الخاص بالعميل LLM. يختار استجابة جاهزة حسب الكلمة الرئيسية."""
+    """Stand-in for the client's LLM. Picks a canned response by keyword."""
     text = req.messages[-1]["content"]["text"].lower()
     if "pick" in text or "choose" in text:
         body = CANNED_RESPONSES["pick"]

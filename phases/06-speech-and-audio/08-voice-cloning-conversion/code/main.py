@@ -1,8 +1,12 @@
-"""عرض توضيحي لاستنساخ الصوت: محاكاة التحلل والمبادلة (المحتوى، السماعة). أنشئ متجهًا صغيرًا "للمحتوى" من تجزئة صوتية حتمية و
-ناقل "مكبر الصوت" من ملف تعريف النغمة لكل مكبر صوت. إثبات أن
-الصوت المعاد بناؤه في مكبر الصوت الذي تم تبديله يحافظ على المحتوى
-بينما يتتبع جيب تمام تضمين السماعة الهدف. ستدليب فقط. لا توجد شبكة عصبية حقيقية، هذا هو نموذج الليغو لخط الاستنساخ.
-تشغيل: كود python3/main.py
+"""Voice cloning demo: simulate (content, speaker) decomposition and swap.
+
+Build a tiny "content" vector from a deterministic phoneme hash and a
+"speaker" vector from per-speaker tone profile. Demonstrate that the
+reconstructed audio at a swapped speaker embedding preserves content
+while its speaker-embedding cosine tracks the target.
+
+Stdlib only. No real neural net — this is the lego-model of a cloning pipeline.
+Run: python3 code/main.py
 """
 
 import hashlib
@@ -11,14 +15,14 @@ import random
 
 
 def content_vector(text, dim=64):
-    """تمثيل "المحتوى" الحتمي للنص - لعبة PPG بديلة."""
+    """Deterministic 'content' representation of text — toy PPG stand-in."""
     h = hashlib.sha256(text.encode()).digest()
     expanded = (h * ((dim + len(h) - 1) // len(h)))[:dim]
     return [b / 255.0 - 0.5 for b in expanded]
 
 
 def speaker_vector(seed, dim=64):
-    """"تضمين مكبر الصوت" الحتمي - لعبة ECAPA-TDNN قائمة."""
+    """Deterministic 'speaker embedding' — toy ECAPA-TDNN stand-in."""
     rng = random.Random(seed)
     v = [rng.gauss(0, 1) for _ in range(dim)]
     norm = math.sqrt(sum(x * x for x in v)) or 1e-12
@@ -26,12 +30,12 @@ def speaker_vector(seed, dim=64):
 
 
 def fake_tts(content, speaker, mix=0.5):
-    """تظاهر بـ TTS: قم بمزج المحتوى حسب العناصر مع مكبر الصوت."""
+    """Pretend TTS: element-wise mix content with speaker."""
     return [(1 - mix) * c + mix * s for c, s in zip(content, speaker)]
 
 
 def extract_speaker(wave, reference_speakers):
-    """جهاز تشفير مكبر الصوت التظاهري: مكبر صوت إرجاع بأعلى جيب التمام."""
+    """Pretend speaker-encoder: return speaker with highest cosine."""
     sims = [(name, cosine(wave, vec)) for name, vec in reference_speakers.items()]
     sims.sort(key=lambda x: -x[1])
     return sims[0]
@@ -51,7 +55,10 @@ def cosine(a, b):
 
 
 def watermark(wave, payload_bits, strength=0.003):
-    """لعبة العلامة المائية غير المسموعة: لكل بت DC إزاحة على خطوة مقسمة. الأنظمة الحقيقية (SilentCipher، PerTh) تدمج في المجال الإدراكي وتظل على قيد الحياة إعادة الترميز. يثبت هذا العرض التوضيحي أن عقد التشفير/فك التشفير ساري المفعول.
+    """Toy inaudible watermark: per-bit DC shift on a partitioned stride.
+
+    Real systems (SilentCipher, PerTh) embed in perceptual domain and survive
+    re-encoding. This demo just proves the encode/decode contract holds.
     """
     n_bits = len(payload_bits)
     out = list(wave)
@@ -99,7 +106,7 @@ def main():
 
     print()
     print("=== Step 2: zero-shot clone — alice's voice on bob's intended text ===")
-    # نص بوب + تضمين مكبر صوت أليس
+    # bob's text + alice's speaker embedding
     wav_cloned = fake_tts(content_remind, alice, mix=0.5)
     name, score = extract_speaker(wav_cloned, speakers)
     txt, tscore = extract_content(wav_cloned, contents)
@@ -109,7 +116,7 @@ def main():
     print()
     print("=== Step 3: voice conversion — rewrite bob's utterance into alice ===")
     wav_bob_orig = fake_tts(content_remind, bob, mix=0.5)
-    # استخراج المحتوى، resynth مع تضمين أليس
+    # extract content, resynth with alice embedding
     matched_text, _ = extract_content(wav_bob_orig, contents)
     content_est = contents[matched_text]
     wav_converted = fake_tts(content_est, alice, mix=0.5)

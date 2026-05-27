@@ -7,7 +7,7 @@ NUM_STYLES = 2
 
 
 def make_tokens(style, length, rng):
-    """تسلسلات "الرموز الصوتية" الاصطناعية حسب الأسلوب."""
+    """Synthetic 'audio token' sequences by style."""
     if style == 0:  # alternating, speech-like
         return [(i + rng.randint(0, 1)) % VOCAB for i in range(length)]
     return [(i * 3 + rng.randint(0, 1)) % VOCAB for i in range(length)]

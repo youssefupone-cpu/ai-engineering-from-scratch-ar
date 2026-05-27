@@ -1,5 +1,15 @@
-"""المرحلة 13 الدرس 05 - تصميم مخطط الأداة. مراجعة سجل الأداة مقابل قواعد التصميم من الدرس: - الأسماء: حالة الثعبان، اسم الفعل، بدون وسائط، بدون علامات توتر - الأوصاف: استخدم عند النمط، وحدود الطول، ولا توجد كلمات رئيسية للحقن - المخططات: الخصائص المكتوبة، القائمة المطلوبة، التعداد في المجموعات المغلقة - الشكل: الذري مقابل المتجانس (ضع علامة `action: str` إذا كان حجم التعداد > 3) قم بالتشغيل على GOOD_REGISTRY (يمر) وBAD_REGISTRY (يفشل في كل قاعدة).
-ستدليب فقط. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 05 - tool schema design linter.
+
+Audits a tool registry against design rules from the lesson:
+  - names: snake_case, verb-noun, no arguments, no tense markers
+  - descriptions: Use-when pattern, length bounds, no injection keywords
+  - schemas: typed properties, required list, enum on closed sets
+  - shape: atomic vs monolithic (flag `action: str` if enum size > 3)
+
+Run on GOOD_REGISTRY (passes) and BAD_REGISTRY (fails on every rule).
+Stdlib only.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

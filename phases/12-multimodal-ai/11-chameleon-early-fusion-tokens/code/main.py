@@ -1,5 +1,13 @@
-"""الاندماج المبكر على طراز الحرباء: لعبة VQ وحدة قياس الكمية + وحدة فك ترميز الانحدار الذاتي للمفردات المشتركة. نهاية إلى نهاية pipeline: 1. VQ-VAE-ish الكمي: 8x8 تصحيح التدرج الرمادي -> فهرس كتاب الرموز الصحيح، K = 16. 2. المفردات المشتركة: معرفات النص 0..31، معرفات الصور 32..47، الفواصل 48 (<image>)، 49 (</image>). 3. تم تدريب وحدة فك ترميز Biggram على أزواج تركيبية (نص + رموز <صورة> </صورة>). 4. حلقة أخذ العينات التي تنبعث منها مخرجات ذات طريقة مختلطة. ستدليب فقط. المحول عبارة عن جدول عدد بيجرام - النقطة المهمة هي رؤية
-حلقة مفردات مشتركة مصغرة، وليس للحصول على جودة الصورة.
+"""Chameleon-style early-fusion: toy VQ quantizer + shared-vocab autoregressive decoder.
+
+End-to-end pipeline:
+  1. VQ-VAE-ish quantizer: 8x8 grayscale patch -> integer codebook index, K=16.
+  2. Shared vocab: text ids 0..31, image ids 32..47, separators 48 (<image>), 49 (</image>).
+  3. Bigram decoder trained on synthetic (text + <image> codes </image>) pairs.
+  4. Sampling loop that emits mixed-modality output.
+
+Stdlib only. The transformer is a bigram count table — the point is to see the
+shared-vocabulary loop in miniature, not to get image quality.
 """
 
 from __future__ import annotations
@@ -22,7 +30,7 @@ CODEBOOK = [[(i * 7 + 3 * j) % 8 for j in range(4)] for i in range(VOCAB_IMG)]
 
 
 def quantize_patch(patch: list[int]) -> int:
-    """البحث عن أقرب كتاب رموز عن طريق مسافة L2."""
+    """Nearest-codebook lookup by L2 distance."""
     best = 0
     best_d = float("inf")
     for k, code in enumerate(CODEBOOK):
@@ -34,7 +42,7 @@ def quantize_patch(patch: list[int]) -> int:
 
 
 def image_to_tokens(img: list[list[int]]) -> list[int]:
-    """تدرج رمادي 8 × 8 -> 4 بقع من 4 عوامات (مخفضة). إرجاع معرفات الرمز المميز."""
+    """8x8 grayscale -> 4 patches of 4 floats (downsampled). Return token IDs."""
     patches = []
     for pr in range(0, 8, 4):
         for pc in range(0, 8, 4):
@@ -51,7 +59,7 @@ def image_to_tokens(img: list[list[int]]) -> list[int]:
 
 
 def synthesize_caption(kind: str) -> list[int]:
-    """اختر تسلسل رمزي نصي قصير."""
+    """Pick a short synthetic text token sequence."""
     if kind == "red":
         return [1, 5, 3, 7]
     if kind == "blue":

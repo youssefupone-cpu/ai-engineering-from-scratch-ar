@@ -1,5 +1,7 @@
-"""صوت لعبة Pipecat pipeline: VAD STT LLM TTS النقل. تنتقل الإطارات إلى الأسفل (المصدر إلى الحوض) وإلى الأعلى (الإلغاء/التحكم).
-يُظهر الإدخال المكتوب التدفق الطبيعي بالإضافة إلى إلغاء الإدخال الذي يوقف TTS.
+"""Toy Pipecat-style voice pipeline: VAD  STT  LLM  TTS  transport.
+
+Frames travel DOWNSTREAM (source to sink) and UPSTREAM (cancel/control).
+A scripted input shows normal flow plus a barge-in cancel that stops TTS.
 """
 
 from __future__ import annotations

@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">VLAs المضمنة — RT-2 إلى GR00T، قوس تنسيق الإجراء</text>
+  <text x="480" y="24" text-anchor="middle" class="title">VLAs المجسدة — RT-2 إلى GR00T، قوس تنسيق الحركة</text>
 
   <rect x="30" y="50" width="900" height="210" class="box"/>
   <text x="480" y="72" text-anchor="middle" class="head">أربعة تنسيقات عمل مستخدمة اليوم</text>
@@ -25,20 +25,20 @@
   <rect x="50" y="90" width="200" height="160" class="hot"/>
   <text x="150" y="110" text-anchor="middle" class="step">منفصلة 256 بن</text>
   <text x="150" y="128" text-anchor="middle" class="small">RT-2 (2023)، OpenVLA</text>
-  <text x="150" y="146" text-anchor="middle" class="small">رمز مميز واحد لكل DOF</text>
+  <text x="150" y="146" text-anchor="middle" class="small">رمز واحد لكل DOF</text>
   <text x="150" y="162" text-anchor="middle" class="small">متوافق مع مفردات النص</text>
   <text x="150" y="186" text-anchor="middle" class="step">الايجابيات: بسيطة</text>
   <text x="150" y="206" text-anchor="middle" class="small">السلبيات: مطلوب حوالي 300 توك/ثانية</text>
   <text x="150" y="224" text-anchor="middle" class="small">الاستدلال 3-5 هرتز</text>
 
   <rect x="270" y="90" width="200" height="160" class="cool"/>
-  <text x="370" y="110" text-anchor="middle" class="step">FAST (DCT + التكميم)</text>
+  <text x="370" y="110" text-anchor="middle" class="step">FAST (DCT + تكميم)</text>
   <text x="370" y="128" text-anchor="middle" class="small">تحسين 2024</text>
   <text x="370" y="146" text-anchor="middle" class="small">~10 رموز / مسار</text>
   <text x="370" y="162" text-anchor="middle" class="small">معاملات التردد المنخفض</text>
   <text x="370" y="186" text-anchor="middle" class="step">الايجابيات: 3-5x أسرع</text>
   <text x="370" y="206" text-anchor="middle" class="small">السلبيات: يفقد التردد العالي</text>
-  <text x="370" y="224" text-anchor="middle" class="small">يستخدم بواسطة pi0-FAST</text>
+  <text x="370" y="224" text-anchor="middle" class="small">المستخدمة من قبل pi0-FAST</text>
 
   <rect x="490" y="90" width="200" height="160" class="cold"/>
   <text x="590" y="110" text-anchor="middle" class="step">رأس مطابق للتدفق</text>
@@ -56,7 +56,7 @@
   <text x="810" y="162" text-anchor="middle" class="small">النظام 1: صغير ~ 100 هرتز</text>
   <text x="810" y="186" text-anchor="middle" class="step">الايجابيات: على نطاق الإنسان</text>
   <text x="810" y="206" text-anchor="middle" class="small">أهداف فرعية + تحكم سريع</text>
-  <text x="810" y="224" text-anchor="middle" class="small">الأفضل لمن هم فوق 30 عامًا DOF</text>
+  <text x="810" y="224" text-anchor="middle" class="small">الأفضل لعمر 30+ DOF</text>
 
   <rect x="30" y="280" width="900" height="230" class="box"/>
   <text x="480" y="302" text-anchor="middle" class="head">وصفة التدريب + السلامة</text>
@@ -68,7 +68,7 @@
   <text x="190" y="396" text-anchor="middle" class="small">يحافظ على المعرفة العامة</text>
   <text x="190" y="416" text-anchor="middle" class="small">الروبوت فقط -&gt; ينسى اللغة</text>
   <text x="190" y="436" text-anchor="middle" class="step">المسار الدقيق</text>
-  <text x="190" y="456" text-anchor="middle" class="small">LoRA على 100-1000 عرض توضيحي</text>
+  <text x="190" y="456" text-anchor="middle" class="small">LoRA على 100-1000 عرض تجريبي</text>
   <text x="190" y="472" text-anchor="middle" class="small">للتكيف مع الروبوت الجديد</text>
 
   <rect x="340" y="320" width="260" height="180" class="reg"/>
@@ -82,12 +82,12 @@
   <text x="470" y="468" text-anchor="middle" class="small">open-source</text>
 
   <rect x="620" y="320" width="290" height="180" class="hot"/>
-  <text x="765" y="342" text-anchor="middle" class="step">بوابات الأمان (خارج VLA)</text>
+  <text x="765" y="342" text-anchor="middle" class="step">بوابات أمان (خارجية VLA)</text>
   <text x="765" y="362" text-anchor="middle" class="small">حدود مشتركة صعبة</text>
   <text x="765" y="378" text-anchor="middle" class="small">سرعة القطع</text>
   <text x="765" y="394" text-anchor="middle" class="small">حدود مساحة العمل</text>
   <text x="765" y="410" text-anchor="middle" class="small">HITL الموافقة على المهام الجديدة</text>
   <text x="765" y="436" text-anchor="middle" class="step">VLA يقترح، يفرض جهاز التحكم</text>
-  <text x="765" y="462" text-anchor="middle" class="caption">تعامل دائمًا مع إخراج VLA كما كان سابقًا،</text>
+  <text x="765" y="462" text-anchor="middle" class="caption">تعامل دائمًا مع الإخراج VLA كما كان سابقًا،</text>
   <text x="765" y="478" text-anchor="middle" class="caption">ليس أمرا</text>
 </svg>

@@ -19,7 +19,7 @@
 
   <!-- stage 1 -->
   <rect x="30" y="60" width="840" height="130" class="box"/>
-  <text x="450" y="82" text-anchor="middle" class="label">المرحلة 1: تدريب VAE (جهاز التشفير + وحدة فك التشفير)، التجميد</text>
+  <text x="450" y="82" text-anchor="middle" class="label">المرحلة 1: القطار VAE (التشفير + فك التشفير)، التجميد</text>
 
   <rect x="60" y="100" width="100" height="70" class="box"/>
   <text x="110" y="130" text-anchor="middle" class="content">الصورة ×</text>
@@ -78,7 +78,7 @@
 
   <!-- loss -->
   <rect x="30" y="415" width="840" height="80" class="hot"/>
-  <text x="450" y="438" text-anchor="middle" class="label">نفس الخسارة مثل مساحة البكسل DDPM: L = E || ε - ε_θ(z_t, t, c) ||²</text>
+  <text x="450" y="438" text-anchor="middle" class="label">نفس خسارة مساحة البكسل DDPM: L = E || ε - ε_θ(z_t, t, c) ||²</text>
   <text x="450" y="462" text-anchor="middle" class="caption">~ 64x أقل من FLOPs من نشر البكسل بنفس الجودة</text>
-  <text x="450" y="482" text-anchor="middle" class="caption">CFG: ε_cfg = (1+w) · ε_cond - w · ε_uncond (w ≈ 3-7)</text>
+  <text x="450" y="482" text-anchor="middle" class="caption">CFG: ε_cfg = (1+ث) · ε_cond - ث · ε_uncond (ث ≈ 3-7)</text>
 </svg>

@@ -1,5 +1,14 @@
-"""المرحلة 13 الدرس 20 - OTel GenAI باعث النطاق، stdlib فقط. يُصدر امتدادات بتنسيق يشبه OTLP-JSON إلى stdout للوكيل الذي: - استدعاء محادثة LLM (gen_ai.operation.name = "chat") - إرسال أداتين (gen_ai.operation.name = "execute_tool") - استدعاء عميل makes واحد MCP (CLIENT يمتد مع نشر التتبع) يتم إيقاف التقاط المحتوى (gen_ai.content.prompt /Complete) افتراضيًا؛
-قم بالتمكين عن طريق ضبط OTEL_CAPTURE_CONTENT=1 قبل التشغيل. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 20 - OTel GenAI span emitter, stdlib only.
+
+Emits spans in an OTLP-JSON-like format to stdout for an agent that:
+  - invokes an LLM chat (gen_ai.operation.name = "chat")
+  - dispatches two tools (gen_ai.operation.name = "execute_tool")
+  - makes one MCP client call (CLIENT span with traceparent propagation)
+
+Content capture (gen_ai.content.prompt / completion) is off by default;
+enable by setting OTEL_CAPTURE_CONTENT=1 before running.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

@@ -7,29 +7,43 @@ lesson: 28
 tags: [video-generation, quality, physics, evaluation]
 ---
 
-# الشيكات المعقولية المادية
+# Physical Plausibility Checks
+
 تحتاج عمليات نشر إنتاج الفيديو الذي تم إنشاؤه إلى حواجز حماية آلية. المراجعة البشرية لا تتسع؛ تكتشف الفحوصات الفيزيائية أوضاع الفشل الكلاسيكية.
-##متى يستخدم
+
+## When to use
+
 - أي منتج يقوم بإنشاء فيديو من مطالبات نصية أو صورية.
 - أتمتة QA على نقطة نهاية إنشاء الفيديو API.
 - مراقبة انحراف جودة نموذج الفيديو بعد الضبط الدقيق أو تحديث النموذج الأساسي.
-## المدخلات
+
+## Inputs
+
 - `video`: موتر `(T, H, W, 3)` أو مسار إلى mp4.
 - معلومات مرجعية اختيارية: العدد المتوقع من الكائنات، ووصف المشهد الأولي.
-## الشيكات
-### 1. دوام الكائن
-تتبع كل اكتشاف عبر الإطارات باستخدام SAM 3.1 Object Multiplex. ضع علامة عند اختفاء مسار ثابت لمدة <=3 إطارات ثم ظهوره مرة أخرى — فقد النموذج الكائن مؤقتًا. يفشل بشدة عندما يختفي كائن بالقرب من مركز الإطار (وليس عند الحافة)؛ فشل ناعم عند الحواف.
-### 2.سلاسة الحركة
-يجب أن يكون التدفق البصري بين الإطارات المتتالية مستمرًا في الغالب. تشير طفرات التدفق المفاجئة لكل بكسل إلى النقل الآني. حساب التدفق باستخدام RAFT؛ إطارات العلم حيث يتجاوز حجم التدفق المئوي 99 المتوسط ​​بعامل> 10.
-### 3. الجاذبية / الدعم
-بالنسبة للأشياء التي تم اكتشافها على أنها صلبة (طعام، كرات، أدوات)، تأكد من أن وضعها الرأسي غير متزايد في حالة عدم وجود إجراء رفع. ضع علامة على الانجراف لأعلى ما لم يتم اكتشاف "يد ممسكة" بالقرب من الجسم.
-### 4. اتساق الهوية
-بالنسبة للأشخاص أو الشخصيات، استخدم تضمين التعرف على الوجوه عبر الإطارات. يجب أن يظل تشابه جيب التمام > 0.8 عبر النوافذ ذات 5 إطارات للحصول على هوية ثابتة. أقل من العتبة يعني أن الشخصية قد تحولت.
-### 5. اليدين والأطراف
-قم بتشغيل مقدر الوضعية (الدرس 21). إطارات العلم حيث تحتوي اليد على أكثر من 5 أو أقل من 4 أصابع مرئية؛ حيث يتضاعف طول الذراع بين الإطارات؛ حيث تتقاطع الأطراف مع الجسم من خلال سطح ما.
-### 6. عرض النص (إذا طلب منك النص)
-إذا قام المستخدم بتضمين سلسلة بين علامتي اقتباس، OCR الإطارات التي تم إنشاؤها وحساب CER مقابل السلسلة المطلوبة. العلم > 20% CER.
-## تقرير
+
+## Checks
+
+### 1. Object permanence
+Track every detection across frames with SAM 3.1 Object Multiplex. Flag when a stable track disappears for <=3 frames and reappears — the model lost the object temporarily. Hard fail when an object disappears near the frame centre (not at an edge); soft fail at edges.
+
+### 2. Motion smoothness
+Optical flow between consecutive frames should be mostly continuous. Sudden per-pixel flow spikes indicate teleportation. Compute flow with RAFT; flag frames where the 99th-percentile flow magnitude exceeds the median by a factor > 10.
+
+### 3. Gravity / support
+For objects detected as solid (food, balls, tools), check that their vertical position is non-increasing in the absence of a lifting action. Flag upward drift unless a "grasping hand" is detected near the object.
+
+### 4. Identity consistency
+For people or characters, use a face-recognition embedding across frames. Cosine similarity should stay > 0.8 across 5-frame windows for a persistent identity. Below threshold means the character morphed.
+
+### 5. Hands and limbs
+Run a pose estimator (Lesson 21). Flag frames where a hand has > 5 or < 4 visible fingers; where an arm length doubles between frames; where limbs intersect the body through a surface.
+
+### 6. Text rendering (if prompt asked for text)
+If the user prompt included a string in quotes, OCR the generated frames and compute CER against the requested string. Flag > 20% CER.
+
+## Report
+
 ```
 [plausibility]
   video frames:           <T>
@@ -47,7 +61,8 @@ tags: [video-generation, quality, physics, evaluation]
   frame ranges where each failure occurred
 ```
 
-## قواعد
+## Rules
+
 - لا تحظر بشدة على أي شيك واحد؛ قم بتجميع الدرجات واحتفظ بالفيديو للمراجعة عندما يتجاوز إجمالي الحالات الشاذة الحد الأدنى.
 - إنحراف هوية الوزن وانتهاكات الدوام هي الأعلى — يلاحظها المستخدمون أولاً.
 - تسجيل معدلات فشل كل فحص مع مرور الوقت؛ يعني الاتجاه الصاعد عادةً أنه تم تحديث النموذج الأساسي أو تحول التوزيع الفوري.

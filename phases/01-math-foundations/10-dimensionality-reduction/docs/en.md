@@ -112,8 +112,8 @@ Uniform Manifold Approximation and Projection (UMAP) works similarly to t-SNE bu
 UMAP builds a weighted graph in high-dimensional space (the "fuzzy topological representation") and then finds a low-dimensional layout that preserves this graph as well as possible.
 
 Key parameters:
-- `n`: how many neighbors define local structure (similar to perplexity). Higher values preserve more global structure.
-- `m`: how tightly points pack together in the output. Lower values create denser clusters.
+- `n_neighbors`: how many neighbors define local structure (similar to perplexity). Higher values preserve more global structure.
+- `min_dist`: how tightly points pack together in the output. Lower values create denser clusters.
 
 ### When to use which
 
@@ -145,8 +145,8 @@ Common kernel functions:
 | Kernel | Formula | Good for |
 |--------|---------|----------|
 | RBF (Gaussian) | exp(-gamma * \|\|x - y\|\|^2) | Most nonlinear data, smooth manifolds |
-| Polynomial | (x . y + c)^d | Polynomial relationships |
-| Sigmoid | tanh(alpha * x . y + c) | Neural network-like mappings |
+| Polynomial | (x. y + c)^d | Polynomial relationships |
+| Sigmoid | tanh(alpha * x. y + c) | Neural network-like mappings |
 
 When to use kernel PCA vs standard PCA:
 
@@ -339,15 +339,15 @@ Performance plateaus well before 784 dimensions. That plateau is your operating 
 ## Ship It
 
 This lesson produces:
-- `o` - a skill for choosing the right dimensionality reduction technique for a given task
+- `outputs/skill-dimensionality-reduction.md` - a skill for choosing the right dimensionality reduction technique for a given task
 
 ## Exercises
 
-1. Modify the PCA class to support `i`. Reconstruct MNIST digits from 10, 50, and 200 components. Print the reconstruction error (mean squared difference from the original) for each.
+1. Modify the PCA class to support `inverse_transform`. Reconstruct MNIST digits from 10, 50, and 200 components. Print the reconstruction error (mean squared difference from the original) for each.
 
 2. Run t-SNE on the same MNIST subset with perplexity values of 5, 30, and 100. Describe how the output changes. Why does perplexity affect cluster tightness?
 
-3. Take a dataset with 50 features where only 5 are informative (generate one with `s`). Apply PCA and check whether the explained variance curve correctly identifies that the data is effectively 5-dimensional.
+3. Take a dataset with 50 features where only 5 are informative (generate one with `sklearn.datasets.make_classification`). Apply PCA and check whether the explained variance curve correctly identifies that the data is effectively 5-dimensional.
 
 ## Key Terms
 

@@ -52,5 +52,5 @@
   <path d="M 380 360 Q 380 400 140 400 Q 140 175 140 170" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
   <text x="250" y="414" class="caption">تحديث ثيتا يعمل الخطوة التالية</text>
 
-  <text x="450" y="448" text-anchor="middle" class="caption">ثلاث حيل، وخسارة واحدة، وشبكة عصبية واحدة: يبدأ عصر RL العميق</text>
+  <text x="450" y="448" text-anchor="middle" class="caption">ثلاث حيل، خسارة واحدة، شبكة عصبية واحدة: يبدأ عصر RL العميق</text>
 </svg>

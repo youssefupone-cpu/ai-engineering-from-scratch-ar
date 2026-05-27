@@ -36,7 +36,7 @@
   <text x="360" y="146" class="small">تخلص من الكتابة؛ مرشح العلامة عند الاسترداد</text>
   <rect x="360" y="158" width="240" height="70" class="box"/>
   <text x="378" y="178" class="step">2026 إنتاج التناظرية:</text>
-  <text x="378" y="196" class="small">مهارات كلود وكيل SDK</text>
+  <text x="378" y="196" class="small">كلود وكيل SDK المهارات</text>
   <text x="378" y="212" class="small">تسجيل Skillkit؛ MCP الموارد</text>
 
   <rect x="640" y="60" width="280" height="180" class="iter"/>
@@ -47,7 +47,7 @@
   <rect x="660" y="158" width="240" height="70" class="box"/>
   <text x="678" y="178" class="step">underpinnings:</text>
   <text x="678" y="196" class="small">صقل الذات (الدرس 05)</text>
-  <text x="678" y="212" class="small">CRITIC (الدرس 05) مع أداة التحقق من البيئة</text>
+  <text x="678" y="212" class="small">CRITIC (الدرس 05) مع مدقق env</text>
 
   <rect x="80" y="280" width="800" height="230" class="env"/>
   <text x="480" y="302" text-anchor="middle" class="head">حلقة العمل - craft_iron_pickaxe</text>

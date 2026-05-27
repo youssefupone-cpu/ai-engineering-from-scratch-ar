@@ -1,7 +1,20 @@
-"""المرحلة 13 الدرس 18 - MCP المصادقة في الإنتاج على الأوليات iii. جولة stdlib لسطح مصادقة الإنتاج MCP: - RFC 8414 البيانات التعريفية لخادم التفويض على مشغل HTTP - RFC 7591 تسجيل العميل الديناميكي على مشغل HTTP - PKCE (RFC 7636) تدفق كود التفويض مع تثبيت الجمهور (RFC 8707) - JWT التحقق من الصحة كدالة iii مسجلة - JWKS التدوير على مشغل cron، المخزن مؤقتًا عبر الحالة::set /state::get - رفض النائب المرتبك عبر مطالبة aud iii يتم الاستهزاء بالأوليات في وحدة iii_mock أدناه: سجل مدعوم بالإملاء
-من الوظائف، وقائمة المشغلات، وإملاء الحالة، والمرسل المتزامن
-الذي يحاكي iii.trigger. يقوم Real iii بشحن وقت تشغيل websocket غير المتزامن؛ __المصطلح_2__
-الشكل متطابق. ستدليب فقط. تشغيل: python3 main.py
+"""Phase 13 Lesson 18 - MCP auth in production on iii primitives.
+
+A stdlib walk-through of the production MCP auth surface:
+
+  - RFC 8414 authorization server metadata on an HTTP trigger
+  - RFC 7591 dynamic client registration on an HTTP trigger
+  - PKCE (RFC 7636) authorization code flow with audience pinning (RFC 8707)
+  - JWT validation as a registered iii function
+  - JWKS rotation on a cron trigger, cached via state::set / state::get
+  - Confused-deputy rejection via aud claim
+
+iii primitives are mocked in the iii_mock module below: a dict-backed registry
+of functions, a list of triggers, a dict of state, and a synchronous dispatcher
+that mimics iii.trigger. Real iii ships an async websocket runtime; the API
+shape is identical.
+
+Stdlib only. Run: python3 main.py
 """
 
 from __future__ import annotations
@@ -17,12 +30,18 @@ from typing import Any, Callable
 
 
 # ---------------------------------------------------------------------------
-# iii_mock - محاكاة مدعومة بالإملاء للأوليات iii التي يستخدمها هذا الدرس
+# iii_mock - dict-backed mock of the iii primitives this lesson uses
 # ---------------------------------------------------------------------------
 
 
 class IIIMock:
-    """محاكاة أثناء العملية لوقت التشغيل الثالث. يعطي Real iii (انظر iii-sdk) نفس الشكل عبر مقبس الويب: انتظار iii.register_function("auth::validate-jwt"، معالج) في انتظار iii.register_trigger("http"، {"path": "/register"}، "auth::register-client") انتظر iii.trigger("auth::validate-jwt"، {"token":...}) انتظار iii.state.set("auth/jwks/<iss>", {...})
+    """In-process mock of the iii runtime.
+
+    Real iii (see iii-sdk) gives the same shape over a websocket:
+        await iii.register_function("auth::validate-jwt", handler)
+        await iii.register_trigger("http", {"path": "/register"}, "auth::register-client")
+        await iii.trigger("auth::validate-jwt", {"token": ...})
+        await iii.state.set("auth/jwks/<iss>", {...})
     """
 
     def __init__(self) -> None:
@@ -69,7 +88,7 @@ iii = IIIMock()
 
 
 # ---------------------------------------------------------------------------
-# JWT المساعدون - HS256 يحتفظ بالدرس stdlib فقط؛ يستخدم الإنتاج RS256/EdDSA
+# JWT helpers - HS256 keeps the lesson stdlib-only; production uses RS256/EdDSA
 # ---------------------------------------------------------------------------
 
 
@@ -104,8 +123,8 @@ def jwt_verify(token: str, secret: bytes) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# حالة خادم الترخيص الوهمي - تعيش خارج وظائف iii لذا فإن
-# دوران كرون لديه شيء لجلب منه. يحافظ الإنتاج على هذا في IdP.
+# Mock authorization server state - lives outside the iii functions so the
+# rotation cron has something to fetch from. Production keeps this in the IdP.
 # ---------------------------------------------------------------------------
 
 
@@ -157,7 +176,7 @@ OTHER_MCP_RESOURCE = "https://tasks.example.com"
 
 
 # ---------------------------------------------------------------------------
-# وظائف iii - واحدة لكل اهتمام، جميعها تسمى auth::*
+# iii functions - one per concern, all named auth::*
 # ---------------------------------------------------------------------------
 
 
@@ -290,7 +309,7 @@ def validate_jwt(payload: dict) -> dict:
 
 
 def issue_step_up(payload: dict) -> dict:
-    """قم بإصدار رمز مميز جديد مع مجموعة نطاق موسعة. يُستخدم بعد 403 نطاق غير كافٍ."""
+    """Issue a new token with an enlarged scope set. Used after 403 insufficient_scope."""
     user = payload["user"]
     client_id = payload["client_id"]
     new_scopes = payload["scopes"]
@@ -309,7 +328,7 @@ def issue_step_up(payload: dict) -> dict:
 
 
 # ---------------------------------------------------------------------------
-# تسجيل كل عنصر بدائي يستخدمه هذا الدرس
+# Registration of every iii primitive this lesson uses
 # ---------------------------------------------------------------------------
 
 
@@ -331,7 +350,7 @@ def install_auth_surface() -> None:
 
 
 # ---------------------------------------------------------------------------
-# عميل MCP وهمي - PKCE + DCR + طلب الرمز المميز المثبت على الجمهور
+# Mock MCP client - PKCE + DCR + audience-pinned token request
 # ---------------------------------------------------------------------------
 
 
@@ -387,7 +406,7 @@ class MockMCPClient:
 
 
 # ---------------------------------------------------------------------------
-# خادم MCP وهمي - يستدعي auth::validate-jwt عبر iii.trigger عند كل طلب
+# Mock MCP server - calls auth::validate-jwt via iii.trigger on every request
 # ---------------------------------------------------------------------------
 
 
@@ -416,7 +435,7 @@ class MockMCPServer:
 
 
 # ---------------------------------------------------------------------------
-# العرض التوضيحي - تدفق الإنتاج المكون من 9 خطوات
+# Demo - the 9-step production flow
 # ---------------------------------------------------------------------------
 
 

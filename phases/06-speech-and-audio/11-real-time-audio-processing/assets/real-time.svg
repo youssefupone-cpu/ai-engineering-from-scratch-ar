@@ -32,7 +32,7 @@
 
   <rect x="340" y="60" width="130" height="60" class="box"/>
   <text x="405" y="82" text-anchor="middle" class="label">البث ASR</text>
-  <text x="405" y="102" text-anchor="middle" class="content">ببغاء-CTC 0.6B</text>
+  <text x="405" y="102" text-anchor="middle" class="content">الببغاء-CTC 0.6B</text>
   <text x="405" y="115" text-anchor="middle" class="caption">~150 مللي ثانية</text>
 
   <line x1="475" y1="90" x2="495" y2="90" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -58,7 +58,7 @@
 
   <!-- Barge-in detection arrow -->
   <path d="M255,125 Q255,180 540,180 Q620,180 700,125" fill="none" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow)"/>
-  <text x="470" y="175" text-anchor="middle" class="caption" fill="#c0392b">الدخول: VAD يلغي LLM + TTS في منتصف البث</text>
+  <text x="470" y="175" text-anchor="middle" class="caption" fill="#c0392b">الدخول: VAD يلغي LLM + TTS منتصف الدفق</text>
 
   <!-- Latency totals -->
   <rect x="40" y="210" width="800" height="120" class="hot"/>
@@ -69,7 +69,7 @@
   <text x="96" y="310" text-anchor="middle" class="caption" font-size="10">Moshi</text>
   <rect x="160" y="270" width="53" height="20" fill="#d4a74c"/>
   <text x="186" y="285" text-anchor="middle" class="content" font-size="10">320</text>
-  <text x="186" y="310" text-anchor="middle" class="caption" font-size="10">GPT-4o في الوقت الفعلي</text>
+  <text x="186" y="310" text-anchor="middle" class="caption" font-size="10">GPT-4o الوقت الحقيقي</text>
   <rect x="260" y="270" width="78" height="20" fill="#e6c87a"/>
   <text x="300" y="285" text-anchor="middle" class="content" font-size="10">500</text>
   <text x="300" y="310" text-anchor="middle" class="caption" font-size="10">تتالي LiveKit</text>
@@ -85,6 +85,6 @@
   <text x="440" y="368" text-anchor="middle" class="label">القواعد الأساسية</text>
   <text x="60" y="394" class="content">20 مللي إطارات</text>    <text x="220" y="394" class="caption">320 عينة عند 16 كيلو هرتز؛ كل شيء في اتجاه مجرى النهر يحافظ على الإيقاع</text>
   <text x="60" y="414" class="content">عازلة الحلقة</text>     <text x="220" y="414" class="caption">2 ثانية = 32000 عينة؛ يمتص الارتعاش دون إضافة زمن الوصول الأرضي</text>
-  <text x="60" y="434" class="content">AEC إلزامي</text>   <text x="220" y="434" class="caption">بدونه، يتكرر إخراج TTS مرة أخرى إلى ASR ويتم تشغيله ذاتيًا</text>
-  <text x="60" y="454" class="content">تسخين TTS</text>    <text x="220" y="454" class="caption">مشفر صوتي رئيسي قبل المنعطف الأول أو يشعر المستخدمون بالإحماء لمدة 150 مللي ثانية</text>
+  <text x="60" y="434" class="content">AEC إلزامية</text>   <text x="220" y="434" class="caption">بدونها، TTS حلقات الإخراج تعود إلى ASR والمشغلات الذاتية</text>
+  <text x="60" y="454" class="content">دافئ TTS</text>    <text x="220" y="454" class="caption">مشفر صوتي رئيسي قبل المنعطف الأول أو يشعر المستخدمون بالإحماء لمدة 150 مللي ثانية</text>
 </svg>

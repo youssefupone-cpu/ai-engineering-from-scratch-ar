@@ -14,10 +14,10 @@
   <text x="440" y="26" text-anchor="middle" class="title">جيل الموسيقى – نموذجان، ومشهد قانوني واحد</text>
 
   <rect x="30" y="55" width="400" height="170" class="box"/>
-  <text x="230" y="78" text-anchor="middle" class="label">أ. AR الرمز المميز LM عبر برنامج الترميز العصبي</text>
+  <text x="230" y="78" text-anchor="middle" class="label">أ. AR الرمز المميز LM فوق برنامج الترميز العصبي</text>
   <text x="230" y="96" text-anchor="middle" class="tag">MusicGen · ACE-Step · YuE · VALL-E-Music</text>
   <text x="50" y="124" class="content">موجه النص → T5 / CLAP التضمين</text>
-  <text x="50" y="142" class="content">  → AR محول عبر الرموز المميزة EnCodec</text>
+  <text x="50" y="142" class="content">  → AR محول عبر رموز EnCodec</text>
   <text x="50" y="160" class="content">  → وحدة فك ترميز EnCodec → الصوت 32 كيلو هرتز</text>
   <text x="50" y="188" class="caption">تيارات (المستقبل) ؛ أغاني منظمة مع كلمات</text>
   <text x="50" y="205" class="caption">الانجراف بعد 30 ثانية؛ حلقات. يحتاج إلى التداخل</text>
@@ -36,8 +36,8 @@
   <text x="60" y="300" class="content">MusicGen-large 3.3B 30 ثانية بدون غناء MIT - خط الأساس الآلي</text>
   <text x="60" y="318" class="content">صوت ثابت مفتوح 1.2ب 47 ثانية بدون غناء غير تجاري - حلقات، مواد</text>
   <text x="60" y="336" class="content">ACE-الخطوة XL (26 أبريل) 4B &gt; دقيقتين غناء Apache-2.0 - أغنية كاملة مفتوحة</text>
-  <text x="60" y="354" class="content">سونو v5 (مغلق)؟ إعلان تجاري مدته 4 دقائق - ELO 1293؛ زعيم الجودة</text>
+  <text x="60" y="354" class="content">سونو v5 (مغلق)؟ إعلان تجاري مدته 4 دقائق - ELO 1293; زعيم الجودة</text>
   <text x="60" y="372" class="content">اوديو v4 (مغلق)؟ 4 دقائق غناء + إعلان تجاري - رسم داخلي، تقسيم الجذع</text>
-  <text x="60" y="400" class="caption">قانونيًا: استقر Warner + UMG مع Suno / Udio في 2025-26؛ مطلوب الإفصاح + العلامة المائية (EU AI القانون، CA SB 942)</text>
-  <text x="60" y="418" class="caption">آمنة للشحن: مفيدة MIT/CC0 · تجاري API مع ترخيص · التدريب على الكتالوج المملوك</text>
+  <text x="60" y="400" class="caption">قانوني: استقر Warner + UMG مع Suno / Udio في 2025-26؛ الإفصاح + العلامة المائية مطلوبة (EU AI القانون، CA SB 942)</text>
+  <text x="60" y="418" class="caption">آمنة للشحن: مفيدة MIT/CC0 · تجاري API مع ترخيص · تدريب على الكتالوج المملوك</text>
 </svg>

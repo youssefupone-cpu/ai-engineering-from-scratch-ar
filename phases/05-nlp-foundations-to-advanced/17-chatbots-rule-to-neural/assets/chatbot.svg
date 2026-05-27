@@ -17,7 +17,7 @@
   <rect class="box" x="20" y="30" width="200" height="300" rx="4"/>
   <text class="label" x="120" y="55" text-anchor="middle">rule-based</text>
   <text class="note" x="35" y="78">الستينيات → اليوم للسلامة الحرجة</text>
-  <text class="content" x="35" y="105">IF يطابق "أريد"</text>
+  <text class="content" x="35" y="105">IF يتطابق مع "أريد"</text>
   <text class="content" x="35" y="125">THEN "لماذا تريد"</text>
   <text class="content" x="35" y="165">مصنف النية</text>
   <text class="content" x="35" y="183">+ ملء الفتحة</text>

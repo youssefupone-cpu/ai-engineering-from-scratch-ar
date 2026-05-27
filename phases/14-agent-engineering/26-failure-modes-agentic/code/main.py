@@ -1,6 +1,8 @@
-"""علامة وضع الفشل Stdlib لتتبعات الوكيل. يكتشف الأوضاع الخمسة المتكررة في الصناعة: الإجراءات الهلوسة، وزحف النطاق،
-الأخطاء المتتالية، وفقدان السياق، وإساءة استخدام الأداة. يقوم كل كاشف بإرجاع علامة if
-يتطابق التتبع؛ يعكس التوزيع الكلي التجميع التتبعي لفينيكس.
+"""Stdlib failure-mode tagger for agent traces.
+
+Detects the five industry-recurring modes: hallucinated actions, scope creep,
+cascading errors, context loss, tool misuse. Each detector returns a tag if
+the trace matches; aggregate distribution mirrors Phoenix's trace clustering.
 """
 
 from __future__ import annotations

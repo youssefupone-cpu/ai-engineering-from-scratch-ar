@@ -65,10 +65,10 @@
 
   <!-- Why determinism -->
   <rect x="60" y="370" width="760" height="120" class="hot"/>
-  <text x="440" y="394" text-anchor="middle" class="label">ما makes إعادة العمل</text>
+  <text x="440" y="394" text-anchor="middle" class="label">ما هو make إعادة العمل</text>
   <text x="80" y="416" class="content">1. رمز سير العمل محدد (لا توجد ساعة حائط، ولا عشوائي، ولا يوجد إدخال/إخراج مخفي).</text>
   <text x="80" y="432" class="content">2. يتم تسجيل كل نشاط باستخدام args + result؛ إعادة التشغيل يعيد قراءة السجل.</text>
   <text x="80" y="448" class="content">3. نجت الواجهة الخلفية من التعطل (PostgreSQL/Durable Objects؛ وليس SQLite for prod).</text>
   <text x="80" y="464" class="content">4. HITL التوقف المؤقت هو إشارة سير العمل، وليس حلقة استقصاء.</text>
-  <text x="80" y="480" class="content">تتلاءم مكالمات LLM مع شكل النشاط: غير حتمية، ومكلفة، ومن المحتمل أن تفشل.</text>
+  <text x="80" y="480" class="content">LLM المكالمات تناسب شكل النشاط: غير حتمية، باهظة الثمن، محتملة الفشل.</text>
 </svg>

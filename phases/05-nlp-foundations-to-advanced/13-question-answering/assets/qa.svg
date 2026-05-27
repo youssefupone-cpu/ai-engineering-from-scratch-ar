@@ -26,7 +26,7 @@
   <path class="line" d="M 155 155 L 155 180" marker-end="url(#arrow)"/>
 
   <rect class="hot" x="35" y="180" width="240" height="50" rx="3"/>
-  <text class="content" x="155" y="205" text-anchor="middle">BERT / روبرتا + رأس ممتد</text>
+  <text class="content" x="155" y="205" text-anchor="middle">BERT /روبرتا + رأس سبان</text>
   <text class="content" x="155" y="220" text-anchor="middle">التنبؤ (start_idx، end_idx)</text>
 
   <path class="line" d="M 155 230 L 155 255" marker-end="url(#arrow)"/>
@@ -62,7 +62,7 @@
   <path class="line" d="M 455 265 L 455 285" marker-end="url(#arrow)"/>
 
   <rect class="hot" x="335" y="285" width="240" height="50" rx="3"/>
-  <text class="content" x="455" y="310" text-anchor="middle">القارئ (LLM أو الاستخراجي)</text>
+  <text class="content" x="455" y="310" text-anchor="middle">القارئ (LLM أو استخراجي)</text>
 
   <path class="line" d="M 455 335 L 455 355" marker-end="url(#arrow)"/>
 
@@ -79,8 +79,8 @@
   <path class="line" d="M 750 125 L 750 145" marker-end="url(#arrow)"/>
 
   <rect class="hot" x="635" y="145" width="230" height="90" rx="3"/>
-  <text class="content" x="750" y="170" text-anchor="middle">وحدة فك الترميز فقط LLM</text>
-  <text class="content" x="750" y="190" text-anchor="middle">(GPT، كلود، لاما)</text>
+  <text class="content" x="750" y="170" text-anchor="middle">وحدة فك التشفير فقط LLM</text>
+  <text class="content" x="750" y="190" text-anchor="middle">(GPT، كلود، اللاما)</text>
   <text class="content" x="750" y="215" text-anchor="middle">الذاكرة البارامترية فقط</text>
 
   <path class="line" d="M 750 235 L 750 255" marker-end="url(#arrow)"/>

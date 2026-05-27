@@ -1,4 +1,13 @@
-"""المرحلة 13 الدرس 12 - MCP الجذور والاستنباط. يوضح: - يتم فرض الجذور المعلنة من قبل العميل كحدود للخادم - الاستنباط/الإنشاء لتوضيح عندما تحتوي الأداة على عدة تطابقات - URL-وضع الاستنباط المرسوم للتشغيل الأول بنمط OAuth (تجريبي) موقف العميل المزيف لتفاعل المستخدم؛ تقدم حزم SDK الحقيقية حوارًا حقيقيًا. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 12 - MCP roots and elicitation.
+
+Demonstrates:
+  - client-declared roots enforced as server boundary
+  - elicitation/create for disambiguation when a tool has multiple matches
+  - URL-mode elicitation sketched for OAuth-style first-run (experimental)
+
+Fake client stand-in for the user interaction; real SDKs ship a real dialog.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -8,7 +17,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 
-# ---- الجذور المعلنة من قبل العميل ----
+# ---- client-declared roots ----
 ROOTS = [
     {"uri": "file:///Users/alice/Documents/Notes", "name": "Notes"},
     {"uri": "file:///Users/alice/Scratch", "name": "Scratch"},
@@ -22,7 +31,7 @@ def uri_in_roots(uri: str) -> bool:
     return False
 
 
-# ---- بيانات وهمية ----
+# ---- fake data ----
 NOTES = {
     "note-3": {"title": "TPS report 2023", "uri": "file:///Users/alice/Documents/Notes/tps-2023.md"},
     "note-7": {"title": "TPS report 2024", "uri": "file:///Users/alice/Documents/Notes/tps-2024.md"},
@@ -32,7 +41,7 @@ NOTES = {
 }
 
 
-# ---- الاستنباط الاحتياطي (إجابات المستخدم المزيفة) ----
+# ---- elicitation stand-in (fake user answers) ----
 FAKE_USER_ANSWERS: dict[str, dict] = {
     "delete_tps": {"action": "accept", "content": {"note_id": "note-14", "confirm": True}},
     "delete_outside": {"action": "decline", "content": {}},
@@ -41,7 +50,7 @@ FAKE_USER_ANSWERS: dict[str, dict] = {
 
 def elicit(key: str, message: str, schema: dict | None = None,
            url: str | None = None) -> dict:
-    """يحاكي الاستنباط/إنشاء رحلة ذهابًا وإيابًا."""
+    """Simulates elicitation/create round trip."""
     print(f"  [elicit] message={message!r}")
     if url:
         print(f"  [elicit] url-mode: open {url} in browser (SEP-1036, experimental)")
@@ -52,7 +61,7 @@ def elicit(key: str, message: str, schema: dict | None = None,
     return resp
 
 
-# ---- أدوات ----
+# ---- tools ----
 
 def tool_notes_delete(args: dict) -> dict:
     title = args["title"]
@@ -66,7 +75,7 @@ def tool_notes_delete(args: dict) -> dict:
                     "isError": True}
         del NOTES[m["id"]]
         return {"content": [{"type": "text", "text": f"deleted {m['id']}"}], "isError": False}
-    # توضيح عن طريق الاستنباط
+    # disambiguation via elicitation
     schema = {
         "type": "object",
         "properties": {

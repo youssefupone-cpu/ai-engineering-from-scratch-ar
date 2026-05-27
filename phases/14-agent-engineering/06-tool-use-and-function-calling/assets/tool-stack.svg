@@ -58,20 +58,20 @@
   <text x="380" y="280" class="small">وقت التشغيل ينفذ المستقلين بالتوازي</text>
   <text x="380" y="296" class="small">النتائج مرتبطة مرة أخرى بواسطة tool_use_id</text>
   <text x="380" y="312" class="small">قم بتبديل المعرف وسيحدث خطأ في التوجيه</text>
-  <text x="380" y="332" class="small">الأنثروبي، OpenAI، حجر الأساس، كل ذلك يتطلب ذلك</text>
+  <text x="380" y="332" class="small">أنثروبي، OpenAI، حجر الأساس، كلها تتطلب ذلك</text>
 
   <rect x="360" y="350" width="240" height="160" class="cold"/>
   <text x="480" y="374" text-anchor="middle" class="step">execution</text>
   <text x="380" y="398" class="small">تم القبض على الاستثناءات</text>
   <text x="380" y="414" class="small">فرض المهلات</text>
   <text x="380" y="430" class="small">النتائج مقيد مع تلميحات الشكل</text>
-  <text x="380" y="446" class="small">منظم JSON يفضل على النثر</text>
+  <text x="380" y="446" class="small">منظم JSON مفضل على النثر</text>
   <text x="380" y="462" class="small">قاطع الدائرة عند تكرار الأعطال</text>
   <text x="380" y="478" class="small">النطاق المنبعث (OTel GenAI tool_call)</text>
   <text x="380" y="494" class="small">مسار التدقيق لحالات ما بعد الوفاة</text>
 
   <rect x="640" y="160" width="280" height="360" class="box"/>
-  <text x="780" y="184" text-anchor="middle" class="head">BFCL V4 التكوين</text>
+  <text x="780" y="184" text-anchor="middle" class="head">BFCL V4 التركيبة</text>
   <rect x="660" y="200" width="240" height="44" class="cool"/>
   <text x="780" y="226" text-anchor="middle" class="step">ايجينت 40%</text>
 

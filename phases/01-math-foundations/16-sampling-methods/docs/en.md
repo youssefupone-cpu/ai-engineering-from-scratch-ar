@@ -1,48 +1,48 @@
 # Sampling Methods
 
-> Sampling is how AI explores the space of possibilities.
+> أخذ العينات هو كيفية استكشاف AI لمساحة الاحتمالات.
 
-**Type:** Build
-**Language:** Python
-**Prerequisites:** Phase 1, Lessons 06-07 (Probability, Bayes' Theorem)
-**Time:** ~120 minutes
+**النوع:** بناء
+** اللغة: ** بايثون
+**المتطلبات الأساسية:** المرحلة الأولى، الدروس 06-07 (الاحتمالات، نظرية بايز)
+**الوقت:** ~120 دقيقة
 
 ## Learning Objectives
 
-- Implement inverse CDF, rejection, and importance sampling from scratch using only uniform random numbers
-- Build temperature, top-k, and top-p (nucleus) sampling for language model token generation
-- Explain the reparameterization trick and why it enables backpropagation through sampling in VAEs
-- Run Metropolis-Hastings MCMC to sample from an unnormalized target distribution
+- تنفيذ أخذ العينات العكسية CDF والرفض والأهمية من الصفر باستخدام أرقام عشوائية موحدة فقط
+- إنشاء عينات لدرجة الحرارة وtop-k وtop-p (النواة) لإنشاء الرمز المميز لنموذج اللغة
+- شرح خدعة إعادة المعلمة ولماذا تتيح الانتشار العكسي من خلال أخذ العينات في VAEs
+- قم بتشغيل Metropolis-Hastings MCMC لأخذ عينة من التوزيع المستهدف غير الطبيعي
 
 ## The Problem
 
-A language model finishes processing your prompt and produces a vector of 50,000 logits. One for every token in its vocabulary. Now it has to pick one. How?
+ينتهي نموذج اللغة من معالجة موجهك وينتج متجهًا قدره 50000 logits. واحد لكل رمز في مفرداته. الآن عليها أن تختار واحدة. كيف؟
 
-If it always picks the highest-probability token, every response is identical. Deterministic. Boring. If it picks uniformly at random, the output is gibberish. The answer lives somewhere between these extremes, and that somewhere is controlled by sampling.
+إذا اختار دائمًا الرمز المميز ذو الاحتمالية الأعلى، فستكون كل استجابة متطابقة. حتمية. ممل. إذا تم اختياره بشكل عشوائي بشكل موحد، يكون الإخراج رطانة. الجواب يكمن في مكان ما بين هذين النقيضين، ويتم التحكم في هذا المكان عن طريق أخذ العينات.
 
-Sampling is not limited to text generation. Reinforcement learning estimates policy gradients by sampling trajectories. VAEs learn latent representations by sampling from learned distributions and backpropagating through the randomness. Diffusion models generate images by sampling noise and iteratively denoising. Monte Carlo methods estimate integrals that have no closed-form solution. MCMC algorithms explore high-dimensional posterior distributions that are impossible to enumerate.
+لا يقتصر أخذ العينات على إنشاء النص. يقدر التعلم المعزز تدرجات السياسة عن طريق أخذ عينات من المسارات. تتعلم VAEs التمثيلات الكامنة عن طريق أخذ عينات من التوزيعات المستفادة والانتشار العكسي من خلال العشوائية. تقوم نماذج الانتشار بإنشاء صور عن طريق أخذ عينات من الضوضاء وتقليل الضوضاء بشكل متكرر. تقوم طرق مونت كارلو بتقدير التكاملات التي ليس لها حل مغلق. MCMC تستكشف الخوارزميات التوزيعات الخلفية عالية الأبعاد التي يستحيل تعدادها.
 
-Every generative AI system is a sampling system. The sampling strategy determines the quality, diversity, and controllability of the output. This lesson builds every major sampling method from scratch, starting from uniform random numbers and ending with the techniques that power modern LLMs and generative models.
+كل نظام AI توليدي هو نظام أخذ العينات. تحدد استراتيجية أخذ العينات جودة المخرجات وتنوعها وإمكانية التحكم فيها. يبني هذا الدرس كل طرق أخذ العينات الرئيسية من الصفر، بدءًا من الأرقام العشوائية الموحدة وانتهاءً بالتقنيات التي تدعم النماذج LLMs الحديثة والنماذج التوليدية.
 
 ## The Concept
 
 ### Why Sampling Matters
 
-Sampling appears in four fundamental roles across AI and machine learning:
+يظهر أخذ العينات في أربعة أدوار أساسية عبر AI والتعلم الآلي:
 
-**Generation.** Language models, diffusion models, and GANs all produce output by sampling. The sampling algorithm directly controls creativity, coherence, and diversity. Temperature, top-k, and nucleus sampling are the knobs that engineers turn daily.
+**الجيل.** تنتج نماذج اللغة ونماذج الانتشار وشبكات GAN مخرجات عن طريق أخذ العينات. تتحكم خوارزمية أخذ العينات بشكل مباشر في الإبداع والتماسك والتنوع. درجة الحرارة، وأعلى مستوى، وأخذ عينات النواة هي المقابض التي يديرها المهندسون يوميًا.
 
-**Training.** Stochastic gradient descent samples mini-batches. Dropout samples neurons to deactivate. Data augmentation samples random transformations. Importance sampling reweights samples to reduce gradient variance in reinforcement learning (PPO, TRPO).
+**التدريب.** عينات النسب التدرج العشوائي على دفعات صغيرة. عينات التسرب من الخلايا العصبية لإلغاء تنشيطها. زيادة البيانات عينات التحولات العشوائية. تعمل عينات الأهمية على إعادة وزن العينات لتقليل تباين التدرج في التعلم المعزز (PPO، TRPO).
 
-**Estimation.** Many quantities in ML have no closed-form solution. The expected loss over a data distribution, the partition function of an energy-based model, the evidence in Bayesian inference. Monte Carlo estimation approximates all of these by averaging over samples.
+**التقدير.** العديد من الكميات في ML ليس لها حل مغلق. الخسارة المتوقعة في توزيع البيانات، وظيفة التقسيم لنموذج قائم على الطاقة، الدليل في الاستدلال البايزي. ويقارب تقدير مونت كارلو كل هذه الأمور عن طريق حساب المتوسط ​​على العينات.
 
-**Exploration.** MCMC algorithms explore posterior distributions in Bayesian inference. Evolutionary strategies sample parameter perturbations. Thompson sampling balances exploration and exploitation in bandits.
+**الاستكشاف.** تستكشف خوارزميات MCMC التوزيعات الخلفية في الاستدلال البايزي. الاستراتيجيات التطورية عينة من اضطرابات المعلمة. يوازن أخذ عينات طومسون بين الاستكشاف والاستغلال في قطاع الطرق.
 
-The core challenge: you can only sample directly from simple distributions (uniform, normal). For everything else, you need a method to convert simple samples into samples from your target distribution.
+التحدي الأساسي: يمكنك فقط أخذ عينات مباشرة من التوزيعات البسيطة (الموحدة والعادية). بالنسبة لكل شيء آخر، تحتاج إلى طريقة لتحويل العينات البسيطة إلى عينات من التوزيع المستهدف.
 
 ### Uniform Random Sampling
 
-Every sampling method starts here. A uniform random number generator produces values in [0, 1) where every sub-interval of equal length has equal probability.
+كل طريقة لأخذ العينات تبدأ هنا. ينتج مولد الأرقام العشوائية الموحدة قيمًا في [0، 1) حيث يكون لكل فترة فرعية متساوية الطول احتمالية متساوية.
 
 ```
 U ~ Uniform(0, 1)
@@ -54,13 +54,13 @@ Properties:
   Var(U) = 1/12
 ```
 
-To sample uniformly from a discrete set of n items, generate U and return floor(n * U). To sample from a continuous range [a, b], compute a + (b - a) * U.
+لأخذ عينات بشكل موحد من مجموعة منفصلة من عناصر n، قم بإنشاء U وإرجاع Floor(n * U). لأخذ عينة من نطاق مستمر [a, b]، احسب a + (b - a) * U.
 
-The key insight: a single uniform random number contains exactly the right amount of randomness to produce one sample from any distribution. The trick is finding the right transformation.
+الفكرة الأساسية: يحتوي رقم عشوائي موحد على المقدار الصحيح من العشوائية لإنتاج عينة واحدة من أي توزيع. الحيلة هي إيجاد التحول الصحيح.
 
 ### Inverse CDF Method (Inverse Transform Sampling)
 
-The cumulative distribution function (CDF) maps values to probabilities:
+تقوم دالة التوزيع التراكمي (CDF) بتعيين القيم للاحتمالات:
 
 ```
 F(x) = P(X <= x)
@@ -72,7 +72,7 @@ Properties:
   F maps the real line to [0, 1]
 ```
 
-The inverse CDF maps probabilities back to values. If U ~ Uniform(0, 1), then X = F_inverse(U) follows the target distribution.
+معكوس CDF يعيد الاحتمالات إلى القيم. إذا كان U ~ منتظم(0, 1)، فإن X = F_inverse(U) يتبع التوزيع المستهدف.
 
 ```
 Algorithm:
@@ -83,7 +83,7 @@ Why it works:
   P(X <= x) = P(F_inverse(U) <= x) = P(U <= F(x)) = F(x)
 ```
 
-**Exponential distribution example:**
+**مثال التوزيع الأسي:**
 
 ```
 PDF: f(x) = lambda * exp(-lambda * x),   x >= 0
@@ -98,13 +98,13 @@ Since (1 - U) and U have the same distribution:
   x = -ln(u) / lambda
 ```
 
-This works perfectly when you can write down F_inverse in closed form. For the normal distribution, there is no closed-form inverse CDF, so we use other methods (Box-Muller, or numerical approximation).
+يعمل هذا بشكل مثالي عندما يمكنك كتابة F_inverse في شكل مغلق. بالنسبة للتوزيع الطبيعي، لا يوجد معكوس مغلق CDF، لذلك نستخدم طرق أخرى (بوكس مولر، أو التقريب العددي).
 
-**Discrete version:** For discrete distributions, build the CDF as a cumulative sum, generate U, and find the first index where the cumulative sum exceeds U. This is how `sample_categorical` works in Lesson 06.
+**إصدار منفصل:** بالنسبة إلى التوزيعات المنفصلة، ​​أنشئ CDF كمجموع تراكمي، وقم بإنشاء U، وابحث عن المؤشر الأول الذي يتجاوز فيه المجموع التراكمي U. هذه هي الطريقة التي يعمل بها `sample_categorical` في الدرس 06.
 
 ### Rejection Sampling
 
-When you cannot invert the CDF but can evaluate the target PDF up to a constant, rejection sampling works.
+عندما لا تتمكن من عكس CDF ولكن يمكنك تقييم الهدف PDF حتى ثابت، فإن أخذ عينات الرفض يعمل.
 
 ```
 Target distribution: p(x)  (can evaluate, possibly unnormalized)
@@ -120,15 +120,15 @@ Algorithm:
 Acceptance rate = 1/M
 ```
 
-The tighter the bound M, the higher the acceptance rate. In low dimensions (1-3), rejection sampling works well. In high dimensions, the acceptance rate drops exponentially because most of the proposal volume gets rejected. This is the curse of dimensionality for rejection sampling.
+كلما كان الحد M أكثر إحكاما، كلما ارتفع معدل القبول. في الأبعاد المنخفضة (1-3)، تعمل عينات الرفض بشكل جيد. في الأبعاد العالية، ينخفض ​​معدل القبول بشكل كبير بسبب رفض معظم حجم الاقتراح. هذه هي لعنة الأبعاد لأخذ عينات الرفض.
 
-**Example: sampling from a truncated normal.** Use a uniform proposal over the truncated range. The envelope M is the maximum of the normal PDF in that range.
+**مثال: أخذ عينات من المستوى الطبيعي المقطوع.** استخدم اقتراحًا موحدًا على النطاق المقطوع. المغلف M هو الحد الأقصى للطبيعي PDF في هذا النطاق.
 
-**Example: sampling from a semicircle.** Propose uniformly in the bounding rectangle. Accept if the point falls inside the semicircle. This is how Monte Carlo computes pi: the acceptance rate equals the area ratio pi/4.
+**مثال: أخذ العينات من نصف دائرة.** اقترح بشكل موحد في المستطيل المحيط. اقبل إذا كانت النقطة تقع داخل نصف الدائرة. هذه هي الطريقة التي تحسب بها مونتي كارلو pi: معدل القبول يساوي نسبة المساحة pi/4.
 
 ### Importance Sampling
 
-Sometimes you do not need samples from the target distribution p(x). You need to estimate an expectation under p(x), and you have samples from a different distribution q(x).
+في بعض الأحيان لا تحتاج إلى عينات من التوزيع المستهدف p(x). تحتاج إلى تقدير التوقع تحت p(x)، ولديك عينات من توزيع مختلف q(x).
 
 ```
 Goal: estimate E_p[f(x)] = integral of f(x) * p(x) dx
@@ -143,9 +143,9 @@ Estimator:
   E_p[f(x)] ~ (1/N) * sum(f(x_i) * w(x_i))    where x_i ~ q(x)
 ```
 
-This is critical in reinforcement learning. In PPO (Proximal Policy Optimization), you collect trajectories under an old policy pi_old but want to optimize a new policy pi_new. The importance weight is pi_new(a|s) / pi_old(a|s). PPO clips these weights to prevent the new policy from diverging too far from the old one.
+وهذا أمر بالغ الأهمية في تعزيز التعلم. في PPO (تحسين السياسة القريبة)، تقوم بجمع المسارات ضمن سياسة قديمة pi_old ولكنك ترغب في تحسين سياسة جديدة pi_new. وزن الأهمية هو pi_new(a|s) / pi_old(a|s). PPO قص هذه الأوزان لمنع السياسة الجديدة من الابتعاد كثيرًا عن السياسة القديمة.
 
-The variance of the importance sampling estimator depends on how similar q is to p. If q is very different from p, a few samples get enormous weights and dominate the estimate. Self-normalized importance sampling divides by the sum of weights to reduce this problem:
+يعتمد تباين مقدر أخذ العينات على مدى تشابه q مع p. إذا كانت q مختلفة تمامًا عن p، فإن بعض العينات تحصل على أوزان هائلة وتهيمن على التقدير. يتم تقسيم أخذ عينات الأهمية ذاتية التطبيع على مجموع الأوزان لتقليل هذه المشكلة:
 
 ```
 E_p[f(x)] ~ sum(w_i * f(x_i)) / sum(w_i)
@@ -153,7 +153,7 @@ E_p[f(x)] ~ sum(w_i * f(x_i)) / sum(w_i)
 
 ### Monte Carlo Estimation
 
-Monte Carlo estimation approximates integrals by averaging random samples. The law of large numbers guarantees convergence.
+تقدير مونت كارلو يقارب التكاملات عن طريق حساب متوسط ​​العينات العشوائية. قانون الأعداد الكبيرة يضمن التقارب.
 
 ```
 Goal: estimate I = integral of g(x) dx over domain D
@@ -165,9 +165,9 @@ Method:
 Error: O(1 / sqrt(N))   regardless of dimension
 ```
 
-The error rate is dimension-independent. This is why Monte Carlo methods dominate in high dimensions where grid-based integration is impossible.
+معدل الخطأ مستقل عن البعد. ولهذا السبب تهيمن أساليب مونت كارلو على الأبعاد العالية حيث يكون التكامل القائم على الشبكة مستحيلاً.
 
-**Estimating pi:**
+**تقدير باي:**
 
 ```
 Sample (x, y) uniformly from [-1, 1] x [-1, 1]
@@ -175,7 +175,7 @@ Count how many fall inside the unit circle: x^2 + y^2 <= 1
 pi ~ 4 * (count inside) / (total count)
 ```
 
-**Estimating expectations:**
+**تقدير التوقعات:**
 
 ```
 E[f(X)] ~ (1/N) * sum(f(x_i))    where x_i ~ p(x)
@@ -186,7 +186,7 @@ Variance of the estimator = Var(f(X)) / N
 
 ### Markov Chain Monte Carlo (MCMC): Metropolis-Hastings
 
-MCMC constructs a Markov chain whose stationary distribution is the target distribution p(x). After enough steps, samples from the chain are (approximately) samples from p(x).
+MCMC يبني سلسلة ماركوف التي يكون توزيعها الثابت هو التوزيع المستهدف p(x). وبعد خطوات كافية، تصبح العينات من السلسلة (تقريبًا) عينات من p(x).
 
 ```
 Target: p(x)  (known up to a normalizing constant)
@@ -205,19 +205,19 @@ Metropolis-Hastings algorithm:
   4. Return remaining samples
 ```
 
-For symmetric proposals (q(x'|x) = q(x|x')), the ratio simplifies to p(x')/p(x). This is the original Metropolis algorithm.
+بالنسبة للمقترحات المتماثلة (q(x'|x) = q(x|x'))، يتم تبسيط النسبة إلى p(x')/p(x). هذه هي خوارزمية متروبوليس الأصلية.
 
-**Why it works.** The acceptance rule ensures detailed balance: the probability of being at x and moving to x' equals the probability of being at x' and moving to x. Detailed balance implies that p(x) is the stationary distribution of the chain.
+**سبب نجاحها.** تضمن قاعدة القبول توازنًا تفصيليًا: احتمالية الوجود عند x والانتقال إلى x' تساوي احتمالية الوجود عند x' والانتقال إلى x. يشير التوازن التفصيلي إلى أن p(x) هو التوزيع الثابت للسلسلة.
 
-**Practical considerations:**
-- Burn-in: discard early samples before the chain reaches equilibrium
-- Thinning: keep every k-th sample to reduce autocorrelation
-- Proposal scale: too small and the chain moves slowly (high acceptance, slow exploration); too large and most proposals are rejected (low acceptance, stuck in place)
-- The optimal acceptance rate for a Gaussian proposal in high dimensions is approximately 0.234
+**اعتبارات عملية:**
+- الاحتراق: تجاهل العينات المبكرة قبل أن تصل السلسلة إلى التوازن
+- التخفيف: احتفظ بكل عينة من النوع k لتقليل الارتباط الذاتي
+- نطاق الاقتراح: صغير جدًا وتتحرك السلسلة ببطء (قبول مرتفع، استكشاف بطيء)؛ كبيرة جدًا ويتم رفض معظم المقترحات (قبول منخفض، عالقة في مكانها)
+- معدل القبول الأمثل للمقترح الغاوسي في الأبعاد العالية هو 0.234 تقريبًا
 
 ### Gibbs Sampling
 
-Gibbs sampling is a special case of MCMC for multivariate distributions. Instead of proposing a move in all dimensions at once, it updates one variable at a time from its conditional distribution.
+أخذ عينات Gibbs هو حالة خاصة من MCMC للتوزيعات متعددة المتغيرات. فبدلاً من اقتراح نقلة في جميع الأبعاد مرة واحدة، فإنها تقوم بتحديث متغير واحد في كل مرة من توزيعها المشروط.
 
 ```
 Target: p(x_1, x_2, ..., x_d)
@@ -230,18 +230,18 @@ Algorithm:
     Sample x_d^{t+1} ~ p(x_d | x_1^{t+1}, x_2^{t+1}, ..., x_{d-1}^{t+1})
 ```
 
-Gibbs sampling requires that you can sample from each conditional distribution p(x_i | x_{-i}). This is straightforward for many models:
-- Bayesian networks: conditionals follow from the graph structure
-- Gaussian mixtures: conditionals are Gaussian
-- Ising models: each spin's conditional depends only on its neighbors
+يتطلب أخذ عينات Gibbs أنه يمكنك أخذ عينة من كل توزيع شرطي p(x_i | x_{-i}). وهذا واضح بالنسبة للعديد من النماذج:
+- الشبكات البايزية: الشروط الشرطية تتبع بنية الرسم البياني
+- الخلائط الغوسية: الشرطية غاوسية
+- نماذج Ising: يعتمد كل دوران مشروط على جيرانه فقط
 
-The acceptance rate is always 1 (every proposal is accepted) because sampling from the exact conditional automatically satisfies detailed balance.
+معدل القبول هو دائمًا 1 (يتم قبول كل اقتراح) لأن أخذ العينات من الشرط الشرطي الدقيق يلبي تلقائيًا الرصيد التفصيلي.
 
-**Limitation.** When variables are highly correlated, Gibbs sampling mixes slowly because updating one variable at a time cannot make large diagonal moves through the distribution.
+**القيود.** عندما تكون المتغيرات مترابطة بشكل كبير، يتم خلط عينات Gibbs ببطء لأن تحديث متغير واحد في كل مرة لا يمكن make تحركات قطرية كبيرة عبر التوزيع.
 
 ### Temperature Sampling (Used in LLMs)
 
-Language models output logits z_1, ..., z_V for each token in the vocabulary. Softmax converts these to probabilities. Temperature rescales the logits before softmax:
+نماذج اللغة تخرج logits z_1،...، z_V لكل رمز مميز في المفردات. يقوم Softmax بتحويل هذه إلى احتمالات. تقوم درجة الحرارة بإعادة قياس logits قبل softmax:
 
 ```
 p_i = exp(z_i / T) / sum(exp(z_j / T))
@@ -253,20 +253,20 @@ T < 1.0: sharpens the distribution (more confident, less diverse)
 T > 1.0: flattens the distribution (less confident, more diverse)
 ```
 
-**Why it works.** Dividing logits by T < 1 amplifies differences between logits. If z_1 = 2 and z_2 = 1, dividing by T = 0.5 gives z_1/T = 4 and z_2/T = 2, making the gap larger. After softmax, the highest-logit token gets a much larger share.
+**لماذا يعمل.** تؤدي قسمة logits على T < 1 إلى تضخيم الاختلافات بين logits. إذا كانت z_1 = 2 وz_2 = 1، فإن القسمة على T = 0.5 تعطي z_1/T = 4 وz_2/T = 2، مما يجعل الفجوة أكبر. بعد softmax، يحصل الرمز المميز الأعلى logit على حصة أكبر بكثير.
 
-**In practice:**
-- T = 0.0: greedy decoding, best for factual Q&A
-- T = 0.3-0.7: slightly creative, good for code generation
-- T = 0.7-1.0: balanced, good for general conversation
-- T = 1.0-1.5: creative writing, brainstorming
-- T > 1.5: increasingly random, rarely useful
+** في الممارسة العملية: **
+- T = 0.0: فك التشفير الجشع، الأفضل للأسئلة والأجوبة الواقعية
+- T = 0.3-0.7: إبداعي قليلًا، وجيد لإنشاء التعليمات البرمجية
+- T = 0.7-1.0: متوازن وجيد للمحادثة العامة
+- T = 1.0-1.5: الكتابة الإبداعية، العصف الذهني
+- T> 1.5: عشوائي بشكل متزايد، ونادرا ما يكون مفيدا
 
-Temperature does not change which tokens are possible. It changes the probability mass allocated to each token.
+درجة الحرارة لا تغير الرموز الممكنة. يغير كتلة الاحتمالية المخصصة لكل رمز.
 
 ### Top-k Sampling
 
-Top-k sampling restricts the candidate set to the k tokens with the highest probabilities, then renormalizes and samples from that restricted set.
+يقوم أخذ عينات Top-k بتقييد تعيين المرشح على الرموز المميزة k ذات أعلى الاحتمالات، ثم إعادة التطبيع وأخذ العينات من تلك المجموعة المقيدة.
 
 ```
 Algorithm:
@@ -281,11 +281,11 @@ k = V:  no filtering (standard sampling)
 k = 40: typical setting, removes long tail of unlikely tokens
 ```
 
-Top-k prevents the model from selecting extremely unlikely tokens (typos, nonsense) that exist in the long tail of the vocabulary distribution. The problem: k is fixed regardless of context. When the model is confident (one token has 95% probability), k = 40 still allows 39 alternatives. When the model is uncertain (probability is spread across 1000 tokens), k = 40 cuts off plausible options.
+يمنع Top-k النموذج من اختيار الرموز المميزة غير المحتملة للغاية (الأخطاء المطبعية والهراء) الموجودة في الذيل الطويل لتوزيع المفردات. المشكلة: تم إصلاح k بغض النظر عن السياق. عندما يكون النموذج واثقًا (رمز واحد لديه احتمال 95٪)، فإن k = 40 لا يزال يسمح بـ 39 بديلاً. عندما يكون النموذج غير مؤكد (تنتشر الاحتمالية عبر 1000 رمز)، فإن k = 40 تقطع الخيارات المعقولة.
 
 ### Top-p (Nucleus) Sampling
 
-Top-p sampling dynamically adjusts the candidate set size. Instead of keeping a fixed number of tokens, it keeps the smallest set of tokens whose cumulative probability exceeds p.
+يقوم أخذ العينات من Top-p بضبط حجم المجموعة المرشحة ديناميكيًا. بدلاً من الاحتفاظ بعدد ثابت من الرموز المميزة، فإنه يحتفظ بأصغر مجموعة من الرموز المميزة التي يتجاوز احتمالها التراكمي p.
 
 ```
 Algorithm:
@@ -300,18 +300,18 @@ p = 1.0:  no filtering
 p = 0.1:  very restrictive, nearly greedy
 ```
 
-When the model is confident, nucleus sampling keeps few tokens (maybe 2-3). When the model is uncertain, it keeps many (maybe 200). This adaptive behavior is why nucleus sampling generally produces better text than top-k.
+عندما يكون النموذج واثقًا، فإن أخذ العينات النواة يحتفظ بعدد قليل من الرموز (ربما 2-3). عندما يكون النموذج غير مؤكد، فإنه يحتفظ بالكثير (ربما 200). هذا السلوك التكيفي هو السبب في أن أخذ العينات النووية ينتج بشكل عام نصًا أفضل من النص العلوي.
 
-**Common combinations:**
-- Temperature 0.7 + top-p 0.9: good general-purpose setting
-- Temperature 0.0 (greedy): best for deterministic tasks
-- Temperature 1.0 + top-k 50: Fan et al. (2018) original paper setting
+** المجموعات المشتركة: **
+- درجة الحرارة 0.7 + أعلى درجة 0.9: إعداد جيد للأغراض العامة
+- درجة الحرارة 0.0 (الجشع): الأفضل للمهام الحتمية
+- درجة الحرارة 1.0 + أعلى ك 50: فان وآخرون. (2018) إعداد الورق الأصلي
 
-Top-k and top-p can be combined. Apply top-k first, then top-p on the remaining set.
+يمكن الجمع بين Top-k وtop-p. قم بتطبيق top-k أولاً، ثم top-p على المجموعة المتبقية.
 
 ### Reparameterization Trick (Used in VAEs)
 
-Variational autoencoders (VAEs) learn by encoding inputs into a distribution in latent space, sampling from that distribution, and decoding the sample back. The problem: you cannot backpropagate through a sampling operation.
+تتعلم أجهزة التشفير التلقائي المتغيرة (VAEs) عن طريق تشفير المدخلات في توزيع في الفضاء الكامن، وأخذ عينات من هذا التوزيع، وفك تشفير العينة مرة أخرى. المشكلة: لا يمكنك الانتشار العكسي من خلال عملية أخذ العينات.
 
 ```
 Standard sampling (not differentiable):
@@ -321,7 +321,7 @@ Standard sampling (not differentiable):
   d/d_mu [sample from N(mu, sigma^2)] = ???
 ```
 
-The reparameterization trick separates the randomness from the parameters:
+تفصل خدعة إعادة المعلمة العشوائية عن المعلمات:
 
 ```
 Reparameterized sampling:
@@ -335,22 +335,22 @@ Reparameterized sampling:
   Gradients flow through mu and sigma.
 ```
 
-This works because N(mu, sigma^2) has the same distribution as mu + sigma * N(0, 1). The key insight: move the randomness to a parameter-free source (epsilon), then express the sample as a differentiable transformation of the parameters.
+يعمل هذا لأن N(mu, sigma^2) له نفس التوزيع مثل mu + sigma * N(0, 1). الفكرة الأساسية: نقل العشوائية إلى مصدر خالٍ من المعلمات (epsilon)، ثم التعبير عن العينة كتحويل قابل للتمييز للمعلمات.
 
-**In the VAE training loop:**
-1. Encoder outputs mu and log(sigma^2) for each input
-2. Sample epsilon ~ N(0, 1)
-3. Compute z = mu + sigma * epsilon
-4. Decode z to reconstruct the input
-5. Backpropagate through steps 4, 3, 2, 1 (possible because step 3 is differentiable)
+**في حلقة التدريب VAE:**
+1. يقوم جهاز التشفير بإخراج mu وlog(sigma^2) لكل إدخال
+2. عينة إبسيلون ~ N(0، 1)
+3. حساب z = mu + سيجما * إبسيلون
+4. قم بفك تشفير z لإعادة بناء الإدخال
+5. الانتشار العكسي خلال الخطوات 4، 3، 2، 1 (ممكن لأن الخطوة 3 قابلة للتمييز)
 
-Without the reparameterization trick, VAEs cannot be trained with standard backpropagation. This single insight made VAEs practical.
+بدون خدعة إعادة المعلمة، لا يمكن تدريب VAEs باستخدام الانتشار العكسي القياسي. هذه الرؤية الوحيدة جعلت VAEs عملية.
 
 ### Gumbel-Softmax (Differentiable Categorical Sampling)
 
-The reparameterization trick works for continuous distributions (Gaussian). For discrete categorical distributions, we need a different approach. Gumbel-Softmax provides a differentiable approximation to categorical sampling.
+تعمل خدعة إعادة المعلمة على التوزيعات المستمرة (الغاوسية). بالنسبة للتوزيعات الفئوية المنفصلة، ​​نحتاج إلى نهج مختلف. يوفر Gumbel-Softmax تقريبًا تفاضليًا لأخذ العينات الفئوية.
 
-**The Gumbel-Max trick (non-differentiable):**
+**خدعة غامبل-ماكس (غير قابلة للتمييز):**
 
 ```
 To sample from a categorical distribution with log-probabilities log(p_1), ..., log(p_k):
@@ -361,7 +361,7 @@ To sample from a categorical distribution with log-probabilities log(p_1), ..., 
 This produces exact categorical samples.
 ```
 
-**Gumbel-Softmax (differentiable approximation):**
+**غامبل-سوفت ماكس (تقريب متباين):**
 
 ```
 Replace the hard argmax with a soft softmax:
@@ -373,17 +373,17 @@ tau (temperature) controls the approximation:
   tau = 1.0: soft approximation
 ```
 
-Gumbel-Softmax produces a continuous relaxation of a discrete sample. The output is a probability vector (soft one-hot) instead of a hard one-hot. Gradients flow through the softmax. During the forward pass in training, you can use the "straight-through" estimator: use the hard argmax for the forward pass but the soft Gumbel-Softmax gradients for the backward pass.
+ينتج Gumbel-Softmax استرخاءً مستمرًا لعينة منفصلة. الإخراج هو متجه احتمالي (ناعم-ساخن) بدلاً من متجه واحد-ساخن. تتدفق التدرجات من خلال softmax. أثناء التمريرة الأمامية في التدريب، يمكنك استخدام مقدر "المباشرة": استخدم تدرجات argmax الصلبة للتمريرة الأمامية ولكن تدرجات Gumbel-Softmax الناعمة للتمريرة الخلفية.
 
-**Applications:**
-- Discrete latent variables in VAEs
-- Neural architecture search (choosing discrete operations)
-- Hard attention mechanisms
-- Reinforcement learning with discrete actions
+**التطبيقات:**
+- المتغيرات الكامنة المنفصلة في VAEs
+- البحث في الهندسة العصبية (اختيار العمليات المنفصلة)
+- آليات الانتباه الصعب
+- تعزيز التعلم من خلال إجراءات منفصلة
 
 ### Stratified Sampling
 
-Standard Monte Carlo sampling can leave gaps in the sample space by chance. Stratified sampling forces even coverage by dividing the space into strata and sampling from each.
+يمكن لعينة مونت كارلو القياسية أن تترك فجوات في مساحة العينة بالصدفة. إن أخذ العينات الطبقية يفرض التغطية بالتساوي عن طريق تقسيم المساحة إلى طبقات وأخذ عينات من كل منها.
 
 ```
 Standard Monte Carlo:
@@ -396,7 +396,7 @@ Stratified sampling:
   x_i = (i + u_i) / N   where u_i ~ Uniform(0, 1),  i = 0, ..., N-1
 ```
 
-Stratified sampling always has lower or equal variance compared to standard Monte Carlo:
+دائمًا ما يكون لأخذ العينات الطبقية تباين أقل أو متساوٍ مقارنةً بمونت كارلو القياسية:
 
 ```
 Var(stratified) <= Var(standard Monte Carlo)
@@ -405,15 +405,15 @@ The improvement is largest when f(x) varies smoothly.
 For piecewise-constant functions, stratified sampling is exact.
 ```
 
-**Applications:**
-- Numerical integration (quasi-Monte Carlo)
-- Training data splits (ensuring class balance in each fold)
-- Importance sampling with stratification (combining both techniques)
-- NeRF (Neural Radiance Fields) uses stratified sampling along camera rays
+**التطبيقات:**
+- التكامل العددي (شبه مونت كارلو)
+- تقسيم بيانات التدريب (ضمان توازن الفصل في كل حظيرة)
+- أهمية أخذ العينات مع التقسيم الطبقي (الجمع بين كلا التقنيتين)
+- يستخدم NeRF (حقول الإشعاع العصبي) أخذ عينات طبقية على طول أشعة الكاميرا
 
 ### Connection to Diffusion Models
 
-Diffusion models generate images through a sampling process. The forward process adds Gaussian noise to an image over T steps until it becomes pure noise. The reverse process learns to denoise, recovering the original image step by step.
+تقوم نماذج الانتشار بتوليد الصور من خلال عملية أخذ العينات. تضيف العملية الأمامية ضوضاء غاوسية إلى الصورة عبر خطوات T حتى تصبح ضوضاء نقية. تتعلم العملية العكسية تقليل الضوضاء واستعادة الصورة الأصلية خطوة بخطوة.
 
 ```
 Forward process (known):
@@ -429,13 +429,13 @@ Reverse process (learned):
   Each denoising step is a sampling step.
 ```
 
-The connection to the methods in this lesson:
-- Each denoising step uses the reparameterization trick (sample noise, apply deterministic transform)
-- The noise schedule {alpha_t} controls a form of temperature annealing
-- Training uses Monte Carlo estimation to approximate the ELBO (evidence lower bound)
-- Ancestral sampling in diffusion models is a Markov chain (each step depends only on the current state)
+العلاقة بالطرق الموجودة في هذا الدرس:
+- تستخدم كل خطوة لتقليل الضوضاء خدعة إعادة المعلمة (ضوضاء العينة، تطبيق التحويل الحتمي)
+- يتحكم جدول الضوضاء {alpha_t} في شكل من أشكال التلدين بدرجة الحرارة
+- يستخدم التدريب تقدير مونت كارلو لتقريب ELBO (الحد الأدنى للدليل)
+- أخذ العينات السلفية في نماذج الانتشار هو سلسلة ماركوف (كل خطوة تعتمد فقط على الحالة الحالية)
 
-The entire image generation process is iterative sampling: start from noise, and at each step, sample a slightly less noisy version conditioned on the learned denoising model.
+إن عملية توليد الصورة بأكملها عبارة عن أخذ عينات تكرارية: ابدأ من الضوضاء، وفي كل خطوة، قم بعينة نسخة أقل ضوضاءً قليلاً مشروطة بنموذج تقليل الضوضاء الذي تم تعلمه.
 
 ## Build It
 
@@ -453,7 +453,7 @@ def sample_exponential_inverse_cdf(lam):
     return -math.log(u) / lam
 ```
 
-Generate 10,000 exponential samples and verify the mean is 1/lambda.
+إنشاء 10000 عينة أسية والتحقق من أن المتوسط ​​هو 1/لامدا.
 
 ### Step 2: Rejection sampling
 
@@ -466,7 +466,7 @@ def rejection_sample(target_pdf, proposal_sample, proposal_pdf, M):
             return x
 ```
 
-Use rejection sampling to draw from a truncated normal distribution. Verify the shape by histogramming the samples.
+استخدم أخذ عينات الرفض للرسم من التوزيع الطبيعي المقطوع. التحقق من الشكل عن طريق الرسم البياني للعينات.
 
 ### Step 3: Importance sampling
 
@@ -480,7 +480,7 @@ def importance_sampling_estimate(f, target_pdf, proposal_pdf, proposal_sample, n
     return total / n
 ```
 
-Estimate E[X^2] under a normal distribution using a uniform proposal. Compare to the known answer (mu^2 + sigma^2).
+قم بتقدير E[X^2] ضمن التوزيع الطبيعي باستخدام اقتراح موحد. قارن بالإجابة المعروفة (mu^2 + sigma^2).
 
 ### Step 4: Monte Carlo estimation of pi
 
@@ -512,7 +512,7 @@ def metropolis_hastings(target_log_pdf, proposal_sample, proposal_log_pdf, x0, n
     return samples
 ```
 
-Sample from a bimodal distribution (mixture of two Gaussians). Visualize the chain's trajectory.
+عينة من توزيع ثنائي النسق (خليط من اثنين من Gaussians). تصور مسار السلسلة.
 
 ### Step 6: Gibbs sampling
 
@@ -543,7 +543,7 @@ def temperature_sample(logits, temperature):
     return sample_from_probs(probs)
 ```
 
-Show how temperature changes the output distribution for a set of token logits.
+أظهر كيف تغير درجة الحرارة توزيع المخرجات لمجموعة من الرموز المميزة logits.
 
 ### Step 8: Top-k and top-p sampling
 
@@ -586,7 +586,7 @@ def reparam_gradient(mu, sigma, epsilon):
     return dz_dmu, dz_dsigma
 ```
 
-Demonstrate that gradients flow through the reparameterized sample but not through direct sampling.
+إثبات أن التدرجات تتدفق من خلال العينة المعاد معاملتها ولكن ليس من خلال أخذ العينات المباشرة.
 
 ### Step 10: Gumbel-Softmax
 
@@ -600,13 +600,13 @@ def gumbel_softmax(logits, temperature):
     return softmax([g / temperature for g in gumbels])
 ```
 
-Show how decreasing temperature makes the output approach a one-hot vector.
+أظهر كيف أن انخفاض درجة الحرارة make يقترب من الخرج لمتجه واحد ساخن.
 
-Full implementations with all visualizations are in `code/sampling.py`.
+توجد عمليات التنفيذ الكاملة مع كافة المرئيات في `code/sampling.py`.
 
 ## Use It
 
-With NumPy and SciPy, the production versions:
+مع NumPy وSciPy، إصدارات الإنتاج:
 
 ```python
 import numpy as np
@@ -629,52 +629,52 @@ token = rng.choice(len(logits), p=probs)
 print(f"Sampled token index: {token}")
 ```
 
-For MCMC at scale, use dedicated libraries:
-- PyMC: full Bayesian modeling with NUTS (adaptive HMC)
-- emcee: ensemble MCMC sampler
-- NumPyro/JAX: GPU-accelerated MCMC
+بالنسبة لـ MCMC على نطاق واسع، استخدم المكتبات المخصصة:
+- PyMC: النمذجة الافتراضية الكاملة مع NUTS (التكيف HMC)
+- المدير: فرقة MCMC العينات
+- NumPyro/JAX: GPU-متسارع MCMC
 
-You built these from scratch. Now you know what the library calls are doing.
+لقد بنيت هذه من الصفر. الآن أنت تعرف ما تفعله مكالمات المكتبة.
 
 ## Exercises
 
-1. Implement inverse CDF sampling for the Cauchy distribution. The CDF is F(x) = 0.5 + arctan(x)/pi. Generate 10,000 samples and plot the histogram against the true PDF. Notice the heavy tails (extreme values far from center).
+1. تنفيذ أخذ العينات العكسية CDF لتوزيع كوشي. CDF هو F(x) = 0.5 + arctan(x)/pi. قم بإنشاء 10000 عينة ورسم الرسم البياني مقابل PDF الحقيقي. لاحظ الذيول الثقيلة (القيم المتطرفة بعيدة عن المركز).
 
-2. Use rejection sampling to generate samples from a Beta(2, 5) distribution using a Uniform(0, 1) proposal. Plot the accepted samples against the true Beta PDF. What is the theoretical acceptance rate?
+2. استخدم أخذ عينات الرفض لإنشاء عينات من توزيع بيتا (2، 5) باستخدام اقتراح موحد (0، 1). ارسم العينات المقبولة مقابل النسخة التجريبية الحقيقية PDF. ما هو معدل القبول النظري؟
 
-3. Estimate the integral of sin(x) from 0 to pi using Monte Carlo with 1,000, 10,000, and 100,000 samples. Compare the error at each level. Verify that the error scales as O(1/sqrt(N)).
+3. قم بتقدير تكامل sin(x) من 0 إلى pi باستخدام مونت كارلو مع 1000 و10000 و100000 عينة. قارن الخطأ في كل مستوى. تحقق من أن مقياس الخطأ هو O(1/sqrt(N)).
 
-4. Implement Metropolis-Hastings to sample from a 2D distribution p(x, y) proportional to exp(-(x^2 * y^2 + x^2 + y^2 - 8*x - 8*y) / 2). Plot the samples and the chain trajectory. Experiment with different proposal standard deviations.
+4. قم بتطبيق Metropolis-Hastings لأخذ عينة من توزيع ثنائي الأبعاد p(x, y) متناسب مع exp(-(x^2 * y^2 + x^2 + y^2 - 8*x - 8*y) / 2). رسم العينات ومسار السلسلة. قم بتجربة الانحرافات المعيارية المختلفة للاقتراح.
 
-5. Build a complete text generation demo: given a vocabulary of 10 words with logits, generate sequences of 20 tokens using (a) greedy, (b) temperature=0.7, (c) top-k=3, (d) top-p=0.9. Compare the diversity of outputs across 5 runs.
+5. أنشئ عرضًا توضيحيًا كاملاً لإنشاء النص: بالنظر إلى مفردات مكونة من 10 كلمات مع logits، قم بإنشاء تسلسلات من 20 رمزًا باستخدام (أ) الجشع، (ب) درجة الحرارة=0.7، (ج) top-k=3، (د) top-p=0.9. قارن تنوع النواتج عبر 5 أشواط.
 
 ## Key Terms
 
-| Term | What people say | What it actually means |
+| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
 |------|----------------|----------------------|
-| Sampling | "Drawing random values" | Generating values according to a probability distribution. The mechanism behind all generative AI |
-| Uniform distribution | "All equally likely" | Every value in [a, b] has equal probability density 1/(b-a). The starting point for all sampling methods |
-| Inverse CDF | "Probability transform" | F_inverse(U) converts a uniform sample into a sample from any distribution with known CDF. Exact and efficient |
-| Rejection sampling | "Propose and accept/reject" | Generate from a simple proposal, accept with probability proportional to target/proposal ratio. Exact but wastes samples |
-| Importance sampling | "Reweight samples" | Estimate expectations under p(x) using samples from q(x) by weighting each sample by p(x)/q(x). Core to PPO in RL |
-| Monte Carlo | "Average random samples" | Approximate integrals as sample averages. Error O(1/sqrt(N)) regardless of dimension |
-| MCMC | "Random walk that converges" | Construct a Markov chain whose stationary distribution is the target. Metropolis-Hastings is the foundational algorithm |
-| Metropolis-Hastings | "Accept uphill, sometimes downhill" | Propose moves, accept based on density ratio. Detailed balance ensures convergence to target distribution |
-| Gibbs sampling | "One variable at a time" | Update each variable from its conditional distribution holding others fixed. 100% acceptance rate |
-| Temperature | "Confidence knob" | Divides logits by T before softmax. T<1 sharpens (more confident), T>1 flattens (more diverse) |
-| Top-k sampling | "Keep the k best" | Zero out all but the k highest-probability tokens, renormalize, sample. Fixed candidate set size |
-| Nucleus sampling (top-p) | "Keep the probable ones" | Keep the smallest set of tokens whose cumulative probability exceeds p. Adaptive candidate set size |
-| Reparameterization trick | "Move randomness outside" | Write z = mu + sigma * epsilon where epsilon ~ N(0,1). Makes sampling differentiable. Essential for VAE training |
-| Gumbel-Softmax | "Soft categorical sampling" | Differentiable approximation to categorical sampling using Gumbel noise + softmax with temperature |
-| Stratified sampling | "Forced coverage" | Divide sample space into strata, sample from each. Always lower variance than naive Monte Carlo |
-| Burn-in | "Warm-up period" | Initial MCMC samples discarded before the chain reaches its stationary distribution |
-| Detailed balance | "Reversibility condition" | p(x) * T(x->y) = p(y) * T(y->x). Sufficient condition for p to be the stationary distribution of a Markov chain |
-| Diffusion sampling | "Iterative denoising" | Generate data by starting from noise and applying learned denoising steps. Each step is a conditional sampling operation |
+| أخذ العينات | "رسم قيم عشوائية" | توليد القيم وفقا للتوزيع الاحتمالي. الآلية وراء كل توليدي AI |
+| توزيع موحد | "الكل متساوٍ في الاحتمال" | كل قيمة في [a, b] لها كثافة احتمالية متساوية 1/(b-a). نقطة البداية لجميع طرق أخذ العينات |
+| معكوس CDF | "التحويل الاحتمالي" | يقوم F_inverse(U) بتحويل عينة موحدة إلى عينة من أي توزيع معروف CDF. دقيق وفعال |
+| أخذ عينات الرفض | "اقتراح وقبول/رفض" | أنشئ من اقتراح بسيط، واقبله باحتمال يتناسب مع نسبة الهدف/الاقتراح. دقيق ولكن يضيع العينات |
+| أهمية أخذ العينات | "إعادة وزن العينات" | تقدير التوقعات تحت p(x) باستخدام عينات من q(x) عن طريق ترجيح كل عينة بواسطة p(x)/q(x). الأساسية إلى PPO في RL |
+| مونت كارلو | "متوسط ​​العينات العشوائية" | التكاملات التقريبية كمتوسطات عينة. خطأ O(1/sqrt(N)) بغض النظر عن البعد |
+| MCMC | "المشي العشوائي المتقارب" | قم ببناء سلسلة ماركوف التي يكون توزيعها الثابت هو الهدف. متروبوليس-هاستينغز هي الخوارزمية التأسيسية |
+| متروبوليس هاستينغز | "اقبل صعودًا، وأحيانًا هبوطًا" | اقتراح التحركات، وقبول على أساس نسبة الكثافة. التوازن التفصيلي يضمن التقارب مع التوزيع المستهدف |
+| أخذ عينات جيبس ​​| "متغير واحد في كل مرة" | قم بتحديث كل متغير من توزيعه المشروط مع تثبيت المتغيرات الأخرى. نسبة القبول 100% |
+| درجة الحرارة | "مقبض الثقة" | يقسم logits على T قبل softmax. T<1 يزيد حدة (أكثر ثقة)، T>1 يسطح (أكثر تنوعًا) |
+| أخذ العينات من أعلى ك | "حافظ على الأفضل" | قم بإزالة جميع الرموز المميزة ذات الاحتمالية الأعلى باستثناء k، ثم قم بإعادة التطبيع، ثم أخذ عينة. حجم مجموعة المرشحين الثابتة |
+| أخذ عينات النواة (أعلى ع) | "احتفظ بالاحتمالات" | احتفظ بأصغر مجموعة من الرموز المميزة التي يتجاوز احتمالها التراكمي p. حجم مجموعة المرشح التكيفي |
+| خدعة إعادة المعلمة | "حرك العشوائية للخارج" | اكتب z = mu + sigma * epsilon حيث epsilon ~ N(0,1). يجعل أخذ العينات قابلة للتمييز. ضروري للتدريب VAE |
+| غامبل-سوفت ماكس | "أخذ العينات الفئوية الناعمة" | التقريب التفاضلي لأخذ العينات الفئوية باستخدام ضوضاء غامبل + softmax مع درجة الحرارة |
+| أخذ العينات الطبقية | "التغطية القسرية" | قسّم مساحة العينة إلى طبقات، وعينة من كل منها. دائما أقل تباينا من مونت كارلو الساذجة |
+| حرق في | "فترة الاحماء" | يتم التخلص من MCMC عينات أولية قبل أن تصل السلسلة إلى توزيعها الثابت |
+| الرصيد التفصيلي | "شرط الرجوع" | ع(x) * T(x->y) = p(y) * T(y->x). الشرط الكافي لـ p هو التوزيع الثابت لسلسلة ماركوف |
+| أخذ العينات من الانتشار | "التقليل التكراري" | إنشاء البيانات عن طريق البدء من الضوضاء وتطبيق خطوات تقليل الضوضاء المستفادة. كل خطوة هي عملية أخذ عينات مشروطة |
 
 ## Further Reading
 
 - [Holbrook (2023): The Metropolis-Hastings Algorithm](https://arxiv.org/abs/2304.07010) - detailed tutorial on MCMC foundations
-- [Jang, Gu, Poole (2017): Categorical Reparameterization with Gumbel-Softmax](https://arxiv.org/abs/1611.01144) - original Gumbel-Softmax paper
-- [Holtzman et al. (2020): The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) - nucleus (top-p) sampling paper
+- [Jang, Gu, Poole (2017): إعادة المعلمة الفئوية باستخدام Gumbel-Softmax](https://arxiv.org/abs/1611.01144) - ورق Gumbel-Softmax الأصلي
+- [Holtzman et al. (2020): The Curious Case of Neural Text Degeneration](https://arxiv.org/abs/1904.09751) - nucleus (top-p) ورق أخذ العينات
 - [Kingma & Welling (2014): Auto-Encoding Variational Bayes](https://arxiv.org/abs/1312.6114) - VAE paper introducing the reparameterization trick
-- [Ho, Jain, Abbeel (2020): Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) - DDPM connects sampling to image generation
+- [Ho, Jain, Abbeel (2020): تقليل الضوضاء النماذج الاحتمالية للانتشار](https://arxiv.org/abs/2006.11239) - DDPM يربط أخذ العينات بتوليد الصور

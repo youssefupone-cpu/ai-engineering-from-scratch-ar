@@ -1,8 +1,12 @@
-"""حاسبة الذاكرة Jamba / Mamba-3 — stdlib Python. يحسب ذاكرة التخزين المؤقت KV وحالة SSM وإجمالي ذاكرة طبقة الانتباه لنطاق ما
-التكوينات الهجينة: محول نقي، جامبا 1:7، 1:3، 1:15، ونقي
-__المصطلح_2__. طباعة المقارنة في سياق 8k، 64k، 128k، 256k. الأرقام توضيحية وليست ميزانيات ذاكرة الإنتاج الدقيقة. النقطة هي
-لإظهار سبب أهمية النسبة المختلطة ومكان مطالبة Jamba بـ 256 ألفًا على 80 جيجابايت
-يأتي من.
+"""Jamba / Mamba-3 memory calculator — stdlib Python.
+
+Computes KV cache, SSM state, and total attention-layer memory for a range
+of hybrid configurations: pure Transformer, Jamba 1:7, 1:3, 1:15, and pure
+SSM. Prints the comparison at 8k, 64k, 128k, 256k context.
+
+Numbers are illustrative, not exact production memory budgets. The point is
+to show why the hybrid ratio matters and where Jamba's 256k-on-80GB claim
+comes from.
 """
 
 from __future__ import annotations

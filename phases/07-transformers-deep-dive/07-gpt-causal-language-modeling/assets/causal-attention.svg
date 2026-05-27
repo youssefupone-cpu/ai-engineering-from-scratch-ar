@@ -79,7 +79,7 @@
   </g>
 
   <text x="630" y="275" text-anchor="middle" class="caption">الموقف الأول يحضر إلى المواقف ≥ أنا فقط</text>
-  <text x="630" y="292" text-anchor="middle" class="caption">يناسب أجهزة فك التشفير (GPT، اللاما، كلود)</text>
+  <text x="630" y="292" text-anchor="middle" class="caption">يناسب أجهزة فك التشفير (GPT، Llama، Claude)</text>
 
   <!-- Training / inference axis -->
   <rect x="90" y="330" width="720" height="140" class="box"/>

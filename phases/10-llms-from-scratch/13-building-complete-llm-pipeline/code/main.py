@@ -1,7 +1,11 @@
-"""نهاية إلى نهاية LLM pipمنسق الخط. اثنتا عشرة مرحلة سلكية على شكل DAG. كل مرحلة عبارة عن عنصر نائب يصدر رسالة مكتوبة
-قطعة أثرية مع تجزئة معالجة المحتوى. يقوم المنسق بحل التبعيات،
-يتم تشغيل المراحل وتسجيل المانيفست وتطبيق بوابات التقييم قبل الشحن. لا توجد شبكة، ولا GPUs، وstdlib فقط. استبدل `run` الخاص بكل مرحلة بالرمز الحقيقي
-نص التدريب من درس المرحلة 10 المقابلة.
+"""End-to-end LLM pipeline orchestrator.
+
+Twelve stages wired as a DAG. Each stage is a placeholder that emits a typed
+artifact with a content-addressed hash. The orchestrator resolves dependencies,
+runs stages, records a manifest, and applies eval gates before shipping.
+
+No network, no GPUs, stdlib only. Replace each stage's `run` with the real
+training script from the corresponding Phase 10 lesson.
 """
 
 from __future__ import annotations
@@ -64,7 +68,7 @@ class Manifest:
 
 
 class ArtifactStore:
-    """البديل في الذاكرة لحاوية S3 / R2 / GCS التي تمت معالجتها بواسطة SHA-256."""
+    """In-memory stand-in for an S3 / R2 / GCS bucket addressed by SHA-256."""
 
     def __init__(self) -> None:
         self._store: dict[str, bytes] = {}
@@ -85,7 +89,8 @@ class ArtifactStore:
 
 
 def simulate_stage(name: str, stage_type: str, inputs: list[str], seed: int) -> tuple[bytes, float, float]:
-    """العنصر النائب: يصدر نقطة حتمية وساعة حائط وتكلفة. استبدل هذا بنصوص دروس المرحلة العاشرة الحقيقية."""
+    """Placeholder: emits a deterministic blob, a wall-clock, and a cost.
+    Swap this for the real Phase 10 lesson scripts."""
 
     payload = {
         "stage": name,
@@ -110,7 +115,7 @@ def simulate_stage(name: str, stage_type: str, inputs: list[str], seed: int) -> 
 
 
 def plan(manifest: Manifest) -> str:
-    """التحقق من صحة البيان، وطباعة DAG، وحساب التكلفة التقديرية."""
+    """Validate the manifest, print the DAG, compute the cost estimate."""
 
     lines = ["PLAN"]
     lines.append("=" * 60)
@@ -130,7 +135,7 @@ def plan(manifest: Manifest) -> str:
 
 
 def run(manifest: Manifest, store: ArtifactStore, injected_eval: dict | None = None) -> Manifest:
-    """نفذ المراحل بالترتيب DAG. توقف عن الميزانية أو فشل التجزئة."""
+    """Execute stages in DAG order. Halts on budget or hash failure."""
 
     name_to_hash: dict[str, str] = {}
 
@@ -174,7 +179,7 @@ def run(manifest: Manifest, store: ArtifactStore, injected_eval: dict | None = N
 
 
 def gate(manifest: Manifest) -> tuple[bool, list[str]]:
-    """تطبيق كل بوابة. العودة (السفينة؟، الأسباب)."""
+    """Apply each gate. Return (ship?, reasons)."""
 
     reasons = []
     all_pass = True

@@ -1,6 +1,8 @@
-"""توجيه التشفير المنفصل لـ Janus-Pro - stdlib. اثنين من برامج التشفير الوهمية (مثل SigLIP الدلالي، إعادة الإعمار VQ-like)، أحدهما مشترك
-جسم المحول، وهو جهاز توجيه يختار بناءً على علامة المهمة. آثار ثلاثة سبيل المثال
-المطالبات عبر السطر pipe.
+"""Janus-Pro decoupled-encoder routing — stdlib.
+
+Two mock encoders (semantic SigLIP-like, reconstruction VQ-like), one shared
+transformer body, a router that picks based on task tag. Traces three example
+prompts through the pipeline.
 """
 
 from __future__ import annotations
@@ -46,7 +48,7 @@ class SharedBody:
 
 
 def route(prompt: str) -> str:
-    """صنف المهمة على أنها `understand` أو `generate`."""
+    """Classify task as `understand` or `generate`."""
     u_keywords = ["describe", "what", "why", "caption", "explain", "how many"]
     g_keywords = ["draw", "generate", "sketch", "render", "create", "paint"]
     p = prompt.lower()

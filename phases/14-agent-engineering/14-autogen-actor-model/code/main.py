@@ -1,6 +1,8 @@
-"""وقت تشغيل ممثل stdlib على غرار AutoGen v0.4 Core. الجهات الفاعلة لديها حالة خاصة وصندوق الوارد. الرسائل هي التفاعل الوحيد.
-يتم اكتشاف حالات الفشل في أحد الممثلين خلال وقت التشغيل ويتم توجيهها إلى رسالة ميتة
-قائمة الانتظار؛ الجهات الفاعلة الأخرى تستمر في الجري.
+"""A stdlib actor runtime modeled on AutoGen v0.4 Core.
+
+Actors have private state and an inbox. Messages are the only interaction.
+Failures in one actor are caught by the runtime and routed to a dead-letter
+queue; other actors keep running.
 """
 
 from __future__ import annotations

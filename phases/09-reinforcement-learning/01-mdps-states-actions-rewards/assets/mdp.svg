@@ -13,7 +13,7 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">حلقة MDP: خمسة كائنات، وتكرار واحد</text>
+  <text x="450" y="30" text-anchor="middle" class="title">الحلقة MDP: خمسة كائنات، عود واحد</text>
 
   <rect x="40" y="70" width="160" height="90" class="box"/>
   <text x="120" y="98" text-anchor="middle" class="label">الدولة s_t</text>
@@ -46,7 +46,7 @@
   <text x="450" y="325" text-anchor="middle" class="label">العودية بيلمان</text>
   <text x="450" y="352" text-anchor="middle" class="content">V^pi(s) = sum_a pi(a|s) · sum_{s',r} P(s',r | s,a) · [ r + gamma · V^pi(s') ]</text>
   <text x="450" y="378" text-anchor="middle" class="content">Q^pi(s,a) = sum_{s',r} P(s',r | s,a) · [ r + gamma · sum_{a'} pi(a'|s') · Q^pi(s',a') ]</text>
-  <text x="450" y="408" text-anchor="middle" class="caption">التكرار إلى نقطة ثابتة (DP) · عينة (MC) · تمهيد خطوة واحدة (TD)</text>
+  <text x="450" y="408" text-anchor="middle" class="caption">التكرار إلى النقطة الثابتة (DP) · العينة (MC) · التمهيد خطوة واحدة (TD)</text>
 
-  <text x="450" y="450" text-anchor="middle" class="caption">الحالة + الإجراء + الانتقال + المكافأة + الخصم — كل خوارزمية RL في هذه المرحلة</text>
+  <text x="450" y="450" text-anchor="middle" class="caption">الحالة + الإجراء + الانتقال + المكافأة + الخصم - كل خوارزمية RL في هذه المرحلة</text>
 </svg>

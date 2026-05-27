@@ -33,10 +33,10 @@
   <line x1="417" y1="105" x2="438" y2="105" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <rect x="440" y="55" width="180" height="100" class="box"/>
-  <text x="530" y="78" text-anchor="middle" class="label">3. LLM فك التشفير</text>
+  <text x="530" y="78" text-anchor="middle" class="label">3. LLM فك</text>
   <text x="530" y="96" text-anchor="middle" class="content">اللاما / كوين / جيما</text>
   <text x="530" y="114" text-anchor="middle" class="content">الرموز النصية + الصوتية</text>
-  <text x="530" y="138" text-anchor="middle" class="caption">LoRA-المرحلة المضبوطة بدقة 2</text>
+  <text x="530" y="138" text-anchor="middle" class="caption">LoRA-المرحلة الثانية المضبوطة بدقة</text>
 
   <line x1="622" y1="105" x2="643" y2="105" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
 
@@ -49,7 +49,7 @@
   <rect x="30" y="175" width="815" height="100" class="box"/>
   <text x="437" y="195" text-anchor="middle" class="label">وصفة التدريب</text>
   <text x="60" y="220" class="content">المرحلة 1 · تجميد التشفير + LLM؛ تدريب جهاز العرض على ASR / أزواج التسميات التوضيحية</text>
-  <text x="60" y="238" class="content">المرحلة 2 · LoRA على برنامج التشفير + LLM؛ الصوت-QA/بيانات متابعة التعليمات</text>
+  <text x="60" y="238" class="content">المرحلة 2 · LoRA على جهاز التشفير + LLM; صوت-QA/بيانات متابعة التعليمات</text>
   <text x="60" y="256" class="content">المرحلة 3 · (اختياري) قم بتثبيت جهاز فك تشفير الكلام لإدخال الصوت/إخراج الصوت</text>
 
   <rect x="30" y="295" width="815" height="130" class="hot"/>

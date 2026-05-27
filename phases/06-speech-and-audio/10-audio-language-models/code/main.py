@@ -1,6 +1,10 @@
-"""هيكل عظمي لنموذج اللغة الصوتية. يتنقل عبر القالب المكون من 3 مكونات كل عام 2026 يستخدم LALM:
-جهاز تشفير الصوت → جهاز العرض → وحدة فك ترميز LLM. لا توجد شبكة عصبية – هذه هي
-شكل كل تنفيذ حقيقي يملأ. تشغيل: كود python3/main.py
+"""Audio-Language Model skeleton.
+
+Walks through the 3-component template every 2026 LALM uses:
+audio encoder → projector → LLM decoder. No neural net — this is the
+shape every real implementation fills in.
+
+Run: python3 code/main.py
 """
 
 import math

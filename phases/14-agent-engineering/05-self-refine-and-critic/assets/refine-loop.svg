@@ -18,7 +18,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">التحسين الذاتي (2023) وCRITIC (2023) - التحسين التكراري</text>
+  <text x="480" y="26" text-anchor="middle" class="title">الصقل الذاتي (2023) و CRITIC (2023) - التحسين التكراري</text>
 
   <rect x="40" y="60" width="420" height="440" class="box"/>
   <text x="250" y="84" text-anchor="middle" class="head">الصقل الذاتي: نموذج واحد وثلاث مطالبات</text>
@@ -40,7 +40,7 @@
   <text x="90" y="328" class="small">إقران كلا الشرطين؛ توقف واحد لإخفاء الأخطاء</text>
 
   <text x="70" y="360" class="step">المتوسط ​​+20 المطلق لأكثر من 7 مهام (ورقية)</text>
-  <text x="70" y="376" class="small">الرياضيات، الكود، الاختصار، الحوار؛ يتضمن GPT-4</text>
+  <text x="70" y="376" class="small">الرياضيات، الكود، الاختصار، الحوار؛ يشمل GPT-4</text>
   <text x="70" y="400" class="step">المأزق: حلقة ختم مطاطي</text>
   <text x="70" y="416" class="small">نفس الناقد الفوري يتفق مع نفسه</text>
   <text x="70" y="432" class="small">الإصلاح: أسلوب موجه مختلف أو ناقد أصغر</text>
@@ -63,14 +63,14 @@
   <text x="550" y="268" class="small">نفس الصقل، ونقد أفضل -&gt; إنتاج أفضل</text>
 
   <rect x="530" y="290" width="360" height="50" class="dsk"/>
-  <text x="550" y="312" class="step">توقف: يمر المدقق بـ OR max_iters</text>
+  <text x="550" y="312" class="step">توقف: يمر المدقق OR max_iters</text>
   <text x="550" y="328" class="small">إشارة التحقق تهيمن على النقد الذاتي</text>
 
   <text x="530" y="360" class="step">المطالبة الرئيسية</text>
-  <text x="530" y="376" class="small">LLMs لا يمكن الاعتماد عليها في التحقق الذاتي دون أسس خارجية</text>
-  <text x="530" y="400" class="step">يعين OpenAI الوكلاء SDK حواجز الحماية للإخراج</text>
+  <text x="530" y="376" class="small">LLMs لا يمكن الاعتماد عليها في التحقق الذاتي دون تأريض خارجي</text>
+  <text x="530" y="400" class="step">خرائط لـ OpenAI الوكلاء SDK حواجز الحماية للإخراج</text>
   <text x="530" y="416" class="small">يمكن أن تستدعي حواجز الحماية الأدوات؛ تقوم أسلاك التعثر بفرض إعادة المحاولة</text>
   <text x="530" y="440" class="step">خرائط لسلامة الجوزاء 2.5 لكل خطوة</text>
   <text x="530" y="456" class="small">تم التحقق من كل إجراء قبل الالتزام</text>
-  <text x="530" y="480" class="small">لا يوجد مدقق خارجي؟ CRITIC يُختزل إلى التحسين الذاتي</text>
+  <text x="530" y="480" class="small">لا يوجد مدقق خارجي؟ CRITIC يقلل من الصقل الذاتي</text>
 </svg>

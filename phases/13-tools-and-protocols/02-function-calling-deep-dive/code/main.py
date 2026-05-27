@@ -1,6 +1,10 @@
-"""المرحلة 13 الدرس 02 - استدعاء الوظيفة للتعمق في ثلاثة مقدمي خدمات. تأخذ أداة أساسية واحدة، وتُصدر إعلان OpenAI والإنساني والجوزاء
-الحمولات، ثم يقوم بتحليل الاستجابة المصنوعة يدويًا لكل شكل مرة أخرى إلى ملف
-كائن اتصال محايد للموفر. ستدليب فقط؛ لا توجد شبكة. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 02 - function calling deep dive across three providers.
+
+Takes one canonical Tool, emits the OpenAI, Anthropic, and Gemini declaration
+payloads, then parses a hand-crafted response of each shape back into a
+provider-agnostic Call object. Stdlib only; no network.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations

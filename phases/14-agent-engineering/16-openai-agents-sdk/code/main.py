@@ -1,6 +1,8 @@
-"""OpenAI الوكلاء SDK وقت التشغيل على شكل stdlib. خمسة عناصر أساسية: الوكيل، والأداة الوظيفية، والتسليم، والدرابزين، والتتبع.
-عمليات التسليم هي أدوات تسمى Transfer_to_<agent>. رحلة الدرابزين على الإدخال / الإخراج.
-تعكس شجرة الامتداد ما ينبعث منه SDK الحقيقي.
+"""OpenAI Agents SDK-shaped runtime in stdlib.
+
+Five primitives: Agent, FunctionTool, Handoff, Guardrail, Tracing.
+Handoffs are tools named transfer_to_<agent>. Guardrails trip on input/output.
+A span tree mirrors what the real SDK emits.
 """
 
 from __future__ import annotations

@@ -79,12 +79,12 @@
   <text x="575" y="275" text-anchor="middle" class="label">objective</text>
   <text x="575" y="298" text-anchor="middle" class="mono">L_G = -log D(x, G(x)) + 100 · ||y - G(x)||_1</text>
   <text x="575" y="320" text-anchor="middle" class="mono">L_D = -سجل D(x, y) - سجل (1 - D(x, G(x)))</text>
-  <text x="575" y="340" text-anchor="middle" class="caption">L1 مثبتات + حواف حادة؛ مصطلح متقدم يحارب طمس</text>
+  <text x="575" y="340" text-anchor="middle" class="caption">L1 يستقر + حواف حادة؛ مصطلح متقدم يحارب طمس</text>
 
   <!-- CycleGAN callout -->
   <rect x="30" y="380" width="830" height="100" class="box"/>
   <text x="445" y="403" text-anchor="middle" class="label">CycleGAN (غير مقترن): أضف G ثانيًا وخسارة تناسق الدورة</text>
   <text x="445" y="425" text-anchor="middle" class="mono">G: X -&gt; Y، F: Y -&gt; X، الخسارة += ||F(G(x)) - x||_1 + ||G(F(y)) - y||_1</text>
   <text x="445" y="447" text-anchor="middle" class="caption">لا حاجة للبيانات المقترنة. الخيول &lt;-&gt; الحمير الوحشية، الصيف &lt;-&gt; الشتاء</text>
-  <text x="445" y="465" text-anchor="middle" class="caption">2026: تم استبدال معظمها بـ ControlNet + IP-Adapter over diffusion</text>
+  <text x="445" y="465" text-anchor="middle" class="caption">2026: تم استبداله في الغالب بـ ControlNet + IP-Adapter over diffusion</text>
 </svg>

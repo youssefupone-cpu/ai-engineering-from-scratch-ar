@@ -15,7 +15,7 @@
     </style>
   </defs>
 
-  <text x="450" y="28" text-anchor="middle" class="title">التشفير التلقائي مقابل VAE — الحيلة الوحيدة</text>
+  <text x="450" y="28" text-anchor="middle" class="title">التشفير التلقائي مقابل VAE — الخدعة الوحيدة</text>
 
   <!-- plain AE -->
   <text x="180" y="70" text-anchor="middle" class="label">التشفير التلقائي العادي</text>

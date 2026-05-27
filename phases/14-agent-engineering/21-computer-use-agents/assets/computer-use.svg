@@ -17,14 +17,14 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">استخدام الكمبيوتر — كلود، OpenAI CUA، الجوزاء 2.5 (جميعها تعتمد على الرؤية)</text>
+  <text x="480" y="26" text-anchor="middle" class="title">استخدام الكمبيوتر - كلود، OpenAI CUA، الجوزاء 2.5 (كلها تعتمد على الرؤية)</text>
 
   <rect x="40" y="50" width="290" height="200" class="claude"/>
   <text x="185" y="72" text-anchor="middle" class="head">كلود يستخدم الكمبيوتر</text>
   <text x="60" y="96" class="small">أنثروبي، 22 أكتوبر 2024</text>
   <rect x="60" y="108" width="250" height="40" class="box"/>
   <text x="78" y="128" class="step">لقطة شاشة في لوحة المفاتيح / إخراج الماوس</text>
-  <text x="78" y="142" class="small">لا توجد إمكانية الوصول APIs؛ بكسل نقية</text>
+  <text x="78" y="142" class="small">لا يوجد إمكانية الوصول APIs; بكسل نقية</text>
   <rect x="60" y="150" width="250" height="40" class="box"/>
   <text x="78" y="170" class="step">أداة الكمبيوتر المخبوزة في النموذج</text>
   <text x="78" y="184" class="small">المخطط غير قابل للتكوين بواسطة المطور</text>
@@ -34,10 +34,10 @@
   <text x="78" y="242" class="small">إحداثيات مستقلة عن القرار</text>
 
   <rect x="340" y="50" width="290" height="200" class="openai"/>
-  <text x="485" y="72" text-anchor="middle" class="head">OpenAI CUA / المشغل</text>
+  <text x="485" y="72" text-anchor="middle" class="head">OpenAI CUA / عامل</text>
   <text x="360" y="96" class="small">يناير 2025 وضع وكيل ChatGPT يوليو 2025</text>
   <rect x="360" y="108" width="250" height="40" class="box"/>
-  <text x="378" y="128" class="step">متغير GPT-4o مع RL في GUI</text>
+  <text x="378" y="128" class="step">البديل GPT-4o مع RL على GUI</text>
   <text x="378" y="142" class="small">الردود API، معاينة استخدام الكمبيوتر</text>
   <rect x="360" y="150" width="250" height="40" class="box"/>
   <text x="378" y="170" class="step">أو إس وورلد 38.1%، ويب أرينا 58.1%</text>
@@ -74,7 +74,7 @@
   <rect x="60" y="444" width="840" height="30" class="box"/>
   <text x="78" y="464" class="step">5. رفض توجيهات النص المسترجع ("تجاهل كافة التعليمات")</text>
   <rect x="60" y="478" width="840" height="24" class="box"/>
-  <text x="78" y="496" class="step">"التعليمات المباشرة فقط من المستخدم تعتبر إذنًا" - OpenAI CUA مستندات</text>
+  <text x="78" y="496" class="step">"فقط التعليمات المباشرة من المستخدم تعتبر إذنًا" — OpenAI CUA مستندات</text>
 
   <text x="480" y="540" text-anchor="middle" class="caption">جريشيك وآخرون. (2023) نموذج التهديد؛ جميع المنتجات الثلاثة تأخذ الأمر على محمل الجد.</text>
 </svg>

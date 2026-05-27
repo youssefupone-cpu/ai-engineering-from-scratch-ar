@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ما هو مفتاح API المستخدم عند الاتصال بخدمة LLM؟",
+      "question": "What is an API key used for when calling an LLM service?",
       "options": [
-        "تشفير البيانات المرسلة إلى الخادم",
-        "التحقق من هويتك وتفويض الطلبات",
-        "ضغط الطلبات لتقليل عرض النطاق الترددي",
-        "اختيار لغة البرمجة التي يستخدمها الخادم"
+        "Encrypting the data sent to the server",
+        "Authenticating your identity and authorizing requests",
+        "Compressing requests to reduce bandwidth",
+        "Selecting which programming language the server uses"
       ],
       "correct": 1,
-      "explanation": "مفتاح API عبارة عن سلسلة فريدة تحدد حسابك، وتأذن بطلباتك، وتسمح للموفر بتتبع الاستخدام والفوترة."
+      "explanation": "An API key is a unique string that identifies your account, authorizes your requests, and allows the provider to track usage and billing."
     },
     {
       "stage": "pre",
-      "question": "لماذا لا يجب أبدًا ترميز مفاتيح API بشكل مباشر في كود المصدر؟",
+      "question": "Why should API keys never be hardcoded directly in source code?",
       "options": [
-        "تعمل المفاتيح المشفرة make بشكل أبطأ",
-        "ويمكن أن تلتزم عن طريق الخطأ بـ git ويتم كشفها علنًا",
-        "لا تستطيع Python قراءة سلسلة حرفية أطول من 50 حرفًا",
-        "يقوم موفرو API بحظر المفاتيح التي تظهر في الملفات المصدر"
+        "Hardcoded keys make the code run slower",
+        "They can be accidentally committed to git and exposed publicly",
+        "Python cannot read string literals longer than 50 characters",
+        "API providers block keys that appear in source files"
       ],
       "correct": 1,
-      "explanation": "تتعرض المفاتيح المشفرة في التعليمات البرمجية المصدر لخطر الالتزام بالتحكم في الإصدار ودفعها إلى المستودعات العامة، حيث يمكن أن يتم سرقتها وإساءة استخدامها من قبل الآخرين."
+      "explanation": "Hardcoded keys in source code risk being committed to version control and pushed to public repositories, where they can be scraped and abused by others."
     },
     {
       "stage": "post",
-      "question": "ما هي الطريقة الموصى بها لتخزين مفاتيح API للتطوير المحلي؟",
+      "question": "What is the recommended way to store API keys for local development?",
       "options": [
-        "في متغير بايثون في الجزء العلوي من البرنامج النصي الخاص بك",
-        "في ملف.env المدرج في.gitignore",
-        "في README.md لسهولة الوصول إليها",
-        "في ملف require.txt بجانب إصدارات الحزمة"
+        "In a Python variable at the top of your script",
+        "In a.env file that is listed in.gitignore",
+        "In the README.md for easy access",
+        "In the requirements.txt alongside package versions"
       ],
       "correct": 1,
-      "explanation": "يقوم ملف.env بتخزين المفاتيح كمتغيرات بيئة ويجب إضافتها إلى.gitignore حتى لا يلتزم أبدًا بالتحكم في الإصدار. تقوم مجموعات SDK بقراءة المفاتيح من متغيرات البيئة تلقائيًا."
+      "explanation": "A.env file stores keys as environment variables and should be added to.gitignore so it is never committed to version control. SDKs read keys from environment variables automatically."
     },
     {
       "stage": "post",
-      "question": "في استدعاء HTTP API الأولي إلى Anthropic، ما الرأس الذي يحمل المفتاح API؟",
+      "question": "In the raw HTTP API call to Anthropic, which header carries the API key?",
       "options": [
-        "التفويض: حامل sk-ant-...",
-        "مفتاح x-api: sk-ant-...",
-        "نوع المحتوى: application/json",
-        "النسخة البشرية: 2023-06-01"
+        "Authorization: Bearer sk-ant-...",
+        "x-api-key: sk-ant-...",
+        "Content-Type: application/json",
+        "anthropic-version: 2023-06-01"
       ],
       "correct": 1,
-      "explanation": "يستخدم API الخاص بـ Anthropic رأس \"x-api-key\" للمصادقة، وليس نمط \"Authorization: Bearer\" الأكثر شيوعًا. وهذا خاص بتصميم API الخاص بهم."
+      "explanation": "Anthropic's API uses the 'x-api-key' header for authentication, not the more common 'Authorization: Bearer' pattern. This is specific to their API design."
     },
     {
       "stage": "post",
-      "question": "ماذا يحدث عندما تتجاوز الحد الأقصى لسعر API؟",
+      "question": "What happens when you exceed an API's rate limit?",
       "options": [
-        "تم إبطال مفتاح API الخاص بك نهائيًا",
-        "يعرض الخادم خطأ (عادةً HTTP 429) ويجب عليك الانتظار قبل إعادة المحاولة",
-        "يتم وضع طلبك في قائمة الانتظار ومعالجته لاحقًا تلقائيًا",
-        "يسقط API طلبك بصمت دون أي استجابة"
+        "Your API key is permanently revoked",
+        "The server returns an error (typically HTTP 429) and you must wait before retrying",
+        "Your request is queued and processed later automatically",
+        "The API silently drops your request with no response"
       ],
       "correct": 1,
-      "explanation": "عوائد تحديد السعر HTTP 429 (طلبات كثيرة جدًا). تحتاج إلى الانتظار وإعادة المحاولة، عادةً مع التراجع الأسي. تمنع حدود الأسعار إساءة الاستخدام وتضمن الاستخدام العادل."
+      "explanation": "Rate limiting returns HTTP 429 (Too Many Requests). You need to wait and retry, typically with exponential backoff. Rate limits prevent abuse and ensure fair usage."
     }
   ]
 }

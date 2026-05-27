@@ -18,11 +18,11 @@
 
   <rect x="40" y="60" width="820" height="60" class="box"/>
   <text x="60" y="85" class="label">ميزات الحالة المشتركة x = phi(s)</text>
-  <text x="60" y="105" class="caption">MLP جذع، CNN على وحدات البكسل، محول على الرموز المميزة - نفس الإدخال، رأسان</text>
+  <text x="60" y="105" class="caption">MLP جذع، CNN على البكسل، محول على الرموز المميزة - نفس الإدخال، رأسان</text>
 
   <rect x="40" y="140" width="400" height="180" class="hot"/>
   <text x="240" y="165" text-anchor="middle" class="label">الممثل بي ثيتا (أ | ق)</text>
-  <text x="60" y="195" class="content">logits = f_theta(x)</text>
+  <text x="60" y="195" class="content">لوgits = f_theta(x)</text>
   <text x="60" y="215" class="content">ع = softmax(logits)</text>
   <text x="60" y="245" class="content">الخسارة: -A * سجل pi(a|s)</text>
   <text x="60" y="265" class="content">  + c_e * H(pi(.|s))</text>
@@ -39,7 +39,7 @@
   <rect x="40" y="340" width="820" height="80" class="box"/>
   <text x="60" y="365" class="label">مقدر الميزة A_t</text>
   <text x="60" y="388" class="content">A_t = delta_t + (g * lam) * A_{t+1} delta_t = r_{t+1} + g V(s_{t+1}) - V(s_t)</text>
-  <text x="60" y="410" class="caption">GAE(لام): لام=0 نقي TD، لام=1 نقي MC، لام=0.95 الافتراضي لعام 2026</text>
+  <text x="60" y="410" class="caption">GAE(لام): لام=0 خالصة TD، لام=1 خالصة MC، لام=0.95 الافتراضي 2026</text>
 
   <text x="450" y="450" text-anchor="middle" class="caption">اطرح V من العودة، ثم قم بالتطبيع، ثم اضرب بـ grad log pi - تباين أقل، نفس التدرج</text>
 </svg>

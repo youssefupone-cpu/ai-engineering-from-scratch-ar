@@ -1,7 +1,11 @@
-"""الرسوم المتحركة لتوليد الموسيقى: توليد الوتر/الطبل الرمزي من الموجه. هذا موقف تربوي. يستخدم مولد الموسيقى الحقيقي برنامج الترميز العصبي LM
-(MusicGen / ACE-Step) أو الانتشار الكامن (الصوت المستقر). هنا نسير
-من خلال فكرة "الرموز مع مرور الوقت" على المستوى الرمزي بحيث يكون الشكل
-مرئية. ستدليب فقط. تشغيل: كود python3/main.py
+"""Music-generation cartoon: symbolic chord/drum generation from a prompt.
+
+This is a pedagogical stand-in. Real music-gen uses neural codec LM
+(MusicGen / ACE-Step) or latent diffusion (Stable Audio). Here we walk
+through the "tokens over time" idea at a symbolic level so the shape is
+visible.
+
+Stdlib only. Run: python3 code/main.py
 """
 
 import random

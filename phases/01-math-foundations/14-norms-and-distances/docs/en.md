@@ -1,44 +1,44 @@
-# المعايير والمسافات
+# Norms and Distances
 
-> تحدد وظيفة المسافة ما تعنيه كلمة "مشابه". اختر خطأ وكل شيء ينهار.
+> Your distance function defines what "similar" means. Choose wrong and everything downstream breaks.
 
-**النوع:** بناء
-** اللغة: ** بايثون
-**المتطلبات:** المرحلة الأولى، الدروس 01 (حدس الجبر الخطي)، 02 (المتجهات والمصفوفات والعمليات)
-**الوقت:** ~90 دقيقة
+**Type:** Build
+**Language:** Python
+**Prerequisites:** Phase 1, Lessons 01 (Linear Algebra Intuition), 02 (Vectors, Matrices & Operations)
+**Time:** ~90 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- تنفيذ L1، L2، جيب التمام، Mahalanobis، Jaccard، وتحرير وظائف المسافة من الصفر
-- حدد مقياس المسافة المناسب لمهمة ML معينة واشرح سبب فشل البدائل
-- ربط معايير L1 وL2 بتنظيم LASSO وRidge ومناطق القيود الهندسية الخاصة بهما
-- اشرح كيف تنتج مجموعة البيانات نفسها جيرانًا أقرب مختلفين بموجب مقاييس مختلفة
+- Implement L1, L2, cosine, Mahalanobis, Jaccard, and edit distance functions from scratch
+- Select the appropriate distance metric for a given ML task and explain why alternatives fail
+- Connect L1 and L2 norms to LASSO and Ridge regularization and their geometric constraint regions
+- Demonstrate how the same dataset produces different nearest neighbors under different metrics
 
-## المشكلة
+## The Problem
 
-لديك اثنين من المتجهات. ربما هي عبارة عن تضمينات للكلمات. ربما هم ملفات تعريف المستخدمين. ربما تكون صفائف بكسل. عليك أن تعرف: ما مدى قربهم؟
+You have two vectors. Maybe they are word embeddings. Maybe they are user profiles. Maybe they are pixel arrays. You need to know: how close are they?
 
-تعتمد الإجابة كليًا على وظيفة المسافة التي تختارها. يمكن أن تكون نقطتا البيانات أقرب جيرانًا ضمن مقياس واحد ومتباعدتين تحت مقياس آخر. مصنف KNN الخاص بك، محرك التوصية الخاص بك، قاعدة بيانات المتجهات الخاصة بك، خوارزمية التجميع الخاصة بك، وظيفة الخسارة الخاصة بك - كلها تعتمد على هذا الاختيار. أخطأ في فهم الأمر وسيعمل نموذجك على تحسين الشيء الخطأ.
+The answer depends entirely on which distance function you pick. Two data points can be nearest neighbors under one metric and far apart under another. Your KNN classifier, your recommendation engine, your vector database, your clustering algorithm, your loss function -- they all depend on this choice. Get it wrong and your model optimizes for the wrong thing.
 
-لا توجد مسافة عالمية أفضل. يعمل L2 للبيانات المكانية. تشابه جيب التمام يهيمن على البرمجة اللغوية العصبية. مجموعات مقابض الجاكار. تحرير مقابض المسافة. حسابات Mahalanobis للارتباطات. يتحرك فاسرشتاين كتلة الاحتمال. كل واحدة منها ترمز إلى افتراض مختلف حول معنى كلمة "مشابه".
+There is no universal best distance. L2 works for spatial data. Cosine similarity dominates NLP. Jaccard handles sets. Edit distance handles strings. Mahalanobis accounts for correlations. Wasserstein moves probability mass. Each one encodes a different assumption about what "similar" means.
 
-يبني هذا الدرس كل دالة مسافة رئيسية من الصفر، ويوضح لك متى تكون كل واحدة منها هي الأداة المناسبة، ويوضح كيف تنتج نفس البيانات جيرانًا أقرب مختلفين تمامًا اعتمادًا على المقياس الذي تستخدمه.
+This lesson builds every major distance function from scratch, shows you when each one is the right tool, and demonstrates how the same data produces completely different nearest neighbors depending on which metric you use.
 
-##المفهوم
+## The Concept
 
-### المعايير: قياس حجم المتجهات
+### Norms: measuring vector magnitude
 
-القاعدة تقيس "حجم" المتجه. يمكن كتابة كل دالة مسافة بين متجهين كمعيار للاختلاف بينهما: d(a, b) = ||a - b||. لذا فإن فهم المعايير يعني فهم المسافات.
+A norm measures the "size" of a vector. Every distance function between two vectors can be written as the norm of their difference: d(a, b) = ||a - b||. So understanding norms is understanding distances.
 
-### L1 نورم (مسافة مانهاتن)
+### L1 Norm (Manhattan distance)
 
-يقوم معيار L1 بجمع القيم المطلقة لجميع المكونات.
+The L1 norm sums the absolute values of all components.
 
 ```
 ||x||_1 = |x_1| + |x_2| + ... + |x_n|
 ```
 
-يطلق عليها مسافة مانهاتن لأنها تقيس المسافة التي تمشيها على شبكة المدينة حيث يمكنك التحرك فقط على طول المحاور. لا الأقطار.
+It is called Manhattan distance because it measures how far you walk on a city grid where you can only move along axes. No diagonals.
 
 ```
 Point A = (1, 1)
@@ -49,24 +49,24 @@ L1 distance = |4-1| + |5-1| = 3 + 4 = 7
 On a grid, you walk 3 blocks east and 4 blocks north.
 ```
 
-متى تستخدم L1:
-- بيانات متفرقة عالية الأبعاد (ميزات النص، الترميزات الساخنة)
-- عندما تريد المتانة للقيم المتطرفة (لا يهيمن فرق كبير واحد)
-- مشاكل في اختيار الميزة (يؤدي تنظيم L1 إلى تعزيز التناثر)
+When to use L1:
+- High-dimensional sparse data (text features, one-hot encodings)
+- When you want robustness to outliers (a single huge difference does not dominate)
+- Feature selection problems (L1 regularization promotes sparsity)
 
-الاتصال بتنظيم L1 (Lasso): تؤدي إضافة ||w||_1 إلى دالة الخسارة الخاصة بك إلى معاقبة مجموع قيم الوزن المطلقة. يؤدي هذا إلى دفع الأوزان الصغيرة إلى الصفر تمامًا، مما يؤدي إلى تحديد الميزات تلقائيًا. عقوبة L1 تخلق مناطق تقييد على شكل معين في مساحة الوزن، وتقع زوايا الماس على المحاور حيث تكون بعض الأوزان صفرًا.
+Connection to L1 regularization (Lasso): adding ||w||_1 to your loss function penalizes the sum of absolute weight values. This pushes small weights to exactly zero, performing automatic feature selection. The L1 penalty creates diamond-shaped constraint regions in weight space, and the corners of diamonds lie on the axes where some weights are zero.
 
-الاتصال بوظائف الخسارة: متوسط ​​الخطأ المطلق (MAE) هو متوسط ​​مسافة L1 بين التنبؤات والأهداف. إنه يعاقب جميع الأخطاء خطيًا، مما يجعله قويًا بالنسبة للقيم المتطرفة مقارنةً بـ MSE.
+Connection to loss functions: Mean Absolute Error (MAE) is the average L1 distance between predictions and targets. It penalizes all errors linearly, making it robust to outliers compared to MSE.
 
-### L2 نورم (المسافة الإقليدية)
+### L2 Norm (Euclidean distance)
 
-معيار L2 هو مسافة الخط المستقيم. الجذر التربيعي لمجموع المكونات التربيعية.
+The L2 norm is the straight-line distance. Square root of the sum of squared components.
 
 ```
 ||x||_2 = sqrt(x_1^2 + x_2^2 + ... + x_n^2)
 ```
 
-هذه هي المسافة التي تعلمتها في صف الهندسة. فيثاغورس في الأبعاد n.
+This is the distance you learned in geometry class. Pythagoras in n dimensions.
 
 ```
 Point A = (1, 1)
@@ -77,30 +77,30 @@ L2 distance = sqrt((4-1)^2 + (5-1)^2) = sqrt(9 + 16) = sqrt(25) = 5.0
 The straight line, cutting diagonally through the grid.
 ```
 
-متى تستخدم L2:
-- بيانات مستمرة ذات أبعاد منخفضة إلى متوسطة
-- عندما تكون مقاييس الميزة قابلة للمقارنة
-- المسافات المادية (البيانات المكانية، قراءات أجهزة الاستشعار)
-- تشابه الصورة على مستوى البكسل
+When to use L2:
+- Low-to-medium dimensional continuous data
+- When the feature scales are comparable
+- Physical distances (spatial data, sensor readings)
+- Image similarity at the pixel level
 
-الاتصال بتسوية L2 (Ridge): تؤدي إضافة ||w||_2^2 إلى وظيفة الخسارة إلى معاقبة الأوزان الكبيرة. على عكس L1، فإنه لا يدفع الأوزان إلى الصفر. إنه يقلص جميع الأوزان نحو الصفر بشكل متناسب. عقوبة L2 تخلق مناطق تقييد دائرية، لذلك لا توجد زوايا على المحاور. تصبح الأوزان صغيرة ولكن نادرًا ما تكون صفرًا بالضبط.
+Connection to L2 regularization (Ridge): adding ||w||_2^2 to your loss function penalizes large weights. Unlike L1, it does not push weights to zero. It shrinks all weights toward zero proportionally. The L2 penalty creates circular constraint regions, so there are no corners on axes. Weights get small but rarely exactly zero.
 
-الاتصال بوظائف الخسارة: متوسط ​​الخطأ التربيعي (MSE) هو متوسط ​​مسافات L2 المربعة. التربيع يعاقب الأخطاء الكبيرة بشكل أكبر من الأخطاء الصغيرة.
+Connection to loss functions: Mean Squared Error (MSE) is the average of L2 distances squared. Squaring penalizes large errors more heavily than small ones.
 
 ```
 MAE (L1 loss):  |y - y_hat|         Linear penalty. Robust to outliers.
 MSE (L2 loss):  (y - y_hat)^2       Quadratic penalty. Sensitive to outliers.
 ```
 
-### معايير Lp: العائلة العامة
+### Lp Norms: the general family
 
-L1 وL2 هما حالتان خاصتان لمعيار Lp:
+L1 and L2 are special cases of the Lp norm:
 
 ```
 ||x||_p = (|x_1|^p + |x_2|^p + ... + |x_n|^p)^(1/p)
 ```
 
-القيم المختلفة لـ p تنتج "كرات وحدة" مختلفة الأشكال (مجموعة جميع النقاط على مسافة 1 من الأصل):
+Different values of p produce different shaped "unit balls" (the set of all points at distance 1 from the origin):
 
 ```
 p=1:    Diamond shape      (corners on axes)
@@ -109,15 +109,15 @@ p=3:    Superellipse       (rounded square)
 p=inf:  Square/hypercube   (flat sides along axes)
 ```
 
-### L-infinity Norm (مسافة تشيبيشيف)
+### L-infinity Norm (Chebyshev distance)
 
-عندما تقترب p من اللانهاية، فإن معيار Lp يتقارب مع الحد الأقصى للمركبة المطلقة.
+As p approaches infinity, the Lp norm converges to the maximum absolute component.
 
 ```
 ||x||_inf = max(|x_1|, |x_2|, ..., |x_n|)
 ```
 
-يتم تحديد المسافة بين نقطتين من خلال البعد الوحيد الذي يختلفان فيه أكثر. ويتم تجاهل كافة الأبعاد الأخرى.
+The distance between two points is determined by the single dimension where they differ the most. All other dimensions are ignored.
 
 ```
 Point A = (1, 1)
@@ -126,22 +126,22 @@ Point B = (4, 5)
 L-inf distance = max(|4-1|, |5-1|) = max(3, 4) = 4
 ```
 
-متى يتم استخدام L-infinity:
-- عندما يكون الانحراف الأسوأ في أي بُعد منفرد مهمًا
-- لوحات اللعبة (ملك في لعبة الشطرنج يتحرك في L-infinity: خطوة واحدة في أي اتجاه تكلف 1)
-- تفاوتات التصنيع (يجب أن يكون كل بُعد ضمن المواصفات)
+When to use L-infinity:
+- When the worst-case deviation in any single dimension matters
+- Game boards (a king in chess moves in L-infinity: one step in any direction costs 1)
+- Manufacturing tolerances (every dimension must be within spec)
 
-### تشابه جيب التمام ومسافة جيب التمام
+### Cosine Similarity and Cosine Distance
 
-يقيس تشابه جيب التمام الزاوية بين متجهين، متجاهلاً حجمهما.
+Cosine similarity measures the angle between two vectors, ignoring their magnitudes.
 
 ```
 cos_sim(a, b) = (a . b) / (||a||_2 * ||b||_2)
 ```
 
-ويتراوح من -1 (الاتجاه المعاكس) إلى +1 (نفس الاتجاه). المتجهات المتعامدة لها تشابه جيب التمام 0.
+It ranges from -1 (opposite directions) to +1 (same direction). Perpendicular vectors have cosine similarity 0.
 
-مسافة جيب التمام تحولها إلى مسافة: cosine_distance = 1 - cosine_similarity. يتراوح هذا من 0 (الاتجاه المطابق) إلى 2 (الاتجاه المعاكس).
+Cosine distance converts it to a distance: cosine_distance = 1 - cosine_similarity. This ranges from 0 (identical direction) to 2 (opposite direction).
 
 ```
 a = (1, 0)    b = (1, 1)
@@ -150,31 +150,31 @@ cos_sim = (1*1 + 0*1) / (1 * sqrt(2)) = 1/sqrt(2) = 0.707
 cos_dist = 1 - 0.707 = 0.293
 ```
 
-لماذا يهيمن جيب التمام على البرمجة اللغوية العصبية والتضمينات: في النص، يجب ألا يؤثر طول المستند على التشابه. يجب أن يظل المستند الخاص بالقطط الذي يبلغ طوله ضعف المستند الآخر الخاص بالقطط "مشابهًا". يتجاهل تشابه جيب التمام الحجم (الطول) ويهتم فقط بالاتجاه. وثيقتان بنفس توزيع الكلمات ولكن بأطوال مختلفة تشيران إلى نفس الاتجاه وتحصلان على تشابه جيب التمام 1.0.
+Why cosine dominates NLP and embeddings: in text, document length should not affect similarity. A document about cats that is twice as long as another document about cats should still be "similar." Cosine similarity ignores magnitude (length) and only cares about direction. Two documents with the same word distribution but different lengths point in the same direction and get cosine similarity 1.0.
 
-متى يتم استخدام تشابه جيب التمام:
-- تشابه النص (ناقلات TF-IDF، تضمينات الكلمات، تضمينات الجملة)
-- أي مجال حيث الحجم هو الضوضاء والاتجاه هو الإشارة
-- أنظمة التوصية (ناقلات تفضيلات المستخدم)
-- تضمين البحث (قواعد بيانات المتجهات تستخدم دائمًا منتج جيب التمام أو النقطة)
+When to use cosine similarity:
+- Text similarity (TF-IDF vectors, word embeddings, sentence embeddings)
+- Any domain where magnitude is noise and direction is signal
+- Recommendation systems (user preference vectors)
+- Embedding search (vector databases almost always use cosine or dot product)
 
-### تشابه المنتج النقطي مقابل تشابه جيب التمام
+### Dot Product Similarity vs Cosine Similarity
 
-المنتج النقطي لمتجهين هو:
+The dot product of two vectors is:
 
 ```
 a . b = a_1*b_1 + a_2*b_2 + ... + a_n*b_n
       = ||a|| * ||b|| * cos(angle)
 ```
 
-تشابه جيب التمام هو المنتج النقطي الذي تم تطبيعه بكلا المقدارين. عندما يتم بالفعل تسوية كلا المتجهين بوحدة (الحجم = 1)، يكون حاصل الضرب النقطي وتشابه جيب التمام متطابقين.
+Cosine similarity is the dot product normalized by both magnitudes. When both vectors are already unit-normalized (magnitude = 1), dot product and cosine similarity are identical.
 
 ```
 If ||a|| = 1 and ||b|| = 1:
     a . b = cos(angle between a and b)
 ```
 
-عندما تختلف: يتضمن المنتج النقطي معلومات الحجم. يحصل المتجه ذو الحجم الأكبر على درجة منتج نقطية أعلى. وهذا مهم في بعض أنظمة الاسترجاع حيث تريد أن تحتل العناصر "الشائعة" مرتبة أعلى. يعمل الحجم كإشارة ضمنية للجودة أو الأهمية.
+When they differ: dot product includes magnitude information. A vector with larger magnitude gets a higher dot product score. This matters in some retrieval systems where you want "popular" items to rank higher. The magnitude acts as an implicit quality or importance signal.
 
 ```
 a = (3, 0)    b = (1, 0)    c = (0, 1)
@@ -185,25 +185,25 @@ cos(a, b) = 1.0   cos(a, c) = 0.0
 Both agree on direction, but dot product also reflects magnitude.
 ```
 
-في الممارسة العملية:
-- استخدم تشابه جيب التمام عندما تريد تشابهًا اتجاهيًا خالصًا
-- استخدم منتج النقطة عندما تحمل المقادير معلومات ذات معنى
-- العديد من قواعد بيانات المتجهات (Pinecone، Weaviate، Qdrant) تتيح لك الاختيار فيما بينها
-- إذا كانت التضمينات الخاصة بك ذات مستوى L2 طبيعي، فلا يهم الاختيار
+In practice:
+- Use cosine similarity when you want pure directional similarity
+- Use dot product when magnitudes carry meaningful information
+- Many vector databases (Pinecone, Weaviate, Qdrant) let you choose between them
+- If your embeddings are L2-normalized, the choice does not matter
 
-### مسافة ماهالانوبيس
+### Mahalanobis Distance
 
-المسافة الإقليدية تعامل جميع الأبعاد بالتساوي. ولكن إذا كانت ميزاتك مترابطة أو لها مقاييس مختلفة، فإن L2 يعطي نتائج مضللة.
+Euclidean distance treats all dimensions equally. But if your features are correlated or have different scales, L2 gives misleading results.
 
-تمثل مسافة Mahalanobis بنية التغاير للبيانات.
+Mahalanobis distance accounts for the covariance structure of the data.
 
 ```
 d_M(x, y) = sqrt((x - y)^T * S^(-1) * (x - y))
 ```
 
-حيث S هي مصفوفة التغاير للبيانات.
+where S is the covariance matrix of the data.
 
-حدسيًا: تقوم مسافة Mahalanobis أولاً بربط البيانات وتطبيعها (التبييض)، ثم تحسب مسافة L2 في تلك المساحة المحولة. إذا كانت S هي مصفوفة الهوية (ميزات تباين الوحدة غير المرتبطة)، فإن مسافة Mahalanobis تقلل إلى المسافة الإقليدية.
+Intuitively: Mahalanobis distance first decorrelates and normalizes the data (whitening), then computes L2 distance in that transformed space. If S is the identity matrix (uncorrelated, unit variance features), Mahalanobis distance reduces to Euclidean distance.
 
 ```
 Example: height and weight are correlated.
@@ -215,21 +215,21 @@ Mahalanobis distance correctly identifies the second as an outlier
 because it accounts for the height-weight correlation.
 ```
 
-متى تستخدم مسافة ماهالانوبيس:
-- الكشف عن القيم المتطرفة (النقاط ذات مسافة ماهالانوبي الكبيرة عن الوسط هي قيم متطرفة)
-- التصنيف عندما يكون للميزات مقاييس وارتباطات مختلفة
-- عندما يكون لديك بيانات كافية لتقدير مصفوفة التغاير الموثوقة
-- مراقبة الجودة في التصنيع (مراقبة العمليات المتعددة المتغيرات)
+When to use Mahalanobis distance:
+- Outlier detection (points with large Mahalanobis distance from the mean are outliers)
+- Classification when features have different scales and correlations
+- When you have enough data to estimate a reliable covariance matrix
+- Quality control in manufacturing (multivariate process monitoring)
 
-### تشابه جاكارد (للمجموعات)
+### Jaccard Similarity (for sets)
 
-تتداخل مقاييس تشابه Jaccard بين مجموعتين.
+Jaccard similarity measures overlap between two sets.
 
 ```
 J(A, B) = |A intersect B| / |A union B|
 ```
 
-يتراوح من 0 (بدون تداخل) إلى 1 (مجموعات متطابقة). مسافة الجاكار = 1 - تشابه الجاكار.
+It ranges from 0 (no overlap) to 1 (identical sets). Jaccard distance = 1 - Jaccard similarity.
 
 ```
 A = {cat, dog, fish}
@@ -242,16 +242,16 @@ Jaccard similarity = 2/5 = 0.4
 Jaccard distance = 0.6
 ```
 
-متى يتم استخدام جاكارد:
-- مقارنة مجموعات من العلامات أو الفئات أو الميزات
-- تشابه الوثيقة على أساس وجود الكلمة (وليس التكرار)
-- الكشف عن التكرارات القريبة (تقريب MinHash لـ Jaccard)
-- مقارنة ناقلات الميزة الثنائية (بيانات التواجد/الغياب)
-- تقييم نماذج التجزئة (التقاطع فوق الاتحاد = جاكارد)
+When to use Jaccard:
+- Comparing sets of tags, categories, or features
+- Document similarity based on word presence (not frequency)
+- Near-duplicate detection (MinHash approximation of Jaccard)
+- Comparing binary feature vectors (presence/absence data)
+- Evaluating segmentation models (Intersection over Union = Jaccard)
 
-### تعديل المسافة (مسافة ليفنشتاين)
+### Edit Distance (Levenshtein Distance)
 
-تحسب مسافة التحرير الحد الأدنى لعدد العمليات المكونة من حرف واحد اللازمة لتحويل سلسلة إلى أخرى. العمليات هي: إدراج أو حذف أو استبدال.
+Edit distance counts the minimum number of single-character operations needed to transform one string into another. The operations are: insert, delete, or substitute.
 
 ```
 "kitten" -> "sitting"
@@ -263,7 +263,7 @@ sittin -> sitting (insert g)
 Edit distance = 3
 ```
 
-محسوبة باستخدام البرمجة الديناميكية. املأ مصفوفة حيث الإدخال (i, j) هو مسافة التحرير بين أول حرف i من السلسلة A وأول حرف j من السلسلة B.
+Computed using dynamic programming. Fill a matrix where entry (i, j) is the edit distance between the first i characters of string A and the first j characters of string B.
 
 ```
         ""  s  i  t  t  i  n  g
@@ -276,55 +276,55 @@ Edit distance = 3
     n    6  6  5  4  3  3  2  3
 ```
 
-متى تستخدم مسافة التحرير:
-- التدقيق الإملائي والتصحيح
-- محاذاة تسلسل الحمض النووي (مع العمليات المرجحة)
-- مطابقة سلسلة غامض
-- إلغاء البيانات المكررة من البيانات النصية الفوضوية
+When to use edit distance:
+- Spell checking and correction
+- DNA sequence alignment (with weighted operations)
+- Fuzzy string matching
+- Deduplication of messy text data
 
-### تباعد KL (ليست مسافة، ولكنها تستخدم كمسافة)
+### KL Divergence (not a distance, but used like one)
 
-يقيس تباعد KL مدى اختلاف التوزيع الاحتمالي عن الآخر. تمت تغطيتها في الدرس 09، ولكنها تنتمي إلى هذه المناقشة لأن الناس يستخدمونها باعتبارها "مسافة" على الرغم من أنها ليست واحدة.
+KL divergence measures how one probability distribution differs from another. Covered in Lesson 09, but it belongs in this discussion because people use it as a "distance" despite it not being one.
 
 ```
 D_KL(P || Q) = sum(p(x) * log(p(x) / q(x)))
 ```
 
-الخاصية الحرجة: تباعد KL غير متماثل.
+Critical property: KL divergence is NOT symmetric.
 
 ```
 D_KL(P || Q) != D_KL(Q || P)
 ```
 
-وهذا يعني أنه يفشل في المتطلبات الأساسية لقياس المسافة. كما أنه لا يحقق متباينة المثلث. إنه تباعد وليس مسافة.
+This means it fails the basic requirement of a distance metric. It also does not satisfy the triangle inequality. It is a divergence, not a distance.
 
-Forward KL (D_KL(P || Q)) هو "بحث متوسط": يحاول Q تغطية جميع أوضاع P.
-Reverse KL (D_KL(Q || P)) هو "البحث عن الوضع": يركز Q على وضع واحد لـ P.
+Forward KL (D_KL(P || Q)) is "mean-seeking": Q tries to cover all modes of P.
+Reverse KL (D_KL(Q || P)) is "mode-seeking": Q focuses on a single mode of P.
 
-عندما ترى اختلاف KL:
-- VAEs (مصطلح KL في ELBO يدفع التوزيع الكامن نحو سابق)
-- تقطير المعرفة (يحاول الطالب مطابقة توزيع المعلم)
-- RLHF (عقوبة KL تبقي النموذج المضبوط بالقرب من النموذج الأساسي)
-- أساليب التدرج في السياسة (تقييد تحديثات السياسة)
+When you see KL divergence:
+- VAEs (the KL term in the ELBO pushes the latent distribution toward a prior)
+- Knowledge distillation (student tries to match teacher's distribution)
+- RLHF (the KL penalty keeps the fine-tuned model close to the base model)
+- Policy gradient methods (constraining policy updates)
 
-### مسافة فاسرشتاين (مسافة محرك الأرض)
+### Wasserstein Distance (Earth Mover's Distance)
 
-تقيس مسافة فاسرشتاين الحد الأدنى من "العمل" اللازم لتحويل توزيع احتمالي إلى آخر. فكر في الأمر على النحو التالي: إذا كان أحد التوزيعين عبارة عن كومة من التراب والآخر عبارة عن حفرة، فما مقدار الأوساخ التي يتعين عليك نقلها وإلى أي مدى؟
+Wasserstein distance measures the minimum "work" needed to transform one probability distribution into another. Think of it as: if one distribution is a pile of dirt and the other is a hole, how much dirt do you have to move and how far?
 
 ```
 W(P, Q) = inf over all transport plans gamma of E[d(x, y)]
 ```
 
-بالنسبة للتوزيعات أحادية الأبعاد، يتم تبسيطها إلى تكامل الفرق المطلق لوظائف التوزيع التراكمي:
+For 1D distributions, it simplifies to the integral of the absolute difference of the cumulative distribution functions:
 
 ```
 W_1(P, Q) = integral |CDF_P(x) - CDF_Q(x)| dx
 ```
 
-لماذا يهم واسرشتاين:
-- إنه مقياس حقيقي (متماثل، يرضي عدم مساواة المثلث)
-- يوفر تدرجات حتى عندما لا تتداخل التوزيعات (يذهب تباعد KL إلى ما لا نهاية)
-- جعلت هذه الخاصية مركزية بالنسبة لشبكات Wasserstein GAN (WGANs)، والتي حلت مشكلة عدم استقرار التدريب لشبكات GAN الأصلية
+Why Wasserstein matters:
+- It is a true metric (symmetric, satisfies triangle inequality)
+- It provides gradients even when distributions do not overlap (KL divergence goes to infinity)
+- This property made it central to Wasserstein GANs (WGANs), which solved the training instability of original GANs
 
 ```
 Distributions with no overlap:
@@ -337,32 +337,32 @@ Wasserstein: 4 (move all mass 4 bins)
 Wasserstein gives a meaningful gradient. KL does not.
 ```
 
-متى يستخدم واسرستين:
-- تدريب GAN (WGAN، WGAN-GP)
-- مقارنة التوزيعات التي قد لا تتداخل
-- مشاكل النقل الأمثل
-- استرجاع الصور (مقارنة الرسوم البيانية اللونية)
+When to use Wasserstein:
+- GAN training (WGAN, WGAN-GP)
+- Comparing distributions that may not overlap
+- Optimal transport problems
+- Image retrieval (comparing color histograms)
 
-### لماذا تحتاج المهام المختلفة إلى مسافات مختلفة
+### Why Different Tasks Need Different Distances
 
-| مهمة | أفضل مسافة | لماذا |
-|------|-------------|-----|
-| تشابه النص | جيب التمام | الضجيج هو الضجيج، والاتجاه هو المعنى |
-| مقارنة بكسل الصورة | L2 | العلاقات المكانية مهمة، والميزات قابلة للمقارنة |
-| ميزات متفرقة عالية خافتة | L1 | قوية، لا تضخيم الاختلافات الكبيرة النادرة |
-| ضبط التداخل (العلامات والفئات) | جاكارد | يتم تحديد قيمة البيانات بشكل طبيعي، وليست متجهة |
-| مطابقة السلسلة | تعديل المسافة | خريطة العمليات لتحرير الإنسان الحدس |
-| الكشف الخارجي | مهلانوبيس | حسابات ارتباطات الميزات والمقاييس |
-| مقارنة التوزيعات | تباعد كوالالمبور | يقيس المعلومات المفقودة باستخدام Q بدلاً من P |
-| تدريب جان | فاسرشتاين | يوفر التدرجات حتى عندما لا تتداخل التوزيعات |
-| التضمين (ناقل DB) | جيب التمام أو منتج النقطة | يتم تدريب التضمينات على ترميز المعنى في الاتجاه |
-| توصية | منتج دوت | الحجم يمكن أن يرمز إلى الشعبية أو الثقة |
-| تسلسل الحمض النووي | مسافة التحرير المرجحة | تختلف تكاليف الاستبدال حسب زوج النوكليوتيدات |
-| مراقبة الجودة في التصنيع | لام إنفينيتي | أسوأ الانحراف في أي بعد مهم |
+| Task | Best distance | Why |
+|------|--------------|-----|
+| Text similarity | Cosine | Magnitude is noise, direction is meaning |
+| Image pixel comparison | L2 | Spatial relationships matter, features are comparable scale |
+| Sparse high-dim features | L1 | Robust, does not amplify rare large differences |
+| Set overlap (tags, categories) | Jaccard | Data is naturally set-valued, not vectorial |
+| String matching | Edit distance | Operations map to human editing intuition |
+| Outlier detection | Mahalanobis | Accounts for feature correlations and scales |
+| Comparing distributions | KL divergence | Measures information lost by using Q instead of P |
+| GAN training | Wasserstein | Provides gradients even when distributions do not overlap |
+| Embeddings (vector DB) | Cosine or dot product | Embeddings are trained to encode meaning in direction |
+| Recommendation | Dot product | Magnitude can encode popularity or confidence |
+| DNA sequences | Weighted edit distance | Substitution costs vary by nucleotide pair |
+| Manufacturing QC | L-infinity | Worst-case deviation in any dimension matters |
 
-### الاتصال بوظائف الخسارة
+### Connection to Loss Functions
 
-وظائف الخسارة هي وظائف المسافة المطبقة على التنبؤات مقابل الأهداف.
+Loss functions are distance functions applied to predictions vs targets.
 
 ```
 Loss function       Distance it uses       Behavior
@@ -378,9 +378,9 @@ Contrastive loss    L2                     Similar pairs close, dissimilar
                                            pairs beyond margin
 ```
 
-### الاتصال بالتسوية
+### Connection to Regularization
 
-يضيف التنظيم عقوبة قياسية على الأوزان إلى وظيفة الخسارة.
+Regularization adds a norm penalty on the weights to the loss function.
 
 ```
 L1 regularization (Lasso):   loss + lambda * ||w||_1
@@ -398,15 +398,15 @@ Elastic Net:                  loss + lambda_1 * ||w||_1 + lambda_2 * ||w||_2^2
   -> Groups of correlated features are kept or dropped together.
 ```
 
-لماذا ينتج L1 التناثر ولكن L2 لا يفعل ذلك: قم بتصوير منطقة القيد في مساحة الوزن ثنائية الأبعاد. L1 عبارة عن ماسة، وL2 عبارة عن دائرة. من المرجح أن تلامس خطوط دالة الخسارة (علامات القطع الناقص) المعينة عند الزاوية، حيث يكون الوزن الواحد صفرًا. يلامسان الدائرة عند نقطة ناعمة، حيث يكون كلا الوزنين غير صفر.
+Why L1 produces sparsity but L2 does not: picture the constraint region in 2D weight space. L1 is a diamond, L2 is a circle. The loss function's contours (ellipses) are most likely to touch the diamond at a corner, where one weight is zero. They touch the circle at a smooth point, where both weights are nonzero.
 
-### البحث عن أقرب الجيران
+### Nearest Neighbor Search
 
-تتضمن كل دالة مسافة مشكلة بحث عن أقرب جار: بالنظر إلى نقطة استعلام، ابحث عن أقرب النقاط في مجموعة بيانات.
+Every distance function implies a nearest neighbor search problem: given a query point, find the closest points in a dataset.
 
-البحث عن أقرب جار بالضبط هو O(n * d) لكل استعلام في مجموعة بيانات مكونة من نقاط n ذات أبعاد d. بالنسبة لمجموعات البيانات الكبيرة، يكون هذا بطيئًا جدًا.
+Exact nearest neighbor search is O(n * d) per query in a dataset of n points with d dimensions. For large datasets, this is too slow.
 
-تتاجر خوارزميات أقرب جار تقريبي (ANN) بكمية صغيرة من الدقة لتحقيق مكاسب هائلة في السرعة:
+Approximate Nearest Neighbor (ANN) algorithms trade a small amount of accuracy for massive speed gains:
 
 ```
 Algorithm         Approach                      Used by
@@ -421,25 +421,25 @@ Product quant.    Compress vectors, search       FAISS (memory-constrained)
                   in compressed space
 ```
 
-HNSW (العالم الصغير الهرمي القابل للملاحة) هي الخوارزمية السائدة في قواعد بيانات المتجهات الحديثة. يقوم بإنشاء رسم بياني متعدد الطبقات حيث تتصل كل عقدة بأقرب جيرانها التقريبيين. يبدأ البحث من الطبقة العليا (القفزات المتفرقة والطويلة) وينزل إلى الطبقة السفلية (القفزات الكثيفة والقصيرة).
+HNSW (Hierarchical Navigable Small World) is the dominant algorithm in modern vector databases. It builds a multi-layer graph where each node connects to its approximate nearest neighbors. Search starts at the top layer (sparse, long jumps) and descends to the bottom layer (dense, short jumps).
 
-## بنائها
+## Build It
 
-### الخطوة 1: جميع وظائف القاعدة والمسافة
+### Step 1: All norm and distance functions
 
-راجع `code/distances.py` للاطلاع على التنفيذ الكامل. يتم إنشاء كل وظيفة من الصفر باستخدام رياضيات بايثون الأساسية فقط.
+See `code/distances.py` for the complete implementation. Every function is built from scratch using only basic Python math.
 
-### الخطوة 2: نفس البيانات، مسافات مختلفة، جيران مختلفون
+### Step 2: Same data, different distances, different neighbors
 
-يقوم العرض التوضيحي في `distances.py` بإنشاء مجموعة بيانات، واختيار نقطة استعلام، ويوضح كيف يتغير أقرب جار اعتمادًا على مقياس المسافة. النقطة "الأقرب" تحت L1 قد لا تكون الأقرب تحت L2 أو جيب التمام.
+The demo in `distances.py` creates a dataset, picks a query point, and shows how the nearest neighbor changes depending on the distance metric. The point that is "closest" under L1 may not be closest under L2 or cosine.
 
-### الخطوة 3: تضمين بحث التشابه
+### Step 3: Embedding similarity search
 
-يتضمن الكود بحثًا وهميًا عن تشابه التضمين والذي يعثر على "المستندات" الأكثر تشابهًا مع استعلام يستخدم تشابه جيب التمام مقابل مسافة L2، مما يوضح أن التصنيفات يمكن أن تختلف.
+The code includes a mock embedding similarity search that finds the most similar "documents" to a query using cosine similarity vs L2 distance, showing that the rankings can differ.
 
-## استخدمه
+## Use It
 
-الاستخدام العملي الأكثر شيوعًا: العثور على عناصر مماثلة في قاعدة بيانات المتجهات.
+The most common practical use: finding similar items in a vector database.
 
 ```python
 import numpy as np
@@ -461,47 +461,47 @@ print(f"Top 5 most similar to item 0: {top_k}")
 print(f"Similarities: {similarities[top_k]}")
 ```
 
-عندما تتصل بـ `model.encode(text)` ثم تبحث في قاعدة بيانات متجهة، فهذا ما يحدث تحت الغطاء. يقوم نموذج التضمين بتعيين النص إلى المتجهات. تحسب قاعدة بيانات المتجهات تشابه جيب التمام (أو المنتج النقطي) بين متجه الاستعلام الخاص بك وكل متجه مخزن، باستخدام خوارزميات ANN لتجنب التحقق منها جميعًا.
+When you call `model.encode(text)` and then search a vector database, this is what happens under the hood. The embedding model maps text to vectors. The vector database computes cosine similarity (or dot product) between your query vector and every stored vector, using ANN algorithms to avoid checking all of them.
 
-## تمارين
+## Exercises
 
-1. حساب المسافات اللانهاية L1 وL2 وL بين (1، 2، 3) و (4، 0، 6). تحقق من أن L-inf <= L2 <= L1 ينطبق دائمًا على أي زوج من النقاط. إثبات سبب ضمان هذا الطلب.
+1. Compute L1, L2, and L-infinity distances between (1, 2, 3) and (4, 0, 6). Verify that L-inf <= L2 <= L1 always holds for any pair of points. Prove why this ordering is guaranteed.
 
-2. قم بإنشاء متجهين حيث يكون تشابه جيب التمام مرتفعًا (> 0.9) ولكن مسافة L2 كبيرة (> 10). اشرح هندسيًا ما يحدث. ثم قم بإنشاء متجهين حيث يكون تشابه جيب التمام منخفضًا (<0.3) ولكن مسافة L2 صغيرة (<0.5).
+2. Create two vectors where cosine similarity is high (> 0.9) but L2 distance is large (> 10). Explain geometrically what is happening. Then create two vectors where cosine similarity is low (< 0.3) but L2 distance is small (< 0.5).
 
-3. قم بتنفيذ دالة تأخذ مجموعة بيانات ونقطة استعلام وترجع أقرب جار تحت L1 وL2 وجيب التمام ومسافة Mahalanobis. ابحث عن مجموعة بيانات يختلف فيها الأربعة حول النقطة الأقرب.
+3. Implement a function that takes a dataset and a query point and returns the nearest neighbor under L1, L2, cosine, and Mahalanobis distance. Find a dataset where all four disagree on which point is nearest.
 
-4. احسب مسافة فاسرشتاين بين [0.5، 0.5، 0، 0] و [0، 0، 0.5، 0.5] يدويًا باستخدام طريقة CDF. ثم احسبها بين [0.25، 0.25، 0.25، 0.25] و [0، 0، 0.5، 0.5]. أيهما أكبر ولماذا؟
+4. Compute the Wasserstein distance between [0.5, 0.5, 0, 0] and [0, 0, 0.5, 0.5] by hand using the CDF method. Then compute it between [0.25, 0.25, 0.25, 0.25] and [0, 0, 0.5, 0.5]. Which is larger and why?
 
-5. قم بتنفيذ MinHash لتشابه Jaccard التقريبي. أنشئ 100 مجموعة عشوائية، واحسب Jaccard الدقيق لجميع الأزواج، وقارنها بتقريب MinHash باستخدام 50 و100 و200 دالة تجزئة. ارسم خطأ التقريب.
+5. Implement MinHash for approximate Jaccard similarity. Generate 100 random sets, compute exact Jaccard for all pairs, and compare with MinHash approximation using 50, 100, and 200 hash functions. Plot the approximation error.
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| نورم | "حجم المتجه" | دالة تقوم بتعيين متجه إلى عددية غير سالبة، مما يحقق عدم المساواة في المثلث، والتجانس المطلق، والصفر فقط للمتجه الصفري |
-| قاعدة L1 | "مسافة مانهاتن" | مجموع قيم المكونات المطلقة. ينتج تناثرًا في التحسين. قوية للقيم المتطرفة |
-| قاعدة L2 | "المسافة الإقليدية" | الجذر التربيعي لمجموع المكونات التربيعية. المسافة المستقيمة في الفضاء الإقليدي |
-| ليرة لبنانية | "القاعدة المعممة" | جذر p-th لمجموع قوى p-th للمكونات المطلقة. L1 وL2 حالات خاصة |
-| قاعدة L-اللانهاية | "الحد الأقصى للقاعدة" أو "مسافة تشيبيشيف" | الحد الأقصى لقيمة المكون المطلقة. حد Lp مع اقتراب p من اللانهاية |
-| تشابه جيب التمام | "الزاوية بين المتجهات" | المنتج النقطي تم تطبيعه بكلا الحجمين. يتراوح من -1 إلى +1. يتجاهل طول المتجه |
-| مسافة جيب التمام | "1 ناقص تشابه جيب التمام" | تحويل تشابه جيب التمام إلى مسافة. يتراوح من 0 إلى 2 |
-| منتج دوت | "جيب التمام غير الطبيعي" | مجموع المنتجات المكونة. يساوي تشابه جيب التمام مضروبًا في كلا المقدارين |
-| مسافة ماهالانوبيس | "المسافة المدركة للارتباط" | مسافة L2 في مساحة تم تبييضها (فك الارتباط والتطبيع) باستخدام مصفوفة التباين المشترك للبيانات |
-| تشبيه جاكارد | "ضبط التداخل" | حجم التقاطع مقسومًا على حجم الاتحاد. للمجموعات وليس المتجهات |
-| تعديل المسافة | "مسافة ليفنشتاين" | الحد الأدنى من عمليات الإدراج والحذف والاستبدال لتحويل سلسلة إلى أخرى |
-| تباعد كوالالمبور | "المسافة بين التوزيعات" | ليست مسافة حقيقية (غير متماثلة). يقيس البتات الإضافية من استخدام Q لتشفير P |
-| مسافة فاسرشتاين | "مسافة محرك الأرض" | الحد الأدنى من العمل لنقل الكتلة من توزيع إلى آخر. مقياس حقيقي |
-| أقرب جار تقريبي | "بحث ANN" | الخوارزميات (HNSW، LSH، IVF) التي تجد أقرب النقاط تقريبًا أسرع بكثير من البحث الدقيق |
-| هنسو | "خوارزمية قاعدة بيانات المتجهات" | الرسم البياني الهرمي للعالم الصغير القابل للملاحة. رسم بياني متعدد الطبقات للبحث التقريبي السريع عن أقرب جار |
-| تسوية L1 | "لاسو" | إضافة معيار L1 للأوزان إلى الخسارة. يدفع الأوزان إلى الصفر (التناثر) |
-| تسوية L2 | "ريدج" أو "انخفاض الوزن" | إضافة معيار L2 المربع للأوزان إلى الخسارة. تقليص الأوزان نحو الصفر دون تناثر |
-| شبكة مرنة | "L1 + L2" | يجمع بين تسوية L1 وL2. يتعامل مع مجموعات الميزات المترابطة بشكل أفضل من أي منهما بمفرده |
+| Norm | "Size of a vector" | A function that maps a vector to a non-negative scalar, satisfying triangle inequality, absolute homogeneity, and zero only for the zero vector |
+| L1 norm | "Manhattan distance" | Sum of absolute component values. Produces sparsity in optimization. Robust to outliers |
+| L2 norm | "Euclidean distance" | Square root of sum of squared components. The straight-line distance in Euclidean space |
+| Lp norm | "Generalized norm" | The p-th root of the sum of p-th powers of absolute components. L1 and L2 are special cases |
+| L-infinity norm | "Max norm" or "Chebyshev distance" | The maximum absolute component value. The limit of Lp as p approaches infinity |
+| Cosine similarity | "Angle between vectors" | Dot product normalized by both magnitudes. Ranges from -1 to +1. Ignores vector length |
+| Cosine distance | "1 minus cosine similarity" | Converts cosine similarity to a distance. Ranges from 0 to 2 |
+| Dot product | "Unnormalized cosine" | Sum of component-wise products. Equals cosine similarity times both magnitudes |
+| Mahalanobis distance | "Correlation-aware distance" | L2 distance in a space that has been whitened (decorrelated and normalized) using the data covariance matrix |
+| Jaccard similarity | "Set overlap" | Size of intersection divided by size of union. For sets, not vectors |
+| Edit distance | "Levenshtein distance" | Minimum insertions, deletions, and substitutions to transform one string into another |
+| KL divergence | "Distance between distributions" | Not a true distance (not symmetric). Measures extra bits from using Q to encode P |
+| Wasserstein distance | "Earth mover's distance" | Minimum work to transport mass from one distribution to another. A true metric |
+| Approximate nearest neighbor | "ANN search" | Algorithms (HNSW, LSH, IVF) that find approximately closest points much faster than exact search |
+| HNSW | "The vector DB algorithm" | Hierarchical Navigable Small World graph. Multi-layer graph for fast approximate nearest neighbor search |
+| L1 regularization | "Lasso" | Adding the L1 norm of weights to the loss. Drives weights to zero (sparsity) |
+| L2 regularization | "Ridge" or "weight decay" | Adding the squared L2 norm of weights to the loss. Shrinks weights toward zero without sparsity |
+| Elastic Net | "L1 + L2" | Combines L1 and L2 regularization. Handles correlated feature groups better than either alone |
 
-## مزيد من القراءة
+## Further Reading
 
-- [FAISS: A Library for Efficient Similarity Search](https://github.com/facebookresearch/faiss) - مكتبة Meta لبحث ANN بمليارات النطاق
-- [Wasserstein GAN (Arjovsky et al., 2017)](https://arxiv.org/abs/1701.07875) - الورقة البحثية التي قدمت مسافة Earth Mover إلى شبكات GAN
-- [Locality-Sensitive Hashing (Indyk & Motwani, 1998)](https://dl.acm.org/doi/10.1145/276698.276876) - خوارزمية ANN الأساسية
-- [Efficient Estimation of Word Representations (Mikolov et al., 2013)](https://arxiv.org/abs/1301.3781) - Word2Vec، حيث أصبح تشابه جيب التمام هو الإعداد الافتراضي لعمليات التضمين
-- [sklearn.neighbors documentation](https://scikit-learn.org/stable/modules/neighbors.html) - دليل عملي لمقاييس المسافة وخوارزميات الجوار في scikit-learn
+- [⟦3⟧: A Library for Efficient Similarity Search](⟪0⟫ - Meta's library for billion-scale ⟦4⟧ search
+- [Wasserstein ⟦5⟧ (Arjovsky et al., 2017)](https://arxiv.org/abs/1701.07875) - the paper that introduced Earth Mover's distance to GANs
+- [Locality-Sensitive Hashing (Indyk & Motwani, 1998)](⟪2⟫ - foundational ⟦6⟧ algorithm
+- [Efficient Estimation of Word Representations (Mikolov et al., 2013)](https://arxiv.org/abs/1301.3781) - Word2Vec, where cosine similarity became the default for embeddings
+- [sklearn.neighbors documentation](https://⟦1⟧.org/stable/modules/neighbors.html) - practical guide to distance metrics and neighbor algorithms in scikit-learn

@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">وكيل كلود SDK — الحزام مع الوكلاء الفرعيين، والخطافات، ومخزن الجلسة</text>
+  <text x="480" y="26" text-anchor="middle" class="title">وكيل كلود SDK — تسخير مع الوكلاء الفرعيين، والخطافات، ومتجر الجلسة</text>
 
   <rect x="40" y="50" width="880" height="220" class="box"/>
   <text x="480" y="72" text-anchor="middle" class="head">يولد المنسق ثلاثة وكلاء فرعيين. كل يعمل في سياقه الخاص</text>
@@ -86,5 +86,5 @@
   <text x="538" y="478" class="step">list_subkeys(parent) + --session-mirror</text>
   <text x="538" y="496" class="small">التكافؤ الكامل TypeScript في بايثون SDK</text>
 
-  <text x="480" y="540" text-anchor="middle" class="caption">ينتشر سياق التتبع W3C إلى العملية الفرعية CLI؛ تشغيل العمليات المتعددة بأكمله هو أثر واحد.</text>
+  <text x="480" y="540" text-anchor="middle" class="caption">W3C ينتشر سياق التتبع إلى CLI العملية الفرعية؛ تشغيل العمليات المتعددة بأكمله هو أثر واحد.</text>
 </svg>

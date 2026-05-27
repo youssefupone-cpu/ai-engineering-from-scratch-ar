@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ماذا يقيس \"الانتروبيا\" في نظرية المعلومات؟",
+      "question": "What does 'entropy' measure in information theory?",
       "options": [
-        "طاقة النظام المادي",
-        "متوسط ​​المفاجأة أو عدم اليقين في التوزيع الاحتمالي",
-        "عدد البتات في الرسالة الثنائية",
-        "معدل الخطأ في قناة الاتصال"
+        "The energy of a physical system",
+        "The average surprise or uncertainty in a probability distribution",
+        "The number of bits in a binary message",
+        "The error rate of a communication channel"
       ],
       "correct": 1,
-      "explanation": "Entropy H(P) = -sum(p(x) * log(p(x))) يقيس متوسط ​​مقدار المفاجأة عبر جميع النتائج. الإنتروبيا العالية تعني عدم اليقين العالي (التوزيع الموحد). الإنتروبيا المنخفضة تعني أن النتيجة يمكن التنبؤ بها."
+      "explanation": "Entropy H(P) = -sum(p(x) * log(p(x))) measures the average amount of surprise across all outcomes. High entropy means high uncertainty (uniform distribution). Low entropy means the outcome is predictable."
     },
     {
       "stage": "pre",
-      "question": "ما هي الخسارة عبر الإنتروبيا المستخدمة عادة في الشبكات العصبية؟",
+      "question": "What is the cross-entropy loss commonly used for in neural networks?",
       "options": [
-        "مهام الانحدار مع مخرجات مستمرة",
-        "مهام التصنيف، وقياس مدى بعد الاحتمالات المتوقعة عن المسميات الحقيقية",
-        "توليد عينات بيانات جديدة",
-        "تنظيم أوزان النماذج لمنع التجهيز الزائد"
+        "Regression tasks with continuous outputs",
+        "Classification tasks, measuring how far predicted probabilities are from true labels",
+        "Generating new data samples",
+        "Regularizing model weights to prevent overfitting"
       ],
       "correct": 1,
-      "explanation": "خسارة الإنتروبيا المتقاطعة H(P,Q) = -sum(p(x)*log(q(x))) تقيس الفرق بين التوزيع الحقيقي (التسميات) والتوزيع المتوقع للنموذج. إنها THE خسارة قياسية للتصنيف."
+      "explanation": "Cross-entropy loss H(P,Q) = -sum(p(x)*log(q(x))) measures the difference between the true distribution (labels) and the model's predicted distribution. It is THE standard loss for classification."
     },
     {
       "stage": "post",
-      "question": "لماذا يعتبر تقليل الإنتروبيا المتقاطعة مكافئًا لتقليل KL الاختلاف أثناء التدريب؟",
+      "question": "Why is minimizing cross-entropy equivalent to minimizing KL divergence during training?",
       "options": [
-        "لأن KL يكون التباعد دائمًا صفرًا أثناء التدريب",
-        "نظرًا لأن إنتروبيا متقاطعة = إنتروبيا + KL تباعد، وأنتروبيا التسميات الحقيقية ثابتة، فإن تقليل إنتروبيا متقاطعة يقلل من KL تباعد",
-        "لأن الإنتروبيا المتقاطعة والتباعد KL هما نفس الصيغة",
-        "لأن إنتروبيا النموذج تساوي الصفر عند التقارب"
+        "Because KL divergence is always zero during training",
+        "Because cross-entropy = entropy + KL divergence, and the entropy of the true labels is constant, so minimizing cross-entropy minimizes KL divergence",
+        "Because cross-entropy and KL divergence are the same formula",
+        "Because the model's entropy equals zero at convergence"
       ],
       "correct": 1,
-      "explanation": "ح(P,Q) = H(P) + D_KL(P||Q). وبما أن التوزيع الحقيقي P لا يتغير أثناء التدريب، فإن H(P) ثابت. إن تصغير H(P,Q) هو نفس تصغير D_KL(P||Q) - دفع النموذج نحو التوزيع الحقيقي."
+      "explanation": "H(P,Q) = H(P) + D_KL(P||Q). Since the true distribution P doesn't change during training, H(P) is constant. Minimizing H(P,Q) is the same as minimizing D_KL(P||Q) -- pushing the model toward the true distribution."
     },
     {
       "stage": "post",
-      "question": "نموذج اللغة لديه درجة حيرة 50 في مجموعة الاختبار. ماذا يعني هذا؟",
+      "question": "A language model has perplexity 50 on a test set. What does this mean?",
       "options": [
-        "يحتوي النموذج make على 50 خطأ في كل جملة",
-        "في المتوسط، يكون النموذج غير مؤكد كما لو كان يختار بشكل موحد من بين 50 رمزًا مميزًا محتملاً في كل خطوة",
-        "يحتوي النموذج على 50 طبقة",
-        "تم تدريب النموذج لمدة 50 حقبة"
+        "The model makes 50 errors per sentence",
+        "On average, the model is as uncertain as if it were choosing uniformly from 50 possible next tokens at each step",
+        "The model has 50 layers",
+        "The model was trained for 50 epochs"
       ],
       "correct": 1,
-      "explanation": "الحيرة = e^(الإنتروبيا المتقاطعة). الحيرة البالغة 50 تعني أن عدم اليقين في النموذج عند كل رمز يعادل الانتقاء عشوائيًا من 50 خيارًا متساويًا في الاحتمال. الحيرة الأقل تعني تنبؤات أفضل."
+      "explanation": "Perplexity = e^(cross-entropy). A perplexity of 50 means the model's uncertainty at each token is equivalent to picking randomly from 50 equally likely options. Lower perplexity means better predictions."
     },
     {
       "stage": "post",
-      "question": "كيف تختلف المعلومات المتبادلة عن ارتباط بيرسون لاختيار الميزة؟",
+      "question": "How does mutual information differ from Pearson correlation for feature selection?",
       "options": [
-        "المعلومات المتبادلة أسرع في الحساب",
-        "تكتشف المعلومات المتبادلة أي تبعية إحصائية (خطية أو غير خطية) بينما يكتشف الارتباط العلاقات الخطية فقط",
-        "يعمل ارتباط بيرسون مع أي نوع بيانات بينما تعمل المعلومات المتبادلة فقط مع البيانات المستمرة",
-        "إنهم دائمًا يعطون نفس تصنيفات الميزات"
+        "Mutual information is faster to compute",
+        "Mutual information detects any statistical dependency (linear or nonlinear) while correlation only detects linear relationships",
+        "Pearson correlation works for any data type while mutual information only works for continuous data",
+        "They always give the same feature rankings"
       ],
       "correct": 1,
-      "explanation": "المعلومات المتبادلة I(X;Y) تلتقط جميع التبعيات الإحصائية بين المتغيرات، بما في ذلك التبعيات غير الخطية وغير الرتيبة. يقيس ارتباط بيرسون الارتباط الخطي فقط، ويفتقد العديد من العلاقات المهمة."
+      "explanation": "Mutual information I(X;Y) captures all statistical dependencies between variables, including nonlinear and non-monotonic ones. Pearson correlation only measures linear association, missing many important relationships."
     }
   ]
 }

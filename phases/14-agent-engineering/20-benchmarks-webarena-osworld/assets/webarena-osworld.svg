@@ -19,13 +19,13 @@
   <text x="260" y="72" text-anchor="middle" class="head">وكلاء الويب WebArena</text>
   <text x="60" y="96" class="small">812 مهمة، 4 تطبيقات ذاتية الاستضافة</text>
   <rect x="60" y="108" width="400" height="30" class="box"/>
-  <text x="78" y="128" class="step">التسوق، المنتدى، gitالمختبر، الأعمال CMS</text>
+  <text x="78" y="128" class="step">التسوق، المنتدى، gitالمعمل، الأعمال CMS</text>
   <rect x="60" y="140" width="400" height="30" class="box"/>
   <text x="78" y="160" class="step">+ المرافق: الخريطة، الآلة الحاسبة، المسودة</text>
   <rect x="60" y="172" width="400" height="30" class="box"/>
   <text x="78" y="192" class="step">التقييم القائم على التنفيذ عبر صالة الألعاب الرياضية APIs</text>
   <rect x="60" y="204" width="400" height="30" class="box"/>
-  <text x="78" y="224" class="step">الإصدار: GPT-4 الوكيل 14.41%، الإنسان 78.24%</text>
+  <text x="78" y="224" class="step">الإصدار: GPT-4 وكيل 14.41%، بشري 78.24%</text>
   <rect x="60" y="236" width="400" height="30" class="box"/>
   <text x="78" y="256" class="step">الامتدادات: VisualWebArena، TheAgentCompany</text>
   <rect x="60" y="268" width="400" height="28" class="box"/>
@@ -50,15 +50,15 @@
   <rect x="40" y="320" width="880" height="200" class="fail"/>
   <text x="480" y="342" text-anchor="middle" class="head">وضعين الفشل الأساسي</text>
   <rect x="60" y="358" width="840" height="40" class="box"/>
-  <text x="78" y="380" class="step">1. GUI بكسل التأريض لتعيين العناصر</text>
+  <text x="78" y="380" class="step">1. GUI بكسل التأريض لرسم خرائط العناصر</text>
   <text x="78" y="394" class="small">لا يمكن للنموذج ترجمة الزر بشكل موثوق؛ تهيمن النقرات الخاطئة على حالات الفشل ذات المستوى المنخفض</text>
   <rect x="60" y="402" width="840" height="40" class="box"/>
   <text x="78" y="424" class="step">2. المعرفة التشغيلية التي القائمة، والتي الاختصار</text>
   <text x="78" y="438" class="small">المعرفة التي يبنيها البشر على مر السنين؛ يخمن الوكلاء من لقطات التدريب</text>
   <rect x="60" y="446" width="840" height="64" class="box"/>
-  <text x="78" y="468" class="step">إصلاح الإنتاج: Claude/OpenAI CUA/استخدام كمبيوتر الجوزاء (الدرس 21)</text>
+  <text x="78" y="468" class="step">إصلاح الإنتاج: كلود/OpenAI CUA/استخدام كمبيوتر الجوزاء (الدرس 21)</text>
   <text x="78" y="486" class="small">على أساس الرؤية. تم تدريبهم على أعباء العمل على شكل WebArena/OSWorld؛</text>
   <text x="78" y="502" class="small">تقوم خدمات السلامة لكل خطوة بتقييم كل إجراء قبل التنفيذ</text>
 
-  <text x="480" y="540" text-anchor="middle" class="caption">تقرير معدل النجاح AND كفاءة المسار (الخطوات / الذهب) في كل شوط.</text>
+  <text x="480" y="540" text-anchor="middle" class="caption">الإبلاغ عن معدل النجاح AND كفاءة المسار (الخطوات / الذهب) في كل شوط.</text>
 </svg>

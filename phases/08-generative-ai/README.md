@@ -1,6 +1,9 @@
-# المرحلة الثامنة: التوليدية AI
+# Phase 8: Generative AI
+
 > قم بإنشاء الصور والفيديو والصوت وثلاثية الأبعاد والمزيد.
+
 14 درسًا، إجمالي 14 ساعة. يأتي كل درس: مستند مكون من 180-230 سطرًا وعرض توضيحي لـ stdlib Python قابل للتشغيل ورسم تخطيطي ومهارة محددة لعميلك.
+
 | # | الدرس | الوقت |
 |---|--------|------|
 | 01 | [Generative Models — Taxonomy & History](01-generative-models-taxonomy-history/) | ~45 دقيقة |
@@ -17,4 +20,5 @@
 | 12 | [3D Generation](12-3d-generation/) | ~45 دقيقة |
 | 13 | [Flow Matching & Rectified Flows](13-flow-matching-rectified-flows/) | ~45 دقيقة |
 | 14 | [Evaluation — FID, CLIP Score, Human Preference](14-evaluation-fid-clip-score/) | ~45 دقيقة |
+
 راجع [ROADMAP.md](../../ROADMAP.md) للاطلاع على الخطة الشاملة للمراحل.

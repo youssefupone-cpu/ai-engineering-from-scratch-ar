@@ -1,6 +1,10 @@
-"""VAD تتالي + جهاز حالة اكتشاف الدوران. سلسلة ثلاثية الطبقات: بوابة الطاقة ← (التظاهر) سيليرو ← آلة حالة كاشف الدوران.
-تشغيل دفق اصطناعي: الكلام + الصمت + السعال + الكلام، التحقق
-يقوم كاشف الدوران بإطلاق START وEND في اللحظات المناسبة. ستدليب فقط. تشغيل: كود python3/main.py
+"""VAD cascade + turn-detection state machine.
+
+Three-tier cascade: energy gate → (pretend) Silero → turn-detector state machine.
+Run a synthetic stream: speech + silence + cough + speech, verify
+the turn-detector fires START and END at the right moments.
+
+Stdlib only. Run: python3 code/main.py
 """
 
 import math

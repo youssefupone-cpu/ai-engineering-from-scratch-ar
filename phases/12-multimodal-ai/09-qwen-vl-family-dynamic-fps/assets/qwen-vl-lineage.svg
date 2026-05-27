@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">Qwen-VL نسب الأجيال - 2023 إلى 2025</text>
+  <text x="480" y="24" text-anchor="middle" class="title">Qwen-VL نسب الأجيال — 2023 إلى 2025</text>
 
   <line x1="60" y1="170" x2="920" y2="170" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <text x="60" y="180" class="small">2023</text>
@@ -27,7 +27,7 @@
 
   <rect x="40" y="60" width="200" height="100" class="hot"/>
   <text x="140" y="82" text-anchor="middle" class="step">Qwen-VL</text>
-  <text x="140" y="100" text-anchor="middle" class="small">OpenCLIP + س-السابق</text>
+  <text x="140" y="100" text-anchor="middle" class="small">فتحCLIP + س-السابق</text>
   <text x="140" y="116" text-anchor="middle" class="small">دقة 448x448</text>
   <text x="140" y="132" text-anchor="middle" class="small">التأريض + رموز bbox</text>
   <text x="140" y="148" text-anchor="middle" class="small">zh + en متعدد اللغات</text>
@@ -36,12 +36,12 @@
   <text x="390" y="82" text-anchor="middle" class="step">Qwen2-VL</text>
   <text x="390" y="100" text-anchor="middle" class="small">M-RoPE (موضع ثلاثي الأبعاد)</text>
   <text x="390" y="116" text-anchor="middle" class="small">الدقة الديناميكية الأصلية</text>
-  <text x="390" y="132" text-anchor="middle" class="small">MLP جهاز العرض فقط</text>
+  <text x="390" y="132" text-anchor="middle" class="small">MLP جهاز عرض فقط</text>
   <text x="390" y="148" text-anchor="middle" class="small">فيديو بالمتغير FPS</text>
 
   <rect x="540" y="60" width="200" height="100" class="cold"/>
   <text x="640" y="82" text-anchor="middle" class="step">Qwen2.5-VL</text>
-  <text x="640" y="100" text-anchor="middle" class="small">FPS أخذ العينات الديناميكية</text>
+  <text x="640" y="100" text-anchor="middle" class="small">ديناميكية FPS أخذ العينات</text>
   <text x="640" y="116" text-anchor="middle" class="small">رموز الوقت المطلق</text>
   <text x="640" y="132" text-anchor="middle" class="small">نافذة الاهتمام ViT</text>
   <text x="640" y="148" text-anchor="middle" class="small">JSON وضع الوكيل</text>
@@ -75,7 +75,7 @@
   <text x="760" y="322" text-anchor="middle" class="small">قم بالتدوير بواسطة w * theta_i</text>
 
   <rect x="30" y="370" width="900" height="160" class="box"/>
-  <text x="480" y="392" text-anchor="middle" class="head">ديناميكي FPS: الرموز المميزة لكل فيديو = المدة * الإطارات في الثانية * tokens_per_frame</text>
+  <text x="480" y="392" text-anchor="middle" class="head">ديناميكي FPS: الرموز المميزة لكل فيديو = المدة * إطار في الثانية * tokens_per_frame</text>
 
   <rect x="60" y="410" width="200" height="100" class="reg"/>
   <text x="160" y="430" text-anchor="middle" class="step">حركة عالية</text>

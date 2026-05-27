@@ -1,5 +1,9 @@
-"""التحقق من المتحدث: لعبة MFCC-تضمينات الإحصائيات، تسجيل جيب التمام، EER. "مكبرات الصوت" الاصطناعية عبارة عن مخاليط جيبية ذات ملفات توافقية مختلفة.
-نقوم بتسجيل كل متحدث، وبناء أزواج تجريبية متماثلة/مختلفة، وحساب EER. تشغيل: كود python3/main.py
+"""Speaker verification: toy MFCC-stat embeddings, cosine scoring, EER.
+
+Synthetic "speakers" are sinusoid mixtures with different harmonic profiles.
+We enroll each speaker, build same/diff trial pairs, compute the EER.
+
+Run: python3 code/main.py
 """
 
 import math

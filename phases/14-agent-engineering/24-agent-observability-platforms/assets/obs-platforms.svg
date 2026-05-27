@@ -17,12 +17,12 @@
   <text x="480" y="26" text-anchor="middle" class="title">إمكانية ملاحظة الوكيل 2026 — ثلاث منصات مفتوحة المصدر، وثلاثة تركيزات</text>
 
   <rect x="40" y="50" width="290" height="240" class="lf"/>
-  <text x="185" y="72" text-anchor="middle" class="head">لانغفيوز MIT</text>
-  <text x="60" y="96" class="small">6 مليون+ SDK عملية تثبيت/شهر، 19 ألف+ نجمة</text>
+  <text x="185" y="72" text-anchor="middle" class="head">لانجفيوز MIT</text>
+  <text x="60" y="96" class="small">6 ملايين+ SDK عمليات التثبيت/الشهر، 19 ألف+ نجمة</text>
   <rect x="60" y="108" width="250" height="30" class="box"/>
   <text x="78" y="128" class="step">تتبع + إدارة سريعة</text>
   <rect x="60" y="142" width="250" height="30" class="box"/>
-  <text x="78" y="162" class="step">LLM-كحكم، تعليقات المستخدمين، التقييمات المخصصة</text>
+  <text x="78" y="162" class="step">LLM-حكم، تعليقات المستخدمين، التقييمات المخصصة</text>
   <rect x="60" y="176" width="250" height="30" class="box"/>
   <text x="78" y="196" class="step">عمليات إعادة الجلسة وقوائم انتظار التعليقات التوضيحية</text>
   <rect x="60" y="210" width="250" height="30" class="box"/>
@@ -52,9 +52,9 @@
   <rect x="660" y="108" width="250" height="30" class="box"/>
   <text x="678" y="128" class="step">تجارب A/B السريعة التلقائية</text>
   <rect x="660" y="142" width="250" height="30" class="box"/>
-  <text x="678" y="162" class="step">حواجز الحماية: PII تنقيح، موضعي</text>
+  <text x="678" y="162" class="step">الدرابزين: PII تنقيح، موضعي</text>
   <rect x="660" y="176" width="250" height="30" class="box"/>
-  <text x="678" y="196" class="step">LLM-كشف الهلوسة القاضي</text>
+  <text x="678" y="196" class="step">LLM-كشف الهلوسة القاضية</text>
   <rect x="660" y="210" width="250" height="30" class="box"/>
   <text x="678" y="230" class="step">معيار البائع: ~14x Langfuse</text>
   <rect x="660" y="244" width="250" height="40" class="box"/>
@@ -66,13 +66,13 @@
   <rect x="60" y="348" width="840" height="30" class="box"/>
   <text x="78" y="368" class="step">يستهلك الثلاثة امتدادات OTel GenAI؛ يمكنك التبديل دون إعادة الأجهزة</text>
   <rect x="60" y="382" width="840" height="30" class="box"/>
-  <text x="78" y="402" class="step">التقاط المحتوى: مخزن خارجي + مراجع ممتدة (PII-آمنة)</text>
+  <text x="78" y="402" class="step">التقاط المحتوى: متجر خارجي + مراجع ممتدة (PII-آمن)</text>
   <rect x="60" y="416" width="840" height="30" class="box"/>
   <text x="78" y="436" class="step">89% من المؤسسات لديها إمكانية ملاحظة الوكيل (بيانات ماكسيم الميدانية، 2026)</text>
   <rect x="60" y="450" width="840" height="30" class="box"/>
   <text x="78" y="470" class="step">أشار 32% من المشاركين إلى أن الجودة هي العائق الأكبر أمام الإنتاج</text>
   <rect x="60" y="484" width="840" height="22" class="box"/>
-  <text x="78" y="500" class="step">خرائط Datadog v1.37+ سمات GenAI العمليات المختلطة أصلاً + فرق ML مناسبة هنا</text>
+  <text x="78" y="500" class="step">خرائط Datadog v1.37+ سمات GenAI للعمليات المختلطة أصلاً + فرق ML مناسبة هنا</text>
 
-  <text x="480" y="540" text-anchor="middle" class="caption">التتبع بدون تقييم هو عملية تسجيل مكلفة. تتبعات زوجية + LLM- القاضي + الإصدار الفوري.</text>
+  <text x="480" y="540" text-anchor="middle" class="caption">التتبع بدون تقييم هو عملية تسجيل مكلفة. تتبعات زوجية + LLM-قاضي + إصدار سريع.</text>
 </svg>

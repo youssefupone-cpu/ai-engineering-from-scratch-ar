@@ -9,76 +9,76 @@ tags: [sampling, mcmc, generation]
 
 # Sampling Strategy Selection
 
-How to pick the right sampling method for text generation, Bayesian inference, Monte Carlo estimation, and training.
+كيفية اختيار طريقة أخذ العينات المناسبة لإنشاء النص والاستدلال البايزي وتقدير مونت كارلو والتدريب.
 
 ## Decision Checklist
 
-1. Are you generating output (text, images) or estimating a quantity (integral, expectation)?
-2. Can you sample directly from the target distribution, or only evaluate its density?
-3. Is the target distribution discrete or continuous?
-4. What dimension is the sample space? Low (< 5), medium (5-100), or high (> 100)?
-5. Do you need exact samples or approximate ones?
-6. Do you need gradients through the sampling operation?
+1. هل تقوم بإنشاء مخرجات (نص، صور) أو تقدير كمية (تكامل، توقع)؟
+2. هل يمكنك أخذ عينة مباشرة من التوزيع المستهدف أم تقييم كثافته فقط؟
+3. هل التوزيع المستهدف منفصل أم مستمر؟
+4. ما البعد هو مساحة العينة؟ منخفض (< 5)، متوسط ​​(5-100)، أم مرتفع (> 100)؟
+5. هل تحتاج إلى عينات دقيقة أم تقريبية؟
+6. هل تحتاج إلى تدرجات خلال عملية أخذ العينات؟
 
 ## When to use each method
 
-| Method | When to use | Complexity | Exact? |
+| الطريقة | متى تستخدم | التعقيد | بالضبط؟ |
 |---|---|---|---|
-| Direct sampling | You have the CDF or can use a library function | O(1) per sample | Yes |
-| Inverse CDF | Known closed-form CDF inverse (exponential, Cauchy) | O(1) per sample | Yes |
-| Box-Muller | Need normal samples without a library | O(1) per sample | Yes |
-| Rejection sampling | Can evaluate target PDF, low dimension (1-3) | O(1/acceptance) per sample | Yes |
-| Importance sampling | Need expectations, not individual samples | O(n) for n samples | Approximate |
-| Stratified sampling | Monte Carlo estimation, want lower variance | O(n) for n samples | Approximate |
-| Metropolis-Hastings | High-dimensional, can evaluate unnormalized density | O(1) per step + burn-in | Asymptotically |
-| Gibbs sampling | Can sample from each conditional distribution | O(d) per full sweep | Asymptotically |
-| HMC/NUTS | High-dimensional continuous, smooth density | O(L * d) per step | Asymptotically |
-| Temperature sampling | LLM text generation, control creativity | O(V) for vocab size V | N/A |
-| Top-k sampling | LLM generation, remove unlikely tokens | O(V log k) | N/A |
-| Top-p (nucleus) | LLM generation, adaptive candidate set | O(V log V) | N/A |
-| Reparameterization | Need gradients through Gaussian sampling (VAEs) | O(d) | Yes |
-| Gumbel-Softmax | Need gradients through categorical sampling | O(k) for k classes | Approximate |
+| أخذ العينات المباشرة | لديك CDF أو يمكنك استخدام وظيفة المكتبة | O(1) لكل عينة | نعم |
+| معكوس CDF | الشكل المغلق المعروف CDF معكوس (أسي، كوشي) | O(1) لكل عينة | نعم |
+| بوكس مولر | تحتاج عينات عادية بدون مكتبة | O(1) لكل عينة | نعم |
+| أخذ عينات الرفض | يمكن تقييم الهدف PDF البعد المنخفض (1-3) | O(1/القبول) لكل عينة | نعم |
+| أهمية أخذ العينات | بحاجة إلى توقعات، وليس عينات فردية | O(n) للعينات n | تقريبي |
+| أخذ العينات الطبقية | تقدير مونت كارلو، نريد تباينًا أقل | O(n) للعينات n | تقريبي |
+| متروبوليس هاستينغز | عالية الأبعاد، يمكن تقييم الكثافة غير الطبيعية | O(1) لكل خطوة + حرق | بشكل مقارب |
+| أخذ عينات جيبس ​​| يمكن أخذ عينة من كل توزيع مشروط | O(d) لكل عملية مسح كاملة | بشكل مقارب |
+| HMC/NUTS | كثافة مستمرة وسلسة عالية الأبعاد | O(L * d) لكل خطوة | بشكل مقارب |
+| أخذ عينات درجة الحرارة | LLM توليد النصوص والتحكم في الإبداع | O(V) لحجم المفردات V | لا يوجد |
+| أخذ العينات من أعلى ك | LLM جيل، إزالة الرموز غير المحتملة | O(V سجل ك) | لا يوجد |
+| أعلى ع (النواة) | LLM الجيل، مجموعة المرشحات التكيفية | O(سجل V V) | لا يوجد |
+| إعادة المعلمة | بحاجة إلى التدرجات من خلال أخذ العينات الغوسية (VAEs) | يا(د) | نعم |
+| غامبل-سوفت ماكس | تحتاج التدرجات من خلال أخذ العينات الفئوية | O(k) لفئات k | تقريبي |
 
 ## LLM generation settings
 
-| Use case | Temperature | Top-p | Top-k | Notes |
+| حالة الاستخدام | درجة الحرارة | أعلى ع | توب ك | ملاحظات |
 |---|---|---|---|---|
-| Factual Q&A | 0.0 (greedy) | -- | -- | Deterministic, no randomness |
-| Code generation | 0.2-0.5 | 0.9 | -- | Low creativity, high coherence |
-| General chat | 0.7 | 0.9 | -- | Balanced |
-| Creative writing | 0.9-1.2 | 0.95 | -- | Higher diversity |
-| Brainstorming | 1.0-1.5 | 0.95 | -- | Maximum diversity, may lose coherence |
+| أسئلة وأجوبة واقعية | 0.0 (الجشع) | -- | -- | حتمية، لا عشوائية |
+| توليد الكود | 0.2-0.5 | 0.9 | -- | انخفاض الإبداع، والتماسك العالي |
+| دردشة عامة | 0.7 | 0.9 | -- | متوازن |
+| الكتابة الإبداعية | 0.9-1.2 | 0.95 | -- | تنوع أعلى |
+| العصف الذهني | 1.0-1.5 | 0.95 | -- | أقصى قدر من التنوع، قد يفقد التماسك |
 
-Temperature and top-p can be combined. Apply temperature first (scale logits), then apply top-p filtering.
+يمكن الجمع بين درجة الحرارة وأعلى ع. قم بتطبيق درجة الحرارة أولاً (مقياس logits)، ثم قم بتطبيق الترشيح العلوي.
 
 ## MCMC method selection
 
-| Property | Metropolis-Hastings | Gibbs | HMC/NUTS |
+| عقار | متروبوليس هاستينغز | جيبس | HMC/NUTS |
 |---|---|---|---|
-| Dimension | Any | Any (best < 100) | High (100+) |
-| Requires conditionals | No | Yes | No |
-| Requires gradient | No | No | Yes |
-| Acceptance rate | Tune to ~23% | Always 100% | Tune to ~65% |
-| Correlation | High (random walk) | Moderate | Low |
-| Burn-in | Long | Moderate | Short |
-| Best for | Exploration, simple models | Conjugate models, Bayesian networks | Continuous posteriors, deep probabilistic models |
+| البعد | أي | أي (الأفضل <100) | عالية (100+) |
+| يتطلب الشروط | لا | نعم | لا |
+| يتطلب التدرج | لا | لا | نعم |
+| معدل القبول | لحن إلى ~ 23٪ | دائما 100% | لحن إلى ~ 65% |
+| الارتباط | عالية (المشي العشوائي) | معتدل | منخفض |
+| حرق في | طويل | معتدل | قصير |
+| الأفضل لـ | استكشاف نماذج بسيطة | النماذج المترافقة، الشبكات البايزية | الخلفية المستمرة، النماذج الاحتمالية العميقة |
 
 ## Common mistakes
 
-- Using rejection sampling in high dimensions. Acceptance rate drops exponentially with dimension. Above 5 dimensions, switch to MCMC.
-- Setting MCMC proposal variance too high or too low. Too high: most proposals rejected, chain stuck. Too low: all proposals accepted, chain moves slowly. Target ~23% acceptance for random walk MH.
-- Forgetting burn-in. The first N samples from MCMC are biased by the starting point. Discard at least 1000 steps (or more for complex distributions).
-- Using importance sampling with a proposal very different from the target. A few samples get enormous weights, making the estimate unreliable. Monitor the effective sample size: ESS = (sum w_i)^2 / sum(w_i^2).
-- Using temperature > 0 for tasks that need deterministic output (e.g., classification, structured extraction). Use greedy (T=0) or beam search instead.
-- Not combining top-p with temperature. Temperature alone does not remove garbage tokens from the long tail. Top-p does.
-- Backpropagating through a standard sampling operation. Use reparameterization trick for continuous (Gaussian) and Gumbel-Softmax for discrete (categorical).
+- استخدام عينات الرفض في الأبعاد العالية. ينخفض ​​معدل القبول بشكل كبير مع البعد. فوق 5 أبعاد، قم بالتبديل إلى MCMC.
+- ضبط تباين الاقتراح MCMC مرتفع جدًا أو منخفض جدًا. عالية جدًا: تم رفض معظم المقترحات، وتوقفت السلسلة. منخفض جدًا: يتم قبول جميع المقترحات، وتتحرك السلسلة ببطء. الهدف ~ قبول 23% للمشي العشوائي MH.
+- نسيان الإحتراق. عينات N الأولى من MCMC متحيزة بنقطة البداية. تجاهل ما لا يقل عن 1000 خطوة (أو أكثر للتوزيعات المعقدة).
+- استخدام أخذ العينات ذات الأهمية بمقترح مختلف تمامًا عن الهدف. تحصل بعض العينات على أوزان هائلة، مما يجعل التقدير غير موثوق. مراقبة حجم العينة الفعال: ESS = (sum w_i)^2 / sum(w_i^2).
+- استخدام درجة الحرارة > 0 للمهام التي تحتاج إلى نتائج حتمية (مثل التصنيف والاستخراج المنظم). استخدم الجشع (T = 0) أو البحث الشعاعي بدلاً من ذلك.
+- عدم الجمع بين درجة الحرارة العليا ودرجة الحرارة. درجة الحرارة وحدها لا تزيل الرموز المهملة من الذيل الطويل. Top-p يفعل.
+- الانتشار العكسي من خلال عملية أخذ العينات القياسية. استخدم خدعة إعادة المعلمة للمستمر (Gaussian) وGumbel-Softmax للمنفصل (الفئوي).
 
 ## Quick reference: variance reduction techniques
 
-| Technique | How it works | Variance reduction |
+| تقنية | كيف يعمل | تخفيض التباين |
 |---|---|---|
-| Stratified sampling | Divide space into strata, sample each | Always <= standard MC |
-| Antithetic variates | Use both U and 1-U | Works for monotone functions |
-| Control variates | Subtract a known-mean variable | Proportional to correlation |
-| Importance sampling | Reweight samples from a better proposal | Depends on proposal quality |
-| Latin hypercube | Stratify each dimension independently | Better than stratified in high-d |
+| أخذ العينات الطبقية | قسّم المساحة إلى طبقات، وعيّن كل منها | دائما <= قياسي MC |
+| يختلف النقيض | استخدم كلاً من U و1-U | يعمل على وظائف رتيبة |
+| التحكم يختلف | اطرح متغيرًا متوسطًا معروفًا | متناسب مع الارتباط |
+| أهمية أخذ العينات | إعادة وزن العينات من اقتراح أفضل | يعتمد على جودة الاقتراح |
+| المكعب الزائد اللاتيني | طبقية كل بعد بشكل مستقل | أفضل من الطبقية في عالية د |

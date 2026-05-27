@@ -1,7 +1,11 @@
-"""آلة حاسبة معمارية مفتوحة LLMs. بالنظر إلى أمر التكوين بنمط HuggingFace، قم بحساب عدد المعلمات حسب المكون،
-KV ذاكرة التخزين المؤقت في أقصى سياق، ونسبة MLP، وحكم على البنية. السفن
-مع إعدادات Llama 3 8B، وMistral 7B، وMixtral 8x7B، وDeepSeek V3، وQwen 2.5،
-وGPT-2 صغير للمقارنة المباشرة. ستدليب فقط. لا الشعلة، لا التنزيلات. الهدف هو قراءة التكوينات وليس الأوزان.
+"""Architecture calculator for open LLMs.
+
+Given a HuggingFace-style config dict, compute parameter counts by component,
+KV cache at max context, MLP ratio, and a verdict on the architecture. Ships
+with configs for Llama 3 8B, Mistral 7B, Mixtral 8x7B, DeepSeek V3, Qwen 2.5,
+and GPT-2 Small for direct comparison.
+
+Stdlib only. No torch, no downloads. The point is to read configs, not weights.
 """
 
 from __future__ import annotations

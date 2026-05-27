@@ -1,6 +1,8 @@
-"""اهتمام متعدد الرؤوس من الصفر في stdlib النقي. لا نومي، لا الشعلة. فئة Matrix الصغيرة تحمل العمليات التي نحتاجها.
-يوضح: الرؤوس المنقسمة، والاهتمام بالمنتج النقطي المتدرج لكل رأس،
-الجمع بين الرؤوس وإسقاط الإخراج ومتغير الاستعلام المجمع.
+"""Multi-head attention from scratch in pure stdlib.
+
+No numpy, no torch. A tiny Matrix class carries the ops we need.
+Demonstrates: split heads, per-head scaled dot-product attention,
+combine heads, output projection, and a Grouped-Query variant.
 """
 
 import math
@@ -9,7 +11,7 @@ from typing import List
 
 
 class Matrix:
-    """مصفوفة الصف الرئيسية ثنائية الأبعاد للعوامات. فقط ما يكفي من العمليات للفت الانتباه."""
+    """Row-major 2D matrix of floats. Just enough ops for attention."""
 
     __slots__ = ("rows", "cols", "data")
 
@@ -129,7 +131,7 @@ def multi_head_attention(X: Matrix, Wq, Wk, Wv, Wo, n_heads: int):
 
 
 def grouped_query_attention(X: Matrix, Wq, Wk, Wv, Wo, n_heads: int, n_kv_heads: int):
-    """نفس MHA ولكن K وV لهما رؤوس أقل، تتكرر لمطابقة Q."""
+    """Same as MHA but K and V have fewer heads, repeated to match Q."""
     Q = matmul(X, Wq)
     K = matmul(X, Wk)
     V = matmul(X, Wv)
@@ -186,7 +188,7 @@ def main():
             print()
         print()
 
-    # GQA العرض التوضيحي: 4 رؤوس Q، 2 KV رؤوس
+    # GQA demo: 4 Q heads, 2 KV heads
     d_model = 8
     n_heads = 4
     n_kv = 2

@@ -1,5 +1,7 @@
-"""رسم بياني ذو حالة على شكل LangGraph في stdlib، مع نقطة تفتيش واستئناف. الدولة هي إملاء مكتوب. العقد ترجع إملاءات التحديث. وقت التشغيل يقوم بتسلسل الحالة
-بعد كل node، تبدأ السيرة الذاتية تمامًا من حيث توقفت.
+"""LangGraph-shaped stateful graph in stdlib, with checkpoint and resume.
+
+State is a typed dict. Nodes return update dicts. Runtime serializes state
+after every node so resume picks up exactly where it left off.
 """
 
 from __future__ import annotations

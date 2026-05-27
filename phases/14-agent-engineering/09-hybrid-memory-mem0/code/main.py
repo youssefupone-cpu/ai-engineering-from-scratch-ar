@@ -1,5 +1,7 @@
-"""الذاكرة الهجينة على شكل Mem0: المتجه + KV + رسم بياني مع تسجيل الانصهار. ستدليب فقط. يستخدم متجر المتجهات تداخل الرمز المميز كبديل للتضمين.
-تصنيف النطاق: المستخدم / الجلسة / الوكيل. الانصهار: الصلة + الأهمية + الحداثة.
+"""Mem0-shaped hybrid memory: vector + KV + graph with fusion scoring.
+
+Stdlib only. Vector store uses token-overlap as an embedding stand-in.
+Scope taxonomy: user / session / agent. Fusion: relevance + importance + recency.
 """
 
 from __future__ import annotations

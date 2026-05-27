@@ -1,7 +1,14 @@
-"""محاسب التخزين المؤقت الفوري. يحاكي ثلاثة أنظمة للتخزين المؤقت للمزود (أنثروبي سريع الزوال 5 دقائق، أنثروبي 1 ساعة،
-OpenAI تلقائي، الجوزاء صريح) مقابل تدفق الطلبات والتقارير
-أعداد الكتابة/القراءة/التفويت بالإضافة إلى التكلفة المختلطة لكل ألف طلب. الأسعار أدناه هي الأسعار المنشورة لشهر أبريل 2026 لرموز الإدخال على
-نموذج الحدود للمزود. التجاوز عن طريق تحرير PRICES. تشغيل مع: بيثون main.py
+"""Prompt caching accountant.
+
+Simulates three provider caching regimes (Anthropic ephemeral 5m, Anthropic 1h,
+OpenAI automatic, Gemini explicit) against a stream of requests and reports
+write/read/miss counts plus blended cost per 1K requests.
+
+Prices below are the April 2026 published rates for input tokens on the
+provider's frontier model. Override by editing PRICES.
+
+Run with:
+    python main.py
 """
 
 from __future__ import annotations
@@ -10,7 +17,7 @@ from dataclasses import dataclass, field
 from typing import Iterable
 
 
-# أسعار رموز الإدخال، USD لكل ألف رمز ---------------------------------------
+# Input-token prices, USD per 1K tokens --------------------------------------
 
 PRICES = {
     "anthropic_claude_opus_4_7": {"base": 0.015, "cache_write_5m": 0.01875, "cache_write_1h": 0.030, "cache_read": 0.0015},
@@ -21,7 +28,7 @@ PRICES = {
 
 @dataclass
 class Request:
-    """طلب واحد. `prefix_tokens` هي البادئة القابلة للتخزين المؤقت؛ `suffix_tokens` هو إدخال المستخدم."""
+    """A single request. `prefix_tokens` is the cacheable prefix; `suffix_tokens` is user input."""
 
     prefix_tokens: int
     suffix_tokens: int
@@ -69,7 +76,7 @@ def simulate_anthropic(requests: Iterable[Request], ttl_seconds: int, seconds_be
 
 
 def simulate_openai(requests: Iterable[Request], seconds_between: int) -> ProviderStats:
-    """ذاكرة التخزين المؤقت لـ OpenAI تلقائية؛ نحن نصممه كما هو الحال دائمًا مع أفضل جهد لمدة ساعة واحدة TTL."""
+    """OpenAI's cache is automatic; we model it as always-on with 1h best-effort TTL."""
     p = PRICES["openai_gpt_5"]
     stats = ProviderStats()
     cache: dict[str, CacheEntry] = {}
@@ -104,7 +111,7 @@ def simulate_gemini(requests: Iterable[Request], ttl_seconds: int, seconds_betwe
             stats.reads += 1
             stats.input_cost += (r.prefix_tokens / 1000) * p["cache_read"]
         stats.input_cost += (r.suffix_tokens / 1000) * p["base"]
-    # تكلفة التخزين: كل إدخال يعيش لمدة ttl، تتم محاسبته لكل ساعة رمزية
+    # Storage cost: each entry lives for ttl, billed per token-hour
     for entry in cache.values():
         hours = entry.ttl_seconds / 3600
         stats.storage_cost += (entry.tokens / 1000) * p["storage_per_1k_per_hour"] * hours

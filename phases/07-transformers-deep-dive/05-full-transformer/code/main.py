@@ -1,8 +1,10 @@
-"""المحول الكامل: كتل التشفير + وحدة فك التشفير في stdlib النقي. يوضح:
-- LayerNorm مقابل RMSNorm
-- ReLU-FFN مقابل SwiGLU FFN
-- كتلة التشفير (ثنائية الاتجاه) مقابل كتلة وحدة فك التشفير (سببية + متقاطعة)
-- الأسلاك المسبقة (افتراضي 2026)
+"""The full transformer: encoder + decoder blocks in pure stdlib.
+
+Demonstrates:
+- LayerNorm vs RMSNorm
+- ReLU-FFN vs SwiGLU FFN
+- encoder block (bidirectional) vs decoder block (causal + cross-attn)
+- pre-norm wiring (2026 default)
 """
 
 import math
@@ -158,7 +160,7 @@ def multi_head_attention(X, Wq, Wk, Wv, Wo, n_heads, causal=False, kv_source=Non
 
 
 class BlockParams:
-    """جميع الأوزان لكتلة تشفير أو فك تشفير واحدة."""
+    """All weights for one encoder or decoder block."""
     def __init__(self, d, n_heads, ffn_expansion, rng, use_swiglu=True):
         self.d = d
         self.n_heads = n_heads
@@ -175,7 +177,7 @@ class BlockParams:
         else:
             self.W1 = randn(d, h, rng)
             self.W2 = randn(h, d, rng)
-        # الانتباه المتبادل (وحدة فك التشفير)
+        # cross-attention (decoder)
         self.Wq_x = randn(d, d, rng)
         self.Wk_x = randn(d, d, rng)
         self.Wv_x = randn(d, d, rng)
@@ -183,22 +185,22 @@ class BlockParams:
 
 
 def encoder_block(x, p):
-    # الاهتمام الذاتي المسبق + المتبقي
+    # pre-norm self-attention + residual
     h = rms_norm(x)
     a = multi_head_attention(h, p.Wq, p.Wk, p.Wv, p.Wo, p.n_heads)
     x = add(x, a)
-    # القاعدة المسبقة FFN + المتبقية
+    # pre-norm FFN + residual
     h = rms_norm(x)
     f = ffn_swiglu(h, p.W1, p.W2, p.W3) if p.use_swiglu else ffn_relu(h, p.W1, p.W2)
     return add(x, f)
 
 
 def decoder_block(x, enc_out, p):
-    # 1) الاهتمام الذاتي المقنع
+    # 1) masked self-attention
     h = rms_norm(x)
     a = multi_head_attention(h, p.Wq, p.Wk, p.Wv, p.Wo, p.n_heads, causal=True)
     x = add(x, a)
-    # 2) الاهتمام المتبادل بإخراج التشفير
+    # 2) cross-attention to encoder output
     h = rms_norm(x)
     a = multi_head_attention(h, p.Wq_x, p.Wk_x, p.Wv_x, p.Wo_x, p.n_heads, kv_source=enc_out)
     x = add(x, a)

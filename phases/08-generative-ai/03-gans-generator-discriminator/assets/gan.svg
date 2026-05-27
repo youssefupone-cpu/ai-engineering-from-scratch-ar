@@ -50,7 +50,7 @@
 
   <!-- loss -->
   <rect x="660" y="150" width="200" height="60" class="box"/>
-  <text x="760" y="180" text-anchor="middle" class="label">BCE الخسارة</text>
+  <text x="760" y="180" text-anchor="middle" class="label">BCE خسارة</text>
   <text x="760" y="200" text-anchor="middle" class="caption">حقيقي -&gt; 1، مزيف -&gt; 0</text>
 
   <!-- objective -->
@@ -62,7 +62,7 @@
   <rect x="40" y="370" width="400" height="70" class="hot"/>
   <text x="240" y="392" text-anchor="middle" class="label">الفشل: فوز D</text>
   <text x="240" y="412" text-anchor="middle" class="caption">D(وهمي) → 0، يختفي التدرج إلى G</text>
-  <text x="240" y="428" text-anchor="middle" class="caption">الإصلاح: قطع D lr، إضافة ضجيج الإدخال، WGAN</text>
+  <text x="240" y="428" text-anchor="middle" class="caption">إصلاح: قطع D lr، إضافة ضجيج الإدخال، WGAN</text>
 
   <rect x="460" y="370" width="400" height="70" class="hot"/>
   <text x="660" y="392" text-anchor="middle" class="label">الفشل: ينهار G</text>

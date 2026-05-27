@@ -1,6 +1,12 @@
-"""لعبة شجرة الأفكار BFS وLATS MCTS في بحث حسابي منمق. المهمة: إعطاء أعداد صحيحة [4، 6، 4، 1]، العثور على تعبير باستخدام +، -، *، / ذلك
-يتم تقييمه إلى 24. وهذا يعكس معيار لعبة 24 من Yao et al. ToT هو BFS مع دالة قيمة مطلوبة. LATS هو MCTS على نفس المستوى
-مساحة البحث مع تحديد UCT. ستدليب فقط؛ لا LLM. دالة القيمة رمزية (المسافة من 24).
+"""Toy Tree-of-Thoughts BFS and LATS MCTS on a stylized arithmetic search.
+
+Task: given integers [4, 6, 4, 1], find an expression using +, -, *, / that
+evaluates to 24. This mirrors the Game of 24 benchmark from Yao et al.
+
+ToT is a BFS with a prompted value function. LATS is MCTS over the same
+search space with UCT selection.
+
+Stdlib only; no LLM. Value function is symbolic (distance from 24).
 """
 
 from __future__ import annotations

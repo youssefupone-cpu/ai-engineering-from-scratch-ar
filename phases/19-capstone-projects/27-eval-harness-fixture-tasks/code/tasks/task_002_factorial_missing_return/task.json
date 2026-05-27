@@ -1,0 +1,11 @@
+{
+  "id": "task_002_factorial_missing_return",
+  "goal": "المضروب (ن) يحسب ن!. يقوم إصدار عربات التي تجرها الدواب بتعيين النتيجة إلى محلي ولكنه ينسى إعادتها. أضف بيان الإرجاع المفقود.",
+  "verifier": {
+    "name": "regex_match",
+    "args": {
+      "path": "factorial.py",
+      "pattern": "^\\s*return\\s+result\\s*$"
+    }
+  }
+}

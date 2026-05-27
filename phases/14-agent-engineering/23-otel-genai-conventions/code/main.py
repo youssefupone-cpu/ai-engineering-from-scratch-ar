@@ -1,5 +1,7 @@
-"""Stdlib تمتد باعث مطابقة للاصطلاحات الدلالية OpenTelemetry GenAI. يُصدر امتدادات invoc_agent INTERNAL، وامتدادات لكل أداة، وامتدادات دردشة لمكالمات LLM.
-يعد التقاط المحتوى أمرًا اختياريًا: تنتقل المطالبات إلى متجر خارجي، وتحمل الامتدادات معرفات.
+"""Stdlib span emitter matching OpenTelemetry GenAI semantic conventions.
+
+Emits invoke_agent INTERNAL spans, per-tool spans, chat spans for LLM calls.
+Content capture is opt-in: prompts go to an external store, spans carry IDs.
 """
 
 from __future__ import annotations

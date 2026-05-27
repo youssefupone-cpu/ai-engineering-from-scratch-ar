@@ -1,6 +1,8 @@
-"""جميع أنماط سير العمل الإنسانية الخمسة في stdlib. التسلسل الفوري، والتوجيه، والموازاة (التصويت)، والعاملين المنسقين،
-محسن المقيم. يتكون كل نمط من 10-15 سطرًا؛ النقطة المهمة هي إظهار كيف
-صغيرة يتم مقارنتها بالإطار.
+"""All five Anthropic workflow patterns in stdlib.
+
+prompt chaining, routing, parallelization (voting), orchestrator-workers,
+evaluator-optimizer. Each pattern is 10-15 lines; the point is to show how
+small they are compared to a framework.
 """
 
 from __future__ import annotations

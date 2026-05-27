@@ -8,7 +8,7 @@ labels: bug
 ## Where
 
 - المرحلة/ الدرس: <!-- مثلاً. المرحلة الرابعة · 06-اكتشاف الكائنات-يولو -->
-- الملف / URL: <!-- على سبيل المثال. phas/04-computer-vision/06-object-detection-yolo/code/main.py أو aieengineeringfromscratch.com/lesson.html?path=... -->
+- الملف / URL: <!-- مثلاً phas/04-computer-vision/06-object-detection-yolo/code/main.py أو aieengineeringfromscratch.com/lesson.html?path=... -->
 
 ## What's wrong
 

@@ -1,5 +1,7 @@
-"""إظهار عينات الانتشار المنفصلة المقنعة - stdlib. 16 رمزًا، K=8 مفردات، T=8 خطوات، جدول جيب التمام. "المحول" الوهمي logits هكذا
-حلقة أخذ العينات هي التركيز، وليس النموذج. يطبع تطور القناع.
+"""Show-o masked-discrete-diffusion sampler — stdlib.
+
+16 tokens, K=8 vocab, T=8 steps, cosine schedule. Mock "transformer" logits so
+the sampling loop is the focus, not the model. Prints the mask evolution.
 """
 
 from __future__ import annotations
@@ -15,12 +17,12 @@ MASK = -1
 
 
 def cosine_schedule(T: int) -> list[float]:
-    """نسبة القناع في الخطوة t، في [0، 1]. يذهب 1.0 -> 0.0."""
+    """Mask ratio at step t, in [0, 1]. Goes 1.0 -> 0.0."""
     return [math.cos(math.pi * (t + 1) / (2 * T)) for t in range(T)]
 
 
 def mock_logits(tokens: list[int], prompt_seed: int = 0) -> list[list[float]]:
-    """محول التظاهر: التحيز تجاه رموز محددة بناءً على موضع المطالبة +."""
+    """Pretend-transformer: bias toward specific tokens based on prompt + position."""
     logits = []
     for i, t in enumerate(tokens):
         base = [random.gauss(0, 0.3) for _ in range(VOCAB)]
@@ -40,7 +42,7 @@ def softmax(xs: list[float]) -> list[float]:
 
 
 def step_unmask(tokens: list[int], prompt_seed: int, keep_ratio: float) -> list[int]:
-    """توقع جميع الرموز المقنعة؛ حافظ على نسبة أعلى منهم واثقًا."""
+    """Predict all masked tokens; keep top keep_ratio of them confident."""
     logits = mock_logits(tokens, prompt_seed)
     preds = []
     confs = []

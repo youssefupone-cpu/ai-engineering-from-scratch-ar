@@ -1,5 +1,7 @@
-"""Stdlib جامع التتبع + LLM- القاضي المقيم. يعكس ما يفعله Langfuse / Phoenix / Opik مع واجهات المستخدم الأكثر ثراءً: استيعاب الامتدادات،
-مجموعة بجلسة، سجل مع حكم LLM، فئات فشل السطح.
+"""Stdlib trace collector + LLM-judge evaluator.
+
+Mirrors what Langfuse / Phoenix / Opik do with richer UIs: ingest spans,
+group by session, score with an LLM judge, surface failure categories.
 """
 
 from __future__ import annotations

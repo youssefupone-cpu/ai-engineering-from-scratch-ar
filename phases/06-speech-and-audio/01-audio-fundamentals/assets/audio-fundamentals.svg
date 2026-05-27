@@ -44,7 +44,7 @@
 
   <!-- Spectrum -->
   <rect x="580" y="60" width="260" height="160" class="box"/>
-  <text x="710" y="84" text-anchor="middle" class="label">DFT الحجم</text>
+  <text x="710" y="84" text-anchor="middle" class="label">DFT حجم</text>
   <line x1="605" y1="195" x2="605" y2="195" stroke="#1a1a1a" stroke-width="1.5"/>
   <rect x="615" y="160" width="4" height="35" fill="#1a1a1a"/>
   <rect x="640" y="120" width="4" height="75" fill="#c0392b"/>
@@ -81,7 +81,7 @@
   <!-- Bit depth / sample rate table -->
   <rect x="460" y="250" width="380" height="180" class="box"/>
   <text x="650" y="274" text-anchor="middle" class="label">معدلات العينة 2026</text>
-  <text x="480" y="300" class="content">8 كيلو هرتز</text><text x="560" y="300" class="caption">الاتصالات الهاتفية — تجنبها لمدة ASR</text>
+  <text x="480" y="300" class="content">8 كيلو هرتز</text><text x="560" y="300" class="caption">الاتصالات الهاتفية - تجنب ASR</text>
   <text x="480" y="322" class="content">16 كيلو هرتز</text><text x="560" y="322" class="caption">ASR قياسي (الهمس، الببغاء)</text>
   <text x="480" y="344" class="content">24 كيلو هرتز</text><text x="560" y="344" class="caption">الحديث TTS (كوكورو، F5، xTTS)</text>
   <text x="480" y="366" class="content">44.1 كيلو هرتز</text><text x="560" y="366" class="caption">CD الصوت والموسيقى</text>

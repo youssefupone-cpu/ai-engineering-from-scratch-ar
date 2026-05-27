@@ -33,12 +33,12 @@
   <!-- Mark-as-done-first -->
   <rect x="420" y="80" width="180" height="60" class="warn"/>
   <text x="510" y="104" text-anchor="middle" class="label">mark-as-done-first</text>
-  <text x="510" y="122" text-anchor="middle" class="small">استمرار "ملتزم" BEFORE exec</text>
+  <text x="510" y="122" text-anchor="middle" class="small">استمر "ملتزم" BEFORE exec</text>
 
   <!-- Execute -->
   <rect x="620" y="80" width="180" height="60" class="hot"/>
   <text x="710" y="104" text-anchor="middle" class="label">تنفيذ الآثار الجانبية</text>
-  <text x="710" y="122" text-anchor="middle" class="small">استدعاء الأداة / DB كتابة / إرسال</text>
+  <text x="710" y="122" text-anchor="middle" class="small">أداة استدعاء / DB كتابة / إرسال</text>
 
   <path d="M220 110 L240 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <path d="M400 110 L420 110" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -73,7 +73,7 @@
 
   <!-- Article 14 -->
   <rect x="60" y="400" width="760" height="90" class="cold"/>
-  <text x="440" y="424" text-anchor="middle" class="label">EU AI المادة 14 من القانون - القراءة التشغيلية</text>
+  <text x="440" y="424" text-anchor="middle" class="label">EU AI المادة 14 من القانون – القراءة التنفيذية</text>
   <text x="80" y="446" class="content">نقاط التفتيش القابلة للاستعلام (وصول المدقق، وليس السجلات فقط)</text>
   <text x="80" y="462" class="content">التراجعات التي تم التدرب عليها (اختبار شامل، وليس نية موثقة)</text>
   <text x="80" y="478" class="content">يستمر مسار التدقيق في عمليات النشر (PostgreSQL أو الكائنات الدائمة، وليس في الذاكرة)</text>

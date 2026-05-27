@@ -1,6 +1,6 @@
 """
-أمثلة على استخدام الانتشار المستقر. يتطلب `diffusers` و`transformers` وGPU
-عن أي استنتاج حقيقي. يعد تشغيل هذا في CPU بدون النموذج بمثابة ملخص محظور.
+Stable Diffusion usage examples. Requires `diffusers`, `transformers`, and a GPU
+for any real inference. Running this on CPU without the model is a no-op summary.
 """
 
 import os
@@ -62,7 +62,17 @@ def text_to_image_stub(prompt, seed=42):
 def lora_training_sketch():
     print("\n[lora training pseudocode]")
     pseudo = """
-للخطوة، دفعة في تعداد (محمل البيانات): الصور والمطالبات = دفعة الكامنة = vae.encode(صور).latent_dist.sample() * 0.18215 t = torch.randint(0, num_train_timesteps, (batch_size,)) الضوضاء = torch.randn_like(الكامنة) noisy_latents = جدولة.add_noise(الكامنة، الضوضاء، ر) text_emb = text_encoder(الرمز المميز(المطالبات)) pred_noise = unet(noisy_latents, t, text_emb) # LoRA الأوزان التي تم حقنها الخسارة = F.mse_loss (pred_noise، الضوضاء) الخسارة.الخلف() محسن.خطوة ()
+for step, batch in enumerate(dataloader):
+    images, prompts = batch
+    latents = vae.encode(images).latent_dist.sample() * 0.18215
+    t = torch.randint(0, num_train_timesteps, (batch_size,))
+    noise = torch.randn_like(latents)
+    noisy_latents = scheduler.add_noise(latents, noise, t)
+    text_emb = text_encoder(tokenizer(prompts))
+    pred_noise = unet(noisy_latents, t, text_emb)       # LoRA weights injected
+    loss = F.mse_loss(pred_noise, noise)
+    loss.backward()
+    optimizer.step()
 """
     print(pseudo)
 

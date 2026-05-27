@@ -36,7 +36,7 @@
   <rect x="325" y="60" width="270" height="200" class="hot"/>
   <text x="460" y="82" text-anchor="middle" class="label">وحدة فك ترميز النص</text>
   <rect x="345" y="100" width="230" height="44" class="box"/>
-  <text x="460" y="118" text-anchor="middle" class="content">SOT → &lt;|en|&gt; → &lt;|transcribe|&gt;</text>
+  <text x="460" y="118" text-anchor="middle" class="content">SOT → &lt;|ar|&gt; → &lt;|نسخ|&gt;</text>
   <text x="460" y="134" text-anchor="middle" class="content">→ &lt;|notimestamps|&gt; → الرموز المميزة → EOT</text>
   <line x1="460" y1="148" x2="460" y2="164" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <rect x="345" y="167" width="230" height="50" class="box"/>
@@ -69,15 +69,15 @@
   <text x="130" y="377" class="caption" font-size="10">25–55</text>
   <text x="200" y="402" class="caption" font-size="10">50–80</text>
   <text x="270" y="427" class="caption" font-size="10">75–105</text>
-  <text x="240" y="458" text-anchor="middle" class="caption">تداخل خطوة لمدة 5 ثوانٍ؛ VAD- بوابة الصمت لمنع الهلوسة</text>
+  <text x="240" y="458" text-anchor="middle" class="caption">تداخل خطوة لمدة 5 ثوانٍ؛ VAD- ​​بوابة الصمت للوقاية من الهلوسة</text>
 
   <!-- Fine-tune -->
   <rect x="460" y="290" width="385" height="175" class="hot"/>
   <text x="652" y="312" text-anchor="middle" class="label">LoRA ضبط دقيق (q_proj + v_proj, r=16)</text>
   <text x="475" y="340" class="content">كامل-FT Turbo-809M → 809M قابل للتدريب</text>
   <text x="475" y="362" class="content">LoRA-r16 توربو → 0.65 متر قابل للتدريب</text>
-  <text x="475" y="384" class="content">LoRA-r16 Large-v3 → 5.2M قابل للتدريب</text>
+  <text x="475" y="384" class="content">LoRA-r16 كبير-v3 → 5.2M قابل للتدريب</text>
   <text x="475" y="406" class="content">LoRA-r16 متوسط ​​→ 3.1 مليون قابل للتدريب</text>
   <text x="652" y="432" text-anchor="middle" class="caption">تجميد التشفير إذا كان أقل من 10 ساعات؛ لحن فك فقط</text>
-  <text x="652" y="452" text-anchor="middle" class="caption">2-20 ساعة تحصل على 2-5× WER في المجال</text>
+  <text x="652" y="452" text-anchor="middle" class="caption">2–20 ساعة تحصل على 2–5× WER انخفاض في المجال</text>
 </svg>

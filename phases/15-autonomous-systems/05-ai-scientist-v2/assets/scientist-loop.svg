@@ -16,7 +16,7 @@
     </style>
   </defs>
 
-  <text x="440" y="26" text-anchor="middle" class="title">AI العالِم الإصدار الثاني - حلقة البحث، قياس معدلات الفشل</text>
+  <text x="440" y="26" text-anchor="middle" class="title">AI Scientist v2 — حلقة بحث، قياس معدلات الفشل</text>
 
   <rect x="40" y="50" width="800" height="430" class="box"/>
 
@@ -36,7 +36,7 @@
     <text x="355" y="134" text-anchor="middle" class="small">(بيل 2025)</text>
 
     <rect x="420" y="80" width="110" height="60" class="cold"/>
-    <text x="475" y="104" text-anchor="middle" class="label">VLM نقد ​​الشكل</text>
+    <text x="475" y="104" text-anchor="middle" class="label">VLM نقد الشكل</text>
     <text x="475" y="120" text-anchor="middle" class="small">تلميع الصور</text>
     <text x="475" y="134" text-anchor="middle" class="small">أقنعة 70%</text>
 
@@ -57,15 +57,15 @@
   <!-- Results panel -->
   <rect x="60" y="175" width="740" height="115" class="box"/>
   <text x="80" y="196" class="label">النتائج المقاسة (يامادا 2025، ساكانا نيتشر 2026)</text>
-  <text x="80" y="218" class="content">· تم قبول الورقة التي تم إنشاؤها بواسطة الإصدار v2 في ورشة عمل ICLR 2025 (تم الكشف عنها)</text>
+  <text x="80" y="218" class="content">· تم قبول الورق الذي تم إنشاؤه بواسطة الإصدار v2 في ورشة عمل ICLR 2025 (تم الكشف عنها)</text>
   <text x="80" y="236" class="content">· حلقة خالية من القالب تحل محل السقالات الثابتة لـ v1</text>
-  <text x="80" y="254" class="content">· المستندات الورقية Nature 2026 من طرف إلى طرف pipeline</text>
+  <text x="80" y="254" class="content">· طبيعة 2026 مستندات ورقية شاملة pipeline</text>
   <text x="80" y="272" class="content">· بيل وآخرون. 2025 تقييم خارجي تم وضع علامة على عيوب تجربة إخفاء الطلاء</text>
 
   <!-- Safety box -->
   <rect x="60" y="305" width="740" height="155" class="hot"/>
-  <text x="80" y="328" class="label">السلامة التشغيلية (Sakana repo README، معاد صياغتها)</text>
-  <text x="80" y="350" class="content">- تقوم قاعدة التعليمات البرمجية بتنفيذ التعليمات البرمجية المكتوبة LLM</text>
+  <text x="80" y="328" class="label">السلامة التشغيلية (Sakana repo README، إعادة صياغة)</text>
+  <text x="80" y="350" class="content">- تقوم قاعدة التعليمات البرمجية بتنفيذ كود مكتوب LLM</text>
   <text x="80" y="368" class="content">- الحزم الخطيرة، والوصول إلى شبكة الإنترنت غير المنضبط، والعمليات غير المقصودة المحتملة</text>
   <text x="80" y="386" class="content">- يوصى بعزل Docker (يفضل seccomp / gVisor للتشغيل لعدة أيام)</text>
   <text x="80" y="404" class="content">- الكشف عن الأوراق التي كتبها الوكيل؛ المراجعة قبل التقديم</text>

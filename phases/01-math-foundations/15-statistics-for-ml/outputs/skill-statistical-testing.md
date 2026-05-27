@@ -7,16 +7,21 @@ lesson: 15
 tags: [statistics, hypothesis-testing, model-comparison]
 ---
 
-# الاختبار الإحصائي لـ ML
-كيفية اختيار الاختبار المناسب عند مقارنة النماذج، أو إجراء تجارب أ/ب، أو التحقق من صحة النتائج.
-## قائمة مراجعة القرار
-1. ما الذي تقارنه؟ الوسائل أم النسب أم التوزيعات أم الارتباطات؟
-2. كم عدد المجموعات؟ عينة واحدة مقابل مرجع، مجموعتين، أو مجموعات متعددة؟
-3. هل الملاحظات مقترنة (نفس مجموعة الاختبار، نفس الطيات) أم مستقلة؟
-4. هل يتم توزيع البيانات بشكل طبيعي؟ إذا كان n < 30 ولم يكن طبيعيًا بشكل واضح، استخدم غير معلمي.
-5. هل البيانات مستمرة أم ترتيبية أم قطعية؟
-6. كم عدد الاختبارات التي تجريها؟ تطبيق التصحيح إذا كان أكثر من واحد.
-##شجرة القرار
+# Statistical Testing for ML
+
+How to pick the right test when comparing models, running A/B experiments, or validating results.
+
+## Decision Checklist
+
+1. What are you comparing? Means, proportions, distributions, or correlations?
+2. How many groups? One sample vs reference, two groups, or multiple groups?
+3. Are observations paired (same test set, same folds) or independent?
+4. Is the data normally distributed? If n < 30 and not clearly normal, use non-parametric.
+5. Is the data continuous, ordinal, or categorical?
+6. How many tests are you running? Apply correction if more than one.
+
+## Decision tree
+
 ```text
 Comparing means?
   Two groups?
@@ -44,45 +49,53 @@ Running many tests?
   Or use Holm-Bonferroni (less conservative, still controls family-wise error)
 ```
 
-## متى يتم استخدام كل اختبار
-| اختبار | نوع البيانات | افتراضات | ML حالة الاستخدام |
+## When to use each test
+
+| Test | Data type | Assumptions | ML use case |
 |---|---|---|---|
-| اختبار t المقترن | مستمر، مقترن | فروق طبيعية | قارن بين نموذجين على نفس الانقسامات k-fold |
-| موقعة ويلكوكسون رتبة | مستمر/ترتيبي، مقترن | لا شيء (غير معلمي) | قارن بين نموذجين، صغير ك (5-10 طيات) |
-| اختبار ويلش | مستمر، مستقل | عادي تقريبا | قارن النموذج في مجموعتي بيانات منفصلتين |
-| مان ويتني يو | مستمر/ترتيبي، مستقل | لا شيء | قارن توزيعات الكمون |
-| __المصطلح_1__ | مستمر، 3+ مجموعات | عادي، التباين المتساوي | قارن بنيات النماذج المتعددة |
-| كروسكال واليس | مستمر/ترتيبي، 3+ مجموعات | لا شيء | قارن بين نماذج متعددة ومقاييس غير عادية |
-| مربع كاي | التهم الفئوية | العدد المتوقع >= 5 | قارن التوزيعات الطبقية، مصفوفات الارتباك |
-| فيشر بالضبط | التهم الفئوية | عينات صغيرة | مقارنة الأحداث النادرة |
-| KS اختبار | مستمر | لا شيء | تحقق مما إذا كانت التوقعات تتبع التوزيع المتوقع |
-| بوتستراب CI | أية إحصائية | لا شيء | فاصل الثقة لـ AUC، F1، أي مقياس |
-| اختبار ماكنيمار | ثنائي مقترن | لا شيء | قارن بين مصنفين في نفس مجموعة الاختبار |
-## وصفة مقارنة النماذج
-1. حدد مستوى القياس والأهمية (ألفا = 0.05) قبل إجراء التجارب.
-2. قم بتشغيل كلا النموذجين على نفس تقسيمات التحقق المتبادل k-fold (k = 5 أو 10).
-3. جمع الدرجات المقترنة: (a_1، b_1)، (a_2، b_2)، ...، (a_k، b_k).
-4. حساب الاختلافات: d_i = b_i - a_i.
-5. قم بإجراء اختبار مقترن (Wilcoxon لـ k <= 10، أو اختبار t مقترن لـ k > 10 أو الفروق العادية).
-6. التقرير: القيمة الاحتمالية، متوسط ​​الفرق، فاصل الثقة 95%، حجم التأثير (كوهين د).
-7. إذا كان حجم التأثير p <alpha AND ذو معنى، فإن الفرق حقيقي ويستحق العمل بناءً عليه.
-##أخطاء شائعة
-- استخدام اختبار مستقل عند إقران البيانات. إذا تم تقييم كلا النموذجين على نفس طيات الاختبار، فيجب عليك استخدام اختبار مقترن. الاختبارات المستقلة تتخلص من الاقتران وتفقد القوة الإحصائية.
-- الإبلاغ عن p <0.05 بدون حجم التأثير. لا يستحق تحسين الدقة ذو الدلالة الإحصائية بنسبة 0.1% النشر. احسب دائمًا Cohen's d أو فرق المتوسط ​​الأولي.
-- مقارنة النماذج عبر مجموعات اختبار مختلفة. تكون مجموعة الاختبار MUST متطابقة لكلا النموذجين. مجموعات الاختبار المختلفة make مقارنة لا معنى لها.
-- إجراء 20 مقارنة والإبلاغ عن أفضلها دون تصحيح بونفيروني. مع وجود 20 اختبارًا عند ألفا = 0.05، تتوقع نتيجة إيجابية كاذبة واحدة بالصدفة.
-- استخدام الدقة في التعامل مع البيانات غير المتوازنة. في فئة أغلبية 99%، يحقق المصنف التافه 99%. استخدم F1، أو الاسترجاع الدقيق AUC، أو معامل ارتباط ماثيوز.
-- معاملة طيات التحقق المتقاطع كعينات مستقلة. إنهم يتشاركون بيانات التدريب، الأمر الذي ينتهك افتراض الاستقلال. حسابات اختبار t المُعاد تشكيلها المصححة لهذا الغرض.
-## مرجع سريع: تفسير حجم التأثير
-| كوهين د | التفسير |
+| Paired t-test | Continuous, paired | Normal differences | Compare 2 models on same k-fold splits |
+| Wilcoxon signed-rank | Continuous/ordinal, paired | None (non-parametric) | Compare 2 models, small k (5-10 folds) |
+| Welch's t-test | Continuous, independent | Roughly normal | Compare model on two separate datasets |
+| Mann-Whitney U | Continuous/ordinal, independent | None | Compare latency distributions |
+| ANOVA | Continuous, 3+ groups | Normal, equal variance | Compare multiple model architectures |
+| Kruskal-Wallis | Continuous/ordinal, 3+ groups | None | Compare multiple models, non-normal metrics |
+| Chi-squared | Categorical counts | Expected count >= 5 | Compare class distributions, confusion matrices |
+| Fisher's exact | Categorical counts | Small samples | Rare event comparison |
+| KS test | Continuous | None | Check if predictions follow expected distribution |
+| Bootstrap CI | Any statistic | None | Confidence interval for AUC, F1, any metric |
+| McNemar's test | Paired binary | None | Compare two classifiers on same test set |
+
+## Model comparison recipe
+
+1. Define metric and significance level (alpha = 0.05) before running experiments.
+2. Run both models on the same k-fold cross-validation splits (k = 5 or 10).
+3. Collect paired scores: (a_1, b_1), (a_2, b_2),..., (a_k, b_k).
+4. Compute differences: d_i = b_i - a_i.
+5. Run paired test (Wilcoxon for k <= 10, paired t-test for k > 10 or normal diffs).
+6. Report: p-value, mean difference, 95% confidence interval, effect size (Cohen's d).
+7. If p < alpha AND effect size is meaningful, the difference is real and worth acting on.
+
+## Common mistakes
+
+- Using an independent test when data is paired. If both models were evaluated on the same test folds, you must use a paired test. Independent tests throw away the pairing and lose statistical power.
+- Reporting p < 0.05 without effect size. A statistically significant 0.1% accuracy improvement is not worth deploying. Always compute Cohen's d or the raw mean difference.
+- Comparing models across different test sets. The test set MUST be identical for both models. Different test sets make comparison meaningless.
+- Running 20 comparisons and reporting the best one without Bonferroni correction. With 20 tests at alpha = 0.05, you expect 1 false positive by chance.
+- Using accuracy on imbalanced data. On a 99% majority class, a trivial classifier achieves 99%. Use F1, precision-recall AUC, or Matthews correlation coefficient.
+- Treating cross-validation folds as independent samples. They share training data, which violates the independence assumption. The corrected resampled t-test accounts for this.
+
+## Quick reference: effect size interpretation
+
+| Cohen's d | Interpretation |
 |---|---|
-| 0.2 | تأثير صغير |
-| 0.5 | تأثير متوسط ​​|
-| 0.8 | تأثير كبير |
-| > 1.0 | تأثير كبير جداً |
-| ما يجب الإبلاغ عنه | لماذا |
+| 0.2 | Small effect |
+| 0.5 | Medium effect |
+| 0.8 | Large effect |
+| > 1.0 | Very large effect |
+
+| What to report | Why |
 |---|---|
-| القيمة p | هل الفرق حقيقي؟ |
-| فاصل الثقة | إلى أي مدى يمكن أن يكون الفرق؟ |
-| حجم التأثير (كوهين د) | هل الفرق ذو معنى؟ |
-| حجم العينة (ن أو ك طيات) | هل يمكننا أن نثق بالنتيجة؟ |
+| p-value | Is the difference real? |
+| Confidence interval | How big could the difference be? |
+| Effect size (Cohen's d) | Is the difference meaningful? |
+| Sample size (n or k folds) | Can we trust the result? |

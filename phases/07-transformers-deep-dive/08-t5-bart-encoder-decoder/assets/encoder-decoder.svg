@@ -64,7 +64,7 @@
 
   <line x1="670" y1="345" x2="670" y2="368" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
   <rect x="560" y="368" width="220" height="30" class="hot"/>
-  <text x="670" y="388" text-anchor="middle" class="content">الرمز المميز التالي logits</text>
+  <text x="670" y="388" text-anchor="middle" class="content">الرمز التالي logits</text>
 
   <!-- Cross-attention arrow -->
   <path d="M 320 335 Q 420 335 420 223 Q 420 223 530 223" fill="none" stroke="#c0392b" stroke-width="1.8" marker-end="url(#arrow)"/>

@@ -1,5 +1,7 @@
-"""لعبة ColPali: أداة تشفير التصحيح + استرجاع MaxSim — stdlib. خمس "صفحات" وهمية من عمليات تضمين التصحيح، وثلاثة استعلامات نصية تحتوي على عمليات تضمين رمزية،
-سجل MaxSim مع استرجاع Top-K. طباعة الصفحات المرتبة + التفسير.
+"""ColPali toy: patch encoder + MaxSim retrieval — stdlib.
+
+Five mock "pages" of patch embeddings, three text queries with token embeddings,
+MaxSim scoring with top-k retrieval. Prints ranked pages + interpretation.
 """
 
 from __future__ import annotations
@@ -32,7 +34,7 @@ def cosine(a: list[float], b: list[float]) -> float:
 
 def maxsim(query_tokens: list[list[float]],
            patches: list[list[float]]) -> float:
-    """ColBERT MaxSim: مجموع الرموز المميزة للاستعلام بحد أقصى على التصحيحات."""
+    """ColBERT MaxSim: sum over query tokens of max over patches."""
     s = 0.0
     for q in query_tokens:
         best = max(cosine(q, p) for p in patches)

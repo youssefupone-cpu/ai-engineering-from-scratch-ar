@@ -1,5 +1,7 @@
-"""لعبة تسخير وكيل الويب مع التقييم القائم على التنفيذ وكفاءة المسار. نماذج لتطبيق تسوق بسيط؛ 3 مهام ذات مسارات ذهبية؛ وكيل مكتوب
-يحاول كل مهمة؛ نسجل النجاح + خطوات تجاوز الذهب لكل OSWorld-Human.
+"""Toy web-agent harness with execution-based eval and trajectory efficiency.
+
+Models a minimal shopping app; 3 tasks with gold trajectories; a scripted agent
+attempts each task; we record success + steps-over-gold per OSWorld-Human.
 """
 
 from __future__ import annotations

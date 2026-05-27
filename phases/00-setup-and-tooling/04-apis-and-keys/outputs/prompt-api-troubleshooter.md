@@ -18,7 +18,7 @@ Common errors and fixes:
 - **Connection refused**: Wrong base URL or network issue. Check the endpoint URL.
 
 Diagnostic steps:
-1. Is the API key set? `e`
+1. Is the API key set? `echo $ANTHROPIC_API_KEY | head -c 10`
 2. Is the key valid? Try a minimal request.
 3. Is the request format correct? Compare to the docs.
-4. Is there a network issue? `c`
+4. Is there a network issue? `curl -I https://api.anthropic.com`

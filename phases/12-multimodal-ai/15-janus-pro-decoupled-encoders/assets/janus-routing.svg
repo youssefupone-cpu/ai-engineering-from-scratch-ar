@@ -55,12 +55,12 @@
 
   <rect x="750" y="70" width="160" height="60" class="cool"/>
   <text x="830" y="92" text-anchor="middle" class="step">إخراج النص</text>
-  <text x="830" y="108" text-anchor="middle" class="small">NTP، المفردات logits</text>
+  <text x="830" y="108" text-anchor="middle" class="small">NTP، المفردة logits</text>
   <text x="830" y="122" text-anchor="middle" class="small">VQA، تسمية توضيحية</text>
 
   <rect x="750" y="180" width="160" height="60" class="cold"/>
   <text x="830" y="202" text-anchor="middle" class="step">الصورة VQ -&gt; بكسل</text>
-  <text x="830" y="218" text-anchor="middle" class="small">قم بإصدار VQ من الرموز المميزة</text>
+  <text x="830" y="218" text-anchor="middle" class="small">تنبعث منها VQ الرموز</text>
   <text x="830" y="232" text-anchor="middle" class="small">وحدة فك التشفير -&gt; البكسل</text>
 
   <rect x="60" y="230" width="850" height="70" class="box"/>
@@ -94,7 +94,7 @@
 
     <text x="0" y="100" class="small">GenEval</text>
     <text x="200" y="100" class="small">0.61</text>
-    <text x="450" y="100" class="small">0.80 (يدق DALL-E 3)</text>
+    <text x="450" y="100" class="small">0.80 (دقات DALL-E 3)</text>
     <text x="710" y="100" class="small">+0.19</text>
   </g>
 </svg>

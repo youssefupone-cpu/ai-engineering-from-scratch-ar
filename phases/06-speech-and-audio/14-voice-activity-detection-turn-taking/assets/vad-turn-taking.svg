@@ -16,12 +16,12 @@
     </style>
   </defs>
 
-  <text x="440" y="26" text-anchor="middle" class="title">سلسلة من ثلاث طبقات VAD + آلة حالة الدوران</text>
+  <text x="440" y="26" text-anchor="middle" class="title">ثلاث طبقات VAD تتالي + آلة حالة الدوران</text>
 
   <rect x="20" y="55" width="260" height="130" class="box"/>
   <text x="150" y="78" text-anchor="middle" class="label">المستوى 1: بوابة الطاقة</text>
   <text x="150" y="96" text-anchor="middle" class="tag">رخيص، يشتعل على كل ضجيج</text>
-  <text x="30" y="122" class="content">إذا RMS &gt; -40 ديسيبل FS → "الكلام"</text>
+  <text x="30" y="122" class="content">إذا RMS&gt; -40 ديسيبل FS → "الكلام"</text>
   <text x="30" y="142" class="content">مرشحات الصمت ولكن NOT</text>
   <text x="30" y="160" class="content">لوحة المفاتيح / السعال / الكرسي</text>
 
@@ -45,13 +45,13 @@
   <text x="440" y="226" text-anchor="middle" class="label">آلة حالة الكشف عن الدوران</text>
   <text x="60" y="254" class="content">الحالة: "خامل" ─ VAD حرائق&gt; 250 مللي ثانية من الكلام ─→ الحالة: "التحدث" (ينبعث START)</text>
   <text x="60" y="274" class="content">الحالة: "التحدث" ─ VAD صامت لمدة 500 مللي ثانية ─→ الحالة: "خامل" (ينبعث END)</text>
-  <text x="60" y="300" class="caption">المخزن المؤقت لما قبل التشغيل (300 مللي ثانية): استمر في تشغيل الصوت BEFORE VAD، وإلا فسيتم قص الكلمة الأولى</text>
+  <text x="60" y="300" class="caption">المخزن المؤقت لما قبل التشغيل (300 مللي ثانية): احتفظ بالصوت BEFORE VAD، وإلا سيتم قص الكلمة الأولى</text>
   <text x="60" y="318" class="caption">الحد الأدنى من الكلام (250 مللي ثانية): رفض العابرين؛ مخلفات الصمت (500 مللي ثانية): لحن لكل حالة استخدام</text>
 
   <rect x="20" y="345" width="835" height="105" class="hot"/>
   <text x="440" y="366" text-anchor="middle" class="label">خدعة التدفق (Kyutai Unmute 2025) - أقل من 200 مللي ثانية من النهاية إلى النهاية</text>
   <text x="60" y="392" class="content">1. VAD يطلق نهاية الكلام عند t=0</text>
   <text x="60" y="410" class="content">2. أرسل إشارة صوتية + تدفق مخزنة إلى خادم STT</text>
-  <text x="60" y="428" class="content">3. STT تتم العمليات في 4× الوقت الفعلي ← 500 مللي ثانية من المخزن المؤقت للتطلع للأمام ← 125 مللي ثانية من وقت الجدار</text>
-  <text x="60" y="446" class="content">4. النص جاهز عند t+125 مللي ثانية — نفس زمن الوصول للإشارة VAD نفسها</text>
+  <text x="60" y="428" class="content">3. STT العمليات في 4× الوقت الفعلي → 500 مللي ثانية المخزن المؤقت للتطلع للأمام → 125 مللي ثانية وقت الجدار</text>
+  <text x="60" y="446" class="content">4. نسخة جاهزة عند t+125 مللي ثانية - نفس زمن الوصول للإشارة VAD نفسها</text>
 </svg>

@@ -46,7 +46,7 @@ def clamp(v, lo, hi):
 
 
 def forward(x, params, eps):
-    """تمريرة أمامية بإبسيلون ثابت لإعادة المعلمة."""
+    """Forward pass with a fixed epsilon for the reparameterization."""
     enc, dec = params["enc"], params["dec"]
     h_enc = tanh(add(matmul(enc["W1"], x), enc["b1"]))
     mu = add(matmul(enc["W_mu"], h_enc), enc["b_mu"])
@@ -69,7 +69,7 @@ def loss_value(x, fwd, beta):
 
 
 def backward(x, fwd, params, beta):
-    """دعامة خلفية مكتوبة بخط اليد. إرجاع إملاء التدرج المطابق لشكل المعلمات."""
+    """Hand-written backprop. Returns gradient dict matching params shape."""
     enc, dec = params["enc"], params["dec"]
     mu, log_sigma2, sigma = fwd["mu"], fwd["log_sigma2"], fwd["sigma"]
     z, h_dec, h_enc = fwd["z"], fwd["h_dec"], fwd["h_enc"]
@@ -77,33 +77,33 @@ def backward(x, fwd, params, beta):
 
     grads = {"enc": {}, "dec": {}}
 
-    # د ريكون / د x_hat = 2(x_hat - س)
+    # d recon / d x_hat = 2(x_hat - x)
     d_x_hat = [2 * (a - b) for a, b in zip(x_hat, x)]
 
-    # وحدة فك التشفير: x_hat = W_out @ h_dec + b_out
+    # decoder: x_hat = W_out @ h_dec + b_out
     grads["dec"]["b_out"] = d_x_hat[:]
     grads["dec"]["W_out"] = [[d * h for h in h_dec] for d in d_x_hat]
 
-    # خسارة d / d h_dec = W_out^T @ d_x_hat
+    # d loss / d h_dec = W_out^T @ d_x_hat
     d_h_dec = [sum(dec["W_out"][i][j] * d_x_hat[i] for i in range(len(d_x_hat)))
                for j in range(len(h_dec))]
-    # من خلال تانه
+    # through tanh
     d_pre_dec = [dg * g for dg, g in zip(d_h_dec, tanh_grad(h_dec))]
     grads["dec"]["b1"] = d_pre_dec[:]
     grads["dec"]["W1"] = [[d * zi for zi in z] for d in d_pre_dec]
 
-    # خسارة d / d z = W1_dec^T @ d_pre_dec
+    # d loss / d z = W1_dec^T @ d_pre_dec
     d_z = [sum(dec["W1"][i][j] * d_pre_dec[i] for i in range(len(d_pre_dec)))
            for j in range(len(z))]
 
-    # إعادة المعلمة: z = mu + sigma * eps، sigma = exp(0.5 * log_sigma2)
-    # د ض / د مو = 1، د ض / د log_sigma2 = 0.5 * سيجما * eps
+    # reparameterization: z = mu + sigma * eps, sigma = exp(0.5 * log_sigma2)
+    # d z / d mu = 1, d z / d log_sigma2 = 0.5 * sigma * eps
     d_mu_recon = d_z[:]
     eps_used = [(z[i] - mu[i]) / max(sigma[i], 1e-8) for i in range(len(z))]
     d_lv_recon = [0.5 * d_z[i] * sigma[i] * eps_used[i] for i in range(len(z))]
 
-    # KL الحد: 0.5 * مجموع(exp(lv) + mu^2 - lv - 1)
-    # د KL / د مو = مو; د KL / د lv = 0.5 * (exp(lv) - 1)
+    # KL term: 0.5 * sum(exp(lv) + mu^2 - lv - 1)
+    # d KL / d mu = mu ; d KL / d lv = 0.5 * (exp(lv) - 1)
     d_mu = [d_mu_recon[i] + beta * mu[i] for i in range(len(mu))]
     d_lv = [d_lv_recon[i] + beta * 0.5 * (math.exp(log_sigma2[i]) - 1)
             for i in range(len(mu))]
@@ -113,7 +113,7 @@ def backward(x, fwd, params, beta):
     grads["enc"]["b_sig"] = d_lv[:]
     grads["enc"]["W_sig"] = [[d * h for h in h_enc] for d in d_lv]
 
-    # خسارة d / d h_enc من كلا المسارين mu وlog_sigma2
+    # d loss / d h_enc from both mu and log_sigma2 paths
     d_h_enc = [0.0] * len(h_enc)
     for j in range(len(h_enc)):
         for i in range(len(d_mu)):

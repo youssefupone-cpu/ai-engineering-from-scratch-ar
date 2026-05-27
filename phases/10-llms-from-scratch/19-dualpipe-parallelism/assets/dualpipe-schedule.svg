@@ -153,12 +153,12 @@
   <text x="260" y="385" class="small">1F1B: 10.5% صفر فقاعة: 3.9% DualPipe: 1.8% DualPipeV: 2.1%</text>
 
   <text x="50" y="420" class="step">تكلفة DualPipe</text>
-  <text x="260" y="420" class="small">نسختان من المعلمات لكل رتبة - ميسورة التكلفة على نطاق وزارة التربية والتعليم (EP يهيمن)</text>
+  <text x="260" y="420" class="small">نسختان من المعلمات لكل رتبة - بأسعار معقولة على نطاق وزارة التعليم (EP يهيمن)</text>
 
   <text x="50" y="445" class="step">تكلفة DualPipeV</text>
   <text x="260" y="445" class="small">نسخ معلمات 1x، فقاعة أكبر قليلاً — تناسب بشكل أفضل النماذج الكثيفة</text>
 
   <text x="50" y="480" class="step">DeepSeek-V3</text>
-  <text x="260" y="480" class="small">2048 H800 GPUs، ~2.8M GPU-ساعة. يتعافى DualPipe ~ 245 ألف GPU-ساعة</text>
+  <text x="260" y="480" class="small">2048 H800 GPUثانية، ~2.8 مليون GPU-ساعة. يستعيد DualPipe حوالي 245 ألف GPU-ساعة</text>
   <text x="260" y="498" class="small">على خط الأساس 1F1B - وهو ما يكفي لتمويل تشغيل كثيف منفصل يبلغ 70B.</text>
 </svg>

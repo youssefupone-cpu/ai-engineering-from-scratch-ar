@@ -1,6 +1,8 @@
-"""لعبة الصقل الذاتي وحلقة CRITIC. المهمة: إنتاج ملخص مكون من 3 نقاط نقطية أقل من 60 حرفًا لكل رمز نقطي لا يحتوي على
-أخطاء واقعية معروفة. يستخدم التحسين الذاتي النقد الذاتي بأسلوب LLM؛ CRITIC المسارات
-التحقق من خلال قائمة حقائق خارجية.
+"""Toy Self-Refine and CRITIC loop.
+
+Task: produce a 3-bullet summary under 60 chars per bullet that does not contain
+known factual errors. Self-Refine uses LLM-style self-critique; CRITIC routes
+verification through an external fact list.
 """
 
 from __future__ import annotations

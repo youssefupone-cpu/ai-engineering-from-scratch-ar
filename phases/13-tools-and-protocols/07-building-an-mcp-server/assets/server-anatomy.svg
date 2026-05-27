@@ -68,7 +68,7 @@
   <text x="620" y="310" text-anchor="middle" class="small">  المطالبات: {} }</text>
 
   <rect x="340" y="340" width="560" height="100" class="cool"/>
-  <text x="620" y="362" text-anchor="middle" class="step">التخرج: FastMCP / TS SDK</text>
+  <text x="620" y="362" text-anchor="middle" class="step">التخرج: سريعMCP / TS SDK</text>
   <text x="356" y="384" class="small">@app.tool() defnotes_search(query: str, Limit: int = 10) -&gt; list[dict]:...</text>
   <text x="356" y="400" class="small">نفس سلوك الأسلاك. ~80 سطرًا مقابل ~200. يقوم مصمم الديكور بإنشاء المخطط</text>
   <text x="356" y="416" class="small">من تلميحات الكتابة ويقوم بتشغيل مرسل stdio نيابةً عنك.</text>

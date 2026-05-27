@@ -38,7 +38,7 @@
 
   <rect x="305" y="155" width="230" height="180" class="hot"/>
   <text x="420" y="178" text-anchor="middle" class="label">2. صريحة وتقريبية</text>
-  <text x="420" y="200" text-anchor="middle" class="mono">تكبير ELBO ≥ السجل p(x)</text>
+  <text x="420" y="200" text-anchor="middle" class="mono">تعظيم ELBO ≥ سجل p(x)</text>
   <text x="420" y="225" text-anchor="middle" class="content">VAE: التشفير + فك التشفير</text>
   <text x="420" y="245" text-anchor="middle" class="content">الانتشار: DDPM، SD3</text>
   <text x="420" y="275" text-anchor="middle" class="caption">المهيمنة في عام 2026</text>
@@ -52,7 +52,7 @@
   <text x="665" y="255" text-anchor="middle" class="caption">أخذ العينات طلقة واحدة</text>
   <text x="665" y="273" text-anchor="middle" class="caption">لا يوجد سجل p(x) على الإطلاق</text>
   <text x="665" y="291" text-anchor="middle" class="caption">عدم استقرار التدريب، وانهيار الوضع</text>
-  <text x="665" y="309" text-anchor="middle" class="caption">لا يزال SOTA للصور الفوتوغرافية الضيقة</text>
+  <text x="665" y="309" text-anchor="middle" class="caption">لا يزال SOTA للصورة الحقيقية الضيقة</text>
 
   <rect x="60" y="350" width="350" height="150" class="box"/>
   <text x="235" y="373" text-anchor="middle" class="label">4. النتيجة / الوقت المستمر</text>
@@ -63,10 +63,10 @@
   <text x="235" y="483" text-anchor="middle" class="caption">مسارات مستقيمة =&gt; أخذ العينات من 1 إلى 4 خطوات</text>
 
   <rect x="430" y="350" width="350" height="150" class="box"/>
-  <text x="605" y="373" text-anchor="middle" class="label">5. الرموز المميزة + AR المحول</text>
-  <text x="605" y="395" text-anchor="middle" class="mono">VQ-VAE + محول فوق الرموز المميزة</text>
-  <text x="605" y="418" text-anchor="middle" class="content">DALL-E 1، الجزء، MuseNet</text>
-  <text x="605" y="438" text-anchor="middle" class="content">AudioLM، VALL-E، MusicGen، تصحيحات Sora</text>
+  <text x="605" y="373" text-anchor="middle" class="label">5. الرموز + AR محول</text>
+  <text x="605" y="395" text-anchor="middle" class="mono">VQ-VAE + محول فوق الرموز</text>
+  <text x="605" y="418" text-anchor="middle" class="content">DALL-E 1، بارتي، ميوزنيت</text>
+  <text x="605" y="438" text-anchor="middle" class="content">تصحيحات AudioLM، VALL-E، MusicGen، Sora</text>
   <text x="605" y="465" text-anchor="middle" class="caption">إعادة استخدام LLM المكدس</text>
   <text x="605" y="483" text-anchor="middle" class="caption">الجودة يحدها الرمز المميز</text>
 </svg>

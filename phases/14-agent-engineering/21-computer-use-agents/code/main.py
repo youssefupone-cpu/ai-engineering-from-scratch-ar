@@ -1,6 +1,8 @@
-"""محاكاة استخدام الكمبيوتر مع مصنف السلامة لكل خطوة وبوابة التأكيد. لا يوجد شاشة حقيقية نحن نمثل الشاشة كمستطيلات مسماة بإحداثيات البكسل،
-تقديم ما سيراه الوكيل، وتصنيف كل إجراء قبل التنفيذ، و
-تتطلب تأكيدًا بشريًا على الإجراءات الحساسة.
+"""Computer-use simulation with per-step safety classifier and confirmation gate.
+
+No real screen. We model the screen as labeled rectangles at pixel coordinates,
+render what the agent would "see," classify each action before execution, and
+require human-in-the-loop confirmation on sensitive actions.
 """
 
 from __future__ import annotations

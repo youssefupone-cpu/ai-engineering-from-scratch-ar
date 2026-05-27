@@ -51,7 +51,7 @@
   <text x="770" y="104" text-anchor="middle" class="small">فحص حتمي</text>
   <text x="770" y="120" text-anchor="middle" class="small">الاختبارات، النوع، المخطط</text>
   <text x="770" y="138" text-anchor="middle" class="small">لا يمكن خداعه</text>
-  <text x="770" y="154" text-anchor="middle" class="small">(الرمز، ليس LLM)</text>
+  <text x="770" y="154" text-anchor="middle" class="small">(الرمز، وليس LLM)</text>
 
   <line x1="335" y1="160" x2="335" y2="200" class="edge"/>
   <path d="M 335 200 Q 300 220 265 200" class="edge" fill="none" stroke-dasharray="3 3"/>
@@ -59,15 +59,15 @@
 
   <rect x="40" y="240" width="830" height="110" class="box"/>
   <text x="450" y="262" text-anchor="middle" class="head">لماذا المدقق هو الحاملة</text>
-  <text x="450" y="284" text-anchor="middle" class="small">MAST التصنيف (Cemri et al. 2025): 21.3% من 1642 فشل متعدد الوكلاء عبارة عن فجوات في التحقق</text>
+  <text x="450" y="284" text-anchor="middle" class="small">MAST التصنيف (Cemri et al. 2025): 21.3% من 1642 حالة فشل متعددة العوامل هي فجوات في التحقق</text>
   <text x="450" y="304" text-anchor="middle" class="small">PwC 2025: حلقة التحقق المنظمة في دقة نقل CrewAI بنسبة 10% -&gt; 70% (كسب ×7)</text>
-  <text x="450" y="324" text-anchor="middle" class="small">مكافحة النمط: كل دور هو LLM يقول "يبدو جيدًا بالنسبة لي" - فشل MAST الكلاسيكي</text>
+  <text x="450" y="324" text-anchor="middle" class="small">النمط المضاد: كل دور هو LLM يقول "يبدو جيدًا بالنسبة لي" - فشل كلاسيكي MAST</text>
   <text x="450" y="342" text-anchor="middle" class="small">قم دائمًا بإقران الناقد (الذاتي) مع المتحقق (الحتمي) ؛ يصطادون أخطاء مختلفة</text>
 
   <rect x="40" y="370" width="830" height="110" class="box"/>
   <text x="450" y="392" text-anchor="middle" class="head">نمط MetaGPT SOP</text>
-  <text x="450" y="412" text-anchor="middle" class="small">الرمز = SOP(الفريق): مدير المنتج، المهندس المعماري، مدير المشروع، المهندس، QA المهندس</text>
-  <text x="450" y="430" text-anchor="middle" class="small">كل دور له مخطط إدخال/إخراج صارم · pipeline يصبح حتميًا</text>
+  <text x="450" y="412" text-anchor="middle" class="small">الرمز = SOP(الفريق): مدير المنتج، مهندس معماري، مدير المشروع، مهندس، QA مهندس</text>
+  <text x="450" y="430" text-anchor="middle" class="small">كل دور له مخطط صارم للإدخال / الإخراج · pipeline يصبح حتميًا</text>
   <text x="450" y="450" text-anchor="middle" class="small">CrewAI Agent (الدور، الهدف، الخلفية الدرامية) هو السطح العصري المريح</text>
-  <text x="450" y="470" text-anchor="middle" class="small">يقوم LangGraph بترميز الأدوار كرسم بياني nodes مع مطالبات متخصصة</text>
+  <text x="450" y="470" text-anchor="middle" class="small">يقوم LangGraph بترميز الأدوار على شكل رسم بياني nodes مع مطالبات متخصصة</text>
 </svg>

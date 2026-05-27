@@ -30,7 +30,7 @@
   <rect x="280" y="70" width="200" height="110" class="cold"/>
   <text x="380" y="96" text-anchor="middle" class="head">2/ قرر</text>
   <text x="380" y="122" text-anchor="middle" class="small">نموذج ينبعث سواء</text>
-  <text x="380" y="138" text-anchor="middle" class="small">إجابة نصية OR</text>
+  <text x="380" y="138" text-anchor="middle" class="small">الإجابة النصية OR</text>
   <text x="380" y="154" text-anchor="middle" class="small">أداة_المكالمات: [ {المعرف،</text>
   <text x="380" y="170" text-anchor="middle" class="small">الاسم، الحجج} ]</text>
 
@@ -61,7 +61,7 @@
   <text x="60" y="362" class="step">أنثروبي: الأدوات / Tool_use / Tool_result</text>
   <text x="60" y="382" class="step">الجوزاء: تصريحات الوظيفة / استدعاء الوظيفة</text>
   <text x="60" y="402" class="step">MCP: أدوات/قائمة/أدوات/اتصال/محتوى</text>
-  <text x="60" y="422" class="step">A2A: المهارات / المهام / الإرسال / الأجزاء الأثرية</text>
+  <text x="60" y="422" class="step">A2A: مهارات / مهام / إرسال / أجزاء قطعة أثرية</text>
   <text x="60" y="442" class="step">WebMCP (2026): بيان/إرسال أداة المتصفح</text>
   <text x="60" y="472" class="small">كل صف هو نفس الخطوات الأربع مع تسميات أعمدة مختلفة.</text>
 
@@ -72,7 +72,7 @@
   <text x="540" y="380" class="step">تبعية (البوابة مطلوبة)</text>
   <text x="540" y="398" class="small">إرسال_البريد الإلكتروني، حذف_ملف، تنفيذ_التجارة</text>
   <text x="540" y="424" class="step">القاعدة الفوقية لاثنين (2026)</text>
-  <text x="540" y="442" class="small">قد تجمع دورة واحدة AT MOST اثنين من:</text>
+  <text x="540" y="442" class="small">يمكن أن تجمع دورة واحدة AT MOST اثنين من:</text>
   <text x="540" y="458" class="small">  - مدخلات غير موثوقة</text>
   <text x="540" y="474" class="small">  - البيانات الحساسة</text>
   <text x="540" y="490" class="small">  - الفعل التبعي</text>

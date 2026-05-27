@@ -1,7 +1,9 @@
-"""الدستوري AI النقد الذاتي + GRPO حلقة المكافأة والقواعد. يتم تشغيله من طرف إلى طرف في stdlib + numpy النقي. تستخدم حلقة CAI ناقدًا مكتوبًا بخط اليد
-الذي يمثل LLM القاضي الذاتي. تستخدم حلقة GRPO الرياضيات الحتمية
-الصف كمصدر المكافأة. تنتج كلتا الحلقتين المقاييس التي تريد توصيلها
-إلى محسن حقيقي.
+"""Constitutional AI self-critique + GRPO rule-reward loop.
+
+Runs end-to-end in pure stdlib + numpy. The CAI loop uses a handwritten critic
+that stands in for an LLM self-judge. The GRPO loop uses a deterministic math
+grader as the reward source. Both loops produce the metrics you would wire
+into a real optimizer.
 """
 
 from __future__ import annotations
@@ -124,7 +126,9 @@ def grpo_step(
 
 
 def mock_sampler(rng: random.Random) -> Callable[[str], str]:
-    """بديل لسياسة LLM. إرجاع سلسلة تحتوي في بعض الأحيان الإجابة الصحيحة على سؤال حسابي بسيط، يتم تضمينه أحيانًا علامات <answer>، وأحيانًا لا. جيدة بما فيه الكفاية لممارسة شكل المكافأة."""
+    """Stand-in for an LLM policy. Returns a string that sometimes contains
+    the correct answer to a simple arithmetic prompt, sometimes wrapped in
+    <answer> tags, sometimes not. Good enough to exercise the reward shape."""
 
     def sampler(prompt: str) -> str:
         try:

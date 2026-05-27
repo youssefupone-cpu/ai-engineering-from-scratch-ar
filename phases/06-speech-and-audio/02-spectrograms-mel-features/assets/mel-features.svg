@@ -68,7 +68,7 @@
   <text x="775" y="82" text-anchor="middle" class="label">4. إدخال النموذج</text>
   <text x="775" y="110" text-anchor="middle" class="content">الهمس: سجل ميل</text>
   <text x="775" y="128" text-anchor="middle" class="content">الببغاء: سجل ميل</text>
-  <text x="775" y="146" text-anchor="middle" class="content">ECAPA: سجل ميل</text>
+  <text x="775" y="146" text-anchor="middle" class="content">ECAPA: سجل-ميل</text>
   <text x="775" y="164" text-anchor="middle" class="content">KWS صغير: MFCC-13</text>
   <text x="775" y="185" text-anchor="middle" class="caption">الموتر: [الدفعة، ت، 80]</text>
 
@@ -102,5 +102,5 @@
   <polyline points="635,420 685,300 735,420" fill="none" stroke="#1a1a1a" stroke-width="1"/>
   <polyline points="710,420 780,300 820,420" fill="none" stroke="#1a1a1a" stroke-width="1"/>
   <text x="660" y="437" text-anchor="middle" class="caption">هرتز (خطي) — تتسع المثلثات مع التردد</text>
-  <text x="660" y="395" text-anchor="middle" class="content" font-size="11">كل ميل بن = المبلغ المرجح لصناديق FFT</text>
+  <text x="660" y="395" text-anchor="middle" class="content" font-size="11">كل ميل بن = المبلغ المرجح لـ FFT صناديق</text>
 </svg>

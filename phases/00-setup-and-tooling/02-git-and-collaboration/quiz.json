@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "ما الذي يساعدك \"التحكم في الإصدار\" في المقام الأول؟",
+      "question": "What does 'version control' primarily help you do?",
       "options": [
-        "تسريع تنفيذ التعليمات البرمجية",
-        "تتبع التغييرات التي تطرأ على الملفات بمرور الوقت والتعاون مع الآخرين",
-        "ضغط الملفات لتوفير مساحة القرص",
-        "إصلاح الأخطاء تلقائيًا في التعليمات البرمجية الخاصة بك"
+        "Speed up code execution",
+        "Track changes to files over time and collaborate with others",
+        "Compress files to save disk space",
+        "Automatically fix bugs in your code"
       ],
       "correct": 1,
-      "explanation": "تعمل أنظمة التحكم في الإصدار مثل git على تتبع كل تغيير يتم إجراؤه على الملفات، مما يسمح لك بالعودة إلى الحالات السابقة والتعاون مع الآخرين على نفس قاعدة التعليمات البرمجية."
+      "explanation": "Version control systems like git track every change made to files, allowing you to revert to previous states and collaborate with others on the same codebase."
     },
     {
       "stage": "pre",
-      "question": "ما هو \"المستودع\" في سياق تطوير البرمجيات؟",
+      "question": "What is a 'repository' in the context of software development?",
       "options": [
-        "خدمة تخزين سحابية مثل Google Drive",
-        "مجموعة من الملفات وتاريخ التغيير الكامل الخاص بها تتم إدارته من خلال التحكم في الإصدار",
-        "قاعدة بيانات لتخزين بيانات المستخدم",
-        "مدير الحزم لتثبيت المكتبات"
+        "A cloud storage service like Google Drive",
+        "A collection of files and their complete change history managed by version control",
+        "A database for storing user data",
+        "A package manager for installing libraries"
       ],
       "correct": 1,
-      "explanation": "المستودع (repo) هو دليل يتم تتبعه بواسطة git ويحتوي على جميع ملفات المشروع بالإضافة إلى السجل الكامل للتغييرات التي تم إجراؤها على تلك الملفات."
+      "explanation": "A repository (repo) is a directory tracked by git that contains all project files along with the full history of changes made to those files."
     },
     {
       "stage": "post",
-      "question": "ما هو التسلسل الصحيح لحفظ عملك ونسخه احتياطيًا في git؟",
+      "question": "What is the correct sequence for saving and backing up your work in git?",
       "options": [
-        "git دفع، git إضافة، git التزام",
-        "git التزام، git إضافة، git دفع",
-        "git إضافة، git التزام، git دفع",
-        "git استنساخ، git إضافة، git دفع"
+        "git push, git add, git commit",
+        "git commit, git add, git push",
+        "git add, git commit, git push",
+        "git clone, git add, git push"
       ],
       "correct": 2,
-      "explanation": "أولاً، يمكنك تنظيم التغييرات باستخدام \"git add\"، ثم حفظ لقطة باستخدام \"git التزام\"، ثم تحميلها إلى جهاز التحكم عن بُعد باستخدام \"git Push\". هذا هو سير العمل اليومي."
+      "explanation": "First you stage changes with 'git add', then save a snapshot with 'git commit', then upload to the remote with 'git push'. This is the daily workflow."
     },
     {
       "stage": "post",
-      "question": "ما الذي تفعله \"git checkout -b experience/new-optimizer\"؟",
+      "question": "What does 'git checkout -b experiment/new-optimizer' do?",
       "options": [
-        "يقوم بتنزيل فرع من GitHub يسمى experience/new-optimizer",
-        "ينشئ فرعًا جديدًا باسم التجربة/المحسن الجديد ويتحول إليه",
-        "يحذف تجربة الفرع/المحسن الجديد",
-        "يعيد جميع الملفات لتتوافق مع فرع التجربة/المحسن الجديد"
+        "Downloads a branch from GitHub called experiment/new-optimizer",
+        "Creates a new branch named experiment/new-optimizer and switches to it",
+        "Deletes the branch experiment/new-optimizer",
+        "Reverts all files to match the experiment/new-optimizer branch"
       ],
       "correct": 1,
-      "explanation": "تقوم العلامة '-b' بإنشاء فرع جديد بالاسم المحدد وتتحول إليه على الفور، مما يسمح لك بالتجربة دون التأثير على الفرع الرئيسي."
+      "explanation": "The '-b' flag creates a new branch with the given name and immediately switches to it, allowing you to experiment without affecting the main branch."
     },
     {
       "stage": "post",
-      "question": "لماذا يجب عليك إضافة '.pt' و'.pth' و'.safetensors' إلى.gitignore؟",
+      "question": "Why should you add '.pt', '.pth', and '.safetensors' to your.gitignore?",
       "options": [
-        "إنها ملفات اختبار بايثون التي لا ينبغي الالتزام بها",
-        "إنها ملفات نقاط تفتيش نموذجية كبيرة جدًا بالنسبة لـ git ويمكن إعادة إنشائها",
-        "أنها تحتوي على مفاتيح API حساسة",
-        "لا يستطيع Git تتبع الملفات الثنائية من أي نوع"
+        "They are Python test files that should not be committed",
+        "They are model checkpoint files that are too large for git and can be re-generated",
+        "They contain sensitive API keys",
+        "Git cannot track binary files of any kind"
       ],
       "correct": 1,
-      "explanation": "غالبًا ما يكون حجم ملفات نقاط التفتيش النموذجية (.pt، و.pth، و.safetensors) بالجيجابايت. لم يتم تصميم Git للملفات الثنائية الكبيرة، لذا يجب استبعادها وإعادة إنشائها أو تخزينها بشكل منفصل."
+      "explanation": "Model checkpoint files (.pt,.pth,.safetensors) are often gigabytes in size. Git is not designed for large binary files, so these should be excluded and re-generated or stored separately."
     }
   ]
 }

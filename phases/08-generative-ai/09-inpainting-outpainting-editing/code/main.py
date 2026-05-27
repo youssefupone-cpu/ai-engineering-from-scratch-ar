@@ -138,7 +138,7 @@ def sample_unconditional(net, alphas, alpha_bars, T, t_dim, d, rng):
 
 
 def inpaint(net, alphas, alpha_bars, T, t_dim, d, clean, mask, rng):
-    """قناع [i] == صحيح يعني أنه سيتم إعادة إنشاء الخافت. يتم تثبيت الخفتات غير المقنعة للتنظيف."""
+    """mask[i] == True means that dim is to be regenerated. Unmasked dims pinned to clean."""
     x = [rng.gauss(0, 1) for _ in range(d)]
     for t in range(T - 1, -1, -1):
         a_bar = alpha_bars[t]

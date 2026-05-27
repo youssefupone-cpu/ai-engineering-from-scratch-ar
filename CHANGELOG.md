@@ -1,8 +1,8 @@
 # Changelog
 
-ما هو الجديد في المنهج. الأحدث أولاً.
+What's new in the curriculum. Most recent first.
 
-يتبع التنسيق بشكل فضفاض [الاحتفاظ بسجل التغيير](https://keepachangelog.com/). يسمي كل إدخال المرحلة والدرس وما تغير، حتى يتمكن المتعلمون من الانتقال مباشرة إلى الدلتا.
+Format loosely follows [Keep a Changelog](https://keepachangelog.com/). Each entry names the phase, lesson, and what changed, so learners can jump straight to the delta.
 
 ## [Unreleased]
 
@@ -43,4 +43,4 @@
 - Initial scaffolding for all 20 phases (`phases/00-*` through `phases/19-*`).
 - `LESSON_TEMPLATE.md`, `CONTRIBUTING.md`, `ROADMAP.md`, `README.md`.
 
-[غير منشور]: https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/compare/__TERM_1__...__TERM_2__
+[Unreleased]: https://github.com/rohitg00/ai-engineering-from-scratch/compare/HEAD...HEAD

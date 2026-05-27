@@ -39,7 +39,8 @@ def cross_modal_error_rate(image_emb, text_emb, text_confidence,
 
 def deepstack_features(per_layer_features):
     """
-    محاكاة DeepStack: per_layer_features هي قائمة الموترات (N_patches، d). من أعماق ViT المتعددة. كومة على طول القناة قاتمة والمشروع.
+    Simulate DeepStack: per_layer_features is list of (N_patches, d) tensors
+    from multiple ViT depths. Stack along channel dim and project.
     """
     return torch.cat(per_layer_features, dim=-1)
 
@@ -86,7 +87,7 @@ def main():
     print(f"  3 layers of (4, 16, 32) -> deepstack {tuple(stacked.shape)}")
 
     print("\n[CMER simulation]")
-    # سيناريو محاكاة: 8 مخرجات، نصف هلوسة (بطاقة sim منخفضة، conf عالي)
+    # Simulated scenario: 8 outputs, half hallucinate (low sim, high conf)
     image = F.normalize(torch.randn(8, 32), dim=-1)
     text_good = image + 0.05 * torch.randn_like(image)
     text_good = F.normalize(text_good, dim=-1)

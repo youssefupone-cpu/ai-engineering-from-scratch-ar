@@ -115,7 +115,7 @@
   <!-- Manifest and cost labels at bottom -->
   <rect x="30" y="380" width="400" height="100" class="box"/>
   <text x="230" y="402" text-anchor="middle" class="label">Manifest</text>
-  <text x="230" y="422" text-anchor="middle" class="step">الإصدار، البذور، git_الالتزام</text>
+  <text x="230" y="422" text-anchor="middle" class="step">الإصدار، البذور، git_commit</text>
   <text x="230" y="440" text-anchor="middle" class="step">تجزئة الإدخال/الإخراج لكل مرحلة</text>
   <text x="230" y="458" text-anchor="middle" class="step">التكلفة، ساعة الحائط، الحالة</text>
   <text x="230" y="473" text-anchor="middle" class="small">ملف واحد يكفي لاعادته</text>

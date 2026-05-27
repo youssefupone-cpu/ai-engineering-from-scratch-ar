@@ -1,28 +1,28 @@
-#إعداد المحرر
+# Editor Setup
 
-> المحرر الخاص بك هو مساعد الطيار الخاص بك. قم بتكوينه مرة واحدة حتى يظل بعيدًا عن طريقك ويبدأ في سحب ثقله.
+> Your editor is your co-pilot. Configure it once so it stays out of your way and starts pulling its weight.
 
-**النوع:** بناء
-**اللغات:** --
-**المتطلبات الأساسية:** المرحلة 0، الدرس 01
-**الوقت:** ~20 دقيقة
+**Type:** Build
+**Languages:** --
+**Prerequisites:** Phase 0, Lesson 01
+**Time:** ~20 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- تثبيت VS Code مع الامتدادات الأساسية لـ Python وJupyter وlinting وSSH البعيد
-- تكوين التنسيق عند الحفظ، والتحقق من الكتابة، وتمرير إخراج دفتر الملاحظات لسير عمل الذكاء الاصطناعي
-- قم بإعداد Remote SSH لتحرير وتصحيح التعليمات البرمجية على أجهزة GPU البعيدة كما لو كانت محلية
-- تقييم بدائل المحرر (Cursor، Windsurf، Neovim) ومقايضاتها لعمل الذكاء الاصطناعي
+- Install VS Code with essential extensions for Python, Jupyter, linting, and remote SSH
+- Configure format-on-save, type checking, and notebook output scrolling for AI workflows
+- Set up Remote SSH to edit and debug code on remote GPU machines as if they were local
+- Evaluate editor alternatives (Cursor, Windsurf, Neovim) and their tradeoffs for AI work
 
-## المشكلة
+## The Problem
 
-ستقضي آلاف الساعات داخل محررك في كتابة لغة Python، وتشغيل دفاتر الملاحظات، وتصحيح أخطاء حلقات التدريب، وإدخال SSH في صناديق GPU. يحول المحرر الذي تمت تهيئته بشكل خاطئ كل جلسة إلى احتكاك: لا يوجد إكمال تلقائي، ولا تلميحات للكتابة، ولا توجد أخطاء مضمنة، وتنسيق يدوي، وسير عمل طرفي غير منتظم.
+You'll spend thousands of hours inside your editor writing Python, running notebooks, debugging training loops, and SSH-ing into GPU boxes. A misconfigured editor turns every session into friction: no autocomplete, no type hints, no inline errors, manual formatting, and a clunky terminal workflow.
 
-يستغرق الإعداد الصحيح 20 دقيقة. تخطيها يكلفك 20 دقيقة كل يوم.
+The right setup takes 20 minutes. Skipping it costs you 20 minutes every day.
 
-##المفهوم
+## The Concept
 
-يحتاج إعداد محرر هندسة الذكاء الاصطناعي إلى خمسة أشياء:
+An AI engineering editor setup needs five things:
 
 ```mermaid
 graph TD
@@ -33,25 +33,25 @@ graph TD
     L1["1. Base Editor<br/>VS Code — free, extensible, universal"]
 ```
 
-## بنائها
+## Build It
 
-### الخطوة 1: تثبيت رمز VS
+### Step 1: Install VS Code
 
-VS Code هو المحرر الموصى به. إنه مجاني، ويعمل على كل نظام تشغيل، ويتمتع بدعم Jupyter للكمبيوتر الدفتري من الدرجة الأولى، ويغطي النظام البيئي الملحق كل ما تحتاجه لعمل الذكاء الاصطناعي.
+VS Code is the recommended editor. It is free, runs on every OS, has first-class Jupyter notebook support, and the extension ecosystem covers everything you need for AI work.
 
-قم بتنزيله من [code.visualstudio.com](https://code.visualstudio.com/).
+Download it from [code.visualstudio.com](https://code.visualstudio.com/).
 
-التحقق من المحطة:
+Verify from the terminal:
 
 ```bash
 code --version
 ```
 
-إذا لم يتم العثور على `code` على نظام التشغيل macOS، فافتح VS Code، واضغط على `Cmd+Shift+P`، واكتب "Shell Command"، وحدد "تثبيت أمر 'code' في PATH".
+If `code` is not found on macOS, open VS Code, press `Cmd+Shift+P`, type "Shell Command", and select "Install 'code' command in PATH".
 
-### الخطوة الثانية: تثبيت الامتدادات الأساسية
+### Step 2: Install Essential Extensions
 
-افتح الوحدة الطرفية المتكاملة في VS Code (`Ctrl+`` ` أو `` Cmd+` ``) وقم بتثبيت الامتدادات المهمة لعمل الذكاء الاصطناعي:
+Open the integrated terminal in VS Code (`Ctrl+`` ` or `` Cmd+` ``) and install the extensions that matter for AI work:
 
 ```bash
 code --install-extension ms-python.python
@@ -64,26 +64,26 @@ code --install-extension ms-python.black-formatter
 code --install-extension charliermarsh.ruff
 ```
 
-ماذا يفعل كل واحد:
+What each one does:
 
-| ملحق | لماذا |
+| Extension | Why |
 |-----------|-----|
-| بايثون | دعم اللغة، كشف البيئة الافتراضية، التشغيل/التصحيح |
-| بيلانس | فحص سريع للنوع، والإكمال التلقائي، ودقة الاستيراد |
-| جوبيتر | قم بتشغيل دفاتر الملاحظات داخل VS Code، المستكشف المتغير |
-| جيت لينس | تعرف على من قام بتغيير ماذا، إلقاء اللوم على git |
-| SSH عن بعد | افتح مجلدًا على صندوق GPU بعيد كما لو كان محليًا |
-| تصحيح | تصحيح الأخطاء خطوة بخطوة لـ Python |
-| المنسق الأسود | التنسيق التلقائي عند الحفظ، وبنمط متسق |
-| راف | فحص سريع، يلتقط الأخطاء الشائعة |
+| Python | Language support, virtual env detection, run/debug |
+| Pylance | Fast type checking, autocomplete, import resolution |
+| Jupyter | Run notebooks inside VS Code, variable explorer |
+| GitLens | See who changed what, inline git blame |
+| Remote SSH | Open a folder on a remote GPU box as if it were local |
+| Debugpy | Step-through debugging for Python |
+| Black Formatter | Auto-format on save, consistent style |
+| Ruff | Fast linting, catches common mistakes |
 
-يحتوي الملف `code/.vscode/extensions.json` في هذا الدرس على قائمة التوصيات الكاملة. عند فتح مجلد المشروع، سيطالبك VS Code بتثبيتها.
+The file `code/.vscode/extensions.json` in this lesson contains the full recommendations list. When you open the project folder, VS Code will prompt you to install them.
 
-### الخطوة 3: تكوين الإعدادات
+### Step 3: Configure Settings
 
-انسخ الإعدادات من `code/.vscode/settings.json` في هذا الدرس، أو قم بتطبيقها يدويًا من خلال `Settings > Open Settings (JSON)`.
+Copy the settings from `code/.vscode/settings.json` in this lesson, or apply them manually through `Settings > Open Settings (JSON)`.
 
-الإعدادات الرئيسية لعمل الذكاء الاصطناعي:
+The key settings for AI work:
 
 ```jsonc
 {
@@ -95,19 +95,19 @@ code --install-extension charliermarsh.ruff
 }
 ```
 
-لماذا هذه الأهمية:
+Why these matter:
 
-- **التحقق من النوع على الأساسي**: يلتقط أنواع الوسائط الخاطئة قبل التشغيل. يوفر وقت تصحيح الأخطاء في حالة عدم تطابق شكل الموتر ومعلمات واجهة برمجة التطبيقات الخاطئة.
-- **التنسيق عند الحفظ**: لا تفكر مطلقًا في التنسيق مرة أخرى. الأسود يتولى الأمر.
-- **المساطر عند 88 و120**: يلتف اللون الأسود عند 88. تظهر العلامة 120 عندما تصبح سلاسل المستندات والتعليقات طويلة جدًا.
-- **تمرير مخرجات الكمبيوتر المحمول**: تطبع حلقات التدريب آلاف الأسطر. بدون التمرير، تنفجر لوحة الإخراج.
-- **الحفظ التلقائي**: سوف تنسى الحفظ. سيقوم البرنامج النصي للتدريب الخاص بك بتشغيل تعليمات برمجية قديمة. الحفظ التلقائي يمنع ذلك.
+- **Type checking on basic**: Catches wrong argument types before you run. Saves debugging time on tensor shape mismatches and wrong API parameters.
+- **Format on save**: Never think about formatting again. Black handles it.
+- **Rulers at 88 and 120**: Black wraps at 88. The 120 marker shows when docstrings and comments are getting too long.
+- **Notebook output scrolling**: Training loops print thousands of lines. Without scrolling, the output panel explodes.
+- **Auto-save**: You will forget to save. Your training script will run stale code. Auto-save prevents that.
 
-### الخطوة 4: التكامل الطرفي
+### Step 4: Terminal Integration
 
-محطة VS Code المتكاملة هي المكان الذي تقوم فيه بتشغيل البرامج النصية للتدريب ومراقبة وحدات معالجة الرسومات وإدارة البيئات.
+VS Code's integrated terminal is where you run training scripts, monitor GPUs, and manage environments.
 
-قم بإعداده بشكل صحيح:
+Set it up properly:
 
 ```jsonc
 {
@@ -118,35 +118,35 @@ code --install-extension charliermarsh.ruff
 }
 ```
 
-اختصارات مفيدة:
+Useful shortcuts:
 
-| العمل | ماك | لينكس/ويندوز |
+| Action | macOS | Linux/Windows |
 |--------|-------|---------------|
-| تبديل المحطة | `` Ctrl+` `` | `` Ctrl+` `` |
+| Toggle terminal | `` Ctrl+` `` | `` Ctrl+` `` |
 | New terminal | `Ctrl+Shift+`` ` | `Ctrl+Shift+`` ` |
-| محطة سبليت | __الكود_7__ | __الكود_8__ |
+| Split terminal | `Cmd+\` | `Ctrl+\` |
 
-تعد المحطات المقسمة مفيدة: واحدة لتشغيل البرنامج النصي الخاص بك، وواحدة لمراقبة وحدة معالجة الرسومات باستخدام `nvidia-smi -l 1` أو `watch -n 1 nvidia-smi`.
+Split terminals are useful: one for running your script, one for monitoring GPU with `nvidia-smi -l 1` or `watch -n 1 nvidia-smi`.
 
-### الخطوة 5: التطوير عن بعد (SSH إلى صناديق GPU)
+### Step 5: Remote Development (SSH into GPU Boxes)
 
-هذا هو الامتداد الأكثر أهمية لعمل الذكاء الاصطناعي. ستجري تدريبًا على الأجهزة البعيدة (أجهزة VM السحابية وخوادم المختبرات وLambda وVast.ai). يتيح لك Remote SSH فتح نظام الملفات البعيد، وتحرير الملفات، وتشغيل الأجهزة الطرفية، وتصحيح الأخطاء كما لو كان كل شيء محليًا.
+This is the most important extension for AI work. You will run training on remote machines (cloud VMs, lab servers, Lambda, Vast.ai). Remote SSH lets you open the remote filesystem, edit files, run terminals, and debug as if everything were local.
 
-يثبت:
+Setup:
 
-1. قم بتثبيت ملحق Remote SSH (تم ذلك في الخطوة 2).
-2. اضغط على `Ctrl+Shift+P` (أو `Cmd+Shift+P`)، اكتب "Remote-SSH: الاتصال بالمضيف".
-3. أدخل `user@your-gpu-box-ip`.
-4. يقوم VS Code بتثبيت مكون الخادم الخاص به على الجهاز البعيد تلقائيًا.
+1. Install the Remote SSH extension (done in Step 2).
+2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P`), type "Remote-SSH: Connect to Host".
+3. Enter `user@your-gpu-box-ip`.
+4. VS Code installs its server component on the remote machine automatically.
 
-للوصول بدون كلمة مرور، قم بإعداد مفاتيح SSH:
+For passwordless access, set up SSH keys:
 
 ```bash
 ssh-keygen -t ed25519 -C "your-email@example.com"
 ssh-copy-id user@your-gpu-box-ip
 ```
 
-أضف المضيف إلى `~/.ssh/config` للراحة:
+Add the host to `~/.ssh/config` for convenience:
 
 ```
 Host gpu-box
@@ -156,52 +156,52 @@ Host gpu-box
     ForwardAgent yes
 ```
 
-الآن يتصل `Remote-SSH: Connect to Host > gpu-box` على الفور.
+Now `Remote-SSH: Connect to Host > gpu-box` connects instantly.
 
-## البدائل
+## Alternatives
 
-### المؤشر
+### Cursor
 
-[cursor.com](https://cursor.com) عبارة عن شوكة VS Code مع إنشاء كود AI مدمج. يستخدم نفس النظام البيئي للامتداد وتنسيق الإعدادات. إذا كنت تستخدم المؤشر، فإن كل ما ورد في هذا الدرس يظل ساريًا. قم باستيراد نفس `settings.json` و`extensions.json`.
+[cursor.com](https://cursor.com) is a VS Code fork with built-in AI code generation. It uses the same extension ecosystem and settings format. If you use Cursor, everything in this lesson still applies. Import the same `settings.json` and `extensions.json`.
 
-### ركوب الأمواج
+### Windsurf
 
-[windsurf.com](https://windsurf.com) هو شوكة VS Code أخرى للذكاء الاصطناعي. نفس القصة: نفس الامتدادات، نفس تنسيق الإعدادات، نفس دعم Remote SSH.
+[windsurf.com](https://windsurf.com) is another AI-first VS Code fork. Same story: same extensions, same settings format, same Remote SSH support.
 
-### فيم/نيو
+### Vim/Neovim
 
-إذا كنت تستخدم Vim أو Neovim بالفعل وكنت منتجًا فيه، فابق هناك. الحد الأدنى من الإعداد لعمل AI Python:
+If you already use Vim or Neovim and are productive in it, stay there. The minimum setup for AI Python work:
 
-- **pyright** أو **pylsp** لفحص النوع (عبر Mason أو التثبيت اليدوي)
-- **nvim-lspconfig** لتكامل خادم اللغة
-- **jupyter-vim** أو **molten-nvim** لتنفيذ يشبه دفتر الملاحظات
-- **telescope.nvim** للبحث عن الملفات/الرموز
-- **none-ls.nvim** باللون الأسود والطوق للتنسيق/الفحص
+- **pyright** or **pylsp** for type checking (via Mason or manual install)
+- **nvim-lspconfig** for language server integration
+- **jupyter-vim** or **molten-nvim** for notebook-like execution
+- **telescope.nvim** for file/symbol search
+- **none-ls.nvim** with black and ruff for formatting/linting
 
-إذا كنت لا تستخدم Vim بالفعل، فلا تبدأ الآن. سوف يتنافس منحنى التعلم مع تعلم هندسة الذكاء الاصطناعي. استخدم رمز VS.
+If you do not already use Vim, do not start now. The learning curve will compete with learning AI engineering. Use VS Code.
 
-## استخدمه
+## Use It
 
-مع هذا الإعداد، يبدو سير عملك اليومي كما يلي:
+With this setup, your daily workflow looks like:
 
-1. افتح مجلد المشروع في VS Code (أو اتصل عبر Remote SSH بمربع GPU).
-2. اكتب Python في المحرر مع الإكمال التلقائي وتلميحات الكتابة والأخطاء المضمنة.
-3. قم بتشغيل دفاتر ملاحظات Jupyter المضمنة مع ملحق Jupyter.
-4. استخدم الوحدة الطرفية المدمجة للتدريب على البرامج النصية، `uv pip install`، ومراقبة وحدة معالجة الرسومات.
-5. قم بمراجعة التغييرات مع GitLens قبل الالتزام بها.
+1. Open the project folder in VS Code (or connect via Remote SSH to a GPU box).
+2. Write Python in the editor with autocomplete, type hints, and inline errors.
+3. Run Jupyter notebooks inline with the Jupyter extension.
+4. Use the integrated terminal for training scripts, `uv pip install`, and GPU monitoring.
+5. Review changes with GitLens before committing.
 
-## تمارين
+## Exercises
 
-1. قم بتثبيت VS Code وجميع الملحقات المدرجة في الخطوة 2
-2. انسخ `settings.json` من هذا الدرس إلى تكوين VS Code الخاص بك
-3. افتح ملف Python وتأكد من أن Pylance يعرض تلميحات الكتابة والتنسيقات السوداء عند الحفظ
-4. إذا كان لديك حق الوصول إلى جهاز بعيد، فقم بإعداد Remote SSH وافتح مجلدًا عليه
+1. Install VS Code and all extensions listed in Step 2
+2. Copy the `settings.json` from this lesson into your VS Code config
+3. Open a Python file and verify that Pylance shows type hints and Black formats on save
+4. If you have access to a remote machine, set up Remote SSH and open a folder on it
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| إل إس بي | "محرك الإكمال التلقائي" | بروتوكول خادم اللغة: معيار للمحررين للحصول على معلومات النوع والإكمال والتشخيص من خادم خاص باللغة |
-| بيلانس | "البرنامج المساعد بايثون" | خادم لغة Python من Microsoft يستخدم Pyright للتحقق من النوع وIntelliSense |
-| SSH عن بعد | "العمل على الخادم" | ملحق VS Code الذي يقوم بتشغيل خادم خفيف الوزن على جهاز بعيد ويقوم بدفق واجهة المستخدم إلى المحرر المحلي الخاص بك |
-| التنسيق عند الحفظ | "أجمل تلقائياً" | يقوم المحرر بتشغيل منسق (Black، Ruff) في كل مرة تقوم فيها بالحفظ، لذلك يكون نمط التعليمات البرمجية متسقًا دائمًا |
+| LSP | "Autocomplete engine" | Language Server Protocol: a standard for editors to get type info, completions, and diagnostics from a language-specific server |
+| Pylance | "The Python plugin" | Microsoft's Python language server using Pyright for type checking and IntelliSense |
+| Remote SSH | "Working on the server" | VS Code extension that runs a lightweight server on a remote machine and streams the UI to your local editor |
+| Format on save | "Auto-prettier" | The editor runs a formatter (Black, Ruff) every time you save, so code style is always consistent |

@@ -1,6 +1,12 @@
-"""محاكي مساعد صوتي شامل - 7 مكونات، تطبيقات أساسية. يحاكي دورة المستخدم الكاملة: الميكروفون → VAD → STT → LLM (مع استدعاء الأداة) → TTS.
-يطبع زمن الوصول لكل مرحلة + تتبع القرار. لا توجد نماذج حقيقية — استبدل كل كعب بـ Silero VAD / Whisper / GPT-4o /
-كوكورو لإنتاج pipeline. تشغيل: كود python3/main.py
+"""End-to-end voice assistant simulator — 7 components, stub implementations.
+
+Simulates a full user turn: mic → VAD → STT → LLM (with tool-call) → TTS.
+Prints per-stage latency + decision trace.
+
+No real models — replace each stub with Silero VAD / Whisper / GPT-4o /
+Kokoro for a production pipeline.
+
+Run: python3 code/main.py
 """
 
 import math

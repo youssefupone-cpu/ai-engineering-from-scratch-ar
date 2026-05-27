@@ -1,5 +1,7 @@
-"""لماذا المحولات - يوضح فجوة العمق التسلسلي بين نمط RNN
-التكرار والحد الموازي لأسلوب الانتباه. يعمل في stdlib النقي. لا نومي، لا الشعلة.
+"""Why Transformers - demonstrate the serial-depth gap between RNN-style
+recurrence and attention-style parallel reduction.
+
+Runs in pure stdlib. No numpy, no torch.
 """
 
 import math
@@ -7,7 +9,7 @@ import time
 
 
 def rnn_style(xs, decay=0.9):
-    """التكرار المتسلسل: h_t يعتمد على h_{t-1}. لا يمكن موازاة."""
+    """Sequential recurrence: h_t depends on h_{t-1}. Cannot parallelize."""
     h = 0.0
     for x in xs:
         h = decay * h + x
@@ -15,12 +17,12 @@ def rnn_style(xs, decay=0.9):
 
 
 def attention_style(xs):
-    """الاختزال المستقل عن الترتيب: كل عنصر مستقل."""
+    """Order-independent reduction: every element is independent."""
     return sum(xs) / len(xs)
 
 
 def serial_scan(xs):
-    """يتم حساب مجموع البادئة بشكل تسلسلي. عمق يا (ن)."""
+    """Prefix sum computed serially. Depth O(N)."""
     out = []
     acc = 0.0
     for x in xs:
@@ -30,7 +32,12 @@ def serial_scan(xs):
 
 
 def parallel_scan(xs):
-    """هيليس-ستيل مجموع البادئة الموازية. عمق O (سجل N). في لغة بايثون النقية، لا تزال كل خطوة تسلسلية، ولكنها تعتمد على البيانات الرسم البياني له عمق log2 (N). على الأجهزة الحقيقية مع N-wide SIMD هذا ويمنحك فحصًا متعمقًا للسجل؛ في CPU هي نفس ساعة الحائط ولكن شكل الرسم البياني هو ما يهم بالنسبة لنواة GPU.
+    """Hillis-Steele parallel prefix sum. Depth O(log N).
+
+    In pure Python each step is still serial, but the data-dependency
+    graph has depth log2(N). On real hardware with N-wide SIMD this
+    gets you a log-depth scan; on a CPU it's the same wall-clock but
+    the graph shape is what matters for GPU kernels.
     """
     out = list(xs)
     step = 1
@@ -63,7 +70,7 @@ def benchmark(n, reps=3):
 
 
 def depth(n):
-    """عدد العمق التسلسلي لـ RNN مقابل تخفيضات نمط الاهتمام."""
+    """Serial-depth count for RNN vs attention-style reductions."""
     rnn_depth = n
     attn_depth = max(1, math.ceil(math.log2(n)))
     return rnn_depth, attn_depth

@@ -63,6 +63,6 @@
   <text x="450" y="395" text-anchor="middle" class="label">خسارة التدريب</text>
   <text x="450" y="420" text-anchor="middle" class="mono">L = E_{x_0, t, ε} ||ε - ε_θ(√ᾱ_t · x_0 + √(1-ᾱ_t) · ε, t)||²</text>
 
-  <text x="450" y="460" text-anchor="middle" class="caption">شبكة واحدة، خسارة MSE واحدة، لا يوجد الحد الأدنى، لا يوجد KL انحراف في حلقة التدريب</text>
+  <text x="450" y="460" text-anchor="middle" class="caption">شبكة واحدة، خسارة MSE واحدة، لا يوجد حد أدنى، لا KL تباعد في حلقة التدريب</text>
   <text x="450" y="480" text-anchor="middle" class="caption">لم تتغير المقاييس للصور والفيديو والصوت والغاوسي ثلاثي الأبعاد</text>
 </svg>

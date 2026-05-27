@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="26" text-anchor="middle" class="title">بوابة MCP في مستوى التحكم</text>
+  <text x="480" y="26" text-anchor="middle" class="title">MCP بوابة في مستوى التحكم</text>
 
   <rect x="40" y="60" width="200" height="440" class="cool"/>
   <text x="140" y="82" text-anchor="middle" class="head">developers</text>
@@ -46,15 +46,15 @@
   <text x="356" y="276" class="small">OPA / ريجو، كيفيرنو، ستيرا</text>
   <text x="356" y="298" class="step">6/ سجل التدقيق</text>
   <text x="356" y="314" class="small">دفق الأحداث للإلحاق فقط</text>
-  <text x="356" y="336" class="step">7 / PII التنقيح</text>
+  <text x="356" y="336" class="step">7/ PII التنقيح</text>
   <text x="356" y="352" class="small">تصفية النتائج قبل العودة</text>
   <text x="356" y="374" class="step">8/ يمتد OTel GenAI</text>
   <text x="356" y="390" class="small">سمات gen_ai.* لكل مكالمة</text>
   <text x="356" y="420" class="step">البائعون (2026)</text>
-  <text x="356" y="438" class="small">بوابات Cloudflare MCP،</text>
-  <text x="356" y="454" class="small">بوابة كونغ AI، IBM</text>
-  <text x="356" y="470" class="small">سياق فورج، منتMCP،</text>
-  <text x="356" y="486" class="small">بوابة المبعوث AI</text>
+  <text x="356" y="438" class="small">كلاود فلير MCP البوابات،</text>
+  <text x="356" y="454" class="small">كونغ AI بوابة، IBM</text>
+  <text x="356" y="470" class="small">كونتيكت فورج، مينتMCP،</text>
+  <text x="356" y="486" class="small">مبعوث AI بوابة</text>
 
   <path d="M660,200 L760,200" class="edge" marker-end="url(#arrow)"/>
   <path d="M660,280 L760,280" class="edge" marker-end="url(#arrow)"/>
@@ -62,7 +62,7 @@
 
   <rect x="760" y="60" width="160" height="440" class="hot"/>
   <text x="840" y="82" text-anchor="middle" class="head">backends</text>
-  <text x="776" y="108" class="step">ملاحظات MCP</text>
+  <text x="776" y="108" class="step">الملاحظات MCP</text>
   <text x="776" y="126" class="small">التسجيل الرسمي</text>
 
   <text x="776" y="158" class="step">gitالمركز MCP</text>

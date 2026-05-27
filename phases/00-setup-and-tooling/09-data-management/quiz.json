@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "لماذا من المهم أن يكون لديك أقسام منفصلة للتدريب والتحقق من الصحة والاختبار في التعلم الآلي؟",
+      "question": "Why is it important to have separate train, validation, and test splits in machine learning?",
       "options": [
-        "إلى make، تكون مجموعة البيانات أصغر بحيث يكون التدريب أسرع",
-        "لتقييم أداء النموذج على البيانات غير المرئية ومنع التجهيز الزائد",
-        "للتأكد من أن كل تقسيم يستخدم تنسيق ملف مختلف",
-        "لتوزيع البيانات عبر GPUs متعددة"
+        "To make the dataset smaller so training is faster",
+        "To evaluate model performance on unseen data and prevent overfitting",
+        "To ensure each split uses a different file format",
+        "To distribute data across multiple GPUs"
       ],
       "correct": 1,
-      "explanation": "تقوم مجموعة التدريب بتعليم النموذج، وتقوم مجموعة التحقق بضبط المعلمات الفائقة أثناء التدريب، وتوفر مجموعة الاختبار تقييمًا نهائيًا غير متحيز للبيانات التي لم يراها النموذج من قبل."
+      "explanation": "The training set teaches the model, the validation set tunes hyperparameters during training, and the test set provides a final unbiased evaluation on data the model has never seen."
     },
     {
       "stage": "pre",
-      "question": "ما هو Hugging Face Hub المستخدم بشكل أساسي في سير عمل AI/ML؟",
+      "question": "What is the Hugging Face Hub primarily used for in AI/ML workflows?",
       "options": [
-        "استضافة ومشاركة مجموعات البيانات والنماذج والعناصر ML",
-        "تشغيل وظائف التدريب GPU في السحابة",
-        "إدارة بيئات بايثون الافتراضية",
-        "إصدار يتحكم في كود المصدر مثل GitHub"
+        "Hosting and sharing datasets, models, and ML artifacts",
+        "Running GPU training jobs in the cloud",
+        "Managing Python virtual environments",
+        "Version controlling source code like GitHub"
       ],
       "correct": 0,
-      "explanation": "Hugging Face Hub عبارة عن نظام أساسي لاستضافة ومشاركة النماذج ومجموعات البيانات والعروض التوضيحية ML ومشاركتها. توفر مكتبة \"مجموعات البيانات\" طريقة قياسية لتحميل البيانات منها."
+      "explanation": "Hugging Face Hub is a platform for hosting and sharing pre-trained models, datasets, and ML demos. The 'datasets' library provides a standard way to load data from it."
     },
     {
       "stage": "post",
-      "question": "ما هي الميزة التي يتمتع بها تنسيق Parquet على CSV لتخزين مجموعات البيانات ML؟",
+      "question": "What advantage does the Parquet format have over CSV for storing ML datasets?",
       "options": [
-        "ملفات الباركيه قابلة للقراءة بواسطة الإنسان في أي محرر نصوص",
-        "يستخدم الباركيه التخزين العمودي لأحجام الملفات الأصغر وسرعات القراءة الأسرع",
-        "يدعم الباركيه أنواع بيانات أكثر من CSV",
-        "يمكن تحرير ملفات الباركيه في تطبيقات جداول البيانات"
+        "Parquet files are human-readable in any text editor",
+        "Parquet uses columnar storage for smaller file sizes and faster read speeds",
+        "Parquet supports more data types than CSV",
+        "Parquet files can be edited in spreadsheet applications"
       ],
       "correct": 1,
-      "explanation": "الباركيه هو تنسيق ثنائي عمودي يتم ضغطه بشكل أفضل من CSV ويتيح القراءة السريعة على مستوى العمود. إنه تنسيق التخزين المفضل لمجموعات البيانات ML."
+      "explanation": "Parquet is a columnar binary format that compresses better than CSV and enables fast column-level reads. It is the preferred storage format for ML datasets."
     },
     {
       "stage": "post",
-      "question": "ماذا يفعل \"streaming=True\" عند تحميل مجموعة بيانات باستخدام مكتبة مجموعات البيانات Hugging Face؟",
+      "question": "What does 'streaming=True' do when loading a dataset with the Hugging Face datasets library?",
       "options": [
-        "تنزيل مجموعة البيانات بشكل أسرع باستخدام الاتصالات المتوازية",
-        "يقوم بتحميل البيانات صفًا تلو الآخر دون تنزيل مجموعة البيانات الكاملة على القرص",
-        "يحول مجموعة البيانات إلى تنسيق فيديو متدفق",
-        "تمكين التحديثات في الوقت الحقيقي عند إضافة بيانات جديدة إلى المركز"
+        "Downloads the dataset faster using parallel connections",
+        "Loads data row by row without downloading the full dataset to disk",
+        "Converts the dataset to a streaming video format",
+        "Enables real-time updates as new data is added to the Hub"
       ],
       "correct": 1,
-      "explanation": "يقوم وضع الدفق بإنشاء IterableDataset الذي يقوم بجلب الصفوف عند الطلب. يظل استخدام الذاكرة ثابتًا بغض النظر عن حجم مجموعة البيانات، وهو أمر ضروري لمجموعات البيانات الكبيرة جدًا بحيث لا يمكن احتواؤها على القرص."
+      "explanation": "Streaming mode creates an IterableDataset that fetches rows on demand. Memory usage stays constant regardless of dataset size, which is essential for datasets too large to fit on disk."
     },
     {
       "stage": "post",
-      "question": "متى يجب عليك استخدام DVC (التحكم في إصدار البيانات) بدلاً من.gitignore فقط للملفات الكبيرة؟",
+      "question": "When should you use DVC (Data Version Control) instead of just.gitignore for large files?",
       "options": [
-        "عندما تكون مجموعة البيانات الخاصة بك أصغر من 1 MB",
-        "عندما تحتاج إلى إعادة إنتاج تجارب دقيقة عبر الأجهزة ذات البيانات ذات الإصدارات",
-        "عندما تعمل بمفردك في مشروع شخصي",
-        "عندما يكون لديك ملفات CSV فقط في مشروعك"
+        "When your dataset is smaller than 1 MB",
+        "When you need to reproduce exact experiments across machines with versioned data",
+        "When you are working alone on a personal project",
+        "When you only have CSV files in your project"
       ],
       "correct": 1,
-      "explanation": "DVC يتتبع إصدارات البيانات باستخدام ملفات مؤشر صغيرة في git أثناء تخزين البيانات الفعلية في وحدة التخزين البعيدة (S3، GCS). إنه يضمن أن يتمكن أي شخص من إعادة إنتاج تجربتك الدقيقة بنفس البيانات."
+      "explanation": "DVC tracks data versions with small pointer files in git while storing the actual data in remote storage (S3, GCS). It ensures anyone can reproduce your exact experiment with the same data."
     }
   ]
 }

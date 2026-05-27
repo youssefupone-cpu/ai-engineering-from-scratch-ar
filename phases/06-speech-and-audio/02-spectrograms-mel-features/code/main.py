@@ -1,4 +1,6 @@
-"""المخططات الطيفية، وبنوك المرشحات، وMFCCs - مبنية على الرياضيات stdlib. تشغيل: كود python3/main.py
+"""Spectrograms, mel filterbanks, MFCCs — built from stdlib math.
+
+Run: python3 code/main.py
 """
 
 import math

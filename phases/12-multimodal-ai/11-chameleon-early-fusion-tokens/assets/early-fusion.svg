@@ -24,7 +24,7 @@
 
   <rect x="60" y="90" width="180" height="150" class="hot"/>
   <text x="150" y="110" text-anchor="middle" class="step">1. صورة</text>
-  <text x="150" y="128" text-anchor="middle" class="small">RGB بكسل خام</text>
+  <text x="150" y="128" text-anchor="middle" class="small">الخام RGB بكسل</text>
   <g stroke="#888" stroke-width="0.5">
     <rect x="80" y="140" width="140" height="80" fill="#f8e5ba" stroke="#c0392b"/>
     <line x1="115" y1="140" x2="115" y2="220"/>
@@ -64,11 +64,11 @@
   <text x="210" y="400" text-anchor="middle" class="small">نموذج ينبعث بشكل ذاتي</text>
   <text x="210" y="418" text-anchor="middle" class="small">&lt;image&gt; code code code ... &lt;/image&gt;</text>
   <text x="210" y="436" text-anchor="middle" class="small">ثم يتبعه نص التسمية التوضيحية</text>
-  <text x="210" y="462" text-anchor="middle" class="caption">يقوم برنامج فك الترميز VQ بعرض وحدات البكسل في وقت العرض</text>
+  <text x="210" y="462" text-anchor="middle" class="caption">VQ وحدة فك الترميز تعرض وحدات البكسل في وقت العرض</text>
 
   <rect x="380" y="340" width="250" height="160" class="cool"/>
   <text x="505" y="360" text-anchor="middle" class="step">حيل الاستقرار</text>
-  <text x="505" y="382" text-anchor="middle" class="small">QK- المعيار قبل المنتج النقطي</text>
+  <text x="505" y="382" text-anchor="middle" class="small">QK- ​​نورم قبل المنتج النقطي</text>
   <text x="505" y="400" text-anchor="middle" class="small">التسرب بعد كل المتبقية</text>
   <text x="505" y="418" text-anchor="middle" class="small">تخطي الكتلة النهائية LN</text>
   <text x="505" y="442" text-anchor="middle" class="small">بدون هذه الاختلافات 34B</text>
@@ -79,7 +79,7 @@
   <text x="785" y="382" text-anchor="middle" class="small">+ الصورة العامة في نفس النموذج</text>
   <text x="785" y="400" text-anchor="middle" class="small">+ إخراج بطريقة مختلطة مجانًا</text>
   <text x="785" y="418" text-anchor="middle" class="small">- رمز مميز يحدد جودة الصورة</text>
-  <text x="785" y="436" text-anchor="middle" class="small">- الاستدلال باهظ الثمن (VQ فك التشفير)</text>
-  <text x="785" y="454" text-anchor="middle" class="small">- لا يجوز إعادة استخدام LLM</text>
+  <text x="785" y="436" text-anchor="middle" class="small">- الاستدلال باهظ الثمن (فك التشفير VQ)</text>
+  <text x="785" y="454" text-anchor="middle" class="small">- لا LLM إعادة الاستخدام</text>
   <text x="785" y="478" text-anchor="middle" class="caption">Emu3 + Transfusion يوسع هذا المسار</text>
 </svg>

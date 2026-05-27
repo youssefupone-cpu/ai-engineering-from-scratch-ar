@@ -5,45 +5,59 @@ phase: 2
 lesson: 8
 ---
 
-# ميزة موجه الهندسة
+# Feature Engineering Prompt
+
 أنت متخصص في هندسة الميزات. بالنظر إلى وصف مجموعة البيانات الأولية، قم بإعداد خطة هندسية محددة للميزات.
-## مدخل
+
+## Input
+
 قم بوصف مجموعة البيانات: أسماء الأعمدة وأنواعها وقيم العينة وهدف التنبؤ.
-## عملية
+
+## Process
+
 بالنسبة لكل عمود في مجموعة البيانات، قم بالعمل من خلال قائمة التحقق هذه:
-### 1. القيم المفقودة
-- ما هي النسبة المفقودة؟
-- هل الغياب عشوائي أم إعلامي؟
-- اختر الإستراتيجية: إسقاط أو احتساب (المتوسط/الوسيط/الوضع)، أو إضافة عمود مؤشر مفقود
-### 2. الأعمدة الرقمية
-- هل التوزيع منحرف؟ إذا كان الأمر كذلك، قم بتطبيق تحويل السجل
-- هل الوحدات قابلة للمقارنة عبر الميزات؟ إذا لم يكن الأمر كذلك، قم بتوحيد المقياس أو مقياس الحد الأدنى والحد الأقصى
-- هل يلتقط binning علاقة غير خطية أفضل من القيمة الأولية؟
-- هل هناك تفاعلات ذات معنى بين الأعمدة العددية (النسب، المنتجات)؟
-### 3. الأعمدة الفئوية
-- كم عدد القيم الفريدة (الأصلية)؟
-  - منخفض (أقل من 10): تشفير واحد ساخن
-  - متوسط (10-100): تشفير الهدف مع التجانس
-  - عالي (100+): فكر في التجزئة أو التضمين أو تجميع الفئات النادرة
-- هل هناك أمر طبيعي؟ إذا كان الأمر كذلك، قد يكون الترميز الترتيبي مناسبًا
-### 4. أعمدة النص
-- هل النص قصير ومنظم؟ استخدم TF-IDF
-- هل النص طويل ودلالي؟ ضع في اعتبارك عمليات التضمين (خارج نطاق ML الكلاسيكي)
-- استخراج الطول وعدد الكلمات وعدد الأحرف كميزات إضافية
-### 5. أعمدة التاريخ/الوقت
-- استخراج: السنة، الشهر، يوم من أيام الأسبوع، ساعة، is_weekend
-- الحساب: الأيام منذ التاريخ المرجعي، والوقت بين الأحداث
-- التشفير الدوري للميزات الدورية (ساعة، يوم من أيام الأسبوع)
-### 6. تفاعلات الميزات
-- مجموعات خاصة بالمجال (على سبيل المثال، BMI من الطول والوزن)
-- ميزات متعددة الحدود للعلاقات غير الخطية المشتبه بها
-- ميزات النسبة (على سبيل المثال، سعر القدم المربع)
-### 7. اختيار الميزة
-- إزالة ميزات التباين الصفري
-- إزالة الميزات المرتبطة فوق 0.95 مع ميزة أخرى
-- ترتيب الميزات المتبقية حسب المعلومات المتبادلة مع الهدف
-- احتفظ بأفضل ميزات N أو استخدم التنظيم L1 للاختيار التلقائي
-## تنسيق الإخراج
+
+### 1. Missing values
+- What percentage is missing?
+- Is missingness random or informative?
+- Choose strategy: drop, impute (mean/median/mode), or add a missing indicator column
+
+### 2. Numerical columns
+- Is the distribution skewed? If so, apply log transform
+- Are units comparable across features? If not, standardize or min-max scale
+- Would binning capture a non-linear relationship better than the raw value?
+- Are there meaningful interactions between numerical columns (ratios, products)?
+
+### 3. Categorical columns
+- How many unique values (cardinality)?
+  - Low (under 10): one-hot encode
+  - Medium (10-100): target encode with smoothing
+  - High (100+): consider hashing, embeddings, or grouping rare categories
+- Is there a natural order? If so, ordinal encoding may be appropriate
+
+### 4. Text columns
+- Is the text short and structured? Use TF-IDF
+- Is the text long and semantic? Consider embeddings (out of scope for classical ML)
+- Extract length, word count, and character count as additional features
+
+### 5. Date/time columns
+- Extract: year, month, day of week, hour, is_weekend
+- Compute: days since a reference date, time between events
+- Cyclical encoding for periodic features (hour, day of week)
+
+### 6. Feature interactions
+- Domain-specific combinations (e.g., BMI from height and weight)
+- Polynomial features for suspected non-linear relationships
+- Ratio features (e.g., price per square foot)
+
+### 7. Feature selection
+- Remove zero-variance features
+- Remove features correlated above 0.95 with another feature
+- Rank remaining features by mutual information with the target
+- Keep the top N features or use L1 regularization for automatic selection
+
+## Output format
+
 لكل ميزة، اذكر:
 1. اسم العمود الأصلي ونوعه
 2. تم تطبيق التحويل (ولماذا)

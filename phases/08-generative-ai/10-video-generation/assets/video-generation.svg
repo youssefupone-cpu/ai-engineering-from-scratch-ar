@@ -32,7 +32,7 @@
 
   <!-- 3D VAE -->
   <rect x="260" y="75" width="140" height="60" class="cold"/>
-  <text x="330" y="105" text-anchor="middle" class="content">التشفير ثلاثي الأبعاد VAE</text>
+  <text x="330" y="105" text-anchor="middle" class="content">جهاز تشفير ثلاثي الأبعاد VAE</text>
   <text x="330" y="125" text-anchor="middle" class="caption">كامنة الزمانية المكانية</text>
 
   <line x1="400" y1="100" x2="450" y2="100" stroke="#1a1a1a" stroke-width="1.2" marker-end="url(#arrow)"/>
@@ -48,11 +48,11 @@
   <rect x="640" y="60" width="220" height="90" class="cold"/>
   <text x="750" y="85" text-anchor="middle" class="label">DiT الزماني المكاني</text>
   <text x="750" y="105" text-anchor="middle" class="caption">عوامل: الاهتمام المكاني ثم الزماني</text>
-  <text x="750" y="125" text-anchor="middle" class="caption">انتبه إلى T5-XXL النص</text>
+  <text x="750" y="125" text-anchor="middle" class="caption">انتبه إلى النص T5-XXL</text>
 
   <!-- loss -->
   <rect x="30" y="180" width="830" height="60" class="hot"/>
-  <text x="445" y="203" text-anchor="middle" class="label">نفس خسارة DDPM على الكمون الزماني المكاني</text>
+  <text x="445" y="203" text-anchor="middle" class="label">نفس الخسارة DDPM على الكمون الزماني المكاني</text>
   <text x="445" y="225" text-anchor="middle" class="mono">ل = ه || ε - ε_θ(z_t, t, text, first_frame_opt) ||²</text>
 
   <!-- temporal coherence panel -->

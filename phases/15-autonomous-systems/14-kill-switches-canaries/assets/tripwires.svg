@@ -47,7 +47,7 @@
   <!-- Canary -->
   <rect x="600" y="200" width="220" height="120" class="cold"/>
   <text x="710" y="222" text-anchor="middle" class="label">رمز الكناري</text>
-  <text x="616" y="244" class="small">الطعم بدون استخدام legitimate</text>
+  <text x="616" y="244" class="small">الطعم مع عدم وجود legitimate الاستخدام</text>
   <text x="616" y="260" class="small">• AWS_SECRET_ACCESS_KEY وهمية</text>
   <text x="616" y="276" class="small">• وهمية DB سجل الحارس</text>
   <text x="616" y="292" class="small">• ملف مزيف في مساحة العمل</text>

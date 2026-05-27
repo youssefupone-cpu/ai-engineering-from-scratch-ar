@@ -16,7 +16,7 @@
       .caption { font-size: 11px; fill: #555; font-style: italic; }
     </style>
   </defs>
-  <text x="480" y="28" text-anchor="middle" class="title">FIPA-ACL التراث - ما الذي تحتفظ به بروتوكولات 2026 وتسقطها؟</text>
+  <text x="480" y="28" text-anchor="middle" class="title">FIPA-ACL التراث — ما هي بروتوكولات 2026 التي تحتفظ بها وتسقطها</text>
 
   <rect x="40" y="60" width="280" height="180" class="cool"/>
   <text x="180" y="82" text-anchor="middle" class="head">FIPA-ACL (2000)</text>
@@ -40,7 +40,7 @@
   <rect x="700" y="60" width="220" height="180" class="cold"/>
   <text x="810" y="82" text-anchor="middle" class="head">2026 خلفاء</text>
   <text x="810" y="108" text-anchor="middle" class="small">MCP · A2A · ACP · ANP · NLIP</text>
-  <text x="810" y="130" text-anchor="middle" class="small">JSON-الحمولات الأصلية</text>
+  <text x="810" y="130" text-anchor="middle" class="small">JSON- ​​الحمولات الأصلية</text>
   <text x="810" y="148" text-anchor="middle" class="small">محتوى اللغة الطبيعية</text>
   <text x="810" y="166" text-anchor="middle" class="small">HTTP · SSE · WebSocket</text>
   <text x="810" y="184" text-anchor="middle" class="small">اكتشاف يصف نفسه</text>
@@ -53,7 +53,7 @@
   <text x="480" y="304" text-anchor="middle" class="head">أدائية → 2026 ما يعادلها</text>
 
   <text x="60" y="336" class="step">request</text>
-  <text x="300" y="336" class="small">MCP الأدوات/الاتصال · A2A POST /المهام</text>
+  <text x="300" y="336" class="small">MCP أدوات/اتصال · A2A POST /المهام</text>
   <text x="60" y="356" class="step">query-ref</text>
   <text x="300" y="356" class="small">MCP الموارد/القراءة · A2A GET /tasks/{id}</text>
   <text x="60" y="376" class="step">subscribe</text>
@@ -65,7 +65,7 @@
   <text x="60" y="436" class="step">cancel</text>
   <text x="300" y="436" class="small">A2A إلغاء المهمة · MCP إشعار الإلغاء</text>
   <text x="60" y="456" class="step">إعلام · الفشل</text>
-  <text x="300" y="456" class="small">دفع قطعة أثرية · كائن خطأ في استجابة JSON-RPC</text>
+  <text x="300" y="456" class="small">دفع قطعة أثرية · كائن خطأ في الاستجابة JSON-RPC</text>
 
-  <text x="60" y="478" class="caption">محفوظ: مظروف + نية + ارتباط. · تم إسقاط: SL دلالات + علم الوجود الإلزامي</text>
+  <text x="60" y="478" class="caption">محفوظ: ظرف + نية + ارتباط · إسقاط: SL دلالات + علم الوجود الإلزامي</text>
 </svg>

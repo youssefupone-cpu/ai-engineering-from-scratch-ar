@@ -674,7 +674,13 @@ def demo_format_comparison():
     print("=" * 60)
 
     print(f"""
-  تنسيق البتات Exp Mantissa ~Digits القيمة القصوى الأفضل لـ ------- ---- --- -------- ------- ---------- -------- float64 64 11 52 15-16 1.8e308 CPU التدريب والتراكم float32 32 8 23 7-8 3.4e38 التدريب الافتراضي float16 16 5 10 3-4 65,504 الاستدلال bfloat16 16 8 7 2-3 3.4e38 GPU/TPU تدريب float8 8 4 3 1-2 240 التمريرة الأمامية فقط (H100+)
+  Format     Bits  Exp  Mantissa  ~Digits  Max Value       Best For
+  -------    ----  ---  --------  -------  ----------      --------
+  float64    64    11   52        15-16    1.8e308         CPU training, accumulation
+  float32    32    8    23        7-8      3.4e38          Default training
+  float16    16    5    10        3-4      65,504          Inference
+  bfloat16   16    8    7         2-3      3.4e38          GPU/TPU training
+  float8     8     4    3         1-2      240             Forward pass only (H100+)
 """)
 
     print("  Precision test (representing pi):")

@@ -1,47 +1,47 @@
 # Linear Algebra Intuition
 
-> Every AI model is just matrix math wearing a fancy hat.
+> كل نموذج AI هو مجرد مصفوفة رياضية ترتدي قبعة فاخرة.
 
-**Type:** Learn
-**Languages:** Python, Julia
-**Prerequisites:** Phase 0
-**Time:** ~60 minutes
+**النوع:** تعلم
+** اللغات: ** بايثون، جوليا
+**المتطلبات الأساسية:** المرحلة 0
+**الوقت:** ~60 دقيقة
 
 ## Learning Objectives
 
-- Implement vector and matrix operations (addition, dot product, matrix multiply) from scratch in Python
-- Explain geometrically what the dot product, projection, and Gram-Schmidt process do
-- Determine linear independence, rank, and basis of a set of vectors using row reduction
-- Connect linear algebra concepts to their AI applications: embeddings, attention scores, and LoRA
+- تنفيذ عمليات المتجهات والمصفوفات (الجمع، الضرب النقطي، ضرب المصفوفات) من الصفر في بايثون
+- اشرح هندسيًا ما تفعله عملية الضرب النقطي والإسقاط وعملية جرام شميدت
+- تحديد الاستقلال الخطي، والرتبة، وأساس مجموعة من المتجهات باستخدام تقليل الصف
+- ربط مفاهيم الجبر الخطي بتطبيقات AI: التضمينات ودرجات الانتباه وLoRA
 
 ## The Problem
 
-Open any ML paper. Within the first page, you'll see vectors, matrices, dot products, and transformations. Without linear algebra intuition, these are just symbols. With it, you can see what a neural network is actually doing -- moving points around in space.
+افتح أي ورقة ML. في الصفحة الأولى، سترى المتجهات والمصفوفات والمنتجات النقطية والتحويلات. بدون حدس الجبر الخطي، هذه مجرد رموز. باستخدامه، يمكنك رؤية ما تفعله الشبكة العصبية فعليًا - تحريك النقاط في الفضاء.
 
-You don't need to be a mathematician. You need to see what these operations mean geometrically, then code them yourself.
+لا تحتاج إلى أن تكون عالم رياضيات. أنت بحاجة إلى معرفة ما تعنيه هذه العمليات هندسيًا، ثم قم بترميزها بنفسك.
 
 ## The Concept
 
 ### Vectors Are Points (and Directions)
 
-A vector is just a list of numbers. But those numbers mean something -- they're coordinates in space.
+المتجه هو مجرد قائمة من الأرقام. لكن هذه الأرقام تعني شيئًا ما، إنها إحداثيات في الفضاء.
 
-**2D vector [3, 2]:**
+**ناقل ثنائي الأبعاد [3، 2]:**
 
-| x | y | Point |
+| س | ذ | نقطة |
 |---|---|-------|
-| 3 | 2 | The vector points from origin (0,0) to (3, 2) on the plane |
+| 3 | 2 | يشير المتجه من الأصل (0,0) إلى (3,2) على المستوى |
 
-The vector has magnitude sqrt(3^2 + 2^2) = sqrt(13) and points up and to the right.
+المتجه له حجم sqrt(3^2 + 2^2) = sqrt(13) ويشير إلى الأعلى وإلى اليمين.
 
-In AI, vectors represent everything:
-- A word → a vector of 768 numbers (its "meaning" in embedding space)
-- An image → a vector of millions of pixel values
-- A user → a vector of preferences
+في AI، تمثل المتجهات كل شيء:
+- كلمة ← متجه لـ 768 رقمًا ("معناها" في مساحة التضمين)
+- صورة → متجه لملايين قيم البكسل
+- مستخدم → ناقل التفضيلات
 
 ### Matrices Are Transformations
 
-A matrix transforms one vector into another. It can rotate, scale, stretch, or project.
+تقوم المصفوفة بتحويل متجه إلى آخر. يمكنه التدوير أو القياس أو التمدد أو العرض.
 
 ```mermaid
 graph LR
@@ -62,14 +62,14 @@ graph LR
     M --> B2
 ```
 
-In AI, matrices ARE the model:
-- Neural network weights → matrices that transform input into output
-- Attention scores → matrices that decide what to focus on
-- Embeddings → matrices that map words to vectors
+في AI المصفوفات ARE النموذج:
+- أوزان الشبكة العصبية ← المصفوفات التي تحول المدخلات إلى مخرجات
+- درجات الانتباه ← المصفوفات التي تقرر ما يجب التركيز عليه
+- التضمينات → المصفوفات التي تربط الكلمات بالمتجهات
 
 ### The Dot Product Measures Similarity
 
-The dot product of two vectors tells you how similar they are.
+يخبرك المنتج النقطي لمتجهين بمدى تشابههما.
 
 ```
 a · b = a₁×b₁ + a₂×b₂ + ... + aₙ×bₙ
@@ -79,15 +79,15 @@ Perpendicular:       a · b = 0  (unrelated)
 Opposite direction:  a · b < 0  (dissimilar)
 ```
 
-This is literally how search engines, recommendation systems, and RAG work -- find vectors with high dot products.
+هذه هي الطريقة التي تعمل بها محركات البحث وأنظمة التوصية وRAG حرفيًا - للعثور على المتجهات ذات المنتجات ذات النقاط العالية.
 
 ### Linear Independence
 
-Vectors are linearly independent if no vector in the set can be written as a combination of the others. If v1, v2, v3 are independent, they span a 3D space. If one is a combination of the others, they only span a plane.
+تكون المتجهات مستقلة خطيًا إذا لم يكن من الممكن كتابة أي متجه في المجموعة كمجموعة من المتجهات الأخرى. إذا كانت v1، وv2، وv3 مستقلة، فإنها تمتد إلى مساحة ثلاثية الأبعاد. إذا كان أحدهما عبارة عن مزيج من الآخرين، فإنهم يمتدون فقط على مستوى.
 
-Why it matters for AI: your feature matrix should have linearly independent columns. If two features are perfectly correlated (linearly dependent), the model cannot distinguish their effects. This causes multicollinearity in regression -- the weight matrix becomes unstable, and small input changes produce wild output swings.
+سبب أهمية AI: يجب أن تحتوي مصفوفة الميزات على أعمدة مستقلة خطيًا. إذا كانت هناك ميزتان مرتبطتان بشكل كامل (تعتمدان خطيًا)، فلن يتمكن النموذج من التمييز بين تأثيراتهما. يؤدي هذا إلى وجود علاقة خطية متعددة في الانحدار - تصبح مصفوفة الوزن غير مستقرة، وتؤدي التغييرات الصغيرة في المدخلات إلى تقلبات كبيرة في الإنتاج.
 
-**Concrete example:**
+**مثال ملموس:**
 
 ```
 v1 = [1, 0, 0]
@@ -95,42 +95,42 @@ v2 = [0, 1, 0]
 v3 = [2, 1, 0]   # v3 = 2*v1 + v2
 ```
 
-v1 and v2 are independent -- neither is a scalar multiple or combination of the other. But v3 = 2*v1 + v2, so {v1, v2, v3} is a dependent set. These three vectors all lie in the xy-plane. No matter how you combine them, you cannot reach [0, 0, 1]. You have three vectors but only two dimensions of freedom.
+v1 وv2 مستقلان، ولا يمثلان مضاعفًا قياسيًا أو مزيجًا من الآخر. لكن v3 = 2*v1 + v2، لذا فإن {v1, v2, v3} هي مجموعة تابعة. تقع هذه المتجهات الثلاثة جميعها في المستوى xy. بغض النظر عن كيفية الجمع بينهما، لا يمكنك الوصول إلى [0، 0، 1]. لديك ثلاثة نواقل ولكن بعدين فقط للحرية.
 
-In a dataset: if feature_3 = 2*feature_1 + feature_2, adding feature_3 gives the model zero new information. Worse, it makes the normal equations singular -- there is no unique solution for the weights.
+في مجموعة البيانات: إذا كانت feature_3 = 2*feature_1 + feature_2، فإن إضافة feature_3 تعطي النموذج صفر معلومات جديدة. والأسوأ من ذلك أنها make هي المعادلات العادية المفردة - ولا يوجد حل فريد للأوزان.
 
 ### Basis and Rank
 
-A basis is a minimal set of linearly independent vectors that span the entire space. The number of basis vectors is the dimension of the space.
+الأساس عبارة عن مجموعة صغيرة من المتجهات المستقلة خطيًا والتي تغطي المساحة بأكملها. عدد المتجهات الأساسية هو البعد من الفضاء.
 
-The standard basis for 3D space is {[1,0,0], [0,1,0], [0,0,1]}. But any three independent vectors in 3D form a valid basis. The choice of basis is a choice of coordinate system.
+الأساس القياسي للمساحة ثلاثية الأبعاد هو {[1,0,0], [0,1,0], [0,0,1]}. لكن أي ثلاثة نواقل مستقلة ثلاثية الأبعاد تشكل أساسًا صالحًا. اختيار الأساس هو اختيار نظام الإحداثيات.
 
-Rank of a matrix = number of linearly independent columns = number of linearly independent rows. If rank < min(rows, cols), the matrix is rank-deficient. This means:
-- The system has infinitely many solutions (or none)
-- Information is lost in the transformation
-- The matrix cannot be inverted
+رتبة المصفوفة = عدد الأعمدة المستقلة خطيا = عدد الصفوف المستقلة خطيا. إذا كانت الرتبة < دقيقة (الصفوف والأعمدة)، فإن المصفوفة تكون ذات رتبة ناقصة. هذا يعني:
+- النظام لديه عدد لا نهائي من الحلول (أو لا شيء)
+- يتم فقدان المعلومات في التحول
+- لا يمكن عكس المصفوفة
 
-| Situation | Rank | What it means for ML |
-|-----------|------|---------------------|
-| Full rank (rank = min(m, n)) | Maximum possible | Unique least-squares solution exists. Model is well-conditioned. |
-| Rank deficient (rank < min(m, n)) | Below maximum | Features are redundant. Infinitely many weight solutions. Regularization needed. |
-| Rank 1 | 1 | Every column is a scaled copy of one vector. All data lies on a line. |
-| Near rank-deficient (small singular values) | Numerically low | Matrix is ill-conditioned. Tiny input noise causes large output changes. Use SVD truncation or ridge regression. |
+| الوضع | الرتبة | ماذا يعني لـ ML |
+|-----------|------|--------------------|
+| الرتبة الكاملة (الرتبة = دقيقة (م، ن)) | الحد الأقصى الممكن | يوجد حل فريد من نوعه للمربعات الصغرى. النموذج مكيف بشكل جيد. |
+| رتبة ناقصة (رتبة < دقيقة (م، ن)) | أقل من الحد الأقصى | الميزات زائدة عن الحاجة. عدد لا نهائي من حلول الوزن. التنظيم مطلوب. |
+| المرتبة 1 | 1 | كل عمود عبارة عن نسخة متدرجة من متجه واحد. جميع البيانات تقع على الخط. |
+| بالقرب من ناقص الرتبة (قيم مفردة صغيرة) | منخفض عدديا | المصفوفة سيئة التكييف. يؤدي ضجيج الإدخال الصغير إلى حدوث تغييرات كبيرة في الإخراج. استخدم SVD اقتطاع أو انحدار التلال. |
 
 ### Projection
 
-Projecting vector **a** onto vector **b** gives the component of **a** in the direction of **b**:
+إسقاط المتجه **a** على المتجه **b** يعطي مكون **a** في اتجاه **b**:
 
 ```
 proj_b(a) = (a dot b / b dot b) * b
 ```
 
-The residual (a - proj_b(a)) is perpendicular to b. This orthogonal decomposition is the foundation of least-squares fitting.
+المتبقي (a - proj_b(a)) متعامد مع b. هذا التحلل المتعامد هو أساس تركيب المربعات الصغرى.
 
-Projection is everywhere in ML:
-- Linear regression minimizes the distance from observations to the column space -- the solution IS a projection
-- PCA projects data onto the directions of maximum variance
-- Attention in transformers computes projections of queries onto keys
+الإسقاط موجود في كل مكان في ML:
+- الانحدار الخطي يقلل المسافة من الملاحظات إلى مساحة العمود - الحل IS إسقاط
+- PCA يعرض البيانات في اتجاهات التباين الأقصى
+- الاهتمام في المحولات يحسب إسقاطات الاستعلامات على المفاتيح
 
 ```mermaid
 graph LR
@@ -143,21 +143,21 @@ graph LR
     end
 ```
 
-**Example:** a = [3, 4], b = [1, 0]
+**مثال:** أ = [3، 4]، ب = [1، 0]
 
 proj_b(a) = (3*1 + 4*0) / (1*1 + 0*0) * [1, 0] = 3 * [1, 0] = [3, 0]
 
-The projection drops the y-component. This is dimensionality reduction in its simplest form -- throw away the directions you don't care about.
+يسقط الإسقاط المكون y. هذا هو تقليل الأبعاد في أبسط أشكاله - تخلص من الاتجاهات التي لا تهتم بها.
 
 ### Gram-Schmidt Process
 
-Converting any set of independent vectors into an orthonormal basis. Orthonormal means every vector has length 1 and every pair is perpendicular.
+تحويل أي مجموعة من المتجهات المستقلة إلى أساس متعامد. متعامد يعني أن كل متجه له طول 1 وكل زوج متعامد.
 
-The algorithm:
-1. Take the first vector, normalize it
-2. Take the second vector, subtract its projection onto the first, normalize
-3. Take the third vector, subtract its projections onto all previous vectors, normalize
-4. Repeat for remaining vectors
+الخوارزمية:
+1. خذ المتجه الأول وقم بتطبيعه
+2. خذ المتجه الثاني، واطرح إسقاطه على المتجه الأول، وقم بتطبيعه
+3. خذ المتجه الثالث، واطرح إسقاطاته على جميع المتجهات السابقة، وقم بتطبيعها
+4. كرر ذلك مع النواقل المتبقية
 
 ```
 Input:  v1, v2, v3, ... (linearly independent)
@@ -173,10 +173,10 @@ u3 = w3 / |w3|
 Output: u1, u2, u3, ... (orthonormal basis)
 ```
 
-This is how QR decomposition works internally. Q is the orthonormal basis, R captures the projection coefficients. QR decomposition is used in:
-- Solving linear systems (more stable than Gaussian elimination)
-- Computing eigenvalues (QR algorithm)
-- Least-squares regression (the standard numerical method)
+هذه هي الطريقة التي يعمل بها QR التحلل داخليًا. Q هو الأساس المتعامد، R يلتقط معاملات الإسقاط. QR يستخدم التحلل في:
+- حل الأنظمة الخطية (أكثر استقرارا من الحذف الغوسي)
+- حساب القيم الذاتية (خوارزمية QR)
+- انحدار المربعات الصغرى (الطريقة العددية القياسية)
 
 ## Build It
 
@@ -357,7 +357,7 @@ print(f"u2 · u3 = {basis[1].dot(basis[2]):.6f}")
 
 ## Use It
 
-Now the same thing with NumPy -- what you'll actually use in practice:
+الآن نفس الشيء مع NumPy -- ما ستستخدمه بالفعل عمليًا:
 
 ```python
 import numpy as np
@@ -410,50 +410,50 @@ print(f"dot product = {similarity.item():.4f}")
 print(f"d(dot)/dx = {x.grad}")
 ```
 
-The gradient of the dot product with respect to x is just y. PyTorch computed this automatically. Every operation in a neural network is built from operations like this -- matrix multiplies, dot products, projections -- and autodiff tracks gradients through all of them.
+تدرج منتج النقطة بالنسبة لـ x هو y فقط. PyTorch يحسب هذا تلقائيًا. كل عملية في الشبكة العصبية مبنية من عمليات مثل هذه - ضرب المصفوفة، والمنتجات النقطية، والإسقاطات - ويتتبع التصنيف التلقائي التدرجات من خلال كل منهم.
 
-You just built from scratch what NumPy does in one line. Now you know what's happening under the hood.
+لقد قمت للتو ببناء ما يفعله NumPy من الصفر في سطر واحد. الآن أنت تعرف ما يحدث تحت الغطاء.
 
 ## Ship It
 
-This lesson produces:
-- `outputs/prompt-linear-algebra-tutor.md` -- a prompt for AI assistants to teach linear algebra through geometric intuition
+ينتج هذا الدرس:
+- `outputs/prompt-linear-algebra-tutor.md` -- مطالبة لمساعدي AI بتدريس الجبر الخطي من خلال الحدس الهندسي
 
 ## Connections
 
-Everything in this lesson connects to specific parts of modern AI:
+كل شيء في هذا الدرس يتصل بأجزاء محددة من الحديث AI:
 
-| Concept | Where it shows up |
+| المفهوم | حيث يظهر |
 |---------|------------------|
-| Dot product | Attention scores in transformers, cosine similarity in RAG |
-| Matrix multiply | Every neural network layer, every linear transformation |
-| Linear independence | Feature selection, avoiding multicollinearity |
-| Rank | Determining if a system is solvable, LoRA (low-rank adaptation) |
-| Projection | Linear regression (projecting onto column space), PCA |
-| Gram-Schmidt / QR | Numerical solvers, eigenvalue computation |
-| Orthonormal basis | Stable numerical computation, whitening transforms |
+| منتج دوت | درجات الانتباه في المحولات، تشابه جيب التمام في RAG |
+| ضرب المصفوفة | كل طبقة شبكة عصبية، كل تحويل خطي |
+| الاستقلال الخطي | اختيار الميزة، وتجنب التعددية الخطية |
+| الرتبة | تحديد ما إذا كان النظام قابلاً للحل، LoRA (تكيف منخفض الرتبة) |
+| الإسقاط | الانحدار الخطي (الإسقاط على مساحة العمود)، PCA |
+| غرام شميدت / QR | الحلول العددية، حساب القيمة الذاتية |
+| أساس متعامد | حساب عددي مستقر، تحويلات التبييض |
 
-LoRA deserves special mention. It fine-tunes large language models by decomposing weight updates into low-rank matrices. Instead of updating a 4096x4096 weight matrix (16M parameters), LoRA updates two matrices of size 4096x16 and 16x4096 (131K parameters). The rank-16 constraint means LoRA assumes the weight update lives in a 16-dimensional subspace of the full 4096-dimensional space. That is linear algebra doing real work.
+LoRA يستحق الذكر بشكل خاص. يقوم بضبط نماذج اللغة الكبيرة عن طريق تحليل تحديثات الوزن إلى مصفوفات منخفضة الرتبة. بدلاً من تحديث مصفوفة وزن 4096x4096 (16M معلمات)، LoRA يقوم بتحديث مصفوفتين بحجم 4096x16 و16x4096 (131K معلمات). القيد من المرتبة 16 يعني LoRA يفترض أن تحديث الوزن يعيش في مساحة فرعية ذات 16 بُعدًا من المساحة الكاملة ذات 4096 بُعدًا. هذا هو الجبر الخطي الذي يقوم بعمل حقيقي.
 
 ## Exercises
 
-1. Implement `Vector.angle_between(other)` that returns the angle in degrees between two vectors
-2. Create a 2D scaling matrix that doubles the x-coordinate and triples the y-coordinate, then apply it to the vector [1, 1]
-3. Given 5 random word-like vectors (dimension 50), find the two most similar using cosine similarity
-4. Verify that the Gram-Schmidt output is truly orthonormal: check that every pair has dot product 0 and every vector has magnitude 1
-5. Create a 3x3 matrix with rank 2. Verify using the `rank()` method. Then explain what geometric object the columns span.
-6. Project the vector [1, 2, 3] onto [1, 1, 1]. What does the result represent geometrically?
+1. قم بتنفيذ `Vector.angle_between(other)` الذي يُرجع الزاوية بالدرجات بين متجهين
+2. قم بإنشاء مصفوفة قياس ثنائية الأبعاد تعمل على مضاعفة الإحداثي x ومضاعفة الإحداثي y ثلاث مرات، ثم تطبيقها على المتجه [1، 1]
+3. بالنظر إلى 5 متجهات عشوائية تشبه الكلمات (البعد 50)، ابحث عن الاثنين الأكثر تشابهًا باستخدام تشابه جيب التمام
+4. تحقق من أن مخرجات جرام-شميت متعامدة حقًا: تأكد من أن كل زوج له منتج نقطي 0 وكل متجه له حجم 1
+5. قم بإنشاء مصفوفة 3x3 بالرتبة 2. تحقق باستخدام الطريقة `rank()`. ثم اشرح ما هو الجسم الهندسي الذي تمتد عليه الأعمدة.
+6. قم بإسقاط المتجه [1، 2، 3] على [1، 1، 1]. ماذا تمثل النتيجة هندسيا؟
 
 ## Key Terms
 
-| Term | What people say | What it actually means |
+| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
 |------|----------------|----------------------|
-| Vector | "An arrow" | A list of numbers representing a point or direction in n-dimensional space |
-| Matrix | "A table of numbers" | A transformation that maps vectors from one space to another |
-| Dot product | "Multiply and sum" | A measure of how aligned two vectors are -- the core of similarity search |
-| Embedding | "Some AI magic" | A vector that represents the meaning of something (word, image, user) |
-| Linear independence | "They don't overlap" | No vector in the set can be written as a combination of the others |
-| Rank | "How many dimensions" | The number of linearly independent columns (or rows) in a matrix |
-| Projection | "The shadow" | The component of one vector in the direction of another |
-| Basis | "The coordinate axes" | A minimal set of independent vectors that span the space |
-| Orthonormal | "Perpendicular unit vectors" | Vectors that are mutually perpendicular and each have length 1 |
+| ناقل | "السهم" | قائمة من الأرقام التي تمثل نقطة أو اتجاه في الفضاء ذي الأبعاد n |
+| مصفوفة | "جدول الأرقام" | تحويل يقوم بتعيين المتجهات من مساحة إلى أخرى |
+| منتج دوت | "الضرب والجمع" | مقياس لمدى محاذاة ناقلين - جوهر البحث عن التشابه |
+| التضمين | "بعض AI السحر" | متجه يمثل معنى شيء ما (كلمة، صورة، مستخدم) |
+| الاستقلال الخطي | "لا يتداخلون" | لا يمكن كتابة أي متجه في المجموعة كمجموعة من المتجهات الأخرى |
+| الرتبة | "كم عدد الأبعاد" | عدد الأعمدة (أو الصفوف) المستقلة خطيًا في المصفوفة |
+| الإسقاط | "الظل" | مركبة متجه في اتجاه آخر |
+| الأساس | "المحاور الإحداثية" | مجموعة صغيرة من المتجهات المستقلة التي تمتد عبر المساحة |
+| متعامد | "متجهات الوحدة المتعامدة" | المتجهات المتعامدة وطول كل منها 1 |

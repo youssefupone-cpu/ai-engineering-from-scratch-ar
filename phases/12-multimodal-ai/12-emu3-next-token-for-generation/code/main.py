@@ -1,4 +1,8 @@
-"""Emu3 رمز العد + CFG-ألعاب أخذ العينات - stdlib. أداتان صغيرتان: 1. حاسبة عدد الرموز للصور + الفيديو بدرجات دقة مختلفة وFPS. 2. أداة أخذ العينات ذات الانحدار التلقائي مع إرشادات خالية من المصنف (CFG).
+"""Emu3 token-count + CFG-sampling toys — stdlib.
+
+Two mini-tools:
+  1. Token-count calculator for images + video at various resolutions and FPS.
+  2. Autoregressive sampler with classifier-free guidance (CFG).
 """
 
 from __future__ import annotations
@@ -56,7 +60,7 @@ def softmax(xs: list[float], temperature: float = 1.0) -> list[float]:
 
 def cfg_mix(cond_logits: list[float], uncond_logits: list[float],
             gamma: float) -> list[float]:
-    """إرشادات خالية من المصنف: مختلط = uncond + gamma * (cond - uncond)."""
+    """Classifier-free guidance: mixed = uncond + gamma * (cond - uncond)."""
     return [u + gamma * (c - u) for c, u in zip(cond_logits, uncond_logits)]
 
 
@@ -87,7 +91,7 @@ def demo_cfg() -> None:
 
 def sample_tokens(cond: list[list[float]], uncond: list[list[float]],
                   gamma: float = 3.0, temp: float = 0.8) -> list[int]:
-    """عينة من تسلسل طول len(cond) مع CFG + درجة الحرارة."""
+    """Sample a sequence of length len(cond) with CFG + temperature."""
     out = []
     for c, u in zip(cond, uncond):
         mixed = cfg_mix(c, u, gamma)

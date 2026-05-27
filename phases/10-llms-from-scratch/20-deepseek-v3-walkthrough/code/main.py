@@ -1,6 +1,14 @@
-"""DeepSeek-V3 آلة حاسبة للهندسة المعمارية - stdlib Python. بالنظر إلى تكوين DeepSeek-V3، يحسب: - إجمالي عدد المعلمات حسب المكون - عدد المعلمات النشطة لكل إعادة توجيه (MoE متفرق) - KV ذاكرة تخزين مؤقت في سياق 128 كيلو بايت (MLA مقابل GQA افتراضية) - تفصيل لكل طبقة (انتباه / MLP / خبراء / جهاز توجيه / معايير) يشغل أيضًا متغيرات ماذا لو: الرتبة 256 MLA، 512 خبيرًا، أعلى 16 توجيهًا. ال
-الهدف هو أن تصبح قراءة التكوين قراءة للهندسة المعمارية. نفس النمط مثل
-المرحلة 10 · 14 آلة حاسبة، متخصصة في التفاصيل الكاملة لـ DeepSeek-V3.
+"""DeepSeek-V3 architecture calculator — stdlib Python.
+
+Given the DeepSeek-V3 config, computes:
+  - total parameter count by component
+  - active parameter count per forward (MoE sparse)
+  - KV cache at 128k context (MLA vs GQA hypothetical)
+  - per-layer breakdown (attention / MLP / experts / router / norms)
+
+Also runs what-if variants: rank 256 MLA, 512 experts, top-16 routing. The
+goal is reading-a-config-becomes-reading-the-architecture. Same style as the
+Phase 10 · 14 calculator, specialized to DeepSeek-V3's full detail.
 """
 
 from __future__ import annotations
@@ -45,7 +53,12 @@ class ComponentParams:
 
 def mla_attention_params(hidden: int, n_heads: int, head_dim: int,
                          kv_lora: int, q_lora: int) -> int:
-    """MLA عدد معلمات الاهتمام. مسار Q: مخفي -> q_lora -> n_heads * head_dim (اثنين من الماتمول). مسار K: مخفي -> kv_lora (ماتمول واحد). المسار V: مخفي -> kv_lora -> n_heads * head_dim (إلغاء الضغط). قم بإلغاء الضغط على n_heads * head_dim لتسجيل الانتباه. إسقاط الإخراج: n_heads * head_dim -> مخفي.
+    """MLA attention parameter count.
+    Q path: hidden -> q_lora -> n_heads * head_dim  (two matmuls).
+    K path: hidden -> kv_lora   (one matmul).
+    V path: hidden -> kv_lora -> n_heads * head_dim  (decompression).
+    K decompression to n_heads * head_dim for attention scoring.
+    Output projection: n_heads * head_dim -> hidden.
     """
     q_down = hidden * q_lora
     q_up = q_lora * (n_heads * head_dim)
@@ -69,7 +82,9 @@ def rmsnorm_params(hidden: int) -> int:
 
 
 def mtp_module_params(hidden: int, ff: int) -> int:
-    """لكل ورقة DeepSeek القسم 2.2: الإسقاط M_k (2h x h) + المحول كتلة. نحن نستخدم MLP كثيفة هنا للكتلة MTP (المحافظ) - النفقات العامة المنشورة الفعلية هي 14ب، والتي تتضمن هيكل وزارة التربية والتعليم."""
+    """Per DeepSeek paper Section 2.2: projection M_k (2h x h) + transformer
+    block. We use dense MLP here for the MTP block (conservative) — the
+    actual published overhead is 14B, which includes MoE structure."""
     projection = 2 * hidden * hidden
     attention = 4 * hidden * hidden
     mlp = swiglu_mlp_params(hidden, ff)

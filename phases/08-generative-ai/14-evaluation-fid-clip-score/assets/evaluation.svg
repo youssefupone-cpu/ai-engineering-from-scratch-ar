@@ -31,11 +31,11 @@
   <!-- CLIP column -->
   <rect x="315" y="60" width="270" height="200" class="box"/>
   <text x="450" y="85" text-anchor="middle" class="label">CLIP النتيجة (الالتزام)</text>
-  <text x="450" y="110" text-anchor="middle" class="mono">كوس (CLIP_صورة (خ)، CLIP_نص (ع)))</text>
+  <text x="450" y="110" text-anchor="middle" class="mono">كوس(CLIP_image(x), CLIP_text(ع))</text>
   <text x="450" y="140" text-anchor="middle" class="caption">ما مدى جودة تطابق الإخراج مع المطالبة؟</text>
   <text x="450" y="170" text-anchor="middle" class="caption">تتسلل الإخفاقات التركيبية</text>
   <text x="450" y="188" text-anchor="middle" class="caption">المطالبات القصيرة تسجل أعلى ميكانيكيًا</text>
-  <text x="450" y="206" text-anchor="middle" class="caption">CMMD + VQA تغطي الاختبارات CLIP النقاط العمياء</text>
+  <text x="450" y="206" text-anchor="middle" class="caption">CMMD + VQA الاختبارات تغطي CLIP النقاط العمياء</text>
   <text x="450" y="252" text-anchor="middle" class="caption">أعلى = أفضل</text>
 
   <!-- preference column -->
@@ -52,13 +52,13 @@
   <rect x="30" y="285" width="840" height="100" class="hot"/>
   <text x="450" y="310" text-anchor="middle" class="label">كل مقياس له لعبة معروفة</text>
   <text x="450" y="333" text-anchor="middle" class="caption">FID: بداية التجهيز المسبق → منخفض FID، نفس الجودة</text>
-  <text x="450" y="353" text-anchor="middle" class="caption">CLIP: مشبع بـ "تحفة، 4k" → درجة مضخمة</text>
+  <text x="450" y="353" text-anchor="middle" class="caption">CLIP: مشبع بـ "تحفة، 4K" → درجة مضخمة</text>
   <text x="450" y="373" text-anchor="middle" class="caption">التفضيل: مجموعة موجهة تتداخل مع التدريب → مزورة</text>
 
   <!-- production report -->
   <rect x="30" y="410" width="840" height="100" class="cold"/>
   <text x="450" y="435" text-anchor="middle" class="label">تقرير تقييم الإنتاج</text>
-  <text x="450" y="458" text-anchor="middle" class="caption">1. FID في 10-30 كيلو + 2. CLIP / CMMD في نفس المجمع +</text>
+  <text x="450" y="458" text-anchor="middle" class="caption">1. FID على 10-30 ك + 2. CLIP / CMMD على نفس المسبح +</text>
   <text x="450" y="478" text-anchor="middle" class="caption">3. 200+ زوج بشري أعمى Elo + 4. تدقيق الفشل النوعي على 50 مخرجًا</text>
   <text x="450" y="498" text-anchor="middle" class="caption">مقياس واحد = التسويق؛ أربعة = الأدلة</text>
 </svg>

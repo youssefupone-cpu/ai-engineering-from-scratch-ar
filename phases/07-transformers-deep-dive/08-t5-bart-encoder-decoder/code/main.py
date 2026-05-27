@@ -1,5 +1,7 @@
-"""T5 الفساد الممتد + BART وظائف تقليل الضوضاء. ستدلب خالص. يوضح كيف تقوم نماذج التشفير وفك التشفير بتحويل أي مدخلات إلى
-زوج تدريب خاضع للإشراف (مدخل تالف -> نظيف).
+"""T5 span corruption + BART denoising noise functions.
+
+Pure stdlib. Shows how encoder-decoder models turn any input into
+a supervised (corrupted_input -> clean_spans) training pair.
 """
 
 import random
@@ -10,14 +12,16 @@ def sentinel(i):
 
 
 def corrupt_spans(tokens, mask_rate=0.15, mean_span=3.0, rng=None):
-    """T5-نمط الفساد الممتد. إرجاع (corrupted_source، decoder_target) كقوائم من الرموز المميزة (سلاسل).
+    """T5-style span corruption.
+
+    Returns (corrupted_source, decoder_target) as lists of tokens (strings).
     """
     if rng is None:
         rng = random.Random()
     n = len(tokens)
     n_mask = max(1, int(round(n * mask_rate)))
     n_spans = max(1, int(round(n_mask / mean_span)))
-    # اختر مواضع بداية الامتداد بدون تداخل.
+    # Pick span start positions with no overlap.
     positions = list(range(n))
     rng.shuffle(positions)
     starts = []
@@ -27,14 +31,14 @@ def corrupt_spans(tokens, mask_rate=0.15, mean_span=3.0, rng=None):
     for _ in range(n_spans):
         if remaining <= 0:
             break
-        # اختر نقطة بداية عشوائية لم يتم استخدامها بعد وبها مساحة
+        # pick a random starting point not yet used and with room
         random_order = list(range(n))
         rng.shuffle(random_order)
         chosen_start = None
         for start in random_order:
             if used[start]:
                 continue
-            # طول المدى
+            # span length
             length = max(1, int(rng.gauss(mean_span, 1.0)))
             length = min(length, remaining, n - start)
             if length < 1:
@@ -68,8 +72,8 @@ def corrupt_spans(tokens, mask_rate=0.15, mean_span=3.0, rng=None):
 
 
 def round_trip(source, target):
-    """أعد بناء النسخة الأصلية عن طريق استبدال الحراس في المصدر بالامتدادات المستهدفة المقابلة."""
-    # تحليل الهدف إلى خريطة الحارس->الامتداد
+    """Reconstruct original by replacing sentinels in source with corresponding target spans."""
+    # Parse target into sentinel->span map
     spans = {}
     current_key = None
     current_span = []
@@ -81,7 +85,7 @@ def round_trip(source, target):
             current_span = []
         else:
             current_span.append(tok)
-    # الحارس الأخير في الهدف ليس له نطاق متابعة (علامة الإغلاق).
+    # Last sentinel in target has no following span (closing marker).
     out = []
     for tok in source:
         if tok.startswith("<extra_id_"):
@@ -104,7 +108,7 @@ def token_delete(tokens, rate=0.15, rng=None):
 
 
 def text_infill(tokens, rate=0.15, mean_span=3.0, rng=None, mask_token="<mask>"):
-    """BART ملء النص: يمتد القناع بقناع SINGLE؛ وحدة فك الترميز تستنتج الطول."""
+    """BART text infill: mask spans with a SINGLE mask; decoder infers length."""
     if rng is None:
         rng = random.Random()
     out = []

@@ -56,7 +56,7 @@
   <rect x="770" y="128" width="80" height="28" class="keep"/>
   <text x="810" y="147" text-anchor="middle" class="content">dog</text>
 
-  <text x="140" y="180" class="caption">[MASK] = مسار 80%</text>
+  <text x="140" y="180" class="caption">[MASK] = 80% مسار</text>
   <text x="540" y="180" class="caption">مبادلة عشوائية = 10% مسار ("قطة" تم اختيارها بدلاً من "فوق")</text>
   <text x="770" y="180" class="caption">أبقى كما هو = 10% المسار</text>
 

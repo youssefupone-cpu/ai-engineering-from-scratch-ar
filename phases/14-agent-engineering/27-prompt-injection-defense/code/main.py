@@ -1,6 +1,8 @@
-"""PVE: موجه-Validator-Executor لاستدعاءات الأداة. المدقق السريع الرخيص يرفض المحتوى على شكل حقن قبل أن يكون باهظ الثمن
-النموذج الرئيسي يرتكب. يوضح فحص الوسيطة والمحتوى المسترد
-الرفض، وحواجز حماية الذاكرة.
+"""PVE: Prompt-Validator-Executor for tool calls.
+
+Cheap fast validator refuses injection-shaped content before the expensive
+main model commits. Demonstrates argument inspection, retrieved-content
+rejection, and memory-write guardrails.
 """
 
 from __future__ import annotations

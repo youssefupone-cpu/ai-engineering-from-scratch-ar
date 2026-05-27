@@ -30,7 +30,7 @@
   <text x="190" y="194" text-anchor="middle" class="step">الخسارة: الانتروبيا المتقاطعة</text>
   <text x="190" y="216" text-anchor="middle" class="small">التنبؤ بالرمز التالي</text>
   <text x="190" y="232" text-anchor="middle" class="small">vocab-logits الرأس</text>
-  <text x="190" y="258" text-anchor="middle" class="caption">مثل أي LLM</text>
+  <text x="190" y="258" text-anchor="middle" class="caption">نفس أي LLM</text>
 
   <rect x="350" y="90" width="260" height="180" class="cool"/>
   <text x="480" y="112" text-anchor="middle" class="step">هيئة المحولات المشتركة</text>
@@ -50,7 +50,7 @@
   <text x="770" y="194" text-anchor="middle" class="step">الخسارة: MSE على السرعة</text>
   <text x="770" y="216" text-anchor="middle" class="small">انتشار مطابقة التدفق</text>
   <text x="770" y="232" text-anchor="middle" class="small">توقع الضوضاء -&gt; البيانات</text>
-  <text x="770" y="258" text-anchor="middle" class="caption">SD3 شقيق MMDiT</text>
+  <text x="770" y="258" text-anchor="middle" class="caption">SD3 MMDiT شقيق</text>
 
   <rect x="30" y="310" width="900" height="200" class="box"/>
   <text x="480" y="332" text-anchor="middle" class="head">قناع الانتباه الهجين لـ [T T &lt;image&gt; P P P &lt;/image&gt; T T]</text>

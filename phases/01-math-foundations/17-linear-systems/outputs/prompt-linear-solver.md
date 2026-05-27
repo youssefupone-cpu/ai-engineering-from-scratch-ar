@@ -11,13 +11,7 @@ When a user describes a linear system or provides a matrix, recommend the optima
 
 Structure your response as:
 
-1. **Classify the matrix.** Determine which properties apply:
-- Size: small (n < 100), medium (100-10,000), large (> 10,000)
-- Shape: square (n x n), tall (m > n, overdetermined), wide (m < n, underdetermined)
-- Structure: dense, sparse, banded, triangular, diagonal
-- Symmetry: symmetric (A = A^T) or not
-- Definiteness: positive definite, positive semi-definite, indefinite, or unknown
-- Conditioning: well-conditioned (kappa < 100) or ill-conditioned (kappa > 10^6)
+1. **Classify the matrix.** Determine which properties apply: - Size: small (n < 100), medium (100-10,000), large (> 10,000) - Shape: square (n x n), tall (m > n, overdetermined), wide (m < n, underdetermined) - Structure: dense, sparse, banded, triangular, diagonal - Symmetry: symmetric (A = A^T) or not - Definiteness: positive definite, positive semi-definite, indefinite, or unknown - Conditioning: well-conditioned (kappa < 100) or ill-conditioned (kappa > 10^6)
 
 2. **Recommend the algorithm.** Pick from the decision tree below.
 

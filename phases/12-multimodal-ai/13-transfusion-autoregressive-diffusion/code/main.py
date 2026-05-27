@@ -1,5 +1,7 @@
-"""لعبة نقل الدم: مدرب ذو خسارة مزدوجة بتدرج رمادي 4 × 4 + تسمية توضيحية قصيرة. ستدليب. المحول عبارة عن خريطة خطية مشتركة. النقطة المهمة هي الخسارة
-السباكة وقناع الاهتمام الثلاثي.
+"""Transfusion toy: two-loss trainer on a 4x4 grayscale + short caption.
+
+Stdlib. The transformer is a shared linear map; the point is the two-loss
+plumbing and the block-triangular attention mask.
 """
 
 from __future__ import annotations
@@ -40,7 +42,7 @@ def patch_to_vec(patch: list[float]) -> list[float]:
 
 
 def build_mask(tokens: list) -> list[list[int]]:
-    """قناع كتلة مثلثة: سببي فوق النص، ثنائي الاتجاه داخل الصورة."""
+    """Block-triangular mask: causal over text, bidirectional within image."""
     n = len(tokens)
     img_ranges = []
     i = 0
@@ -85,7 +87,8 @@ def cross_entropy_toy(prob: float) -> float:
 
 
 def two_loss_step(pair: Pair, weights: dict) -> dict:
-    """محاكاة خطوة تدريبية واحدة: حساب فقدان النص + فقدان الصورة. "المحول" هو بديل - فقط يقوم بإرجاع المدخلات بالإضافة إلى اضطراب الوزن."""
+    """Simulate one training step: compute text loss + image loss.
+    The "transformer" is a stand-in — just returns the input plus weight perturbation."""
     text_probs = [0.3 + 0.05 * weights["text_scale"]
                   for _ in pair.caption]
     text_loss = sum(cross_entropy_toy(p) for p in text_probs) / len(text_probs)

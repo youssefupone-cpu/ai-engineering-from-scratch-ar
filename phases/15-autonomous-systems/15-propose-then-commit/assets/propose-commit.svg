@@ -64,7 +64,7 @@
   <text x="476" y="264" class="content">[ ] لقد تحققت من نصف قطر الانفجار</text>
   <text x="476" y="280" class="content">[ ] لدي خطة التراجع</text>
   <text x="476" y="296" class="content">الموافقة ممكنة فقط عندما يتم تعيين كل ثلاثة</text>
-  <text x="476" y="320" class="small">موثقة في مستندات الامتثال الإنسانية وMS؛</text>
+  <text x="476" y="320" class="small">موثقة في مستندات الامتثال الأنثروبولوجية وMS؛</text>
   <text x="476" y="334" class="small">مطلوب بموجب EU AI قانون المادة 14 للأنظمة عالية المخاطر.</text>
 
   <!-- Idempotency detail -->
@@ -72,7 +72,7 @@
   <text x="440" y="394" text-anchor="middle" class="label">مفتاح الفاعلية = التجزئة (thread_id، الإجراء، الحمولة)</text>
   <text x="80" y="416" class="content">اقتراح(P) + اقتراح(P) -&gt; نفس السجل (بدون تكرار)</text>
   <text x="80" y="432" class="content">الالتزام(ك) + الالتزام(ك) -&gt; التنفيذ مرة واحدة، أما الالتزامات اللاحقة فهي عدم تنفيذ</text>
-  <text x="80" y="448" class="content">إعادة المحاولة بعد فشل عابر: نمط الشريط/AWS غير الفعال، يُعاد استخدامه للحصول على موافقات الوكيل</text>
+  <text x="80" y="448" class="content">إعادة المحاولة بعد فشل عابر: الشريط/AWS-نمط القصور الذاتي، يُعاد استخدامه للحصول على موافقات الوكيل</text>
   <text x="80" y="468" class="content">ساعة الحائط الموجودة في المفتاح هي طابع زمني للتسجيل، وليست مفتاحًا للعجز</text>
   <text x="80" y="484" class="small">مقاطعة LangGraph() · MS RequestInfoEvent · Cloudflare waitForApproval() — نفس الشكل، بأسماء مختلفة</text>
 </svg>

@@ -30,7 +30,7 @@
   <line x1="244" y1="100" x2="262" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
 
   <rect x="264" y="55" width="100" height="90" class="box"/>
-  <text x="314" y="78" text-anchor="middle" class="label">3. __ مصطلح_0__</text>
+  <text x="314" y="78" text-anchor="middle" class="label">3. STT</text>
   <text x="314" y="96" text-anchor="middle" class="content">همس / ببغاء</text>
   <text x="314" y="114" text-anchor="middle" class="content">streaming</text>
 
@@ -38,8 +38,8 @@
 
   <rect x="386" y="55" width="130" height="90" class="box"/>
   <text x="451" y="78" text-anchor="middle" class="label">4. LLM + الأدوات</text>
-  <text x="451" y="96" text-anchor="middle" class="content">GPT-4o / كلود</text>
-  <text x="451" y="114" text-anchor="middle" class="content">أدوات الدفق + JSON</text>
+  <text x="451" y="96" text-anchor="middle" class="content">GPT-4o/ كلود</text>
+  <text x="451" y="114" text-anchor="middle" class="content">تيار + JSON الأدوات</text>
 
   <line x1="518" y1="100" x2="536" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
 
@@ -53,7 +53,7 @@
   <rect x="670" y="55" width="100" height="90" class="box"/>
   <text x="720" y="78" text-anchor="middle" class="label">6. مكبر الصوت</text>
   <text x="720" y="96" text-anchor="middle" class="content">التأليف خارج</text>
-  <text x="720" y="114" text-anchor="middle" class="content">تم تمكين PLC</text>
+  <text x="720" y="114" text-anchor="middle" class="content">PLC ممكّن</text>
 
   <line x1="772" y1="100" x2="790" y2="100" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arr)"/>
 
@@ -67,9 +67,9 @@
   <rect x="20" y="175" width="840" height="130" class="box"/>
   <text x="440" y="197" text-anchor="middle" class="label">أوضاع الفشل الثلاثة التي ستضربها</text>
   <text x="50" y="225" class="content">1. مقطع الكلمة الأولى — VAD يتم تشغيله متأخرًا؛ يتم فقدان "مرحبًا" للمستخدم. احتفظ بمخزن مؤقت لما قبل التشغيل يبلغ 200-400 مللي ثانية.</text>
-  <text x="50" y="245" class="content">2. ارتباك في الدخول - LLM يستمر في النشوء بعد مقاطعة المستخدم. سلك VAD → إلغاء-LLM.</text>
+  <text x="50" y="245" class="content">2. ارتباك البارجة - LLM يستمر في الإنشاء بعد مقاطعة المستخدم. سلك VAD → إلغاء-LLM.</text>
   <text x="50" y="265" class="content">3. صمت الهلوسة - الهمس يقول "شكرًا على المشاهدة" أثناء الإحماء الصامت. دائما VAD-البوابة.</text>
-  <text x="50" y="290" class="caption">أثناء الإنتاج، قم بتسجيل كل دورة + P50/P95/P99 رسوم بيانية لكل مرحلة قبل الشحن.</text>
+  <text x="50" y="290" class="caption">في الإنتاج، قم بتسجيل كل دورة + P50/P95/P99 رسوم بيانية لكل مرحلة قبل الشحن.</text>
 
   <rect x="20" y="315" width="840" height="155" class="hot"/>
   <text x="440" y="337" text-anchor="middle" class="label">2026 مجموعات مرجعية (اختيار حسب زمن الوصول المستهدف + الترخيص)</text>

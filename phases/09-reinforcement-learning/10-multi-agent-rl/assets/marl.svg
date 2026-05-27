@@ -17,7 +17,7 @@
   <text x="450" y="30" text-anchor="middle" class="title">أربعة أنظمة MARL، نفس شكل البيئة</text>
 
   <rect x="40" y="60" width="200" height="170" class="box"/>
-  <text x="140" y="88" text-anchor="middle" class="label">مستقل PPO / س</text>
+  <text x="140" y="88" text-anchor="middle" class="label">مستقل PPO/س</text>
   <text x="60" y="115" class="content">كل وكيل له خاصته</text>
   <text x="60" y="135" class="content">السياسة والناقد</text>
   <text x="60" y="160" class="content">يعامل الآخرين على أنهم بيئة</text>
@@ -53,7 +53,7 @@
   <text x="60" y="315" class="content">من وجهة نظر الوكيل i، تتضمن البيئة الآن pi_{-i}</text>
   <text x="60" y="335" class="content">كما تعلم pi_{-i}، فإن الانتقال P(s' | s, a_i) غير ثابت</text>
   <text x="60" y="355" class="content">فواصل خاصية ماركوف -&gt; لم تعد براهين التقارب الجدولية قابلة للتطبيق</text>
-  <text x="60" y="378" class="caption">CTDE يصلح هذه المشكلة من خلال تكييف الناقد مع العمل المشترك الكامل؛ اللعب الذاتي يعمل على إصلاحه من خلال البنية</text>
+  <text x="60" y="378" class="caption">CTDE يصلح ذلك من خلال تكييف الناقد على العمل المشترك الكامل؛ اللعب الذاتي يعمل على إصلاحه من خلال البنية</text>
 
-  <text x="450" y="445" text-anchor="middle" class="caption">أضف وسيلة تواصل أو لغة أو MCTS وستحصل على أنظمة StarCraft II / Dota 2 / multi-agent LLM</text>
+  <text x="450" y="445" text-anchor="middle" class="caption">أضف التواصل أو اللغة أو MCTS وستحصل على أنظمة StarCraft II / Dota 2 / متعددة الوكلاء LLM</text>
 </svg>

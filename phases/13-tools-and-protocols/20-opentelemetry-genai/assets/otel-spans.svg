@@ -19,25 +19,25 @@
   <text x="480" y="84" text-anchor="middle" class="step">agent.invoc_agent INTERNAL gen_ai.agent.name=research-agent</text>
 
   <rect x="80" y="110" width="400" height="40" class="cold"/>
-  <text x="280" y="134" text-anchor="middle" class="step">llm.chat CLIENT model=gpt-4o</text>
+  <text x="280" y="134" text-anchor="middle" class="step">llm.chat CLIENT نموذج=gpt-4o</text>
 
   <rect x="80" y="160" width="800" height="40" class="hot"/>
   <text x="480" y="184" text-anchor="middle" class="step">tool.execute INTERNAL tool=get_weather(Bengaluru)</text>
 
   <rect x="140" y="210" width="740" height="40" class="cold"/>
-  <text x="510" y="234" text-anchor="middle" class="step">mcp.call CLIENT server=نقل الملاحظات=stdio Traceparent=...</text>
+  <text x="510" y="234" text-anchor="middle" class="step">mcp.call CLIENT الخادم=نقل الملاحظات=stdio Traceparent=...</text>
 
   <rect x="80" y="260" width="800" height="40" class="hot"/>
   <text x="480" y="284" text-anchor="middle" class="step">أداة تنفيذ الأداة الداخلية = get_weather(طوكيو)</text>
 
   <rect x="140" y="310" width="740" height="40" class="cold"/>
-  <text x="510" y="334" text-anchor="middle" class="step">mcp.call CLIENT</text>
+  <text x="510" y="334" text-anchor="middle" class="step">اتصل على CLIENT</text>
 
   <rect x="80" y="360" width="800" height="40" class="hot"/>
   <text x="480" y="384" text-anchor="middle" class="step">Tool.execute INTERNAL tool=get_weather(زيوريخ)</text>
 
   <rect x="140" y="410" width="740" height="40" class="cold"/>
-  <text x="510" y="434" text-anchor="middle" class="step">mcp.call CLIENT</text>
+  <text x="510" y="434" text-anchor="middle" class="step">اتصل على CLIENT</text>
 
   <rect x="80" y="460" width="400" height="40" class="cold"/>
   <text x="280" y="484" text-anchor="middle" class="step">llm.chat CLIENT توليف</text>

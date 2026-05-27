@@ -27,7 +27,7 @@
 
   <!-- Raw logits -->
   <rect x="240" y="70" width="200" height="260" class="box"/>
-  <text x="340" y="90" text-anchor="middle" class="label">logits (مفردات) خام</text>
+  <text x="340" y="90" text-anchor="middle" class="label">logits الخام (مفردات)</text>
   <text x="260" y="115" class="content">"(" :  2.1</text>
   <text x="260" y="135" class="content">"0" :  1.8</text>
   <text x="260" y="155" class="content">"1" :  1.6</text>
@@ -43,7 +43,7 @@
 
   <!-- FSM box -->
   <rect x="480" y="70" width="180" height="110" class="hot"/>
-  <text x="570" y="95" text-anchor="middle" class="label">FSM الحالة</text>
+  <text x="570" y="95" text-anchor="middle" class="label">FSM الدولة</text>
   <text x="570" y="118" text-anchor="middle" class="content">في الموضع 0:</text>
   <text x="570" y="138" text-anchor="middle" class="content">\d{3}-\d{3}-\d{4}</text>
   <text x="570" y="158" text-anchor="middle" class="content">صالح: {0-9}</text>
@@ -61,7 +61,7 @@
 
   <!-- Masked logits -->
   <rect x="700" y="70" width="180" height="260" class="box"/>
-  <text x="790" y="90" text-anchor="middle" class="label">ملثمين logits</text>
+  <text x="790" y="90" text-anchor="middle" class="label">ملثمين لوgits</text>
   <text x="720" y="115" class="content struck">"(": -inf</text>
   <text x="720" y="135" class="content">"0" :   1.8</text>
   <text x="720" y="155" class="content">"1" :   1.6</text>
@@ -74,7 +74,7 @@
   <text x="720" y="305" class="content">عينة → "5"</text>
 
   <!-- Bottom loop -->
-  <text x="450" y="370" text-anchor="middle" class="caption">كرر في كل خطوة. FSM تقدم مع كل رمز مميز مقبول</text>
+  <text x="450" y="370" text-anchor="middle" class="caption">كرر في كل خطوة. FSM التقدم مع كل رمز مقبول</text>
   <text x="450" y="390" text-anchor="middle" class="caption">لا يمكن الوصول إلى الاستمرارات غير الصالحة — مخرجات صالحة بنسبة 100% عن طريق الإنشاء</text>
 
   <path d="M 790 330 Q 500 410 120 160" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>

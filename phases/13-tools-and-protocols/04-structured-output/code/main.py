@@ -1,6 +1,14 @@
-"""المرحلة 13 الدرس 04 - الإخراج المنظم، JSON مخطط 2020-12 مجموعة فرعية. Stdlib JSON نوع دعم مدقق المخطط، مطلوب، التعداد، الحد الأدنى،
-الحد الأقصى والحد الأدنى للطول والحد الأقصى والنمط والعناصر والخصائص الإضافية.
-ملفوف حول مخطط الفاتورة لإظهار أوضاع الفشل الثلاثة: - خطأ في التحليل (JSON غير صالح؛ مستحيل في الوضع الصارم) - انتهاك المخطط (تم تحليله ولكنه خاطئ) - الرفض (تم رفض النموذج، وتم التعامل معه كنتيجة مكتوبة) تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 04 - structured output, JSON Schema 2020-12 subset.
+
+Stdlib JSON Schema validator supporting type, required, enum, minimum,
+maximum, minLength, maxLength, pattern, items, and additionalProperties.
+Wrapped around an Invoice schema to show the three failure modes:
+
+  - parse error (invalid JSON; impossible in strict mode)
+  - schema violation (parsed but wrong)
+  - refusal (model declined; handled as typed outcome)
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -115,7 +123,7 @@ class ParsedResult:
 
 
 def process_model_output(raw: str, schema: dict) -> ParsedResult:
-    """معالج ثلاثي الفروع: خطأ التحليل، الرفض، النجاح/الانتهاك."""
+    """Three-branch handler: parse error, refusal, success/violation."""
     if raw.startswith("__REFUSAL__"):
         return ParsedResult("refusal", raw.removeprefix("__REFUSAL__").strip(), [])
     try:

@@ -1,4 +1,13 @@
-"""المرحلة 13 الدرس 03 - استدعاءات الأدوات المتوازية والمتدفقة. عرضان تجريبيان، stdlib فقط: 1. تشغيل الطقس في ثلاث مدن، متسلسل مقابل متوازي (تجمع الخيوط). يقيس ساعة الحائط ويظهر نمط الحد الأقصى مقابل المجموع. 2. دفق المجمع لقطع الوسيطة خارج الترتيب. إعادة تشغيل دفق زائف على شكل OpenAI مكون من ثلاث مكالمات متوازية مشذرة ويعيد تجميع كل معرف قبل التنفيذ. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 03 - parallel and streaming tool calls.
+
+Two demos, stdlib only:
+  1. Three-city weather run, sequential vs parallel (thread pool).
+     Measures wall-clock and shows the max vs sum pattern.
+  2. Stream accumulator for out-of-order argument chunks.
+     Replays a fake OpenAI-shaped stream of three interleaved parallel calls
+     and reassembles each per-id before executing.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -10,7 +19,7 @@ from dataclasses import dataclass, field
 
 
 # ------------------------------------------------------------------
-# العرض التوضيحي 1: البحث عن الطقس بشكل متسلسل ومتوازي
+# demo 1: sequential vs parallel weather lookup
 # ------------------------------------------------------------------
 
 SIMULATED_LATENCY_MS = {"Bengaluru": 400, "Tokyo": 600, "Zurich": 800}
@@ -38,7 +47,7 @@ def run_parallel(cities: list[str]) -> tuple[float, list[dict]]:
 
 
 # ------------------------------------------------------------------
-# العرض التوضيحي 2: تراكم الدفق
+# demo 2: stream accumulator
 # ------------------------------------------------------------------
 
 @dataclass
@@ -75,7 +84,7 @@ class StreamAccumulator:
 
 
 def fake_openai_stream():
-    """ثلاث مكالمات متوازية معشقة. التدفقات الحقيقية تبدو هكذا."""
+    """Three interleaved parallel calls. Real streams look like this."""
     yield {"type": "call_start", "id": "call_A", "name": "get_weather"}
     yield {"type": "call_start", "id": "call_B", "name": "get_weather"}
     yield {"type": "call_start", "id": "call_C", "name": "get_weather"}

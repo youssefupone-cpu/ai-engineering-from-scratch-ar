@@ -28,7 +28,7 @@
 
   <rect x="60" y="160" width="400" height="50" class="box"/>
   <text x="80" y="180" class="step">resources</text>
-  <text x="80" y="198" class="small">URI-بيانات قابلة للعنونة؛ الموارد / القائمة، اقرأ، اشترك</text>
+  <text x="80" y="198" class="small">URI- ​​بيانات قابلة للعنونة؛ الموارد / القائمة، اقرأ، اشترك</text>
 
   <rect x="60" y="220" width="400" height="50" class="box"/>
   <text x="80" y="240" class="step">prompts</text>
@@ -73,7 +73,7 @@
   <rect x="640" y="360" width="280" height="160" class="cold"/>
   <text x="780" y="382" text-anchor="middle" class="step">3/ الاغلاق</text>
   <text x="654" y="408" class="small">إغلاق على مستوى النقل؛ لا</text>
-  <text x="654" y="424" class="small">JSON-RPC الطريقة. ستديو EOF أو</text>
+  <text x="654" y="424" class="small">طريقة JSON-RPC. ستديو EOF أو</text>
   <text x="654" y="442" class="small">HTTP انتهاء صلاحية الجلسة.</text>
   <text x="654" y="472" class="small">التنظيف: مسح الاستجابات المعلقة،</text>
   <text x="654" y="488" class="small">إلغاء المهام المعلقة، سجل.</text>

@@ -1,4 +1,11 @@
-"""لعبة ReWOO - مخطط، عمال، حلال. ستدليب فقط. يوضح النمط المنفصل من Xu et al. (أرخايف:2305.18323): 1. يُصدر المخطط DAG من خطوات (الأداة، الوسائط) مع المراجع (#E1، #E2،...). 2. يقوم العمال بتشغيل كل خطوة بالترتيب الطوبولوجي. 3. يقوم الحل بتأليف الإجابة النهائية من السؤال + الخطة + الأدلة. قارن run_rewoo() و run_react() في الأسفل للتعرف على حدس استخدام الرمز المميز.
+"""Toy ReWOO — Planner, Workers, Solver. Stdlib only.
+
+Demonstrates the decoupled pattern from Xu et al. (arXiv:2305.18323):
+  1. Planner emits a DAG of (tool, args) steps with references (#E1, #E2, ...).
+  2. Workers run each step in topological order.
+  3. Solver composes the final answer from question + plan + evidence.
+
+Compare run_rewoo() vs run_react() at the bottom for token-use intuition.
 """
 
 from __future__ import annotations

@@ -1,6 +1,8 @@
-"""لعبة مكدس المستند AI — مدخلات نمط LayoutLMv3 + مخطط الكعكة + ميزانيات الرمز المميز. ستدليب. يُنتج إدخال LayoutLM ثلاثي التدفق (نص، bbox، معرفات التصحيح) لـ
-صفحة اللعبة، وتنشئ مخطط JSON على شكل كعكة الدونات، وتقارن إجمالي رمز الإدخال
-الأعداد عبر (OCR-pipeline، Donut، Nougat، VLM-native).
+"""Document AI stack toy — LayoutLMv3-style inputs + Donut schema + token budgets.
+
+Stdlib. Produces the three-stream LayoutLM input (text, bbox, patch-ids) for a
+toy page, generates a Donut-style JSON schema, and compares total input token
+counts across (OCR-pipeline, Donut, Nougat, VLM-native).
 """
 
 from __future__ import annotations
@@ -16,7 +18,7 @@ class Token:
 
 
 def mock_page() -> list[Token]:
-    """صفحة الفاتورة الاصطناعية."""
+    """A synthetic invoice page."""
     return [
         Token("INVOICE",      (100, 50,  300, 80)),
         Token("ACME Co.",     (100, 100, 250, 130)),
@@ -30,7 +32,7 @@ def mock_page() -> list[Token]:
 
 
 def layoutlm_input(tokens: list[Token], patch_grid: tuple[int, int] = (16, 16)) -> dict:
-    """قم بإنتاج مدخلات ثلاثية التدفق: النص، bbox، معرفات التصحيح."""
+    """Produce the three-stream input: text, bbox, patch-ids."""
     text_ids = [hash(t.text) % 10000 for t in tokens]
     bbox_stream = [t.bbox for t in tokens]
     n_patches = patch_grid[0] * patch_grid[1]

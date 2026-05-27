@@ -1,5 +1,14 @@
-"""Patch-n'-pack لدفعات محولات الرؤية ذات الدقة المتغيرة - stdlib. بالنظر إلى مجموعة من أحجام الصور (H، W) في التصحيح P، يتم حساب: - شبكة تصحيح لكل صورة (H/P، W/P) وطول التسلسل n_i = (H/P)(W/P) - الطول الإجمالي المعبأ N = sum(n_i) - قناع انتباه قطري (كثيف، N x N) - تكلفة تبليط AnyRes (البلاط + الصورة المصغرة) للمقارنة - تكلفة تغيير الحجم المربع (طول التسلسل الثابت) للمقارنة طباعة جدول ميزانية لأعباء عمل واقعية: إيصال، مخطط، لقطة شاشة، صورة.
-لا يوجد أي رقم أو شعلة - تظل حسابات البايت لكل خلية شفافة.
+"""Patch-n'-pack for variable-resolution vision transformer batches — stdlib.
+
+Given a batch of (H, W) image sizes at patch P, computes:
+  - per-image patch grid (H/P, W/P) and sequence length n_i = (H/P)(W/P)
+  - packed total length N = sum(n_i)
+  - block-diagonal attention mask (dense, N x N)
+  - AnyRes tiling cost (tile + thumbnail) for comparison
+  - square-resize cost (fixed sequence length) for comparison
+
+Prints a budget table for a realistic workload: receipt, chart, screenshot, photo.
+No numpy, no torch — bytes-per-cell math stays transparent.
 """
 
 from __future__ import annotations

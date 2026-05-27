@@ -29,7 +29,7 @@ class PipelineResult(BaseModel):
 
 
 class StubDetector(nn.Module):
-    """الحد الأدنى من البديل للقناع R-CNN الذي ينتج مجموعة ثابتة من الاكتشافات."""
+    """Minimal stand-in for Mask R-CNN that produces a fixed set of detections."""
 
     def __init__(self):
         super().__init__()

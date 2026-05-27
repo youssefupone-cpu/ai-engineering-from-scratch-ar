@@ -55,7 +55,7 @@
     <text x="160" y="25" class="content">...</text>
     <rect x="180" y="0" width="36" height="40" class="patch"/><text x="198" y="25" text-anchor="middle" class="content">p_196</text>
   </g>
-  <text x="400" y="155" text-anchor="middle" class="caption">تسلسل من 197 رمزًا d-dim (CLS + 196 تصحيحًا)</text>
+  <text x="400" y="155" text-anchor="middle" class="caption">تسلسل من 197 رمزًا d-dim (CLS + 196 رقعة)</text>
 
   <line x1="400" y1="170" x2="400" y2="200" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
@@ -87,7 +87,7 @@
   <text x="740" y="152" text-anchor="middle" class="caption">Swin: عناية محلية بالنافذة المتغيرة</text>
   <text x="740" y="170" text-anchor="middle" class="caption">DINOv2: الإشراف الذاتي</text>
   <text x="740" y="188" text-anchor="middle" class="caption">SigLIP: + برنامج تشفير النص</text>
-  <text x="740" y="206" text-anchor="middle" class="caption">SAM 3: + وحدة فك ترميز القناع</text>
+  <text x="740" y="206" text-anchor="middle" class="caption">SAM 3: + فك القناع</text>
 
   <rect x="620" y="230" width="240" height="160" class="box"/>
   <text x="740" y="252" text-anchor="middle" class="label">جدول المقياس</text>

@@ -333,18 +333,18 @@ if __name__ == "__main__":
     parameter_breakdown()
     memory_estimate()
 
-    corpus = """لقد أحدثت بنية المحولات ثورة في معالجة اللغات الطبيعية.
-تسمح آليات الانتباه للنموذج بالتركيز على الأجزاء ذات الصلة من المدخلات.
-يحسب الاهتمام الذاتي العلاقات بين جميع أزواج المواضع في التسلسل.
-يقسم الاهتمام متعدد الرؤوس التمثيل إلى مساحات فرعية متعددة.
-يمكن لكل رأس انتباه أن يتعلم أنواعًا مختلفة من العلاقات.
-توفر شبكة التغذية الأمامية تحويلات غير خطية في كل موضع.
-تعمل الاتصالات المتبقية على تمكين التدفق المتدرج عبر الشبكات العميقة.
-تعمل تسوية الطبقة على تثبيت التدريب عن طريق تطبيع عمليات التنشيط.
-توفر عمليات تضمين الموضع معلومات النموذج حول طلب الرمز المميز.
-يضمن القناع السببي توليد الانحدار الذاتي أثناء التدريب.
-التدريب المسبق على مجموعة النصوص الكبيرة يعلمك نموذج فهم اللغة العامة.
-يعمل الضبط الدقيق على تكييف النموذج المُدرب مسبقًا مع مهام محددة في المراحل النهائية."""
+    corpus = """The transformer architecture has revolutionized natural language processing.
+Attention mechanisms allow the model to focus on relevant parts of the input.
+Self-attention computes relationships between all pairs of positions in a sequence.
+Multi-head attention splits the representation into multiple subspaces.
+Each attention head can learn different types of relationships.
+The feedforward network provides nonlinear transformations at each position.
+Residual connections enable gradient flow through deep networks.
+Layer normalization stabilizes training by normalizing activations.
+Position embeddings give the model information about token ordering.
+The causal mask ensures autoregressive generation during training.
+Pre-training on large text corpora teaches the model general language understanding.
+Fine-tuning adapts the pre-trained model to specific downstream tasks."""
 
     print("Training Mini GPT")
     print("=" * 65)

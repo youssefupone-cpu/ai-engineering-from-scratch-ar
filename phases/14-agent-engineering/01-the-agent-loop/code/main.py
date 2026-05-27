@@ -1,5 +1,14 @@
-"""حلقة وكيل Toy ReAct — stdlib فقط. ينفذ المكونات الخمسة من docs/en.md: 1. المخزن المؤقت للرسائل 2. أداة التسجيل 3. حالة التوقف 4. تحويل الميزانية 5. منسق الملاحظة ToyLLM هي سياسة مكتوبة بحيث تعمل الحلقة دون اتصال وحتمية. مبادلة
-ToyLLM لعميل مزود حقيقي وتدفق التحكم متطابق.
+"""Toy ReAct agent loop — stdlib only.
+
+Implements the five ingredients from docs/en.md:
+  1. message buffer
+  2. tool registry
+  3. stop condition
+  4. turn budget
+  5. observation formatter
+
+ToyLLM is a scripted policy so the loop runs offline and deterministic. Swap
+ToyLLM for a real provider client and the control flow is identical.
 """
 
 from __future__ import annotations
@@ -67,7 +76,10 @@ class KVStore:
 
 
 class ToyLLM:
-    """سياسة ReAct المكتوبة. إرجاع دور مساعد واحد لكل مكالمة. كل إدخال للبرنامج النصي يكون إما ('فكرة'، نص) بالإضافة إلى ('إجراء'، اسم، وسيطات) أو ("إنهاء"، نص). يتم تشغيل الحلقة من خلال البرنامج النصي بالترتيب.
+    """Scripted ReAct policy. Returns one assistant turn per call.
+
+    Each script entry is either ('thought', text) plus ('action', name, args)
+    or ('finish', text). The loop runs through the script in order.
     """
 
     def __init__(self, script: list[dict[str, Any]]) -> None:

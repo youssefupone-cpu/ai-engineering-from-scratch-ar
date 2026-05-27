@@ -1,7 +1,17 @@
-"""المرحلة 13 الدرس 01 - واجهة الأداة، حلقة من أربع خطوات، لا يوجد LLM. ينفذ الوصف -> القرار -> التنفيذ -> دورة المراقبة المستخدمة من قبل الجميع
-مكدس استدعاء الأدوات 2026 (OpenAI، إنساني، الجوزاء، MCP، A2A). ""تقرر""
-يتم تزوير الخطوة باستخدام جهاز توجيه الكلمات الرئيسية بحيث يتم تشغيل الحلقة دون اتصال؛ استبدله ب
-أي مزود حقيقي في الدرس 02. تسخير: - تسجيل ثلاث أدوات (add، get_time، get_weather) - التحقق من صحة وسيطات استدعاء الأداة مقابل الحد الأدنى من مجموعة المخططات الفرعية JSON - طباعة كل خطوة حتى تتمكن من قراءة الكوريغرافيا - حدود التكرار عند MAX_TURNS لمنع الحلقات الهاربة تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 01 - the tool interface, four-step loop, no LLM.
+
+Implements the describe -> decide -> execute -> observe cycle used by every
+2026 tool-calling stack (OpenAI, Anthropic, Gemini, MCP, A2A). The "decide"
+step is faked with a keyword router so the loop runs offline; replace it with
+any real provider in Lesson 02.
+
+The harness:
+  - registers three tools (add, get_time, get_weather)
+  - validates tool-call arguments against a minimal JSON Schema subset
+  - prints each step so you can read the choreography
+  - bounds iteration at MAX_TURNS to prevent runaway loops
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -119,7 +129,10 @@ def validate(schema: dict, value: Any) -> list[str]:
 
 
 def fake_decide(user_msg: str, history: list[dict]) -> dict:
-    """الوقوف للنموذج. التوجيهات حسب الكلمات الرئيسية بحيث تعمل الحلقة في وضع عدم الاتصال. بديل الإنتاج: استبدل هذا بـ Provider.chat.completions.create أدوات=[t.input_schema لـ t في التسجيل]. نفس شكل العودة
+    """Stand-in for the model. Routes by keyword so the loop runs offline.
+
+    Production substitute: swap this for provider.chat.completions.create with
+    tools=[t.input_schema for t in REGISTRY]. Same return shape.
     """
     last = history[-1] if history else {}
     if last.get("role") == "tool":

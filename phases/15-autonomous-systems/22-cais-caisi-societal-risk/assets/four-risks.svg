@@ -20,7 +20,7 @@
   <!-- Quadrants -->
   <rect x="60" y="80" width="370" height="140" class="hot"/>
   <text x="245" y="104" text-anchor="middle" class="label">1. الاستخدام الضار</text>
-  <text x="76" y="128" class="content">يستخدم الممثل السيئ AI للأذى</text>
+  <text x="76" y="128" class="content">الممثل السيئ يستخدم AI للأذى</text>
   <text x="76" y="146" class="small">تصنيع الأسلحة البيولوجية · التضليل · الهجمات السيبرانية</text>
   <text x="76" y="170" class="content">mitigations:</text>
   <text x="76" y="186" class="small">• المحظورات المضمنة (L17) · حارس اللاما (L18)</text>
@@ -47,13 +47,13 @@
   <text x="466" y="288" class="content">قادر AI على متابعة الأهداف المنحرفة</text>
   <text x="466" y="306" class="small">ينمو مع أفق الحكم الذاتي (L1، L21)</text>
   <text x="466" y="330" class="content">mitigations:</text>
-  <text x="466" y="346" class="small">• مفاتيح القفل + جزر الكناري (L14)</text>
+  <text x="466" y="346" class="small">• مفاتيح القتل + الكناري (L14)</text>
   <text x="466" y="362" class="small">• الاقتراح ثم الالتزام (L15) · نقاط التفتيش (L16)</text>
 
   <!-- Bottom strip: CAIS / CAISI / SB-53 -->
   <rect x="60" y="400" width="760" height="90" class="box"/>
   <text x="440" y="424" text-anchor="middle" class="label">الكيانات الثلاثة التي يجب معرفتها</text>
-  <text x="80" y="446" class="content">CAIS (مؤسسة غير ربحية، سان فرانسيسكو، 2022) — إطار المخاطر الأربعة؛ بيان الانقراض 2023</text>
-  <text x="80" y="462" class="content">CAISI (NIST المركز، US الحكومة) — الاتفاقيات الطوعية؛ تقييمات القدرات غير المصنفة</text>
+  <text x="80" y="446" class="content">CAIS (غير ربحية، سان فرانسيسكو، 2022) — إطار المخاطر الأربعة؛ بيان الانقراض 2023</text>
+  <text x="80" y="462" class="content">CAISI (NIST مركز، US حكومة) — اتفاقيات طوعية؛ تقييمات القدرات غير المصنفة</text>
   <text x="80" y="478" class="content">كاليفورنيا SB-53 — أول US لائحة المخاطر الكارثية على مستوى الولاية إذا تم التوقيع عليها</text>
 </svg>

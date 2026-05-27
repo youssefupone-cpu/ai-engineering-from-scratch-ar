@@ -1,6 +1,13 @@
-"""ميزانية رمز LLaVA-OneVision + مخطط المنهج — stdlib. نظرًا لميزانية الرمز المرئي الإجمالية لكل عينة ومزيج المهام (صورة واحدة، ومتعددة)
-الصورة، أجزاء الفيديو)، يخصص: - عدد بلاط AnyRes وعامل التجميع للصورة الواحدة - الصور لكل عينة ودقة الصورة للصور المتعددة - تجميع الإطارات لكل عينة ولكل إطار للفيديو طباعة جدول تدريب خطوة بخطوة مع FLOPs المتوقعة لكل عينة.
-يحافظ على ثبات الميزانية تقريبًا عبر السيناريوهات حتى لا يفسد LLM السياق مطلقًا.
+"""LLaVA-OneVision token budget + curriculum planner — stdlib.
+
+Given a total visual-token budget per sample and a task-mix (single-image, multi-
+image, video fractions), allocates:
+  - AnyRes tile count and pooling factor for single-image
+  - images-per-sample and per-image resolution for multi-image
+  - frames-per-sample and per-frame pooling for video
+
+Prints a stage-by-stage training schedule with expected FLOPs per sample.
+Keeps the budget roughly constant across scenarios so the LLM never blows context.
 """
 
 from __future__ import annotations

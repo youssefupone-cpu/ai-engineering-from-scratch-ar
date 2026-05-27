@@ -1,7 +1,9 @@
-"""مزيج من الخبراء (MoE) في stdlib النقي. تنفذ:
-- راوتر توب كيه مزود ببوابة سوفت ماكس
-- تحديث انحياز مساعد بدون خسارة (DeepSeek-V3)
-- تتبع استخدام الخبراء على العديد من الرموز
+"""Mixture of Experts (MoE) in pure stdlib.
+
+Implements:
+- top-k router with softmax gating
+- auxiliary-loss-free bias update (DeepSeek-V3)
+- expert-usage tracking over many tokens
 """
 
 import math
@@ -13,7 +15,7 @@ def silu(x):
 
 
 def make_expert(d_in, d_hidden, rng):
-    """"خبير" صغير: الإدخال -> الصومعة -> الإخراج. خطي للتوضيح."""
+    """Tiny 'expert': input -> silu -> output. Linear for illustration."""
     scale = math.sqrt(2.0 / (d_in + d_hidden))
     W = [[rng.gauss(0, scale) for _ in range(d_hidden)] for _ in range(d_in)]
     return W
@@ -31,7 +33,10 @@ def apply_expert(x, W):
 
 
 def route(hidden, W_router, top_k, bias):
-    """العودة (مؤشرات الخبراء Top-K، أوزان البوابة فوق هؤلاء الخبراء). يؤثر الانحياز على التحديد (argmax) لكن أوزان البوابة NOT — خدعة مساعدة خالية من الخسارة من DeepSeek-V3.
+    """Return (top-k expert indices, gate weights over those experts).
+
+    Bias affects selection (argmax) but NOT gate weights — the
+    auxiliary-loss-free trick from DeepSeek-V3.
     """
     E = len(W_router)
     scores = [sum(h * w for h, w in zip(hidden, W_router[e])) for e in range(E)]
@@ -46,7 +51,7 @@ def route(hidden, W_router, top_k, bias):
 
 
 def moe_layer_forward(x, experts, W_router, top_k, bias):
-    """حساب مخرجات MoE لرمز مميز واحد `x`. إرجاع متجه الإخراج."""
+    """Compute MoE output for a single token `x`. Returns output vector."""
     top_idx, gates = route(x, W_router, top_k, bias)
     d_hidden = len(experts[0][0])
     out = [0.0] * d_hidden
@@ -58,7 +63,7 @@ def moe_layer_forward(x, experts, W_router, top_k, bias):
 
 
 def update_bias(bias, usage_counts, target, gamma):
-    """توازن خالي من الخسارة: دفع التحيز لأعلى/لأسفل بناءً على الاستخدام مقابل الهدف."""
+    """Aux-loss-free balance: nudge bias up/down based on usage vs target."""
     for e in range(len(bias)):
         if usage_counts[e] > target:
             bias[e] -= gamma
@@ -85,7 +90,7 @@ def entropy(counts):
 
 
 def dense_active_params(n_experts, expert_params, top_k, d_model):
-    """إجمالي المعلمات، المعلمات النشطة لكل رمز مميز. مؤسسة d_model المستخدمة للاهتمام."""
+    """Total params, active params per token. d_model used for attention est."""
     total = n_experts * expert_params
     active = top_k * expert_params
     return total, active
@@ -102,7 +107,7 @@ def main():
     experts = [make_expert(d_model, d_hidden, rng) for _ in range(n_experts)]
     W_router = [[rng.gauss(0, 0.3) for _ in range(d_model)] for _ in range(n_experts)]
 
-    # الرموز الاصطناعية مع بعض البنية بحيث لا يكون التوجيه موحدًا للبدء.
+    # Synthetic tokens with some structure so routing isn't uniform to start.
     tokens = [[rng.gauss(0, 1) for _ in range(d_model)] for _ in range(n_tokens)]
 
     bias = [0.0] * n_experts
@@ -125,7 +130,7 @@ def main():
     ffn_params = d_model * d_hidden * 3  # SwiGLU-like: W1, W2, W3
     print(f"  toy MoE       : total={n_experts * ffn_params:>10}  active={top_k * ffn_params:>10}")
 
-    # شكل DeepSeek-V3 (لكل طبقة FFN؛ النموذج الحقيقي يحتوي على 61 طبقة)
+    # DeepSeek-V3 shape (per-layer FFN; real model has 61 layers)
     d = 7168
     shared = 1
     routed = 256

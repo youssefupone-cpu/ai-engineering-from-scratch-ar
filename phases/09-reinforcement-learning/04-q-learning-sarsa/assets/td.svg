@@ -14,7 +14,7 @@
     </style>
   </defs>
 
-  <text x="450" y="30" text-anchor="middle" class="title">Q-learning مقابل SARSA - يفصل بين سطر واحد من التعليمات البرمجية</text>
+  <text x="450" y="30" text-anchor="middle" class="title">Q-learning مقابل SARSA — يفصل بين سطر واحد من التعليمات البرمجية</text>
 
   <rect x="40" y="60" width="820" height="70" class="box"/>
   <text x="60" y="85" class="label">الانتقال</text>
@@ -34,13 +34,13 @@
   <text x="480" y="205" class="content">أ' = epsilon_greedy(س، ق')</text>
   <text x="480" y="228" class="content">الهدف = r + جاما * Q(s', a')</text>
   <text x="480" y="251" class="content">س(ق، أ) += ألفا * (الهدف - س(ق، أ))</text>
-  <text x="480" y="283" class="caption">يستخدم ACTION المأخوذ بالفعل</text>
+  <text x="480" y="283" class="caption">يستخدم ACTION مأخوذ بالفعل</text>
   <text x="480" y="301" class="caption">يتعلم Q^pi عن epsilon-greedy الحالي</text>
   <text x="480" y="319" class="caption">المحافظ بالقرب من المنحدرات / الخطر</text>
 
   <rect x="40" y="350" width="820" height="70" class="box"/>
   <text x="450" y="375" text-anchor="middle" class="label">نفس الشكل: الهدف - Q(s,a)، متدرج حسب ألفا</text>
-  <text x="450" y="398" text-anchor="middle" class="caption">فرق الرمز ONE: الحد الأقصى مقابل العينة a' — خارج السياسة مقابل ضمن السياسة</text>
+  <text x="450" y="398" text-anchor="middle" class="caption">فرق الرمز ONE: الحد الأقصى مقابل العينات a' — خارج السياسة مقابل داخل السياسة</text>
 
   <text x="450" y="450" text-anchor="middle" class="caption">كل شيء في المرحلة 9 بعد هذا الدرس هو متغيرات تقريبية للوظيفة العميقة لهذين التحديثين</text>
 </svg>

@@ -1,7 +1,13 @@
-"""المرحلة 13 الدرس 14 - MCP التطبيقات (SEP-1724، 2026-01-26) ui:// Resources. تقوم أداة visualize_timeline بإرجاع مورد ui://notes/timeline مع تضمينه
-HTML + SVG. يقوم معالج الموارد/القراءة بإرجاع حزمة HTML الكاملة مع ملف
-CSP-ملف تعريف معقول وعنصر نائبالرسالة JSON-RPC العميل الذي يتصل
-العودة إلى host.callTool. ستدليب فقط. قم بتشغيل وفحص HTML المنبعثة. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 14 - MCP Apps (SEP-1724, 2026-01-26) ui:// resources.
+
+visualize_timeline tool returns a ui://notes/timeline resource with inlined
+HTML + SVG. The resources/read handler returns the full HTML bundle with a
+CSP-sensible profile and a placeholder postMessage JSON-RPC client that calls
+back to host.callTool.
+
+Stdlib only. Run and inspect the emitted HTML.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -30,7 +36,7 @@ TIMELINE_CSP = {
 
 
 def timeline_html(notes: list[dict]) -> str:
-    """قم بإنشاء مخطط زمني HTML مستقل بذاته. SVG + مضمن JS فقط."""
+    """Generate a self-contained HTML timeline. SVG + inline JS only."""
     points = ""
     for i, n in enumerate(notes):
         x = 40 + i * 110

@@ -1,28 +1,28 @@
-# عامل ميناء لمنظمة العفو الدولية
+# Docker for AI
 
-> الحاويات تجعل "العمل على جهازي" شيئًا من الماضي.
+> Containers make "works on my machine" a thing of the past.
 
-**النوع:** بناء
-** اللغات: ** بايثون
-**المتطلبات الأساسية:** المرحلة 0، الدرسان 01 و03
-**الوقت:** ~60 دقيقة
+**Type:** Build
+**Languages:** Docker
+**Prerequisites:** Phase 0, Lessons 01 and 03
+**Time:** ~60 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- إنشاء صورة Docker ممكّنة بواسطة GPU باستخدام مكتبات CUDA وPyTorch وAI من ملف Dockerfile
-- قم بتثبيت أدلة المضيف كوحدات تخزين لاستمرار النماذج ومجموعات البيانات والتعليمات البرمجية عبر عمليات إعادة بناء الحاوية
-- قم بتكوين مجموعة أدوات حاوية NVIDIA لكشف وحدات معالجة الرسومات داخل الحاويات
-- تنسيق تطبيقات الذكاء الاصطناعي متعددة الخدمات (خادم الاستدلال + قاعدة بيانات المتجهات) باستخدام Docker Compose
+- Build a GPU-enabled Docker image with CUDA, PyTorch, and AI libraries from a Dockerfile
+- Mount host directories as volumes to persist models, datasets, and code across container rebuilds
+- Configure the NVIDIA Container Toolkit to expose GPUs inside containers
+- Orchestrate multi-service AI applications (inference server + vector database) using Docker Compose
 
-## المشكلة
+## The Problem
 
-لقد قمت بتدريب نموذج على الكمبيوتر المحمول الخاص بك باستخدام PyTorch 2.3 وCUDA 12.4 وPython 3.12. زميلك لديه PyTorch 2.1 وCUDA 11.8 وPython 3.10. يتعطل النموذج الخاص بك على أجهزتهم. يعمل ملف Dockerfile الخاص بك على كليهما.
+You trained a model on your laptop with PyTorch 2.3, CUDA 12.4, and Python 3.12. Your colleague has PyTorch 2.1, CUDA 11.8, and Python 3.10. Your model crashes on their machine. Your Dockerfile works on both.
 
-مشاريع الذكاء الاصطناعي هي كوابيس التبعية. تتضمن الحزمة النموذجية برامج تشغيل Python وPyTorch وCUDA وcuDNN ومكتبات C على مستوى النظام والحزم المتخصصة مثل flash-attn التي تحتاج إلى إصدارات مترجم دقيقة. يقوم Docker بتجميع كل هذا في صورة واحدة يتم تشغيلها بشكل مماثل في كل مكان.
+AI projects are dependency nightmares. A typical stack includes Python, PyTorch, CUDA drivers, cuDNN, system-level C libraries, and specialized packages like flash-attn that need exact compiler versions. Docker packages all of this into a single image that runs identically everywhere.
 
-##المفهوم
+## The Concept
 
-يقوم Docker بتجميع التعليمات البرمجية ووقت التشغيل والمكتبات وأدوات النظام في وحدة معزولة تسمى الحاوية. فكر في الأمر كجهاز افتراضي خفيف الوزن، باستثناء أنه يشترك في نواة نظام التشغيل المضيف بدلاً من تشغيل نظامه الخاص، لذلك يبدأ تشغيله في ثوانٍ بدلاً من دقائق.
+Docker wraps your code, runtime, libraries, and system tools into an isolated unit called a container. Think of it as a lightweight virtual machine, except it shares the host OS kernel instead of running its own, so it starts in seconds instead of minutes.
 
 ```mermaid
 graph TD
@@ -39,25 +39,25 @@ graph TD
     end
 ```
 
-### لماذا تحتاج مشاريع الذكاء الاصطناعي إلى Docker أكثر من غيرها
+### Why AI projects need Docker more than most
 
-1. ** برامج تشغيل GPU هشة. ** لا يعمل كود CUDA 12.4 على CUDA 11.8. يقوم Docker بعزل مجموعة أدوات CUDA داخل الحاوية أثناء مشاركة برنامج تشغيل GPU المضيف من خلال NVIDIA Container Toolkit.
+1. **GPU drivers are fragile.** CUDA 12.4 code does not run on CUDA 11.8. Docker isolates the CUDA toolkit inside the container while sharing the host GPU driver through the NVIDIA Container Toolkit.
 
-2. **أوزان النماذج كبيرة.** يبلغ حجم نموذج المعلمة 7B 14 جيجابايت في fp16. لا تريد إعادة تنزيله في كل مرة تقوم فيها بإعادة البناء. تتيح لك وحدات تخزين Docker إمكانية تحميل دليل النماذج من المضيف.
+2. **Model weights are large.** A 7B parameter model is 14 GB in fp16. You do not want to re-download it every time you rebuild. Docker volumes let you mount a models directory from the host.
 
-3. ** تعتبر بنيات الخدمات المتعددة شائعة. ** تطبيق الذكاء الاصطناعي الحقيقي ليس مجرد برنامج نصي بلغة بايثون. إنه خادم استدلال، وقاعدة بيانات متجهة لـ RAG، وربما واجهة ويب أمامية. يقوم Docker Compose بتنسيق كل هذه الأمور بأمر واحد.
+3. **Multi-service architectures are common.** A real AI application is not just a Python script. It is an inference server, a vector database for RAG, maybe a web frontend. Docker Compose orchestrates all of these with one command.
 
-### المفردات الرئيسية
+### Key vocabulary
 
-| مصطلح | ماذا يعني |
-|------|--------------|
-| صورة | قالب للقراءة فقط. وصفتك. بنيت من ملف Dockerfile. |
-| حاوية | مثيل قيد التشغيل للصورة. مطبخك. |
-| ملف الإرساء | تعليمات لبناء الصورة. طبقة بعد طبقة. |
-| المجلد | التخزين المستمر الذي ينجو من إعادة تشغيل الحاوية. |
-| عامل الإرساء يؤلف | أداة لتحديد تطبيقات الحاويات المتعددة في YAML. |
+| Term | What it means |
+|------|---------------|
+| Image | A read-only template. Your recipe. Built from a Dockerfile. |
+| Container | A running instance of an image. Your kitchen. |
+| Dockerfile | Instructions to build an image. Layer by layer. |
+| Volume | Persistent storage that survives container restarts. |
+| docker-compose | A tool for defining multi-container applications in YAML. |
 
-### أنماط الحاويات الشائعة في الذكاء الاصطناعي
+### Common container patterns in AI
 
 ```
 Dev Container
@@ -73,9 +73,9 @@ Inference Container
   Runs behind a load balancer in production.
 ```
 
-## بنائها
+## Build It
 
-### الخطوة الأولى: تثبيت Docker
+### Step 1: Install Docker
 
 ```bash
 # macOS
@@ -88,16 +88,16 @@ sudo usermod -aG docker $USER
 # Log out and back in for group change to take effect
 ```
 
-يؤكد:
+Verify:
 
 ```bash
 docker --version
 docker run hello-world
 ```
 
-### الخطوة 2: تثبيت مجموعة أدوات حاوية NVIDIA (Linux مع NVIDIA GPU)
+### Step 2: Install NVIDIA Container Toolkit (Linux with NVIDIA GPU)
 
-يتيح ذلك لحاويات Docker الوصول إلى وحدة معالجة الرسومات (GPU) الخاصة بك. يمكن لمستخدمي macOS وWindows (WSL2) تخطي هذا؛ يتعامل Docker Desktop مع عبور GPU بشكل مختلف على تلك الأنظمة الأساسية.
+This lets Docker containers access your GPU. macOS and Windows (WSL2) users can skip this; Docker Desktop handles GPU passthrough differently on those platforms.
 
 ```bash
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
@@ -112,17 +112,17 @@ sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
 
-اختبار الوصول إلى GPU داخل الحاوية:
+Test GPU access inside a container:
 
 ```bash
 docker run --rm --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
 ```
 
-إذا رأيت معلومات وحدة معالجة الرسومات الخاصة بك، فهذا يعني أن مجموعة الأدوات تعمل.
+If you see your GPU info, the toolkit is working.
 
-### الخطوة 3: فهم الصور الأساسية
+### Step 3: Understand base images
 
-يؤدي اختيار الصورة الأساسية الصحيحة إلى توفير ساعات من تصحيح الأخطاء.
+Choosing the right base image saves hours of debugging.
 
 ```
 nvidia/cuda:12.4.1-devel-ubuntu22.04
@@ -146,9 +146,9 @@ python:3.12-slim
   Size: ~150 MB
 ```
 
-### الخطوة 4: كتابة ملف Dockerfile لتطوير الذكاء الاصطناعي
+### Step 4: Write a Dockerfile for AI development
 
-إليك ملف Dockerfile في `code/Dockerfile`. المشي من خلال ذلك:
+Here is the Dockerfile in `code/Dockerfile`. Walk through it:
 
 ```dockerfile
 FROM nvidia/cuda:12.4.1-devel-ubuntu22.04
@@ -196,15 +196,15 @@ EXPOSE 8888
 CMD ["python"]
 ```
 
-بنائها:
+Build it:
 
 ```bash
 docker build -t ai-dev -f phases/00-setup-and-tooling/07-docker-for-ai/code/Dockerfile .
 ```
 
-يستغرق هذا بعض الوقت في المرة الأولى (تنزيل الصورة الأساسية لـ CUDA + PyTorch). تستخدم الإصدارات اللاحقة الطبقات المخزنة مؤقتًا.
+This takes a while the first time (downloading CUDA base image + PyTorch). Subsequent builds use cached layers.
 
-تشغيله:
+Run it:
 
 ```bash
 docker run --rm -it --gpus all \
@@ -213,7 +213,7 @@ docker run --rm -it --gpus all \
     ai-dev python -c "import torch; print(f'PyTorch {torch.__version__}, CUDA: {torch.cuda.is_available()}')"
 ```
 
-قم بتشغيل Jupyter داخل الحاوية:
+Run Jupyter inside the container:
 
 ```bash
 docker run --rm -it --gpus all \
@@ -223,9 +223,9 @@ docker run --rm -it --gpus all \
     ai-dev jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root
 ```
 
-### الخطوة 5: زيادة حجم البيانات والنماذج
+### Step 5: Volume mounts for data and models
 
-تعد عمليات زيادة الحجم أمرًا بالغ الأهمية لعمل الذكاء الاصطناعي. وبدونها، ستختفي تنزيلات طراز 14 جيجابايت عندما تتوقف الحاوية.
+Volume mounts are critical for AI work. Without them, your 14 GB model downloads vanish when the container stops.
 
 ```bash
 # Mount your code
@@ -238,7 +238,7 @@ docker run --rm -it --gpus all \
 -v ~/datasets:/data
 ```
 
-داخل البرنامج النصي للتدريب، قم بالتحميل من المسار المثبت:
+Inside your training script, load from the mounted path:
 
 ```python
 from transformers import AutoModel
@@ -246,13 +246,13 @@ from transformers import AutoModel
 model = AutoModel.from_pretrained("/models/llama-7b")
 ```
 
-يعيش النموذج على نظام الملفات المضيف الخاص بك. أعد بناء الحاوية بقدر ما تريد دون إعادة التنزيل.
+The model lives on your host filesystem. Rebuild the container as often as you want without re-downloading.
 
-### الخطوة 6: Docker Compose لتطبيقات الذكاء الاصطناعي متعددة الخدمات
+### Step 6: Docker Compose for multi-service AI apps
 
-يحتاج تطبيق RAG الحقيقي إلى خادم استدلال وقاعدة بيانات متجهة. يقوم Docker Compose بتشغيل كليهما باستخدام أمر واحد.
+A real RAG application needs an inference server and a vector database. Docker Compose runs both with one command.
 
-انظر `code/docker-compose.yml`:
+See `code/docker-compose.yml`:
 
 ```yaml
 services:
@@ -289,16 +289,16 @@ volumes:
   qdrant_data:
 ```
 
-ابدأ كل شيء:
+Start everything:
 
 ```bash
 cd phases/00-setup-and-tooling/07-docker-for-ai/code
 docker compose up -d
 ```
 
-الآن يمكن لحاوية تطوير الذكاء الاصطناعي الخاصة بك الوصول إلى قاعدة بيانات المتجهات في `http://qdrant:6333` حسب اسم الخدمة. يقوم Docker Compose بإنشاء شبكة مشتركة تلقائيًا.
+Now your AI dev container can reach the vector database at `http://qdrant:6333` by service name. Docker Compose creates a shared network automatically.
 
-اختبر الاتصال من داخل حاوية AI:
+Test the connection from inside the AI container:
 
 ```python
 from qdrant_client import QdrantClient
@@ -307,19 +307,19 @@ client = QdrantClient(host="qdrant", port=6333)
 print(client.get_collections())
 ```
 
-أوقف كل شيء:
+Stop everything:
 
 ```bash
 docker compose down
 ```
 
-أضف `-v` لحذف مجلد qdrant أيضًا:
+Add `-v` to also delete the qdrant volume:
 
 ```bash
 docker compose down -v
 ```
 
-### الخطوة 7: أوامر Docker المفيدة لعمل الذكاء الاصطناعي
+### Step 7: Useful Docker commands for AI work
 
 ```bash
 # List running containers
@@ -341,32 +341,32 @@ docker cp <container_id>:/workspace/results.csv ./results.csv
 docker logs -f <container_id>
 ```
 
-## استخدمه
+## Use It
 
-لديك الآن بيئة تطوير ذكاء اصطناعي قابلة للتكرار. بالنسبة لبقية هذه الدورة:
+You now have a reproducible AI development environment. For the rest of this course:
 
-- استخدم `docker compose up` لبدء بيئة التطوير وقاعدة بيانات المتجهات معًا
-- قم بتركيب التعليمات البرمجية والنماذج والبيانات الخاصة بك كوحدات تخزين حتى لا يتم فقدان أي شيء بين عمليات إعادة البناء
-- عندما يتطلب الدرس حزمة Python جديدة، أضفها إلى ملف Dockerfile وأعد البناء
-- شارك ملف Dockerfile الخاص بك مع زملائك في الفريق. لقد حصلوا على نفس البيئة بالضبط.
+- Use `docker compose up` to start your dev environment and vector database together
+- Mount your code, models, and data as volumes so nothing is lost between rebuilds
+- When a lesson requires a new Python package, add it to the Dockerfile and rebuild
+- Share your Dockerfile with teammates. They get the exact same environment.
 
-### لا يوجد GPU؟
+### No GPU?
 
-قم بإزالة علامة `--gpus all` وكتلة نشر NVIDIA. لا تزال الحاوية تعمل مع الدروس المعتمدة على وحدة المعالجة المركزية (CPU). يكتشف PyTorch غياب CUDA ويعود إلى وحدة المعالجة المركزية تلقائيًا.
+Remove the `--gpus all` flag and the NVIDIA deploy block. The container still works for CPU-based lessons. PyTorch detects the absence of CUDA and falls back to CPU automatically.
 
-## تمارين
+## Exercises
 
-1. أنشئ ملف Dockerfile وقم بتشغيل `python -c "import torch; print(torch.__version__)"` داخل الحاوية
-2. ابدأ تشغيل مكدس docker-compose وتحقق من إمكانية الوصول إلى Qdrant من حاوية AI على `http://qdrant:6333/collections`
-3. أضف `flask` إلى ملف Dockerfile، وأعد بناء خادم API بسيط وتشغيله على المنفذ 5000. قم بتعيين المنفذ باستخدام `-p 5000:5000`
-4. قم بقياس حجم الصورة باستخدام `docker images`. حاول تبديل الصورة الأساسية من `devel` إلى `runtime` وقارن الأحجام
+1. Build the Dockerfile and run `python -c "import torch; print(torch.__version__)"` inside the container
+2. Start the docker-compose stack and verify Qdrant is accessible from the AI container at `http://qdrant:6333/collections`
+3. Add `flask` to the Dockerfile, rebuild, and run a simple API server on port 5000. Map the port with `-p 5000:5000`
+4. Measure the image size with `docker images`. Try switching the base image from `devel` to `runtime` and compare sizes
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| حاوية | "VM خفيف الوزن" | عملية معزولة تستخدم النواة المضيفة، مع نظام ملفات خاص بها وشبكة |
-| طبقة الصورة | "الخطوة المخبأة" | تقوم كل تعليمات Dockerfile بإنشاء طبقة. يتم تخزين الطبقات غير المتغيرة مؤقتًا، لذا تتم عمليات إعادة البناء بسرعة. |
-| مجموعة أدوات حاوية NVIDIA | "وحدة معالجة الرسومات في عامل ميناء" | خطاف وقت التشغيل الذي يعرض وحدات معالجة الرسومات المضيفة للحاويات عبر علامة `--gpus` |
-| جبل الحجم | "المجلد المشترك" | دليل على المضيف تم تعيينه في الحاوية. تستمر التغييرات بعد توقف الحاوية. |
-| الصورة الأساسية | "نقطة البداية" | الصورة `FROM` التي ينشئها ملف Dockerfile فوقها. يحدد ما تم تثبيته مسبقًا. |
+| Container | "Lightweight VM" | An isolated process using the host kernel, with its own filesystem and network |
+| Image layer | "Cached step" | Each Dockerfile instruction creates a layer. Unchanged layers are cached, so rebuilds are fast. |
+| NVIDIA Container Toolkit | "GPU in Docker" | A runtime hook that exposes host GPUs to containers via `--gpus` flag |
+| Volume mount | "Shared folder" | A directory on the host mapped into the container. Changes persist after the container stops. |
+| Base image | "Starting point" | The `FROM` image your Dockerfile builds on top of. Determines what is pre-installed. |

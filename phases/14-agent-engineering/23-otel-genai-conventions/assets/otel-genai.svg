@@ -47,16 +47,16 @@
   <rect x="60" y="450" width="400" height="30" class="box"/>
   <text x="78" y="470" class="step">المتجر الخارجي: S3، SQLite، سجل pipeline</text>
   <rect x="60" y="484" width="400" height="22" class="box"/>
-  <text x="78" y="500" class="step">يبقى خارج نطاق الجسم. PII-آمن</text>
+  <text x="78" y="500" class="step">يبقى خارج نطاق الجسم. PII- ​​آمن</text>
 
   <rect x="500" y="310" width="420" height="200" class="box"/>
   <text x="710" y="332" text-anchor="middle" class="head">أنواع الامتداد + التكنولوجيا المحددة</text>
   <rect x="520" y="348" width="380" height="30" class="agent"/>
-  <text x="538" y="368" class="step">CLIENT: خدمات الوكلاء عن بعد (المساعدون، Bedrock)</text>
+  <text x="538" y="368" class="step">CLIENT: خدمات الوكلاء عن بعد (المساعدون، الأساس)</text>
   <rect x="520" y="382" width="380" height="30" class="agent"/>
   <text x="538" y="402" class="step">داخلي: قيد المعالجة (LangChain، وCrewAI، وReAct المحلي)</text>
   <rect x="520" y="416" width="380" height="30" class="tool"/>
-  <text x="538" y="436" class="step">الاصطلاحات لكل مزود: إنساني، Azure AI، Bedrock، OpenAI</text>
+  <text x="538" y="436" class="step">الاتفاقيات الخاصة بكل مزود: Anthropic، Azure AI، Bedrock، OpenAI</text>
   <rect x="520" y="450" width="380" height="30" class="chat"/>
   <text x="538" y="470" class="step">خرائط Datadog v1.37+ أصلاً</text>
   <rect x="520" y="484" width="380" height="22" class="box"/>

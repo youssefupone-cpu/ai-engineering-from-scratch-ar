@@ -1,5 +1,9 @@
-"""خط الأساس لتصنيف الصوت: k-NN في المتوسط ​​+ var المجمعة MFCCs. مجموعة بيانات اصطناعية من 4 فئات: نغمات نقية عند {200، 400، 800، 1600} هرتز مع
-الضوضاء الغوسية. القطارات والاختبارات وطباعة مصفوفة الارتباك. تشغيل: كود python3/main.py
+"""Audio classification baseline: k-NN on mean+var pooled MFCCs.
+
+Synthetic 4-class dataset: pure tones at {200, 400, 800, 1600} Hz with
+Gaussian noise. Trains, tests, prints confusion matrix.
+
+Run: python3 code/main.py
 """
 
 import math

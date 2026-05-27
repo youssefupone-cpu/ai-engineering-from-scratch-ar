@@ -1,8 +1,13 @@
-"""الحد الأدنى من خادم MCP + العميل قيد التشغيل ذهابًا وإيابًا. المرجع SDK هو `mcp` على PyPI (التثبيت باستخدام `__TERM_1__ install mcp`). هذا الملف
-لا يقوم باستيراده بحيث يتم تشغيل العرض التوضيحي على أي إصدار Python 3.10+ دون توقفات إضافية.
-بدلاً من ذلك، فإنه يتحدث بشكل خام JSON-RPC 2.0 عبر pipe في الذاكرة - نفس السلك
-التنسيق الذي يستخدمه مضيف MCP stdio - حتى تتمكن من معرفة كيفية استخدام الأدوات والموارد و
-يطالب التدفق من النهاية إلى النهاية. تشغيل مع: بيثون main.py
+"""Minimal MCP server + in-process client round-trip.
+
+The reference SDK is `mcp` on PyPI (install with `pip install mcp`). This file
+does not import it so the demo runs on any Python 3.10+ without extra deps.
+Instead it speaks raw JSON-RPC 2.0 over an in-memory pipe — the same wire
+format an MCP stdio host uses — so you can see how tools, resources, and
+prompts flow end to end.
+
+Run with:
+    python main.py
 """
 
 from __future__ import annotations
@@ -41,7 +46,7 @@ class Prompt:
 
 
 class MCPServer:
-    """لعبة خادم MCP تغطي البدائيات الثلاثة ومصافحة الاكتشاف."""
+    """Toy MCP server covering the three primitives and the discovery handshake."""
 
     def __init__(self, name: str) -> None:
         self.name = name
@@ -49,7 +54,7 @@ class MCPServer:
         self.resources: dict[str, Resource] = {}
         self.prompts: dict[str, Prompt] = {}
 
-    # مساعدو التسجيل -------------------------------------------------
+    # Registration helpers -------------------------------------------------
 
     def tool(self, name: str, description: str, schema: dict[str, Any], *, destructive: bool = False):
         def decorator(fn: Callable[..., Any]) -> Callable[..., Any]:
@@ -69,7 +74,7 @@ class MCPServer:
             return fn
         return decorator
 
-    # JSON-RPC الإرسال ----------------------------------------------------
+    # JSON-RPC dispatch ----------------------------------------------------
 
     def handle(self, message: dict[str, Any]) -> dict[str, Any]:
         method = message.get("method")
@@ -124,7 +129,7 @@ class MCPServer:
 
 
 class MCPClient:
-    """العميل في الذاكرة. يقوم العملاء الحقيقيون بقراءة/كتابة إطار JSON عبر stdio أو HTTP."""
+    """In-memory client. Real clients read/write framed JSON over stdio or HTTP."""
 
     def __init__(self, server: MCPServer) -> None:
         self.server = server
@@ -143,7 +148,7 @@ class MCPClient:
         return response["result"]
 
 
-# إنشاء خادم تجريبي ------------------------------------------------------
+# Build a demo server ------------------------------------------------------
 
 server = MCPServer("demo-server")
 
@@ -181,7 +186,7 @@ def code_review(language: str, code: str) -> str:
     return f"You are a senior {language} reviewer. Review for correctness and style:\n\n{code}"
 
 
-# قيادتها-----------------------------------------------------------------
+# Drive it -----------------------------------------------------------------
 
 def main() -> None:
     client = MCPClient(server)

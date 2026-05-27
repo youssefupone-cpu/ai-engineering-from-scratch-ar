@@ -1,6 +1,8 @@
-"""لعبة RAG متعددة الوسائط - ثلاثة مستردات + دمج النقاط + مولد مؤرض. ستدليب. مجموعة مطاعم اصطناعية تحتوي على مراجعات نصية وعلامات ميزات الصور،
-وعشرات الأجواء الصوتية. يدير ثلاثة من المستردات، ويدمج العشرات، ويطلق كعبًا
-الإجابة مع الاقتباسات. يوضح إعادة صياغة فعالة على الثقة المنخفضة.
+"""Multimodal RAG toy — three retrievers + score fusion + grounded generator.
+
+Stdlib. A synthetic restaurant corpus with text reviews, image-feature tags,
+and audio-ambiance scores. Runs three retrievers, fuses scores, emits a stub
+answer with citations. Demonstrates agentic reformulation on low-confidence.
 """
 
 from __future__ import annotations
@@ -32,7 +34,7 @@ CORPUS = [
 
 
 def text_retrieve(query: str) -> dict[str, float]:
-    """مطابقة الكلمات الرئيسية الأولية للاستعلام مقابل نص المراجعة."""
+    """Crude keyword matching for the query against review text."""
     keywords = [w.lower() for w in query.split() if len(w) > 2]
     scores = {}
     for r in CORPUS:

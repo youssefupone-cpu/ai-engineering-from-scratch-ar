@@ -1,26 +1,26 @@
 ---
-الاسم: مهارة-الاحتمال-الاستدلال
-الوصف: اختر التوزيع الاحتمالي الصحيح لمشكلة تعلم الآلة المحددة
-الإصدار: 1.0.0
-المرحلة: 1
-الدرس: 6
-العلامات: [الاحتمالات والتوزيعات والنمذجة]
+name: skill-probability-reasoning
+description: Choose the right probability distribution for a given ML problem
+version: 1.0.0
+phase: 1
+lesson: 6
+tags: [probability, distributions, modeling]
 ---
 
-# اختيار التوزيع الاحتمالي
+# Probability Distribution Selection
 
-كيفية اختيار التوزيع المناسب عند نمذجة البيانات، أو تصميم وظائف الخسارة، أو تحديد الأسبقية.
+How to pick the right distribution when modeling data, designing loss functions, or setting priors.
 
-## قائمة مراجعة القرار
+## Decision Checklist
 
-1. هل النتيجة منفصلة (الفئات، الأعداد) أم مستمرة (القياسات، الدرجات)؟
-2. هل النتيجة محدودة (على سبيل المثال، [0، 1]) أم غير محدودة؟
-3. ما عدد النتائج المحتملة؟ اثنين؟ ك؟ لانهائي؟
-4. هل البيانات متماثلة أم منحرفة؟
-5. هل الأحداث مستقلة أم مترابطة؟
-6. هل تقوم بنمذجة المعدل أو العدد أو النسبة أو القياس؟
+1. Is the outcome discrete (categories, counts) or continuous (measurements, scores)?
+2. Is the outcome bounded (e.g., [0, 1]) or unbounded?
+3. How many possible outcomes are there? Two? k? Infinite?
+4. Is the data symmetric or skewed?
+5. Are events independent or correlated?
+6. Are you modeling a rate, a count, a proportion, or a measurement?
 
-## شجرة قرار التوزيع
+## Distribution decision tree
 
 ```
 Is the variable discrete?
@@ -41,49 +41,49 @@ Is the variable discrete?
      |   On a simplex (sums to 1)? --> Dirichlet (alpha)
 ```
 
-## تعيين سيناريوهات تعلم الآلة في العالم الحقيقي للتوزيعات
+## Mapping real-world ML scenarios to distributions
 
-| السيناريو | التوزيع | المعلمات |
+| Scenario | Distribution | Parameters |
 |---|---|---|
-| إخراج التصنيف الثنائي | برنولي | ع = السيني (سجل) |
-| إخراج تصنيف متعدد الطبقات | قاطع | ع = softmax(logits) |
-| التنبؤ الرمزي في نماذج اللغة | قاطع على المفردات | ع من سوفت ماكس |
-| كثافة البكسل (تطبيع) | بيتا أو زي موحد [0، 1] | يعتمد على احصائيات الصورة |
-| عدد الكلمات في مستند | بواسون | لامدا = متوسط ​​عدد الكلمات |
-| الوقت بين طلبات المستخدم | الأسي | لامدا = معدل الطلب |
-| خطأ في القياس | عادي | مو = 0، سيجما من البيانات |
-| تهيئة الوزن | عادي أو موحد | قواعد كايمينغ/كزافييه |
-| المساحة الكامنة VAE السابقة | عادي عادي | مو = 0، سيجما = 1 |
-| بايزي سابق على النسب | بيتا | ألفا وبيتا من الإيمان |
-| بايزي سابق على أوزان الفئة | ديريشليت | ناقل ألفا |
-| الضوضاء في أهداف الانحدار | عادي | مو = 0، سيجما المقدرة |
-| الانحدار القوي الناشز | ر الطالب | درجات منخفضة من الحرية |
-| نمذجة المدة/العمر | ويبل أو جاما | الشكل والمقياس |
-| توزيع الموضوع لكل وثيقة (LDA) | ديريشليت | ألفا <1 للمتفرق |
+| Binary classification output | Bernoulli | p = sigmoid(logit) |
+| Multi-class classification output | Categorical | p = softmax(logits) |
+| Token prediction in language models | Categorical over vocab | p from softmax |
+| Pixel intensity (normalized) | Beta or Uniform [0, 1] | Depends on image stats |
+| Word count in a document | Poisson | lambda = avg word count |
+| Time between user requests | Exponential | lambda = request rate |
+| Measurement error | Normal | mu = 0, sigma from data |
+| Weight initialization | Normal or Uniform | Kaiming/Xavier rules |
+| VAE latent space prior | Standard Normal | mu = 0, sigma = 1 |
+| Bayesian prior on proportions | Beta | alpha, beta from belief |
+| Bayesian prior on category weights | Dirichlet | alpha vector |
+| Noise in regression targets | Normal | mu = 0, sigma estimated |
+| Outlier-robust regression | Student's t | low degrees of freedom |
+| Duration/lifetime modeling | Weibull or Gamma | shape and scale |
+| Topic distribution per document (LDA) | Dirichlet | alpha < 1 for sparse |
 
-## عندما تسوء التوزيعات
+## When distributions go wrong
 
-- استخدام عادي عندما يكون للبيانات حد أدنى صارم (مثل الأسعار والمسافات). الطبيعي يعين احتمالًا غير صفري للقيم السلبية. استخدم السجل العادي أو جاما بدلاً من ذلك.
-- استخدام بواسون عندما يختلف التباين عن الوسط الحسابي. يفترض بواسون المتوسط ​​= التباين. إذا كان التباين > المتوسط، استخدم ذات الحدين السالب.
-- استخدام برنولي للمسائل متعددة الفئات. برنولي ثنائي بشكل صارم. استخدم الفئوية لـ k > 2.
-- افتراض الاستقلال عندما تكون الملاحظات مترابطة. تنتهك السلاسل الزمنية والبيانات المكانية والبيانات المجمعة الاستقلال. استخدم نماذج الانحدار الذاتي أو التسلسل الهرمي.
+- Using Normal when data has a hard lower bound (e.g., prices, distances). The normal assigns nonzero probability to negative values. Use log-normal or gamma instead.
+- Using Poisson when the variance differs from the mean. Poisson assumes mean = variance. If variance > mean, use negative binomial.
+- Using Bernoulli for multi-class problems. Bernoulli is strictly binary. Use categorical for k > 2.
+- Assuming independence when observations are correlated. Time series, spatial data, and grouped data violate independence. Use autoregressive or hierarchical models.
 
-##أخطاء شائعة
+## Common mistakes
 
-- الخلط بين قيم PDF والاحتمالات. يمكن أن يتجاوز ملف PDF 1. وتأتي الاحتمالية من دمج ملف PDF خلال فترة زمنية.
-- متناسين أن مخرجات softmax هي احتمالات قطعية وليست احتمالات برنولي المستقلة. مجموعهم إلى 1 من خلال البناء.
-- استخدام الزي الرسمي السابق عندما يكون لديك معرفة بالمجال. يعمل الكهنة الإعلاميون على تقليل التباين دون تحيز النتيجة إذا تم اختيارهم جيدًا.
-- التعامل مع احتمالات السجل كاحتمالات. تكون اختبارات السجل دائمًا سلبية (أو صفر). لا مجموعهم إلى 1.
+- Confusing PDF values with probabilities. A PDF can exceed 1. Probability comes from integrating the PDF over an interval.
+- Forgetting that softmax outputs are categorical probabilities, not independent Bernoulli probabilities. They sum to 1 by construction.
+- Using a uniform prior when you have domain knowledge. Informative priors reduce variance without biasing the result if chosen well.
+- Treating log-probabilities as probabilities. Log-probs are always negative (or zero). They do not sum to 1.
 
-## مرجع سريع: خصائص التوزيع
+## Quick reference: distribution properties
 
-| التوزيع | الدعم | يعني | التباين | الملكية الرئيسية |
+| Distribution | Support | Mean | Variance | Key property |
 |---|---|---|---|---|
-| برنولي(ع) | {0، 1} | ع | ع(1-ع) | أبسط منفصلة |
-| ذات الحدين (ن، ع) | {0..ن} | نب | نب (1-ع) | مجموع ن ​​برنولي |
-| بواسون(لام) | {0، 1، 2، ...} | لام | لام | يعني = التباين |
-| عادي (مو، ق ^ 2) | (-inf، inf) | مو | ق^2 | الانتروبيا القصوى لمتوسط/فار معين |
-| الأسي(لام) | [0، الوقود النووي المشع) | 1/ لام | 1/لام^2 | بلا ذاكرة |
-| بيتا (أ، ب) | [0، 1] | أ/(أ+ب) | أب/((أ+ب)^2(أ+ب+1)) | اقتران ذات الحدين |
-| جاما(أ، ب) | (0، الوقود النووي المشع) | أ/ب | أ/ب^2 | مترافق مع بواسون |
-| ديريشليت(ألفا) | البسيط | alpha_i/sum | (انظر الصيغة) | مترافق مع الفئوي |
+| Bernoulli(p) | {0, 1} | p | p(1-p) | Simplest discrete |
+| Binomial(n, p) | {0..n} | np | np(1-p) | Sum of n Bernoulli |
+| Poisson(lam) | {0, 1, 2,...} | lam | lam | Mean = variance |
+| Normal(mu, s^2) | (-inf, inf) | mu | s^2 | Max entropy for given mean/var |
+| Exponential(lam) | [0, inf) | 1/lam | 1/lam^2 | Memoryless |
+| Beta(a, b) | [0, 1] | a/(a+b) | ab/((a+b)^2(a+b+1)) | Conjugate to Binomial |
+| Gamma(a, b) | (0, inf) | a/b | a/b^2 | Conjugate to Poisson |
+| Dirichlet(alpha) | Simplex | alpha_i/sum | (see formula) | Conjugate to Categorical |

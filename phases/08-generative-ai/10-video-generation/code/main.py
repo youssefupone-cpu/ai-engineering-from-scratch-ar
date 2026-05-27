@@ -37,14 +37,14 @@ POS_DIM = 4
 
 
 def make_video(rng):
-    """"فيديو" 1-D: مسار سلس لقيم T_FRAMES."""
+    """1-D 'video': smooth trajectory of T_FRAMES values."""
     base = rng.gauss(0, 1)
     slope = rng.gauss(0, 0.3)
     return [base + slope * t + rng.gauss(0, 0.05) for t in range(T_FRAMES)]
 
 
 def patchify_with_pos(video):
-    """كل "تصحيح" هنا عبارة عن قيمة إطار واحدة + تضمين موضعه الزمني."""
+    """Each 'patch' here is one frame value + its time position embedding."""
     out = []
     for t in range(T_FRAMES):
         pe = sin_embed(t, POS_DIM)
@@ -128,7 +128,7 @@ def make_schedule(T):
 
 
 def train_joint(net, alpha_bars, T, t_dim, steps, lr, rng):
-    """أخذ العينات المشتركة: يرى مزيل الضوضاء جميع الإطارات + مواقعها الزمنية في وقت واحد."""
+    """Joint sampling: denoiser sees all frames + their time positions simultaneously."""
     for step in range(steps):
         video = make_video(rng)
         t = rng.randrange(T)
@@ -162,7 +162,7 @@ def sample_joint(net, alphas, alpha_bars, T, t_dim, rng):
 
 
 def independent_per_frame(T_frames, rng):
-    """خط الأساس: قم بتجربة كل إطار بشكل مستقل عن جولة عشوائية."""
+    """Baseline: sample each frame independently from a random walk."""
     return [rng.gauss(0, 1) + 0.3 * t for t in range(T_frames)]
 
 

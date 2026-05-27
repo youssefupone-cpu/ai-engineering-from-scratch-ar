@@ -19,7 +19,7 @@ def randn_matrix(rows, cols, rng, scale=0.3):
 
 
 def lora_forward(W_frozen, A, B, x, alpha=1.0):
-    """حساب (W + alpha * B @ A) @ x."""
+    """Compute (W + alpha * B @ A) @ x."""
     base = matmul_mat_vec(W_frozen, x)
     Ax = matmul_mat_vec(A, x)
     BAx = matmul_mat_vec(B, Ax)
@@ -55,10 +55,10 @@ def train_lora(W_frozen, W_target, r, rng, steps=4000, lr=0.01):
 
 
 def controlnet_toy(steps, rng):
-    """تعرف على شبكة جانبية مسورة تتكيف مع إشارة إضافية."""
-    # القاعدة: f_base(x) = x (مجمد)
-    # الجانب: f_side(x, c) = c (الوزن القابل للتعلم w_side)
-    # بوابات: خارج = f_base + بوابة * w_side * ج
+    """Learn a gated side-network that conditions on an extra signal."""
+    # base: f_base(x) = x  (frozen)
+    # side: f_side(x, c) = c  (learnable weight w_side)
+    # gated: out = f_base + gate * w_side * c
     w_side = rng.gauss(0, 0.1)
     gate = 0.0          # zero-conv init
     lr = 0.03

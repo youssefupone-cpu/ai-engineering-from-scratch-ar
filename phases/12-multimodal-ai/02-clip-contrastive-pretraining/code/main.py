@@ -1,6 +1,10 @@
-"""CLIP / لعبة الخسارة المتباينة SigLIP - stdlib Python. ينفذ InfoNCE (softmax) والخسارة الزوجية السيني على جهاز تم إنشاؤه يدويًا
-مصفوفة التشابه. يتم أيضًا إجراء إرشادات تفصيلية صغيرة لتصنيف الطلقات الصفرية باستخدام
-الصور الاصطناعية ودمج النص. لا نومي. لا الشعلة. النقطة المهمة هي رؤية حسابات الخسارة ونمط argmax.
+"""CLIP / SigLIP contrastive loss toy — stdlib Python.
+
+Implements InfoNCE (softmax) and sigmoid pairwise loss on a hand-constructed
+similarity matrix. Also runs a tiny zero-shot-classification walkthrough using
+synthetic image and text embeddings.
+
+No numpy. No torch. The point is to see the loss math and the argmax pattern.
 """
 
 from __future__ import annotations
@@ -37,7 +41,7 @@ def log_sum_exp(row: list[float]) -> float:
 
 
 def infonce_loss(S: list[list[float]]) -> float:
-    """InfoNCE المتماثل على الصفوف والأعمدة."""
+    """Symmetric InfoNCE over rows and columns."""
     N = len(S)
     loss_i2t = 0.0
     for i in range(N):
@@ -58,7 +62,7 @@ def sigmoid(x: float) -> float:
 
 
 def sigmoid_loss(S: list[list[float]], bias: float = 0.0) -> float:
-    """نمط SigLIP لكل زوج BCE. الإيجابيات هي قطري."""
+    """SigLIP-style per-pair BCE. Positives are the diagonal."""
     N = len(S)
     total = 0.0
     count = 0
@@ -76,7 +80,7 @@ def sigmoid_loss(S: list[list[float]], bias: float = 0.0) -> float:
 
 def zero_shot_classify(image: list[float],
                        class_texts: dict[str, list[float]]) -> list[tuple[str, float]]:
-    """Argmax تشابه جيب التمام على مطالبات الفصل."""
+    """Argmax cosine similarity over class prompts."""
     img = normalize(image)
     scores = []
     for name, vec in class_texts.items():

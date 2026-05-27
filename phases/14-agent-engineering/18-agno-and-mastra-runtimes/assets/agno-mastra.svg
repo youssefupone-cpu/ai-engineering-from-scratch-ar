@@ -16,13 +16,13 @@
   <text x="480" y="26" text-anchor="middle" class="title">Agno vs Mastra — وقتا تشغيل للإنتاج، ومكدسان</text>
 
   <rect x="40" y="50" width="440" height="280" class="agno"/>
-  <text x="260" y="72" text-anchor="middle" class="head">Agno Python، FastAPI، النفقات العامة قريبة من الصفر</text>
+  <text x="260" y="72" text-anchor="middle" class="head">Agno Python، FastAPI، حمل قريب من الصفر</text>
   <rect x="60" y="90" width="400" height="40" class="box"/>
   <text x="78" y="112" class="step">الهدف: إنشاء مثيل للعامل ~2μs</text>
   <text x="78" y="126" class="small">يهم الآلاف من الوكلاء قصيري العمر في الثانية</text>
   <rect x="60" y="140" width="400" height="40" class="box"/>
   <text x="78" y="162" class="step">الهدف: ~3.75 كيلو بايت من الذاكرة لكل وكيل</text>
-  <text x="78" y="176" class="small">معالج FastAPI عديم الحالة لكل طلب</text>
+  <text x="78" y="176" class="small">معالج FastAPI عديم الجنسية لكل طلب</text>
   <rect x="60" y="190" width="400" height="40" class="box"/>
   <text x="78" y="212" class="step">~23 موفري النماذج، الوسائط المتعددة الأصلية</text>
   <text x="78" y="226" class="small">نص، صورة، صوت، فيديو، ملف</text>
@@ -52,7 +52,7 @@
   <rect x="40" y="350" width="880" height="160" class="diff"/>
   <text x="480" y="372" text-anchor="middle" class="head">اختر بواسطة المكدس</text>
   <rect x="60" y="388" width="840" height="36" class="box"/>
-  <text x="78" y="410" class="step">واجهة بايثون + FastAPI + وكلاء قصيري العمر Agno</text>
+  <text x="78" y="410" class="step">python backend + FastAPI + وكلاء قصيري العمر Agno</text>
   <rect x="60" y="430" width="840" height="36" class="box"/>
   <text x="78" y="452" class="step">الواجهة الخلفية للنسخة المطبوعة + Next.js/Vercel + Mastera الموحد متعدد الموفرين</text>
   <rect x="60" y="472" width="840" height="36" class="box"/>

@@ -38,7 +38,7 @@
   <text x="395" y="142" text-anchor="middle" class="small">خطة الخطوة التالية</text>
   <text x="395" y="158" text-anchor="middle" class="small">تعليمات الأرض</text>
   <text x="395" y="174" text-anchor="middle" class="small">للإحداثيات</text>
-  <text x="395" y="200" text-anchor="middle" class="step">ينبعث إجراء JSON</text>
+  <text x="395" y="200" text-anchor="middle" class="step">تنبعث منها JSON العمل</text>
   <text x="395" y="220" text-anchor="middle" class="small">{العمل، س، ص، تنازلي}</text>
   <text x="395" y="236" text-anchor="middle" class="small">يساعد element_desc</text>
 

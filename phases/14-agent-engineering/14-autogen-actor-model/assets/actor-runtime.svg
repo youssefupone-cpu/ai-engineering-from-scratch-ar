@@ -69,7 +69,7 @@
   <text x="538" y="382" class="step">AgentChat RoundRobin، Selector، AssistantAgent</text>
   <text x="538" y="398" class="small">مستوى عالٍ يعتمد على المهام API (استبدال الإصدار 0.2)</text>
   <rect x="520" y="412" width="380" height="66" class="box"/>
-  <text x="538" y="434" class="step">الامتدادات OpenAI، الأنثروبي، الأزرق السماوي، الأدوات</text>
+  <text x="538" y="434" class="step">ملحقات OpenAI، أنثروبي، أزور، أدوات</text>
   <text x="538" y="452" class="small">Magentic-One هو الفريق المرجعي المبني على AgentChat</text>
   <text x="538" y="470" class="small">يمتد OTel GenAI بشكل افتراضي (الدرس 23)</text>
 

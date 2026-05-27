@@ -26,7 +26,7 @@
 
   <rect x="40" y="250" width="260" height="140" class="box"/>
   <text x="170" y="275" text-anchor="middle" class="label">عمل عينة</text>
-  <text x="60" y="300" class="content">logits = f_theta(s)</text>
+  <text x="60" y="300" class="content">لوgits = f_theta(s)</text>
   <text x="60" y="320" class="content">ع = softmax(logits)</text>
   <text x="60" y="340" class="content">أ ~ قاطع(ع)</text>
   <text x="170" y="370" text-anchor="middle" class="caption">العشوائية حسب التصميم</text>
@@ -45,5 +45,5 @@
   <text x="620" y="340" class="content">+ مكافأة الانتروبيا</text>
   <text x="730" y="370" text-anchor="middle" class="caption">على السياسة، على دفعات</text>
 
-  <text x="450" y="430" text-anchor="middle" class="caption">PPO = التعزيز + نسبة IS المقصوصة · GRPO = التعزيز + خط الأساس النسبي للمجموعة · DPO = التعزيز بدون أخذ العينات</text>
+  <text x="450" y="430" text-anchor="middle" class="caption">PPO = التعزيز + نسبة IS المقطوعة · GRPO = التعزيز + خط الأساس النسبي للمجموعة · DPO = التعزيز بدون أخذ العينات</text>
 </svg>

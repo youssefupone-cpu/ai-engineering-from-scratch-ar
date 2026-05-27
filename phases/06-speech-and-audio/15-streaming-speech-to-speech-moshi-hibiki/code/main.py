@@ -1,5 +1,14 @@
-"""محاكاة ثنائية الاتجاه بأسلوب موشي. نماذج لشكل بنية موشي الموازية: - دفق رمز المستخدم Mimi (الإدخال) - دفق رمز موشي ميمي (الإخراج) - دفق نص موشي (مونولوج داخلي) تشغيل "محادثة" كرتونية خلال الحلقة؛ يقيس الكمون لكل
-إطار 80 مللي ثانية. لا يوجد برنامج ترميز أو محول حقيقي - فقط هيكل. تشغيل: كود python3/main.py
+"""Moshi-style full-duplex simulation.
+
+Models the shape of Moshi's parallel-stream architecture:
+  - user Mimi token stream (input)
+  - moshi Mimi token stream (output)
+  - moshi text stream (inner monologue)
+
+Runs a cartoon "conversation" through the loop; measures latency per
+80 ms frame. No real codec or transformer — just structure.
+
+Run: python3 code/main.py
 """
 
 import math

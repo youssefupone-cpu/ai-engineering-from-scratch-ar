@@ -1,6 +1,12 @@
-"""موصي شجرة القرار لأطر عمل الوكيل. يأخذ واصف المشكلة ويوصي بـ LangGraph أو CrewAI أو AutoGen أو Agno أو
-"لا يوجد إطار" مع تبرير جملة واحدة. الشجرة ترمز المقايضات
-الموصوفة في docs/en.md. تشغيل: يقوم python main.py # بتشغيل مجموعة الاختبار المجمعة python main.py --ask # وضع المطالبة التفاعلي
+"""Decision-tree recommender for agent frameworks.
+
+Takes a problem descriptor and recommends LangGraph, CrewAI, AutoGen, Agno, or
+"no framework" with a one-sentence justification. The tree encodes the tradeoffs
+described in docs/en.md.
+
+Run:
+    python main.py           # runs the bundled test suite
+    python main.py --ask     # interactive prompt mode
 """
 
 from __future__ import annotations
@@ -14,7 +20,7 @@ from typing import Callable
 
 @dataclass(frozen=True)
 class Problem:
-    """واصف الشكل لمهمة وكيل."""
+    """Shape descriptor for an agentic task."""
 
     has_typed_state: bool = False
     has_roles: bool = False
@@ -33,7 +39,7 @@ class Recommendation:
 
 
 def recommend(p: Problem) -> Recommendation:
-    # الأصغر أولاً: إذا كان الأمر يتعلق بمكالمتين أو أقل، فتخطى إطار العمل بالكامل.
+    # Smallest-first: if it's 2 or fewer calls, skip the framework entirely.
     if p.total_llm_calls <= 2 and not any(
         (p.has_roles, p.has_dialogue, p.needs_resume, p.has_parallel_fanout, p.needs_human_interrupt)
     ):
@@ -43,7 +49,7 @@ def recommend(p: Problem) -> Recommendation:
             "or resume needs; a framework is pure overhead.",
         )
 
-    # الحالة الدائمة أو المقاطعات البشرية أو السفر عبر الزمن -> LangGraph.
+    # Durable state or human interrupts or time-travel -> LangGraph.
     if p.needs_resume or p.needs_human_interrupt or p.has_parallel_fanout:
         return Recommendation(
             "langgraph",
@@ -51,7 +57,7 @@ def recommend(p: Problem) -> Recommendation:
             "first-class in LangGraph.",
         )
 
-    # مشكلة على شكل حوار -> AutoGen.
+    # Dialogue-shaped problem -> AutoGen.
     if p.has_dialogue and not p.has_typed_state:
         return Recommendation(
             "autogen",
@@ -59,7 +65,7 @@ def recommend(p: Problem) -> Recommendation:
             "shape; GroupChat selects speakers without hand-wiring.",
         )
 
-    # يحركها الدور pipeline -> CrewAI.
+    # Role-driven pipeline -> CrewAI.
     if p.has_roles and not p.has_typed_state:
         return Recommendation(
             "crewai",
@@ -67,7 +73,7 @@ def recommend(p: Problem) -> Recommendation:
             "are cheapest to express in CrewAI.",
         )
 
-    # وكيل واحد + جلسات -> Agno.
+    # Single agent + sessions -> Agno.
     if p.needs_session_memory and not p.has_roles and not p.has_dialogue:
         return Recommendation(
             "agno",
@@ -75,7 +81,7 @@ def recommend(p: Problem) -> Recommendation:
             "storage drivers are built in.",
         )
 
-    # الحالة المكتوبة ولكن لا توجد إشارات أخرى لا تزال تشير إلى LangGraph.
+    # Typed state but no other signals still points at LangGraph.
     if p.has_typed_state:
         return Recommendation(
             "langgraph",
@@ -91,7 +97,7 @@ def recommend(p: Problem) -> Recommendation:
     )
 
 
-# الاختبارات -----------------------------------------------------------------------
+# Tests -----------------------------------------------------------------------
 
 
 def _check(label: str, actual: Recommendation, expected_framework: str) -> bool:

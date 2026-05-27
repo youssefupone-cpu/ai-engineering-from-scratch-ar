@@ -31,7 +31,7 @@
   <!-- Archive box (MAP-elites) -->
   <rect x="330" y="100" width="220" height="260" class="cold"/>
   <text x="440" y="124" text-anchor="middle" class="label">أرشيف البرنامج</text>
-  <text x="440" y="142" text-anchor="middle" class="small">MAP-شبكة النخبة/الجزر</text>
+  <text x="440" y="142" text-anchor="middle" class="small">MAP- ​​شبكة النخب / الجزر</text>
 
   <!-- Archive cells grid illustration -->
   <g stroke="#2c5ea9" stroke-width="1" fill="#ffffff">

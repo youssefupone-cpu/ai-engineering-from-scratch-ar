@@ -54,7 +54,7 @@ Pick from this table:
 | Flatten spatial dims for linear | `.flatten(1)` or `.reshape(B, -1)` |
 | Split heads: (B,T,D) to (B,H,T,D/H) | `.reshape(B, T, H, D//H).transpose(1, 2)` |
 | Merge heads: (B,H,T,D/H) to (B,T,D) | `.transpose(1, 2).reshape(B, T, H*(D//H))` |
-| Non-contiguous tensor with .view() | `.contiguous().view(...)` or use `.reshape(...)` |
+| Non-contiguous tensor with.view() | `.contiguous().view(...)` or use `.reshape(...)` |
 
 **Step 5: Verify the fix.**
 Show the resulting shapes at each step. Confirm total elements are preserved across any reshape. Confirm the operation's shape contract is now satisfied.

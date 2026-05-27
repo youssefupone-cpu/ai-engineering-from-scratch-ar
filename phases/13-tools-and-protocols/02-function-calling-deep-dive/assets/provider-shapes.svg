@@ -50,7 +50,7 @@
   <text x="728" y="262" class="step">    المعلمات: openapi</text>
   <text x="712" y="278" class="step">  }]</text>
   <text x="696" y="294" class="step">}]</text>
-  <text x="696" y="314" class="small">OpenAPI 3.0 مجموعة فرعية</text>
+  <text x="696" y="314" class="small">فتحAPI 3.0 مجموعة فرعية</text>
 
   <rect x="40" y="350" width="300" height="180" class="oa"/>
   <text x="190" y="372" text-anchor="middle" class="head">OpenAI الرد</text>

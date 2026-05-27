@@ -1,33 +1,33 @@
-# بيئات بايثون
+# Python Environments
 
-> جحيم التبعية حقيقي. البيئات الافتراضية هي العلاج.
+> Dependency hell is real. Virtual environments are the cure.
 
-**النوع:** بناء
-** اللغات: ** بايثون
-**المتطلبات الأساسية:** المرحلة 0، الدرس 01
-**الوقت:** ~30 دقيقة
+**Type:** Build
+**Languages:** Shell
+**Prerequisites:** Phase 0, Lesson 01
+**Time:** ~30 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- إنشاء بيئات افتراضية معزولة باستخدام `uv`، `venv`، أو `conda`
-- اكتب `pyproject.toml` بمجموعات تبعية اختيارية وقم بإنشاء ملفات قفل لإمكانية التكرار
-- تشخيص الأخطاء الشائعة وإصلاحها: عمليات التثبيت العالمية، وخلط النقاط/الكوندا، وعدم تطابق إصدار CUDA
-- تنفيذ استراتيجية بيئة لكل مرحلة للمشاريع ذات التبعيات المتعارضة
+- Create isolated virtual environments using `uv`, `venv`, or `conda`
+- Write a `pyproject.toml` with optional dependency groups and generate lockfiles for reproducibility
+- Diagnose and fix common pitfalls: global installs, pip/conda mixing, CUDA version mismatches
+- Implement a per-phase environment strategy for projects with conflicting dependencies
 
-## المشكلة
+## The Problem
 
-قمت بتثبيت PyTorch 2.4 لمشروع الضبط الدقيق. في الأسبوع المقبل، سيحتاج مشروع مختلف إلى PyTorch 2.1 لأن بناء CUDA الخاص به مثبت. تقوم بالترقية عالميًا، وينقطع المشروع الأول. قمت بالتخفيض، والثانية ينكسر.
+You install PyTorch 2.4 for a fine-tuning project. Next week, a different project needs PyTorch 2.1 because its CUDA build is pinned. You upgrade globally, and the first project breaks. You downgrade, and the second one breaks.
 
-هذا هو جحيم التبعية. يحدث هذا باستمرار في عمل الذكاء الاصطناعي/التعلم الآلي للأسباب التالية:
+This is dependency hell. It happens constantly in AI/ML work because:
 
-- يقوم كل من PyTorch وJAX وTensorFlow بشحن روابط CUDA الخاصة بهم
-- تقوم المكتبات النموذجية بتثبيت إصدارات إطار عمل محددة
-- يقوم `pip install` بالكتابة على كل ما كان موجودًا من قبل
-- لا تعمل إصدارات CUDA 11.8 مع برامج تشغيل CUDA 12.x (والعكس صحيح)
+- PyTorch, JAX, and TensorFlow each ship their own CUDA bindings
+- Model libraries pin specific framework versions
+- A global `pip install` overwrites whatever was there before
+- CUDA 11.8 builds don't work with CUDA 12.x drivers (and vice versa)
 
-الحل: يحصل كل مشروع على بيئته المعزولة مع حزمه الخاصة.
+The fix: every project gets its own isolated environment with its own packages.
 
-##المفهوم
+## The Concept
 
 ```mermaid
 graph TD
@@ -45,11 +45,11 @@ graph TD
     end
 ```
 
-## بنائها
+## Build It
 
-### الخيار 1: uv venv (مستحسن)
+### Option 1: uv venv (Recommended)
 
-`uv` هو أسرع مدير حزم Python (10-100x أسرع من النقطة). يتعامل مع البيئات الافتراضية وإصدارات Python وحل التبعية في أداة واحدة.
+`uv` is the fastest Python package manager (10-100x faster than pip). It handles virtual environments, Python versions, and dependency resolution in one tool.
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -61,13 +61,13 @@ uv venv
 source .venv/bin/activate
 ```
 
-تثبيت الحزم:
+Install packages:
 
 ```bash
 uv pip install torch numpy
 ```
 
-قم بإنشاء مشروع باستخدام `pyproject.toml` في خطوة واحدة:
+Create a project with `pyproject.toml` in one step:
 
 ```bash
 uv init my-ai-project
@@ -75,9 +75,9 @@ cd my-ai-project
 uv add torch numpy matplotlib
 ```
 
-### الخيار 2: venv (مدمج)
+### Option 2: venv (Built-in)
 
-إذا لم تتمكن من تثبيت `uv`، فإن Python تأتي مع `venv`:
+If you can't install `uv`, Python ships with `venv`:
 
 ```bash
 python3 -m venv .venv
@@ -87,15 +87,15 @@ source .venv/bin/activate  # Linux/macOS
 pip install torch numpy
 ```
 
-أبطأ من `uv`، ولكنه يعمل في كل مكان يتم فيه تثبيت Python.
+Slower than `uv`, but works everywhere Python is installed.
 
-### الخيار 3: كوندا (عندما تحتاج إليها)
+### Option 3: conda (When You Need It)
 
-تدير Conda التبعيات غير التابعة لـ Python مثل مجموعات أدوات CUDA ومكتبات cuDNN وC. استخدمه عندما:
+Conda manages non-Python dependencies like CUDA toolkits, cuDNN, and C libraries. Use it when:
 
-- أنت بحاجة إلى إصدار محدد لمجموعة أدوات CUDA دون تثبيته على مستوى النظام
-- أنت ضمن مجموعة مشتركة حيث لا يمكنك تثبيت حزم النظام
-- تعليمات تثبيت المكتبة تقول "استخدام conda"
+- You need a specific CUDA toolkit version without installing it system-wide
+- You're on a shared cluster where you can't install system packages
+- A library's install instructions say "use conda"
 
 ```bash
 # Install miniconda (not the full Anaconda)
@@ -108,13 +108,13 @@ conda activate myproject
 conda install pytorch torchvision torchaudio pytorch-cuda=12.4 -c pytorch -c nvidia
 ```
 
-قاعدة واحدة: إذا كنت تستخدم conda لبيئة ما، فاستخدم conda لجميع الحزم في تلك البيئة. يؤدي خلط `pip install` في conda env إلى حدوث تعارضات تبعية تكون مؤلمة عند تصحيح الأخطاء.
+One rule: if you use conda for an environment, use conda for all packages in that environment. Mixing `pip install` into a conda env causes dependency conflicts that are painful to debug.
 
-### لهذه الدورة: استراتيجية لكل مرحلة
+### For This Course: Per-Phase Strategy
 
-يمكنك إنشاء بيئة واحدة للدورة بأكملها. لا. تحتاج المراحل المختلفة إلى تبعيات مختلفة (متعارضة في بعض الأحيان).
+You could create one environment for the whole course. Don't. Different phases need different (sometimes conflicting) dependencies.
 
-الإستراتيجية:
+Strategy:
 
 ```
 ai-engineering-from-scratch/
@@ -130,11 +130,11 @@ ai-engineering-from-scratch/
 │       └── .venv/            <-- API SDKs, no torch needed
 ```
 
-يقوم البرنامج النصي الموجود في `code/env_setup.sh` بإنشاء البيئة الأساسية لهذه الدورة التدريبية.
+The script in `code/env_setup.sh` creates the base environment for this course.
 
-## أساسيات pyproject.toml
+## pyproject.toml Basics
 
-يجب أن يكون لكل مشروع بايثون `pyproject.toml`. فهو يستبدل `setup.py`، `setup.cfg`، و`requirements.txt` في ملف واحد.
+Every Python project should have a `pyproject.toml`. It replaces `setup.py`, `setup.cfg`, and `requirements.txt` in one file.
 
 ```toml
 [project]
@@ -153,7 +153,7 @@ torch = ["torch>=2.3", "torchvision>=0.18"]
 llm = ["anthropic>=0.39", "openai>=1.50"]
 ```
 
-ثم تثبيت:
+Then install:
 
 ```bash
 uv pip install -e ".[torch]"    # base + PyTorch
@@ -161,9 +161,9 @@ uv pip install -e ".[llm]"     # base + LLM SDKs
 uv pip install -e ".[torch,llm]" # everything
 ```
 
-## ملفات القفل
+## Lockfiles
 
-يقوم ملف القفل بتثبيت كل التبعيات (بما في ذلك التبعيات المتعدية) بالإصدارات الدقيقة. وهذا يضمن إمكانية التكرار: أي شخص يقوم بالتثبيت من ملف القفل يحصل على نفس الحزم تمامًا.
+A lockfile pins every dependency (including transitive ones) to exact versions. This guarantees reproducibility: anyone who installs from the lockfile gets exactly the same packages.
 
 ```bash
 # uv generates uv.lock automatically when using uv add
@@ -174,11 +174,11 @@ uv pip compile pyproject.toml -o requirements.lock
 uv pip install -r requirements.lock
 ```
 
-قم بإلزام ملف القفل الخاص بك بـ git. عندما يقوم شخص ما باستنساخ الريبو، فإنه يقوم بالتثبيت من ملف القفل ويحصل على إصدارات متطابقة.
+Commit your lockfile to git. When someone clones the repo, they install from the lockfile and get identical versions.
 
-##أخطاء شائعة
+## Common Mistakes
 
-### 1. التثبيت عالميًا
+### 1. Installing globally
 
 ```bash
 pip install torch  # BAD: installs to system Python
@@ -187,14 +187,14 @@ source .venv/bin/activate
 pip install torch  # GOOD: installs to virtual environment
 ```
 
-تحقق من أين تذهب الطرود الخاصة بك:
+Check where your packages go:
 
 ```bash
 which python       # should show .venv/bin/python, not /usr/bin/python
 which pip           # should show .venv/bin/pip
 ```
 
-### 2. خلط النقطة والكوندا
+### 2. Mixing pip and conda
 
 ```bash
 conda create -n myenv python=3.12
@@ -204,9 +204,9 @@ pip install some-other-package   # BAD: can break conda's dependency tracking
 conda install some-other-package # GOOD: let conda manage everything
 ```
 
-إذا كان يجب عليك استخدام النقطة داخل conda (بعض الحزم عبارة عن نقطة فقط)، فقم بتثبيت جميع حزم conda أولاً، ثم حزم النقطة أخيرًا.
+If you must use pip inside conda (some packages are pip-only), install all conda packages first, then pip packages last.
 
-### 3. نسيان التنشيط
+### 3. Forgetting to activate
 
 ```bash
 python train.py           # uses system Python, missing packages
@@ -214,21 +214,21 @@ source .venv/bin/activate
 python train.py           # uses project Python, packages found
 ```
 
-يجب أن يُظهر موجه Shell الخاص بك اسم البيئة:
+Your shell prompt should show the environment name:
 
 ```
 (.venv) $ python train.py
 ```
 
-### 4. إرسال .venv إلى git
+### 4. Committing .venv to git
 
 ```bash
 echo ".venv/" >> .gitignore
 ```
 
-البيئات الافتراضية هي 200 ميجا بايت - 2 جيجا بايت. إنها محلية، وليست محمولة بين الأجهزة. قم بتنفيذ `pyproject.toml` وملف القفل بدلاً من ذلك.
+Virtual environments are 200MB-2GB. They're local, not portable between machines. Commit `pyproject.toml` and the lockfile instead.
 
-### 5. عدم تطابق إصدار CUDA
+### 5. CUDA version mismatch
 
 ```bash
 nvidia-smi                # shows driver CUDA version (e.g., 12.4)
@@ -238,29 +238,29 @@ python -c "import torch; print(torch.version.cuda)"  # shows PyTorch CUDA versio
 # PyTorch CUDA version must be <= driver CUDA version.
 ```
 
-## استخدمه
+## Use It
 
-قم بتشغيل البرنامج النصي للإعداد لإنشاء بيئة الدورة التدريبية الخاصة بك:
+Run the setup script to create your course environment:
 
 ```bash
 bash phases/00-setup-and-tooling/06-python-environments/code/env_setup.sh
 ```
 
-يؤدي هذا إلى إنشاء `.venv` في جذر الريبو مع تثبيت التبعيات الأساسية والتحقق منها.
+This creates a `.venv` at the repo root with core dependencies installed and verified.
 
-## تمارين
+## Exercises
 
-1. قم بتشغيل `env_setup.sh` وتحقق من نجاح جميع عمليات التحقق
-2. قم بإنشاء بيئة افتراضية ثانية، وقم بتثبيت إصدار مختلف من numpy فيها، وتأكد من عزل البيئتين
-3. اكتب `pyproject.toml` لمشروع يحتاج إلى كل من PyTorch وAnthropic SDK
-4. قم بتثبيت الحزمة بشكل عام (بدون تنشيط venv)، ولاحظ مكانها، ثم قم بإلغاء تثبيتها
+1. Run `env_setup.sh` and verify all checks pass
+2. Create a second virtual environment, install a different version of numpy in it, and confirm the two environments are isolated
+3. Write a `pyproject.toml` for a project that needs both PyTorch and the Anthropic SDK
+4. Deliberately install a package globally (without activating a venv), notice where it goes, then uninstall it
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| البيئة الافتراضية | "فينف" | دليل معزول يحتوي على مترجم وحزم بايثون، منفصل عن نظام بايثون |
-| ملف القفل | "التبعيات المثبتة" | ملف يسرد كل حزمة وإصدارها الدقيق، مما يضمن عمليات تثبيت متطابقة عبر الأجهزة |
-| pyproject.toml | "الإعداد الجديد.py" | ملف تكوين مشروع Python القياسي، يحل محل setup.py/setup.cfg/requirements.txt |
-| التبعية متعدية | "تبعية تبعية" | الحزمة B تعتمد على C؛ إذا قمت بتثبيت A الذي يعتمد على B، فإن C هي تبعية متعدية لـ A |
-| عدم تطابق CUDA | "وحدة معالجة الرسومات الخاصة بي لا تعمل" | تم تجميع PyTorch لإصدار CUDA مختلف عما يدعمه برنامج تشغيل GPU الخاص بك |
+| Virtual environment | "A venv" | An isolated directory containing a Python interpreter and packages, separate from the system Python |
+| Lockfile | "Pinned dependencies" | A file listing every package and its exact version, guaranteeing identical installs across machines |
+| pyproject.toml | "The new setup.py" | The standard Python project configuration file, replacing setup.py/setup.cfg/requirements.txt |
+| Transitive dependency | "A dependency of a dependency" | Package B depends on C; if you install A which depends on B, C is a transitive dependency of A |
+| CUDA mismatch | "My GPU isn't working" | PyTorch was compiled for a different CUDA version than what your GPU driver supports |

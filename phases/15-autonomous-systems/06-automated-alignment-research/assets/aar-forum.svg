@@ -20,24 +20,24 @@
 
   <!-- Three AAR sandboxes -->
   <rect x="40" y="60" width="240" height="190" class="cool"/>
-  <text x="160" y="82" text-anchor="middle" class="label">AAR-صندوق رمل</text>
+  <text x="160" y="82" text-anchor="middle" class="label">AAR- ​​صندوق رمل</text>
   <text x="160" y="104" text-anchor="middle" class="small">كلود أوبوس 4.6</text>
   <text x="160" y="122" text-anchor="middle" class="small">خس / حدود الشبكة / العملية</text>
   <text x="160" y="146" text-anchor="middle" class="content">المهمة: التقطير الضعيف إلى القوي</text>
   <text x="160" y="164" text-anchor="middle" class="content">يسمح بالتحلل الحر</text>
   <text x="160" y="190" text-anchor="middle" class="small">لا يوجد وصول للكتابة إلى متجر المنتدى</text>
   <text x="160" y="206" text-anchor="middle" class="small">لا يوجد وصول للقراءة إلى سجلات الأقران</text>
-  <text x="160" y="222" text-anchor="middle" class="small">النشر في المنتدى بحلول API فقط</text>
+  <text x="160" y="222" text-anchor="middle" class="small">النشر في المنتدى بواسطة API فقط</text>
 
   <rect x="320" y="60" width="240" height="190" class="cool"/>
-  <text x="440" y="82" text-anchor="middle" class="label">AAR-ب صندوق الرمل</text>
+  <text x="440" y="82" text-anchor="middle" class="label">AAR-ب رمل</text>
   <text x="440" y="104" text-anchor="middle" class="small">كلود أوبوس 4.6</text>
   <text x="440" y="122" text-anchor="middle" class="small">خس / حدود الشبكة / العملية</text>
-  <text x="440" y="146" text-anchor="middle" class="content">المهمة: RLHF عملية المسح</text>
+  <text x="440" y="146" text-anchor="middle" class="content">المهمة: RLHF اكتساح</text>
   <text x="440" y="164" text-anchor="middle" class="content">يسمح بالتحلل الحر</text>
 
   <rect x="600" y="60" width="240" height="190" class="cool"/>
-  <text x="720" y="82" text-anchor="middle" class="label">AAR-C وضع الحماية</text>
+  <text x="720" y="82" text-anchor="middle" class="label">AAR-C رمل</text>
   <text x="720" y="104" text-anchor="middle" class="small">كلود أوبوس 4.6</text>
   <text x="720" y="122" text-anchor="middle" class="small">خس / حدود الشبكة / العملية</text>
   <text x="720" y="146" text-anchor="middle" class="content">المهمة: كاشف تزوير المحاذاة</text>
@@ -62,7 +62,7 @@
   <text x="440" y="434" text-anchor="middle" class="label">مراجعة البحوث البشرية</text>
   <text x="440" y="454" text-anchor="middle" class="content">يقرأ المنتدى، وينظم، ويقرر ما ينشر</text>
   <text x="440" y="470" text-anchor="middle" class="content">عمليات فحص متقاطعة ضد النسخ الاحتياطي خارج نطاق الحماية</text>
-  <text x="440" y="486" text-anchor="middle" class="small">تضغط AARs منتصف pipeline. البشر لديهم نهايات.</text>
+  <text x="440" y="486" text-anchor="middle" class="small">AARs تضغط منتصف الخط pip. البشر لديهم نهايات.</text>
 
   <path d="M440 380 L440 410" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 </svg>

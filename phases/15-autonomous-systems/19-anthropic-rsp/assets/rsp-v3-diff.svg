@@ -13,7 +13,7 @@
     </style>
   </defs>
 
-  <text x="440" y="26" text-anchor="middle" class="title">RSP الإصدار الثاني (2023) → الإصدار 3.0 (24 فبراير 2026): ما الذي تغير</text>
+  <text x="440" y="26" text-anchor="middle" class="title">RSP الإصدار 2 (2023) → الإصدار 3.0 (24 فبراير 2026): ما الذي تغير</text>
 
   <rect x="40" y="50" width="800" height="460" class="box"/>
 
@@ -26,7 +26,7 @@
   <text x="76" y="178" class="small">  عبرت مرة واحدة: نشر حالة إيجابية</text>
   <text x="76" y="198" class="content">• خارطة طريق السلامة على الحدود (وثيقة دائمة)</text>
   <text x="76" y="214" class="content">• تقرير المخاطر (الوثيقة الدائمة، بأثر رجعي)</text>
-  <text x="76" y="234" class="content">• RAND SL-4 تمت الإشارة إلى الأمان</text>
+  <text x="76" y="234" class="content">• RAND SL-4 مرجع أمني</text>
   <text x="76" y="250" class="small">  (في طبقة توصية الصناعة)</text>
   <text x="76" y="270" class="content">• الإقرار: "الاستبعاد بثقة</text>
   <text x="76" y="286" class="content">   AI أصبح البحث والتطوير-4 صعبًا"</text>
@@ -35,7 +35,7 @@
 
   <rect x="450" y="80" width="370" height="280" class="hot"/>
   <text x="635" y="104" text-anchor="middle" class="label">عمليات الإزالة / التخفيفات في الإصدار 3.0</text>
-  <text x="466" y="126" class="content">• التزام الإيقاف المؤقت لعام 2023 REMOVED</text>
+  <text x="466" y="126" class="content">• التزام وقفة 2023 REMOVED</text>
   <text x="466" y="142" class="small">  (تم إسقاط جملة الإيقاف المؤقت للتدريب الصريح)</text>
   <text x="466" y="162" class="content">• تخفيف العتبات الكمية</text>
   <text x="466" y="178" class="small">  إلى الأحكام النوعية</text>
@@ -50,7 +50,7 @@
   <rect x="60" y="380" width="760" height="110" class="warn"/>
   <text x="440" y="404" text-anchor="middle" class="label">تصنيف مستقل SaferAI</text>
   <text x="80" y="426" class="content">الإصدار 2 (2023): 2.2 - متوسط</text>
-  <text x="80" y="442" class="content">الإصدار 3.0 (2026): 1.9 — ضعيف (ينضم إلى OpenAI Preparation وDeepMind FSF في الفئة "الضعيفة")</text>
+  <text x="80" y="442" class="content">الإصدار 3.0 (2026): 1.9 — ضعيف (ينضم إلى OpenAI Preparedness وDeepMind FSF في الفئة "الضعيفة")</text>
   <text x="80" y="462" class="content">دوافع التخفيض: عتبات نوعية · إزالة مؤقتة · رقابة مستقلة محدودة</text>
   <text x="80" y="482" class="small">وتصبح السياسة أقل صرامة بينما تبدو أكثر صقلاً؛ القراءة عن كثب هي المهارة.</text>
 </svg>

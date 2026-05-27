@@ -1,6 +1,13 @@
-"""الاهتمام المتناثر الأصلي (DeepSeek NSA) في stdlib Python. تنفذ الفروع الثلاثة المتوازية من يوان وآخرون. 2025: - فرع مضغوط: اهتمام خشن بمفاتيح متوسطة الكتلة - الفرع المحدد: الاهتمام الدقيق بالكتل غير المضغوطة من النوع العلوي - فرع النافذة المنزلقة: الانتباه إلى رموز W الأخيرة يجمعها مع بوابة ويطبع عدد المفاتيح لكل استعلام لكل فرع
-مقابل الاهتمام الكامل. يقوم بتحجيم تقرير عدد المفاتيح إلى سياقات 64 كيلو بايت و128 كيلو بايت
-إظهار أهداف التوفير ذات التسلسل الطويل NSA.
+"""Native Sparse Attention (DeepSeek NSA) in stdlib Python.
+
+Implements the three parallel branches from Yuan et al. 2025:
+  - compressed branch: coarse-grained attention over block-averaged keys
+  - selected branch: fine-grained attention over top-k uncompressed blocks
+  - sliding-window branch: attention over the last W tokens
+
+Combines them with a gate and prints the per-query key count for each branch
+vs. full attention. Scales the key-count report to 64k and 128k contexts to
+show the long-sequence savings NSA targets.
 """
 
 from __future__ import annotations
@@ -24,7 +31,7 @@ def softmax(row: List[float]) -> List[float]:
 
 def attention(q: List[float], K: List[List[float]],
               V: List[List[float]]) -> tuple[List[float], List[float]]:
-    """المرتجعات (الأوزان، المخرجات)."""
+    """Returns (weights, output)."""
     d = len(q)
     scale = math.sqrt(d)
     scores = [dot(q, k) / scale for k in K]
@@ -35,7 +42,8 @@ def attention(q: List[float], K: List[List[float]],
 
 
 def compress_mean(K: List[List[float]], l: int) -> List[List[float]]:
-    """قم بطي كل المفاتيح المتتالية في وسطها. يستخدم NSA الحقيقي أ تعلمت MLP هنا - المتوسط هو خط الأساس التربوي."""
+    """Collapse every l consecutive keys into their mean. Real NSA uses a
+    learned MLP here — mean-pool is the pedagogical baseline."""
     n = len(K)
     d = len(K[0])
     n_blocks = (n + l - 1) // l
@@ -55,7 +63,7 @@ def top_k_blocks(scores: List[float], k: int) -> List[int]:
 
 def fine_grained_keys(K: List[List[float]], V: List[List[float]], l: int,
                       block_indices: List[int]) -> tuple[List[List[float]], List[List[float]]]:
-    """قم بتحميل الرموز الأولية (غير المضغوطة) من الكتل المحددة."""
+    """Load the raw (uncompressed) tokens from the selected blocks."""
     k_out, v_out = [], []
     for b in block_indices:
         start, end = b * l, min((b + 1) * l, len(K))
@@ -72,7 +80,7 @@ def sliding_window(K: List[List[float]], V: List[List[float]],
 
 
 def gate(q: List[float], Wg: List[List[float]]) -> List[float]:
-    """البوابة MLP: 1 طبقة خطية + سيني، تنتج 3 أوزان فرعية."""
+    """Gate MLP: 1-layer linear + sigmoid, produces 3 branch weights."""
     logits = [dot(q, Wg[i]) for i in range(3)]
     return [1.0 / (1.0 + math.exp(-x)) for x in logits]
 
@@ -118,7 +126,8 @@ def nsa_step(q: List[float], K: List[List[float]], V: List[List[float]],
 
 def synthesize_sequence(n: int, d: int, signal_blocks: List[int], l: int,
                         rng: random.Random) -> tuple[List[List[float]], List[List[float]], List[float]]:
-    """أنشئ K وV حيث يحمل `signal_blocks` النمط والاستعلام المشتركين يتماشى مع هذا النمط. والباقي هو الضوضاء الغوسية."""
+    """Build K, V where `signal_blocks` carry a shared pattern and the query
+    is aligned to that pattern. The rest is Gaussian noise."""
     pattern = [rng.gauss(0, 1) for _ in range(d)]
     norm = math.sqrt(sum(x * x for x in pattern))
     pattern = [x / norm for x in pattern]

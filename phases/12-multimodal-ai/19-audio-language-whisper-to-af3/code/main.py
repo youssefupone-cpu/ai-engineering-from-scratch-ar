@@ -1,6 +1,8 @@
-"""ألعاب الصوت-LLM: مخطط الطيف log-Mel + الصوت Q-former + المتتالي مقابل النهاية إلى النهاية. ستدليب. يحسب مواصفات log-Mel المستندة إلى DFT الساذجة من شكل موجة اصطناعية،
-يقوم بتشغيل لعبة Q-former على الإطارات الناتجة، ويقارن تغطية المهام
-بين الخطوط المتتالية ونهاية إلى نهاية pipelines.
+"""Audio-LLM toys: log-Mel spectrogram + audio Q-former + cascaded vs end-to-end.
+
+Stdlib. Computes a naive DFT-based log-Mel spec from a synthetic waveform,
+runs a toy Q-former over the resulting frames, and compares task coverage
+between cascaded and end-to-end pipelines.
 """
 
 from __future__ import annotations
@@ -32,7 +34,7 @@ def window_frames(x: list[float], sr: int, win_ms: int = 25, hop_ms: int = 10) -
 
 
 def naive_dft_mag(frame: list[float], n_bins: int = 64) -> list[float]:
-    """حساب طيف الحجم عند ترددات n_bins باستخدام DFT السذاجة."""
+    """Compute magnitude spectrum at n_bins frequencies using naive DFT."""
     n = len(frame)
     out = []
     for k in range(n_bins):
@@ -47,7 +49,7 @@ def naive_dft_mag(frame: list[float], n_bins: int = 64) -> list[float]:
 
 
 def mel_filterbank(n_bins: int = 64, n_mels: int = 20) -> list[list[float]]:
-    """بنك مرشح Mel الثلاثي (التواء خطي مبسط كبديل)."""
+    """Triangular Mel filter bank (simplified, linear warp as proxy)."""
     fbank = []
     band = n_bins // n_mels
     for m in range(n_mels):
@@ -94,7 +96,7 @@ class QFormer:
                         for _ in range(self.n_queries)]
 
     def forward(self, frames: list[list[float]]) -> list[list[float]]:
-        """الاهتمام المتبادل الساذج: يحضر كل استعلام جميع الإطارات."""
+        """Naive cross-attention: each query attends over all frames."""
         out = []
         for q in self.queries:
             scores = [sum(qi * fi for qi, fi in zip(q, f)) for f in frames]

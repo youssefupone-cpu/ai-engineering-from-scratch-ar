@@ -21,13 +21,13 @@
   <text x="30" y="138" class="content"> → RVQ (4-32 كتاب رموز)</text>
   <text x="30" y="156" class="content"> → وحدة فك التشفير → wav</text>
   <text x="30" y="178" class="caption">75 هرتز · 24 كيلو هرتز · يستخدم بواسطة MusicGen</text>
-  <text x="30" y="196" class="caption">PESQ 3.2 بسرعة 6 كيلوبت في الثانية</text>
+  <text x="30" y="196" class="caption">PESQ 3.2 @ 6 كيلو بايت في الثانية</text>
 
   <rect x="235" y="55" width="200" height="150" class="box"/>
   <text x="335" y="78" text-anchor="middle" class="label">DAC (الوصف، 2023)</text>
   <text x="335" y="96" text-anchor="middle" class="tag">ملك إعادة الإعمار</text>
   <text x="245" y="120" class="content">ترميز +</text>
-  <text x="245" y="138" class="content"> L2- كتب الشفرات القياسية</text>
+  <text x="245" y="138" class="content"> L2-دفاتر الرموز القياسية</text>
   <text x="245" y="156" class="content"> التنشيط الدوري</text>
   <text x="245" y="174" class="content"> تحسين الخسائر</text>
   <text x="245" y="196" class="caption">نطاق كامل 44.1 كيلو هرتز · PESQ 3.5 @ 6 كيلوبت في الثانية</text>
@@ -48,12 +48,12 @@
   <text x="675" y="138" class="content">            (semantic)</text>
   <text x="675" y="156" class="content">كتب الشفرات 1-7 - الصوتية</text>
   <text x="675" y="178" class="caption">12.5 هرتز · 4.4 كيلو بايت في الثانية · قوى موشي</text>
-  <text x="675" y="196" class="caption">يستخدم بواسطة سمسم CSM</text>
+  <text x="675" y="196" class="caption">يستخدمه سمسم CSM</text>
 
   <rect x="20" y="225" width="845" height="100" class="box"/>
   <text x="440" y="247" text-anchor="middle" class="label">لماذا هذا مهم لنمذجة اللغة على الصوت</text>
   <text x="50" y="274" class="content">خطاب 10 ثوانٍ × 12.5 هرتز × 8 كتب تشفير = 1000 رمز → سياق محول تافه</text>
-  <text x="50" y="294" class="content">التحليل: LM يتنبأ بكتاب الرموز الدلالي 0 أولاً (محاذاة النص)، ثم كتب الرموز الصوتية 1-7</text>
+  <text x="50" y="294" class="content">التحليل: LM يتنبأ بكتاب الشفرات الدلالي 0 أولاً (محاذاة النص)، ثم كتب الشفرات الصوتية 1-7</text>
   <text x="50" y="314" class="content">النتيجة: استنساخ صوت بدون طلقة (دلالي = محتوى، صوتي مشروط بالمرجع)</text>
 
   <rect x="20" y="335" width="845" height="115" class="hot"/>

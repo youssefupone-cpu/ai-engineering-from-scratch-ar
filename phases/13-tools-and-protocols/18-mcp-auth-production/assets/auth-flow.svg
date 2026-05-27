@@ -20,11 +20,11 @@
     </style>
   </defs>
 
-  <text x="480" y="28" text-anchor="middle" class="title">MCP المصادقة في الإنتاج على العناصر الأولية الثالثة - DCR + JWKS التناوب + تثبيت الجمهور</text>
+  <text x="480" y="28" text-anchor="middle" class="title">MCP مصادقة في الإنتاج على الأوليات الثالثة - DCR + JWKS دوران + تثبيت الجمهور</text>
   <text x="480" y="48" text-anchor="middle" class="caption">RFC 8414 بيانات وصفية · RFC 7591 DCR · RFC 7636 PKCE · RFC 8707 مورد · RFC 9728 مورد محمي · MCP 2025-11-25</text>
 
   <rect x="30" y="80" width="180" height="500" class="cool"/>
-  <text x="120" y="102" text-anchor="middle" class="head">MCP العميل</text>
+  <text x="120" y="102" text-anchor="middle" class="head">MCP عميل</text>
   <text x="46" y="124" class="content">المؤشر / كلود سطح المكتب</text>
   <text x="46" y="150" class="label">holds</text>
   <text x="46" y="168" class="small">- معرف العميل (من DCR)</text>
@@ -39,8 +39,8 @@
   <text x="406" y="168" class="small">- /.معروف/</text>
   <text x="406" y="184" class="small">  oauth-authorization-server</text>
   <text x="406" y="200" class="small">  (RFC 8414)</text>
-  <text x="406" y="216" class="small">- / التسجيل (RFC 7591)</text>
-  <text x="406" y="232" class="small">- /الرمز المميز + PKCE الاختيار</text>
+  <text x="406" y="216" class="small">- /تسجيل (RFC 7591)</text>
+  <text x="406" y="232" class="small">- /رمز + PKCE شيك</text>
   <text x="406" y="248" class="small">- دبوس أود عبر الموارد</text>
   <text x="406" y="264" class="small">  (RFC 8707)</text>
   <text x="406" y="280" class="small">- /.well-known/jwks.json</text>
@@ -82,7 +82,7 @@
 
   <path d="M210,160 L390,160" class="edge" marker-end="url(#arrow)"/>
   <text x="300" y="152" text-anchor="middle" class="small">GET /.well-known/oauth-authorization-server</text>
-  <text x="300" y="174" text-anchor="middle" class="caption">(1) RFC 8414 اكتشاف</text>
+  <text x="300" y="174" text-anchor="middle" class="caption">(١) RFC ٨٤١٤ اكتشاف</text>
 
   <path d="M390,200 L210,200" class="edge" marker-end="url(#arrow)"/>
   <text x="300" y="194" text-anchor="middle" class="small">{تسجيل_نقطة النهاية، jwks_uri،...}</text>

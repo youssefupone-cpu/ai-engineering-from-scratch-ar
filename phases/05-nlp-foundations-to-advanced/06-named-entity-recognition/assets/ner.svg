@@ -12,10 +12,10 @@
 
   <rect class="box" x="20" y="30" width="860" height="120" rx="4"/>
   <text class="label" x="35" y="55">BIO وضع العلامات</text>
-  <text class="note" x="35" y="75">قم بتسمية كل رمز بـ B-TYPE (البدء)، أو I-TYPE (من الداخل)، أو O (خارج)</text>
+  <text class="note" x="35" y="75">قم بتسمية كل رمز بـ B-TYPE (البدء)، I-TYPE (من الداخل)، أو O (من الخارج)</text>
 
   <text class="content" x="40" y="110">الرمز المميز: رفعت شركة Apple دعوى قضائية ضد Google بسبب صفقة بحث iPhone الخاصة بها في US.</text>
-  <text class="content" x="40" y="135">التسمية: B-ORG O B-ORG O O B-PROD O O O O B-GPE O</text>
+  <text class="content" x="40" y="135">التسمية: ب-ORG O ب-ORG O O B-PROD O O O O B-GPE O</text>
 
   <rect class="box" x="20" y="180" width="200" height="160" rx="4"/>
   <text class="label" x="120" y="205" text-anchor="middle">rule-based</text>
@@ -37,13 +37,13 @@
   <text class="label" x="560" y="205" text-anchor="middle">BiLSTM-CRF</text>
   <text class="content" x="475" y="235">الميزات المستفادة</text>
   <text class="content" x="475" y="255">تضمين → بيلستم</text>
-  <text class="content" x="475" y="275">  → CRF الرأس</text>
+  <text class="content" x="475" y="275">  → CRF رأس</text>
   <text class="note" x="475" y="305">لا مزيد من اليد</text>
   <text class="note" x="475" y="325">engineering</text>
 
   <rect class="hot" x="680" y="180" width="200" height="160" rx="4"/>
   <text class="label" x="780" y="205" text-anchor="middle">محول NER</text>
-  <text class="content" x="695" y="235">ضبط دقيق BERT</text>
+  <text class="content" x="695" y="235">صقل BERT</text>
   <text class="content" x="695" y="255">رأس فئة الرمز المميز</text>
   <text class="content" x="695" y="275">مساحات مجمعة</text>
   <text class="note" x="695" y="305">أفضل دقة</text>

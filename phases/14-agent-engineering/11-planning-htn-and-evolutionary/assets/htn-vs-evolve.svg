@@ -24,7 +24,7 @@
   <rect x="60" y="108" width="400" height="40" class="box"/>
   <text x="78" y="130" class="step">1. تنطبق الطريقة؟ توسيع المهام الفرعية (يبدو أنه سليم)</text>
   <rect x="60" y="156" width="400" height="40" class="box"/>
-  <text x="78" y="178" class="step">2. لا توجد طريقة؟ اطلب LLM للتحليل</text>
+  <text x="78" y="178" class="step">2. لا توجد طريقة؟ اطلب LLM للتحلل</text>
   <rect x="60" y="204" width="400" height="40" class="box"/>
   <text x="78" y="226" class="step">3. التحقق من صحة مخطط المشغل؛ ذاكرة التخزين المؤقت على النجاح</text>
 
@@ -32,7 +32,7 @@
   <text x="710" y="72" text-anchor="middle" class="head">AlphaEvolve البحث عن الكود التطوري</text>
   <text x="520" y="96" class="small">برنامج البذور + مقيم الحتمية</text>
   <rect x="520" y="108" width="380" height="40" class="box"/>
-  <text x="538" y="130" class="step">1. مجموعة LLMs تقترح حدوث طفرات</text>
+  <text x="538" y="130" class="step">1. مجموعة LLMs تقترح الطفرات</text>
   <rect x="520" y="156" width="380" height="40" class="box"/>
   <text x="538" y="178" class="step">2. يقوم المقيم بتسجيل درجات كل برنامج طفل</text>
   <rect x="520" y="204" width="380" height="40" class="box"/>
@@ -42,8 +42,8 @@
   <text x="480" y="312" text-anchor="middle" class="head">متى تستخدم الذي</text>
 
   <rect x="60" y="330" width="840" height="40" class="box"/>
-  <text x="78" y="352" class="step">الجدولة، والامتثال، والأتمتة المرتبطة بالسياسة HTN (ChatHTN)</text>
-  <text x="78" y="368" class="small">سلامة يمكن إثباتها؛ LLM يقوم فقط بتوسيع مكتبة الطريقة</text>
+  <text x="78" y="352" class="step">الجدولة والامتثال والأتمتة المرتبطة بالسياسة HTN (ChatHTN)</text>
+  <text x="78" y="368" class="small">سلامة يمكن إثباتها؛ LLM يوسع مكتبة الطريقة فقط</text>
 
   <rect x="60" y="380" width="840" height="40" class="box"/>
   <text x="78" y="402" class="step">حبات المصفوفة المتعددة، تمريرات المترجم، الاستدلال على الجدولة AlphaEvolve</text>
@@ -54,7 +54,7 @@
   <text x="78" y="468" class="small">لا يوجد مخطط للمشغل، ولا يمكن فحص اللياقة البدنية بواسطة الآلة؛ الوصول إلى الدروس 01-02</text>
 
   <rect x="60" y="480" width="840" height="26" class="box"/>
-  <text x="78" y="498" class="step">مختلط: HTN في المستوى الأعلى، AlphaEvolve في كل عامل بدائي كل حالة على حدة</text>
+  <text x="78" y="498" class="step">هجين: HTN في المستوى الأعلى، Alpha يتطور في كل مشغل بدائي على حدة</text>
 
   <text x="480" y="540" text-anchor="middle" class="caption">LLMs تضخيم؛ فهم لا يملكون الصواب. الطبقة الرمزية والمقيم يملكان الضمانات الصعبة.</text>
 </svg>

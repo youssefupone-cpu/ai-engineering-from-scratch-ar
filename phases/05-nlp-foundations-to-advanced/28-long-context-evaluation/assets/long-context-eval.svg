@@ -19,7 +19,7 @@
   <text x="450" y="28" text-anchor="middle" class="title">شبكة إبرة في كومة قش — العمق × معدل النجاح بالطول</text>
 
   <!-- Grid -->
-  <text x="200" y="70" text-anchor="middle" class="label">NIAH الخريطة الحرارية لمعدل النجاح</text>
+  <text x="200" y="70" text-anchor="middle" class="label">NIAH خريطة الحرارة لمعدل النجاح</text>
 
   <!-- Column headers -->
   <text x="120" y="100" class="mono">4k</text>
@@ -89,7 +89,7 @@
   <text x="465" y="200" class="content"><tspan font-weight="700">لونج بنش v2</tspan> — 503 multiple-choice Qs,</text>
   <text x="465" y="218" class="content">سياق 8k–2M، ست فئات من العالم الحقيقي.</text>
 
-  <text x="465" y="252" class="content"><tspan font-weight="700">MRCR 8-إبرة</tspan> — Gemini 3 Pro advertises</text>
+  <text x="465" y="252" class="content"><tspan font-weight="700">MRCR 8- إبرة</tspan> — Gemini 3 Pro advertises</text>
   <text x="465" y="270" class="content">10 م؛ يسجل 77% عند 128 ألفًا، و26.3% عند مليون واحد.</text>
 
   <text x="465" y="304" class="content"><tspan font-weight="700">نوليما / بابيلونج</tspan> — non-lexical needle</text>

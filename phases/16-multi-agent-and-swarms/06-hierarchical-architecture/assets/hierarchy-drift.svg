@@ -36,7 +36,7 @@
   <line x1="135" y1="204" x2="135" y2="240" class="edge" marker-end="url(#arrow)"/>
   <line x1="305" y1="204" x2="305" y2="240" class="edge" marker-end="url(#arrow)"/>
   <rect x="70" y="240" width="130" height="40" class="cold"/>
-  <text x="135" y="265" text-anchor="middle" class="small">رد الفعل + API القضايا</text>
+  <text x="135" y="265" text-anchor="middle" class="small">رد فعل + API القضايا</text>
   <rect x="240" y="240" width="130" height="40" class="cold"/>
   <text x="305" y="265" text-anchor="middle" class="small">عدم الامتثال القانوني</text>
   <line x1="135" y1="280" x2="180" y2="340" class="edge"/>
@@ -61,7 +61,7 @@
   <line x1="595" y1="204" x2="595" y2="240" class="edge" marker-end="url(#arrow)"/>
   <line x1="765" y1="204" x2="765" y2="240" class="bad-edge" marker-end="url(#arrow)"/>
   <rect x="530" y="240" width="130" height="40" class="cold"/>
-  <text x="595" y="265" text-anchor="middle" class="small">رد الفعل + API القضايا</text>
+  <text x="595" y="265" text-anchor="middle" class="small">رد فعل + API القضايا</text>
   <rect x="700" y="240" width="130" height="40" class="bad"/>
   <text x="765" y="265" text-anchor="middle" class="small">42 ألف دولار شهريًا فوق الميزانية</text>
   <line x1="595" y1="280" x2="640" y2="340" class="edge"/>

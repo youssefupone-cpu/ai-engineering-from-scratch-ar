@@ -63,7 +63,7 @@ class OpenVocabSeg(ABC):
 
 
 class StubOpenVocabSeg(OpenVocabSeg):
-    """الاستعداد القابل للاختبار لخط الأنابيب لمدة SAM 3 / المؤرض SAM 2."""
+    """Pipeline-testable stand-in for SAM 3 / Grounded SAM 2."""
 
     def detect(self, image, concept):
         h, w = image.shape[:2]

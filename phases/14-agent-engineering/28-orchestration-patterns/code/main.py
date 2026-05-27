@@ -1,5 +1,7 @@
-"""أربعة أنماط للتنسيق: المشرف، السرب، التسلسل الهرمي، النقاش. تم التعامل مع نفس المهمة ذات الأغراض الثلاثة (استرداد الأموال/الخطأ/المبيعات) بأربع طرق. قياس
-عدد العمليات لكل نمط لرؤية مقايضات التكلفة.
+"""Four orchestration patterns: supervisor, swarm, hierarchical, debate.
+
+Same three-intent task (refund / bug / sales) handled four ways. Measure
+op count per pattern to see cost trade-offs.
 """
 
 from __future__ import annotations

@@ -1,5 +1,7 @@
-"""BERT نمذجة اللغة المقنعة - تم إزالة الغموض عن قواعد الإخفاء. ستدلب خالص. إظهار قاعدة 80/10/10 وإخفاء الكلمة بالكامل و
-التحقق من سلامة التوزيع على مجموعة كبيرة من الرموز المميزة.
+"""BERT-style masked language modeling — the masking rules demystified.
+
+Pure stdlib. Shows the 80/10/10 rule, whole-word masking, and
+distribution sanity checks over a large batch of tokens.
 """
 
 import random
@@ -14,7 +16,10 @@ IGNORE_INDEX = -100
 
 
 def create_mlm_batch(tokens, vocab_size, mask_prob=0.15, rng=None):
-    """تطبيق BERT اخفاء. إرجاع (input_ids، التسميات). التسميات[i] = الرمز الأصلي إذا كان الموضع تم تحديده للتنبؤ، IGNORE_INDEX بخلاف ذلك.
+    """Apply BERT masking.
+
+    Returns (input_ids, labels). labels[i] = original token if position was
+    selected for prediction, IGNORE_INDEX otherwise.
     """
     if rng is None:
         rng = random.Random()
@@ -38,7 +43,9 @@ def create_mlm_batch(tokens, vocab_size, mask_prob=0.15, rng=None):
 
 
 def whole_word_mlm(tokens, word_spans, vocab_size, mask_prob=0.15, rng=None):
-    """إخفاء الكلمات بأكملها: إذا تم تحديد أي كلمة فرعية في النطاق، قم بإخفاء الكل. word_spans: قائمة بالنطاقات نصف المفتوحة (البداية والنهاية) في الرموز المميزة.
+    """Mask whole words: if any subword in a span is selected, mask all.
+
+    word_spans: list of (start, end) half-open ranges into tokens.
     """
     if rng is None:
         rng = random.Random()
@@ -88,7 +95,8 @@ def distribution_check(n_tokens, vocab_size, mask_prob=0.15, seed=42):
 
 
 def toy_predict(masked_inputs, vocab):
-    """التظاهر بـ MLM head: يُرجع توزيعًا موحدًا على المفردات. يستخدم BERT الحقيقي مخرجات برنامج التشفير في كل موضع، ويتم إسقاطها على المفردات.
+    """Pretend MLM head: returns a uniform distribution over vocab.
+    Real BERT uses the encoder output at each position, projected to vocab.
     """
     V = len(vocab)
     return [[1.0 / V for _ in range(V)] for _ in masked_inputs]
@@ -124,7 +132,7 @@ def main():
 
     print()
     print("=== whole-word masking demo ===")
-    # تعامل مع "Quick Brown" و"Lazy Dog" على أنهما كلمتان فرعيتان للعرض التوضيحي
+    # Treat "quick brown" and "lazy dog" as two-subword words for demo
     tokens2 = [id_of[w] for w in sentence]
     spans = [(0, 1), (1, 2), (2, 4), (4, 5), (5, 6), (6, 7), (7, 8), (8, 10), (10, 11)]
     rng2 = random.Random(7)

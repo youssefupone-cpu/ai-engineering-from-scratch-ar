@@ -1,7 +1,11 @@
-"""CrewAI على شكل طاقم وتدفق أولي في stdlib. طاقم مكون من ثلاثة وكلاء (باحث، كاتب، محرر) ينتج ملخصًا عن
-"وكيل الهندسة 2026". يتم تشغيل نفس الطاقم بشكل تسلسلي، وهرمي، و
-من خلال التدفق لإظهار أشكال التنفيذ الثلاثة. Stdlib + numpy. الاستجابات الوهمية LLM هي سلاسل حتمية مشفرة
-دور الوكيل مغلق وبادئة الإدخال.
+"""CrewAI-shaped Crew and Flow primitives in stdlib.
+
+Three-agent crew (researcher, writer, editor) producing a brief on
+"agent engineering 2026". Same crew is run Sequential, Hierarchical, and
+through a Flow to show all three execution shapes.
+
+Stdlib + numpy. Mock LLM responses are deterministic hardcoded strings
+keyed off agent role and input prefix.
 """
 
 from __future__ import annotations
@@ -14,7 +18,8 @@ import numpy as np
 
 
 def tool(name: str) -> Callable[[Callable[..., str]], Callable[..., str]]:
-    """مرآة أداة الديكور الخاصة بـ CrewAI. يضع علامة على وظيفة كأداة يمكن للوكيل الاتصال. Docstring هو الوصف؛ التوقيع هو المخطط."""
+    """Mirror of CrewAI's @tool decorator. Marks a function as a tool the
+    Agent can call. Docstring is the description; signature is the schema."""
 
     def decorator(fn: Callable[..., str]) -> Callable[..., str]:
         fn.tool_name = name  # type: ignore[attr-defined]
@@ -26,7 +31,7 @@ def tool(name: str) -> Callable[[Callable[..., str]], Callable[..., str]]:
 
 @tool("Search the web")
 def search(query: str) -> str:
-    """إرجاع أهم النتائج للاستعلام."""
+    """Return top results for the query."""
     fixtures = {
         "agent engineering": "src1: agent loop, src2: tool use, src3: memory",
         "crewai": "src1: docs intro, src2: flows guide, src3: tools ref",
@@ -66,8 +71,8 @@ class SequentialCrew:
         by_task: dict[int, str] = {}
         for task in self.tasks:
             if task.context:
-                # سلوك CrewAI: مخرجات التغذية لكل مهمة معلنة في المنبع
-                # في الوضع الحالي. يعود إلى ما قبله عندما لم يتم الإعلان عن أي شيء.
+                # CrewAI behavior: feed outputs of every declared upstream task
+                # into the current one. Falls back to prior when none declared.
                 joined = "\n\n".join(
                     by_task[id(t)] for t in task.context if id(t) in by_task
                 )
@@ -114,7 +119,8 @@ class HierarchicalCrew:
 
 
 class Flow:
-    """سير العمل الحتمي القائم على الحدث. @بدء الحرائق عند انطلاق المباراة؛ يتم تشغيل @listen(topic) عندما تقوم خطوة أخرى بإصدار هذا الموضوع.
+    """Deterministic event-driven workflow. @start fires on kickoff;
+    @listen(topic) fires when another step emits that topic.
     """
 
     def __init__(self) -> None:
@@ -150,7 +156,8 @@ class Flow:
 
 
 class Memory:
-    """ذاكرة من أربعة مخازن تتطابق مع كيان CrewAI القصير والطويل والسياقي. يستخدم الاسترجاع على المدى الطويل تشابه جيب التمام numpy على ناقلات الرمز المميز المجزأة.
+    """Four-store memory matching CrewAI's short, long, entity, contextual.
+    Long-term retrieval uses numpy cosine similarity on hashed token vectors.
     """
 
     def __init__(self, dim: int = 16) -> None:
@@ -192,7 +199,7 @@ class Memory:
 
 def _researcher(prior: Any, tools: list[Callable[..., str]], memory: Memory | None) -> str:
     topic = prior if isinstance(prior, str) else ""
-    # قم بتشغيل أي أداة بحث تم توصيل الوكيل بها بالترتيب.
+    # Run whichever search-ish tool the agent was wired with, in order.
     search_fn = next(
         (t for t in tools if getattr(t, "is_tool", False) and "search" in getattr(t, "tool_name", "").lower()),
         None,

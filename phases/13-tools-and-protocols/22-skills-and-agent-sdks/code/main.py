@@ -1,6 +1,12 @@
-"""المرحلة 13 الدرس 22 - SKILL.md العرض التوضيحي لحزمة الوكيل والمحمل. يوزع ملفات SKILL.md باستخدام محلل stdlib YAML-frontmatter (بدون pyyaml)،
-ينشئ سجل مهارات في الذاكرة، ويحاكي حلقة الوكيل التي يتم تحميلها
-مهارة بالاسم وتستخدمها لبادئة موجه النظام. المهارات موجودة ضمن./skills/*/SKILL.md (تم إنشاؤها في /tmp لهذا العرض التوضيحي). تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 22 - SKILL.md loader and agent bundle demo.
+
+Parses SKILL.md files with a stdlib YAML-frontmatter parser (no pyyaml),
+builds an in-memory skill registry, and simulates an agent loop that loads
+a skill by name and uses it to prefix the system prompt.
+
+Skills live under ./skills/*/SKILL.md (created in /tmp for this demo).
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -14,32 +20,50 @@ SKILL_ROOT = Path("/tmp/lesson-21-skills")
 
 
 # ------------------------------------------------------------------
-# مهارات تركيب الألعاب
+# toy fixture skills
 # ------------------------------------------------------------------
 
 RELEASE_NOTES_SKILL = """\
 ---
-الاسم: كاتب ملاحظات الإصدار
-الوصف: اكتب إدخال سجل التغيير لأحدث العلاقات العامة المدمجة باتباع نمط هذا المشروع.
---- # كاتب ملاحظات الإصدار عند الاستدعاء، قم بتنفيذ الخطوات التالية: 1. قم بإدراج العلاقات العامة المدمجة منذ العلامة الأخيرة.
-2. التجميع حسب التصنيف: الميزة، الإصلاح، العمل الرتيب، المستندات.
-3. لكل PR، اكتب سطرًا واحدًا: `- <title> (#<num>)`.
-4. قم بصياغة ملاحظات الإصدار وعرضها في CHANGELOG.md. إذا قال المستخدم "سفينة"، فقم بتشغيل `__TERM_0__ tag vX.Y.Z` و`gh release create`. راجع style-guide.md للتعرف على قواعد نمط المنزل.
+name: release-notes-writer
+description: Write a changelog entry for the latest merged PRs following this project's style.
+---
+
+# Release notes writer
+
+When invoked, run these steps:
+
+1. List PRs merged since the last tag.
+2. Group by label: feature, fix, chore, docs.
+3. For each PR, write one line: `- <title> (#<num>)`.
+4. Draft the release notes and stage them in CHANGELOG.md.
+
+If the user says "ship", run `git tag vX.Y.Z` and `gh release create`.
+
+See style-guide.md for the house style rules.
 """
 
 RELEASE_STYLE = """\
-# دليل أسهل نسخة للنسخة - سطر واحد لكل PR. لا النثر.
-- إدخالات الميزة أولاً؛ الإصلاحات الثانية؛ الأعمال المنزلية الثالثة؛ المستندات أخيرًا.
-- تخطي الأعمال المنزلية من سجل التغيير العام.
+# Release notes style guide
+
+- One line per PR. No prose.
+- Feature entries first; fixes second; chores third; docs last.
+- Skip chores from public changelog.
 """
 
 PR_REVIEW_SKILL = """\
 ---
-الاسم: مراجع العلاقات العامة
-الوصف: راجع الفرق PR مقابل دليل أسلوب المشروع وافتح التعليقات التوضيحية.
---- # PR مراجع الخطوات: 1. قم بإحضار الفرق PR.
-2. حدد القواعد من AGENTS.md التي يمسها الفرق.
-3. كتابة تعليق واحد لكل مخالفة واضحة.
+name: pr-reviewer
+description: Review a PR diff against the project's style guide and open clarifying comments.
+---
+
+# PR reviewer
+
+Steps:
+
+1. Fetch the PR diff.
+2. Identify rules from AGENTS.md that the diff touches.
+3. Write one comment per clear violation.
 """
 
 
@@ -116,16 +140,20 @@ def read_subresource(skill: Skill, filename: str) -> str:
 
 
 # ------------------------------------------------------------------
-# حلقة الوكيل التجريبي
+# demo agent loop
 # ------------------------------------------------------------------
 
 def agent_run(skill: Skill, user_task: str) -> str:
     print(f"  [loader] loading skill '{skill.name}'")
     print(f"  [loader] progressive disclosure: read style-guide only if needed")
-    system_prompt = f"""أنت مساعد وقد تم تحميل مهارة {skill.name}. تعليمات المهارة:
-{مهارة.الجسم} مهمة المستخدم: {user_task}
+    system_prompt = f"""You are an assistant with the {skill.name} skill loaded.
+
+Skill instructions:
+{skill.body}
+
+User task: {user_task}
 """
-    # إثبات الإفصاح التدريجي
+    # demonstrate progressive disclosure
     if "style-guide" in skill.body.lower():
         style = read_subresource(skill, "style-guide.md")
         print(f"  [loader] subresource pulled ({len(style)} bytes)")

@@ -1,7 +1,15 @@
-"""المرحلة 13 الدرس 07 - لعبة MCP الخادم عبر stdio، stdlib فقط. ينفذ التدفق الأساسي لمواصفات 2025-11-25: تهيئة، أدوات/قائمة، أدوات/استدعاء، موارد/قائمة، موارد/قراءة، المطالبات/القائمة، المطالبات/الحصول على، بالإضافة إلى الإخطارات/التهيئة. ليس خادم إنتاج - لا مصادقة، لا يمكن البث HTTP (المرحلة 13 الدرس 09)،
-لا اشتراكات. لكن سلوك السلك على شكل مواصفات؛ يستطيع أي عميل MCP ذلك
-المصافحة واستدعاء أدوات الملاحظات الثلاث. قم بتشغيل الأداة التجريبية المضمنة: python main.py --demo
-أو pipe JSON-RPC الأسطر: echo '{"jsonrpc": "2.0"، "id": 1، "method": "initialize"، "params": {}}' | بيثون main.py
+"""Phase 13 Lesson 07 - toy MCP server over stdio, stdlib only.
+
+Implements the 2025-11-25 spec's core flow:
+  initialize, tools/list, tools/call, resources/list, resources/read,
+  prompts/list, prompts/get, plus notifications/initialized.
+
+Not a production server - no auth, no Streamable HTTP (Phase 13 Lesson 09),
+no subscriptions. But the wire behavior is spec-shaped; any MCP client can
+handshake and call the three notes tools.
+
+Run the built-in demo harness:  python main.py --demo
+Or pipe JSON-RPC lines: echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' | python main.py
 """
 
 from __future__ import annotations
@@ -23,7 +31,7 @@ NOTES: dict[str, dict] = {
 }
 
 
-# ----- السجلات البدائية -----
+# ----- primitive registries -----
 
 TOOLS = [
     {
@@ -76,7 +84,7 @@ PROMPTS = [
 ]
 
 
-# ----- منفذي الأدوات -----
+# ----- tool executors -----
 
 def exec_notes_list(args: dict) -> list[dict]:
     tag = args.get("tag")
@@ -114,7 +122,7 @@ TOOL_EXECUTORS: dict[str, Callable[[dict], list[dict]]] = {
 }
 
 
-# ----- المعالجين -----
+# ----- handlers -----
 
 def handle_initialize(params: dict) -> dict:
     return {
@@ -195,7 +203,7 @@ HANDLERS: dict[str, Callable[[dict], dict]] = {
 }
 
 
-# ----- حلقة الإرسال -----
+# ----- dispatch loop -----
 
 def dispatch(msg: dict) -> dict | None:
     method = msg.get("method")

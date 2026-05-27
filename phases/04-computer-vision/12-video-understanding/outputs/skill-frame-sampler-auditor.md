@@ -7,30 +7,44 @@ lesson: 12
 tags: [computer-vision, video, sampling, debugging]
 ---
 
-# مدقق عينات الإطار
-أخذ عينات الإطار هو المكان الذي تنقطع فيه خطوط الفيديو pipe. تنتشر الأخطاء هنا في كل مقياس نهائي.
-##متى يستخدم
+# Frame Sampler Auditor
+
+أخذ عينات الإطار هو المكان الذي تنقطع فيه خطوط الفيديو pip. تنتشر الأخطاء هنا في كل مقياس نهائي.
+
+## When to use
+
 - كتابة محمل بيانات فيديو جديد.
 - إعادة إنتاج الأرقام من ورقة ودقة التدريب أقل من المبلغ عنها.
 - تصحيح أخطاء نموذج فيديو تكون دقة تقييمه غير مستقرة عبر عمليات التشغيل.
-## المدخلات
+
+## Inputs
+
 - `sampler_code`: دالة بايثون تأخذ (num_frames_total, T) وترجع مؤشرات T.
 - `T`: طول المقطع المستهدف.
 - حالات اختبار اختيارية: `num_frames_total` القيم المراد تمرينها (على سبيل المثال `[3, T-1, T, T+1, 30, 300, 3000]`).
-## الشيكات
-### 1. التعامل مع المقاطع القصيرة
-تغذية `num_frames_total < T`. يجب أن يكون كل فهرس تم إرجاعه في `[0, num_frames_total - 1]`. تتمثل سياسة الحشو القياسية في تكرار الإطار الأخير للمواضع المتبقية.
-### 2. مؤشرات الحدود
-تغذية `num_frames_total == T`. يجب أن تكون المؤشرات التي تم إرجاعها `[0, 1, ..., T-1]` بالضبط.
-### 3. التوزيع الموحد
-تغذية `num_frames_total == 10 * T`. يجب أن تكون المؤشرات التي تم إرجاعها متزايدة بشكل رتيب ومتباعدة بشكل متساوٍ تقريبًا.
-### 4. حدود النوافذ الكثيفة
-للحصول على عينات كثيفة، قم بتغذية `num_frames_total == 3 * T`. يجب أن تشكل المؤشرات التي تم إرجاعها نافذة متجاورة، ولا تتقاطع مع نهاية المقطع أبدًا.
-### 5. الحتمية
-اتصل بأداة أخذ العينات مرتين بنفس المدخلات و(بالنسبة لأجهزة أخذ العينات الحتمية) نفس RNG. يجب أن تتطابق المؤشرات.
-### 6. اتساق المحاصيل
-إذا قام الخط pipe أيضًا بإرجاع اقتصاص مكاني لكل إطار، فقم بتشغيل أداة أخذ العينات مرتين لنفس المقطع بنفس المصدر وتأكد من أن كل إطار يستخدم نفس مربع الاقتصاص (نفس `(x, y, w, h)`). تؤدي عمليات الاقتصاص المختلفة لكل إطار داخل مقطع واحد إلى تدمير التماسك الزمني وهي خطأ صامت كلاسيكي. الاختلاف المقبول: يتم تطبيق التكبير *لكل مقطع*، بشكل متسق داخل المقطع.
-## تقرير
+
+## Checks
+
+### 1. Short clip handling
+Feed `num_frames_total < T`. Every returned index must be in `[0, num_frames_total - 1]`. The standard padding policy is to repeat the last frame for the remaining positions.
+
+### 2. Boundary indices
+Feed `num_frames_total == T`. Returned indices should be `[0, 1, ..., T-1]` exactly.
+
+### 3. Uniform distribution
+Feed `num_frames_total == 10 * T`. Returned indices should be monotonically increasing and roughly evenly spaced.
+
+### 4. Dense window bounds
+For dense sampling, feed `num_frames_total == 3 * T`. Returned indices should form a contiguous window, never crossing the end of the clip.
+
+### 5. Determinism
+Call the sampler twice with the same inputs and (for deterministic samplers) the same RNG. Indices should match.
+
+### 6. Crop consistency
+If the pipeline also returns a spatial crop per frame, run the sampler twice for the same clip with the same seed and confirm every frame uses the same crop box (same `(x, y, w, h)`). Different crops per frame inside one clip destroys temporal coherence and is a classic silent bug. Acceptable variation: augmentation applied *per clip*, consistent within a clip.
+
+## Report
+
 ```
 [sampler audit]
   name: <function name>
@@ -58,8 +72,9 @@ tags: [computer-vision, video, sampling, debugging]
   ok | fix required
 ```
 
-## قواعد
+## Rules
+
 - لا تضع أبدًا علامة "موافق" على جهاز أخذ العينات إذا كانت معالجة المقطع القصير تؤدي إلى إرجاع مؤشرات خارج النطاق.
 - يجب ألا تقوم أجهزة أخذ العينات الكثيفة أبدًا بإرجاع نافذة تتقاطع مع `num_frames_total - 1`.
-- إذا كانت العينة عشوائية (كثيفة)، فاختبر الحتمية فقط باستخدام المصنف الصريح RNG.
+- إذا كانت العينة عشوائية (كثيفة)، فاختبر الحتمية فقط باستخدام بذرة صريحة RNG.
 - اقترح، ولكن لا تقم بإصلاح السياسات الأساسية بصمت: لوحة مع الإطار الأخير، نافذة مثبتة حتى النهاية، فواصل زمنية نصف مفتوحة مستديرة.

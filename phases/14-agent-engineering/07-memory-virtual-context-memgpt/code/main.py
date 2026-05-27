@@ -1,7 +1,9 @@
-"""ذاكرة من مستويين على شكل MemGPT في stdlib. السياق الرئيسي هو مخزن مؤقت للمطالبة ذو حجم ثابت (قائمة الرسائل + الإملاء الأساسي).
-الذاكرة الأرشيفية عبارة عن مخزن خارجي يمكن البحث فيه. بيانات صفحة الوكلاء داخل وخارج
-عبر أدوات الذاكرة. لا يوجد استدعاء LLM - يقوم الوكيل النصي بتوجيه السيناريو لذلك
-تدفق التحكم قابل للاختبار دون الاتصال بالإنترنت.
+"""MemGPT-shaped two-tier memory in stdlib.
+
+Main context is a fixed-size prompt buffer (core dict + messages list).
+Archival memory is an external searchable store. Agents page data in and out
+via memory tools. No LLM call — a scripted agent drives the scenario so the
+control flow is testable offline.
 """
 
 from __future__ import annotations

@@ -16,7 +16,7 @@
       .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
     </style>
   </defs>
-  <text x="450" y="28" text-anchor="middle" class="title">السرب - الإجراءات الروتينية + عمليات التسليم (OpenAI، 2024؛ الوكلاء SDK 2025)</text>
+  <text x="450" y="28" text-anchor="middle" class="title">السرب - الإجراءات + عمليات التسليم (OpenAI، 2024؛ الوكلاء SDK 2025)</text>
 
   <rect x="320" y="60" width="260" height="100" class="hot"/>
   <text x="450" y="82" text-anchor="middle" class="head">وكيل الفرز</text>
@@ -54,7 +54,7 @@
   <text x="250" y="404" text-anchor="middle" class="small">handoff = الأداة التي تقوم بإرجاع الوكيل</text>
   <text x="250" y="424" text-anchor="middle" class="small">يكتشف وقت التشغيل إرجاع قيمة الوكيل</text>
   <text x="250" y="444" text-anchor="middle" class="small">يقوم بتبديل العامل النشط للدورة التالية</text>
-  <text x="250" y="470" text-anchor="middle" class="caption">لا توجد آلة حالة، لا يوجد DSL، فقط استدعاءات للأداة</text>
+  <text x="250" y="470" text-anchor="middle" class="caption">لا توجد آلة حالة، لا DSL، مجرد استدعاءات للأداة</text>
 
   <rect x="460" y="340" width="380" height="150" class="box"/>
   <text x="650" y="362" text-anchor="middle" class="head">مقايضة عديمي الجنسية</text>

@@ -6,11 +6,11 @@ from collections import Counter
 try:
     import regex
     GPT2_PATTERN = regex.compile(
-        r"""'(?:[sdmt]|ll|ve|re)|?\ص{L}+|?\p{N}+|?[^\s\p{L}\p{N}]+|\s+(؟!\S)|\s+"""
+        r"""'(?:[sdmt]|ll|ve|re)| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+"""
     )
 except ImportError:
     GPT2_PATTERN = re.compile(
-        r"""'(?:[sdmt]|ll|ve|re)|?[a-zA-Z]+|?[0-9]+|?[^\s\w]+|\s+(؟!\S)|\s+"""
+        r"""'(?:[sdmt]|ll|ve|re)| ?[a-zA-Z]+| ?[0-9]+| ?[^\s\w]+|\s+(?!\S)|\s+"""
     )
 
 

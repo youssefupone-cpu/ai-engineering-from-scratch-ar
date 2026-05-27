@@ -23,7 +23,7 @@
   <text x="480" y="72" text-anchor="middle" class="head">الفهرسة: PDF -&gt; صور الصفحة -&gt; تضمينات التصحيح (نسخة مخبأة)</text>
 
   <rect x="50" y="90" width="200" height="170" class="hot"/>
-  <text x="150" y="112" text-anchor="middle" class="step">PDF الصفحات</text>
+  <text x="150" y="112" text-anchor="middle" class="step">PDF صفحة</text>
   <text x="150" y="130" text-anchor="middle" class="small">الأرقام والجداول،</text>
   <text x="150" y="146" text-anchor="middle" class="small">التخطيط، الخطوط</text>
   <text x="150" y="162" text-anchor="middle" class="small">كل شيء محفوظ</text>
@@ -46,9 +46,9 @@
 
   <rect x="570" y="90" width="340" height="170" class="cold"/>
   <text x="740" y="112" text-anchor="middle" class="step">فهرس المتجهات (جميع الصفحات)</text>
-  <text x="740" y="130" text-anchor="middle" class="small">تقرير مكون من 50 صفحة -&gt; ~2 MB PQ</text>
+  <text x="740" y="130" text-anchor="middle" class="small">تقرير من 50 صفحة -&gt; ~2 MB PQ</text>
   <text x="740" y="146" text-anchor="middle" class="small">مليون صفحة -&gt; ~45 GB PQ</text>
-  <text x="740" y="162" text-anchor="middle" class="small">يبقى على node واحد</text>
+  <text x="740" y="162" text-anchor="middle" class="small">يبقى على واحد node</text>
   <text x="740" y="182" text-anchor="middle" class="step">جاهز للاستعلام MaxSim</text>
   <text x="740" y="202" text-anchor="middle" class="small">جدول واحد، متعدد المتجهات</text>
   <text x="740" y="218" text-anchor="middle" class="small">لكل صفحة مجمعة</text>
@@ -80,7 +80,7 @@
   <path d="M 625 420 L 665 420" stroke="#1a1a1a" stroke-width="1.5" marker-end="url(#arrow)"/>
 
   <rect x="670" y="340" width="240" height="160" class="cool"/>
-  <text x="790" y="362" text-anchor="middle" class="step">صفحات Top-K + VLM الإجابة</text>
+  <text x="790" y="362" text-anchor="middle" class="step">صفحات توب-ك + VLM الإجابة</text>
   <text x="790" y="382" text-anchor="middle" class="small">إرسال أعلى 3 صور للصفحة</text>
   <text x="790" y="398" text-anchor="middle" class="small">+ الاستعلام الأصلي</text>
   <text x="790" y="414" text-anchor="middle" class="small">إلى Qwen2.5-VL أو كلود</text>

@@ -56,7 +56,7 @@
   <text x="390" y="220" text-anchor="middle" class="content" font-size="11">VITS</text>
   <text x="390" y="265" text-anchor="middle" class="caption" font-size="10">2021 · التدفق الشامل</text>
   <circle cx="520" cy="240" r="5" fill="#1a1a1a"/>
-  <text x="520" y="220" text-anchor="middle" class="content" font-size="11">XTTS الإصدار 2</text>
+  <text x="520" y="220" text-anchor="middle" class="content" font-size="11">XTTS الإصدار2</text>
   <text x="520" y="265" text-anchor="middle" class="caption" font-size="10">2024 · استنساخ الصوت</text>
   <circle cx="650" cy="240" r="6" fill="#c0392b"/>
   <text x="650" y="220" text-anchor="middle" class="content" font-size="11">F5-TTS</text>
@@ -76,5 +76,5 @@
   <text x="60" y="390" class="content">الحقيقة الأرضية</text>        <text x="300" y="390" class="content">4.08</text>  <text x="440" y="390" class="content">1.2%</text>  <text x="700" y="390" class="content">—</text>
   <text x="60" y="410" class="content">F5-TTS</text>              <text x="300" y="410" class="content">3.95</text>  <text x="440" y="410" class="content">2.1%</text>  <text x="700" y="410" class="content">335M</text>
   <text x="60" y="430" class="content">كوكورو v0.19</text>        <text x="300" y="430" class="content">3.87</text>  <text x="440" y="430" class="content">1.8%</text>  <text x="700" y="430" class="content">82M</text>
-  <text x="60" y="450" class="content">XTTS الإصدار 2</text>             <text x="300" y="450" class="content">3.81</text>  <text x="440" y="450" class="content">3.5%</text>  <text x="700" y="450" class="content">470M</text>
+  <text x="60" y="450" class="content">XTTS الإصدار2</text>             <text x="300" y="450" class="content">3.81</text>  <text x="440" y="450" class="content">3.5%</text>  <text x="700" y="450" class="content">470M</text>
 </svg>

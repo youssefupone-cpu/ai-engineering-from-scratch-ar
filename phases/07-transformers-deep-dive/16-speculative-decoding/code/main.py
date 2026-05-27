@@ -1,9 +1,11 @@
-"""فك التشفير التأملي: الخوارزمية الأساسية ومعادلة التوزيع. تنفذ:
-- قبول/رفض برنولي باستخدام min(1, q/p)
-- التوزيع المتبقي (q - p)_+ للرفض الاحتياطي
-- رمز مكافأة عند القبول الكامل
-- التحقق العملي من تطابق التوزيع الحدي مع العينة المباشرة
-- معدل القبول مقابل KL اكتساح التباعد
+"""Speculative decoding: core algorithm and distribution equivalence.
+
+Implements:
+- Bernoulli accept / reject using min(1, q/p)
+- Residual distribution (q - p)_+ for rejection fallback
+- Bonus token on full acceptance
+- Empirical check that the marginal distribution matches direct sampling
+- Acceptance rate vs KL divergence sweep
 """
 
 import math
@@ -37,7 +39,7 @@ def kl(q, p):
 
 
 def spec_step_one_token(q, p, rng):
-    """رمز مسودة 1 من p، تحقق باستخدام q. إرجاع (accepted_token، Was_accepted)."""
+    """Draft 1 token from p, verify with q. Returns (accepted_token, was_accepted)."""
     d = sample(p, rng)
     p_prob = p[d]
     q_prob = q[d]
@@ -48,7 +50,8 @@ def spec_step_one_token(q, p, rng):
 
 
 def spec_step_n(q, p, N, rng):
-    """قم بمشروع رموز N (نفس السياق)، ثم تحقق منها في مسار واحد. إرجاع (final_token، n_accepted). مبسطة: يتم إصلاح q وp لكل مكالمة.
+    """Draft N tokens (same context), then verify in one pass.
+    Returns (final_token, n_accepted). Simplified: q and p are fixed per call.
     """
     accepted = 0
     for _ in range(N):

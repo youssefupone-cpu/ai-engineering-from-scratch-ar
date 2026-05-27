@@ -28,7 +28,7 @@
   <!-- Normalize -->
   <rect x="210" y="80" width="130" height="60" class="warn"/>
   <text x="275" y="104" text-anchor="middle" class="label">normalize</text>
-  <text x="275" y="122" text-anchor="middle" class="small">NFKC + رمز متجانس</text>
+  <text x="275" y="122" text-anchor="middle" class="small">NFKC + مجسم</text>
 
   <!-- Input rail -->
   <rect x="360" y="80" width="130" height="60" class="cold"/>
@@ -57,14 +57,14 @@
   <!-- Taxonomy -->
   <rect x="60" y="230" width="760" height="100" class="cool"/>
   <text x="440" y="254" text-anchor="middle" class="label">التصنيف (حارس اللاما 4 S1–S14)</text>
-  <text x="80" y="276" class="content">S1 جرائم العنف · S2 الجرائم غير العنيفة · S3 الجرائم الجنسية · S4 استغلال الأطفال</text>
-  <text x="80" y="292" class="content">S5 التشهير · S6 نصيحة متخصصة · S7 الخصوصية · S8 IP · S9 الأسلحة العشوائية</text>
-  <text x="80" y="308" class="content">S10 الكراهية · S11 إيذاء النفس · S12 المحتوى الجنسي · S13 الانتخابات · S14 إساءة استخدام مترجم الكود</text>
+  <text x="80" y="276" class="content">S1 جرائم عنيفة · S2 جرائم غير عنيفة · S3 جرائم جنسية · S4 استغلال الأطفال</text>
+  <text x="80" y="292" class="content">S5 التشهير · S6 نصائح متخصصة · S7 الخصوصية · S8 IP · S9 الأسلحة العشوائية</text>
+  <text x="80" y="308" class="content">S10 كراهية · S11 إيذاء النفس · S12 محتوى جنسي · S13 الانتخابات · S14 إساءة استخدام مترجم الكود</text>
 
   <!-- Attack corpus -->
   <rect x="60" y="350" width="760" height="140" class="hot"/>
   <text x="440" y="374" text-anchor="middle" class="label">الممرات الالتفافية الموثقة — هوانغ وآخرون. أرخايف:2504.11168 (2025)</text>
-  <text x="80" y="398" class="content">تهريب الرموز التعبيرية: 100% ASR على أنظمة الحراسة الستة</text>
+  <text x="80" y="398" class="content">تهريب الرموز التعبيرية: 100% ASR على ستة أنظمة حراسة</text>
   <text x="80" y="414" class="content">NeMo Guard Detect: 72.54% ASR في مجموعة الهروب من السجن العدائية</text>
   <text x="80" y="430" class="content">استبدال Homoglyph: السيريلية "Р" لللاتينية "p"؛ يفتقد المصنف</text>
   <text x="80" y="446" class="content">إعادة الصياغة الدلالية: نفس القصد، مفردات جديدة؛ الضبط الدقيق لا يمكن أن يغطي الكل</text>

@@ -16,7 +16,7 @@
       .edge { stroke: #1a1a1a; stroke-width: 1.2; fill: none; }
     </style>
   </defs>
-  <text x="450" y="28" text-anchor="middle" class="title">بروتوكول A2A — الاكتشاف من وكيل إلى وكيل، والمهمة، والقطعة الأثرية</text>
+  <text x="450" y="28" text-anchor="middle" class="title">A2A البروتوكول — الاكتشاف من وكيل إلى وكيل، والمهمة، والقطعة الأثرية</text>
 
   <rect x="40" y="60" width="180" height="380" class="cool"/>
   <text x="130" y="82" text-anchor="middle" class="head">وكيل العميل</text>

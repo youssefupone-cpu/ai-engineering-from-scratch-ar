@@ -36,7 +36,7 @@ def matmul(A, B):
 
 
 def jacobi_sqrt(M, iters=30):
-    """مصفوفة الجذر التربيعي بواسطة تكرار Denman-Beavers (مستقر لـ PSD M)."""
+    """Matrix square root by Denman-Beavers iteration (stable for PSD M)."""
     n = len(M)
     Y = [row[:] for row in M]
     Z = [[1.0 if i == j else 0.0 for j in range(n)] for i in range(n)]
@@ -132,7 +132,7 @@ def main():
     print("=== Elo from synthetic A/B preferences ===")
     r_a, r_b = 1000, 1000
     for i in range(200):
-        # لنفترض أن النموذج "أ" فاز بنسبة 70% من الوقت
+        # Suppose model A wins 70% of the time
         winner = "a" if rng.random() < 0.7 else "b"
         r_a, r_b = elo_update(r_a, r_b, winner)
     print(f"  after 200 pairs (A wins 70%): r_A = {r_a:.0f}, r_B = {r_b:.0f}")

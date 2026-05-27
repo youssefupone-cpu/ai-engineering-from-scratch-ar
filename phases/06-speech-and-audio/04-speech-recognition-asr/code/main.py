@@ -1,5 +1,7 @@
-"""أساسيات ASR: فك تشفير CTC الجشع، فك تشفير الشعاع CTC، معدل خطأ الكلمات. ستدليب فقط. إنشاء مثال صغير ملفوف يدويًا لـ CTC وحساب WER.
-تشغيل: كود python3/main.py
+"""ASR basics: greedy CTC decode, beam CTC decode, Word Error Rate.
+
+Stdlib only. Builds a tiny hand-rolled CTC example and computes WER.
+Run: python3 code/main.py
 """
 
 import math

@@ -1,27 +1,27 @@
 # Contributing
 
-الدروس والترجمات والإصلاحات والمخرجات - نرحب بالجميع. مساهمة واحدة لكل سحب
-يحافظ الطلب على المراجعات بسرعة ويسمح بإحصاء المساهمين وعمل الائتمان
-بشكل صحيح.
+Lessons, translations, fixes, outputs — all welcome. One contribution per pull
+request keeps reviews fast and lets contributor counts and credit work
+correctly.
 
 ## Important: the README and ROADMAP feed the website
 
-`site/build.js` يوزع `__TERM_0__.md` و`__TERM_1__.md` و`glossary/terms.md` إلى
-إنشاء `site/data.js`. يجب أن يظل النموذجان سليمين في أي طلب سحب
-يمس تلك الملفات:
+`site/build.js` parses `README.md`, `ROADMAP.md`, and `glossary/terms.md` to
+generate `site/data.js`. Two patterns must stay intact in any pull request that
+touches those files:
 
-- رؤوس المراحل في أي من دروس `### Phase N: Name \`X\`` form or `<التفاصيل><summary><b>المرحلة N — الاسم</b>... <code>X الدروس</code>... <em>الوصف</em></summary>` form.
-- Lesson tables with the column shape `| # | الدرس | اكتب | لانج |` (or `| # | مشروع | يجمع | Lang |` for capstone tables). The `Lang` column accepts plain text (`Python, TypeScript`) or the legacy emoji flags (`🐍 🟦 🦀 🟣 ⚛️`); both are parser-equivalent.
-- __TERM_1__ status glyphs (`✅`, `🚧`, `⬚`) على رؤوس المراحل وصفوف الدرس. لا تستبدلها بنص - يقوم المحلل اللغوي بإخراج الأحرف الدقيقة.
+- Phase headers in either `### Phase N: Name \`X lessons\`` form or `<details><summary><b>Phase N — Name</b>... <code>X lessons</code>... <em>Description</em></summary>` form.
+- Lesson tables with the column shape `| # | Lesson | Type | Lang |` (or `| # | Project | Combines | Lang |` for capstone tables). The `Lang` column accepts plain text (`Python, TypeScript`) or the legacy emoji flags (`🐍 🟦 🦀 🟣 ⚛️`); both are parser-equivalent.
+- ROADMAP status glyphs (`✅`, `🚧`, `⬚`) on phase headers and lesson rows. Do not replace them with text — the parser keys off the exact characters.
 
-قم بتشغيل `__TERM_0__ site/build.js` بعد تحرير تلك الملفات؛ __الكود_1__
-يجب أن يُظهر تغيير الطابع الزمني فقط إذا كان تعديلك آمنًا من الناحية الهيكلية.
+Run `node site/build.js` after editing those files; `git diff site/data.js`
+should show only the timestamp change if your edit was structural-safe.
 
 ## Ways to Contribute
 
 ### 1. Add a New Lesson
 
-كل درس موجود في `phases/__TERM_0__-phase-name/__TERM_1__-lesson-name/` بهذه البنية:
+Each lesson lives in `phases/XX-phase-name/NN-lesson-name/` with this structure:
 
 ```
 NN-lesson-name/
@@ -32,7 +32,7 @@ NN-lesson-name/
 └── outputs/        Prompts, skills, or agents this lesson produces (if applicable)
 ```
 
-**تنسيق مستند الدرس** (`en.md`):
+**Lesson doc format** (`en.md`):
 
 ```markdown
 # Lesson Title
@@ -68,7 +68,7 @@ The prompt, skill, agent, or tool this lesson produces.
 
 ### 2. Add a Translation
 
-قم بإنشاء ملف جديد في مجلد `docs/` الخاص بأي درس:
+Create a new file in any lesson's `docs/` folder:
 
 ```
 docs/
@@ -80,16 +80,16 @@ docs/
 └── ...
 ```
 
-احتفظ بنفس هيكل النسخة الإنجليزية. ترجمة المحتوى، وليس التعليمات البرمجية.
+Keep the same structure as the English version. Translate content, not code.
 
 ### 3. Add an Output
 
-إذا كان من المفترض أن ينتج عن الدرس مطالبة أو مهارة أو وكيل أو خادم MCP قابل لإعادة الاستخدام:
+If a lesson should produce a reusable prompt, skill, agent, or MCP server:
 
-1. قم بإنشائه في مجلد الدرس `outputs/`
-2. أضف مرجعًا في فهرس المستوى الأعلى `outputs/`
+1. Create it in the lesson's `outputs/` folder
+2. Add a reference in the top-level `outputs/` index
 
-** التنسيق الفوري: **
+**Prompt format:**
 
 ```markdown
 ---
@@ -102,7 +102,7 @@ lesson: 01
 [System prompt or template here]
 ```
 
-**شكل المهارة:**
+**Skill format:**
 
 ```markdown
 ---
@@ -119,39 +119,39 @@ tags: [agents, loops]
 
 ### 4. Fix Bugs or Improve Existing Lessons
 
-- إصلاح الكود الذي لا يعمل
-- تحسين الشروحات
-- إضافة رسوم بيانية أفضل
-- تحديث المعلومات القديمة
+- Fix code that doesn't run
+- Improve explanations
+- Add better diagrams
+- Update outdated information
 
 ### 5. Add Exercises or Projects
 
-نرحب دائمًا بمزيد من التمارين والمشاريع، خاصة تلك التي تربط بين مراحل متعددة.
+More exercises and projects are always welcome, especially ones that connect multiple phases.
 
 ## Guidelines
 
-- **يجب تشغيل التعليمات البرمجية.** يجب تنفيذ كل ملف تعليمات برمجية بدون أخطاء في التبعيات المدرجة.
-- **لا توجد تعليقات في الكود.** يجب أن يكون الكود واضحًا بذاته. استخدم المستندات للتوضيح.
-- **أفضل لغة للوظيفة.** لا تجبر لغة Python على أن يكون TypeScript أو Rust هو الخيار الأفضل.
-- **البناء من الصفر أولاً.** قم دائمًا بتنفيذ المفهوم من المبادئ الأولى قبل عرض إصدار إطار العمل.
-- **حافظ على التطبيق العملي.** النظرية تخدم الممارسة وليس العكس.
-- **لا يوجد AI هراء.** اكتب مثل الإنسان. كن مباشرا. قطع حشو.
+- **Code must run.** Every code file should execute without errors with the listed dependencies.
+- **No comments in code.** Code should be self-explanatory. Use the docs for explanation.
+- **Best language for the job.** Don't force Python where TypeScript or Rust is the better choice.
+- **Build from scratch first.** Always implement the concept from first principles before showing the framework version.
+- **Keep it practical.** Theory serves practice, not the other way around.
+- **No AI slop.** Write like a human. Be direct. Cut filler.
 
 ## Pull Request Process
 
-1. شوكة المستودع
-2. إنشاء فرع الميزات (`__TERM_0__ checkout -b add-lesson-phase3-gradient-descent`)
-3. قم بإجراء التغييرات الخاصة بك
-4. تأكد من تشغيل كافة التعليمات البرمجية
-5. أرسل طلب سحب مع وصف واضح
+1. Fork the repository
+2. Create a feature branch (`git checkout -b add-lesson-phase3-gradient-descent`)
+3. Make your changes
+4. Ensure all code runs
+5. Submit a pull request with a clear description
 
 ## Code of Conduct
 
-انظر [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). كن لطيفًا، وكن مفيدًا، وكن بناءًا.
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Be kind, be helpful, be constructive.
 
 ## Style
 
-- النثر المباشر. قطع حشو. قم بمطابقة نغمة الدليل وليس النسخة التسويقية.
-- لا توجد رموز تعبيرية زخرفية في العناوين. أعلام الرموز التعبيرية لعمود لانج هي واحدة استثناء وفقط لأن المحلل اللغوي يعينهم.
-- يعمل الكود كما هو مع التبعيات المدرجة في الدرس.
-- البناء من الصفر أولاً، والإطار ثانياً.
+- Direct prose. Cut filler. Match the manual's tone, not marketing copy.
+- No decorative emojis in headings. Lang column emoji flags are the one exception and only because the parser maps them.
+- Code runs as-is with the dependencies listed in the lesson.
+- Build from scratch first, framework second.

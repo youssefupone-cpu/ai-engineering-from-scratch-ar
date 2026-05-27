@@ -1,4 +1,9 @@
-"""ألعاب تنسيق الحركة المجسدة VLA — stdlib. ثلاثة تطبيقات مصغرة: 1. الترميز المميز لإجراءات الحاوية المنفصلة (RT-2 / OpenVLA). 2. ضاغط تكميم على طراز FAST DCT. 3. مقارنة عدد الرموز عبر (منفصل، FAST، التدفق المستمر).
+"""Embodied VLA action format toys — stdlib.
+
+Three mini-implementations:
+  1. Discrete-bin action tokenization (RT-2 / OpenVLA).
+  2. A FAST-style DCT-quantize compressor.
+  3. Token-count comparison across (discrete, FAST, continuous flow).
 """
 
 from __future__ import annotations
@@ -8,7 +13,7 @@ from dataclasses import dataclass
 
 
 def discretize(action: list[float], bins: int = 256) -> list[int]:
-    """قم بتعيين إجراء [-1,1]^D إلى صناديق الأعداد الصحيحة D."""
+    """Map a [-1,1]^D action to D integer bins."""
     tokens = []
     for a in action:
         idx = int((a + 1) / 2 * (bins - 1))
@@ -22,7 +27,7 @@ def undiscretize(tokens: list[int], bins: int = 256) -> list[float]:
 
 
 def dct(x: list[float]) -> list[float]:
-    """النوع الساذج-II DCT."""
+    """Naive type-II DCT."""
     n = len(x)
     out = []
     for k in range(n):
@@ -35,7 +40,9 @@ def dct(x: list[float]) -> list[float]:
 
 def fast_compress(trajectory: list[list[float]], keep_coeff: int = 4,
                   bins: int = 32) -> list[int]:
-    """FAST-نمط الرمز المميز: لكل خافت DCT + الحفاظ على التردد المنخفض + التكميم. المسار: قائمة الإجراءات (قائمة العوامات)، الشكل (T، D). إرجاع قائمة الرموز المميزة ذات الأعداد الصحيحة المسطحة."""
+    """FAST-style tokenizer: per-dim DCT + keep low-freq + quantize.
+    trajectory: list of actions (list of floats), shape (T, D).
+    Returns a flat integer token list."""
     if not trajectory:
         return []
     D = len(trajectory[0])

@@ -67,8 +67,8 @@ def build_custom_maskrcnn(num_classes):
 
 
 def freeze_backbone(model):
-    # يتضمن العمود الفقري لقناع torchvision R-CNN FPN (model.backbone.fpn)،
-    # لذا فإن تجميد model.backbone.parameters()‎ يؤدي أيضًا إلى تجميد المعلمات FPN.
+    # torchvision Mask R-CNN's backbone includes the FPN (model.backbone.fpn),
+    # so freezing model.backbone.parameters() also freezes the FPN parameters.
     for p in model.backbone.parameters():
         p.requires_grad = False
     return model

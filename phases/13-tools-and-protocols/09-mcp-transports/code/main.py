@@ -1,5 +1,15 @@
-"""المرحلة 13 الدرس 09 - هيكل نقطة النهاية القابل للبث HTTP MCP. يستخدم stdlib http.server لخدمة نقطة نهاية /mcp واحدة تدعم: - POST /mcp (طلب العميل؛ JSON-RPC في، JSON أو SSE خارج) - GET /mcp (دفق مفتوح من خادم إلى عميل SSE) - DELETE /mcp (إنهاء الجلسة الصريحة) فرض القائمة المسموح بها للأصل وتعيين معرف جلسة Mcp في أول POST.
-يعيد استخدام شكل إرسال الدرس 07 لسلوك الأداة. تشغيل: python code/main.py # يبدأ الخادم على: 8017 كود بايثون/main.py --probe # قم بتشغيل المسبار الذاتي عبر الاسترجاع TCP
+"""Phase 13 Lesson 09 - Streamable HTTP MCP endpoint skeleton.
+
+Uses stdlib http.server to serve a single /mcp endpoint supporting:
+  - POST /mcp   (client request; JSON-RPC in, JSON or SSE out)
+  - GET  /mcp   (open server-to-client SSE stream)
+  - DELETE /mcp (explicit session termination)
+
+Enforces Origin allowlist and assigns Mcp-Session-Id on first POST.
+Reuses the Lesson 07 dispatch shape for tool behavior.
+
+Run: python code/main.py               # starts server on :8017
+      python code/main.py --probe       # run self-probe over TCP loopback
 """
 
 from __future__ import annotations
@@ -77,7 +87,12 @@ class Handler(BaseHTTPRequestHandler):
         return True
 
     def _resolve_session(self, msg: dict) -> str | None:
-        """أعد معرف الجلسة، أو لا شيء إذا تم إرسال 404 بالفعل. وفقًا لمواصفات HTTP القابلة للبث (25-11-2025)، فقط `initialize` قد طريقة النعناع جلسة. أي طريقة أخرى تصل مع غير معروف أو مفقود `Mcp-Session-Id` MUST سيتم رفضه بـ 404 حتى يعرف العميل إعادة التهيئة.
+        """Return the session id, or None if a 404 was already sent.
+
+        Per the Streamable HTTP spec (2025-11-25), only the `initialize`
+        method may mint a session. Any other method arriving with an
+        unknown or missing `Mcp-Session-Id` MUST be rejected with 404
+        so the client knows to re-initialize.
         """
         sid = self.headers.get("Mcp-Session-Id")
         if msg.get("method") == "initialize":
@@ -105,7 +120,7 @@ class Handler(BaseHTTPRequestHandler):
             return
         resp = dispatch(msg)
         if resp is None:
-            # JSON-RPC الإشعار أو الرد: ack فقط.
+            # JSON-RPC notification or response: ack only.
             self.send_response(202)
             self.send_header("Mcp-Session-Id", sid)
             self.end_headers()

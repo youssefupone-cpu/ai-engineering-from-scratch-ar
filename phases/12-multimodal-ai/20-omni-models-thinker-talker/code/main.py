@@ -1,5 +1,7 @@
-"""بث Thinker-Talker pipeline — TTFAB الآلة الحاسبة + VAD تبادل الأدوار. ستدليب. لا معالجة الصوت. التركيز على ميزانية الكمون والتزامن
-التدفق المتوازي بين المفكر (النص) والمتكلم (الكلام).
+"""Thinker-Talker streaming pipeline — TTFAB calculator + VAD turn-taking.
+
+Stdlib. No audio processing; focus on the latency budget and concurrency of
+parallel streaming between Thinker (text) and Talker (speech).
 """
 
 from __future__ import annotations
@@ -72,7 +74,7 @@ class VADEvent:
 
 
 def simulate_turn_taking(silence_threshold_ms: int = 200) -> list[VADEvent]:
-    """محاكاة انتهاء دور المستخدم الذي تم اكتشافه عن طريق الصمت."""
+    """Simulate a user turn ending detected by silence."""
     events = []
     events.append(VADEvent(0, "user starts speaking"))
     events.append(VADEvent(450, "user audio tokens streaming"))

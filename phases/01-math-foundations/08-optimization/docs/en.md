@@ -1,32 +1,32 @@
-# تحسين
+# Optimization
 
-> تدريب الشبكة العصبية ليس أكثر من العثور على قاع الوادي.
+> Training a neural network is nothing more than finding the bottom of a valley.
 
-**النوع:** بناء
-** اللغة: ** بايثون
-**المتطلبات الأساسية:** المرحلة الأولى، الدروس 04-05 (المشتقات، التدرجات)
-**الوقت:** ~75 دقيقة
+**Type:** Build
+**Language:** Python
+**Prerequisites:** Phase 1, Lessons 04-05 (Derivatives, Gradients)
+**Time:** ~75 minutes
 
-## أهداف التعلم
+## Learning Objectives
 
-- تنفيذ نزول التدرج الفانيليا، SGD مع الزخم، وآدم من الصفر
-- قارن تقارب المحسن في دالة روزنبروك واشرح لماذا يتكيف آدم مع معدلات التعلم لكل وزن
-- التمييز بين المناظر الطبيعية المحدبة وغير المحدبة وشرح دور نقاط السرج في الأبعاد العالية
-- تكوين جداول معدل التعلم (تسوس الخطوة، وجيب التمام الصلب، والاحماء) لاستقرار التدريب
+- Implement vanilla gradient descent, SGD with momentum, and Adam from scratch
+- Compare optimizer convergence on the Rosenbrock function and explain why Adam adapts per-weight learning rates
+- Distinguish convex from non-convex loss landscapes and explain the role of saddle points in high dimensions
+- Configure learning rate schedules (step decay, cosine annealing, warmup) for training stability
 
-## المشكلة
+## The Problem
 
-لديك وظيفة الخسارة. يخبرك بمدى خطأ نموذجك. لديك التدرجات. يقولون لك الاتجاه الذي يجعل الخسارة أسوأ. أنت الآن بحاجة إلى استراتيجية للمشي على المنحدرات.
+You have a loss function. It tells you how wrong your model is. You have gradients. They tell you which direction makes the loss worse. Now you need a strategy for walking downhill.
 
-النهج الساذج بسيط: التحرك عكس التدرج. قم بقياس الخطوة برقم يسمى معدل التعلم. يكرر. هذا هو النسب التدرج، ويعمل. لكن "الأعمال" لها محاذير. معدل التعلم كبير جدًا وستتجاوز الوادي تمامًا، وتقفز بين الجدران. صغيرة جدًا وستزحف نحو الإجابة عبر آلاف الخطوات غير الضرورية. اضرب نقطة السرج وستتوقف عن الحركة رغم أنك لم تجد الحد الأدنى.
+The naive approach is simple: move opposite the gradient. Scale the step by some number called the learning rate. Repeat. This is gradient descent, and it works. But "works" has caveats. Too large a learning rate and you overshoot the valley entirely, bouncing between walls. Too small and you crawl toward the answer over thousands of unnecessary steps. Hit a saddle point and you stop moving even though you have not found a minimum.
 
-كل محسن في التعلم العميق هو إجابة لنفس السؤال: كيف يمكنك الوصول إلى قاع الوادي بشكل أسرع وأكثر موثوقية؟
+Every optimizer in deep learning is an answer to the same question: how do you get to the bottom of the valley faster and more reliably?
 
-##المفهوم
+## The Concept
 
-### ماذا يعني التحسين
+### What optimization means
 
-التحسين هو العثور على قيم الإدخال التي تقلل (أو تزيد) الوظيفة. في التعلم الآلي، الوظيفة هي الخسارة. المدخلات هي أوزان النموذج. التدريب هو الأمثل.
+Optimization is finding the input values that minimize (or maximize) a function. In machine learning, the function is the loss. The inputs are the model's weights. Training is optimization.
 
 ```
 minimize L(w) where:
@@ -34,15 +34,15 @@ minimize L(w) where:
   w = model weights (could be millions of parameters)
 ```
 
-### النسب المتدرج (الفانيليا)
+### Gradient descent (vanilla)
 
-أبسط محسن. احسب تدرج الخسارة بالنسبة لكل وزن. حرك كل وزن في الاتجاه المعاكس لانحداره. مقياس الخطوة بمعدل التعلم.
+The simplest optimizer. Compute the gradient of the loss with respect to every weight. Move each weight in the opposite direction of its gradient. Scale the step by the learning rate.
 
 ```
 w = w - lr * gradient
 ```
 
-هذه هي الخوارزمية بأكملها. سطر واحد.
+That is the entire algorithm. One line.
 
 ```mermaid
 graph TD
@@ -51,9 +51,9 @@ graph TD
     C --> D["o Minimum (low loss)"]
 ```
 
-### معدل التعلم: المعلمة الفائقة الأكثر أهمية
+### Learning rate: the most important hyperparameter
 
-يتحكم معدل التعلم في حجم الخطوة. إنه يحدد كل شيء يتعلق بالتقارب.
+The learning rate controls step size. It determines everything about convergence.
 
 ```mermaid
 graph LR
@@ -72,34 +72,34 @@ graph LR
     end
 ```
 
-لا توجد صيغة لمعدل التعلم الصحيح. يمكنك العثور عليه عن طريق التجربة. نقاط البداية المشتركة: 0.001 لآدم، 0.01 للدولار السنغافوري مع الزخم.
+There is no formula for the right learning rate. You find it by experiment. Common starting points: 0.001 for Adam, 0.01 for SGD with momentum.
 
-### SGD مقابل الدفعة مقابل الدفعة الصغيرة
+### SGD vs batch vs mini-batch
 
-يحسب نزول التدرج الفانيليا التدرج على مجموعة البيانات بأكملها قبل اتخاذ خطوة واحدة. وهذا ما يسمى النسب التدرج الدفعي. إنها مستقرة ولكنها بطيئة.
+Vanilla gradient descent computes the gradient over the entire dataset before taking one step. This is called batch gradient descent. It is stable but slow.
 
-يحسب النسب التدرج العشوائي (SGD) التدرج على عينة عشوائية واحدة ويخطوات على الفور. أنها صاخبة ولكنها سريعة.
+Stochastic gradient descent (SGD) computes the gradient on a single random sample and steps immediately. It is noisy but fast.
 
-يقسم النسب المتدرج للدفعة الصغيرة الفرق. حساب التدرج على دفعة صغيرة (32، 64، 128، 256 عينة)، ثم الخطوة. وهذا ما يستخدمه الجميع بالفعل.
+Mini-batch gradient descent splits the difference. Compute the gradient over a small batch (32, 64, 128, 256 samples), then step. This is what everyone actually uses.
 
-| البديل | حجم الدفعة | جودة التدرج | السرعة لكل خطوة | الضوضاء |
-|---------|----------|-----------------|---------------|-------|
-| دفعة جي دي | مجموعة البيانات الكاملة | بالضبط | بطيء | لا شيء |
-| دولار سنغافوري | 1 عينة | صاخبة جداً | سريع | عالية |
-| دفعة صغيرة | 32-256 | تقدير جيد | متوازن | معتدل |
+| Variant | Batch size | Gradient quality | Speed per step | Noise |
+|---------|-----------|-----------------|---------------|-------|
+| Batch GD | Entire dataset | Exact | Slow | None |
+| SGD | 1 sample | Very noisy | Fast | High |
+| Mini-batch | 32-256 | Good estimate | Balanced | Moderate |
 
-الضجيج في SGD والدفعة الصغيرة ليس خطأ. يساعد على الهروب من الحدود الدنيا المحلية الضحلة ونقاط السرج.
+The noise in SGD and mini-batch is not a bug. It helps escape shallow local minima and saddle points.
 
-### الزخم: الكرة تتدحرج إلى أسفل
+### Momentum: the ball rolling downhill
 
-ينظر نزول التدرج الفانيليا فقط إلى التدرج الحالي. وإذا كانت الخطوط المتعرجة متدرجة (شائعة في الأودية الضيقة)، فإن التقدم بطيء. يعمل الزخم على إصلاح ذلك من خلال تجميع التدرجات السابقة في مصطلح السرعة.
+Vanilla gradient descent only looks at the current gradient. If the gradient zigzags (common in narrow valleys), progress is slow. Momentum fixes this by accumulating past gradients into a velocity term.
 
 ```
 v = beta * v + gradient
 w = w - lr * v
 ```
 
-التشبيه: كرة تتدحرج إلى أسفل. لا يتوقف ويعيد تشغيله عند كل عثرة. إنه يبني السرعة في اتجاهات متسقة ويخفف التذبذبات.
+The analogy: a ball rolling downhill. It does not stop and restart at every bump. It builds speed in consistent directions and dampens oscillations.
 
 ```mermaid
 graph TD
@@ -116,16 +116,16 @@ graph TD
     end
 ```
 
-يتحكم `beta` (عادةً 0.9) في مقدار السجل المطلوب الاحتفاظ به. الإصدار التجريبي الأعلى يعني المزيد من الزخم، ومسارات أكثر سلاسة، ولكن الاستجابة أبطأ لتغيرات الاتجاه.
+`beta` (typically 0.9) controls how much history to keep. Higher beta means more momentum, smoother paths, but slower response to direction changes.
 
-### آدم: معدلات التعلم التكيفية
+### Adam: adaptive learning rates
 
-الأوزان المختلفة تحتاج إلى معدلات تعلم مختلفة. يجب أن يتخذ الوزن الذي نادرًا ما يحصل على تدرجات كبيرة خطوات أكبر عندما يحدث ذلك في النهاية. الوزن الذي يحصل على تدرجات كبيرة باستمرار يجب أن يتخذ خطوات أصغر.
+Different weights need different learning rates. A weight that rarely gets large gradients should take bigger steps when it finally does. A weight that gets huge gradients constantly should take smaller steps.
 
-آدم (تقدير اللحظة التكيفية) يتتبع شيئين لكل وزن:
+Adam (Adaptive Moment Estimation) tracks two things per weight:
 
-1. اللحظة الأولى (م): متوسط التدرجات الجارية (مثل الزخم)
-2. اللحظة الثانية (v): متوسط تشغيل التدرجات المربعة (حجم التدرج)
+1. First moment (m): running average of gradients (like momentum)
+2. Second moment (v): running average of squared gradients (gradient magnitude)
 
 ```
 m = beta1 * m + (1 - beta1) * gradient
@@ -137,28 +137,28 @@ v_hat = v / (1 - beta2^t)    bias correction
 w = w - lr * m_hat / (sqrt(v_hat) + epsilon)
 ```
 
-القسمة على `sqrt(v_hat)` هي الفكرة الأساسية. يتم تقسيم الأوزان ذات التدرجات الكبيرة على عدد كبير (خطوة فعالة صغيرة). يتم تقسيم الأوزان ذات التدرجات الصغيرة على عدد صغير (الخطوة الفعالة الكبيرة). كل وزن يحصل على معدل التعلم التكيفي الخاص به.
+The division by `sqrt(v_hat)` is the key insight. Weights with large gradients get divided by a large number (small effective step). Weights with small gradients get divided by a small number (large effective step). Each weight gets its own adaptive learning rate.
 
-المعلمات الفائقة الافتراضية: `lr=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8`. تعمل هذه الإعدادات الافتراضية بشكل جيد مع معظم المشكلات.
+Default hyperparameters: `lr=0.001, beta1=0.9, beta2=0.999, epsilon=1e-8`. These defaults work well for most problems.
 
-### جداول معدل التعلم
+### Learning rate schedules
 
-معدل التعلم الثابت هو حل وسط. في وقت مبكر من التدريب، تريد خطوات كبيرة لتحقيق تقدم سريع. في وقت متأخر من التدريب، تحتاج إلى خطوات صغيرة لضبطها بالقرب من الحد الأدنى.
+A fixed learning rate is a compromise. Early in training, you want large steps to make fast progress. Late in training, you want small steps to fine-tune near the minimum.
 
-الجداول الزمنية المشتركة:
+Common schedules:
 
-| الجدول الزمني | صيغة | حالة الاستخدام |
-|----------|--------|----------|
-| خطوة الاضمحلال | lr = lr * عامل كل N Epochs | تحكم يدوي بسيط |
-| الاضمحلال الأسي | lr = lr_0 * الاضمحلال^t | تخفيض سلس |
-| جيب التمام الصلب | lr = lr_min + 0.5 * (lr_max - lr_min) * (1 + cos(pi * t / T)) | المحولات الحديثة للتدريب |
-| الاحماء + الاضمحلال | المنحدر الخطي، ثم الاضمحلال | نماذج كبيرة، تمنع عدم الاستقرار المبكر |
+| Schedule | Formula | Use case |
+|----------|---------|----------|
+| Step decay | lr = lr * factor every N epochs | Simple, manual control |
+| Exponential decay | lr = lr_0 * decay^t | Smooth reduction |
+| Cosine annealing | lr = lr_min + 0.5 * (lr_max - lr_min) * (1 + cos(pi * t / T)) | Transformers, modern training |
+| Warmup + decay | Linear ramp up, then decay | Large models, prevents early instability |
 
-### محدبة مقابل غير محدبة
+### Convex vs non-convex
 
-الدالة المحدبة لها حد أدنى واحد. يجده النسب المتدرج دائمًا. المعادلة التربيعية مثل `f(x) = x^2` محدبة.
+A convex function has one minimum. Gradient descent always finds it. A quadratic like `f(x) = x^2` is convex.
 
-وظائف فقدان الشبكة العصبية غير محدبة. لديهم العديد من الحدود الدنيا المحلية ونقاط السرج والمناطق المسطحة.
+Neural network loss functions are non-convex. They have many local minima, saddle points, and flat regions.
 
 ```mermaid
 graph LR
@@ -174,11 +174,11 @@ graph LR
     end
 ```
 
-من الناحية العملية، نادرًا ما يمثل الحد الأدنى المحلي في الشبكات العصبية عالية الأبعاد مشكلة. معظم القيم الدنيا المحلية لها قيم خسارة قريبة من الحد الأدنى العالمي. نقاط السرج (مسطحة في بعض الاتجاهات، منحنية في اتجاهات أخرى) هي العائق الحقيقي. يساعد الزخم والضوضاء الصادرة عن الدفعات الصغيرة على الهروب منها.
+In practice, local minima in high-dimensional neural networks are rarely a problem. Most local minima have loss values close to the global minimum. Saddle points (flat in some directions, curved in others) are the real obstacle. Momentum and noise from mini-batches help escape them.
 
-### تصور المناظر الطبيعية المفقودة
+### Loss landscape visualization
 
-الخسارة هي وظيفة جميع الأوزان. بالنسبة للنموذج الذي يحتوي على مليون وزن، فإن مشهد الخسارة يعيش في مساحة ذات 1,000,001 بعد. نحن نتصور ذلك من خلال اختيار اتجاهين عشوائيين في مساحة الوزن وتخطيط الخسارة على طول تلك الاتجاهات، مما ينتج عنه سطح ثنائي الأبعاد.
+The loss is a function of all weights. For a model with 1 million weights, the loss landscape lives in 1,000,001-dimensional space. We visualize it by picking two random directions in weight space and plotting the loss along those directions, producing a 2D surface.
 
 ```mermaid
 graph TD
@@ -193,13 +193,13 @@ graph TD
     style GM fill:#66ff66,color:#000
 ```
 
-الحد الأدنى الحاد يعمم بشكل سيء. تعميم الحدود الدنيا المسطحة بشكل جيد. وهذا هو أحد الأسباب التي تجعل SGD مع الزخم يتفوق في كثير من الأحيان على آدم في دقة الاختبار النهائية: ضجيجه يمنع الاستقرار في الحد الأدنى الحاد.
+Sharp minima generalize poorly. Flat minima generalize well. This is one reason SGD with momentum often outperforms Adam on final test accuracy: its noise prevents settling into sharp minima.
 
-## بنائها
+## Build It
 
-### الخطوة 1: تحديد وظيفة الاختبار
+### Step 1: Define a test function
 
-تعد وظيفة Rosenbrock بمثابة معيار تحسين كلاسيكي. الحد الأدنى لها هو (1، 1) داخل وادٍ منحني ضيق يسهل العثور عليه ولكن يصعب متابعته.
+The Rosenbrock function is a classic optimization benchmark. Its minimum is at (1, 1) inside a narrow curved valley that is easy to find but hard to follow.
 
 ```
 f(x, y) = (1 - x)^2 + 100 * (y - x^2)^2
@@ -217,7 +217,7 @@ def rosenbrock_gradient(params):
     return [df_dx, df_dy]
 ```
 
-### الخطوة الثانية: نزول الفانيليا بشكل متدرج
+### Step 2: Vanilla gradient descent
 
 ```python
 class GradientDescent:
@@ -228,7 +228,7 @@ class GradientDescent:
         return [p - self.lr * g for p, g in zip(params, grads)]
 ```
 
-### الخطوة 3: الدولار السنغافوري مع الزخم
+### Step 3: SGD with momentum
 
 ```python
 class SGDMomentum:
@@ -247,7 +247,7 @@ class SGDMomentum:
         return [p - self.lr * v for p, v in zip(params, self.velocity)]
 ```
 
-### الخطوة 4: آدم
+### Step 4: Adam
 
 ```python
 class Adam:
@@ -285,7 +285,7 @@ class Adam:
         ]
 ```
 
-### الخطوة 5: التشغيل والمقارنة
+### Step 5: Run and compare
 
 ```python
 def optimize(optimizer, func, grad_func, start, steps=5000):
@@ -309,11 +309,11 @@ for name, history in [("GD", gd_history), ("SGD+M", sgd_history), ("Adam", adam_
     print(f"{name:6s} -> x={final[0]:.6f}, y={final[1]:.6f}, loss={loss:.8f}")
 ```
 
-الناتج المتوقع: آدم يتقارب بشكل أسرع. يتبع الدولار السنغافوري ذو الزخم مسارًا أكثر سلاسة. تحرز Vanilla GD تقدمًا بطيئًا على طول الوادي الضيق.
+Expected output: Adam converges fastest. SGD with momentum follows a smoother path. Vanilla GD makes slow progress along the narrow valley.
 
-## استخدمه
+## Use It
 
-في الممارسة العملية، استخدم أدوات تحسين PyTorch أو JAX. إنهم يتعاملون مع مجموعات المعلمات، وتسوس الوزن، وقص التدرج، وتسريع GPU.
+In practice, use PyTorch or JAX optimizers. They handle parameter groups, weight decay, gradient clipping, and GPU acceleration.
 
 ```python
 import torch
@@ -327,50 +327,50 @@ adamw = torch.optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.01)
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(adam, T_max=100)
 ```
 
-القواعد الأساسية:
+Rules of thumb:
 
-- ابدأ بآدم (lr=0.001). يعمل على معظم المشاكل دون ضبط.
-- قم بالتبديل إلى SGD مع الزخم (lr=0.01، الزخم=0.9) عندما تحتاج إلى أفضل دقة نهائية ويمكنك تحمل المزيد من الضبط.
-- استخدم AdamW (آدم مع انحلال الوزن المنفصل) للمحولات.
-- استخدم دائمًا جدول معدل التعلم للتدريب الذي يمتد لفترة أطول من عدة فترات.
-- إذا كان التدريب غير مستقر، خفض معدل التعلم. إذا كان التدريب بطيئًا جدًا، قم بزيادته.
+- Start with Adam (lr=0.001). It works for most problems without tuning.
+- Switch to SGD with momentum (lr=0.01, momentum=0.9) when you need the best final accuracy and can afford more tuning.
+- Use AdamW (Adam with decoupled weight decay) for transformers.
+- Always use a learning rate schedule for training runs longer than a few epochs.
+- If training is unstable, reduce the learning rate. If training is too slow, increase it.
 
-## اشحنها
+## Ship It
 
-ينتج عن هذا الدرس مطالبة باختيار المُحسِّن المناسب. انظر `outputs/prompt-optimizer-guide.md`.
+This lesson produces a prompt for choosing the right optimizer. See `outputs/prompt-optimizer-guide.md`.
 
-تظهر فئات المُحسِّن التي تم إنشاؤها هنا مرة أخرى في المرحلة الثالثة عندما نقوم بتدريب شبكة عصبية من الصفر.
+The optimizer classes built here reappear in Phase 3 when we train a neural network from scratch.
 
-## تمارين
+## Exercises
 
-1. ** مسح معدل التعلم. ** قم بتشغيل نزول التدرج الفانيليا في دالة روزنبروك بمعدلات التعلم [0.0001، 0.0005، 0.001، 0.005، 0.01]. ارسم أو اطبع الخسارة النهائية بعد 5000 خطوة لكل منها. أوجد أكبر معدل تعلم لا يزال متقاربًا.
+1. **Learning rate sweep.** Run vanilla gradient descent on the Rosenbrock function with learning rates [0.0001, 0.0005, 0.001, 0.005, 0.01]. Plot or print the final loss after 5000 steps for each. Find the largest learning rate that still converges.
 
-2. **مقارنة الزخم.** قم بتشغيل SGD بقيم الزخم [0.0، 0.5، 0.9، 0.99] على دالة Rosenbrock. تتبع الخسارة في كل خطوة. ما هي قيمة الزخم التي تتقارب بشكل أسرع؟ أي تجاوز؟
+2. **Momentum comparison.** Run SGD with momentum values [0.0, 0.5, 0.9, 0.99] on the Rosenbrock function. Track the loss at every step. Which momentum value converges fastest? Which overshoots?
 
-3. **هروب نقطة السرج.** حدد الوظيفة `f(x, y) = x^2 - y^2` (نقطة السرج عند الأصل). ابدأ عند (0.01، 0.01). قارن كيف يتصرف الفانيليا GD وSGD مع الزخم وآدم. الذي يهرب من نقطة السرج؟
+3. **Saddle point escape.** Define the function `f(x, y) = x^2 - y^2` (a saddle point at the origin). Start at (0.01, 0.01). Compare how vanilla GD, SGD with momentum, and Adam behave. Which escapes the saddle point?
 
-4. **تنفيذ تضاؤل ​​معدل التعلم.** أضف جدول تضاؤل ​​أسي إلى فئة GradientDescent: `lr = lr_0 * 0.999^step`. قارن التقارب مع وبدون الاضمحلال في دالة روزنبروك.
+4. **Implement learning rate decay.** Add an exponential decay schedule to the GradientDescent class: `lr = lr_0 * 0.999^step`. Compare convergence with and without decay on the Rosenbrock function.
 
-## المصطلحات الرئيسية
+## Key Terms
 
-| مصطلح | ماذا يقول الناس | ماذا يعني في الواقع |
+| Term | What people say | What it actually means |
 |------|----------------|----------------------|
-| نزول متدرج | "اذهب إلى أسفل" | قم بتحديث الأوزان عن طريق طرح التدرج الذي تم قياسه حسب معدل التعلم. المحسن الأساسي. |
-| معدل التعلم | "حجم الخطوة" | عددي يتحكم في مدى نقل كل تحديث للأوزان. الحجم الكبير جدًا يسبب الاختلاف. حساب النفايات الصغيرة جدًا. |
-| الزخم | "استمر في التدحرج" | تجميع التدرجات الماضية في ناقل السرعة. يخفف التذبذبات ويسرع الحركة من خلال اتجاهات متسقة. |
-| دولار سنغافوري | "أخذ العينات العشوائية" | نزول التدرج العشوائي. حساب التدرج على مجموعة فرعية عشوائية بدلا من مجموعة البيانات الكاملة. تعني دائمًا تقريبًا دفعة صغيرة من SGD في الممارسة العملية. |
-| دفعة صغيرة | "قطعة من البيانات" | مجموعة فرعية صغيرة من بيانات التدريب (32-256 عينة) تستخدم لتقدير التدرج. يوازن بين السرعة ودقة التدرج. |
-| آدم | "المحسن الافتراضي" | تقدير اللحظة التكيفية. يتتبع متوسطات تشغيل التدرجات والتدرجات المربعة لكل وزن لإعطاء كل وزن معدل التعلم الخاص به. |
-| تصحيح التحيز | "إصلاح البداية الباردة" | تمت تهيئة لحظات آدم الأولى والثانية إلى الصفر. يتم قسمة تصحيح الانحياز على (1 - بيتا^t) للتعويض أثناء الخطوات المبكرة. |
-| جدول معدل التعلم | "تغيير lr بمرور الوقت" | وظيفة تقوم بضبط معدل التعلم أثناء التدريب. خطوات كبيرة في وقت مبكر، وخطوات صغيرة في وقت متأخر. |
-| وظيفة محدبة | "وادي واحد" | دالة يكون فيها أي حد أدنى محلي هو الحد الأدنى العالمي. يجده النسب المتدرج دائمًا. خسائر الشبكة العصبية ليست محدبة. |
-| نقطة السرج | "مسطحة ولكن ليس الحد الأدنى" | نقطة يكون فيها الانحدار صفراً ولكنه أدنى في بعض الاتجاهات وأعلى في اتجاهات أخرى. شائع في الأبعاد العالية. |
-| مشهد الخسارة | "التضاريس" | دالة الخسارة المرسومة على مساحة الوزن. تصور عن طريق التقطيع على طول اتجاهين عشوائيين. |
-| التقارب | "الوصول إلى هناك" | لقد وصل المُحسِّن إلى نقطة حيث لا تؤدي الخطوات الإضافية إلى تقليل الخسارة بشكل مفيد. |
+| Gradient descent | "Go downhill" | Update weights by subtracting the gradient scaled by the learning rate. The most basic optimizer. |
+| Learning rate | "Step size" | A scalar that controls how far each update moves the weights. Too large causes divergence. Too small wastes compute. |
+| Momentum | "Keep rolling" | Accumulate past gradients into a velocity vector. Dampens oscillations and accelerates movement through consistent directions. |
+| SGD | "Random sampling" | Stochastic gradient descent. Compute gradient on a random subset instead of the full dataset. Almost always means mini-batch SGD in practice. |
+| Mini-batch | "A chunk of data" | A small subset of training data (32-256 samples) used to estimate the gradient. Balances speed and gradient accuracy. |
+| Adam | "The default optimizer" | Adaptive Moment Estimation. Tracks per-weight running averages of gradients and squared gradients to give each weight its own learning rate. |
+| Bias correction | "Fix the cold start" | Adam's first and second moments are initialized to zero. Bias correction divides by (1 - beta^t) to compensate during early steps. |
+| Learning rate schedule | "Change lr over time" | A function that adjusts the learning rate during training. Large steps early, small steps late. |
+| Convex function | "One valley" | A function where any local minimum is the global minimum. Gradient descent always finds it. Neural network losses are not convex. |
+| Saddle point | "Flat but not a minimum" | A point where the gradient is zero but it is a minimum in some directions and a maximum in others. Common in high dimensions. |
+| Loss landscape | "The terrain" | The loss function plotted over weight space. Visualized by slicing along two random directions. |
+| Convergence | "Getting there" | The optimizer has reached a point where further steps do not meaningfully reduce the loss. |
 
-## مزيد من القراءة
+## Further Reading
 
-- [Sebastian Ruder: An overview of gradient descent optimization algorithms](https://ruder.io/optimizing-gradient-descent/) - استطلاع شامل لجميع أدوات تحسين الأداء الرئيسية
-- [Why Momentum Really Works (Distill)](https://distill.pub/2017/momentum/) - تصور تفاعلي لديناميكيات الزخم
-- [Adam: A Method for Stochastic Optimization (Kingma & Ba, 2014)](https://arxiv.org/abs/1412.6980) - ورقة آدم الأصلية مقروءة وقصيرة
-- [Visualizing the Loss Landscape of Neural Nets (Li et al., 2018)](https://arxiv.org/abs/1712.09913) - الورقة التي أظهرت الحد الأدنى الحاد مقابل الحد الأدنى المسطح
+- [Sebastian Ruder: An overview of gradient descent optimization algorithms](https://ruder.io/optimizing-gradient-descent/) - comprehensive survey of all major optimizers
+- [Why Momentum Really Works (Distill)](https://distill.pub/2017/momentum/) - interactive visualization of momentum dynamics
+- [Adam: A Method for Stochastic Optimization (Kingma & Ba, 2014)](https://arxiv.org/abs/1412.6980) - the original Adam paper, readable and short
+- [Visualizing the Loss Landscape of Neural Nets (Li et al., 2018)](https://arxiv.org/abs/1712.09913) - the paper that showed sharp vs flat minima

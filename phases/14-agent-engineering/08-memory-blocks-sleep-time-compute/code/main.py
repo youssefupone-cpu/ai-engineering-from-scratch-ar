@@ -1,6 +1,8 @@
-"""كتل الذاكرة على شكل Letta مع عامل توحيد وقت النوم. الوكيل الأساسي يكتب الحقائق الأولية أثناء الأدوار. يعمل وكيل وقت النوم بين
-يتحول، خارج المسار الحرج، ويدمج الكتل. مكتوبة بحيث يتم تشغيله
-غير متصل.
+"""Letta-shaped memory blocks with a sleep-time consolidation agent.
+
+Primary agent writes raw facts during turns. Sleep-time agent runs between
+turns, off the critical path, and consolidates blocks. Scripted so it runs
+offline.
 """
 
 from __future__ import annotations
@@ -103,7 +105,7 @@ class Archival:
 
 
 class PrimaryAgent:
-    """مقابض المنعطفات. يكتب الحقائق الأولية بسرعة؛ لا يلخص أو يوحد أبدا."""
+    """Handles turns. Writes raw facts fast; never summarizes or consolidates."""
 
     def __init__(self, blocks: BlockStore, archival: Archival) -> None:
         self.blocks = blocks
@@ -126,7 +128,8 @@ class PrimaryAgent:
 
 
 class SleepTimeAgent:
-    """خارج المسار الحرج. يلخص الكتل القريبة من الحد، ويبطل السجلات الأرشيفية متناقضة، ولا توجد تكلفة لزمن استجابة المستخدم.
+    """Off the critical path. Summarizes near-limit blocks, invalidates
+    contradicted archival records, no user latency cost.
     """
 
     def __init__(self, blocks: BlockStore, archival: Archival) -> None:

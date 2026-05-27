@@ -28,13 +28,13 @@
   <text x="320" y="124" class="content">مولد يتضمن إشارة</text>
   <text x="320" y="142" class="content">كاشف يستخرج الحمولة</text>
   <text x="320" y="162" class="content">حمولة 16 بت لكل مقطع</text>
-  <text x="320" y="180" class="content">يبقى على قيد الحياة MP3 / EQ / الضوضاء</text>
+  <text x="320" y="180" class="content">ينجو MP3 / EQ / الضوضاء</text>
   <text x="320" y="208" class="caption">&gt; 99% دقة بت قبل الهجوم</text>
 
   <rect x="590" y="55" width="270" height="170" class="box"/>
   <text x="725" y="78" text-anchor="middle" class="label">ج- بيان المصدر</text>
   <text x="725" y="96" text-anchor="middle" class="tag">C2PA · CAI</text>
-  <text x="605" y="124" class="content">البيان الموقع JSON</text>
+  <text x="605" y="124" class="content">بيان JSON مُوقع</text>
   <text x="605" y="142" class="content">منشئ · أداة · الطابع الزمني</text>
   <text x="605" y="162" class="content">تجزئة التشفير</text>
   <text x="605" y="180" class="content">يمكن التحقق منها خارج النطاق</text>
@@ -42,7 +42,7 @@
 
   <rect x="20" y="245" width="840" height="95" class="box"/>
   <text x="440" y="267" text-anchor="middle" class="label">الفجوات الموجودة في كل دفاع - لماذا تحتاج إلى الثلاثة</text>
-  <text x="40" y="294" class="content">الكشف: يحط من OOD؛ overfits لمولدات وقت التدريب</text>
+  <text x="40" y="294" class="content">الكشف: يحط OOD؛ overfits لمولدات وقت التدريب</text>
   <text x="40" y="312" class="content">العلامة المائية: يكسر تغيير درجة الصوت كل علامة مائية 2026 (بت acc &lt;60%)</text>
   <text x="40" y="330" class="content">المصدر: قابل للتجريد بشكل تافه عن طريق إعادة التشفير ← لا يفعل شيئًا بمفرده</text>
 

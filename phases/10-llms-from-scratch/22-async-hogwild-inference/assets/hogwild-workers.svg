@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text x="480" y="24" text-anchor="middle" class="title">هوجويلد! الاستدلال - N عامل، ذاكرة تخزين مؤقت مشتركة KV واحدة</text>
+  <text x="480" y="24" text-anchor="middle" class="title">هوجويلد! الاستدلال - عدد N من العمال، ذاكرة تخزين مؤقت مشتركة KV واحدة</text>
 
   <!-- Worker 1 -->
   <rect x="60" y="60" width="200" height="120" class="worker1"/>
@@ -37,7 +37,7 @@
 
   <!-- Shared cache -->
   <rect x="380" y="180" width="540" height="180" class="cache"/>
-  <text x="650" y="210" text-anchor="middle" class="head">ذاكرة التخزين المؤقت KV المشتركة</text>
+  <text x="650" y="210" text-anchor="middle" class="head">مشترك KV ذاكرة التخزين المؤقت</text>
 
   <!-- Tokens in cache -->
   <rect x="400" y="230" width="40" height="30" class="worker1"/>

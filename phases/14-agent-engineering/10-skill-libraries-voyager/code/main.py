@@ -1,5 +1,7 @@
-"""مكتبة المهارات على شكل فوييجر: التسجيل، والاسترجاع، والتأليف، والتحسين. ستدليب فقط. مساحة العمل هي الكود؛ المهارات قابلة للاسترجاع والتركيب؛
-الفشل يعود إلى الإصدار التالي.
+"""Voyager-shaped skill library: register, retrieve, compose, refine.
+
+Stdlib only. Action space is code; skills are retrievable and composable;
+failures feed back into the next version.
 """
 
 from __future__ import annotations

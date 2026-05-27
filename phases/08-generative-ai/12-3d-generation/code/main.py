@@ -6,7 +6,7 @@ SIZE = 12  # small image grid for speed
 
 
 def make_target(size):
-    """الهدف: نقطة لامعة ناعمة في الجزء العلوي الأيسر، ونقطة باهتة في الجزء السفلي الأيمن."""
+    """Target: a smooth bright blob in the upper-left, dimmer one in the lower-right."""
     target = [[0.0] * size for _ in range(size)]
     for y in range(size):
         for x in range(size):

@@ -1,6 +1,8 @@
-"""تتويج الوكيل متعدد الوسائط - مخطط الإجراء + حلقة الوكيل + معيار مكون من 10 مهام. ستدليب. متصفح وهمي مع انتقالات حتمية للصفحة، لعبة VLM ذلك
-يصدر إجراءات من جدول سياسة ثابت، وحلقة خارجية لتتبع التقدم
-عبر 10 مهام موقع حجز اصطناعي.
+"""Multimodal agent capstone — action schema + agent loop + 10-task benchmark.
+
+Stdlib. A mock browser with deterministic page transitions, a toy VLM that
+emits actions from a fixed policy table, an outer loop tracking progress
+across 10 synthetic booking-site tasks.
 """
 
 from __future__ import annotations
@@ -77,7 +79,7 @@ def apply_action(state: BrowserState, action: dict) -> BrowserState:
     elif act == "select":
         new.filled["select_idx"] = action.get("option_index", 0)
     elif act == "done":
-        # إشارة طرفية فقط؛ لا تقم بالكتابة فوق حالة صفحة سير العمل
+        # terminal signal only; do not overwrite workflow page state
         pass
     return new
 

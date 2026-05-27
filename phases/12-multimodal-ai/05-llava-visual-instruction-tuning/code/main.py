@@ -1,4 +1,13 @@
-"""جهاز عرض LLaVA ثنائي الطبقة MLP + منشئ موجه - stdlib Python. يمشي في تمريرة LLaVA الأمامية: - تصدر لعبة ViT 16 رمزًا قاتمًا من 16 - طبقتان MLP تعرض كل رقعة لتعتيم 24 ('LLM' خافتة) - أنشئ موجهًا بتنسيق LLaVA مع استبدال العنصر النائب <image> بالرمز 16 الرموز المتوقعة - تقرير ميزانية السياق عند نوافذ 2 كيلو / 32 كيلو / 128 كيلو LLM لا نومي، لا الشعلة. يتم تنفيذ الطبقات الخطية وGELU يدويًا.
+"""LLaVA 2-layer MLP projector + prompt builder — stdlib Python.
+
+Walks the LLaVA forward pass:
+  - toy ViT emits 16 patch tokens of dim 16
+  - 2-layer MLP projects each patch to dim 24 (the 'LLM' dim)
+  - build a LLaVA-format prompt with <image> placeholder replaced by the 16
+    projected tokens
+  - report context budget at 2k / 32k / 128k LLM windows
+
+No numpy, no torch. Linear layers and GELU implemented by hand.
 """
 
 from __future__ import annotations

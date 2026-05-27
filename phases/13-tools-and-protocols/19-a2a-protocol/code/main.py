@@ -1,4 +1,14 @@
-"""المرحلة 13 الدرس 19 - A2A بروتوكول وكيل إلى وكيل. وكيل الأبحاث يتصل بوكيل الكاتب عبر A2A: 1. يقوم وكيل الأبحاث بجلب بطاقة وكيل الكاتب 2. يرسل مهمة تحتوي على نص + ملف + أجزاء بيانات 3. انتقالات الكاتب قيد التشغيل -> input_required -> قيد التشغيل -> مكتملة 4. وكيل الأبحاث يتلقى قطعة أثرية ستدليب فقط؛ يشير النقل قيد التشغيل إلى JSON-RPC خلال HTTP. تشغيل: كود بايثون/main.py
+"""Phase 13 Lesson 19 - A2A agent-to-agent protocol.
+
+Research agent calls writer agent via A2A:
+  1. Research agent fetches writer's Agent Card
+  2. Submits a Task with text + file + data parts
+  3. Writer transitions working -> input_required -> working -> completed
+  4. Research agent receives an Artifact
+
+Stdlib only; in-process transport stands in for JSON-RPC over HTTP.
+
+Run: python code/main.py
 """
 
 from __future__ import annotations
@@ -67,7 +77,7 @@ def writer_tasks_send(skill_id: str, message: Message) -> Task:
     task.state = "working"
     task.append(message)
     print(f"    WRITER  : started task {task.id} skill={skill_id}")
-    # يحتاج إلى target_length
+    # needs target_length
     data_parts = [p for p in message.parts if p.kind == "data"]
     if not data_parts or "targetLength" not in data_parts[0].payload:
         task.state = "input_required"
