@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "What problem do virtual environments solve?",
+      "question": "ما هي المشكلة التي تحلها البيئات الافتراضية؟",
       "options": [
-        "They make Python code run faster by optimizing the interpreter",
-        "They isolate project dependencies so different projects can use different package versions",
-        "They provide a graphical interface for managing Python scripts",
-        "They automatically update packages to the latest versions"
+        "إنهم make يعمل كود Python بشكل أسرع من خلال تحسين المترجم الفوري",
+        "إنها تعزل تبعيات المشروع حتى تتمكن المشروعات المختلفة من استخدام إصدارات حزمة مختلفة",
+        "أنها توفر واجهة رسومية لإدارة البرامج النصية بايثون",
+        "يقومون تلقائيًا بتحديث الحزم إلى أحدث الإصدارات"
       ],
       "correct": 1,
-      "explanation": "Virtual environments give each project its own isolated set of packages. Without them, installing PyTorch 2.4 for one project would overwrite PyTorch 2.1 needed by another."
+      "explanation": "تمنح البيئات الافتراضية كل مشروع مجموعة من الحزم المعزولة الخاصة به. بدونها، سيؤدي تثبيت PyTorch 2.4 لمشروع واحد إلى استبدال PyTorch 2.1 الذي يحتاجه مشروع آخر."
     },
     {
       "stage": "pre",
-      "question": "What is a lockfile in the context of Python dependency management?",
+      "question": "ما هو ملف القفل في سياق إدارة تبعية بايثون؟",
       "options": [
-        "A file that prevents other users from editing your code",
-        "A file that pins every package to an exact version for reproducible installs",
-        "A file that locks the Python interpreter version",
-        "A file that encrypts your project dependencies"
+        "ملف يمنع المستخدمين الآخرين من تحرير التعليمات البرمجية الخاصة بك",
+        "ملف يربط كل حزمة بإصدار محدد لعمليات التثبيت القابلة للتكرار",
+        "ملف يقوم بتأمين إصدار مترجم بايثون",
+        "ملف يقوم بتشفير تبعيات مشروعك"
       ],
       "correct": 1,
-      "explanation": "A lockfile records the exact version of every package (including transitive dependencies) so anyone installing from it gets identical packages, ensuring reproducibility."
+      "explanation": "يسجل ملف القفل الإصدار الدقيق لكل حزمة (بما في ذلك التبعيات المتعدية) بحيث يحصل أي شخص يقوم بالتثبيت منه على حزم متطابقة، مما يضمن إمكانية التكرار."
     },
     {
       "stage": "post",
-      "question": "How can you verify that your pip and python commands are using the virtual environment and not the system Python?",
+      "question": "كيف يمكنك التحقق من أن أوامر pip وpython تستخدم البيئة الافتراضية وليس نظام Python؟",
       "options": [
-        "Run 'pip --version' and check the version number",
-        "Run 'which python' and confirm it shows.venv/bin/python, not /usr/bin/python",
-        "Check if the terminal background color has changed",
-        "Run 'python --check-env' to verify"
+        "قم بتشغيل \"pip --version\" وتحقق من رقم الإصدار",
+        "قم بتشغيل \"what python\" وتأكد من ظهوره.venv/bin/python، وليس /usr/bin/python",
+        "تحقق مما إذا كان لون الخلفية الطرفية قد تغير",
+        "قم بتشغيل \"python --check-env\" للتحقق"
       ],
       "correct": 1,
-      "explanation": "'which python' (or 'where python' on Windows) shows the full path to the interpreter. If it points to.venv/bin/python, you are in the virtual environment."
+      "explanation": "يُظهر \"أي python\" (أو \"حيث python\" على نظام التشغيل Windows) المسار الكامل للمترجم الفوري. إذا كان يشير إلى.venv/bin/python، فأنت في البيئة الافتراضية."
     },
     {
       "stage": "post",
-      "question": "Why is mixing pip and conda in the same environment problematic?",
+      "question": "لماذا يعتبر خلط pip و conda في نفس البيئة مشكلة؟",
       "options": [
-        "Pip packages are incompatible with conda's Python interpreter",
-        "Pip installs can break conda's dependency tracking, causing hard-to-debug conflicts",
-        "Conda cannot install packages that pip has already installed",
-        "It doubles the disk space used by every package"
+        "حزم النقاط غير متوافقة مع مترجم Python الخاص بـ conda",
+        "يمكن أن تؤدي عمليات تثبيت النقاط إلى كسر تتبع تبعية conda، مما يتسبب في حدوث تعارضات يصعب تصحيح الأخطاء",
+        "لا تستطيع Conda تثبيت الحزم التي تم تثبيتها pip بالفعل",
+        "فهو يضاعف مساحة القرص التي تستخدمها كل حزمة"
       ],
       "correct": 1,
-      "explanation": "Conda maintains its own dependency solver. Pip installs bypass it, so conda no longer knows the true state of the environment. This leads to dependency conflicts that are painful to resolve."
+      "explanation": "تحتفظ Conda بحل التبعية الخاص بها. تتجاوزها عمليات تثبيت النقطة، لذلك لم يعد conda يعرف الحالة الحقيقية للبيئة. وهذا يؤدي إلى صراعات التبعية التي يصعب حلها."
     },
     {
       "stage": "post",
-      "question": "Your PyTorch code reports 'CUDA not available' despite having an NVIDIA GPU. What is the most likely cause?",
+      "question": "يشير رمز PyTorch الخاص بك إلى \"CUDA غير متوفر\" على الرغم من وجود NVIDIA GPU. ما هو السبب الأكثر احتمالا؟",
       "options": [
-        "Your GPU does not support CUDA",
-        "PyTorch was installed with a CUDA version incompatible with your GPU driver",
-        "You forgot to import the torch.cuda module",
-        "Virtual environments cannot access GPU hardware"
+        "GPU الخاص بك لا يدعم CUDA",
+        "تم تثبيت PyTorch مع إصدار CUDA غير متوافق مع برنامج التشغيل GPU الخاص بك",
+        "لقد نسيت استيراد وحدة torch.cuda",
+        "لا يمكن للبيئات الافتراضية الوصول إلى الأجهزة GPU"
       ],
       "correct": 1,
-      "explanation": "PyTorch ships CUDA bindings compiled for specific CUDA versions. If the PyTorch CUDA version exceeds your driver's CUDA version, CUDA will not be available. Check with nvidia-smi and torch.version.cuda."
+      "explanation": "PyTorch السفن CUDA الروابط المجمعة لإصدارات CUDA محددة. إذا تجاوز الإصدار PyTorch CUDA إصدار برنامج التشغيل CUDA الخاص بك، فلن يكون CUDA متاحًا. تحقق باستخدام nvidia-smi وtorch.version.cuda."
     }
   ]
 }

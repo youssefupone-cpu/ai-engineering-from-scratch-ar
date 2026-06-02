@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "Why is a GPU faster than a CPU for training neural networks?",
+      "question": "لماذا يكون GPU أسرع من CPU لتدريب الشبكات العصبية؟",
       "options": [
-        "GPUs have higher clock speeds than CPUs",
-        "GPUs can perform thousands of parallel matrix operations simultaneously",
-        "GPUs have more RAM than CPUs",
-        "GPUs use a more efficient programming language"
+        "تتمتع GPUs بسرعات ساعة أعلى من CPUs",
+        "يمكن لـ GPUs إجراء آلاف عمليات المصفوفة المتوازية في وقت واحد",
+        "GPU بها أكثر من RAM أكثر من CPUs",
+        "GPUs تستخدم لغة برمجة أكثر كفاءة"
       ],
       "correct": 1,
-      "explanation": "GPUs have thousands of cores optimized for parallel computation, making them ideal for the matrix multiplications that dominate neural network training."
+      "explanation": "تحتوي GPUs على آلاف النوى المحسنة للحساب المتوازي، مما يجعلها مثالية لمضاعفات المصفوفة التي تهيمن على تدريب الشبكة العصبية."
     },
     {
       "stage": "pre",
-      "question": "What does VRAM refer to?",
+      "question": "إلى ماذا يشير VRAM؟",
       "options": [
-        "Virtual RAM used by the operating system for swap space",
-        "Video RAM on the GPU, separate from system RAM",
-        "The total RAM available across all devices",
-        "A type of CPU cache memory"
+        "Virtual RAM يستخدمه نظام التشغيل لمساحة المبادلة",
+        "فيديو RAM على GPU منفصل عن النظام RAM",
+        "المجموع RAM متاح عبر جميع الأجهزة",
+        "نوع من الذاكرة المؤقتة CPU"
       ],
       "correct": 1,
-      "explanation": "VRAM (Video RAM) is the dedicated memory on a GPU. It limits the size of models and batch sizes you can use during training, separate from your system's main RAM."
+      "explanation": "VRAM (الفيديو RAM) هي الذاكرة المخصصة على GPU. فهو يحدد حجم النماذج وأحجام الدفعات التي يمكنك استخدامها أثناء التدريب، بشكل منفصل عن RAM الرئيسي لنظامك."
     },
     {
       "stage": "post",
-      "question": "What command verifies that your NVIDIA GPU is detected and shows its current status?",
+      "question": "ما الأمر الذي يتحقق من اكتشاف NVIDIA GPU ويظهر حالته الحالية؟",
       "options": [
-        "gpu --status",
+        "وحدة معالجة الرسومات --الحالة",
         "nvidia-smi",
         "torch.cuda.list_devices()",
-        "lspci | grep gpu"
+        "لسبسي | grep GPU"
       ],
       "correct": 1,
-      "explanation": "nvidia-smi (NVIDIA System Management Interface) displays GPU utilization, memory usage, temperature, and running processes. It is the standard tool for verifying GPU availability."
+      "explanation": "يعرض nvidia-smi (NVIDIA واجهة إدارة النظام) استخدام GPU واستخدام الذاكرة ودرجة الحرارة والعمليات الجارية. إنها الأداة القياسية للتحقق من توفر GPU."
     },
     {
       "stage": "post",
-      "question": "When benchmarking GPU vs CPU matrix multiplication, why must you call torch.cuda.synchronize() before measuring GPU time?",
+      "question": "عند قياس GPU مقابل CPU مضاعفة المصفوفة، لماذا يجب عليك استدعاء torch.cuda.synchronize() قبل قياس GPU الوقت؟",
       "options": [
-        "To transfer data from CPU to GPU memory",
-        "To ensure all GPU operations have completed before stopping the timer",
-        "To reset the GPU clock speed to its base frequency",
-        "To free unused GPU memory"
+        "لنقل البيانات من CPU إلى GPU الذاكرة",
+        "للتأكد من اكتمال كافة العمليات GPU قبل إيقاف المؤقت",
+        "لإعادة ضبط سرعة الساعة GPU على ترددها الأساسي",
+        "لتحرير الذاكرة GPU غير المستخدمة"
       ],
       "correct": 1,
-      "explanation": "GPU operations are asynchronous -- Python returns immediately while the GPU is still computing. synchronize() blocks until all GPU operations finish, giving accurate timing."
+      "explanation": "عمليات GPU غير متزامنة - تعود Python على الفور بينما لا يزال GPU قيد الحوسبة. كتل المزامنة () حتى تنتهي جميع عمليات GPU، مما يوفر توقيتًا دقيقًا."
     },
     {
       "stage": "post",
-      "question": "Using the fp16 rule of thumb, approximately how many parameters can fit in 24 GB of VRAM?",
+      "question": "باستخدام قاعدة fp16، ما هو عدد المعلمات تقريبًا التي يمكن احتواؤها في 24 GB من VRAM؟",
       "options": [
-        "24 billion parameters",
-        "12 billion parameters",
-        "6 billion parameters",
-        "48 billion parameters"
+        "24 مليار معلمة",
+        "12 مليار معلمة",
+        "6 مليار معلمة",
+        "48 مليار معلمة"
       ],
       "correct": 1,
-      "explanation": "In fp16, each parameter uses 2 bytes. 24 GB / 2 bytes = 12 billion parameters. This is a rough estimate; actual usage includes activations, gradients, and optimizer states."
+      "explanation": "في fp16، تستخدم كل معلمة 2 بايت. 24 GB / 2 بايت = 12 مليار معلمة. هذا تقدير تقريبي. يتضمن الاستخدام الفعلي عمليات التنشيط والتدرجات وحالات المحسن."
     }
   ]
 }
