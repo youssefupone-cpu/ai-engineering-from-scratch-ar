@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "What makes debugging AI/ML code fundamentally different from debugging a typical web application?",
+      "question": "ما هو كود تصحيح الأخطاء make AI/ML الذي يختلف بشكل أساسي عن تصحيح أخطاء تطبيق الويب النموذجي؟",
       "options": [
-        "AI code uses different programming languages",
-        "AI bugs often don't crash -- they silently produce incorrect results with no error messages",
-        "AI code cannot be debugged with standard tools like print statements",
-        "AI code always requires a GPU to debug"
+        "يستخدم الكود AI لغات برمجة مختلفة",
+        "AI الأخطاء لا تتعطل في كثير من الأحيان - فهي تنتج بصمت نتائج غير صحيحة دون أي رسائل خطأ",
+        "لا يمكن تصحيح كود AI باستخدام الأدوات القياسية مثل عبارات الطباعة",
+        "يتطلب الرمز AI دائمًا GPU لتصحيح الأخطاء"
       ],
       "correct": 1,
-      "explanation": "The worst AI bugs produce valid-looking output. A misconfigured training loop might run for hours without errors while the model learns nothing useful, unlike web apps that crash with stack traces."
+      "explanation": "تنتج أسوأ أخطاء AI مخرجات ذات مظهر صالح. قد تعمل حلقة التدريب التي تم تكوينها بشكل خاطئ لساعات دون أخطاء بينما لا يتعلم النموذج أي شيء مفيد، على عكس تطبيقات الويب التي تتعطل مع تتبعات المكدس."
     },
     {
       "stage": "pre",
-      "question": "What does a profiler measure?",
+      "question": "ما الذي يقيسه ملف التعريف؟",
       "options": [
-        "Whether the code produces correct output",
-        "How much time and memory each part of the code consumes",
-        "How many bugs exist in the codebase",
-        "The code coverage of unit tests"
+        "ما إذا كان الكود ينتج الإخراج الصحيح",
+        "مقدار الوقت والذاكرة التي يستهلكها كل جزء من الكود",
+        "كم عدد الأخطاء الموجودة في قاعدة التعليمات البرمجية",
+        "تغطية الكود لاختبارات الوحدة"
       ],
       "correct": 1,
-      "explanation": "Profilers measure resource consumption -- execution time per function, memory allocation, and GPU utilization -- helping you find bottlenecks and optimize performance."
+      "explanation": "تقوم ملفات التعريف بقياس استهلاك الموارد - وقت التنفيذ لكل وظيفة، وتخصيص الذاكرة، واستخدام GPU - مما يساعدك على العثور على الاختناقات وتحسين الأداء."
     },
     {
       "stage": "post",
-      "question": "Your model achieves 99% accuracy on the test set. What AI-specific bug should you suspect first?",
+      "question": "يحقق نموذجك دقة تصل إلى 99% في مجموعة الاختبار. ما هو الخطأ AI المحدد الذي يجب أن تشك فيه أولاً؟",
       "options": [
-        "The model has too many parameters",
-        "Data leakage -- test samples may have leaked into the training set",
-        "The learning rate is too high",
-        "The batch size is too large"
+        "يحتوي النموذج على عدد كبير جدًا من المعلمات",
+        "تسرب البيانات - ربما تسربت عينات الاختبار إلى مجموعة التدريب",
+        "معدل التعلم مرتفع للغاية",
+        "حجم الدفعة كبير جدًا"
       ],
       "correct": 1,
-      "explanation": "Suspiciously high accuracy often indicates data leakage -- overlap between training and test data, or features that contain the target label. Always check for train/test overlap."
+      "explanation": "غالبًا ما تشير الدقة العالية بشكل مريب إلى تسرب البيانات - أي التداخل بين بيانات التدريب والاختبار، أو الميزات التي تحتوي على الملصق المستهدف. تحقق دائمًا من تداخل التدريب/الاختبار."
     },
     {
       "stage": "post",
-      "question": "What is the most common finding when profiling a training loop's time breakdown?",
+      "question": "ما هي النتيجة الأكثر شيوعًا عند تحديد تفاصيل التوزيع الزمني لحلقة التدريب؟",
       "options": [
-        "The backward pass takes 90% of the time",
-        "Data loading takes more time than the forward and backward passes combined",
-        "Writing logs takes the most time",
-        "GPU memory allocation is the bottleneck"
+        "تستغرق التمريرة الخلفية 90% من الوقت",
+        "يستغرق تحميل البيانات وقتًا أطول من التمريرات الأمامية والخلفية مجتمعة",
+        "تستغرق كتابة السجلات معظم الوقت",
+        "GPU تخصيص الذاكرة هو عنق الزجاجة"
       ],
       "correct": 1,
-      "explanation": "Data loading often takes 60%+ of training time when num_workers=0 in the DataLoader. The fix is setting num_workers > 0 to load data in parallel with GPU computation."
+      "explanation": "غالبًا ما يستغرق تحميل البيانات أكثر من 60% من وقت التدريب عندما يكون num_workers=0 في DataLoader. الإصلاح هو تعيين num_workers > 0 لتحميل البيانات بالتوازي مع حساب GPU."
     },
     {
       "stage": "post",
-      "question": "You see NaN loss at step 500. Which approach will help you find the root cause?",
+      "question": "ترى فقدان NaN في الخطوة 500. ما هو الأسلوب الذي سيساعدك في العثور على السبب الجذري؟",
       "options": [
-        "Restart training from scratch with a different random seed",
-        "Use detect_nan to check for NaN/Inf in gradients and add breakpoint() at the failure point",
-        "Increase the batch size to stabilize gradients",
-        "Switch from Adam to SGD optimizer"
+        "أعد بدء التدريب من الصفر باستخدام بذرة عشوائية مختلفة",
+        "استخدم Detect_nan للتحقق من NaN/Inf في التدرجات وإضافة نقطة التوقف () عند نقطة الفشل",
+        "زيادة حجم الدفعة لتحقيق الاستقرار في التدرجات",
+        "قم بالتبديل من آدم إلى مُحسِّن SGD"
       ],
       "correct": 1,
-      "explanation": "First identify WHERE the NaN originates by checking gradients for each parameter. A conditional breakpoint at the NaN step lets you inspect tensor values interactively. Common causes: learning rate too high, log(0), or division by zero."
+      "explanation": "حدد أولاً WHERE مصدر NaN عن طريق التحقق من التدرجات لكل معلمة. تتيح لك نقطة التوقف الشرطية في خطوة NaN فحص قيم الموتر بشكل تفاعلي. الأسباب الشائعة: معدل التعلم مرتفع جدًا، أو السجل (0)، أو القسمة على صفر."
     }
   ]
 }

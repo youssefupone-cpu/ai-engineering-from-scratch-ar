@@ -2,63 +2,63 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "What is a Language Server Protocol (LSP)?",
+      "question": "ما هو بروتوكول خادم اللغة (LSP)؟",
       "options": [
-        "A protocol for transferring files between editors",
-        "A standard for editors to receive type info, completions, and diagnostics from a language-specific server",
-        "A compression format for source code files",
-        "A network protocol for remote pair programming"
+        "بروتوكول لنقل الملفات بين المحررين",
+        "معيار للمحررين لتلقي معلومات النوع والإكمالات والتشخيصات من خادم خاص بلغة معينة",
+        "تنسيق ضغط لملفات التعليمات البرمجية المصدر",
+        "بروتوكول شبكة لبرمجة الزوج البعيد"
       ],
       "correct": 1,
-      "explanation": "LSP is a standardized protocol that lets editors communicate with language servers for features like autocomplete, type checking, and error diagnostics, regardless of the editor used."
+      "explanation": "LSP هو بروتوكول موحد يتيح للمحررين التواصل مع خوادم اللغة للحصول على ميزات مثل الإكمال التلقائي والتحقق من الكتابة وتشخيص الأخطاء، بغض النظر عن المحرر المستخدم."
     },
     {
       "stage": "pre",
-      "question": "Why is format-on-save useful for team projects?",
+      "question": "لماذا يعد التنسيق عند الحفظ مفيدًا لمشاريع الفريق؟",
       "options": [
-        "It reduces file sizes by removing whitespace",
-        "It ensures consistent code style across all contributors without manual formatting",
-        "It catches runtime bugs before the code is executed",
-        "It compresses the code for faster git operations"
+        "فهو يقلل من أحجام الملفات عن طريق إزالة المسافات البيضاء",
+        "إنه يضمن نمط تعليمات برمجية متسقًا عبر جميع المساهمين دون التنسيق اليدوي",
+        "فهو يلتقط أخطاء وقت التشغيل قبل تنفيذ التعليمات البرمجية",
+        "يقوم بضغط الكود لإجراء عمليات git أسرع"
       ],
       "correct": 1,
-      "explanation": "Format-on-save runs a formatter (like Black or Ruff) every time you save, ensuring all code follows the same style conventions regardless of who wrote it."
+      "explanation": "يقوم التنسيق عند الحفظ بتشغيل مُنسق (مثل Black أو Ruff) في كل مرة تقوم فيها بالحفظ، مما يضمن أن جميع التعليمات البرمجية تتبع نفس اصطلاحات النمط بغض النظر عمن كتبها."
     },
     {
       "stage": "post",
-      "question": "Which VS Code extension enables editing code on a remote GPU machine as if it were local?",
+      "question": "أي ملحق كود VS يمكّن من تحرير الكود على جهاز GPU بعيد كما لو كان محليًا؟",
       "options": [
         "GitLens",
         "Pylance",
-        "Remote SSH",
+        "عن بعد SSH",
         "Debugpy"
       ],
       "correct": 2,
-      "explanation": "Remote SSH installs a lightweight VS Code server on the remote machine and streams the UI to your local editor, letting you edit files, run terminals, and debug remotely."
+      "explanation": "يقوم جهاز التحكم عن بعد SSH بتثبيت خادم VS Code خفيف الوزن على الجهاز البعيد ويقوم بتدفق UI إلى المحرر المحلي لديك، مما يتيح لك تحرير الملفات وتشغيل الأجهزة الطرفية وتصحيح الأخطاء عن بُعد."
     },
     {
       "stage": "post",
-      "question": "Why should 'notebook.output.scrolling' be enabled in VS Code settings for AI work?",
+      "question": "لماذا يجب تمكين \"notebook.output.scrolling\" في إعدادات الكود VS للعمل AI؟",
       "options": [
-        "It enables horizontal scrolling for wide dataframes",
-        "It prevents training loop output (thousands of lines) from exploding the output panel",
-        "It allows scrolling between notebook cells with the mouse wheel",
-        "It enables smooth scrolling animations in the editor"
+        "يتيح التمرير الأفقي لإطارات البيانات الواسعة",
+        "يمنع إخراج حلقة التدريب (آلاف الخطوط) من انفجار لوحة الإخراج",
+        "يسمح بالتمرير بين خلايا الكمبيوتر المحمول باستخدام عجلة الماوس",
+        "فهو يتيح الرسوم المتحركة للتمرير السلس في المحرر"
       ],
       "correct": 1,
-      "explanation": "Training loops can print thousands of lines of output. Without output scrolling, the notebook output panel grows unbounded, making the notebook unusable."
+      "explanation": "يمكن لحلقات التدريب طباعة آلاف الأسطر من المخرجات. بدون تمرير الإخراج، تنمو لوحة إخراج الكمبيوتر المحمول بشكل غير محدود، مما يجعل الكمبيوتر المحمول غير قابل للاستخدام."
     },
     {
       "stage": "post",
-      "question": "What does setting 'python.analysis.typeCheckingMode' to 'basic' in VS Code accomplish?",
+      "question": "ما الذي ينجزه تعيين \"python.analogy.typeCheckingMode\" على \"أساسي\" في كود VS؟",
       "options": [
-        "It enables syntax highlighting for Python files",
-        "It catches wrong argument types and tensor shape mismatches before running the code",
-        "It formats Python code according to PEP 8 standards",
-        "It enables Python 3.12 language features"
+        "وهو يتيح تسليط الضوء على بناء الجملة لملفات بايثون",
+        "فهو يلتقط أنواع الوسائط الخاطئة وعدم تطابق شكل الموتر قبل تشغيل التعليمات البرمجية",
+        "يقوم بتنسيق كود Python وفقًا لمعايير PEP 8",
+        "وهو يتيح ميزات لغة بايثون 3.12"
       ],
       "correct": 1,
-      "explanation": "Basic type checking with Pylance flags type mismatches, wrong argument types, and incorrect API parameters at edit time, catching bugs before you run a potentially expensive training script."
+      "explanation": "التحقق الأساسي من النوع باستخدام علامات Pylance لعدم تطابق النوع، وأنواع الوسائط الخاطئة، ومعلمات API غير الصحيحة في وقت التحرير، مما يؤدي إلى اكتشاف الأخطاء قبل تشغيل برنامج نصي تدريبي قد يكون مكلفًا."
     }
   ]
 }

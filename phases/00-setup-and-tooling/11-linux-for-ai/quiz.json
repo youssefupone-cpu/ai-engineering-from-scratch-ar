@@ -2,31 +2,31 @@
   "questions": [
     {
       "stage": "pre",
-      "question": "What does the '~' symbol represent in a Linux file path?",
+      "question": "ماذا يمثل الرمز \"~\" في مسار ملف Linux؟",
       "options": [
-        "The root directory of the file system",
-        "The current user's home directory",
-        "The temporary files directory",
-        "The directory where system programs are installed"
+        "الدليل الجذر لنظام الملفات",
+        "الدليل الرئيسي للمستخدم الحالي",
+        "دليل الملفات المؤقتة",
+        "الدليل الذي تم تثبيت برامج النظام عليه"
       ],
       "correct": 1,
-      "explanation": "The tilde (~) is a shortcut for the current user's home directory, typically /home/username on Linux. 'cd ~' takes you home from anywhere."
+      "explanation": "التلدة (~) هي اختصار للدليل الرئيسي للمستخدم الحالي، عادةً /home/اسم المستخدم على Linux. يأخذك \"cd ~\" إلى المنزل من أي مكان."
     },
     {
       "stage": "pre",
-      "question": "What is the purpose of 'sudo' before a command?",
+      "question": "ما هو الغرض من \"sudo\" قبل الأمر؟",
       "options": [
-        "It speeds up the command execution",
-        "It runs the command with root (administrator) privileges",
-        "It runs the command in a sandboxed environment",
-        "It logs the command output to a system file"
+        "يعمل على تسريع تنفيذ الأمر",
+        "يقوم بتشغيل الأمر بامتيازات الجذر (المسؤول).",
+        "يقوم بتشغيل الأمر في بيئة وضع الحماية",
+        "يقوم بتسجيل إخراج الأمر إلى ملف النظام"
       ],
       "correct": 1,
-      "explanation": "sudo (superuser do) temporarily elevates your privileges to root level for a single command. Required for system-level operations like installing packages with apt."
+      "explanation": "sudo (المستخدم المتميز) يرفع امتيازاتك مؤقتًا إلى مستوى الجذر لأمر واحد. مطلوب للعمليات على مستوى النظام مثل تثبيت الحزم باستخدام apt."
     },
     {
       "stage": "post",
-      "question": "You get 'Permission denied' when trying to run a shell script. What command fixes this?",
+      "question": "تحصل على \"تم رفض الإذن\" عند محاولة تشغيل برنامج نصي لـ Shell. ما الأمر الذي يصلح هذا؟",
       "options": [
         "sudo rm script.sh",
         "chmod +x script.sh",
@@ -34,31 +34,31 @@
         "mv script.sh /usr/bin/"
       ],
       "correct": 1,
-      "explanation": "chmod +x adds execute permission to the file. Without the execute bit set, the shell refuses to run the script even if you own it."
+      "explanation": "يضيف chmod +x إذن التنفيذ إلى الملف. بدون مجموعة بتات التنفيذ، ترفض الصدفة تشغيل البرنامج النصي حتى لو كنت تملكه."
     },
     {
       "stage": "post",
-      "question": "On a remote GPU box, your training data fills the disk. Which command shows the largest directories consuming space?",
+      "question": "في مربع GPU عن بعد، تملأ بيانات التدريب القرص. ما الأمر الذي يعرض أكبر الدلائل التي تستهلك مساحة؟",
       "options": [
-        "ls -la /",
-        "du -h --max-depth=1 / | sort -hr | head -20",
-        "cat /proc/meminfo",
-        "free -h"
+        "ليرة سورية -لا /",
+        "du -h --max-deep=1 / | فرز -hr | الرأس -20",
+        "القط /proc/meminfo",
+        "حر -ح"
       ],
       "correct": 1,
-      "explanation": "du -h shows disk usage per directory, --max-depth=1 limits to top-level directories, and sort -hr sorts by size in descending order. This reveals which directories are consuming the most space."
+      "explanation": "يُظهر du -h استخدام القرص لكل دليل، وحدود --max-deep=1 لأدلة المستوى الأعلى، وفرز -hr حسب الحجم بترتيب تنازلي. يكشف هذا عن الدلائل التي تستهلك أكبر مساحة."
     },
     {
       "stage": "post",
-      "question": "What is a key difference between the macOS and Linux versions of 'sed -i'?",
+      "question": "ما هو الفرق الرئيسي بين إصدارات macOS وLinux من \"sed -i\"؟",
       "options": [
-        "Linux sed is faster than macOS sed",
-        "macOS sed requires an empty string argument after -i ('sed -i \"\"'), while Linux does not",
-        "Linux sed does not support regular expressions",
-        "macOS sed cannot modify files in place"
+        "Linux sed أسرع من macOS sed",
+        "يتطلب نظام التشغيل macOS sed وسيطة سلسلة فارغة بعد -i ('sed -i \"\"')، بينما لا يتطلب نظام Linux ذلك",
+        "Linux sed لا يدعم التعبيرات العادية",
+        "لا يمكن لنظام التشغيل macOS sed تعديل الملفات الموجودة في مكانها"
       ],
       "correct": 1,
-      "explanation": "macOS uses BSD sed which requires 'sed -i \"\" pattern file', while Linux uses GNU sed which accepts 'sed -i pattern file'. This is a common gotcha when moving scripts between systems."
+      "explanation": "يستخدم نظام التشغيل macOS BSD sed الذي يتطلب ملف النمط \"sed -i \"\"، بينما يستخدم Linux GNU sed الذي يقبل \"ملف النمط sed -i\". هذه مشكلة شائعة عند نقل البرامج النصية بين الأنظمة."
     }
   ]
 }
