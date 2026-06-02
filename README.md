@@ -14,43 +14,44 @@
 ░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒
 ```
 
-> **84% of students already use AI tools. Only 18% feel prepared to use them
-> professionally.** This curriculum closes that gap.
+> **84% من الطلاب يستخدمون أدوات الذكاء الاصطناعي بالفعل. لكن 18% فقط يشعرون
+> بأنهم مستعدون لاستخدامها مهنيًا.** هذا المنهج يسد هذه الفجوة.
 >
-> 453 lessons. 20 phases. ~320 hours. Python, TypeScript, Rust, Julia. Every lesson ships
-> a reusable artifact: a prompt, a skill, an agent, an MCP server. Free, open source, MIT.
+> 453 درسًا. 20 مرحلة. حوالي 320 ساعة. Python وTypeScript وRust وJulia. كل درس
+> يسلّم مخرجًا قابلًا لإعادة الاستخدام: prompt أو skill أو agent أو MCP server.
+> مجاني، مفتوح المصدر، وترخيص MIT.
 >
-> You don't just learn AI. You build it. End-to-end. By hand.
+> لا تتعلم الذكاء الاصطناعي فقط. أنت تبنيه من البداية إلى النهاية. يدويًا.
 
 > **ملاحظة:** هذه نسخة عربية مخصصة مبنية على المستودع الأصلي
 > [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch).
 > الهدف هنا هو تقديم المحتوى بالعربية مع الحفاظ على البنية والروابط والمسار التعليمي.
 
-## How this works
+## كيف يعمل هذا
 
-Most AI material teaches in scattered pieces. A paper here, a fine-tuning post there, a
-flashy agent demo somewhere else. The pieces rarely line up. You ship a chatbot but can't
-explain its loss curve. You hook a function to an agent but can't say what attention does
-inside the model that's calling it.
+معظم مواد الذكاء الاصطناعي تقدّم المعرفة على شكل أجزاء متفرقة: ورقة بحثية هنا،
+ومنشور عن الضبط الدقيق هناك، وعرضًا لعميل ذكي في مكان آخر. هذه القطع نادرًا ما
+تتجمع في مسار واحد. تنشر روبوت محادثة لكنك لا تستطيع شرح منحنى الخسارة الخاص به.
+توصل دالة إلى وكيل لكنك لا تستطيع تفسير ما يفعله الانتباه داخل النموذج الذي يستدعيه.
 
-This curriculum is the spine. 20 phases, 453 lessons, four languages: Python, TypeScript,
-Rust, Julia. Linear algebra at one end, autonomous swarms at the other. Every algorithm
-gets built from raw math first. Backprop. Tokenizer. Attention. Agent loop. By the time
-PyTorch shows up, you already know what it's doing under the hood.
+هذا المنهج هو العمود الفقري. 20 مرحلة، 453 درسًا، وأربع لغات: Python وTypeScript
+وRust وJulia. من الجبر الخطي في الطرف الأول إلى الأسراب المستقلة في الطرف الآخر.
+كل خوارزمية تُبنى أولًا من الرياضيات الخام: backprop، tokenizer، attention،
+وحلقة الوكيل. وعندما يظهر PyTorch، تكون قد فهمت بالفعل ما الذي يفعله من الداخل.
 
-Each lesson runs the same loop: read the problem, derive the math, write the code, run
-the test, keep the artifact. No five-minute videos, no copy-paste deploys, no hand-holding.
-Free, open source, and built to run on your own laptop.
+كل درس يتبع الحلقة نفسها: اقرأ المشكلة، استنبط الرياضيات، اكتب الكود، شغّل الاختبار،
+واحفظ المخرج. لا فيديوهات خمس دقائق، ولا نسخًا ولصقًا، ولا شرحًا مبسطًا زائدًا. مجاني،
+مفتوح المصدر، ومصمم ليعمل على جهازك المحمول.
 
 ```
 ░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒
 ```
 
-## The shape of the curriculum
+## شكل المنهج
 
-Twenty phases stack on top of each other. Math is the floor. Agents and production are the roof.
-Skip ahead if you already know the lower layers, but don't skip and then wonder why something at
-the top is breaking.
+تتراكم عشرون مرحلة فوق بعضها. الرياضيات هي الأرضية، والوكلاء والإنتاج هما السقف.
+يمكنك القفز للأمام إذا كنت تعرف الطبقات الأدنى بالفعل، لكن لا تتجاوزها ثم تتساءل
+لماذا ينهار ما في الأعلى.
 
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#fafaf5','primaryTextColor':'#1a1a1a','primaryBorderColor':'#3553ff','lineColor':'#3553ff','fontFamily':'JetBrains Mono','fontSize':'12px'}}}%%

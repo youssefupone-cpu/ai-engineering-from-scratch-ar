@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html lang="ar" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="العرض = عرض الجهاز، المقياس الأولي = 1.0">
   <title>الدرس - AI الهندسة من الصفر</title>
-  <link rel="icon" href="data:image/svg+xml,&lt;svg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'&gt;&lt;rect%20width='32'%20height='32'%20fill='%23fafaf5'/&gt;&lt;rect%20x='2'%20y='2'%20width='28'%20height='28'%20fill='none'%20stroke='%233553ff'%20stroke-width='1.2'/&gt;&lt;text%20x='6'%20y='22'%20font-size='14'%20font-family='monospace'%20fill='%233553ff'&gt;AI&lt;/text&gt;&lt;/svg&gt;">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23fafaf5'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%233553ff' stroke-width='1.2'/><text x='6' y='22' font-size='14' font-family='monospace' fill='%233553ff'>AI</text></svg>">
   <meta name="description" content="درس من منهج AI الهندسة من الصفر. 453 درسًا عبر 20 مرحلة، وأربع لغات، وكل خوارزمية مبنية على الرياضيات الأولية.">
   <meta property="og:title" content="AI الهندسة من الصفر · الدرس">
-  <meta property="og:description" content="453 درسا. 20 مرحلة. اكتب الدعامة الخلفية والرمز المميز وآلية الانتباه وحلقة الوكيل يدويًا.">
-  <meta property="og:image" content="https://aiengineeringfromscratch.com/og-image.png?v=2">
+  <meta property="og:description" content="453 درسًا. 20 مرحلة. اكتب الدعامة الخلفية والرمز المميز وآلية الانتباه وحلقة الوكيل يدويًا.">
+  <meta property="og:image" content="https://aiengineeringfromscratch.com/og-image.png?v=3">
   <!-- og:url omitted intentionally: lesson.html is a static template that loads the lesson body client-side via ?path=. Static hosting cannot template the URL, so we let crawlers fall back to the request URL (which is the lesson-specific share link). -->
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI الهندسة من الصفر">
-  <meta name="twitter:description" content="453 درسا. 20 مرحلة. قم ببنائه من الرياضيات الخام يدويًا.">
-  <meta name="twitter:image" content="https://aiengineeringfromscratch.com/og-image.png?v=2">
+  <meta name="twitter:description" content="453 درسًا. 20 مرحلة. قم ببنائه من الرياضيات الخام يدويًا.">
+  <meta name="twitter:image" content="https://aiengineeringfromscratch.com/og-image.png?v=3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260525a">
   <style>
     .scroll-progress {
@@ -1577,13 +1578,13 @@
         <a href="prereqs.html">خارطة الطريق</a>
         <a href="glossary.html">المعجم</a>
         <a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar" target="_blank" rel="noopener" class="header-github">
-          <svg width="16" height="16" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg>
-          <svg class="star-icon" width="12" height="12" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.896l-7.416 3.517 1.48-8.279L0 9.306l8.332-1.151z"></path></svg>
-          <span class="star-count" data-loading="true" aria-label="GitHub نجمة">…</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <svg class="star-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279L12 19.896l-7.416 3.517 1.48-8.279L0 9.306l8.332-1.151z"/></svg>
+          <span class="star-count" data-loading="true" aria-label="نجوم GitHub">…</span>
         </a>
       </nav>
       <button class="search-toggle" type="button" data-cmd-palette aria-label="بحث (⌘K)" title="بحث (⌘K)">
-        <svg width="15" height="15" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
@@ -1630,7 +1631,7 @@
     mermaid.initialize({
       startOnLoad: false,
       theme: document.documentElement.getAttribute('data-theme') === 'light' ? 'default' : 'dark',
-      fontFamily: 'JetBrains Mono، ui-monospace، monospace',
+      fontFamily: 'JetBrains Mono, ui-monospace, monospace',
       themeVariables: {
         fontSize: '13px'
       },
@@ -1650,7 +1651,7 @@
       var stored = localStorage.getItem('theme');
       if (stored) {
         root.setAttribute('data-theme', stored);
-      } else if (window.matchMedia && window.matchMedia('(يفضل نظام الألوان: داكن)').matches) {
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         root.setAttribute('data-theme', 'dark');
       } else {
         root.setAttribute('data-theme', 'light');
@@ -1680,7 +1681,7 @@
       var lessonPath = params.get('path');
 
       if (!lessonPath) {
-        showError('لم يتم تحديد مسار الدرس', 'أضف?path=phases/01-math-foundations/01-linear-algebra-intuition إلى URL.');
+        showError('No lesson path specified', 'Add ?path=phases/01-math-foundations/01-linear-algebra-intuition to the URL.');
         return;
       }
 
@@ -1767,20 +1768,20 @@
             var pp = PHASES[prevPhaseIdx];
             var ppSlug = extractPhaseSlug(pp, prevPhaseIdx);
             var ppFirstLesson = pp.lessons[0] ? extractLessonSlug(pp.lessons[0], 0) : '';
-            html += '<a href="lesson.html?path=phases/' + ppSlug + '/' + ppFirstLesson + '">← المرحلة' + String(pp.id).padStart(2, '0') + ': ' + escapeHtml(pp.name) + '</a>';
+            html += '<a href="lesson.html?path=phases/' + ppSlug + '/' + ppFirstLesson + '">&larr; المرحلة ' + String(pp.id).padStart(2, '0') + ': ' + escapeHtml(pp.name) + '</a>';
           }
           if (nextPhaseIdx >= 0) {
             var np = PHASES[nextPhaseIdx];
             var npSlug = extractPhaseSlug(np, nextPhaseIdx);
             var npFirstLesson = np.lessons[0] ? extractLessonSlug(np.lessons[0], 0) : '';
-            html += '<a href="lesson.html?path=phases/' + npSlug + '/' + npFirstLesson + '">Phase ' + String(np.id).padStart(2, '0') + ': ' + escapeHtml(np.name) + ' &rarr;</a>';
+            html += '<a href="lesson.html?path=phases/' + npSlug + '/' + npFirstLesson + '">المرحلة ' + String(np.id).padStart(2, '0') + ': ' + escapeHtml(np.name) + ' &rarr;</a>';
           }
           html += '</div>';
         }
 
         if (currentPhaseIndex >= 0) {
           var phase = PHASES[currentPhaseIndex];
-          html += '<div class="sidebar-phase-header">Phase ' + String(phase.id).padStart(2, '0') + ' · ' + escapeHtml(phase.name) + '</div>';
+          html += '<div class="sidebar-phase-header">المرحلة ' + String(phase.id).padStart(2, '0') + ' · ' + escapeHtml(phase.name) + '</div>';
           for (var k = 0; k < phase.lessons.length; k++) {
             var les = phase.lessons[k];
             var lesSlug = extractLessonSlug(les, k);
@@ -1830,40 +1831,60 @@
         }, { passive: true });
       }
 
-      function fetchLesson(path) {
-        var rawUrl = 'https://raw.githubusercontent.com/youssefupone-cpu/ai-engineering-from-scratch-ar/main/' + path + '/docs/en.md';
-        var quizUrl = 'https://raw.githubusercontent.com/youssefupone-cpu/ai-engineering-from-scratch-ar/main/' + path + '/quiz.json';
-
-        fetch(rawUrl)
-          .then(function (res) {
+      function fetchTextWithFallback(urls) {
+        function attempt(index) {
+          if (index >= urls.length) {
+            return Promise.reject(new Error('fetch-failed'));
+          }
+          return fetch(urls[index]).then(function (res) {
             if (!res.ok) throw new Error('fetch-failed');
             return res.text();
-          })
+          }).catch(function () {
+            return attempt(index + 1);
+          });
+        }
+
+        return attempt(0);
+      }
+
+      function fetchLesson(path) {
+        var localMdUrl = '../' + path + '/docs/en.md';
+        var localQuizUrl = '../' + path + '/quiz.json';
+        var rawMdUrl = 'https://raw.githubusercontent.com/youssefupone-cpu/ai-engineering-from-scratch-ar/main/' + path + '/docs/en.md';
+        var rawQuizUrl = 'https://raw.githubusercontent.com/youssefupone-cpu/ai-engineering-from-scratch-ar/main/' + path + '/quiz.json';
+
+        fetchTextWithFallback([localMdUrl, rawMdUrl])
           .then(function (md) {
             try {
               renderLesson(md);
             } catch (err) {
               console.error('فشل تقديم الدرس', err);
-              showError('خطأ في العرض', 'تم تحميل تخفيض سعر الدرس ولكن فشل في عرضه. التفاصيل في وحدة تحكم المتصفح.');
+              showError('خطأ في العرض', 'تم تحميل محتوى الدرس لكن فشل في عرضه. التفاصيل في وحدة تحكم المتصفح.');
               return;
             }
-            fetch(quizUrl)
-              .then(function (res) { return res.ok ? res.json() : null; })
-              .catch(function () { return null; })
-              .then(function (data) {
-                if (!data) return;
-                try { renderQuiz(data); }
-                catch (err) { console.error('فشل renderQuiz', err); }
-              });
           })
           .catch(function () {
-            showError('لم يتم العثور على الدرس', 'تعذر جلب الدرس على <code>' + escapeHtml(path) + '</code>. It may not have been written yet.');
+            showError('لم يتم العثور على الدرس', 'تعذر جلب الدرس من <code>' + escapeHtml(path) + '</code>. ربما لم يُكتب بعد.');
           });
+
+        fetchTextWithFallback([localQuizUrl, rawQuizUrl])
+          .then(function (quizText) {
+            var data = null;
+            try {
+              data = JSON.parse(quizText);
+            } catch (err) {
+              data = null;
+            }
+            if (!data) return;
+            try { renderQuiz(data); }
+            catch (err) { console.error('فشل renderQuiz', err); }
+          })
+          .catch(function () {});
       }
 
       function showError(title, msg) {
         var el = document.getElementById('lessonContent');
-        el.innerHTML = '<div class="lesson-error"><h2>' + title + '</h2><p>' + msg + '</p><a href="index.html" class="btn btn-primary">Back to Home</a></div>';
+        el.innerHTML = '<div class="lesson-error"><h2>' + title + '</h2><p>' + msg + '</p><a href="index.html" class="btn btn-primary">العودة إلى الصفحة الرئيسية</a></div>';
       }
 
       function renderLesson(md) {
@@ -1873,7 +1894,7 @@
         html = addBottomNav(html);
         el.innerHTML = '<article class="lesson-article">' + html + '</article>';
 
-        document.title = extractTitle(md) + '- AI الهندسة من الصفر';
+        document.title = extractTitle(md) + ' - AI الهندسة من الصفر';
 
         initCodeCopy();
         renderMermaidBlocks();
@@ -1903,7 +1924,7 @@
           return;
         }
 
-        var headings = article.querySelectorAll('ح2، ح3');
+        var headings = article.querySelectorAll('h2, h3');
         if (!headings.length) {
           sidebar.innerHTML = '';
           sidebar.removeAttribute('aria-hidden');
@@ -1948,7 +1969,7 @@
           var fullText = (heading.textContent || '').trim();
           var text = fullText.replace(/^[^\p{L}\p{N}]+/u, '').trim();
           if (!text) continue;
-          html += '<li class="toc-item toc-' + level + '"><a href="#' + id + '"الفئة = "toc-link" data-toc-id = "' + id + '" العنوان ="' + escapeHtml(fullText) + '">' + escapeHtml(text) + '</a></li>';
+          html += '<li class="toc-item toc-' + level + '"><a href="#' + id + '" class="toc-link" data-toc-id="' + id + '" title="' + escapeHtml(fullText) + '">' + escapeHtml(text) + '</a></li>';
         }
         html += '</ul></nav>';
         sidebar.innerHTML = html;
@@ -2051,7 +2072,7 @@
           }, {
             root: null,
             threshold: [0.01, 0.1],
-            rootMargin: '-' + marginOffset + 'بكسل 0 بكسل -70% 0 بكسل'
+            rootMargin: '-' + marginOffset + 'px 0px -70% 0px'
           });
 
           Array.from(headings).forEach(function (h) {
@@ -2133,7 +2154,7 @@
           var headers = tableRows[0];
           var isKeyTerms = false;
           for (var th = 0; th < headers.length; th++) {
-            if (headers[th].toLowerCase().indexOf('ما يقوله الناس') >= 0 || headers[th].toLowerCase().indexOf('يقول الناس') >= 0) {
+            if (headers[th].toLowerCase().indexOf('what people say') >= 0 || headers[th].toLowerCase().indexOf('people say') >= 0) {
               isKeyTerms = true;
             }
           }
@@ -2176,7 +2197,32 @@
           var line = lines[i];
 
           if (inCodeBlock) {
-            if (line.match(/^```\s*$/)) { inCodeBlock = false; var Raw = codeLines.join('\n'); إذا (codeLang === 'حورية البحر') { mermaidBlocks++; خارج += '<div class="mermaid-container">'; خارج += '<div class="mermaid-block" data-mermaid-index="' + mermaidBlocks + '">'; خارج += '<div class="mermaid-toolbar">'; خارج += '<button type="button" class="mermaid-btn mermaid-expand" data-mermaid-index="' + mermaidBlocks + '">توسيع</button>'; خارج += '</div>'; خارج += '<pre class="mermaid mermaid-source" id="mermaid-' + mermaidBlocks + '">' + escapeHtml(raw) + '</pre>'; خارج += '<div class="mermaid-render" id="mermaid-render-' + mermaidBlocks + '"></div>'; خارج += '</div>'; خارج += '</div>'; } آخر { out += renderCodeBlock(raw, codeLang); } codeLines = []; codeLang = ''; } آخر { codeLines.push(line); } يكمل؛ } فار كود ستارت = line.match(/^```(\w*)/);
+            if (line.match(/^```\s*$/)) {
+              inCodeBlock = false;
+              var raw = codeLines.join('\n');
+              if (codeLang === 'mermaid') {
+                mermaidBlocks++;
+                out += '<div class="mermaid-container">';
+                out += '<div class="mermaid-block" data-mermaid-index="' + mermaidBlocks + '">';
+                out += '<div class="mermaid-toolbar">';
+                out += '<button type="button" class="mermaid-btn mermaid-expand" data-mermaid-index="' + mermaidBlocks + '">Expand</button>';
+                out += '</div>';
+                out += '<pre class="mermaid mermaid-source" id="mermaid-' + mermaidBlocks + '">' + escapeHtml(raw) + '</pre>';
+                out += '<div class="mermaid-render" id="mermaid-render-' + mermaidBlocks + '"></div>';
+                out += '</div>';
+                out += '</div>';
+              } else {
+                out += renderCodeBlock(raw, codeLang);
+              }
+              codeLines = [];
+              codeLang = '';
+            } else {
+              codeLines.push(line);
+            }
+            continue;
+          }
+
+          var codeStart = line.match(/^```(\w*)/);
           if (codeStart) {
             out += flushList();
             out += flushTable();
@@ -2223,10 +2269,10 @@
             var slug2 = slugify(h2[1]);
             var sectionClass = '';
             var txt = h2[1].toLowerCase();
-            if (txt.indexOf('بناء عليه') >= 0 || txt.indexOf('build ') === 0) sectionClass = ' section-build';
-            else if (txt.indexOf('استخدامه') >= 0 || txt.indexOf('use ') === 0) sectionClass = ' section-use';
-            else if (txt.indexOf('شحنها') >= 0 || txt.indexOf('ship ') === 0) sectionClass = ' section-ship';
-            if (txt.indexOf('أهداف التعلم') >= 0) {
+            if (txt.indexOf('build it') >= 0 || txt.indexOf('build ') === 0) sectionClass = ' section-build';
+            else if (txt.indexOf('use it') >= 0 || txt.indexOf('use ') === 0) sectionClass = ' section-use';
+            else if (txt.indexOf('ship it') >= 0 || txt.indexOf('ship ') === 0) sectionClass = ' section-ship';
+            if (txt.indexOf('learning objectives') >= 0) {
               var objItems = [];
               for (var lo = i + 1; lo < lines.length; lo++) {
                 var loLine = lines[lo];
@@ -2246,15 +2292,15 @@
               i = lo - 1;
               continue;
             }
-            if (txt.indexOf('تحدي المختبر') >= 0) {
+            if (txt.indexOf('lab challenge') >= 0) {
               out += flushLabChallenge();
               inLabChallenge = true;
               out += '<div class="lab-challenge">';
-              out += '<h2 id="' + slug2 + '">💫 تحدي المختبر</h2>';
+              out += '<h2 id="' + slug2 + '">&#128171; Lab Challenge</h2>';
               continue;
             }
             out += flushLabChallenge();
-            out += '<h2 id="' + slug2 + '" فئة ="' + sectionClass + '">' + inlineFormat(h2[1]) + '</h2>';
+            out += '<h2 id="' + slug2 + '" class="' + sectionClass + '">' + inlineFormat(h2[1]) + '</h2>';
             continue;
           }
 
@@ -2340,7 +2386,53 @@
         text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
         text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function (m, label, href) {
           if (/^https?:\/\/|^mailto:/i.test(href)) {
-            return '<a href="'+ href +'" target="_blank" rel="noopener">' + تسمية + '</a>'؛ } تسمية العودة؛ }); إرجاع النص؛ } وظيفة slugify (نص) { return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); } وظيفة renderCodeBlock(code, lang) { var Highlight = HighlightSyntax(escapeHtml(code), lang); var langLabel = lang? '<فئة الامتداد="code-lang">' + escapeHtml(lang) + '</span>': ''; إرجاع '<pre>' + langLabel + '<button class="code-copy" data-code="'+ escapeAttr(الكود) +'">نسخ</button><code>' + تظليل + "</code></pre>"؛ } وظيفة HighlightSyntax(code, lang) { الكلمات الأساسية var، commentPattern؛ إذا (lang === 'python' || lang === 'py') { الكلمات الرئيسية = /\b(def|class|return|if|elif|else|for|while|in|import|from|as|with|try|except|finally|raise|yield|lambda|not|و|أو|is|None|True|False|print|self|pass|break|continue|assert|global)\b/g; commentPattern = /(#[^\n]*)/g; } وإلا إذا (lang === 'جوليا') { الكلمات الرئيسية = /\b(function|end|if|elseif|else|for|while|in|using|import|return|struct|mutable|abstract|type|module|export|let|const|begin|do|try|catch|أخيرًا|رمي|صحيح|خطأ|لا شيء|println)\b/g; commentPattern = /(#[^\n]*)/g; } else if (lang === 'javascript' || lang === 'js' || lang === 'typescript' || lang === 'ts') { الكلمات الأساسية = /\b(وظيفة|const|let|var|return|if|else|for|while|class|new|this|import|export|from|async|await|try|catch|throw|typeof|instance of|true|false|null|undef|console)\b/g; commentPattern = /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)/g; } وإلا إذا (lang === 'الصدأ') { الكلمات الرئيسية = /\b(fn|let|mut|struct|enum|impl|trait|pub|use|mod|self|super|crate|return|if|else|for|while|loop|match|async|انتظار|true|false|لا شيء|بعض|Ok|Err|println)\b/g; commentPattern = /(\/\/[^\n]*)/g; } آخر { الكلمات الأساسية = /\b(وظيفة|def|class|return|if|else|for|while|import|from|const|let|var|true|false|null|None|print|println)\b/g; commentPattern = /(#[^\n]*|\/\/[^\n]*)/g; } الرموز المميزة = []; وظيفة خبأ (مباراة) { معرف var = '\x00TOK' + tokens. length + '\x00'؛ tokens.push(match); معرف العودة؛ } code = code.replace(commentPattern, function (m) { return stash('<span class="syn-comment">' + م + '</span>'); }); code = code.replace(/("(?:[^&]|&(؟!quot;))*؟"|'(?:[^&]|&(؟!#39;))*?'|"""[\s\S]*؟""")/g، الوظيفة (m) { return stash('<span class="syn-string">' + م + '</span>'); }); كود = كود.استبدال(/"([^"]*?)"/g, function (m) { return stash('<span class="syn-string">' + m + '</span>'); });
+            return '<a href="' + href + '" target="_blank" rel="noopener">' + label + '</a>';
+          }
+          return label;
+        });
+        return text;
+      }
+
+      function slugify(text) {
+        return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+
+      function renderCodeBlock(code, lang) {
+        var highlighted = highlightSyntax(escapeHtml(code), lang);
+        var langLabel = lang ? '<span class="code-lang">' + escapeHtml(lang) + '</span>' : '';
+        return '<pre>' + langLabel + '<button class="code-copy" data-code="' + escapeAttr(code) + '">نسخ</button><code>' + highlighted + '</code></pre>';
+      }
+
+      function highlightSyntax(code, lang) {
+        var keywords, commentPattern;
+
+        if (lang === 'python' || lang === 'py') {
+          keywords = /\b(def|class|return|if|elif|else|for|while|in|import|from|as|with|try|except|finally|raise|yield|lambda|not|and|or|is|None|True|False|print|self|pass|break|continue|assert|global)\b/g;
+          commentPattern = /(#[^\n]*)/g;
+        } else if (lang === 'julia') {
+          keywords = /\b(function|end|if|elseif|else|for|while|in|using|import|return|struct|mutable|abstract|type|module|export|let|const|begin|do|try|catch|finally|throw|true|false|nothing|println)\b/g;
+          commentPattern = /(#[^\n]*)/g;
+        } else if (lang === 'javascript' || lang === 'js' || lang === 'typescript' || lang === 'ts') {
+          keywords = /\b(function|const|let|var|return|if|else|for|while|class|new|this|import|export|from|async|await|try|catch|throw|typeof|instanceof|true|false|null|undefined|console)\b/g;
+          commentPattern = /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)/g;
+        } else if (lang === 'rust') {
+          keywords = /\b(fn|let|mut|struct|enum|impl|trait|pub|use|mod|self|super|crate|return|if|else|for|while|loop|match|async|await|true|false|None|Some|Ok|Err|println)\b/g;
+          commentPattern = /(\/\/[^\n]*)/g;
+        } else {
+          keywords = /\b(function|def|class|return|if|else|for|while|import|from|const|let|var|true|false|null|None|print|println)\b/g;
+          commentPattern = /(#[^\n]*|\/\/[^\n]*)/g;
+        }
+
+        var tokens = [];
+        function stash(match) {
+          var id = '\x00TOK' + tokens.length + '\x00';
+          tokens.push(match);
+          return id;
+        }
+
+        code = code.replace(commentPattern, function (m) { return stash('<span class="syn-comment">' + m + '</span>'); });
+        code = code.replace(/(&quot;(?:[^&]|&(?!quot;))*?&quot;|&#39;(?:[^&]|&(?!#39;))*?&#39;|&quot;&quot;&quot;[\s\S]*?&quot;&quot;&quot;)/g, function (m) { return stash('<span class="syn-string">' + m + '</span>'); });
+        code = code.replace(/"([^"]*?)"/g, function (m) { return stash('<span class="syn-string">' + m + '</span>'); });
 
         code = code.replace(keywords, '<span class="syn-keyword">$1</span>');
         code = code.replace(/\b(\d+\.?\d*)\b/g, '<span class="syn-number">$1</span>');
@@ -2356,8 +2448,8 @@
           btn.addEventListener('click', function () {
             var code = btn.getAttribute('data-code');
             navigator.clipboard.writeText(code).then(function () {
-              btn.textContent = 'Copied!';
-              setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+              btn.textContent = 'تم النسخ!';
+              setTimeout(function () { btn.textContent = 'نسخ'; }, 1500);
             });
           });
         });
@@ -2366,9 +2458,9 @@
       function renderMermaidBlocks() {
         var fontsReady = (document.fonts && document.fonts.load)
           ? Promise.all([
-              document.fonts.load('400 13px "جيت براينز مونو"'),
-              document.fonts.load('500 13px "جيت براينس مونو"'),
-              document.fonts.load('700 13px "جيت براينس مونو"')
+              document.fonts.load('400 13px "JetBrains Mono"'),
+              document.fonts.load('500 13px "JetBrains Mono"'),
+              document.fonts.load('700 13px "JetBrains Mono"')
             ]).catch(function () {})
           : Promise.resolve();
         var check = setInterval(function () {
@@ -2393,7 +2485,7 @@
           window._mermaidReady.initialize({
             startOnLoad: false,
             theme: mermaidTheme(),
-            fontFamily: 'JetBrains Mono، ui-monospace، monospace',
+            fontFamily: 'JetBrains Mono, ui-monospace, monospace',
             themeVariables: { fontSize: '13px' },
             flowchart: { useMaxWidth: true, htmlLabels: true, nodeSpacing: 40, rankSpacing: 50, padding: 12 }
           });
@@ -2486,7 +2578,7 @@
       function getMermaidModalFocusables() {
         var modal = document.querySelector('#mermaidModalOverlay .mermaid-modal');
         if (!modal) return [];
-        return Array.prototype.slice.call(modal.querySelectorAll('زر، [href]، إدخال، تحديد، منطقة النص، [tabindex]:not([tabindex = "-1"])'))
+        return Array.prototype.slice.call(modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'))
           .filter(function (el) { return !el.disabled && el.offsetParent !== null; });
       }
 
@@ -2564,9 +2656,9 @@
         var buildH2 = article.querySelector('#build-it, #build');
         var keyTermsH2 = article.querySelector('#key-terms');
 
-        var preQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'pre'; }), 'pre', 'فحص ما قبل الدرس');
-        var checkQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'check'; }), 'check', 'فحص منتصف الدرس');
-        var postQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'post'; }), 'post', 'مسابقة ما بعد الدرس');
+        var preQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'pre'; }), 'pre', 'Pre-Lesson Check');
+        var checkQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'check'; }), 'check', 'Mid-Lesson Check');
+        var postQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'post'; }), 'post', 'Post-Lesson Quiz');
 
         if (!preQuizHtml && !checkQuizHtml && !postQuizHtml) {
           var allHtml = buildQuizHtml(questions, 'all', 'Quiz');
@@ -2585,8 +2677,8 @@
           buildH2.insertAdjacentHTML('beforebegin', preQuizHtml);
         }
 
-        // التحقق في منتصف الدرس: قم بالأرض بين البناء والاستخدام إن أمكن،
-        // وإلا فارجع إلى ما قبل استخدامه / شحنه / الشروط الأساسية.
+        // Mid-lesson check: land between Build It and Use It if possible,
+        // otherwise fall back to before Use It / Ship It / Key Terms.
         var useH2 = article.querySelector('#use-it, #use');
         var shipH2 = article.querySelector('#ship-it, #ship');
         if (checkQuizHtml && useH2) {
@@ -2615,7 +2707,7 @@
         for (var qi = 0; qi < questions.length; qi++) {
           var q = questions[qi];
           var qid = id + '-q' + qi;
-          html += '<div class="quiz-question" data-correct="' + q.correct + '" معرف = "' + qid + '">';
+          html += '<div class="quiz-question" data-correct="' + q.correct + '" id="' + qid + '">';
           html += '<div class="quiz-question-text">' + (qi + 1) + '. ' + escapeHtml(q.question) + '</div>';
           html += '<div class="quiz-options">';
           for (var oi = 0; oi < q.options.length; oi++) {
@@ -2732,7 +2824,7 @@
         var nav = '<div class="lesson-nav-bottom">';
         if (prev) {
           nav += '<a class="lesson-nav-btn prev" href="lesson.html?path=' + prev.path + '">';
-          nav += '<span class="nav-label">&larr; Previous</span>';
+          nav += '<span class="nav-label">&larr; السابق</span>';
           nav += '<span class="nav-title">' + escapeHtml(prev.lessonName) + '</span>';
           nav += '</a>';
         } else {
@@ -2740,7 +2832,7 @@
         }
         if (next) {
           nav += '<a class="lesson-nav-btn next" href="lesson.html?path=' + next.path + '">';
-          nav += '<span class="nav-label">Next &rarr;</span>';
+          nav += '<span class="nav-label">التالي &rarr;</span>';
           nav += '<span class="nav-title">' + escapeHtml(next.lessonName) + '</span>';
           nav += '</a>';
         }
@@ -2764,6 +2856,28 @@
       function ghApiFetch(apiPath, cb) {
         if (ghApiCache[apiPath]) {
           cb(null, ghApiCache[apiPath]);
+          return;
+        }
+        if (typeof ARTIFACTS !== 'undefined' && /\/outputs$/.test(apiPath)) {
+          var lessonPrefix = apiPath.replace(/\/outputs$/, '');
+          var localOutputs = ARTIFACTS
+            .filter(function (artifact) {
+              return artifact.lessonPath === lessonPrefix && artifact.kind !== 'mission';
+            })
+            .map(function (artifact) {
+              var fileName = artifact.file.split('/').pop();
+              return {
+                name: fileName,
+                html_url: 'https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/blob/main/' + artifact.file,
+                download_url: '../' + artifact.file,
+                size: 0,
+                type: artifact.kind,
+                description: artifact.description || '',
+                tags: artifact.tags || []
+              };
+            });
+          ghApiCache[apiPath] = localOutputs;
+          cb(null, localOutputs);
           return;
         }
         fetch('https://api.github.com/repos/youssefupone-cpu/ai-engineering-from-scratch-ar/contents/' + apiPath, {
@@ -2797,7 +2911,7 @@
         if (ext === 'py') return 'python';
         if (ext === 'ts') return 'npx tsx';
         if (ext === 'js') return 'node';
-        if (ext === 'rs') return 'cargo تشغيل --';
+        if (ext === 'rs') return 'cargo run --';
         if (ext === 'jl') return 'julia';
         if (ext === 'sh') return 'bash';
         return 'run';
@@ -2810,11 +2924,344 @@
 
       function extractFrontmatterDesc(content) {
         var match = content.match(/^---[\s\S]*?description:\s*(.+?)[\r\n]/m);
-        if (match) return match[1].replace(/^["']|["']$/g, '').تقليم()؛ فار فيرست لاين = content.split('\n').find(function (l) { return l.trim() &&!l.match(/^[#-]/) &&!l.match(/^---/); }); العودة السطر الأول؟ firstLine.trim().substring(0, 120):''; } وظيفة renderOutputsPanel(حاوية) { لوحة فار = document.createElement('div'); اسم اللوحة ='ai-panel'; Panel.innerHTML ='<div class="ai-panel-header"><div class="ai-panel-icon">O</div><div class="ai-panel-title">What This Lesson Ships</div></div><div class="ai-panel-subtitle">Prompts, skills, and artifacts you can use right now</div><div id="outputsContent" class="panel-loading">Loading outputs...</div>'; حاوية.appendChild(panel); ghApiFetch(lessonPath +'/outputs'وظيفة (خطأ، البيانات) { فار إل = document.getElementById('outputsContent'); إذا (يخطئ ||!بيانات ||!Array.isArray(data) || data.length === 0) { el.innerHTML ='<div class="panel-fallback"><a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/' + lessonPath + '" target="_blank" rel="noopener">View lesson on GitHub</a></div>'; يعود؛ } فار أتش تي أم أل ='<div class="output-cards">'; data.forEach(وظيفة (ملف، idx) { var type = classifyOutput(file.name); var BadgeClass = type; فار شارة النص = النوع ==='prompt' ? 'Prompt': النوع ==='skill' ? 'Skill' : 'Output'; فار التثبيت ='install-hint-'+ آي دي إكس؛ فار installHint =''; إذا (اكتب ==='prompt') { تثبيتHint ='Paste into Claude, Cursor, Codex, OpenClaw, Hermes, or any agent that reads prompts'; } وإلا إذا (اكتب ==='skill') { فار SkillName = file.name.replace(/\.md$/,'').replace(/^skill-/, ''); تثبيتHint ='npx skills add youssefupone-cpu/ai-engineering-from-scratch-ar --skill '+ اسم المهارة؛ } أتش تي أم أل +='<div class="output-card">'; أتش تي أم أل +='<div class="شارة الإخراج '+badgeClass +'">'+ نص الشارة +'</div>'; أتش تي أم أل +='<div class="output-card-name">'+ escapeHtml(file.name) +'</div>'; أتش تي أم أل +='<div class="output-desc" id="وصف-' + IDX + '">Loading description...</div>'; أتش تي أم أل +='<div class="output-actions">'; أتش تي أم أل +='<a class="output-btn" href="' + file.html_url + '" target="_blank" rel="noopener">View on GitHub</a>'; إذا (تثبيت تلميح) { أتش تي أم أل +='<button class="output-btn" onclick="var h=document.getElementById(\'' + installId + '\');h.classList.toggle(\'visible\')">Install</button>'; } أتش تي أم أل +='</div>'; إذا (تثبيت تلميح) { أتش تي أم أل +='<div class="output-install-hint" id="'+معرف التثبيت +'">'+ escapeHtml(installHint) +'</div>'; } أتش تي أم أل +='</div>'; fetch(file.download_url).then(function (r) { return r.text(); }).then(function (content) { فار descEl = document.getElementById('desc-'+ آي دي إكس)؛ إذا (تنازل) { var desc = extractFrontmatterDesc(content); descEl.textContent = تنازلي || file.name; } }).catch(وظيفة () { فار descEl = document.getElementById('desc-'+ آي دي إكس)؛ if (descEl) descEl.textContent = file.name; }); }); أتش تي أم أل +='</div>'; el.innerHTML = html; }); } وظيفة renderCodePanel(حاوية) { لوحة فار = document.createElement('div'); اسم اللوحة ='ai-panel'; Panel.innerHTML ='<div class="ai-panel-header"><div class="ai-panel-icon">C</div><div class="ai-panel-title">Run the Code</div></div><div class="ai-panel-subtitle">Executable files from this lesson</div><div id="codeContent" class="panel-loading">Loading code files...</div>'; حاوية.appendChild(panel); ghApiFetch(lessonPath +'/code'وظيفة (خطأ، البيانات) { فار إل = document.getElementById('codeContent'); إذا (يخطئ ||!بيانات ||!Array.isArray(data) || data.length === 0) { el.innerHTML ='<div class="panel-fallback"><a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/' + lessonPath + '" target="_blank" rel="noopener">View lesson on GitHub</a></div>'; يعود؛ } فار أتش تي أم أل ='<div class="code-cards">'; data.forEach(وظيفة (ملف) { var icon = langIcon(file.name); فار cmd = langCommand(file.name); فار runCmd = cmd +' '+ مسار الدرس +'/code/'+ اسم الملف؛ أتش تي أم أل +='<div class="code-card">'; أتش تي أم أل +='<div class="code-card-header"><span class="code-lang-icon">'+ أيقونة +'</span><span class="code-card-name">'+ escapeHtml(file.name) +'</span></div>'; أتش تي أم أل +='<div class="code-card-size">'+ تنسيق الحجم(ملف.حجم) +'</div>'; أتش تي أم أل +='<div class="code-card-run">'+ escapeHtml(runCmd) +'</div>'; أتش تي أم أل +='<div class="code-card-actions">'; أتش تي أم أل +='<a class="code-card-btn" href="' + file.html_url + '" target="_blank" rel="noopener">View on GitHub</a>'; أتش تي أم أل +='<button class="كود-بطاقة-btn-نسخة-بطاقة الكود" data-command="' + escapeAttr(runCmd) + '">Copy command</button>'; أتش تي أم أل +='</div>'; أتش تي أم أل +='</div>'; }); أتش تي أم أل +='</div>'; el.innerHTML = html; el.querySelectorAll('.code-card-copy').forEach(وظيفة (BTN) { btn.addEventListener('click'وظيفة () { الأمر فار = btn.getAttribute('data-command'); navigator.clipboard.writeText(command).then(function () { btn.textContent ='Copied!'; setTimeout(function () { btn.textContent ='Copy command'; }، 1500)؛ }); }); }); }); } وظيفة getQuizQuestions () { var pathLower = (lessonPath ||'').toLowerCase(); فار اسم الدرس =''; if (currentLessonIndex >= 0) LessonName = flatLessons[currentLessonIndex].lessonName; إذا (pathLower.indexOf ('math') >= 0 || pathLower.indexOf('linear-algebra') >= 0 || pathLower.indexOf('calculus') >= 0) { عودة [ { س:'What does a dot product measure between two vectors?'، يختار: ['Their sum', 'How aligned they are', 'Their cross product', 'The distance between them']، الجواب: 1، شرح:'The dot product measures the similarity or alignment between two vectors. When it is zero, the vectors are orthogonal.'}, { س:'What does the gradient of a function point toward?'، يختار: ['The minimum', 'The steepest ascent', 'The nearest saddle point', 'A random direction']، الجواب: 1، شرح:'The gradient always points in the direction of steepest increase. Gradient descent moves opposite to the gradient to find minima.'}, { س:'A matrix with shape (3, 5) multiplied by (5, 2) produces what shape?'، يختار: ['(3, 2)', '(5, 5)', '(3, 5)', '(2, 3)']، الجواب: 0، شرح:'Matrix multiplication: (m, n) x (n, p) = (m, p). So (3, 5) x (5, 2) = (3, 2).'} ]; } إذا (pathLower.indexOf ('ml') >= 0 || pathLower.indexOf('regression') >= 0 || pathLower.indexOf('classification') >= 0 || pathLower.indexOf('supervised') >= 0) { عودة [ { س:'What is the purpose of a loss function in machine learning?'، يختار: ['To generate data', 'To measure how wrong predictions are', 'To select features', 'To split data']، الجواب: 1، شرح:'A loss function quantifies the difference between predicted and actual values. The optimizer minimizes this value during training.'}, { س:'Why do we split data into train and test sets?'، يختار: ['To save memory', 'To evaluate generalization on unseen data', 'To make training faster', 'To reduce the dataset size']، الجواب: 1، شرح:'The test set acts as unseen data, revealing whether the model memorized training data or learned generalizable patterns.'}, { س:'What does overfitting mean?'، يختار: ['The model is too simple', 'The model memorizes training data but fails on new data', 'The model trains too slowly', 'The loss is too low']، الجواب: 1، شرح:'Overfitting occurs when a model performs well on training data but poorly on new data because it learned noise rather than signal.'} ]; } إذا (pathLower.indexOf ('deep-learning') >= 0 || pathLower.indexOf('neural') >= 0 || pathLower.indexOf('backprop') >= 0 || pathLower.indexOf('activation') >= 0) { عودة [ { س:'What does backpropagation compute?'، يختار: ['Forward predictions', 'The gradient of the loss with respect to each weight', 'The learning rate', 'New training data']، الجواب: 1، شرح:'Backpropagation uses the chain rule to compute how much each weight contributed to the error, then adjusts weights accordingly.'}, { س:'Why do neural networks need non-linear activation functions?'، يختار: ['To speed up training', 'Without them, stacking layers is equivalent to a single linear layer', 'To reduce memory usage', 'To normalize outputs']، الجواب: 1، شرح:'Without non-linearities, any composition of linear layers collapses to a single linear transformation. Activations like ReLU let the network learn complex patterns.'}, { س:'What does the learning rate control?'، يختار: ['How many epochs to train', 'The size of each weight update step', 'The number of layers', 'The batch size']، الجواب: 1، شرح:'The learning rate scales the gradient update. Too large causes divergence, too small causes slow or stuck training.'} ]; } إذا (pathLower.indexOf ('llm') >= 0 || pathLower.indexOf('transformer') >= 0 || pathLower.indexOf('attention') >= 0 || pathLower.indexOf('tokeniz') >= 0 || pathLower.indexOf('fine-tun') >= 0) { عودة [ { س:'What does self-attention allow a transformer to do?'، يختار: ['Process tokens in order', 'Weight the importance of every token relative to every other token', 'Reduce vocabulary size', 'Compress the model']، الجواب: 1، شرح:'Self-attention computes pairwise relevance scores across all positions, allowing the model to relate distant tokens without recurrence.'}, { س:'Why do LLMs use tokenizers instead of raw characters?'، يختار: ['Characters are too large', 'Tokens compress frequent patterns into single units, reducing sequence length', 'Tokenizers are faster to train', 'Characters cannot be embedded']، الجواب: 1، شرح:'Subword tokenizers like BPE balance vocabulary size against sequence length, making common words single tokens while handling rare words as pieces.'}, { س:'What is the key difference between pre-training and fine-tuning?'، يختار: ['Pre-training uses labeled data', 'Pre-training learns general language; fine-tuning adapts to a specific task', 'Fine-tuning uses more data', 'There is no difference']، الجواب: 1، شرح:'Pre-training learns language patterns from massive unlabeled text. Fine-tuning takes that foundation and specializes it on smaller, task-specific data.'} ]; } إذا (pathLower.indexOf ('rag') >= 0 || pathLower.indexOf('retrieval') >= 0 || pathLower.indexOf('embed') >= 0 || pathLower.indexOf('vector') >= 0) { عودة [ { س:'What is the core idea behind RAG?'، يختار: ['Training a larger model', 'Retrieving relevant context before generating a response', 'Using more GPUs', 'Reducing model size']، الجواب: 1، شرح:'RAG (Retrieval-Augmented Generation) grounds LLM responses in retrieved documents, reducing hallucination and enabling knowledge updates without retraining.'}, { س:'What do embedding models produce?'، يختار: ['Text summaries', 'Dense vector representations of text', 'Token counts', 'Grammar corrections']، الجواب: 1، شرح:'Embedding models map text into fixed-dimensional vectors where semantic similarity corresponds to geometric proximity.'}, { س:'Why use cosine similarity for comparing embeddings?'، يختار: ['It is the only metric', 'It measures angular similarity regardless of vector magnitude', 'It is faster than dot product', 'It works with integers only']، الجواب: 1، شرح:'Cosine similarity normalizes for magnitude, focusing on direction. Two texts about the same topic will have high cosine similarity regardless of length.'} ]; } إذا (pathLower.indexOf ('agent') >= 0 || pathLower.indexOf('tool') >= 0 || pathLower.indexOf('mcp') >= 0) { عودة [ { س:'What distinguishes an AI agent from a simple chatbot?'، يختار: ['Agents are faster', 'Agents can take actions and use tools autonomously', 'Agents use bigger models', 'There is no difference']، الجواب: 1، شرح:'Agents have a loop: observe, decide, act. They can call tools, read files, search the web, and chain multiple steps to complete complex tasks.'}, { س:'What is MCP (Model Context Protocol)?'، يختار: ['A model training format', 'A standardized protocol for connecting AI models to tools and data sources', 'A compression algorithm', 'A testing framework']، الجواب: 1، شرح:'MCP provides a universal interface between AI assistants and external tools/data, replacing one-off integrations with a standard protocol.'}, { س:'Why is tool-use important for LLMs?'، يختار: ['It reduces cost', 'It lets LLMs access real-time information and take actions beyond text generation', 'It makes responses shorter', 'It removes hallucinations entirely']، الجواب: 1، شرح:'Tools extend LLMs beyond their training data cutoff, enabling real-time lookups, calculations, code execution, and interaction with external systems.'} ]; } إذا (pathLower.indexOf ('eval') >= 0 || pathLower.indexOf('safety') >= 0 || pathLower.indexOf('alignment') >= 0 || pathLower.indexOf('deploy') >= 0) { عودة [ { س:'Why are evals critical for production AI systems?'، يختار: ['To save money', 'To measure performance objectively before and after changes', 'To make the model bigger', 'Evals are optional']، الجواب: 1، شرح:'Evals are the tests of AI engineering. Without them, you cannot know if a change improved or regressed quality. They should run on every code change.'}, { س:'What does "alignment" mean in AI safety?'، يختار: ['Aligning text on screen', 'Ensuring AI systems act according to human intentions and values', 'Making models faster', 'Using the same training data']، الجواب: 1، شرح:'Alignment ensures that as AI systems become more capable, they remain helpful, honest, and harmless, acting in accordance with human goals.'}, { س:'What is a guardrail in the context of deployed LLMs?'، يختار: ['A physical barrier', 'A check that prevents harmful, off-topic, or policy-violating outputs', 'A backup model', 'A caching layer']، الجواب: 1، شرح:'Guardrails filter inputs and outputs at runtime, catching toxicity, prompt injection, PII leaks, and other risks before they reach the user.'} ]; } عودة [ { س:'What does "من الصفر" mean in this course?'، يختار: ['Using no computer', 'Building each concept by implementing it yourself, not just reading theory', 'Starting from assembly language', 'Only using pen and paper']، الجواب: 1، شرح:'This course follows a Build-Use-Ship methodology: first understand by building it, then apply it, then ship it as a real artifact.'}, { س:'Why does this course combine math, ML, and engineering?'، يختار: ['To make it longer', 'Because real AI engineering requires all three to build production systems', 'Math is just for fun', 'Engineering is optional']، الجواب: 1، شرح:'Production AI systems require mathematical foundations (for understanding), ML knowledge (for modeling), and engineering skills (for deployment and reliability).'}, { س:'What is the "Ship" step in the Build-Use-Ship framework?'، يختار: ['Mailing physical goods', 'Creating a reusable artifact like a prompt, skill, or tool from what you learned', 'Publishing a paper', 'Deleting your code']، الجواب: 2، شرح:'The Ship step turns your learning into something tangible: a prompt, skill file, MCP tool, or CLI utility that others (or future you) can use immediately.'} ]; } وظيفة renderQuizPanel(حاوية) { أسئلة var = getQuizQuestions(); لوحة فار = document.createElement('div'); اسم اللوحة ='ai-panel'; مرحلة فار =''; إذا (currentLessonIndex >= 0) { var fl = flatLessons[currentLessonIndex]; المرحلة = fl.phaseSlug ||''; } فار أتش تي أم أل ='<div class="ai-panel-header"><div class="ai-panel-icon">Q</div><div class="ai-panel-title">Test Your Understanding</div></div>'; أتش تي أم أل +='<div class="ai-panel-subtitle">Did you get it?</div>'; أتش تي أم أل +='<div class="quiz-container" id="quizContainer">'; أحرف فار = ['A', 'B', 'C', 'D']; questions.forEach(وظيفة (ف، تشي) { أتش تي أم أل +='<div class="quiz-question" id="اختبار-q-' + تشي + '">'; أتش تي أم أل +='<div class="quiz-question-num">Question '+ (تشي + 1) +' of '+ الأسئلة.الطول +'</div>'; أتش تي أم أل +='<div class="quiz-question-text">'+ escapeHtml(q.q) +'</div>'; أتش تي أم أل +='<div class="quiz-options">'; q.opts.forEach(وظيفة (opt, oi) { أتش تي أم أل +='<button class="quiz-option" data-qi="' + تشي + '" data-oi="' + أوي + '" onclick="HandleQuizAnswer(' + qi + ',' + oi + ')">'; أتش تي أم أل +='<span class="opt-letter">'+ الحروف[oi] +'</span>'; أتش تي أم أل +='<span>'+ escapeHtml(اختياري) +'</span>'; أتش تي أم أل +='</button>'; }); أتش تي أم أل +='</div>'; أتش تي أم أل +='<div class="quiz-explanation" id="اختبار-شرح-' + تشي + '">'+ escapeHtml(q.explain) +'</div>'; أتش تي أم أل +='</div>'; }); أتش تي أم أل +='<div class="quiz-score" id="quizScore"><div class="quiz-score-number" id="quizScoreNum">0/'+ الأسئلة.الطول +'</div><div class="quiz-score-label">Complete all questions to see your score</div></div>'; أتش تي أم أل +='<div class="quiz-deeper">Want a deeper quiz? Run <code>/check-understanding '+ escapeHtml(المرحلة) +'</code> in Claude, Cursor, Codex, OpenClaw, Hermes, or any agent with the curriculum skills installed</div>'; أتش تي أم أل +='</div>'; Panel.innerHTML = html; حاوية.appendChild(panel); window._quizData = questions; window._quizAnswered = 0; window._quizCorrect = 0; } window.handleQuizAnswer = الوظيفة (qi، oi) { أسئلة var = window._quizData; إذا عادت (! الأسئلة)؛ فار qEl = document.getElementById('quiz-q-'+ تشي)؛ إذا (! qEl) العودة؛ فار أوبس = qEl.querySelectorAll('.quiz-option'); إذا (opts[0].classList.contains('disabled')) يعود؛ فار صحيح = أسئلة[كي].إجابة؛ opts.forEach(وظيفة (opt, i) { opt.classList.add('disabled'); إذا (أنا === أوي) { opt.classList.add('selected'); opt.classList.add(i === صحيح؟'correct' : 'wrong'); } إذا (أنا === صحيح) { opt.classList.add('is-answer'); } }); فار شرح = document.getElementById('quiz-explain-'+ تشي)؛ إذا (شرح) شرح.classList.add('visible'); window._quizAnswered++; if (oi === right) window._quizCorrect++; إذا (window._quizAnswered === questions.length) { var ScoreEl = document.getElementById('quizScore'); فار سكورنوم = document.getElementById('quizScoreNum'); إذا (scoreEl && ScoreNum) { ScoreNum.textContent = window._quizCorrect +'/'+ الأسئلة. الطول؛ ScoreEl.querySelector('.quiz-score-label').محتوى النص = window._quizCorrect === questions.length؟'Perfect score!': window._quizCorrect >= 2؟'Great work!' : 'Keep studying!'; ScoreEl.classList.add('visible'); } } }; دالة renderLearningPathPanel(container) { إذا (currentLessonIndex < 0 || typeof PHASES ==='undefined') يعود؛ لوحة فار = document.createElement('div'); اسم اللوحة ='ai-panel'; var current = flatLessons[currentLessonIndex]; varphaseIdx = current.phaseIndex; varphase = PHASES[phaseIdx]; var LessonInPhase = []; فار currentIdxInPhase = -1; for (var i = 0; i < flatLessons.length; i++) { إذا (flatLessons[i].phaseIndex ===phaseIdx) { if (i ===currentLessonIndex)currentIdxInPhase = LessonsInPhase.length; LessonsInPhase.push({ flat: flatLessons[i], flatIdx: i }); } } فار أتش تي أم أل ='<div class="ai-panel-header"><div class="ai-panel-icon">P</div><div class="ai-panel-title">Learning Path</div></div>'; أتش تي أم أل +='<div class="ai-panel-subtitle">Phase '+ سلسلة (phase.id).padStart (2،'0') + ': '+ escapeHtml(phase.name) +'</div>'; // النافذة: 2 قبل التيار + التيار + 2 بعده، الحد الأقصى عند 5 مرئي. فار windowSize = 5; var startIdx = Math.max(0,currentIdxInPhase - 2); var endIdx = Math.min(lessonsInPhase.length, startIdx + windowSize); startIdx = Math.max(0, endIdx - windowSize); فار مرئي = LessonsInPhase.slice(startIdx, endIdx); var HiddenBefore = startIdx; var HiddenAfter = LessonsInPhase. length - endIdx; أتش تي أم أل +='<div class="learning-timeline">'; إذا (مخفي قبل > 0) { أتش تي أم أل +='<span class="timeline-ellipsis" title="'+خفيقبل+' الدروس السابقة">&laquo; '+ مخفي قبل +'</span>'; أتش تي أم أل +='<div class="الخط الزمني تم القيام به"></div>'; } visual.forEach(وظيفة (العنصر، vIdx) { var idx = startIdx + vIdx; var isCurrent = idx ===currentIdxInPhase; var isPrev = idx <currentIdxInPhase; فار cls = الحالي؟'current':السابق؟'prev' : ''; إذا (vIdx > 0) { var lineCls = idx <=currentIdxInPhase? (idx === currentIdxInPhase؟'active' : 'done') : ''; أتش تي أم أل +='<div class="الخط الزمني '+lineCls +'"></div>'; } إذا (item.flat.isReadable) { أتش تي أم أل +='<a class="عنصر الجدول الزمني ' + cls + '" href="Lesson.html?path=' + item.flat.path + '" title="' + escapeAttr(item.flat.lessonName) + '">'; } آخر { أتش تي أم أل +='<span class="تم تعطيل عنصر الجدول الزمني '+cls +'" title="' + escapeAttr(item.flat.lessonName) + '">'; } أتش تي أم أل +='<div class="timeline-dot"></div>'; أتش تي أم أل +='<div class="timeline-label">'+ escapeHtml(item.flat.lessonName) +'</div>'; html += item.flat.isReadable؟'</a>' : '</span>'; }); إذا (مخفي بعد > 0) { أتش تي أم أل +='<div class="timeline-line"></div>'; أتش تي أم أل +='<span class="timeline-ellipsis" title="' + مخفي بعد + ' دروس لاحقة">'+ مخفي بعد +' &raquo;</span>'; } أتش تي أم أل +='</div>'; varCompleteCount =currentIdxInPhase + 1; فار TotalCount = LessonsInPhase.length; var pct = Math.round((CompletedCount / TotalCount) * 100); أتش تي أم أل +='<div class="phase-progress-bar"><div class="phase-progress-fill" style="العرض:' + نسبة مئوية + '%"></div></div>'; أتش تي أم أل +='<div class="phase-progress-text">You\'لقد اكتملت' + completedCount + ' of ' + totalCount + 'الدروس في هذه المرحلة</div>';
+        if (match) return match[1].replace(/^["']|["']$/g, '').trim();
+        var firstLine = content.split('\n').find(function (l) { return l.trim() && !l.match(/^[#-]/) && !l.match(/^---/); });
+        return firstLine ? firstLine.trim().substring(0, 120) : '';
+      }
+
+      function renderOutputsPanel(container) {
+        var panel = document.createElement('div');
+        panel.className = 'ai-panel';
+        panel.innerHTML = '<div class="ai-panel-header"><div class="ai-panel-icon">O</div><div class="ai-panel-title">ماذا يقدّم هذا الدرس</div></div><div class="ai-panel-subtitle">مطالبات ومهارات ومخرجات يمكنك استخدامها الآن</div><div id="outputsContent" class="panel-loading">جارٍ تحميل المخرجات...</div>';
+        container.appendChild(panel);
+
+        ghApiFetch(lessonPath + '/outputs', function (err, data) {
+          var el = document.getElementById('outputsContent');
+          if (err || !data || !Array.isArray(data) || data.length === 0) {
+            el.innerHTML = '<div class="panel-fallback"><a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/' + lessonPath + '" target="_blank" rel="noopener">عرض الدرس على GitHub</a></div>';
+            return;
+          }
+
+          var html = '<div class="output-cards">';
+          data.forEach(function (file, idx) {
+            var type = classifyOutput(file.name);
+            var badgeClass = type;
+            var badgeText = type === 'prompt' ? 'مطالبة' : type === 'skill' ? 'مهارة' : 'مخرج';
+            var installId = 'install-hint-' + idx;
+            var installHint = '';
+            if (type === 'prompt') {
+              installHint = 'الصقها في Claude أو Cursor أو Codex أو OpenClaw أو Hermes أو أي وكيل يقرأ المطالبات';
+            } else if (type === 'skill') {
+              var skillName = file.name.replace(/\.md$/, '').replace(/^skill-/, '');
+              installHint = 'npx skills add youssefupone-cpu/ai-engineering-from-scratch-ar --skill ' + skillName;
+            }
+
+            html += '<div class="output-card">';
+            html += '<div class="output-badge ' + badgeClass + '">' + badgeText + '</div>';
+            html += '<div class="output-card-name">' + escapeHtml(file.name) + '</div>';
+            html += '<div class="output-desc" id="desc-' + idx + '">جارٍ تحميل الوصف...</div>';
+            html += '<div class="output-actions">';
+            html += '<a class="output-btn" href="' + file.html_url + '" target="_blank" rel="noopener">عرض على GitHub</a>';
+            if (installHint) {
+              html += '<button class="output-btn" onclick="var h=document.getElementById(\'' + installId + '\');h.classList.toggle(\'visible\')">تثبيت</button>';
+            }
+            html += '</div>';
+            if (installHint) {
+              html += '<div class="output-install-hint" id="' + installId + '">' + escapeHtml(installHint) + '</div>';
+            }
+            html += '</div>';
+
+            fetch(file.download_url).then(function (r) { return r.text(); }).then(function (content) {
+              var descEl = document.getElementById('desc-' + idx);
+              if (descEl) {
+                var desc = extractFrontmatterDesc(content);
+                descEl.textContent = desc || file.name;
+              }
+            }).catch(function () {
+              var descEl = document.getElementById('desc-' + idx);
+              if (descEl) descEl.textContent = file.name;
+            });
+          });
+          html += '</div>';
+          el.innerHTML = html;
+        });
+      }
+
+      function renderCodePanel(container) {
+        var panel = document.createElement('div');
+        panel.className = 'ai-panel';
+        panel.innerHTML = '<div class="ai-panel-header"><div class="ai-panel-icon">C</div><div class="ai-panel-title">شغّل الكود</div></div><div class="ai-panel-subtitle">ملفات قابلة للتنفيذ من هذا الدرس</div><div id="codeContent" class="panel-loading">جارٍ تحميل ملفات الكود...</div>';
+        container.appendChild(panel);
+
+        ghApiFetch(lessonPath + '/code', function (err, data) {
+          var el = document.getElementById('codeContent');
+          if (err || !data || !Array.isArray(data) || data.length === 0) {
+            el.innerHTML = '<div class="panel-fallback"><a href="https://github.com/youssefupone-cpu/ai-engineering-from-scratch-ar/tree/main/' + lessonPath + '" target="_blank" rel="noopener">عرض الدرس على GitHub</a></div>';
+            return;
+          }
+
+          var html = '<div class="code-cards">';
+          data.forEach(function (file) {
+            var icon = langIcon(file.name);
+            var cmd = langCommand(file.name);
+            var runCmd = cmd + ' ' + lessonPath + '/code/' + file.name;
+            html += '<div class="code-card">';
+            html += '<div class="code-card-header"><span class="code-lang-icon">' + icon + '</span><span class="code-card-name">' + escapeHtml(file.name) + '</span></div>';
+            html += '<div class="code-card-size">' + formatSize(file.size) + '</div>';
+            html += '<div class="code-card-run">' + escapeHtml(runCmd) + '</div>';
+            html += '<div class="code-card-actions">';
+            html += '<a class="code-card-btn" href="' + file.html_url + '" target="_blank" rel="noopener">عرض على GitHub</a>';
+            html += '<button class="code-card-btn code-card-copy" data-command="' + escapeAttr(runCmd) + '">نسخ الأمر</button>';
+            html += '</div>';
+            html += '</div>';
+          });
+          html += '</div>';
+          el.innerHTML = html;
+          el.querySelectorAll('.code-card-copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              var command = btn.getAttribute('data-command');
+              navigator.clipboard.writeText(command).then(function () {
+                btn.textContent = 'تم النسخ!';
+                setTimeout(function () { btn.textContent = 'نسخ الأمر'; }, 1500);
+              });
+            });
+          });
+        });
+      }
+
+      function getQuizQuestions() {
+        var pathLower = (lessonPath || '').toLowerCase();
+        var lessonName = '';
+        var isPhase1Lesson = currentLessonIndex >= 0 && flatLessons[currentLessonIndex].phaseIndex === 1;
+        if (currentLessonIndex >= 0) lessonName = flatLessons[currentLessonIndex].lessonName;
+
+        if (pathLower.indexOf('math') >= 0 || pathLower.indexOf('linear-algebra') >= 0 || pathLower.indexOf('calculus') >= 0) {
+          return [
+            { q: 'What does a dot product measure between two vectors?', opts: ['Their sum', 'How aligned they are', 'Their cross product', 'The distance between them'], answer: 1, explain: 'The dot product measures the similarity or alignment between two vectors. When it is zero, the vectors are orthogonal.' },
+            { q: 'What does the gradient of a function point toward?', opts: ['The minimum', 'The steepest ascent', 'The nearest saddle point', 'A random direction'], answer: 1, explain: 'The gradient always points in the direction of steepest increase. Gradient descent moves opposite to the gradient to find minima.' },
+            { q: 'A matrix with shape (3, 5) multiplied by (5, 2) produces what shape?', opts: ['(3, 2)', '(5, 5)', '(3, 5)', '(2, 3)'], answer: 0, explain: 'Matrix multiplication: (m, n) x (n, p) = (m, p). So (3, 5) x (5, 2) = (3, 2).' }
+          ];
+        }
+
+        if (pathLower.indexOf('ml') >= 0 || pathLower.indexOf('regression') >= 0 || pathLower.indexOf('classification') >= 0 || pathLower.indexOf('supervised') >= 0) {
+          return [
+            { q: 'ما الغرض من دالة الخسارة في تعلم الآلة؟', opts: ['توليد البيانات', 'قياس مدى خطأ التوقعات', 'اختيار الخصائص', 'تقسيم البيانات'], answer: 1, explain: 'دالة الخسارة تقيس الفرق بين القيم المتوقعة والقيم الحقيقية. ويقوم المُحسّن بتصغير هذه القيمة أثناء التدريب.' },
+            { q: 'لماذا نقسم البيانات إلى مجموعة تدريب ومجموعة اختبار؟', opts: ['لتوفير الذاكرة', 'لتقييم قدرة النموذج على التعميم على بيانات لم يرها', 'لتسريع التدريب', 'لتقليل حجم مجموعة البيانات'], answer: 1, explain: 'مجموعة الاختبار تمثل بيانات غير مرئية، وتكشف هل حفظ النموذج بيانات التدريب أم تعلم أنماطًا قابلة للتعميم.' },
+            { q: 'ماذا يعني فرط التعلّم (Overfitting)؟', opts: ['النموذج بسيط جدًا', 'النموذج يحفظ بيانات التدريب لكنه يفشل على البيانات الجديدة', 'النموذج يتدرب ببطء شديد', 'الخسارة منخفضة جدًا'], answer: 1, explain: 'يحدث فرط التعلّم عندما يحقق النموذج أداءً جيدًا على بيانات التدريب لكنه يضعف على البيانات الجديدة لأنه تعلم الضجيج بدل الإشارة.' }
+          ];
+        }
+
+        if (pathLower.indexOf('deep-learning') >= 0 || pathLower.indexOf('neural') >= 0 || pathLower.indexOf('backprop') >= 0 || pathLower.indexOf('activation') >= 0) {
+          return [
+            { q: 'ماذا يحسب الانتشار العكسي (Backpropagation)؟', opts: ['التوقعات الأمامية', 'مشتقة الخسارة بالنسبة إلى كل وزن', 'معدل التعلّم', 'بيانات تدريب جديدة'], answer: 1, explain: 'يستخدم الانتشار العكسي قاعدة السلسلة لحساب مقدار مساهمة كل وزن في الخطأ، ثم يحدّث الأوزان وفقًا لذلك.' },
+            { q: 'لماذا تحتاج الشبكات العصبية إلى دوال تنشيط غير خطية؟', opts: ['لتسريع التدريب', 'من دونها تصبح طبقات التكديس مكافئة لطبقة خطية واحدة', 'لتقليل استهلاك الذاكرة', 'لتطبيع المخرجات'], answer: 1, explain: 'من دون اللاخطية، ينهار أي تركيب من طبقات خطية إلى تحويل خطي واحد. دوال التنشيط مثل ReLU تسمح للشبكة بتعلّم أنماط معقدة.' },
+            { q: 'ماذا يتحكم به معدل التعلّم؟', opts: ['عدد الدورات التدريبية', 'حجم كل خطوة لتحديث الأوزان', 'عدد الطبقات', 'حجم الدفعة'], answer: 1, explain: 'يحدد معدل التعلّم حجم تحديث التدرّج. إذا كان كبيرًا جدًا قد يسبب عدم الاستقرار، وإذا كان صغيرًا جدًا يصبح التدريب بطيئًا أو عالقًا.' }
+          ];
+        }
+
+        if (pathLower.indexOf('llm') >= 0 || pathLower.indexOf('transformer') >= 0 || pathLower.indexOf('attention') >= 0 || pathLower.indexOf('tokeniz') >= 0 || pathLower.indexOf('fine-tun') >= 0) {
+          return [
+            { q: 'ماذا يتيح الانتباه الذاتي (Self-Attention) للمحوّل (Transformer) أن يفعل؟', opts: ['معالجة الرموز بالترتيب فقط', 'إعطاء وزن لأهمية كل رمز بالنسبة إلى كل الرموز الأخرى', 'تقليل حجم المفردات', 'ضغط النموذج'], answer: 1, explain: 'يحسب الانتباه الذاتي درجات الصلة بين كل المواقع، ما يسمح للنموذج بربط الرموز البعيدة من دون تكرار.' },
+            { q: 'لماذا تستخدم النماذج اللغوية الكبيرة أداة ترميز (Tokenizer) بدل الأحرف الخام؟', opts: ['لأن الأحرف كبيرة جدًا', 'لأن الرموز المميزة تضغط الأنماط المتكررة في وحدات واحدة فتقلل طول التسلسل', 'لأن أدوات الترميز أسرع في التدريب', 'لأن الأحرف لا يمكن تمثيلها كتضمينات'], answer: 1, explain: 'توازن أدوات الترميز الفرعية مثل BPE بين حجم المفردات وطول التسلسل، فتجعل الكلمات الشائعة رمزًا واحدًا وتجزئ الكلمات النادرة إلى أجزاء.' },
+            { q: 'ما الفرق الأساسي بين ما قبل التدريب والضبط الدقيق؟', opts: ['ما قبل التدريب يستخدم بيانات موسومة', 'ما قبل التدريب يتعلم اللغة العامة، بينما يكيّف الضبط الدقيق النموذج لمهمة محددة', 'الضبط الدقيق يستخدم بيانات أكثر', 'لا يوجد فرق بينهما'], answer: 1, explain: 'يتعلم ما قبل التدريب أنماط اللغة من نصوص ضخمة غير موسومة. ثم يأخذ الضبط الدقيق هذه القاعدة ويخصصها على بيانات أصغر خاصة بمهمة بعينها.' }
+          ];
+        }
+
+        if (pathLower.indexOf('rag') >= 0 || pathLower.indexOf('retrieval') >= 0 || pathLower.indexOf('embed') >= 0 || pathLower.indexOf('vector') >= 0) {
+          return [
+            { q: 'ما الفكرة الأساسية وراء RAG؟', opts: ['تدريب نموذج أكبر', 'استرجاع سياق ملائم قبل توليد الإجابة', 'استخدام مزيد من وحدات GPU', 'تصغير النموذج'], answer: 1, explain: 'تربط تقنية RAG إجابات النماذج اللغوية بالمستندات المسترجعة، فتقلل الهلوسة وتسمح بتحديث المعرفة من دون إعادة تدريب.' },
+            { q: 'ماذا تنتج نماذج التضمين (Embedding Models)؟', opts: ['ملخصات نصية', 'تمثيلات متجهية كثيفة للنص', 'أعداد الرموز المميزة', 'تصحيحات نحوية'], answer: 1, explain: 'تُحوّل نماذج التضمين النص إلى متجهات ثابتة الأبعاد، حيث تقابل التشابهات الدلالية تقاربًا هندسيًا.' },
+            { q: 'لماذا نستخدم تشابه جيب التمام (Cosine Similarity) لمقارنة التضمينات؟', opts: ['لأنه المقياس الوحيد', 'لأنه يقيس التشابه الزاوي بغض النظر عن مقدار المتجه', 'لأنه أسرع من الضرب النقطي', 'لأنه يعمل مع الأعداد الصحيحة فقط'], answer: 1, explain: 'يطبع تشابه جيب التمام مقدار المتجه ويتركز على الاتجاه. لذلك يحصل نصان عن الموضوع نفسه على تشابه مرتفع مهما اختلف الطول.' }
+          ];
+        }
+
+        if (pathLower.indexOf('agent') >= 0 || pathLower.indexOf('tool') >= 0 || pathLower.indexOf('mcp') >= 0) {
+          return [
+            { q: 'ما الذي يميّز الوكيل الذكي (AI Agent) عن روبوت محادثة بسيط؟', opts: ['الوكلاء أسرع فقط', 'الوكلاء يستطيعون اتخاذ أفعال واستخدام الأدوات بشكل مستقل', 'الوكلاء يستخدمون نماذج أكبر', 'لا يوجد فرق'], answer: 1, explain: 'للـ Agents حلقة: يلاحظون ثم يقررون ثم ينفذون. ويمكنهم استدعاء الأدوات وقراءة الملفات والبحث في الويب وربط عدة خطوات لإكمال المهام المعقدة.' },
+            { q: 'ما هو MCP (Model Context Protocol)؟', opts: ['صيغة لتدريب النماذج', 'بروتوكول موحد يربط النماذج بالأدوات ومصادر البيانات', 'خوارزمية ضغط', 'إطار اختبار'], answer: 1, explain: 'يوفّر MCP واجهة عامة بين المساعدات الذكية والأدوات/البيانات الخارجية، بدل التكاملات المخصصة لكل أداة على حدة.' },
+            { q: 'لماذا يعتبر استخدام الأدوات مهمًا للنماذج اللغوية الكبيرة؟', opts: ['لأنه يقلل التكلفة', 'لأنه يسمح للنموذج بالوصول إلى معلومات فورية وتنفيذ أفعال تتجاوز توليد النص', 'لأنه يجعل الردود أقصر', 'لأنه يزيل الهلوسة تمامًا'], answer: 1, explain: 'توسّع الأدوات قدرات النماذج اللغوية بما يتجاوز تاريخ التدريب، فتتيح البحث الفوري والحساب وتنفيذ الشيفرة والتفاعل مع الأنظمة الخارجية.' }
+          ];
+        }
+
+        if (pathLower.indexOf('eval') >= 0 || pathLower.indexOf('safety') >= 0 || pathLower.indexOf('alignment') >= 0 || pathLower.indexOf('deploy') >= 0) {
+          return [
+            { q: 'لماذا تعدّ التقييمات (Evals) مهمة في أنظمة الذكاء الاصطناعي الإنتاجية؟', opts: ['لتقليل التكلفة فقط', 'لقياس الأداء بشكل موضوعي قبل التغييرات وبعدها', 'لتكبير النموذج', 'لأنها اختيارية'], answer: 1, explain: 'التقييمات هي اختبارات هندسة الذكاء الاصطناعي. من دونها لا يمكنك معرفة إن كانت التغييرات حسّنت الجودة أم أفسدتها، ويجب تشغيلها مع كل تغيير في الشيفرة.' },
+            { q: 'ماذا يعني "Alignment" في سلامة الذكاء الاصطناعي؟', opts: ['محاذاة النص على الشاشة', 'ضمان أن تتصرف الأنظمة وفق نوايا البشر وقيمهم', 'جعل النماذج أسرع', 'استخدام البيانات نفسها'], answer: 1, explain: 'يضمن Alignment أن تظل الأنظمة أكثر قدرةً ومع ذلك مفيدة وصادقة وغير مؤذية، وأن تتصرف بما ينسجم مع أهداف البشر.' },
+            { q: 'ما هو الحاجز الوقائي (Guardrail) في النماذج اللغوية المنشورة؟', opts: ['حاجز مادي', 'فحص يمنع المخرجات الضارة أو الخارجة عن الموضوع أو المخالفة للسياسات', 'نموذج احتياطي', 'طبقة تخزين مؤقت'], answer: 1, explain: 'تفلتر الحواجز الوقائية المدخلات والمخرجات أثناء التشغيل، فتلتقط السمية وحقن المطالبات وتسربات المعلومات الشخصية وغيرها من المخاطر قبل وصولها إلى المستخدم.' }
+          ];
+        }
+
+        if (isPhase1Lesson) {
+          return [
+            { q: 'What does "from scratch" mean in this course?', opts: ['Using no computer', 'Building each concept by implementing it yourself, not just reading theory', 'Starting from assembly language', 'Only using pen and paper'], answer: 1, explain: 'This course follows a Build-Use-Ship methodology: first understand by building it, then apply it, then ship it as a real artifact.' },
+            { q: 'Why does this course combine math, ML, and engineering?', opts: ['To make it longer', 'Because real AI engineering requires all three to build production systems', 'Math is just for fun', 'Engineering is optional'], answer: 1, explain: 'Production AI systems require mathematical foundations (for understanding), ML knowledge (for modeling), and engineering skills (for deployment and reliability).' },
+            { q: 'What is the "Ship" step in the Build-Use-Ship framework?', opts: ['Mailing physical goods', 'Creating a reusable artifact like a prompt, skill, or tool from what you learned', 'Publishing a paper', 'Deleting your code'], answer: 2, explain: 'The Ship step turns your learning into something tangible: a prompt, skill file, MCP tool, or CLI utility that others (or future you) can use immediately.' }
+          ];
+        }
+
+        return [
+          { q: 'ماذا يعني "من الصفر" في هذا المنهج؟', opts: ['عدم استخدام الكمبيوتر', 'بناء كل مفهوم بنفسك عبر تنفيذه، وليس مجرد قراءة النظرية', 'البدء من لغة التجميع', 'الاكتفاء بالقلم والورقة'], answer: 1, explain: 'يتبع هذا المنهج أسلوب Build-Use-Ship: تفهم الفكرة ببنائها أولًا، ثم تستخدمها، ثم تحوّلها إلى مخرج عملي.' },
+          { q: 'لماذا يجمع هذا المنهج بين الرياضيات وتعلم الآلة والهندسة؟', opts: ['لجعل المنهج أطول فقط', 'لأن هندسة الذكاء الاصطناعي الحقيقية تحتاج الثلاثة معًا لبناء أنظمة إنتاجية', 'لأن الرياضيات للمتعة فقط', 'لأن الهندسة اختيارية'], answer: 1, explain: 'تحتاج أنظمة الذكاء الاصطناعي الإنتاجية إلى أساس رياضي للفهم، ومعرفة بتعلم الآلة للنمذجة، ومهارات هندسية للنشر والاعتمادية.' },
+          { q: 'ما المقصود بخطوة "Ship" في إطار Build-Use-Ship؟', opts: ['إرسال منتجات مادية', 'إنشاء مخرج قابل لإعادة الاستخدام مثل prompt أو skill أو أداة مما تعلمته', 'نشر ورقة بحثية', 'حذف الكود'], answer: 2, explain: 'تحوّل خطوة Ship ما تعلمته إلى شيء ملموس: ملف prompt أو skill أو أداة MCP أو أداة سطر أوامر يمكن لك أو لغيرك استخدامها فورًا.' }
+        ];
+      }
+
+      function renderQuizPanel(container) {
+        var questions = getQuizQuestions();
+        var panel = document.createElement('div');
+        panel.className = 'ai-panel';
+
+        var phase = '';
+        if (currentLessonIndex >= 0) {
+          var fl = flatLessons[currentLessonIndex];
+          phase = fl.phaseSlug || '';
+        }
+
+        var html = '<div class="ai-panel-header"><div class="ai-panel-icon">Q</div><div class="ai-panel-title">اختبر فهمك</div></div>';
+        html += '<div class="ai-panel-subtitle">هل فهمته؟</div>';
+        html += '<div class="quiz-container" id="quizContainer">';
+
+        var letters = ['A', 'B', 'C', 'D'];
+        questions.forEach(function (q, qi) {
+          html += '<div class="quiz-question" id="quiz-q-' + qi + '">';
+          html += '<div class="quiz-question-num">السؤال ' + (qi + 1) + ' من ' + questions.length + '</div>';
+          html += '<div class="quiz-question-text">' + escapeHtml(q.q) + '</div>';
+          html += '<div class="quiz-options">';
+          q.opts.forEach(function (opt, oi) {
+            html += '<button class="quiz-option" data-qi="' + qi + '" data-oi="' + oi + '" onclick="handleQuizAnswer(' + qi + ',' + oi + ')">';
+            html += '<span class="opt-letter">' + letters[oi] + '</span>';
+            html += '<span>' + escapeHtml(opt) + '</span>';
+            html += '</button>';
+          });
+          html += '</div>';
+          html += '<div class="quiz-explanation" id="quiz-explain-' + qi + '">' + escapeHtml(q.explain) + '</div>';
+          html += '</div>';
+        });
+
+        html += '<div class="quiz-score" id="quizScore"><div class="quiz-score-number" id="quizScoreNum">0/' + questions.length + '</div><div class="quiz-score-label">أكمل كل الأسئلة لرؤية نتيجتك</div></div>';
+        html += '<div class="quiz-deeper">هل تريد اختبارًا أعمق؟ شغّل <code>/check-understanding ' + escapeHtml(phase) + '</code> في Claude أو Cursor أو Codex أو OpenClaw أو Hermes أو أي وكيل مثبت عليه منهج المهارات</div>';
+        html += '</div>';
+
+        panel.innerHTML = html;
+        container.appendChild(panel);
+
+        window._quizData = questions;
+        window._quizAnswered = 0;
+        window._quizCorrect = 0;
+      }
+
+      window.handleQuizAnswer = function (qi, oi) {
+        var questions = window._quizData;
+        if (!questions) return;
+
+        var qEl = document.getElementById('quiz-q-' + qi);
+        if (!qEl) return;
+        var opts = qEl.querySelectorAll('.quiz-option');
+        if (opts[0].classList.contains('disabled')) return;
+
+        var correct = questions[qi].answer;
+        opts.forEach(function (opt, i) {
+          opt.classList.add('disabled');
+          if (i === oi) {
+            opt.classList.add('selected');
+            opt.classList.add(i === correct ? 'correct' : 'wrong');
+          }
+          if (i === correct) {
+            opt.classList.add('is-answer');
+          }
+        });
+
+        var explain = document.getElementById('quiz-explain-' + qi);
+        if (explain) explain.classList.add('visible');
+
+        window._quizAnswered++;
+        if (oi === correct) window._quizCorrect++;
+
+        if (window._quizAnswered === questions.length) {
+          var scoreEl = document.getElementById('quizScore');
+          var scoreNum = document.getElementById('quizScoreNum');
+          if (scoreEl && scoreNum) {
+            scoreNum.textContent = window._quizCorrect + '/' + questions.length;
+            scoreEl.querySelector('.quiz-score-label').textContent =
+              window._quizCorrect === questions.length ? 'نتيجة كاملة!' :
+              window._quizCorrect >= 2 ? 'عمل ممتاز!' : 'تابع الدراسة!';
+            scoreEl.classList.add('visible');
+          }
+        }
+      };
+
+      function renderLearningPathPanel(container) {
+        if (currentLessonIndex < 0 || typeof PHASES === 'undefined') return;
+
+        var panel = document.createElement('div');
+        panel.className = 'ai-panel';
+
+        var current = flatLessons[currentLessonIndex];
+        var phaseIdx = current.phaseIndex;
+        var phase = PHASES[phaseIdx];
+        var lessonsInPhase = [];
+        var currentIdxInPhase = -1;
+
+        for (var i = 0; i < flatLessons.length; i++) {
+          if (flatLessons[i].phaseIndex === phaseIdx) {
+            if (i === currentLessonIndex) currentIdxInPhase = lessonsInPhase.length;
+            lessonsInPhase.push({ flat: flatLessons[i], flatIdx: i });
+          }
+        }
+
+        var html = '<div class="ai-panel-header"><div class="ai-panel-icon">P</div><div class="ai-panel-title">مسار التعلّم</div></div>';
+        html += '<div class="ai-panel-subtitle">المرحلة ' + String(phase.id).padStart(2, '0') + ': ' + escapeHtml(phase.name) + '</div>';
+
+        // Window: 2 before current + current + 2 after, cap at 5 visible.
+        var windowSize = 5;
+        var startIdx = Math.max(0, currentIdxInPhase - 2);
+        var endIdx = Math.min(lessonsInPhase.length, startIdx + windowSize);
+        startIdx = Math.max(0, endIdx - windowSize);
+        var visible = lessonsInPhase.slice(startIdx, endIdx);
+        var hiddenBefore = startIdx;
+        var hiddenAfter = lessonsInPhase.length - endIdx;
+
+        html += '<div class="learning-timeline">';
+        if (hiddenBefore > 0) {
+          html += '<span class="timeline-ellipsis" title="' + hiddenBefore + ' درسًا سابقًا">&laquo; ' + hiddenBefore + '</span>';
+          html += '<div class="timeline-line done"></div>';
+        }
+        visible.forEach(function (item, vIdx) {
+          var idx = startIdx + vIdx;
+          var isCurrent = idx === currentIdxInPhase;
+          var isPrev = idx < currentIdxInPhase;
+          var cls = isCurrent ? 'current' : isPrev ? 'prev' : '';
+
+          if (vIdx > 0) {
+            var lineCls = idx <= currentIdxInPhase ? (idx === currentIdxInPhase ? 'active' : 'done') : '';
+            html += '<div class="timeline-line ' + lineCls + '"></div>';
+          }
+
+          if (item.flat.isReadable) {
+            html += '<a class="timeline-item ' + cls + '" href="lesson.html?path=' + item.flat.path + '" title="' + escapeAttr(item.flat.lessonName) + '">';
+          } else {
+            html += '<span class="timeline-item ' + cls + ' disabled" title="' + escapeAttr(item.flat.lessonName) + '">';
+          }
+          html += '<div class="timeline-dot"></div>';
+          html += '<div class="timeline-label">' + escapeHtml(item.flat.lessonName) + '</div>';
+          html += item.flat.isReadable ? '</a>' : '</span>';
+        });
+        if (hiddenAfter > 0) {
+          html += '<div class="timeline-line"></div>';
+          html += '<span class="timeline-ellipsis" title="' + hiddenAfter + ' درسًا لاحقًا">' + hiddenAfter + ' &raquo;</span>';
+        }
+        html += '</div>';
+
+        var completedCount = currentIdxInPhase + 1;
+        var totalCount = lessonsInPhase.length;
+        var pct = Math.round((completedCount / totalCount) * 100);
+
+        html += '<div class="phase-progress-bar"><div class="phase-progress-fill" style="width:' + pct + '%"></div></div>';
+        html += '<div class="phase-progress-text">أكملت ' + completedCount + ' من ' + totalCount + ' درسًا في هذه المرحلة</div>';
 
         if (completedCount >= totalCount && phaseIdx < PHASES.length - 1) {
           var nextPhase = PHASES[phaseIdx + 1];
-          html += '<div class="phase-complete-callout visible">Ready for Phase ' + String(nextPhase.id).padStart(2, '0') + ': ' + escapeHtml(nextPhase.name) + '</div>';
+          html += '<div class="phase-complete-callout visible">جاهز للمرحلة ' + String(nextPhase.id).padStart(2, '0') + ': ' + escapeHtml(nextPhase.name) + '</div>';
         }
 
         panel.innerHTML = html;
@@ -2835,22 +3282,22 @@
         var phaseIdx = current.phaseIndex;
         var phase = PHASES[phaseIdx];
 
-        var html = '<div class="ai-panel-header"><div class="ai-panel-icon">N</div><div class="ai-panel-title">Continue Learning</div></div>';
+        var html = '<div class="ai-panel-header"><div class="ai-panel-icon">N</div><div class="ai-panel-title">تابع التعلّم</div></div>';
         html += '<div class="continue-panel">';
 
         if (!next || !next.path) {
-          html += '<div class="phase-finished">\u2705 You finished this phase!</div>';
+          html += '<div class="phase-finished">\u2705 أنهيت هذه المرحلة!</div>';
         }
 
         html += '<div class="continue-links">';
 
         var phaseSlug = extractPhaseSlug(phase, phaseIdx);
         var firstLesson = phase.lessons[0] ? extractLessonSlug(phase.lessons[0], 0) : '';
-        html += '<a class="continue-link" href="lesson.html?path=phases/' + phaseSlug + '/' + firstLesson + '">تصفح كل المرحلة' + String(phase.id).padStart(2, '0') + ' lessons</a>';
-        html += '<a class="continue-link" href="catalog.html">Full course catalog</a>';
+        html += '<a class="continue-link" href="lesson.html?path=phases/' + phaseSlug + '/' + firstLesson + '">تصفح كل دروس المرحلة ' + String(phase.id).padStart(2, '0') + '</a>';
+        html += '<a class="continue-link" href="catalog.html">الفهرس الكامل للمنهج</a>';
         html += '</div>';
 
-        html += '<div class="continue-callout">Run <code>/find-your-level</code> in Claude, Cursor, Codex, OpenClaw, Hermes, or any agent with the curriculum skills installed for a personalized learning path</div>';
+        html += '<div class="continue-callout">شغّل <code>/find-your-level</code> في Claude أو Cursor أو Codex أو OpenClaw أو Hermes أو أي وكيل مثبت عليه مهارات المنهج للحصول على مسار تعلم مخصّص</div>';
         html += '</div>';
 
         panel.innerHTML = html;
@@ -2867,6 +3314,6 @@
         return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
       }
     })();
-  "</script>
+  </script>
 </body>
 </html>

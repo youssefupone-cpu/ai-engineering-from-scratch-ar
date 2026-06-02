@@ -59,24 +59,14 @@ PATTERNS: tuple[CountPattern, ...] = (
         description="lesson-count badge alt text",
     ),
     CountPattern(
-        regex=re.compile(r"^> (\d+) lessons\. \d+ phases\.", re.MULTILINE),
+        regex=re.compile(r"^> (\d+) (?:lessons|درس(?:ً?ا)?)\. \d+ (?:phases|مرحلة)\.", re.MULTILINE),
         field="lessons",
         description="hero blockquote lesson count",
     ),
     CountPattern(
-        regex=re.compile(r"^> \d+ lessons\. (\d+) phases\.", re.MULTILINE),
+        regex=re.compile(r"^> \d+ (?:lessons|درس(?:ً?ا)?)\. (\d+) (?:phases|مرحلة)\.", re.MULTILINE),
         field="phases",
         description="hero blockquote phase count",
-    ),
-    CountPattern(
-        regex=re.compile(r"This curriculum is the spine\. (\d+) phases,"),
-        field="phases",
-        description="'spine' prose phase count",
-    ),
-    CountPattern(
-        regex=re.compile(r"This curriculum is the spine\. \d+ phases, (\d+) lessons,"),
-        field="lessons",
-        description="'spine' prose lesson count",
     ),
     CountPattern(
         regex=re.compile(r"phases-(\d+)-3553ff"),
